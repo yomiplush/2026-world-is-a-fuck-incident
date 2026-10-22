@@ -1,71 +1,166 @@
-# eMudhra 中間CA 秘密鍵の侵害（2026年10月）
+# eMudhra の CA 侵害 — 8本の鍵、そのうち1本は `4`
 
 [English](03-emudhra-ca.md) | [**日本語**](03-emudhra-ca.ja.md)
 
-**ソフトウェアの脆弱性ではない。** 公開CA（eMudhra）の**中間CA の秘密鍵が侵害**された事案。
-TLS の信頼の連鎖に関わるので、サーバ運用者にも影響する。
+**ソフトウェアの脆弱性ではありません。** 公開CA（インドの eMudhra）の**中間CA 8本の秘密鍵**が
+侵害されました。中間CA なので、鍵を持つ者は**任意のドメイン**に対して、ブラウザが受け入れる
+証明書を発行できます。
 
-## 1. 何が起きたか
+この文書は 2026-10-22 に書き直しました。初版は「複数の中間CA」と書き、ルートを2つ挙げていました。
+どちらも曖昧すぎました。実際は**8本**で、理由は盗難より悪い——**鍵がそもそも強くなかった**のです。
 
-- eMudhra の**複数の中間CA 証明書の秘密鍵が侵害**された。
-- 当該中間CA は次の2つのルートCA に署名されている:
-  - **Comodo AAA Services root**
-  - **emSign ECC Root CA - G3**
-- 秘密鍵を持つ攻撃者は、**任意のドメインに対して正規に見える証明書を発行できる**。
-  MITM の位置にいれば、TLS を復号・改変できる。
+## 1. 何が侵害されたのか
 
-## 2. 影響する条件（3つすべてが揃うとき）
+**2025年4月の鍵生成セレモニー**で作られた中間CA 証明書8本です。
 
-Red Hat の整理（RHSB-2026-012）が明快:
-
-1. システムのトラストストア（`ca-certificates` 等）が、当該 eMudhra 中間CA を信頼している
-2. 攻撃者が侵害された秘密鍵のいずれかを保持している
-3. 攻撃者が TLS 接続を傍受できるネットワーク位置にいる
-
-**「侵害された」＝「自分のシステムが侵害された」ではない。** 条件が揃わなければ実害は無い。
-ただし条件1は、更新しない限り誰でも満たしてしまう。
-
-## 3. エコシステムの対応
-
-| 主体 | 対応 |
+| 種別 | 証明書 |
 |---|---|
-| Chrome / Android | 該当証明書の信頼を停止 |
-| Firefox（Mozilla） | 同様に信頼停止。Red Hat は Mozilla の迅速な公開を評価している |
-| Go | `crypto/x509` に**拒否リスト**を追加し、`Verify` 時にエラーを返す（**CVE-2026-111943**） |
-| Node.js | 10月のセキュリティリリースに **ca-cert の更新**を同梱（22.23.4 / 24.22.1 / 26.12.1） |
-| Red Hat | `ca-certificates` パッケージの更新を全 TLS 利用者に推奨 |
+| TLS（ドメイン検証） | `EM DV TLS CA - G3B`（eMudhra BV、オランダ）、`EM DV TLS CA - G3C`（eMudhra Inc、米国） |
+| TLS（組織検証） | `EM OV TLS CA - G3B`、`EM OV TLS CA - G3C` |
+| TLS（拡張検証） | `EM EV TLS CA - G3B`、`EM EV TLS CA - G3C` |
+| **コード署名** | `EM OV CS CA - G3B`、`EM OV CS CA - G3C` |
 
-## 4. 何を更新すれば足りるか
+TLS の6本は `emSign Root TLS CA - G3` 経由で `emSign ECC Root CA - G3` に連なります。
+**8本すべてが、2025年5月に Sectigo の `AAA Certificate Services` ルートでクロス署名**されています
+——初版が Comodo/AAA を挙げていたのはこのためで、更新していないストアではこの第2の信頼経路が
+今も有効です。
 
-| 層 | 対応 |
+## 2. なぜ破れたか: 鍵が小さい整数だった
+
+ここが覚えておく価値のある部分で、攻撃者が何かを盗んだ話ではありません。
+
+- P-384 の楕円曲線鍵です。秘密鍵は整数 `d` そのもので、公開鍵は `d × G`。
+- セレモニーは `d` を**十分な乱数で生成しなかった**ため、`d` は*小さい*数になりました。
+- Scott Helme は公開証明書から8本すべてを**ノートPCで1秒未満**で復元しました。1本は `4`、
+  別は `56`、また別は `115` だと報告しています。
+- 報告スレッドでの Ian Carroll の要約: *「本質的に弱い1バイト鍵で、誰でも因数分解できる。
+  封じ込めは不可能」*。
+
+正しい理解は「誰かが鍵を持っているかもしれない」ではなく、**「全員が鍵を持っている」**です。
+対策は失効だけ。検知ルールは書けず、ローテーション計画も役に立ちません。
+
+## 3. 時系列（UTC、ベンダ自身の投稿より）
+
+| 時刻 | 出来事 |
 |---|---|
-| OS のトラストストア | `ca-certificates` を更新（Debian/Ubuntu: `apt install --only-upgrade ca-certificates`、Arch: `pacman -Syu ca-certificates`、RHEL: `dnf upgrade ca-certificates`） |
-| ランタイム同梱のバンドル | Node.js / Go / Python（`certifi`）/ Java（cacerts）など、**自前でバンドルを持つもの**はランタイム側を更新 |
-| アプリ独自のピン留め | 個別確認。eMudhra の中間CA を明示的に信頼している設定があれば削除する |
+| 2026-10-17 18:05 | Chrome Root Program が研究者から報告を受ける |
+| 2026-10-17 19:45 | Chrome が裏取りを終え、**SPKI ハッシュ**でブロックする **CRLSet** を配信（再起動不要） |
+| 2026-10-17 20:06 | Mozilla が報告を受ける |
+| 2026-10-17 22:59 | Mozilla の **OneCRL** 更新が標準構成の Firefox 全台に到達 |
+| 2026-10-19 22:00頃 | Android / Googlebooks が **Google Play Services** 経由で同等のブロックを受信 |
+| 2026-10-20 | Chrome と Mozilla が公開。Chrome は **`emSign ECC Root CA - G3` を Chrome Root Store から削除**し、CT ログもこのCAへの連鎖を拒否するよう更新 |
+| 2026-10-21 | eMudhra が声明を公開。Firefox 158.0.1、ESR 115.43.1、ESR 153.5.1 が出荷、NSS 3.131.1 がルートを削除 |
 
-**やらなくてよいこと**: アプリケーションコードの変更、TLS 設定の変更、証明書の再発行
-（自分のサーバ証明書が eMudhra 発行でなければ）。ただし**自組織の証明書が eMudhra 系で
-発行されている場合は、CA 側の対応状況を確認する**こと。
+証明書のシリアルではなく **SPKI ハッシュ**でブロックしたことが、これだけ速く効いた理由です。
+同じ鍵を共有する証明書は、まだ誰も見ていないものまで含めて無効になります。
 
-## 5. 検出・確認のしかた
+## 4. TLS への実害は？ ベンダの見立ては「封じ込め済み」
+
+- eMudhra: 影響を受けた中間CA のうち**1本だけ**が本番に配備され、**その1本を含めて
+  エンドエンティティ証明書を発行していない**。crt.sh の公開 CT ログで裏付け済み。
+- Chrome: ブロック前に、**TLS 用6本に連なる TLS 証明書は CT に記録されていなかった**。
+  したがって CT を強制するクライアント（Chrome、Android アプリなど）に対して、偽証明書が
+  信頼された可能性はない。
+- CT ログ自体も、このCAへの連鎖を拒否するようになりました。
+
+HTTPS については本当に安心できる結果です。**ただし §5 を読んでから緩めてください。**
+
+## 5. 注意点: CT はコード署名を対象にしていない
+
+8本のうち2本は**コード署名**用です。Certificate Transparency は TLS の仕組みで、
+コード署名証明書の公開ログはありません。つまり:
+
+- 「このCAの CT 記録が無い」は、コード署名用2本について**何も語りません**。
+- 偽造されたコード署名証明書はフィッシングの問題ではなく、Windows/macOS/Java/.NET の検証経路で
+  **「このバイナリは信頼された発行元が署名している」**という意味になります。
+- eMudhra は「これらのCAもエンドエンティティ証明書を発行していない」と述べていますが、それは
+  自社の記録でしか確認できず、公開ログでは裏付けられません。
+
+実務的には: 2025年4月〜2026年10月の間に `EM OV CS CA - G3*` の連鎖で署名された成果物は、
+再検証できるまで信頼しないこと。プラットフォーム側がこれら連鎖のコード署名検証を厳格化すると
+考えてください。**自分が署名者なら**、別CAの証明書に切り替えて再署名します。タイムスタンプでは
+救われません。鍵が盗まれたのではなく**偽造可能**だからです。
+
+## 6. 誰が何を出したか、「修正」の意味
+
+| 層 | 変更 |
+|---|---|
+| **Go** | `crypto/x509` がこの中間CAを拒否リストに入れ、`Verify` が連鎖に含む場合にエラーを返す。コミット `7f86f95`（2026-10-19）、**CVE-2026-111943**、Go の URGENT トラック。修正版は **1.27.3 / 1.26.10** と報道 |
+| **Chrome / Android** | CRLSet（SPKI ブロック）＋ Chrome Root Store から `emSign ECC Root CA - G3` を削除＋ CT ログが連鎖を拒否 |
+| **Firefox / NSS** | OneCRL でブロック。Firefox **158.0.1**、ESR **115.43.1**、ESR **153.5.1**、**NSS 3.131.1** がルートを削除（Mozilla のストアを使い OneCRL を受けないアプリを保護） |
+| **Node.js** | 10月のリリース（**22.23.4 / 24.22.1 / 26.12.1**、[`02`](02-nodejs-oct2026.ja.md)）で同梱 CA リストを更新 |
+| **Python** | `certifi` **2026.10.19** |
+| **Rust** | `webpki-roots` **1.0.10** |
+| **PHP** | `composer/ca-bundle` **1.6.0 / 1.4.16** |
+| **Linux ディストリ** | Ubuntu **USN-8944-1 / USN-8944-2**、Debian **DSA-6572-1**、Red Hat **RHSB-2026-012**、Homebrew `ca-certificates` |
+| **独立した解説** | Scott Helme の弱鍵解析（§8） |
+
+**自前でトラストストアを持つものは、個別に更新が必要**です。OS を更新しても、そのコミット前の
+`crypto/x509` でビルドした Go バイナリ、古い `ca-certificates` を持つ Node イメージ、古い
+`certifi` の venv は直りません。
+
+## 7. やること
+
+### 7-1. 対象かどうかを決める
+
+Red Hat の整理は今も有効で、TLS 傍受が成立するには3つすべてが必要です。
+
+1. トラストストアがこれら中間CAを信頼している（更新していなければ真）。
+2. 攻撃者が鍵を持つ（持っている——**誰でも**持っている）。
+3. 攻撃者が TLS 接続を傍受できる位置にいる。
+
+自分で制御できるのは 1 だけ。2 が恒久的に真になったことが、通常の鍵盗難と違う点です。
+
+### 7-2. 自分が持つ層を更新する
 
 ```bash
-# システムのトラストストアに eMudhra 系が残っていないか
-trust list 2>/dev/null | grep -i -A3 emudhra   # p11-kit がある場合
-grep -ril emudhra /etc/ssl/certs/ 2>/dev/null | head
-openssl version -d                             # 使っているバンドルの場所
+# OS のトラストストア
+sudo apt install --only-upgrade ca-certificates      # Debian/Ubuntu
+sudo dnf upgrade ca-certificates                     # RHEL/Fedora
+sudo pacman -Syu ca-certificates                     # Arch
 
-# Node が使うバンドル
-node -e 'console.log(process.versions.openssl)'   # 版が上がっているか
+# ランタイム同梱のストア — それぞれ別
+python3 -c 'import certifi; print(certifi.__version__)'   # 2026.10.19 以上
+go version                                                # 1.27.3 / 1.26.10 以上
+node -p 'process.versions.openssl'                        # Node 更新後
+composer show composer/ca-bundle 2>/dev/null | head -2
+# Java は独自の cacerts（keytool -list）。編集せずイメージを作り直す
 ```
 
-「怪しい証明書を見つける」作業ではなく、**「信頼してはいけないものを信頼し続けていないか」**
-を確認する作業。CT ログの監視をしているなら、eMudhra 発行の証明書が自ドメインに出ていないか
-を見るのが実務的。
+### 7-3. 直接信頼とピン留めを確認する
 
-## 6. 出所
+```bash
+trust list 2>/dev/null | grep -i -A3 emudhra   # p11-kit
+grep -ril emudhra /etc/ssl/certs/ 2>/dev/null | head
+openssl version -d                             # 実際に使っているバンドル
+```
 
-- Red Hat RHSB-2026-012: <https://access.redhat.com/security/vulnerabilities/RHSB-2026-012>
-- NVD（Go 側の追跡ID）: <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111943>
-- Node.js 10月勧告（ca-cert 更新の記載）: <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases>
-- Mozilla Security Blog: eMudhra 中間CA 侵害後の Firefox 利用者保護（Red Hat の参照先）
+アプリが eMudhra の中間CAをピン留めしているなら、その設定を削除します。**自組織の証明書が
+eMudhra 系で発行されている場合は、別CAで再発行**してください。ルート削除により、正当な連鎖の
+一部も動かなくなる——Chrome が明言しています。
+
+### 7-4. やってはいけないこと
+
+- 「様子を見る」。信頼の判断はブラウザ側で既に済んでいて、まだ信頼しているのは自分のホストです。
+- `ca-certificates` だけを直して終わりにすること。自分が配布しているトラストストアを数える:
+  OS、言語ランタイム、コンテナのベースイメージ、機器のファームウェア、`.NET`、Java の `cacerts`。
+- CRL / OneCRL でのブロックを、コード署名の対策として説明すること（§5）。
+
+## 8. 出所
+
+- Google（Chrome Root Program）2026-10-20 — SPKI ブロック、CT の見解、ルート削除:
+  <https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/>
+- Mozilla Security Blog 2026-10-20:
+  <https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/>
+- eMudhra 声明（更新1〜n、2026-10-20/21）。Mozilla の時系列の引用元でもある:
+  <https://emudhra.com/en/post/certificate-security-incident>
+- Scott Helme — 鍵の復元と小整数の説明:
+  <https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/>
+- Go: コミット `7f86f957633ee31a1c17a1eb8452ca7a3d9bc141`、
+  issue <https://github.com/golang/go/issues/82345>、CVE-2026-111943
+  （<https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111943>）
+- 下流: <https://pypi.org/pypi/certifi/json>、<https://ubuntu.com/security/notices/USN-8944-1>、
+  <https://security-tracker.debian.org/tracker/DSA-6572-1>、
+  <https://access.redhat.com/security/vulnerabilities/RHSB-2026-012>
+- 二次（8本の一覧と範囲）: The Hacker News,
+  <https://thehackernews.com/2026/10/eight-emudhra-ca-keys-compromised.html>

@@ -61,13 +61,38 @@ used at all.
 
 All feeds at once: `tools/intel/fetch-intel --sources feeds`.
 
+### GitLab, LiteLLM, Railway, OpenCode (`docs/09`-`docs/11`)
+
+| Subject | URL | What it tells you | Re-fetch |
+|---|---|---|---|
+| GitLab patch release | <https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/> | CVE-2026-110264: 10.0 vector, impacted ranges, the two detections | `tools/intel/fetch-intel --sources gitlab` |
+| GitLab detection framework | <https://docs.gitlab.com/security/detecting_security_incidents/> | how the Sigma rules are meant to be deployed | browser |
+| LiteLLM incident write-up | <https://github.com/BerriAI/litellm/issues/47826> | wheel hashes, payload files, IOCs, remediation order | `tools/intel/fetch-intel --sources litellm` |
+| PyPI release state | <https://pypi.org/pypi/litellm/json> | whether 1.107.0 is really gone (file count 0) | `curl -s <URL> \| jq` |
+| Railway disclosure | <https://blog.railway.com/p/security-disclosure-wednesday-october-21st> | what was accessed, the rotation list, deploy pause | browser |
+| Railway status | <https://status.railway.com> | incident timeline as it was published | browser |
+| OpenCode incident reports | <https://github.com/anomalyco/opencode/issues/56833> | user-side evidence of the key revocation (no vendor advisory exists) | browser |
+| OpenCode repo leak | <https://github.com/anomalyco/opencode/issues/56819> | committed secret confirmed by the project's own bot | browser |
+
+### The CA compromise (`docs/03`)
+
+| Subject | URL | What it tells you |
+|---|---|---|
+| Google (Chrome Root Program) | <https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/> | SPKI blocking, CT statement, root removal |
+| Mozilla Security Blog | <https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/> | OneCRL / NSS response |
+| eMudhra statement | <https://emudhra.com/en/post/certificate-security-incident> | vendor scope claims, and Mozilla's timeline quoted |
+| Scott Helme | <https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/> | recovery of all eight keys; the small-integer cause |
+| Go issue / commit | <https://github.com/golang/go/issues/82345> | CVE-2026-111943, URGENT track, denylist behaviour |
+| certifi | <https://pypi.org/pypi/certifi/json> | shipped version 2026.10.19 |
+
 ## Secondary (always marked as such in the text)
 
 | Outlet | Used for |
 |---|---|
 | The Record | PHP Foundation statement, discovery history, sites taken offline |
 | Krebs on Security | Ransomware-negotiation firm and ShinyHunters, sanctions |
-| The Hacker News and others | Reporting on the number of eMudhra keys |
+| The Hacker News and others | Reporting on the number of eMudhra keys; the GitLab, LiteLLM and Railway articles linked from `docs/09`-`docs/11` |
+| vx-underground (social post, 2026-10-22) | Used only as an index of the week's items in `docs/11`; every row is checked against a primary source |
 
 ## Assume a source will fail
 

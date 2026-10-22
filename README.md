@@ -2,19 +2,44 @@
 
 [**English**](README.md) | [日本語](README_jp.md)
 
-## 0. Busy? Read this
+## 0. Busy? Read this — three minutes to "is this mine?"
 
-- **PHP** (CVE-2026-109618 / 109619, CVSS 9.2): every release from 5.4.0 on. Fixed in
-  **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**. Exploit is public and attempts were observed
-  **before** the fix shipped — if you serve PHP, patch today.
-- **Node.js**: **22.23.4 / 24.22.1 / 26.12.1** are current, and there is **no newer patch**.
-  20.x is EOL and will never be fixed.
-- **Oracle Java SE** (October 2026 CPU): 55 CVEs, highest CVSS **7.5**, none in KEV. The trap is
-  that **"affected" and "fixed" are different versions** (affected 21.0.12.1 → fixed 21.0.13).
-  Patch JVMs you expose today. Details: [`docs/07`](docs/07-oracle-java-oct2026.md).
-- **CA**: eMudhra intermediate keys were compromised. Runtimes that bundle their own CA store
-  (Node, Go, Python, Java) must be updated.
-- **Everything else here is context.** It only matters after one of the above fires.
+**Seven things landed in one week.** You do not need to read all of them. Find your row.
+
+### 0-1. Today (this is already happening)
+
+| If you... | What happened (plainly) | Do this today |
+|---|---|---|
+| **serve PHP to the internet** | a hole in PHP core: no login needed to take over the server, and exploit code is already public | patch to **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** → [`docs/01`](docs/01-php2shell.md) |
+| **run GitLab yourself** | a perfect-10.0 hole: no login needed to run code. **Patching last week is not enough** | upgrade to **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** → [`docs/09`](docs/09-gitlab-19-5-1.md) |
+| **installed LiteLLM 1.107.0** | installing it *was* the compromise: every Python start ships credentials out | **do not run `pip` first**; remove, then rotate → [`docs/10`](docs/10-litellm-1-107-0.md) |
+| **deploy on Railway** | customer environment variables — i.e. your secrets — may have been decrypted | regenerate **every** env var → [`docs/11`](docs/11-week-of-oct-20.md) |
+
+### 0-2. This week (real, but conditional)
+
+| If you... | What happened | Do this |
+|---|---|---|
+| **run Java on a server** | 55 CVEs, highest 7.5, no known exploitation — but **"affected" and "fixed" are different versions** (21.0.12.1 → 21.0.13) | move to the fixed build → [`docs/07`](docs/07-oracle-java-oct2026.md) |
+| **ship your own trust store** (Go / Python / Node / Java / containers) | eight eMudhra intermediate keys were **too weak to be secret** — one is literally `4` | update `ca-certificates` / `certifi` / Go / NSS → [`docs/03`](docs/03-emudhra-ca.md) |
+| **gave provider keys to an AI tool** | this week's attacks target **keys** (Railway, LiteLLM, OpenCode) | inventory keys, read provider usage logs → [`docs/11` §5](docs/11-week-of-oct-20.md) |
+| **run Node.js 20.x** | 20 is EOL and will never be patched | move to **22.23.4 / 24.22.1 / 26.12.1** → [`docs/02`](docs/02-nodejs-oct2026.md) |
+
+### 0-3. Words, translated
+
+| Term | What it actually means |
+|---|---|
+| **CVSS 10.0** | the maximum: "no login, from the network, run code" |
+| **KEV** | the list of CVEs the US CISA has *confirmed* were exploited. **Not being on it does not mean safe** |
+| **affected / fixed version** | "the one you are vulnerable on" vs "the one that repairs it". Mixing them up is how you get breached after patching |
+| **intermediate CA** | the authority that signs certificates. Leak its key and anyone can mint certificates that look like it issued them |
+| **supply-chain attack** | getting in through a library or build system, so the official download is the malware |
+| **rotate** | replace a secret with a new one and invalidate the old |
+
+### 0-4. If you are unsure, three questions
+
+1. **Do I run it?** → no: stop reading.
+2. **Can the internet reach it?** → no: lower the priority.
+3. **Is it being exploited?** (KEV) → no: "this week", not "today".
 
 Check your own estate — three read-only commands, about a minute:
 
@@ -43,9 +68,10 @@ cite a retrieval date per claim, and never fill a gap from memory
 
 ---
 
-Four events landed in the same weeks of October 2026 — **two critical RCEs in PHP itself**,
-**the Node.js October security releases**, **the Oracle Java SE quarterly patch batch**, and
-**the compromise of a public CA's intermediate keys**. This repository is the record: what happened, the primary sources, the reproduction
+Seven events landed in the same week of October 2026 — **an RCE in PHP**, **a CVSS 10.0 in
+GitLab**, **a supply-chain compromise of LiteLLM**, **Railway's environment-variable leak**,
+**OpenCode's key revocation**, **the Oracle Java SE quarterly patch batch**, and **eight
+compromised eMudhra CA keys**. This repository is the record: what happened, the primary sources, the reproduction
 steps, and a defence toolkit you can actually run. It is meant to be **read** and **executed**.
 
 **Data as of 2026-10-22 00:15 UTC** (last verified). No newer patch exists — confirmed against
@@ -56,19 +82,27 @@ the Node.js release index and the advisory list.
 
 ---
 
-## 1. The four events at a glance
+## 1. The week at a glance (eight items)
 
-| Event | CVE | Severity | Affects | Fixed in | Exploited | Do this |
-|---|---|---|---|---|---|---|
-| **php2shell** (RCE in PHP core) | CVE-2026-109618<br>CVE-2026-109619 | CVSS 4.0 **9.2** Critical | **Every PHP release from 5.4.0 on.** FPM / mod_php / php-cgi / FrankenPHP / LiteSpeed | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** (2026-10-21) | **Yes — public.** Attempts seen at 07:43 UTC, before the fix shipped | Upgrade PHP. If you cannot, block multipart + apply partial mitigations |
-| **Node.js October** | CVE-2026-111497 and 8 more | highest **high** | Node 22 / 24 / 26. **20 is EOL with no fix** | **22.23.4 / 24.22.1 / 26.12.1** (2026-10-21) | Not observed (public PoC territory) | Update within the same major line (keeps ABI) |
-| **Oracle Java SE October CPU** | 55 CVEs (e.g. CVE-2026-91415) | highest **7.5** | Java SE `8u503` / `11.0.32.1` / `17.0.20.1` / `21.0.12.1` / `25.0.4.1` / `26.0.2` / `27` | **`8u511` / `11.0.33` / `17.0.21` / `21.0.13` / `25.0.5` / `27.0.1`** (2026-10-20) | Not in KEV | Move to the fixed build. JDK 26 has no fix — go to 27 |
-| **eMudhra intermediate CA compromise** | CVE-2026-111943 (Go's tracking ID) | — | Any trust store that trusts those intermediates | Vendor `ca-certificates` / runtime bundles | Requires a MITM position | Update the CA bundle |
+| Event | What happened | Severity | Who cares | Fix | Detail |
+|---|---|---|---|---|---|
+| **php2shell** | RCE in PHP core, every release from 5.4.0 | **9.2** Critical | anyone serving PHP | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** (10-21) | [`01`](docs/01-php2shell.md) |
+| **GitLab** | integer overflow in the regex engine → unauthenticated RCE, **every release since 7.0 (2014)** | **10.0** (max) | self-managed operators | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** (10-21) | [`09`](docs/09-gitlab-19-5-1.md) |
+| **LiteLLM** | 1.107.0 wheels execute a credential stealer on any Python start, plus a remote loader | no GHSA | anyone who `pip`/Docker installed it | **back to 1.106.2** + rotate everything | [`10`](docs/10-litellm-1-107-0.md) |
+| **Railway** | customer environment variables (i.e. secrets) may have been decrypted; deploys paused | — | Railway customers | rotate all env vars and registry credentials | [`11`](docs/11-week-of-oct-20.md) |
+| **OpenCode** | Console incident: provider keys exposed, user keys revoked (user-reported) | — | OpenCode users | re-issue provider keys, check usage | [`11`](docs/11-week-of-oct-20.md) |
+| **Oracle Java SE** | 55 CVEs in the October CPU; highest 7.5, none in KEV | 7.5 | anyone running a JVM | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1** (10-20) | [`07`](docs/07-oracle-java-oct2026.md) |
+| **eMudhra CA** | **eight** intermediate private keys too weak to be secret (one is `4`); computable by anyone | PKI | anyone shipping a trust store | update `ca-certificates` / `certifi` / Go / NSS | [`03`](docs/03-emudhra-ca.md) |
+| **Node.js** | nine October CVEs, plus the CA-bundle update | high | Node 22 / 24 / 26; **20 is EOL** | **22.23.4 / 24.22.1 / 26.12.1** (10-21) | [`02`](docs/02-nodejs-oct2026.md) |
 
-The four are **independent**. Patching PHP does not fix Node; the CA and Java are separate again.
+The eight are **independent**. Patching PHP does not fix GitLab; the CA and Java are separate again.
 
-**Only php2shell is urgent.** Attack code is public, exploitation was observed before the fix,
-and the bug sits in PHP's request handling — no application-level fix can remove it.
+What defines the week, though, is **credential theft**: Railway, LiteLLM and OpenCode are the same
+attack against three different key stores, all aimed at AI inference credentials. That reading is
+worked through in [`docs/11` §5](docs/11-week-of-oct-20.md).
+
+**php2shell and GitLab are the "today" items** — public exploit or immediate reachability, a fix
+that no application change can substitute for, and exposure that is enough on its own.
 
 ### Machine-readable summary
 
@@ -97,9 +131,27 @@ java:
   no_fix:   "26 (26.0.3 does not exist; move to 27)"
   in_kev: false
 ca:
-  event: "eMudhra intermediate CA key compromise"
-  roots: ["Comodo AAA Services root", "emSign ECC Root CA - G3"]
-  action: "update ca-certificates / runtime CA bundle"
+  event: "eMudhra intermediate CA keys compromised"
+  count: 8                       # 6 TLS (DV/OV/EV x2) + 2 code signing
+  cause: "insufficient randomness in the April 2025 ceremony; keys are small integers"
+  roots: ["emSign ECC Root CA - G3", "Sectigo AAA Certificate Services (cross-sign)"]
+  ct_caveat: "CT only covers TLS; the 2 code-signing CAs are not CT-logged"
+  action: "update ca-certificates / certifi / Go / NSS / runtime bundles"
+gitlab:
+  cve: CVE-2026-110264
+  cvss: 10.0
+  affected: ">=7.0"
+  fixed: ["19.5.1", "19.4.3", "19.3.6", "19.2.9", "19.1.9", "19.0.10", "18.11.13"]
+litellm:
+  bad: "1.107.0"
+  current: "1.106.2"
+  files: ["cook.pth", "cook.py", "sitecustomize.py"]
+railway:
+  event: "customer environment variables possibly decrypted"
+  action: "roll every env var and registry credential"
+opencode:
+  event: "Console incident; provider keys exposed, user keys revoked"
+  published_by_vendor: false
 ```
 
 ---
@@ -162,6 +214,8 @@ running?". A host with no PHP at all is unconditionally safe from this bug.
 | PHP < fixed, cannot bump yet (vendor wait, ≤8.1) | **Needs mitigation** | §2-4-B |
 | Node < 22.23.4 / 24.22.1 / 26.12.1, or 20.x | **Needs patch** | §2-4-C |
 | JVM build is below the fixed release (e.g. `21.0.12.1`) | **Needs fix** | §2-4-E |
+| Self-managed GitLab below the fixed patch release | **Needs fix today** | §2-4-F |
+| `litellm==1.107.0` installed, or a Docker tag that resolved to it | **Compromised** | §2-4-G |
 | `ca-certificates` still trusts the eMudhra intermediates | Needs update | §2-4-D |
 
 > Check the version **with the running binary, not the tag**:
@@ -287,6 +341,47 @@ sudo pacman -Syu jre-openjdk
 The full 55-CVE table, the Note 1/2/3 reading, and where Java hides:
 [`docs/07-oracle-java-oct2026.md`](docs/07-oracle-java-oct2026.md).
 
+### 2-4-F. Patch self-managed GitLab
+
+CVSS 10.0, unauthenticated, every release since 7.0. `docs/09` has the full picture; the short
+version:
+
+```bash
+sudo gitlab-rake gitlab:env:info 2>/dev/null | head -5     # what am I running?
+sudo apt install --only-upgrade gitlab-ee                  # Debian/Ubuntu repo install
+sudo gitlab-ctl reconfigure
+```
+
+Fixed: **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13**. If you patched on
+2026-10-12 you are still affected — the fix is one release above that. There is no published
+workaround: if you cannot upgrade, remove internet reachability and enable GitLab's two
+detections ("Onigmo native worker crash", "Org mode render error burst").
+
+### 2-4-G. LiteLLM 1.107.0
+
+Installing it was the compromise; the payload runs on every Python start. **Do not run `pip`
+first** — that re-executes it.
+
+```bash
+python3 - <<'INNER_PY'
+import site, pathlib
+for d in set(site.getsitepackages() + [site.getusersitepackages()]):
+    for n in ("cook.pth", "cook.py", "sitecustomize.py"):
+        p = pathlib.Path(d)/n
+        if p.exists(): print("HIT", p, p.stat().st_size)
+INNER_PY
+```
+
+Then delete those files from every site-packages, kill the detached daemon, and reinstall pinned:
+
+```bash
+pip install 'litellm==1.106.2'
+```
+
+Assume exfiltration: rotate the instance/task IAM role, every provider key in the proxy DB, the
+master and virtual keys, `DATABASE_URL`, and any secret in that host's environment. Full
+checklist in `docs/10` §4.
+
 ### 2-5. Verify (remove "I think I fixed it")
 
 ```bash
@@ -343,8 +438,11 @@ tools/intel/fetch-intel --sources oracle,kev  # a subset
 tools/intel/fetch-intel --out /tmp/intel      # somewhere else
 ```
 
-- Results live in [`data/2026-10-22/`](data/2026-10-22/): the 55 Java CVEs as JSON, the KEV
-  delta, MSRC, JVN, and 12 feeds.
+- Results live in [`data/2026-10-22/`](data/2026-10-22/): the 55 Java CVEs, the GitLab advisory
+  parsed to one record per CVE, the LiteLLM incident report verbatim, the KEV delta, MSRC, JVN,
+  and 12 feeds.
+- Sources now include `gitlab` and `litellm`, so the tables in `docs/09` and `docs/10` are
+  regenerated the same way as everything else.
 - Exit codes: `0` all fetched, `10` partial (the rest written), `2` nothing fetched.
 - Same command, same file names — so `git diff` between two snapshots shows what the world
   changed. **Re-derive counts; never copy them.** A copied count is a claim you cannot check.
@@ -372,6 +470,9 @@ bash tools/copy-prompt.sh intel
 | `docs/06-lessons-and-gotchas.md` | The mistakes made while responding, and what they cost |
 | `docs/07-oracle-java-oct2026.md` | All 55 Java SE CVEs, affected-vs-fixed, Notes 1/2/3, detection and patching |
 | `docs/08-intel-sources.md` | Source catalog, the 2026-10-22 snapshot, the four meanings of "exploited" |
+| `docs/09-gitlab-19-5-1.md` | CVE-2026-110264 (CVSS 10.0): affected/fixed branches, the patch-history trap, detections |
+| `docs/10-litellm-1-107-0.md` | LiteLLM 1.107.0: payload files, detection, remediation order, the March precedent |
+| `docs/11-week-of-oct-20.md` | The vx-underground list fact-checked: Railway, OpenCode, and the "it is the keys" reading |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
 | `runbooks/nodejs.md` | Audit → containers → hosts → rollback |
 | `tools/php2shell/` | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`, ini, systemd unit, selftest |

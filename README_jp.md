@@ -2,20 +2,44 @@
 
 [English](README.md) | [**日本語**](README_jp.md)
 
-## 0. 忙しい人向け
+## 0. 忙しい人向け — 3分で「自分に関係あるか」まで
 
-- **PHP**（CVE-2026-109618 / 109619、CVSS 9.2）: 5.4.0 以降の全リリース。修正版は
-  **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**。攻撃コードは公開済みで、**修正が出る前から**
-  試行が観測されている。PHP を公開しているなら今日中に更新する。
-- **Node.js**: **22.23.4 / 24.22.1 / 26.12.1** が最新で、**これより新しいパッチは無い**。
-  20.x は EOL で、今後も修正されない。
-- **Oracle Java SE**（2026年10月 CPU）: 55件。最大 CVSS は **7.5** で 9.x は無く、
-  KEV にも未収載。ただし **「影響を受ける版」と「修正版」が別**（例: 影響 21.0.12.1 →
-  修正 21.0.13）。JVM を公開しているホストだけ、今日中に上げる。詳細は
-  [`docs/07`](docs/07-oracle-java-oct2026.ja.md)。
-- **CA**: eMudhra の中間CA 秘密鍵が侵害された。CA ストアを自前で持つランタイム
-  （Node / Go / Python / Java）は更新が必要。
-- **このリポジトリの残りは文脈**。上のどれかが該当して初めて意味を持つ。
+この1週間に**7件**が重なりました。全部を読む必要はありません。自分に該当する行だけ追ってください。
+
+### 0-1. 今日やる（すでに現実になっているもの）
+
+| あなたが | 何が起きたか（かみ砕くと） | 今日やること |
+|---|---|---|
+| **PHP をインターネットに出している** | PHP 本体に穴。ログインなしでサーバを乗っ取れる。攻撃コードは既に出回っている | PHP を **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** へ → [`docs/01`](docs/01-php2shell.ja.md) |
+| **自前の GitLab を運用している** | 満点（CVSS 10.0）。ログインなしでコード実行。**先週パッチを当てていても該当する** | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** へ → [`docs/09`](docs/09-gitlab-19-5-1.ja.md) |
+| **LiteLLM を 1.107.0 で入れた** | 入れた時点で侵害。Python を起動するたびに資格情報を外部へ送る | **先に `pip` を実行しない**。手順どおり除去とローテート → [`docs/10`](docs/10-litellm-1-107-0.ja.md) |
+| **Railway にデプロイしている** | 環境変数（＝APIキー、DBのパスワード）が復号された可能性 | 環境変数を**全部**作り直す → [`docs/11`](docs/11-week-of-oct-20.ja.md) |
+
+### 0-2. 今週中（条件が揃えば効くもの）
+
+| あなたが | 何が起きたか | やること |
+|---|---|---|
+| **サーバで Java を動かしている** | 55件。最大 7.5 で悪用は未確認。ただし**「影響版」と「修正版」が別**（21.0.12.1 → 21.0.13） | 修正版ビルドへ → [`docs/07`](docs/07-oracle-java-oct2026.ja.md) |
+| **CA バンドルを自前で持つ**（Go / Python / Node / Java / コンテナ） | eMudhra の中間CA **8本**の鍵が弱すぎて、誰でも計算できる（1本は `4`） | `ca-certificates` / `certifi` / Go / NSS を更新 → [`docs/03`](docs/03-emudhra-ca.ja.md) |
+| **AI ツールにプロバイダキーを渡している** | 今週の攻撃は**鍵**を狙っている（Railway / LiteLLM / OpenCode） | キーを棚卸しし、プロバイダ側の利用履歴を見る → [`docs/11` §5](docs/11-week-of-oct-20.ja.md) |
+| **Node.js を 20.x で動かしている** | 20 は EOL。修正が来ない | **22.23.4 / 24.22.1 / 26.12.1** へ → [`docs/02`](docs/02-nodejs-oct2026.ja.md) |
+
+### 0-3. 言葉の言い換え（このリポジトリでよく出る言葉）
+
+| 言葉 | かみ砕くと |
+|---|---|
+| **CVSS 10.0** | 満点。「ログイン不要・遠隔から・コード実行」 |
+| **KEV** | 米 CISA が「実際に悪用された」と確認した一覧。**載っていない＝安全ではない** |
+| **影響版 / 修正版** | 「今危ない版」と「上げれば直る版」。混同すると、直したつもりで漏れる |
+| **中間CA** | 証明書を発行する権限。鍵が漏れると、そのCAが発行したのと同じ偽証明書を作れる |
+| **サプライチェーン攻撃** | ライブラリやビルド環境側に侵入して、正規の配布物を汚染する手口 |
+| **ローテート** | 秘密を新しく作り直し、古いものを無効にする |
+
+### 0-4. 迷ったら、この3行
+
+1. **そのソフトを自分で動かしている？** → いいえ、で読了。
+2. **インターネットから届く？** → いいえ、で優先度を下げる。
+3. **実際に悪用されている？（KEV）** → いいえ、で「今日中」ではなく「今週中」。
 
 自環境の確認は、読み取り専用の3コマンドで1分:
 
@@ -42,8 +66,9 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 
 ---
 
-2026年10月後半に重なった4件（**PHP の RCE 2件**、**Node.js の定期セキュリティリリース**、
-**公開CAの中間鍵侵害**、**Oracle Java SE の四半期パッチ**）について、事実・一次ソース・
+2026年10月後半の1週間に重なった7件（**PHP の RCE**、**GitLab の CVSS 10.0**、
+**LiteLLM のサプライチェーン侵害**、**Railway の環境変数漏えい**、**OpenCode の鍵失効**、
+**Oracle Java の四半期パッチ**、**eMudhra の CA 鍵8本**）について、事実・一次ソース・
 再現手順・実行できる防御ツールをひとまとめにした記録です。**読むため**と、**手を動かすため**の両方に使えます。
 
 **データ基準時点**: 2026-10-22 00:15 UTC（最終確認）。
@@ -51,20 +76,27 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 
 ---
 
-## 1. 4件の全体像
+## 1. 今週の全体像（8件）
 
-| 事案 | CVE | 深刻度 | 影響 | 修正版 | 悪用 | やること |
-|---|---|---|---|---|---|---|
-| **php2shell**（PHP本体のRCE） | CVE-2026-109618<br>CVE-2026-109619 | CVSS 4.0 **9.2** Critical | PHP **5.4.0 以降の全リリース**。FPM / mod_php / php-cgi / FrankenPHP / LiteSpeed | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**（2026-10-21） | **公開済み**。リリース前の 07:43 UTC に攻撃試行を観測 | PHP を上げる。上げられない間は multipart 遮断＋部分緩和 |
-| **Node.js 10月分** | CVE-2026-111497 ほか計9件 | 最高 **high** | Node 22 / 24 / 26。**20 は EOL で修正なし** | **22.23.4 / 24.22.1 / 26.12.1**（2026-10-21） | 未観測（公開PoCの領域） | 同メジャー内で更新（ABI 維持） |
-| **Oracle Java SE 10月分** | 55件（例: CVE-2026-91415） | 最高 **7.5** | Java SE `8u503` / `11.0.32.1` / `17.0.20.1` / `21.0.12.1` / `25.0.4.1` / `26.0.2` / `27` | **`8u511` / `11.0.33` / `17.0.21` / `21.0.13` / `25.0.5` / `27.0.1`**（2026-10-20） | 未確認（KEV 0件） | 修正版へ上げる。JDK 26 は修正なしで 27 へ |
-| **eMudhra 中間CA 鍵侵害** | CVE-2026-111943（Go 側の追跡ID） | — | 当該中間CA を信頼している全トラストストア | 各ベンダの `ca-certificates` / Node 本体 | 前提は MITM 位置 | OS/ランタイムの CA バンドル更新 |
+| 事案 | 何が起きたか | 深刻度 | 該当する人 | 修正・対処 | 詳細 |
+|---|---|---|---|---|---|
+| **php2shell** | PHP 本体の RCE 2件。5.4.0 以降の全リリース | **9.2** Critical | PHP を公開している | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**（10-21） | [`01`](docs/01-php2shell.ja.md) |
+| **GitLab** | 正規表現エンジンの整数オーバーフロー → 未認証 RCE。**7.0（2014年）以降すべて** | **10.0**（満点） | self-managed を運用 | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13**（10-21） | [`09`](docs/09-gitlab-19-5-1.ja.md) |
+| **LiteLLM** | 1.107.0 の wheel が Python 起動時に資格情報を窃取＋遠隔ローダ | GHSA 未公開 | `pip` / Docker で導入した | **1.106.2 に戻す**＋全資格情報ローテート | [`10`](docs/10-litellm-1-107-0.ja.md) |
+| **Railway** | 顧客の環境変数（＝秘密）が復号された可能性。デプロイ停止 | — | Railway にデプロイ | 環境変数・レジストリ資格情報を全ローテート | [`11`](docs/11-week-of-oct-20.ja.md) |
+| **OpenCode** | Console 事案でプロバイダキーが露出、利用者のキーが失効（利用者報告） | — | OpenCode を利用 | プロバイダキーを再発行し利用履歴を確認 | [`11`](docs/11-week-of-oct-20.ja.md) |
+| **Oracle Java SE** | 10月 CPU で55件。最大 7.5、KEV 未収載 | 7.5 | JVM を動かしている | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1**（10-20） | [`07`](docs/07-oracle-java-oct2026.ja.md) |
+| **eMudhra CA** | 中間CA **8本**の秘密鍵が弱すぎる（1本は `4`）。誰でも計算可能 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
+| **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱 | high | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21） | [`02`](docs/02-nodejs-oct2026.ja.md) |
 
-この4件は**独立**しています。PHP を直しても Node は直らず、CA も Java もまた別です。
+8件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
 
-**php2shell だけが「今すぐ」の話**です。理由は (a) 攻撃コードが公開済み、(b) 修正が
-公開される前から試行が観測されている、(c) 脆弱性が PHP のリクエスト処理の中にあり、
-アプリ側の修正では消えないからです。
+ただし今週を特徴づけるのは**鍵の窃取**です。Railway・LiteLLM・OpenCode の3件は、
+「AI 推論プロバイダの資格情報」という同じ獲物を狙う同じ形をしています。この読み方は
+[`docs/11` §5](docs/11-week-of-oct-20.ja.md) にまとめました。
+
+**php2shell と GitLab が「今日」**です。理由は (a) 攻撃コードや悪用の現実性、(b) 修正が
+アプリ側では消えない、(c) 露出しているだけで到達される、の3点。
 
 ### 機械可読サマリ
 
@@ -93,9 +125,27 @@ java:
   no_fix:   "26 (26.0.3 does not exist; move to 27)"
   in_kev: false
 ca:
-  event: "eMudhra intermediate CA key compromise"
-  roots: ["Comodo AAA Services root", "emSign ECC Root CA - G3"]
-  action: "update ca-certificates / runtime CA bundle"
+  event: "eMudhra intermediate CA keys compromised"
+  count: 8                       # 6 TLS (DV/OV/EV x2) + 2 code signing
+  cause: "insufficient randomness in the April 2025 ceremony; keys are small integers"
+  roots: ["emSign ECC Root CA - G3", "Sectigo AAA Certificate Services (cross-sign)"]
+  ct_caveat: "CT only covers TLS; the 2 code-signing CAs are not CT-logged"
+  action: "update ca-certificates / certifi / Go / NSS / runtime bundles"
+gitlab:
+  cve: CVE-2026-110264
+  cvss: 10.0
+  affected: ">=7.0"
+  fixed: ["19.5.1", "19.4.3", "19.3.6", "19.2.9", "19.1.9", "19.0.10", "18.11.13"]
+litellm:
+  bad: "1.107.0"
+  current: "1.106.2"
+  files: ["cook.pth", "cook.py", "sitecustomize.py"]
+railway:
+  event: "customer environment variables possibly decrypted"
+  action: "roll every env var and registry credential"
+opencode:
+  event: "Console incident; provider keys exposed, user keys revoked"
+  published_by_vendor: false
 ```
 
 ---
@@ -156,6 +206,8 @@ p2s-audit の終了コード: 0 = 露出なし / 10 = 露出あり（要対応�
 | PHP < 修正版、すぐ上げられない（ベンダ待ち・8.1以前） | **要緩和** | §2-4-B |
 | Node < 22.23.4 / 24.22.1 / 26.12.1、または 20.x | **要修正** | §2-4-C |
 | JVM のビルドが修正版未満（例: `21.0.12.1`） | **要修正** | §2-4-E |
+| self-managed の GitLab が修正版未満 | **本日対応** | §2-4-F |
+| `litellm==1.107.0` を入れた（Docker タグがそれを指した場合も） | **侵害済み** | §2-4-G |
 | `ca-certificates` が eMudhra 中間CA を信頼したまま | 要更新 | §2-4-D |
 
 > バージョンは**タグではなく実行中のバイナリで確認**すること。
@@ -279,6 +331,46 @@ sudo pacman -Syu jre-openjdk
 55件の内訳、Note 1/2/3 の読み方、Java が潜む場所の一覧は
 [`docs/07-oracle-java-oct2026.ja.md`](docs/07-oracle-java-oct2026.ja.md)。
 
+### 2-4-F. self-managed GitLab を更新する
+
+CVSS 10.0 の未認証 RCE で、7.0 以降すべてが該当。詳細は `docs/09`。要点だけ:
+
+```bash
+sudo gitlab-rake gitlab:env:info 2>/dev/null | head -5     # 何を動かしているか
+sudo apt install --only-upgrade gitlab-ee                  # Debian/Ubuntu のリポジトリ導入
+sudo gitlab-ctl reconfigure
+```
+
+修正版: **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13**。
+2026-10-12 にパッチを当てていても該当します（修正版はその1つ上）。公開された回避策は
+ありません。上げられないならインターネットからの到達性を外し、GitLab の検知2つ
+（"Onigmo native worker crash" / "Org mode render error burst"）を有効にしてください。
+
+### 2-4-G. LiteLLM 1.107.0
+
+入れたこと自体が侵害です。ペイロードは Python 起動のたびに走ります。**先に `pip` を実行しないで
+ください**——そこで再実行されます。
+
+```bash
+python3 - <<'INNER_PY'
+import site, pathlib
+for d in set(site.getsitepackages() + [site.getusersitepackages()]):
+    for n in ("cook.pth", "cook.py", "sitecustomize.py"):
+        p = pathlib.Path(d)/n
+        if p.exists(): print("HIT", p, p.stat().st_size)
+INNER_PY
+```
+
+そのうえで全 site-packages から該当ファイルを削除し、常駐デーモンを止めて、版を固定して入れ直す:
+
+```bash
+pip install 'litellm==1.106.2'
+```
+
+外部送信は成立したものとして扱ってください。インスタンス／タスクの IAM ロール、プロキシ DB の
+全プロバイダキー、マスター／仮想キー、`DATABASE_URL`、そのホストの環境にあった秘密を
+ローテートします。完全なチェックリストは `docs/10` §4。
+
 ### 2-5. 検証（対策したつもりを排除する）
 
 ```bash
@@ -335,8 +427,10 @@ tools/intel/fetch-intel --sources oracle,kev  # 一部だけ
 tools/intel/fetch-intel --out /tmp/intel      # 別の場所に
 ```
 
-- 取得結果は [`data/2026-10-22/`](data/2026-10-22/) にあります（Oracle Java 55件の JSON、
-  KEV 差分、MSRC、JVN、12本のフィード）。
+- 取得結果は [`data/2026-10-22/`](data/2026-10-22/) にあります（Oracle Java 55件、GitLab 勧告を
+  CVE 単位に構造化したもの、LiteLLM 事案記録の逐語、KEV 差分、MSRC、JVN、12本のフィード）。
+- 取得元に `gitlab` と `litellm` を追加したので、`docs/09` / `docs/10` の表も他と同じ手順で
+  作り直せます。
 - 終了コードは `0` 全部 / `10` 一部失敗（残りは書き込み済み）/ `2` 何も取れず。
 - 同じコマンド・同じファイル名なので、2時点の `git diff` が「世界のどこが変わったか」に
   なります。**数値は必ず取り直して比べる。** 手で写した件数は検算できない主張です。
@@ -364,6 +458,9 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/06-lessons-and-gotchas.ja.md`](docs/06-lessons-and-gotchas.ja.md) | 実装中に踏んだ罠と、判断を間違えた箇所の記録 |
 | [`docs/07-oracle-java-oct2026.ja.md`](docs/07-oracle-java-oct2026.ja.md) | Java SE 55件の全一覧、影響版と修正版の区別、Note 1/2/3、検出と更新 |
 | [`docs/08-intel-sources.ja.md`](docs/08-intel-sources.ja.md) | 情報源カタログ、2026-10-22 のスナップショット、「悪用」の4つの意味 |
+| [`docs/09-gitlab-19-5-1.ja.md`](docs/09-gitlab-19-5-1.ja.md) | CVE-2026-110264（CVSS 10.0）: 影響／修正ブランチ、「先週パッチ済み」の罠、検知 |
+| [`docs/10-litellm-1-107-0.ja.md`](docs/10-litellm-1-107-0.ja.md) | LiteLLM 1.107.0: ペイロードのファイル、検出、対処の順序、3月の前例 |
+| [`docs/11-week-of-oct-20.ja.md`](docs/11-week-of-oct-20.ja.md) | vx-underground のリストを検証: Railway、OpenCode、「鍵が狙われている」の整理 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
 | [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |

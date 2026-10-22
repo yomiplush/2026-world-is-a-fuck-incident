@@ -60,13 +60,38 @@
 
 フィードはすべて `tools/intel/fetch-intel --sources feeds` で一括取得できます。
 
+### GitLab / LiteLLM / Railway / OpenCode（`docs/09`〜`docs/11`）
+
+| 対象 | URL | 何が分かる | 再取得 |
+|---|---|---|---|
+| GitLab パッチリリース | <https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/> | CVE-2026-110264 の 10.0 ベクター、影響範囲、検知2つ | `tools/intel/fetch-intel --sources gitlab` |
+| GitLab 検知フレームワーク | <https://docs.gitlab.com/security/detecting_security_incidents/> | Sigma ルールの適用方法 | ブラウザ |
+| LiteLLM 事案の一次記録 | <https://github.com/BerriAI/litellm/issues/47826> | wheel のハッシュ、ペイロードのファイル、IOC、対処順序 | `tools/intel/fetch-intel --sources litellm` |
+| PyPI の状態 | <https://pypi.org/pypi/litellm/json> | 1.107.0 が本当に消えたか（ファイル数 0） | `curl -s <URL> \| jq` |
+| Railway の開示 | <https://blog.railway.com/p/security-disclosure-wednesday-october-21st> | 何にアクセスされたか、ローテート一覧、デプロイ停止 | ブラウザ |
+| Railway ステータス | <https://status.railway.com> | 公開時点の経過 | ブラウザ |
+| OpenCode の利用者報告 | <https://github.com/anomalyco/opencode/issues/56833> | キー失効の利用者側の証拠（ベンダの勧告は存在しない） | ブラウザ |
+| OpenCode のリポジトリ漏えい | <https://github.com/anomalyco/opencode/issues/56819> | プロジェクト自身の bot が確認したコミット済み秘密 | ブラウザ |
+
+### CA 侵害（`docs/03`）
+
+| 対象 | URL | 何が分かる |
+|---|---|---|
+| Google（Chrome Root Program） | <https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/> | SPKI ブロック、CT の見解、ルート削除 |
+| Mozilla Security Blog | <https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/> | OneCRL / NSS の対応 |
+| eMudhra 声明 | <https://emudhra.com/en/post/certificate-security-incident> | ベンダの範囲主張、Mozilla 時系列の引用元 |
+| Scott Helme | <https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/> | 8本すべての復元、小整数という原因 |
+| Go issue / commit | <https://github.com/golang/go/issues/82345> | CVE-2026-111943、URGENT トラック、拒否リストの挙動 |
+| certifi | <https://pypi.org/pypi/certifi/json> | 出荷版 2026.10.19 |
+
 ## 二次（本文で明記しているもの）
 
 | 媒体 | 用途 |
 |---|---|
 | The Record | PHP Foundation の声明、発見の経緯、各国の停止措置 |
 | Krebs on Security | ランサム交渉業者と ShinyHunters の件、制裁 |
-| The Hacker News 等 | eMudhra の鍵本数の報道 |
+| The Hacker News 等 | eMudhra の鍵本数の報道。`docs/09`〜`docs/11` からリンクした GitLab / LiteLLM / Railway の各記事 |
+| vx-underground（SNS 投稿、2026-10-22） | `docs/11` でその週の項目の索引としてのみ使用。各行は一次ソースで検証している |
 
 ## 取得が失敗する前提で
 

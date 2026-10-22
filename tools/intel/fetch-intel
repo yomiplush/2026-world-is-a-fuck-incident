@@ -41,6 +41,8 @@ ORACLE_CPU = "https://www.oracle.com/security-alerts/cpu{cpu}.html"
 KEV = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
 JVN_RSS = "https://jvn.jp/rss/jvn.rdf"
 MSRC_CVRF = "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/{month}"
+GITLAB_PATCH = "https://docs.gitlab.com/releases/patches/{slug}/"
+LITELLM_INCIDENT = "https://api.github.com/repos/{repo}/issues/{issue}"
 
 # Researcher / infosec feeds. Grouped by who owns the claim, because that is what
 # decides how much weight it carries: the finding's authors first, then vendor
@@ -386,6 +388,103 @@ def collect_msrc(month: str) -> dict:
     }
 
 
+# --------------------------------------------------------------------- GitLab
+
+def rendered_lines(raw: str) -> list[str]:
+    """Rendered text, one visible line per element. No third-party parser."""
+    raw = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", raw)
+    raw = re.sub(r"(?i)<br\s*/?>", "\n", raw)
+    raw = re.sub(r"(?i)</(p|div|li|h[1-6]|tr|td|th)>", "\n", raw)
+    text = html.unescape(re.sub(r"<[^>]+>", "", raw))
+    return [norm(l) for l in text.split("\n") if norm(l)]
+
+
+def collect_gitlab(slug: str) -> dict:
+    """Parse a GitLab patch-release page into one record per CVE.
+
+    GitLab renders each CVE as a heading line ("CVE-… - <title>") followed by a
+    description, the impacted version ranges, the CVSS score with vector, and
+    the reporter. Rebuilding the table from here keeps docs/09 checkable.
+    """
+    url = GITLAB_PATCH.format(slug=slug)
+    flat = rendered_lines(get(url).decode("utf-8", "replace"))
+    joined = " ".join(flat)
+
+    cves, cur = [], None
+    for line in flat:
+        m = re.match(r"^(CVE-\d{4}-\d+)\s+-\s+(.+)$", line)
+        if m:
+            cur = {"cve": m.group(1), "title": m.group(2).strip(),
+                   "description": "", "impacted_versions": "", "cvss_base": None,
+                   "cvss_vector": None, "reporter": "", "_rest": []}
+            cves.append(cur)
+            continue
+        if cur is None:
+            continue
+        cur["_rest"].append(line)
+
+    seen, unique = set(), []
+    for c in sorted(cves, key=lambda x: -len(" ".join(x["_rest"]))):
+        if c["cve"] not in seen:
+            seen.add(c["cve"])
+            unique.append(c)
+    cves = sorted(unique, key=lambda x: -(x.get("cvss_base") or 0))
+
+    for c in cves:
+        body = " ".join(c.pop("_rest"))
+        d = re.search(r"(GitLab has remediated[^.]*\.)", body)
+        c["description"] = d.group(1) if d else ""
+        iv = re.search(r"Impacted Versions:\s*(.*?)\s*(?:CVSS\s+\d|Thanks\s|$)", body)
+        c["impacted_versions"] = iv.group(1).strip() if iv else ""
+        sc = re.search(r"CVSS\s+(\d+\.\d)\s*\((CVSS:3\.1/[A-Za-z:/]+)\)", body)
+        if sc:
+            c["cvss_base"] = float(sc.group(1))
+            c["cvss_vector"] = sc.group(2)
+        rep = re.search(r"Thanks\s+(\S+)\s+for reporting", body)
+        c["reporter"] = rep.group(1) if rep else ""
+
+    rel = re.search(r"On (\w+ \d{1,2}, \d{4}),? we released versions ([\d.,\s]+?)\s+for GitLab",
+                    joined)
+    det, i = [], 0
+    while i < len(flat):
+        if flat[i].startswith("Detecting CVE-"):
+            for cand in flat[i + 1:i + 6]:
+                # detection names are short labels, not the sentence introducing them
+                if cand and not cand.endswith(".") and len(cand) < 60 \
+                        and not cand.startswith("CVE-"):
+                    det.append(cand)
+                if len(det) == 2:
+                    break
+            break
+        i += 1
+    return {
+        "source": url,
+        "slug": slug,
+        "release_date": rel.group(1) if rel else None,
+        "fixed_versions": [v.strip() for v in rel.group(2).split(",")] if rel else [],
+        "cve_count": len(cves),
+        "max_cvss": max((c["cvss_base"] or 0 for c in cves), default=None),
+        "detections": det,
+        "cves": cves,
+    }
+
+
+def collect_litellm(repo: str, issue: str) -> dict:
+    url = LITELLM_INCIDENT.format(repo=repo, issue=issue)
+    d = json.loads(get(url))
+    return {
+        "source": url,
+        "repo": repo,
+        "issue": issue,
+        "title": d.get("title"),
+        "state": d.get("state"),
+        "created_at": d.get("created_at"),
+        "updated_at": d.get("updated_at"),
+        "author": (d.get("user") or {}).get("login"),
+        "body": d.get("body"),
+    }
+
+
 # ----------------------------------------------------------------------- main
 
 def main(argv: list[str]) -> int:
@@ -399,8 +498,14 @@ def main(argv: list[str]) -> int:
                     help="MSRC month, e.g. 2026-Oct")
     ap.add_argument("--kev-days", type=int, default=30, help="KEV look-back window")
     ap.add_argument("--limit", type=int, default=12, help="items per feed")
-    ap.add_argument("--sources", default="oracle,kev,jvn,feeds,msrc",
-                    help="comma list of: oracle,kev,jvn,feeds,msrc")
+    ap.add_argument("--sources", default="oracle,kev,jvn,feeds,msrc,gitlab,litellm",
+                    help="comma list of: oracle,kev,jvn,feeds,msrc,gitlab,litellm")
+    ap.add_argument("--gitlab-slug", default="patch-release-gitlab-19-5-1-released",
+                    help="GitLab patch-release page slug (docs.gitlab.com/releases/patches/<slug>/)")
+    ap.add_argument("--litellm-repo", default="BerriAI/litellm",
+                    help="repo holding the LiteLLM compromise issue")
+    ap.add_argument("--litellm-issue", default="47826",
+                    help="issue number of the LiteLLM compromise report")
     ap.add_argument("--out", default=None, help="output directory (default data/<date>)")
     args = ap.parse_args(argv)
 
@@ -429,6 +534,10 @@ def main(argv: list[str]) -> int:
         "feeds": lambda: [("researcher-feeds.json", collect_feeds(args.limit))],
         "msrc": lambda: [("msrc-" + args.month.lower() + ".json",
                           collect_msrc(args.month))],
+        "gitlab": lambda: [("gitlab-" + args.gitlab_slug + ".json",
+                            collect_gitlab(args.gitlab_slug))],
+        "litellm": lambda: [("litellm-issue-" + args.litellm_issue + ".json",
+                             collect_litellm(args.litellm_repo, args.litellm_issue))],
     }
     unknown = [w for w in wanted if w not in jobs]
     if unknown:
@@ -476,6 +585,11 @@ def main(argv: list[str]) -> int:
             empty = [k for k in FEEDS if k in p and not p[k].get("recent")]
             note = f" (empty: {', '.join(empty)})" if empty else ""
             print(f"feeds: {ok}/{len(FEEDS)} readable{note} -> {rel}")
+        elif name == "gitlab":
+            print(f"GitLab {p['slug']}: {p['cve_count']} CVEs, "
+                  f"max CVSS {p['max_cvss']} -> {rel}")
+        elif name == "litellm":
+            print(f"LiteLLM issue #{p['issue']}: {(p['title'] or '')[:50]}... -> {rel}")
         elif name == "msrc":
             print(f"MSRC {p['month']}: {p['cve_entries']} CVEs, "
                   f"{len(p['exploited'])} exploited -> {rel}")
