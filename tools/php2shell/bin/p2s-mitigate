@@ -1,0 +1,333 @@
+#!/usr/bin/env bash
+# p2s-mitigate — disarm the php2shell primitive on a live PHP runtime, for real,
+#                and in a way that survives `docker compose up -d` afterwards.
+#
+#   p2s-mitigate --container php-app --dry-run        # show the plan, change nothing
+#   p2s-mitigate --container php-app                  # apply
+#   p2s-mitigate --container php-app --target <ssh-host>  # apply over ssh
+#   p2s-mitigate --container php-app --revert         # put it back
+#   p2s-mitigate --container php-app --verify-only    # just check current state
+#
+# What it changes
+#   Writes a drop-in php ini (session.upload_progress.enabled=0, use_strict_mode=1,
+#   expose_php=Off) and mounts it read-only into the container through
+#   `docker-compose.override.yml`, which compose auto-loads on every future
+#   `docker compose up -d`. Then it recreates that one service and verifies the
+#   ini from *inside* the running container plus an HTTP smoke check.
+#
+#   --profile strict additionally sets open_basedir and disable_functions. It is
+#   not the default because it can break apps that shell out; try it on a staging
+#   copy first. Also available for host installs: --ini-dir /etc/php/8.3/fpm/conf.d
+#
+# Exit: 0 ok, 1 failure, 2 usage.
+set -uo pipefail
+
+TARGET=""
+CONTAINER=""
+INI_DIR=""
+PROFILE="standard"
+DRY=0
+REVERT=0
+VERIFY_ONLY=0
+SERVICE=""
+
+usage() { sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//'; }
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --target)      TARGET="${2:-}"; shift 2 ;;
+    --container)   CONTAINER="${2:-}"; shift 2 ;;
+    --service)     SERVICE="${2:-}"; shift 2 ;;
+    --ini-dir)     INI_DIR="${2:-}"; shift 2 ;;
+    --profile)     PROFILE="${2:-}"; shift 2 ;;
+    --dry-run)     DRY=1; shift ;;
+    --revert)      REVERT=1; shift ;;
+    --verify-only) VERIFY_ONLY=1; shift ;;
+    -h|--help)     usage; exit 0 ;;
+    *) echo "p2s-mitigate: unknown argument $1" >&2; exit 2 ;;
+  esac
+done
+
+if [ "${P2S_REMOTE:-0}" != "1" ] && [ -n "$TARGET" ] && [ "$TARGET" != "local" ]; then
+  args=(--target local)
+  [ -n "$CONTAINER" ]   && args+=(--container "$CONTAINER")
+  [ -n "$SERVICE" ]     && args+=(--service "$SERVICE")
+  [ -n "$INI_DIR" ]     && args+=(--ini-dir "$INI_DIR")
+  [ "$PROFILE" != "standard" ] && args+=(--profile "$PROFILE")
+  [ "$DRY" = "1" ]      && args+=(--dry-run)
+  [ "$REVERT" = "1" ]   && args+=(--revert)
+  [ "$VERIFY_ONLY" = "1" ] && args+=(--verify-only)
+  ssh -o BatchMode=yes -o ConnectTimeout=15 "$TARGET" \
+      "P2S_REMOTE=1 bash -s -- ${args[*]}" < "$0"
+  exit $?
+fi
+
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/php2shell-defense"
+mkdir -p "$STATE"
+MARK="$STATE/p2s-mitigate.state"
+say() { printf '%s\n' "$*"; }
+die() { printf 'p2s-mitigate: %s\n' "$*" >&2; exit 1; }
+
+case "$PROFILE" in standard|strict) ;; *) die "unknown --profile $PROFILE" ;; esac
+[ -n "$CONTAINER" ] || [ -n "$INI_DIR" ] || die "give --container <name> or --ini-dir <path>"
+have_docker=0; command -v docker >/dev/null 2>&1 && have_docker=1
+
+# ---------------------------------------------------------------------------
+# the ini payload
+# ---------------------------------------------------------------------------
+ini_body() {
+  cat <<'INI'
+; zz-php2shell.ini — interim mitigation for php2shell
+; (CVE-2026-109618 / CVE-2026-109619). Managed by p2s-mitigate; do not edit by hand.
+; Remove once the upstream PHP release is installed. See docs/runbook.md.
+session.upload_progress.enabled = 0
+session.upload_progress.cleanup = 1
+session.use_strict_mode = 1
+expose_php = Off
+INI
+  if [ "$PROFILE" = "strict" ]; then
+    cat <<'INI'
+
+; --- strict profile -------------------------------------------------------
+; No process execution from PHP, and confine file access. Nothing that the
+; upload-progress bug needs, so this only shrinks what a successful RCE can do.
+open_basedir = /var/www/html:/tmp:/usr/share/php
+disable_functions = exec,passthru,shell_exec,system,proc_open,popen,pcntl_exec,pcntl_fork,putenv,mb_send_mail,mail,dl,symlink,link,chgrp,chown,chmod
+INI
+  fi
+}
+
+# ---------------------------------------------------------------------------
+# host-install mode (no container)
+# ---------------------------------------------------------------------------
+if [ -n "$INI_DIR" ]; then
+  dest="$INI_DIR/zz-php2shell.ini"
+  say "host mode: $dest"
+  if [ "$DRY" = "1" ]; then ini_body | sed 's/^/    | /'; exit 0; fi
+  [ -d "$INI_DIR" ] || die "no such ini dir: $INI_DIR (need root to create it)"
+  [ -w "$INI_DIR" ] || die "cannot write $INI_DIR (run with the privileges that own it)"
+  if [ "$REVERT" = "1" ]; then
+    rm -f "$dest" && say "removed $dest — reload php-fpm to take effect"
+    exit 0
+  fi
+  [ -e "$dest" ] && cp -a "$dest" "$dest.bak.$(date +%s)"
+  ini_body > "$dest" || die "write failed"
+  say "wrote $dest"
+  say "reload: systemctl reload php*-fpm   (or restart the web server)"
+  exit 0
+fi
+
+# ---------------------------------------------------------------------------
+# container mode
+# ---------------------------------------------------------------------------
+[ "$have_docker" = "1" ] || die "docker not found"
+docker inspect "$CONTAINER" >/dev/null 2>&1 || die "no such container: $CONTAINER"
+
+scan_dir=$(docker exec "$CONTAINER" php -r \
+  '$d=php_ini_scanned_files(); $p=php_ini_loaded_file();
+   echo getenv("PHP_INI_DIR") ? getenv("PHP_INI_DIR")."/conf.d" : ($d?dirname(strtok($d,",")):( $p?dirname($p)."/conf.d" : "/usr/local/etc/php/conf.d"));' 2>/dev/null)
+[ -n "$scan_dir" ] || scan_dir="/usr/local/etc/php/conf.d"
+
+project_dir=$(docker inspect "$CONTAINER" --format \
+  '{{index .Config.Labels "com.docker.compose.project.working_dir"}}' 2>/dev/null)
+service=$(docker inspect "$CONTAINER" --format \
+  '{{index .Config.Labels "com.docker.compose.service"}}' 2>/dev/null)
+compose_file=$(docker inspect "$CONTAINER" --format \
+  '{{index .Config.Labels "com.docker.compose.project.config_files"}}' 2>/dev/null)
+[ -n "$service" ] || service="$CONTAINER"
+[ -n "$SERVICE" ] && service="$SERVICE"
+
+say "container : $CONTAINER (service=$service, php ini scan dir=$scan_dir)"
+[ -n "$project_dir" ] && say "compose   : $project_dir"
+say "profile   : $PROFILE"
+
+if [ -z "$project_dir" ] || [ ! -d "$project_dir" ]; then
+  die "this container was not started by docker compose; no override to hook.
+       Options: (a) put the mount in whatever starts it, or
+                (b) p2s-mitigate --ini-dir <conf.d> for a host install, or
+                (c) add to your run command:
+                    -v $STATE/zz-php2shell.ini:$scan_dir/zz-php2shell.ini:ro"
+fi
+
+override="$project_dir/docker-compose.override.yml"
+ini_src="$STATE/zz-php2shell.ini"
+
+# compose only auto-loads docker-compose.override.yml when it discovers the file
+# itself; passing -f disables that. So build the file list explicitly, always.
+compose_up() {
+  local -a files=(); local f
+  IFS=',' read -ra _cf <<< "$compose_file"
+  # The container's config_files label grows to include the override once we've
+  # used it, so trust the filesystem: only pass files that exist, once each.
+  for f in "${_cf[@]}" "$override"; do
+    [ -n "$f" ] && [ -f "$f" ] || continue
+    case " ${files[*]} " in *" -f $f "*) continue ;; esac
+    files+=(-f "$f")
+  done
+  [ "${#files[@]}" -gt 0 ] || { echo "p2s-mitigate: no compose file to use" >&2; return 1; }
+  ( cd "$project_dir" && docker compose "${files[@]}" up -d --no-deps --force-recreate --pull never "$service" )
+}
+
+# ---- verify-only ----------------------------------------------------------
+verify() {
+  local up strict code
+  up=$(docker exec "$CONTAINER" php -r 'echo (string)ini_get("session.upload_progress.enabled");' 2>/dev/null)
+  strict=$(docker exec "$CONTAINER" php -r 'echo (string)ini_get("session.use_strict_mode");' 2>/dev/null)
+  say "  session.upload_progress.enabled = ${up:-?}   (want 0)"
+  say "  session.use_strict_mode         = ${strict:-?}   (want 1)"
+  local bind hostport
+  bind=$(docker port "$CONTAINER" 2>/dev/null | head -1)
+  hostport="${bind##*:}"
+  hostport="${hostport%%/*}"
+  if [ -n "$hostport" ] && [ "$hostport" != "$bind" ]; then
+    for i in $(seq 1 20); do   # a fresh container needs a few seconds before it listens
+      code=$(curl -s -o /dev/null -m 3 -w '%{http_code}' "http://127.0.0.1:$hostport/" 2>/dev/null)
+      [ -n "$code" ] && [ "$code" != "000" ] && break
+      sleep 1
+    done
+    say "  http://127.0.0.1:$hostport/ -> HTTP ${code:-no-response}   (5xx = app broken, 2xx/3xx = fine)"
+  fi
+  [ "$up" = "0" ] && [ "$strict" = "1" ]
+}
+
+if [ "$VERIFY_ONLY" = "1" ]; then verify; exit $?; fi
+
+# ---- revert ---------------------------------------------------------------
+if [ "$REVERT" = "1" ]; then
+  [ -f "$MARK" ] || die "no state file at $MARK — was this applied by p2s-mitigate?"
+  say "reverting"
+  if [ "$DRY" = "1" ]; then say "  would drop the zz-php2shell mount and recreate $service"; exit 0; fi
+  # shellcheck disable=SC1090
+  . "$MARK"
+
+  if [ -n "${P2S_OVERRIDE_BACKUP:-}" ] && [ -f "$P2S_OVERRIDE_BACKUP" ]; then
+    mv -f "$P2S_OVERRIDE_BACKUP" "$override"
+    say "  restored the override we merged into"
+  elif [ -f "$override" ] && grep -q 'zz-php2shell\.ini' "$override"; then
+    # Remove only our mount. The file may hold other changes, and it may have been
+    # created by an earlier run rather than this one — deleting it blindly is how
+    # a revert quietly becomes a change of its own.
+    cat > "$STATE/strip.py" <<'PY'
+import os, sys, yaml
+path, service = sys.argv[1:3]
+doc = yaml.safe_load(open(path)) or {}
+svc = (doc.get("services") or {}).get(service) or {}
+vols = svc.get("volumes") or []
+if isinstance(vols, dict):
+    vols = [f"{k}:{v}" for k, v in vols.items()]
+keep = [v for v in vols if "zz-php2shell.ini" not in str(v)]
+if keep:
+    svc["volumes"] = keep
+else:
+    svc.pop("volumes", None)
+if not svc:
+    doc.get("services", {}).pop(service, None)
+if not doc.get("services"):
+    doc.pop("services", None)
+if doc:
+    yaml.safe_dump(doc, open(path, "w"), sort_keys=False, default_flow_style=False)
+else:
+    os.remove(path)
+PY
+    python3 "$STATE/strip.py" "$override" "$service" || die "could not rewrite $override"
+    say "  removed the php2shell mount from $override"
+  fi
+
+  compose_up || die "recreate failed — the override was left in place, container may need manual attention"
+  rm -f "$MARK" "$ini_src"
+  say ""
+  say "reverted: $CONTAINER is back on its own php.ini."
+  say "session.upload_progress.enabled reads 1 again — that is what a revert means."
+  verify || true
+  exit 0
+fi
+
+# ---- apply ----------------------------------------------------------------
+mkdir -p "$STATE"
+ini_body > "$ini_src" || die "cannot write $ini_src"
+
+say ""
+say "plan:"
+say "  1. ini    -> $ini_src"
+say "  2. mount  -> $CONTAINER:$scan_dir/zz-php2shell.ini (ro)"
+say "  3. write  -> $override  (auto-loaded by every future docker compose up)"
+say "  4. recreate service '$service' with the override in the file list (no image pull)"
+say "  5. verify ini inside the container + HTTP smoke test"
+
+if [ "$DRY" = "1" ]; then
+  say ""
+  say "--- docker-compose.override.yml that would be written ---"
+  printf 'services:\n  %s:\n    volumes:\n      - "%s:%s:ro"\n' \
+    "$service" "$ini_src" "$scan_dir/zz-php2shell.ini"
+  say "--- ini ---"
+  ini_body | sed 's/^/    | /'
+  exit 0
+fi
+
+# merge into an existing override instead of clobbering it
+created=0
+backup=""
+if [ -f "$override" ]; then
+  if grep -q 'zz-php2shell.ini' "$override" 2>/dev/null; then
+    say "override already carries the php2shell mount — leaving it alone"
+  else
+    backup="$override.p2s-backup.$(date +%Y%m%d%H%M%S)"
+    cp -a "$override" "$backup" || die "cannot back up $override"
+    python3 - "$override" "$service" "$ini_src" "$scan_dir/zz-php2shell.ini" <<'PY' || die "merge failed; original saved at $backup"
+import sys, io
+try:
+    import yaml
+except ImportError:
+    sys.exit("PyYAML missing: install python3-yaml, or merge the mount by hand")
+path, service, src, dst = sys.argv[1:5]
+doc = yaml.safe_load(open(path)) or {}
+svc = doc.setdefault("services", {}).setdefault(service, {})
+vols = svc.setdefault("volumes", []) or []
+if isinstance(vols, dict):
+    vols = [f"{k}:{v}" for k, v in vols.items()]
+vols.append(f"{src}:{dst}:ro")
+svc["volumes"] = vols
+yaml.safe_dump(doc, open(path, "w"), sort_keys=False, default_flow_style=False)
+PY
+    say "merged mount into existing $override (backup: $backup)"
+  fi
+else
+  cat > "$override" <<YAML || die "cannot write $override"
+# Managed by p2s-mitigate. Adds the php2shell stopgap ini to $service and is
+# loaded automatically by every 'docker compose up'. Delete this file (or run
+# 'p2s-mitigate --container $CONTAINER --revert') after the PHP fix is installed.
+services:
+  $service:
+    volumes:
+      - "$ini_src:$scan_dir/zz-php2shell.ini:ro"
+YAML
+  created=1
+  say "created $override"
+fi
+
+cat > "$MARK" <<STATE
+P2S_PROJECT_DIR="$project_dir"
+P2S_SERVICE="$service"
+P2S_OVERRIDE_CREATED="$created"
+P2S_OVERRIDE_BACKUP="$backup"
+P2S_APPLIED="$(date -Is)"
+STATE
+
+say "recreating $service ..."
+compose_up || die "compose recreate failed; override at $override is in place for a manual retry"
+
+say ""
+if verify; then
+  say ""
+  say "OK: $CONTAINER no longer has the php2shell primitive."
+  say "Next: p2s-hunt --container $CONTAINER --baseline   (know what the tree looks like)"
+  say "      p2s-edge --dry-run                          (block it at the edge too)"
+  exit 0
+else
+  say ""
+  say "FAILED: the ini did not take effect inside the container." >&2
+  say "  Check that $scan_dir is really the scanned conf.d for this SAPI:" >&2
+  docker exec "$CONTAINER" php -i 2>/dev/null | grep -E 'Scan this dir|Loaded Configuration' >&2
+  say "  Roll back with: p2s-mitigate --container $CONTAINER --revert" >&2
+  exit 1
+fi

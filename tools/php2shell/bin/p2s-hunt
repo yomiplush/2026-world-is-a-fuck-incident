@@ -1,0 +1,231 @@
+#!/usr/bin/env bash
+# p2s-hunt — look for the *footprint* of php2shell, not the bug.
+#
+#   p2s-hunt --container php-app --target <ssh-host> --baseline
+#   p2s-hunt --container php-app --target <ssh-host>            # scan vs baseline
+#   p2s-hunt --container php-app --target <ssh-host> --logs     # request-log signals
+#   p2s-hunt --container php-app --json
+#
+# Detection logic, cheapest-to-loudest:
+#   1. php file integrity inside the web root vs a baseline you took while clean
+#   2. any executable php file sitting in a directory that accepts uploads
+#   3. shell-metacharacter payload patterns in new/changed files
+#   4. a shell or download tool parented by php-fpm right now
+#   5. established connections from the container to the public internet
+#   6. request-log signals: POST floods, 5xx bursts, upload-progress field
+#
+# A php2shell success ends with code running as the web user, so 1-3 are the
+# signals that actually matter; 4-6 are context for triage.
+#
+# Exit: 0 clean, 10 findings, 1 error, 2 usage.
+set -uo pipefail
+
+TARGET=""
+CONTAINER=""
+MODE=""
+JSON=0
+SINCE="24h"
+
+usage() { sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; }
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --target)    TARGET="${2:-}"; shift 2 ;;
+    --container) CONTAINER="${2:-}"; shift 2 ;;
+    --baseline)  MODE="baseline"; shift ;;
+    --scan)      MODE="scan"; shift ;;
+    --logs)      MODE="logs"; shift ;;
+    --since)     SINCE="${2:-}"; shift 2 ;;
+    --json)      JSON=1; shift ;;
+    -h|--help)   usage; exit 0 ;;
+    *) echo "p2s-hunt: unknown argument $1" >&2; exit 2 ;;
+  esac
+done
+
+[ -n "$CONTAINER" ] || { usage; exit 2; }
+
+if [ "${P2S_REMOTE:-0}" != "1" ] && [ -n "$TARGET" ] && [ "$TARGET" != "local" ]; then
+  args=(--target local --container "$CONTAINER")
+  [ -n "$MODE" ] && args+=("--$MODE")
+  args+=(--since "$SINCE")
+  [ "$JSON" = "1" ] && args+=(--json)
+  ssh -o BatchMode=yes -o ConnectTimeout=15 "$TARGET" \
+      "P2S_REMOTE=1 bash -s -- ${args[*]}" < "$0"
+  exit $?
+fi
+
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/php2shell-defense/hunt"
+mkdir -p "$STATE"
+BASE="$STATE/$CONTAINER.baseline"
+say() { printf '%s\n' "$*"; }
+dex() { docker exec "$CONTAINER" sh -c "$1" 2>/dev/null; }
+
+docker inspect "$CONTAINER" >/dev/null 2>&1 || { echo "p2s-hunt: no such container: $CONTAINER" >&2; exit 1; }
+[ -n "$MODE" ] || { [ -f "$BASE" ] && MODE="scan" || MODE="baseline"; }
+
+# web root: the document root the container actually serves
+DOCROOT=$(dex 'for d in /var/www/html /app/public /usr/share/nginx/html /var/www; do [ -d "$d" ] && { echo "$d"; break; }; done')
+[ -n "$DOCROOT" ] || DOCROOT="/var/www/html"
+
+# quoted so the * happens inside the container's find, not in the local shell
+PHP_GLOB="-name '*.php' -o -name '*.phtml' -o -name '*.phar' -o -name '*.php5' -o -name '*.php7' -o -name '*.php8' -o -name '*.inc' -o -name '*.pht'"
+
+snapshot() {
+  dex "cd $DOCROOT 2>/dev/null || exit 0
+       find . -type f \\( $PHP_GLOB \\) -print0 2>/dev/null |
+         xargs -0 sha256sum 2>/dev/null || exit 0" | sort -k2
+}
+
+# bind mounts that land inside the docroot == host-writable upload surface
+upload_dirs() {
+  docker inspect "$CONTAINER" --format \
+    '{{range .Mounts}}{{.Type}} {{.Source}} {{.Destination}}{{"\n"}}{{end}}' 2>/dev/null |
+    awk -v root="$DOCROOT" '$1=="bind" && index($3, root)==1 {print $3}'
+}
+
+findings=0
+emit() { findings=$((findings+1)); printf '%s\n' "$*"; }
+
+# ---------------------------------------------------------------------------
+case "$MODE" in
+baseline)
+  snap=$(snapshot)
+  n=$(printf '%s\n' "$snap" | grep -c . || true)
+  [ "$n" -gt 0 ] || { echo "p2s-hunt: could not hash any php file in $DOCROOT" >&2; exit 1; }
+  printf '%s\n' "$snap" > "$BASE"
+  say "baseline: $n php file(s) under $DOCROOT -> $BASE"
+  say "re-run with --scan after any deploy to see what moved"
+  exit 0
+  ;;
+
+scan)
+  [ -f "$BASE" ] || { echo "p2s-hunt: no baseline yet — run --baseline first" >&2; exit 1; }
+  cur=$(snapshot)
+  [ -n "$cur" ] || { echo "p2s-hunt: cannot read $DOCROOT in $CONTAINER" >&2; exit 1; }
+
+  added=$(comm -13 <(awk '{print $2}' "$BASE" | sort) <(printf '%s\n' "$cur" | awk '{print $2}' | sort))
+  removed=$(comm -23 <(awk '{print $2}' "$BASE" | sort) <(printf '%s\n' "$cur" | awk '{print $2}' | sort))
+  changed=$(join -j 2 -o 0,1.1,2.1 \
+              <(sort -k2 "$BASE") <(printf '%s\n' "$cur" | sort -k2) 2>/dev/null |
+            awk '$2!=$3 {print $1}')
+
+  say "== php integrity — $CONTAINER:$DOCROOT =="
+  say "   added: $(printf '%s' "$added" | grep -c .)  changed: $(printf '%s' "$changed" | grep -c .)  removed: $(printf '%s' "$removed" | grep -c .)"
+  if [ -n "$added" ]; then
+    findings=$((findings+1))
+    printf '%s\n' "$added" | sed 's/^/   !! new file: /'
+  fi
+  if [ -n "$changed" ]; then
+    findings=$((findings+1))
+    printf '%s\n' "$changed" | sed 's/^/   !! modified: /'
+  fi
+  [ -n "$removed" ] && printf '%s\n' "$removed" | sed 's/^/   -- removed: /'
+
+  # ---- php in upload directories -----------------------------------------
+  say ""
+  say "== executable php in upload/mounted directories =="
+  any=0
+  while read -r d; do
+    [ -n "$d" ] || continue
+    hits=$(dex "find $d -type f \\( $PHP_GLOB \\) 2>/dev/null | head -20")
+    if [ -n "$hits" ]; then
+      any=1
+      findings=$((findings+1))
+      say "   !! $d"
+      printf '%s\n' "$hits" | sed 's/^/      /'
+    fi
+  done < <(upload_dirs)
+  [ "$any" = "0" ] && say "   none (good: uploads cannot become code)"
+
+  # ---- payload patterns in new/changed files ------------------------------
+  say ""
+  say "== payload patterns in new/changed files =="
+  pat='eval[[:space:]]*\(|assert[[:space:]]*\(|base64_decode[[:space:]]*\(|gzinflate[[:space:]]*\(|str_rot13[[:space:]]*\(|create_function[[:space:]]*\(|\$_(GET|POST|REQUEST|COOKIE|SERVER)\[[^]]*\][[:space:]]*\)|\bsystem[[:space:]]*\(|\bshell_exec[[:space:]]*\(|\bpassthru[[:space:]]*\(|\bpopen[[:space:]]*\(|proc_open[[:space:]]*\(|preg_replace[[:space:]]*\(.*/e'
+  targets=$(printf '%s\n%s\n' "$added" "$changed" | grep -v '^$' || true)
+  if [ -n "$targets" ]; then
+    hit=0
+    while read -r p; do
+      [ -n "$p" ] || continue
+      m=$(docker exec -w "$DOCROOT" "$CONTAINER" grep -nEo "$pat" "$p" 2>/dev/null | head -5)
+      [ -n "$m" ] && { hit=1; findings=$((findings+1)); say "   !! $p"; printf '%s\n' "$m" | sed 's/^/      /'; }
+    done <<< "$targets"
+    [ "$hit" = "0" ] && say "   nothing suspicious in the changed files"
+  else
+    say "   nothing added or changed — skipping"
+  fi
+
+  # ---- live process tree --------------------------------------------------
+  say ""
+  say "== processes in $CONTAINER =="
+  ps_out=$(dex 'ps -eo pid,ppid,user,args 2>/dev/null || ps ax 2>/dev/null')
+  shells=$(printf '%s\n' "$ps_out" | grep -E '(^|/)(sh|bash|dash|curl|wget|nc|ncat|socat|python3?|perl)\b' |
+           grep -vE 'startup\.sh|dumb-init' || true)
+  if [ -n "$shells" ]; then
+    findings=$((findings+1))
+    say "   !! shell/download tool running inside a web container:"
+    printf '%s\n' "$shells" | sed 's/^/      /'
+  else
+    say "   no stray shell or download tool"
+  fi
+  printf '%s\n' "$ps_out" | grep -E 'php-fpm|nginx' | head -5 | sed 's/^/      /'
+
+  # ---- egress -------------------------------------------------------------
+  say ""
+  say "== established connections leaving $CONTAINER =="
+  conns=$(dex 'cat /proc/net/tcp /proc/net/tcp6 2>/dev/null' |
+          awk '$4=="01"{print $3}' | sort -u)
+  pub=0
+  for a in $conns; do
+    hexip="${a%%:*}"
+    case "$hexip" in
+      0100007F|00000000000000000000000001000000|00000000000000000000000000000000) continue ;;
+    esac
+    # any non-loopback established socket is worth a look inside a web container
+    pub=1
+    say "   ? non-loopback established socket: $a"
+  done
+  [ "$pub" = "0" ] && say "   only loopback (good)"
+  [ "$pub" = "1" ] && findings=$((findings+1))
+
+  say ""
+  if [ "$findings" -gt 0 ]; then
+    say "RESULT: $findings finding(s). Treat as possible compromise — see docs/runbook.md"
+    exit 10
+  fi
+  say "RESULT: clean against baseline."
+  exit 0
+  ;;
+
+logs)
+  say "== request-log signals — $CONTAINER (last $SINCE) =="
+  logs=$(docker logs --since "$SINCE" "$CONTAINER" 2>&1)
+  total=$(printf '%s\n' "$logs" | wc -l)
+  say "   lines: $total"
+
+  up=$(printf '%s\n' "$logs" | grep -c 'PHP_SESSION_UPLOAD_PROGRESS' || true)
+  if [ "$up" -gt 0 ]; then
+    findings=$((findings+1))
+    say "   !! requests carrying the upload-progress field: $up"
+    printf '%s\n' "$logs" | grep 'PHP_SESSION_UPLOAD_PROGRESS' | head -10 | sed 's/^/      /'
+  else
+    say "   upload-progress field in logs: 0 (expected — bodies are not logged)"
+  fi
+
+  say ""
+  say "   -- POST targets (last $SINCE) --"
+  printf '%s\n' "$logs" | grep -oE '"POST [^"]+' | sed 's/"POST //' | sort | uniq -c | sort -rn | head -10 | sed 's/^/      /'
+
+  say ""
+  say "   -- 5xx responses (php-fpm crash = the UAF firing) --"
+  s5=$(printf '%s\n' "$logs" | grep -cE '" 5[0-9][0-9] ' || true)
+  say "      count: $s5"
+  [ "${s5:-0}" -gt 0 ] && printf '%s\n' "$logs" | grep -E '" 5[0-9][0-9] ' | tail -10 | sed 's/^/      /'
+
+  say ""
+  say "   -- top client IPs --"
+  printf '%s\n' "$logs" | awk '$1 ~ /^[0-9]+\./ {print $1}' | sort | uniq -c | sort -rn | head -8 | sed 's/^/      /'
+
+  [ "$findings" -gt 0 ] && exit 10
+  exit 0
+  ;;
+esac

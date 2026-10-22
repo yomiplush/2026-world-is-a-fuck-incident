@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+# p2s-patch — install the real fix once PHP ships it, and prove it landed.
+#
+#   p2s-patch --container php-app --dry-run
+#   p2s-patch --container php-app --target <ssh-host>
+#
+# The ini stopgap (p2s-mitigate) buys time. This is the exit: pull the image,
+# recreate the service, and report the PHP version and image digest before and
+# after so you can see whether anything actually changed. If the digest is
+# unchanged the patch is not published yet — nothing else happens.
+#
+# It also re-runs p2s-hunt, because "we patched" and "we were already owned" are
+# different questions.
+#
+# Exit: 0 patched or already newest, 10 still unpatched, 1 failure, 2 usage.
+set -uo pipefail
+
+TARGET=""; CONTAINER=""; DRY=0; KEEP_INI=1
+
+usage() { sed -n '2,17p' "$0" | sed 's/^# \{0,1\}//'; }
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --target) TARGET="${2:-}"; shift 2 ;;
+    --container) CONTAINER="${2:-}"; shift 2 ;;
+    --dry-run) DRY=1; shift ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "p2s-patch: unknown argument $1" >&2; exit 2 ;;
+  esac
+done
+[ -n "$CONTAINER" ] || { usage; exit 2; }
+
+if [ "${P2S_REMOTE:-0}" != "1" ] && [ -n "$TARGET" ] && [ "$TARGET" != "local" ]; then
+  args=(--target local --container "$CONTAINER")
+  [ "$DRY" = "1" ] && args+=(--dry-run)
+  ssh -o BatchMode=yes -o ConnectTimeout=15 "$TARGET" \
+      "P2S_REMOTE=1 bash -s -- ${args[*]}" < "$0"
+  exit $?
+fi
+
+say() { printf '%s\n' "$*"; }
+die() { echo "p2s-patch: $*" >&2; exit 1; }
+
+docker inspect "$CONTAINER" >/dev/null 2>&1 || die "no such container: $CONTAINER"
+project_dir=$(docker inspect "$CONTAINER" --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}')
+service=$(docker inspect "$CONTAINER" --format '{{index .Config.Labels "com.docker.compose.service"}}')
+[ -n "$project_dir" ] || die "$CONTAINER is not compose-managed; patch the image by hand"
+[ -n "$service" ] || service="$CONTAINER"
+
+old_digest=$(docker inspect "$CONTAINER" --format '{{.Image}}')
+old_php=$(docker exec "$CONTAINER" php -r 'echo PHP_VERSION;' 2>/dev/null)
+say "before: $CONTAINER image=$old_digest php=${old_php:-?}"
+say "compose: $project_dir ($service)"
+
+if [ "$DRY" = "1" ]; then
+  say "would run: (cd $project_dir && docker compose pull $service && docker compose up -d --force-recreate --no-deps $service)"
+  exit 0
+fi
+
+( cd "$project_dir" && docker compose pull "$service" ) || die "pull failed (network or registry?)"
+
+say "recreating ..."
+( cd "$project_dir" && docker compose up -d --force-recreate --no-deps "$service" ) \
+  || die "recreate failed — container may be down; check 'docker compose ps'"
+
+new_digest=$(docker inspect "$CONTAINER" --format '{{.Image}}')
+new_php=$(docker exec "$CONTAINER" php -r 'echo PHP_VERSION;' 2>/dev/null)
+say "after : $CONTAINER image=$new_digest php=${new_php:-?}"
+
+if [ "$new_digest" = "$old_digest" ]; then
+  say ""
+  say "no new image was published — still on php ${new_php:-?}."
+  say "The ini stopgap stays in force. Re-run this after the PHP release."
+  exit 10
+fi
+
+up=$(docker exec "$CONTAINER" php -r 'echo (string)ini_get("session.upload_progress.enabled");' 2>/dev/null)
+say ""
+say "new image installed. session.upload_progress.enabled = ${up:-?}"
+say "  (the p2s ini keeps it off; that is defence in depth, not a bug."
+say "   Re-enable it only if you need upload progress bars:"
+say "   p2s-mitigate --container $CONTAINER --revert)"
+
+if [ -x "$(dirname "$0")/p2s-hunt" ]; then
+  say ""
+  "$(dirname "$0")/p2s-hunt" --container "$CONTAINER" --scan || say "  ^ review the findings above"
+fi
+exit 0

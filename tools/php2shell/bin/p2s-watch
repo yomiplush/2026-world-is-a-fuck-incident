@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# p2s-watch — the thing that notices when the world changes under you.
+#
+# Runs p2s-audit + p2s-hunt and compares the PHP inventory with the last run, so
+# that "I pulled a new image", "I started that old WordPress stack", or "a .php
+# file appeared in the upload folder" becomes a line in the journal instead of a
+# surprise. Meant for a systemd --user timer; also fine as a cron entry.
+#
+#   p2s-watch            # audit + hunt + drift check
+#   p2s-watch --quiet    # only speak when something is wrong
+#
+# Exit: 0 clean, 10 something needs a human.
+#
+# Notification: set P2S_NOTIFY_CMD to a command that reads the report on stdin,
+# e.g.  P2S_NOTIFY_CMD='curl -fsS -d @- https://ntfy.sh/your-topic'
+set -uo pipefail
+
+HERE="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/php2shell-defense"
+mkdir -p "$STATE"
+QUIET=0
+[ "${1:-}" = "--quiet" ] && QUIET=1
+rc=0
+out=""
+
+say() { [ "$QUIET" = "1" ] || printf '%s\n' "$*"; }
+note() { out+="$*"$'\n'; }
+
+# ---- 1. is any PHP runtime still armed? -----------------------------------
+audit_json=$("$HERE/bin/p2s-audit" --json 2>/dev/null)
+audit_rc=$?
+say "== audit =="
+if [ "$audit_rc" = "10" ]; then
+  rc=10
+  while IFS=$'\t' read -r s v u d; do
+    say "  !! $s php=$v upload_progress=$u ($d)"
+    note "[audit] $s php=$v upload_progress=$u $d"
+  done < <(printf '%s' "$audit_json" |
+           jq -r '.surfaces[] | select(.verdict=="EXPOSED") | [.surface,.php,.upload_progress,.detail] | @tsv' 2>/dev/null)
+else
+  say "  no exposed PHP runtime"
+fi
+
+# ---- 2. inventory drift ---------------------------------------------------
+inv=$(printf '%s' "$audit_json" | jq -r '.surfaces[]? | .surface + " " + .php' 2>/dev/null | sort)
+prev="$STATE/inventory"
+if [ -f "$prev" ]; then
+  new=$(comm -13 "$prev" <(printf '%s\n' "$inv") | grep -v '^$' || true)
+  if [ -n "$new" ]; then
+    rc=10
+    say "  !! new PHP surface since last run:"
+    printf '%s\n' "$new" | sed 's/^/     /'
+    note "[drift] new PHP surface: $(printf '%s' "$new" | paste -sd, -)"
+  fi
+fi
+printf '%s\n' "$inv" > "$prev"
+
+# ---- 3. integrity of the trees we baselined -------------------------------
+say "== integrity =="
+hunt_dir="$STATE/hunt"
+if [ -d "$hunt_dir" ]; then
+  for b in "$hunt_dir"/*.baseline; do
+    [ -f "$b" ] || continue
+    c=$(basename "$b" .baseline)
+    ver=$("$HERE/bin/p2s-hunt" --container "$c" --scan 2>&1)
+    if [ $? -eq 10 ]; then
+      rc=10
+      say "  !! $c: findings"
+      printf '%s\n' "$ver" | grep -E '^   (!!|--|\?)' | sed 's/^/     /'
+      note "[hunt] $c: $(printf '%s' "$ver" | grep -cE '^   !!') finding(s)"
+    else
+      say "  $c: clean"
+    fi
+  done
+else
+  say "  no baselines yet (p2s-hunt --container X --baseline)"
+fi
+
+# ---- 4. status file + optional notification -------------------------------
+printf '{"at":"%s","rc":%d,"report":"%s"}\n' "$(date -Is)" "$rc" \
+  "$(printf '%s' "$out" | tr '\n' ';')" > "$STATE/last-run.json"
+
+if [ "$rc" = "10" ]; then
+  printf '\nphp2shell-defense: attention needed\n%s\n' "$out"
+  if [ -n "${P2S_NOTIFY_CMD:-}" ]; then
+    printf 'php2shell-defense on %s\n%s\n' "$(hostname)" "$out" | eval "$P2S_NOTIFY_CMD" || true
+  fi
+fi
+exit "$rc"

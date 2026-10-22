@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+# nodefix-audit — list every Node runtime reachable on this host and flag the
+# ones below the 2026-10-21 security release (22.23.4 / 24.22.1 / 26.12.1).
+#
+#   nodefix-audit              # host + docker containers
+#   nodefix-audit --json       # machine readable
+#
+# Exit: 0 everything fixed, 10 at least one runtime is vulnerable/EOL, 2 usage.
+set -uo pipefail
+
+MIN22=22.23.4
+MIN24=24.22.1
+MIN26=26.12.1
+
+json=0
+[ "${1:-}" = "--json" ] && json=1
+
+# actual >= min ?
+ge() { [ "$(printf '%s\n%s\n' "$2" "$1" | sort -V | head -1)" = "$2" ]; }
+
+verdict() {
+  local v=$1 major min
+  case "$v" in
+    v2[246].*) major=${v#v}; major=${major%%.*} ;;
+    *) echo "unknown"; return ;;
+  esac
+  case "$major" in
+    22) min=$MIN22 ;;
+    24) min=$MIN24 ;;
+    26) min=$MIN26 ;;
+    20) echo "EOL"; return ;;
+    *)  echo "unknown"; return ;;
+  esac
+  if ge "${v#v}" "$min"; then echo "ok"; else echo "VULNERABLE"; fi
+}
+
+rows=()
+add() { rows+=("$1|$2|$3"); }
+
+for bin in /usr/bin/node "$HOME/.local/bin/node"; do
+  [ -x "$bin" ] || continue
+  v="$("$bin" -v 2>/dev/null || true)"
+  [ -n "$v" ] && add "host:$bin" "$v" "$(verdict "$v")"
+done
+
+if command -v docker >/dev/null 2>&1; then
+  while read -r c; do
+    v="$(docker exec "$c" sh -c 'node -v' 2>/dev/null | head -1)"
+    case "$v" in v*) add "docker:$c" "$v" "$(verdict "$v")" ;; esac
+  done < <(docker ps --format '{{.Names}}' 2>/dev/null)
+fi
+
+bad=0
+for r in "${rows[@]}"; do [ "${r##*|}" != "ok" ] && bad=1; done
+
+if [ "$json" = "1" ]; then
+  printf '['
+  first=1
+  for r in "${rows[@]}"; do
+    IFS='|' read -r where ver state <<<"$r"
+    [ $first -eq 0 ] && printf ','
+    first=0
+    printf '{"where":"%s","version":"%s","state":"%s"}' "$where" "$ver" "$state"
+  done
+  printf ']\n'
+else
+  printf '%-34s %-10s %s\n' WHERE VERSION STATE
+  for r in "${rows[@]}"; do
+    IFS='|' read -r where ver state <<<"$r"
+    printf '%-34s %-10s %s\n' "$where" "$ver" "$state"
+  done
+  echo
+  if [ "$bad" = "0" ]; then
+    echo "OK: every runtime is on a fixed release."
+  else
+    echo "ATTENTION: at least one runtime is below 22.23.4 / 24.22.1 / 26.12.1 (or EOL 20.x)."
+  fi
+fi
+[ "$bad" = "0" ] || exit 10

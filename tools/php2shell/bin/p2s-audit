@@ -1,0 +1,200 @@
+#!/usr/bin/env bash
+# p2s-audit — inventory every PHP runtime that could be hit by php2shell
+#             (CVE-2026-109618 / CVE-2026-109619) and say whether its
+#             session.upload_progress path is still armed.
+#
+#   p2s-audit                     # this machine
+#   p2s-audit --target <ssh-host>     # over ssh (read-only; needs docker group)
+#   p2s-audit --json              # machine readable
+#
+# Exit status: 0 = nothing exposed, 10 = at least one surface exposed,
+#              2 = usage/transport problem.
+#
+# Why this exists: the bug is in PHP's request/session parsing, so it fires
+# before any application code, WAF-less origin or WordPress/Magento plugin runs.
+# Application-level mitigations do not reach it. The only levers are the PHP
+# runtime itself (this audit + p2s-mitigate) and the edge (p2s-edge).
+set -uo pipefail
+
+REMOTE=0
+JSON=0
+TARGETS=()
+
+usage() { sed -n '2,14p' "$0" | sed 's/^# \{0,1\}//'; }
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --target) TARGETS+=("${2:-}"); shift 2 ;;
+    --json) JSON=1; shift ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "p2s-audit: unknown argument $1" >&2; exit 2 ;;
+  esac
+done
+
+# ---- remote re-exec -------------------------------------------------------
+if [ "${P2S_REMOTE:-0}" != "1" ] && [ "${#TARGETS[@]}" -gt 0 ]; then
+  rc=0
+  for t in "${TARGETS[@]}"; do
+    [ -n "$t" ] || continue
+    [ "$JSON" = "1" ] || printf '\n### target: %s\n' "$t"
+    args=(--target local)
+    [ "$JSON" = "1" ] && args=(--json "${args[@]}")
+    out=$(ssh -o BatchMode=yes -o ConnectTimeout=15 "$t" \
+            "P2S_REMOTE=1 bash -s -- ${args[*]}" < "$0" 2>&1)
+    st=$?
+    printf '%s\n' "$out"
+    [ "$st" -ne 0 ] && rc=$st
+  done
+  exit "$rc"
+fi
+
+# ---- helpers --------------------------------------------------------------
+have() { command -v "$1" >/dev/null 2>&1; }
+ceiling=0
+
+json_escape() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g'; }
+
+# One php process, one JSON line. Works for CLI and for `docker exec`.
+PHP_PROBE='$r=["v"=>PHP_VERSION,"sapi"=>PHP_SAPI,
+ "upload_progress"=>(string)ini_get("session.upload_progress.enabled"),
+ "cleanup"=>(string)ini_get("session.upload_progress.cleanup"),
+ "strict"=>(string)ini_get("session.use_strict_mode"),
+ "save_path"=>(string)ini_get("session.save_path"),
+ "expose_php"=>(ini_get("expose_php")===""?"off":(string)ini_get("expose_php")),
+ "allow_url_include"=>(string)ini_get("allow_url_include"),
+ "disable_functions"=>(string)ini_get("disable_functions"),
+ "open_basedir"=>(string)ini_get("open_basedir")];
+echo json_encode($r);'
+
+php_probe_cmd="php -r '$PHP_PROBE'"
+
+# bind class for a published port
+bind_class() {
+  case "$1" in
+    ""|*"[::]"*|*0.0.0.0*) echo "ALL-IFACES" ;;
+    127.0.0.1*|"[::1]"*)   echo "localhost" ;;
+    100.*)                 echo "tailscale" ;;
+    *)                     echo "other" ;;
+  esac
+}
+
+rows=()
+
+add_row() { # surface version upload_progress strict exposure verdict extra
+  rows+=("$1|$2|$3|$4|$5|$6|$7")
+  [ "$6" = "EXPOSED" ] && ceiling=10
+  return 0
+}
+
+judge() { # version upload_progress -> verdict
+  case "$2" in
+    Off|off|0|"") echo "mitigated" ;;
+    *)
+      # php2shell banner claims 5.4.0+; anything that answers is in scope.
+      echo "EXPOSED" ;;
+  esac
+}
+
+# ---- host-installed PHP ---------------------------------------------------
+host_ver=""
+if have php; then
+  host_ver=$(php -r 'echo PHP_VERSION;' 2>/dev/null)
+fi
+host_pkgs=""
+if have dpkg; then
+  host_pkgs=$(dpkg -l 2>/dev/null | awk '/^ii +php[0-9]/{print $2}' | paste -sd, -)
+fi
+
+if [ -n "$host_ver" ]; then
+  info=$(bash -c "$php_probe_cmd" 2>/dev/null)
+  up=$(printf '%s' "$info" | sed -n 's/.*"upload_progress":"\([^"]*\)".*/\1/p')
+  st=$(printf '%s' "$info" | sed -n 's/.*"strict":"\([^"]*\)".*/\1/p')
+  add_row "host:php-cli" "$host_ver" "${up:-?}" "${st:-?}" "localhost" \
+          "$(judge "$host_ver" "${up:-}")" "packages:${host_pkgs:-none}"
+fi
+
+# distro php-fpm without a `php` CLI symlink
+if [ -d /etc/php ]; then
+  for d in /etc/php/*/fpm; do
+    [ -d "$d" ] || continue
+    ver=$(basename "$(dirname "$d")")
+    if [ -n "$host_ver" ] && [ "$ver" = "$host_ver" ]; then continue; fi
+    ini_up=$(grep -rhs '^[[:space:]]*session\.upload_progress\.enabled' \
+               "/etc/php/$ver" 2>/dev/null | tail -1 | sed 's/.*=[[:space:]]*//')
+    # No explicit directive anywhere == PHP's compiled-in default, which is On.
+    up_display="${ini_up:-On(default)}"
+    add_row "host:php-fpm@$ver" "$ver" "$up_display" "?" "localhost" \
+            "$(judge "$ver" "${ini_up:-1}")" "conf:/etc/php/$ver"
+  done
+fi
+
+# ---- containers -----------------------------------------------------------
+containers=()
+if have docker && docker info >/dev/null 2>&1; then
+  mapfile -t containers < <(docker ps --format '{{.Names}}' 2>/dev/null)
+fi
+
+for c in "${containers[@]}"; do
+  [ -n "$c" ] || continue
+  probe=$(timeout 8 docker exec "$c" sh -c "$php_probe_cmd" 2>/dev/null)
+  # distroless images have no sh; try direct exec
+  if [ -z "$probe" ]; then
+    probe=$(timeout 8 docker exec "$c" php -r "$PHP_PROBE" 2>/dev/null)
+  fi
+  [ -n "$probe" ] || continue
+  [ "${probe#\{}" = "$probe" ] && continue   # not JSON -> not php
+
+  ver=$(printf '%s' "$probe"   | sed -n 's/.*"v":"\([^"]*\)".*/\1/p')
+  up=$(printf '%s' "$probe"    | sed -n 's/.*"upload_progress":"\([^"]*\)".*/\1/p')
+  st=$(printf '%s' "$probe"    | sed -n 's/.*"strict":"\([^"]*\)".*/\1/p')
+  sp=$(printf '%s' "$probe"    | sed -n 's/.*"save_path":"\([^"]*\)".*/\1/p')
+  exp=$(printf '%s' "$probe"   | sed -n 's/.*"expose_php":"\([^"]*\)".*/\1/p')
+
+  ports=$(docker port "$c" 2>/dev/null | paste -sd' ' -)
+  cls=internal
+  for p in $ports; do
+    b=$(bind_class "${p%%:*}")
+    [ "$b" = "ALL-IFACES" ] && { cls="ALL-IFACES"; break; }
+    [ "$b" = "tailscale" ] && cls="tailscale"
+    [ "$b" = "localhost" ] && [ "$cls" = "internal" ] && cls="localhost"
+  done
+  [ -n "$ports" ] || ports="no published port"
+  add_row "docker:$c" "$ver" "${up:-?}" "${st:-?}" "$cls" \
+          "$(judge "$ver" "${up:-}")" "ports:${ports} save_path:${sp:-default} expose_php:${exp:-?}"
+done
+
+# ---- report ---------------------------------------------------------------
+if [ "$JSON" = "1" ]; then
+  printf '{"generated":"%s","host":"%s","surfaces":[' "$(date -Is)" "$(hostname)"
+  first=1
+  for r in "${rows[@]}"; do
+    IFS='|' read -r s v u t e d x <<<"$r"
+    [ "$first" = "1" ] || printf ','
+    first=0
+    printf '{"surface":"%s","php":"%s","upload_progress":"%s","strict_mode":"%s","exposure":"%s","verdict":"%s","detail":"%s"}' \
+      "$(json_escape "$s")" "$v" "$u" "$t" "$e" "$d" "$(json_escape "$x")"
+  done
+  printf '],"summary":"%s"}\n' "$([ "$ceiling" = 10 ] && echo exposed || echo clean)"
+  exit "$ceiling"
+fi
+
+printf '\n== php2shell exposure audit — %s (%s) ==\n' "$(hostname)" "$(date -Is)"
+if [ "${#rows[@]}" -eq 0 ]; then
+  printf '  no PHP runtime found on this host\n'
+else
+  printf '  %-26s %-9s %-5s %-7s %-11s %-9s %s\n' SURFACE PHP UP STRICT EXPOSURE VERDICT DETAIL
+  for r in "${rows[@]}"; do
+    IFS='|' read -r s v u t e d x <<<"$r"
+    printf '  %-26s %-9s %-5s %-7s %-11s %-9s %s\n' "$s" "$v" "$u" "$t" "$e" "$d" "$x"
+  done
+fi
+printf '\n  UP=session.upload_progress.enabled (the php2shell primitive)\n'
+printf '  No PHP at all is the strongest possible result: the bug needs a PHP runtime.\n'
+
+if [ "$ceiling" = 10 ]; then
+  printf '\n  ACTION: at least one runtime still has upload progress enabled.\n'
+  printf '          p2s-mitigate --container <name>   (or patch PHP when it lands)\n\n'
+else
+  printf '\n  OK: nothing on this host can execute the php2shell primitive right now.\n\n'
+fi
+exit "$ceiling"
