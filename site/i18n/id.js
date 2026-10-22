@@ -12,7 +12,7 @@ window.registerLocale("id", {
     coverFoot: "Setiap klaim bisa ditelusuri ke sumber primer. Hanya ConnectWise yang belum terverifikasi.",
     drawerTitle: "SUMBER / SOURCES",
     drawerFoot: "14 dari 15 terverifikasi lewat sumber primer. ConnectWise dicatat sebagai belum terverifikasi.",
-    asof: "per 2026-10-22 21:20 JST"
+    asof: "per 2026-10-23 07:25 JST"
   },
   scenes: {
     intro: { title: "Satu bulan, lima belas insiden.",

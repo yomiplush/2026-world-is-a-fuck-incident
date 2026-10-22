@@ -12,7 +12,7 @@ window.registerLocale("fr", {
     coverFoot: "Chaque affirmation renvoie à une source primaire. Seul ConnectWise reste non vérifié.",
     drawerTitle: "SOURCES",
     drawerFoot: "14 sur 15 vérifiés à la source. ConnectWise est signalé comme non vérifié.",
-    asof: "au 2026-10-22 21:20 JST"
+    asof: "au 2026-10-23 07:25 JST"
   },
   scenes: {
     intro: { title: "Un mois, quinze incidents.",

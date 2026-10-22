@@ -15,15 +15,16 @@
 | **自前の GitLab を運用している** | 満点（CVSS 10.0）。ログインなしでコード実行。**先週パッチを当てていても該当する** | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** へ → [`docs/09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM を 1.107.0 で入れた** | 入れた時点で侵害。Python を起動するたびに資格情報を外部へ送る | **先に `pip` を実行しない**。手順どおり除去とローテート → [`docs/10`](docs/10-litellm-1-107-0.ja.md) |
 | **Railway にデプロイしている** | 環境変数（＝APIキー、DBのパスワード）が復号された可能性 | 環境変数を**全部**作り直す → [`docs/11`](docs/11-week-of-oct-20.ja.md) |
-| **Plex Media Server を外部公開している** | **KEV 収載**（実悪用）。個々は 4.3〜7.2 だが連鎖でコード実行。期限が 10-23 のものあり | 1.43.3.10861 へ更新＋アカウントトークンをローテート → [`docs/12`](docs/12-plex-oct2026.ja.md) |
+| **Plex Media Server を外部公開している** | **KEV 収載**（実悪用）。個々は 4.3〜7.2 だが連鎖でコード実行。**期限は本日 2026-10-23** | 1.43.3.10861 以上へ（現行は **1.43.5.11029**）＋アカウントトークンをローテート → [`docs/12`](docs/12-plex-oct2026.ja.md) |
 
 ### 0-2. 今週中（条件が揃えば効くもの）
 
 | あなたが | 何が起きたか | やること |
 |---|---|---|
-| **サーバで Java を動かしている** | 55件。最大 7.5 で悪用は未確認。ただし**「影響版」と「修正版」が別**（21.0.12.1 → 21.0.13） | 修正版ビルドへ → [`docs/07`](docs/07-oracle-java-oct2026.ja.md) |
+| **サーバで Java を動かしている** | 55件。最大 7.5 で悪用は未確認。ただし**「影響版」と「修正版」が別**（21.0.12.1 → 21.0.13）。Temurin の 17 / 21 / 25 は 2026-10-22 に出た | 修正版ビルドへ → [`docs/07`](docs/07-oracle-java-oct2026.ja.md) |
 | **CA バンドルを自前で持つ**（Go / Python / Node / Java / コンテナ / VPN） | eMudhra の中間CA **8本**の鍵が弱すぎて、誰でも計算できる（**3〜8ビット**）。ブラウザは対応済み、長い尾は Docker・IoT・Python の同梱ルート | `ca-certificates` / `certifi` / Go / NSS を更新 → [`docs/03`](docs/03-emudhra-ca.ja.md) |
 | **AI ツールにプロバイダキーを渡している** | 今週の攻撃は**鍵**を狙っている（Railway / LiteLLM / OpenCode） | キーを棚卸しし、プロバイダ側の利用履歴を見る → [`docs/11` §5](docs/11-week-of-oct-20.ja.md) |
+| **AI エージェントにシェルを許可している** | 許可プロンプトが常に「はい」を返す実装が2件（**9.8**）。エージェントが読むテキストがホストのコマンドになり、LLM・クラウドの鍵ごと持ち出される | 更新（**EvoScientist 0.2.5**）またはヘッドレスでゲートを検証 → [`docs/19` §6](docs/19-snapshot-0730jst.ja.md) |
 | **Node.js を 20.x で動かしている** | 20 は EOL。修正が来ない | **22.23.4 / 24.22.1 / 26.12.1** へ → [`docs/02`](docs/02-nodejs-oct2026.ja.md) |
 
 ### 0-3. 言葉の言い換え（このリポジトリでよく出る言葉）
@@ -78,9 +79,11 @@ Español / Français / Deutsch / Português / Русский / العربية / 
 **Oracle Java の四半期パッチ**、**eMudhra の CA 鍵8本**）について、事実・一次ソース・
 再現手順・実行できる防御ツールをひとまとめにした記録です。**読むため**と、**手を動かすため**の両方に使えます。
 
-**データ基準時点**: 2026-10-22 00:15 UTC / 同日 **21:20 JST** に再取得（差分は
-[`docs/16`](docs/16-snapshot-2120jst.ja.md)）。新しいパッチが出ていないことは Node.js・PHP・
-Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
+**データ基準時点**: **2026-10-23 07:25 JST**（2026-10-22 22:25 UTC）— 同じ週の3回目の取得。
+夜間の差分は [`docs/19`](docs/19-snapshot-0730jst.ja.md)、前回までは
+[`docs/16`](docs/16-snapshot-2120jst.ja.md) と `data/2026-10-22/` にあります。新しいパッチが
+出ていないことは Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース索引で
+確認済み。
 
 ---
 
@@ -103,8 +106,16 @@ Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
 
 12件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
 
-この表は「名前が付いた事案」だけです。**直近2週間の NVD CRITICAL は120件**あり、そのうち実際に
-悪用が確認されているのは1件でした。絞り込みの手順と残った12件は [`docs/13`](docs/13-recent-criticals.ja.md)。
+この表は「名前が付いた事案」だけです。**直近2週間の NVD CRITICAL は125件**（2026-10-23 時点。
+文書を書いた 10-22 時点は120件）、そのうち実際に悪用が確認されているのは1件です。絞り込みの
+手順と残った12件は [`docs/13`](docs/13-recent-criticals.ja.md)。**120→125 の理由は2つ**
+（NVD が PHP の CVE 1件を再評価した／深刻度フィルタは CNA のスコアしか持たない行を数えない）で、
+どちらも [`docs/13` §9](docs/13-recent-criticals.ja.md) に書きました。
+
+前回の取得に対して、このスナップショットが訂正するものが2つあります（[`docs/19`](docs/19-snapshot-0730jst.ja.md)）。
+**NVD は `CVE-2026-109619` を 9.8 → 8.1 に下げました**（攻撃の複雑さの判断で、影響度も修正内容も
+変わらない）。そして**収集ツールが CNA のスコアを採用していた**行がありました。入れるべき版は
+どちらでも変わりません。
 
 ただし今週を特徴づけるのは**鍵の窃取**です。Railway・LiteLLM・OpenCode の3件は、
 「AI 推論プロバイダの資格情報」という同じ獲物を狙う同じ形をしています。この読み方は
@@ -116,10 +127,12 @@ Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
 ### 機械可読サマリ
 
 ```yaml
-as_of: 2026-10-22T00:15Z
+as_of: 2026-10-22T22:25Z          # 2026-10-23 07:25 JST
 php:
   cves: [CVE-2026-109618, CVE-2026-109619]
   cvss_v4: 9.2
+  nvd_cvss_v31: { CVE-2026-109618: 9.8, CVE-2026-109619: 8.1 }   # 109619 は 2026-10-22T21:17Z に再評価（AC:L → AC:H）
+  epss_2026-10-22: { CVE-2026-109618: 0.0531, CVE-2026-109619: 0.0576 }   # 14日窓の最高値
   affected: ">=5.4.0"
   fixed: { "8.5": "8.5.12", "8.4": "8.4.27", "8.3": "8.3.36", "8.2": "8.2.35" }
   no_official_fix: "<=8.1 (minimal source backports published for 7.4/8.0/8.1)"
@@ -137,6 +150,7 @@ java:
   max_cvss: 7.5
   affected: ["8u503", "8u503-perf", "11.0.32.1", "17.0.20.1", "21.0.12.1", "25.0.4.1", "26.0.2", "27"]
   fixed:    ["8u511", "11.0.33", "17.0.21", "21.0.13", "25.0.5", "27.0.1"]   # 2026-10-20
+  temurin:  ["17.0.21+9", "21.0.13+9", "25.0.5+8"]   # 2026-10-22 公開。8u504 / 11.0.32.1 は8月ビルドのまま
   no_fix:   "26 (26.0.3 does not exist; move to 27)"
   in_kev: false
 ca:
@@ -161,17 +175,29 @@ railway:
 plex:
   cves: [CVE-2026-96651, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
   fixed: "1.43.3.10861"
+  current: "1.43.5.11029"        # Plex が配布している版。どちらでも KEV の下限は満たす
   kev: [CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
-  kev_due: "2026-10-23 (96654, 96656)"
+  kev_due: "2026-10-23 (96654, 96656) — このスナップショット時点で本日。フォレンジックトリアージ必須"
 opencode:
   event: "Console incident; provider keys exposed, user keys revoked"
   published_by_vendor: false
 recent_criticals:
   window: "2026-10-08..2026-10-22"
-  total: 120
+  total: 125                     # 10-22 の取得では120。11件入り、10件出た
+  ge_9_8: 72
+  exactly_10_0: 13
   in_kev: 1
-  oracle: 34
-  consumer_iot: 38
+  oracle: 32
+  consumer_iot: 36
+  epss_max: 0.0576               # CVE-2026-109619（すでに CRITICAL の外）
+  caveat: "cvssV3Severity は NVD が解析済みの行だけを数える。CNA のスコアしか無い行は見えない"
+msrc_2026_oct:
+  entries: 2584
+  cve_entries: 2583
+  exploited: [CVE-2026-96951]    # 3回の再公開を通じて1件のまま
+agent_approval_gates:            # docs/19 §6
+  cves: [CVE-2026-109444, CVE-2026-77930]   # 9.8, 9.8 — OpenSRE / EvoScientist
+  fixed: { EvoScientist: "0.2.5", OpenSRE: "以降の日付版" }
 ```
 
 <details>
@@ -376,8 +402,11 @@ sudo apt install --only-upgrade openjdk-21-jre-headless
 sudo pacman -Syu jre-openjdk
 ```
 
-- **Temurin / Corretto / Zulu は Oracle より遅れます。** 2026-10-22 時点で Temurin の最新は
-  8月のビルド（`21.0.12.1+1` など）。ベンダのリリースノートを見て、出てから上げてください。
+- **Temurin / Corretto / Zulu は Oracle より遅れます。ただし Temurin は5ライン中3ラインで追いつきました。**
+  2026-10-23 時点で Adoptium は `17.0.21+9` / `21.0.13+9` / `25.0.5+8` を公開しています
+  （2026-10-22 12:07〜17:28 UTC にアップロード）。8 と 11 は8月ビルド（`8u504` / `11.0.32.1`）のままで、
+  **番号は Oracle（`8u511` / `11.0.33`）と対応しません。** 番号を翻訳せず、そのベンダの
+  リリースノートを読んでください。Corretto / Zulu は未確認です。
 - コンテナは**修正版タグで再ビルド**。起動中のコンテナに JRE を差し込まない。
 - 上げたあとは `java -version` の**ビルド文字列**（`21.0.13+10`）で確認する。
 
@@ -471,7 +500,7 @@ tools/node/nodefix-audit --target <your-host>        # Node ランタイムの�
 
 **一覧は数日で古くなります。残るのは取得元と、その問い直し方です。**
 [`docs/08-intel-sources.ja.md`](docs/08-intel-sources.ja.md) に、研究者／業界フィード12本・
-公式フィード4本のカタログと、2026-10-22 時点のスナップショット（KEV 直近37件、MSRC 2,575
+公式フィード4本のカタログと、2026-10-23 時点のスナップショット（KEV 直近33件、MSRC 2,584
 エントリ、JVN 20件）を置いてあります。手で写した数字は載せていません。
 
 ```bash
@@ -520,6 +549,7 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/14-supply-chain-oct2026.ja.md`](docs/14-supply-chain-oct2026.ja.md) | 供給網の15件を1件ずつ検証（14件確認・1件未確認）、8件の詳細、統制の表 |
 | [`docs/15-apache-oct2026.ja.md`](docs/15-apache-oct2026.ja.md) | Apache の10月分: Tomcat 3件・httpd 2.4.69・Traffic Server、深刻度ラベルと CVSS の食い違い |
 | [`docs/16-snapshot-2120jst.ja.md`](docs/16-snapshot-2120jst.ja.md) | 2026-10-22 21:20 JST の再取得。KEV 据え置き / MSRC 2,575→2,578 / CRITICAL 120→124 / Plex 最新版 |
+| [`docs/19-snapshot-0730jst.ja.md`](docs/19-snapshot-0730jst.ja.md) | 2026-10-23 07:25 JST の再取得。NVD が PHP の CVE 1件を 8.1 へ / MSRC +6（うち3件が 10.0）/ 収集ツールの CNA スコア誤読 / エージェントの許可ゲート 2件 |
 | [`docs/17-lkml-oct2026.ja.md`](docs/17-lkml-oct2026.ja.md) | Linux カーネルの6件が公開 LKML へ。SMB Direct / ksmbd の 9.0、未修正、露出削減、検証できたこと・できなかったこと |
 | [`docs/18-bind-cve-2026-94300.ja.md`](docs/18-bind-cve-2026-94300.ja.md) | BIND 9 の GSS-TSIG リプレイ（CVSS 8.1、回避策なし）、影響版と修正版、設定の確認方法 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
@@ -554,7 +584,7 @@ bash tools/copy-prompt.sh intel ja
 
 ## 7. 鮮度について（重要）
 
-このリポジトリは **2026-10-22 時点のスナップショット**です。脆弱性情報は数日で古くなります。
+このリポジトリは **2026-10-23 07:25 JST 時点のスナップショット**です。脆弱性情報は数日で古くなります。
 
 - バージョン判定は必ず**実行中のバイナリ**で行う。タグ・イメージ名は信用しない。
 - 数日以上経っているなら、まず `SOURCES.ja.md` の一次ソースを叩き直す。まとめてやるなら

@@ -34,7 +34,7 @@ window.CONTENT = {
       coverFoot: "出所はすべて一次ソース。1件だけ未確認（ConnectWise）。",
       drawerTitle: "出典 / SOURCES",
       drawerFoot: "14/15 は一次ソースで確認済み。ConnectWise は未確認として記載。",
-      asof: "2026-10-22 21:20 JST 時点",
+      asof: "2026-10-23 07:25 JST 時点",
       lang: "JA"
     },
     en: {
@@ -49,7 +49,7 @@ window.CONTENT = {
       coverFoot: "Every claim traces to a primary source. One row (ConnectWise) is unverified.",
       drawerTitle: "SOURCES",
       drawerFoot: "14 of 15 verified against primary sources. ConnectWise is carried as unverified.",
-      asof: "as of 2026-10-22 21:20 JST",
+      asof: "as of 2026-10-23 07:25 JST",
       lang: "EN"
     }
   },
@@ -327,7 +327,7 @@ window.CONTENT = {
           "KEV 追加 10-20 / 期限 <b>10-23</b>（96656 と 96654）",
           "連鎖: 任意の X-Plex-Token → SSRF → プラグイン呼び出し → 管理書き込み → 起動時に .so 実行",
           "96651 は KEV 外だが <b>PlexOnlineToken</b> を読む＝アカウント掌握",
-          "修正 <b>1.43.3.10861</b>、最新は <b>1.43.5.11029</b>（21:20 JST 時点）。NAS のパッケージは遅れる"
+          "修正 <b>1.43.3.10861</b>、最新は <b>1.43.5.11029</b>（2026-10-23 07:25 JST 時点）。NAS のパッケージは遅れる"
         ]
       },
       en: {
@@ -623,6 +623,8 @@ window.CONTENT = {
           note: { ja: "深刻度ラベルの食い違い", en: "labels versus CVSS" } },
         { name: "docs/16 snapshot 21:20 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/16-snapshot-2120jst.md",
           note: { ja: "当日2回目の取得と差分", en: "second read of the day, with the diff" } },
+        { name: "docs/19 snapshot 07:25 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/19-snapshot-0730jst.md",
+          note: { ja: "夜間の再取得。NVD の再評価とエージェントの許可ゲート", en: "overnight re-read: NVD rescore, agent approval gates" } },
         { name: "Repository", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident",
           note: { ja: "一次ソースと検証コマンド", en: "primary sources and re-fetch commands" } }
       ],

@@ -11,7 +11,9 @@ so you only read what applies to you. Items sourced only from secondary reportin
 - The MSRC CVRF lists **2,578 CVE entries** (a count across products and updates, not "2,578
   distinct vulnerabilities"; press reports said "more than 1,400"). That figure is as of the
   first read: the same CVRF was re-issued on 2026-10-21, and retrieving it on 2026-10-22 yields
-  **2,575** entries. Re-derive the count; see `08-intel-sources.md` §5.
+  **2,575** entries — then 2,578 again that evening and **2,584** by 2026-10-23 07:25 JST (+6 Azure
+  CVEs, all `Exploited:No`). Re-derive the count; see `08-intel-sources.md` §5 and
+  [`docs/19` §5](19-snapshot-0730jst.md).
 - **Exactly one was confirmed exploited**: **CVE-2026-96951** — Windows Shell security feature
   bypass. Command injection lets an unauthorised attacker bypass a security feature over the
   network. CVSS 3.1 **8.8** (`AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F`). Updates include KB5126836.

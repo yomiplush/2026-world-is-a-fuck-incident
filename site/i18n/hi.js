@@ -12,7 +12,7 @@ window.registerLocale("hi", {
     coverFoot: "हर दावा किसी प्राथमिक स्रोत तक जाता है। केवल ConnectWise असत्यापित है।",
     drawerTitle: "स्रोत / SOURCES",
     drawerFoot: "15 में से 14 प्राथमिक स्रोतों से सत्यापित। ConnectWise असत्यापित के रूप में दर्ज है।",
-    asof: "2026-10-22 21:20 JST तक"
+    asof: "2026-10-23 07:25 JST तक"
   },
   scenes: {
     intro: { title: "एक महीना, पंद्रह घटनाएँ।",

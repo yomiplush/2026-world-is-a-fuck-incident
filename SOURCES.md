@@ -122,7 +122,7 @@ Primary sources go down. Measured on 2026-10-22:
 | JVN iPedia / MyJVN API | `jvndb.jvn.jp/myjvn?...` returned a 384-byte HTML page titled メンテナンス中, not XML | the `jvn.jp` advisory feed, IPA pages |
 | MSRC blog `/feed` | returned `text/html` with HTTP 200 and zero items | `microsoft.com/security/blog/feed/`, CVRF API |
 | NVD analysis pending | Oracle's October CVEs are `Awaiting Analysis` | the vendor risk matrix |
-| Vendor build lag | Temurin still on August builds two days after Oracle | that vendor's own release notes |
+| Vendor build lag | Temurin still on August builds two days after Oracle — then shipped 17 / 21 / 25 the next day | that vendor's own release notes, checked on the day you act |
 
 `tools/intel/fetch-intel` writes the sources that worked and exits `10` on partial failure
 (`0` all, `2` nothing).
@@ -157,4 +157,5 @@ When a figure looks wrong, doubt it in this order:
 
 `ncsc.md` is a verbatim copy of NCSC-NL's README, so its relative links point at that
 repository, not at this one. Counts are as of retrieval: an MSRC CVRF that is re-issued moves
-them (`docs/05` recorded 2,578; the 2026-10-21 re-issue yields 2,575).
+them (`docs/05` recorded 2,578; the 2026-10-21 re-issue yielded 2,575; 2026-10-22, 2,584). The
+same applies to NVD scores — `CVE-2026-109619` moved 9.8 → 8.1 the day after publication.

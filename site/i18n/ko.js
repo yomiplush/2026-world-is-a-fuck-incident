@@ -12,7 +12,7 @@ window.registerLocale("ko", {
     coverFoot: "모든 주장은 1차 출처로 추적됩니다. ConnectWise 한 건만 미확인입니다.",
     drawerTitle: "출처 / SOURCES",
     drawerFoot: "15건 중 14건을 1차 출처로 확인했습니다. ConnectWise는 미확인으로 표기합니다.",
-    asof: "2026-10-22 21:20 JST 기준"
+    asof: "2026-10-23 07:25 JST 기준"
   },
   scenes: {
     intro: {

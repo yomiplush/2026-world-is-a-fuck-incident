@@ -15,15 +15,16 @@
 | **run GitLab yourself** | a perfect-10.0 hole: no login needed to run code. **Patching last week is not enough** | upgrade to **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** → [`docs/09`](docs/09-gitlab-19-5-1.md) |
 | **installed LiteLLM 1.107.0** | installing it *was* the compromise: every Python start ships credentials out | **do not run `pip` first**; remove, then rotate → [`docs/10`](docs/10-litellm-1-107-0.md) |
 | **deploy on Railway** | customer environment variables — i.e. your secrets — may have been decrypted | regenerate **every** env var → [`docs/11`](docs/11-week-of-oct-20.md) |
-| **expose Plex Media Server** | **in KEV** (real exploitation): 4.3–7.2 individually, but chainable to code execution, with a 2026-10-23 deadline | update to 1.43.3.10861 and rotate account tokens → [`docs/12`](docs/12-plex-oct2026.md) |
+| **expose Plex Media Server** | **in KEV** (real exploitation): 4.3–7.2 individually, but chainable to code execution. **The deadline is today (2026-10-23)** | update to ≥ 1.43.3.10861 — Plex ships **1.43.5.11029** — and rotate account tokens → [`docs/12`](docs/12-plex-oct2026.md) |
 
 ### 0-2. This week (real, but conditional)
 
 | If you... | What happened | Do this |
 |---|---|---|
-| **run Java on a server** | 55 CVEs, highest 7.5, no known exploitation — but **"affected" and "fixed" are different versions** (21.0.12.1 → 21.0.13) | move to the fixed build → [`docs/07`](docs/07-oracle-java-oct2026.md) |
+| **run Java on a server** | 55 CVEs, highest 7.5, no known exploitation — but **"affected" and "fixed" are different versions** (21.0.12.1 → 21.0.13). Temurin's 17 / 21 / 25 builds landed on 2026-10-22 | move to the fixed build → [`docs/07`](docs/07-oracle-java-oct2026.md) |
 | **ship your own trust store** (Go / Python / Node / Java / containers / VPN) | eight eMudhra intermediate keys were **too weak to be secret** — 3–8 bits. Browsers handled theirs; the long tail is Docker, IoT, Python bundles | update `ca-certificates` / `certifi` / Go / NSS → [`docs/03`](docs/03-emudhra-ca.md) |
 | **gave provider keys to an AI tool** | this week's attacks target **keys** (Railway, LiteLLM, OpenCode) | inventory keys, read provider usage logs → [`docs/11` §5](docs/11-week-of-oct-20.md) |
+| **let an AI agent run shell commands** | two agent frameworks shipped approval gates that always say yes (**9.8**): text the agent reads becomes a host command, and the LLM / cloud keys leave with it | update (**EvoScientist 0.2.5**) or test the gate headlessly → [`docs/19` §6](docs/19-snapshot-0730jst.md) |
 | **run Node.js 20.x** | 20 is EOL and will never be patched | move to **22.23.4 / 24.22.1 / 26.12.1** → [`docs/02`](docs/02-nodejs-oct2026.md) |
 
 ### 0-3. Words, translated
@@ -82,9 +83,10 @@ GitLab**, **a supply-chain compromise of LiteLLM**, **Railway's environment-vari
 compromised eMudhra CA keys**. This repository is the record: what happened, the primary sources, the reproduction
 steps, and a defence toolkit you can actually run. It is meant to be **read** and **executed**.
 
-**Data as of 2026-10-22 00:15 UTC**, re-collected the same day at **21:20 JST** (diff in
-[`docs/16`](docs/16-snapshot-2120jst.md)). No newer patch exists — confirmed against the Node.js,
-PHP, Tomcat, httpd and Oracle release indexes.
+**Data as of 2026-10-23 07:25 JST** (2026-10-22 22:25 UTC) — the third read of the same week. The
+overnight diff is [`docs/19`](docs/19-snapshot-0730jst.md); the earlier reads are in
+[`docs/16`](docs/16-snapshot-2120jst.md) and `data/2026-10-22/`. No newer patch exists — confirmed
+against the Node.js, PHP, GitLab, Tomcat, httpd, BIND, Plex and Oracle release indexes.
 
 > Every document has an English original (`NAME.md`) and a Japanese mirror (`NAME.ja.md`).
 > This README is the English entry point and carries every fact needed to act on its own.
@@ -110,9 +112,16 @@ PHP, Tomcat, httpd and Oracle release indexes.
 
 The twelve are **independent**. Patching PHP does not fix GitLab; the CA, Java, Apache, the kernel and BIND are separate again.
 
-That table is only the named incidents. **NVD published 120 CRITICALs in the same two weeks**, and exactly
-one of them is known-exploited. The filter, and the twelve rows that survived it, are in
-[`docs/13`](docs/13-recent-criticals.md).
+That table is only the named incidents. **NVD returned 125 CRITICALs in the same two weeks** — 120
+when [`docs/13`](docs/13-recent-criticals.md) was written — and exactly one of them is
+known-exploited. The filter, and the twelve rows that survived it, are in `docs/13`; its §9 explains
+why the number moved (NVD rescored one PHP CVE, and the severity filter does not count rows that
+only have a CNA score) and carries the correction to the ≥ 9.8 count.
+
+Two corrections this snapshot owes the previous one, both in [`docs/19`](docs/19-snapshot-0730jst.md):
+**NVD moved `CVE-2026-109619` from 9.8 to 8.1** (attack complexity, not impact — the fix is the same
+release), and **the collector had been recording the CNA's score instead of NVD's** on rows where
+the two differ. Neither changes a version to install.
 
 What defines the week, though, is **credential theft**: Railway, LiteLLM and OpenCode are the same
 attack against three different key stores, all aimed at AI inference credentials. That reading is
@@ -124,10 +133,12 @@ that no application change can substitute for, and exposure that is enough on it
 ### Machine-readable summary
 
 ```yaml
-as_of: 2026-10-22T00:15Z
+as_of: 2026-10-22T22:25Z          # 2026-10-23 07:25 JST
 php:
   cves: [CVE-2026-109618, CVE-2026-109619]
   cvss_v4: 9.2
+  nvd_cvss_v31: { CVE-2026-109618: 9.8, CVE-2026-109619: 8.1 }   # 109619 rescored 2026-10-22T21:17Z; AC:L -> AC:H
+  epss_2026-10-22: { CVE-2026-109618: 0.0531, CVE-2026-109619: 0.0576 }   # highest in the 14-day window
   affected: ">=5.4.0"
   fixed: { "8.5": "8.5.12", "8.4": "8.4.27", "8.3": "8.3.36", "8.2": "8.2.35" }
   no_official_fix: "<=8.1 (minimal source backports published for 7.4/8.0/8.1)"
@@ -145,6 +156,7 @@ java:
   max_cvss: 7.5
   affected: ["8u503", "8u503-perf", "11.0.32.1", "17.0.20.1", "21.0.12.1", "25.0.4.1", "26.0.2", "27"]
   fixed:    ["8u511", "11.0.33", "17.0.21", "21.0.13", "25.0.5", "27.0.1"]   # 2026-10-20
+  temurin:  ["17.0.21+9", "21.0.13+9", "25.0.5+8"]   # published 2026-10-22; 8u504 / 11.0.32.1 still August builds
   no_fix:   "26 (26.0.3 does not exist; move to 27)"
   in_kev: false
 ca:
@@ -169,17 +181,29 @@ railway:
 plex:
   cves: [CVE-2026-96651, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
   fixed: "1.43.3.10861"
+  current: "1.43.5.11029"        # what Plex ships; either clears the KEV floor
   kev: [CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
-  kev_due: "2026-10-23 (96654, 96656)"
+  kev_due: "2026-10-23 (96654, 96656) — today at this snapshot; forensic triage required"
 opencode:
   event: "Console incident; provider keys exposed, user keys revoked"
   published_by_vendor: false
 recent_criticals:
   window: "2026-10-08..2026-10-22"
-  total: 120
+  total: 125                     # 120 at the 10-22 read; 11 in, 10 out
+  ge_9_8: 72
+  exactly_10_0: 13
   in_kev: 1
-  oracle: 34
-  consumer_iot: 38
+  oracle: 32
+  consumer_iot: 36
+  epss_max: 0.0576               # CVE-2026-109619, which is no longer in the CRITICAL set
+  caveat: "cvssV3Severity counts NVD-analysed rows only; CNA-only scores are invisible"
+msrc_2026_oct:
+  entries: 2584
+  cve_entries: 2583
+  exploited: [CVE-2026-96951]    # unchanged across three re-issues
+agent_approval_gates:            # docs/19 §6
+  cves: [CVE-2026-109444, CVE-2026-77930]   # 9.8, 9.8 — OpenSRE / EvoScientist
+  fixed: { EvoScientist: "0.2.5", OpenSRE: "later date-stamped release" }
 ```
 
 <details>
@@ -388,8 +412,11 @@ sudo apt install --only-upgrade openjdk-21-jre-headless
 sudo pacman -Syu jre-openjdk
 ```
 
-- **Temurin / Corretto / Zulu lag Oracle.** On 2026-10-22 Temurin's newest builds were still the
-  August ones (`21.0.12.1+1`). Check that vendor's release notes and upgrade when it ships.
+- **Temurin / Corretto / Zulu lag Oracle — but Temurin has now caught up on three of the five
+  lines.** As of 2026-10-23 Adoptium publishes `17.0.21+9`, `21.0.13+9` and `25.0.5+8` (uploaded
+  2026-10-22 12:07–17:28 UTC). Its 8 and 11 lines are still the August builds (`8u504`,
+  `11.0.32.1`) and **their numbering does not map onto Oracle's** (`8u511`, `11.0.33`) — read that
+  vendor's release notes instead of translating the number. Corretto / Zulu were not checked.
 - **Rebuild container images** on the fixed tag. Do not copy a JRE into a running container.
 - Verify with the **build string** (`21.0.13+10`), not the product name.
 
@@ -485,7 +512,7 @@ If Node is behind, go to `runbooks/nodejs.md`.
 **A list is stale in days. The sources and the way to re-ask them are what survives.**
 [`docs/08-intel-sources.md`](docs/08-intel-sources.md) holds the catalog — 12 researcher and
 industry feeds, four official feeds — plus the 2026-10-22 snapshot (KEV's last 37 additions,
-2,575 MSRC entries, 20 JVN items). No hand-copied counts: every number is regenerated.
+2,584 MSRC entries, 20 JVN items). No hand-copied counts: every number is regenerated.
 
 ```bash
 tools/intel/fetch-intel                       # everything into data/YYYY-MM-DD/
@@ -535,6 +562,7 @@ bash tools/copy-prompt.sh intel
 | `docs/14-supply-chain-oct2026.md` | The 15-item October list checked one by one: 14 verified, 1 not, and the controls that would have helped |
 | `docs/15-apache-oct2026.md` | Apache in October: three Tomcat fixes, httpd 2.4.69, Traffic Server smuggling, and labels versus CVSS |
 | `docs/16-snapshot-2120jst.md` | The 21:20 JST re-read: KEV unchanged, MSRC 2,575→2,578, CRITICAL 120→124, current Plex build |
+| `docs/19-snapshot-0730jst.md` | The 07:25 JST re-read: NVD rescored one PHP CVE to 8.1, MSRC +6 (three at 10.0), the collector's CNA-score bug, and the two agent approval-gate CVEs |
 | `docs/17-lkml-oct2026.md` | Six kernel reports posted publicly: SMB Direct and ksmbd at 9.0, still unpatched, and what was verifiable |
 | `docs/18-bind-cve-2026-94300.md` | BIND 9 GSS-TSIG replay: CVSS 8.1, no workaround, affected/fixed versions, how to check your config |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
@@ -568,7 +596,7 @@ The tools do three things only: **find it, stop it, prove it**. No exploit code.
 
 ## 7. Freshness (important)
 
-This is a **snapshot from 2026-10-22**. Vulnerability data decays in days.
+This is a **snapshot from 2026-10-23 07:25 JST**. Vulnerability data decays in days.
 
 - Judge versions **by the running binary**. Never trust a tag or an image name.
 - If this is more than a few days old, re-fetch the primary sources in `SOURCES.md` first — the

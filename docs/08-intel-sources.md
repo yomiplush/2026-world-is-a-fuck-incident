@@ -97,7 +97,7 @@ does not mean a new vulnerability.** CISA adds older CVEs when it learns of expl
 "everything added this week" is not "everything published this week" — and a 2015 CVE on your
 estate is still a 2015 CVE you never patched.
 
-### 3.2 MSRC — October 2026 (initial release 2026-10-13, re-issued 2026-10-21)
+### 3.2 MSRC — October 2026 (initial release 2026-10-13; re-issued 2026-10-21, 2026-10-22)
 
 | Metric | Value |
 |---|--:|
@@ -107,6 +107,11 @@ estate is still a 2015 CVE you never patched.
 | `Exploited:Yes` | **1** — `CVE-2026-96951` (Windows, security feature bypass) |
 | `Publicly Disclosed:Yes` | 2 — `CVE-2026-108398`, `CVE-2026-92707` |
 | Impact distribution | Elevation of Privilege 678 titles, RCE 347, Information Disclosure 261 |
+
+The table is the **2026-10-21** re-issue. Within the same week the CVRF was re-issued twice more:
+**2,578** (+3 CVEs) and then **2,584** (+6 Azure CVEs, three at CVSS 10.0). `Exploited:Yes` stayed
+at exactly one through all three readings — a count that moves does not always mean a finding
+that moves ([`docs/19` §5](19-snapshot-0730jst.md)).
 
 `CVE-2026-96951` also entered KEV on 2026-10-13, so the two sources agree. That agreement is
 worth checking every month: when MSRC says exploited and KEV does not list it (or vice versa),
@@ -218,8 +223,10 @@ file names, so `git diff` between two snapshots shows exactly what the world cha
 
 ## 8. Sources
 
-Every URL above is the source it cites; the machine-readable snapshot is
-[`data/2026-10-22/`](../data/2026-10-22/):
+Every URL above is the source it cites; the machine-readable snapshot table below is
+[`data/2026-10-22/`](../data/2026-10-22/). **The newest read is
+[`data/2026-10-23-0730jst/`](../data/2026-10-23-0730jst/)** — same file names, same commands, which
+is the point: `git diff` between two snapshot directories shows what actually moved.
 
 | File | Contents |
 |---|---|

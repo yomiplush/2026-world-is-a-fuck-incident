@@ -12,7 +12,7 @@ window.registerLocale("ru", {
     coverFoot: "Каждое утверждение опирается на первоисточник. Не проверен только ConnectWise.",
     drawerTitle: "ИСТОЧНИКИ / SOURCES",
     drawerFoot: "14 из 15 проверены по первоисточникам. ConnectWise помечен как непроверенный.",
-    asof: "на 2026-10-22 21:20 JST"
+    asof: "на 2026-10-23 07:25 JST"
   },
   scenes: {
     intro: { title: "Один месяц, пятнадцать инцидентов.",

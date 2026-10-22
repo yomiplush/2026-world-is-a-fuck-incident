@@ -2,6 +2,12 @@
 
 [English](13-recent-criticals.md) | [**日本語**](13-recent-criticals.ja.md)
 
+> **Re-read 2026-10-23 07:25 JST.** The same query, run ten hours later, returns **125** — eleven
+> rows in, ten out — because NVD rescored one of the two PHP CVEs and because the severity filter
+> ignores CNA-only scores. Re-deriving the numbers also exposed an extraction bug in the collector
+> that had been recording the CNA's score instead of NVD's. §2 below is kept as the 2026-10-22
+> reading; **§9** has what changed and why, including the corrected ≥ 9.8 count.
+
 "Are there other serious ones?" is the right question and the wrong shape. A two-week sweep of
 NVD returns **120 CVEs scored CRITICAL**, and if you read them in order you will spend a day on
 routers you do not own and learn nothing about the one that is being exploited.
@@ -168,3 +174,59 @@ chunks) and tolerates a failed EPSS call by leaving `epss: null` rather than dro
   <https://github.com/cisagov/CSAF/tree/develop/csaf_files/IT/white/2026>
 - Per-vendor advisories for the §3 rows: Cisco, Broadcom, IBM, Progress, JetBrains, Froxlor,
   FreeBSD, Node.js/undici, Dell, BeyondTrust (each linked from its NVD record's references)
+
+## 9. Re-read on 2026-10-23 07:25 JST — 125, and a bug in the reader
+
+Same command, same window (2026-10-08 → 2026-10-22), ten hours later:
+[`data/2026-10-23-0730jst/nvd-critical-14d.json`](../data/2026-10-23-0730jst/nvd-critical-14d.json).
+Full write-up in [`docs/19`](19-snapshot-0730jst.md).
+
+| | 2026-10-22 (this document) | 2026-10-23 07:25 JST |
+|---|--:|---|
+| CVEs returned | 120 | **125** |
+| …at exactly 10.0 | 11 | **13** |
+| …at ≥ 9.8 | 48 | **72** (same 125 rows read correctly — see §9.3) |
+| …with an EPSS score | 109 | **114** |
+| Highest EPSS in the window | 3.0% | **5.76%** (`CVE-2026-109619`) |
+| In KEV | 1 | 1 |
+
+### 9.1 A fifth trap: the severity filter counts only NVD's own assessment
+
+`cvssV3Severity=CRITICAL` answers on the **Primary** metric. A record still `Awaiting Analysis`,
+carrying only the CNA's Secondary score, is invisible to it:
+
+```bash
+curl -s 'https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-101809&cvssV3Severity=CRITICAL' | jq .totalResults
+# → 0    (the record's only metric is secalert_us@oracle.com, Secondary, 10.0)
+```
+
+Nine of the ten rows that left between the two reads are in that state (`Awaiting Analysis`,
+`Undergoing Analysis`, `Deferred`); the tenth is the rescore in §9.2. So "N CVEs scored CRITICAL" is a count of **analysed** records,
+not of serious ones — the same class of mistake as §5.1, one layer down: not "which score do I
+read" but "which scores does the query even see".
+
+### 9.2 NVD rescored one of the two PHP CVEs
+
+`CVE-2026-109619` went 9.8 → **8.1** at 2026-10-22 21:17Z, with `AC:L` → `AC:H`. `CVE-2026-109618`
+stayed 9.8. PHP's own CVSS 4.0 (9.2 for both) is unchanged, and the fix is unchanged. The
+operational consequence is narrow and worth knowing: a "≥ 9.0" triage filter now drops one of the
+two CVEs in a single advisory. Patch by advisory, not by score.
+
+### 9.3 The collector was reading the wrong metric
+
+`collect_nvd_critical` took `metrics.cvssMetricV31[0]` as the score. NVD lists the CNA's metric
+before its own on some records, and the two can sit in different severity bands — `CVE-2026-95695`
+is Secondary 7.4 (IBM) **and** Primary 9.1 (NVD) at once, so a row selected by a CRITICAL filter
+was being recorded as 7.4. The collector now prefers `type: Primary` and falls back otherwise.
+On **the same 125 rows**: ≥ 9.8 goes from 53 to **72**; exactly 10.0 stays at 13.
+
+That is a defect in the instrument, not a change in the world, and it is the reason this document
+now reads §2 as a dated measurement. The old `data/` snapshots are kept as they were collected.
+
+### 9.4 The window's top EPSS is now php2shell
+
+`CVE-2026-109619` 5.76% (percentile 0.930) and `CVE-2026-109618` 5.31% (0.926), both dated
+2026-10-22. §5.3 said the maximum was 3.0% and that EPSS is near-useless for week-old CVEs; the
+first half of that is now out of date, the second half is not. 5.3% is still a low absolute number
+— but it is the highest in the window, on a CVE with a public exploit, and CISA still records
+"not observed". [`docs/08` §4](08-intel-sources.md) is the reason those are separate claims.

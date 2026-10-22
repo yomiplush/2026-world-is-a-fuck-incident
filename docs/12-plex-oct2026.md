@@ -4,7 +4,9 @@
 
 Plex is in CISA KEV, which is the only claim in this repository that means "someone is actually
 using this". The four KEV entries were added **2026-10-20**, and two of them carry a due date of
-**2026-10-23** — tomorrow, if you are reading this on the snapshot date.
+**2026-10-23** — i.e. the day this snapshot was taken, so "tomorrow" became "today" while the
+document was being written. Plex's current release is **1.43.5.11029**, two builds above the floor
+the KEV note names.
 
 What follows comes from CISA's own machine-readable advisory
 ([`data/2026-10-22/csaf-va-26-266-01.json`](../data/2026-10-22/csaf-va-26-266-01.json),
