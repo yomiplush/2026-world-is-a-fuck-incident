@@ -62,6 +62,10 @@ bash tools/copy-prompt.sh intel      # decision prompt, from the dated source sn
 bash tools/copy-prompt.sh intel ja   # decision prompt, Japanese
 ```
 
+**Tap-through briefing (web)**: <https://2026-incident-briefing.pages.dev> — the fifteen items in order, with pseudo-3D
+motion, synthesised SFX and a generated lofi loop. Sound is on; toggle it top-right.
+Phone: tap/swipe. Desktop: space / arrows.
+
 The remediation prompt keeps the agent read-only first, makes it branch on the table in §2-3,
 verify versions against the running binary, and never describe a partial mitigation as a fix.
 The decision prompt makes it re-fetch the data first, keep affected and fixed versions apart,
@@ -171,6 +175,33 @@ recent_criticals:
   oracle: 34
   consumer_iot: 38
 ```
+
+<details>
+<summary><b>The 15 supply-chain items of October 2026 — open the checked list</b></summary>
+
+| # | Incident | What actually happened (plainly) | Status |
+|---|---|---|---|
+| 1 | Railway | customer env vars (i.e. secrets) may have been decrypted; rotate everything | vendor |
+| 2 | LiteLLM 1.107.0 | installing it was the compromise; every Python start shipped credentials out | research + vendor |
+| 3 | Zeabur | leaked internal credentials → cluster and GCP boxes' env vars read; second time in two months | vendor |
+| 4 | OpenCode | Console incident exposed provider keys, keys revoked; no vendor advisory | user reports |
+| 5 | OVHcloud CLI | official release assets replaced for 94 minutes (v0.11.0–v0.15.0) | vendor (GHSA) |
+| 6 | Rank Math PRO | malware in some 3.0.123 downloads; fixed 3.0.124 (CVE-2026-111862, 9.8) | research + vendor |
+| 7 | TeamUpdraft | customer DB read, then connection keys pushed malicious plugins into WordPress sites | vendor + research |
+| 8 | ConnectWise | cloud backup identities compromised — **no primary source found** | **unverified** |
+| 9 | Tensorlake (npm) | `tensorlake@0.5.144`: stealer + worm + a trap that wipes `$HOME` if you revoke the stolen token | research |
+| 10 | SubQuery (npm) | `@subql/common@5.8.3`: credential collection at install and on import | research |
+| 11 | GhostAction | fake `security-audit.yml` swept secrets and git history out of 345 repos | research |
+| 12 | PHP | php2shell, every release from 5.4.0 | vendor |
+| 13 | Node.js | fixed in 22.23.4 / 24.22.1 / 26.12.1 | vendor |
+| 14 | eMudhra | eight intermediate keys too weak to be secret (one is `4`) | vendor + research |
+| 15 | Tailscale | trusted those intermediates; fixed in v1.104.2 (Go 1.27.3) | vendor |
+
+**14 of the 15 are confirmed against a primary source**; only ConnectWise is not. What they share
+is that the *trust decision about what code runs* was the weak point — the detail and the controls
+are in [`docs/14`](docs/14-supply-chain-oct2026.md).
+
+</details>
 
 ---
 
@@ -495,6 +526,7 @@ bash tools/copy-prompt.sh intel
 | `docs/11-week-of-oct-20.md` | The vx-underground list fact-checked: Railway, OpenCode, and the "it is the keys" reading |
 | `docs/12-plex-oct2026.md` | Plex's five CVEs (KEV, the chain, the deadline), NAS package lag, token rotation |
 | `docs/13-recent-criticals.md` | A two-week CRITICAL sweep: 120 CVEs, the twelve that survived, four traps in the data |
+| `docs/14-supply-chain-oct2026.md` | The 15-item October list checked one by one: 14 verified, 1 not, and the controls that would have helped |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
 | `runbooks/nodejs.md` | Audit → containers → hosts → rollback |
 | `tools/php2shell/` | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`, ini, systemd unit, selftest |
@@ -503,6 +535,7 @@ bash tools/copy-prompt.sh intel
 | `tools/copy-prompt.sh` | Puts an AI prompt on the clipboard (`en` / `ja` / `intel` / `intel ja`) |
 | `prompts/` | Ready-to-paste prompts: remediation and decision, English and Japanese |
 | `data/2026-10-22/` | Raw API responses the numbers come from (Java, KEV, MSRC, JVN, feeds, NVD) |
+| `site/` | The tap-through briefing (<https://2026-incident-briefing.pages.dev>): pseudo-3D canvas, synthesised SFX, generative lofi |
 | `SOURCES.md` | Every source, with the command to re-fetch it |
 
 Each of the files above also exists as `NAME.ja.md` (Japanese).

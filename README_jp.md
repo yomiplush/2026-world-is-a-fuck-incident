@@ -62,6 +62,9 @@ bash tools/copy-prompt.sh intel      # 判断用プロンプト（英語・情�
 bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・情報源版）
 ```
 
+**タップで進むブリーフィング（Web）**: <https://2026-incident-briefing.pages.dev> — 15件を時系列に、3D演出・効果音・自作Lofiで。
+音が出ます（右上の SOUND で消せます）。スマホはタップ／スワイプ、PCはスペース／←→。
+
 対応用は「まず読み取り専用」「§2-3 の表で分岐」「バージョンは実行中のバイナリで確認」
 「部分的な緩和を修正と呼ばない」を守らせる。判断用は「まずデータを再取得」「影響版と修正版を
 分ける」「主張ごとに出所と取得日」「空白を記憶で埋めない」を守らせる（[`docs/08`](docs/08-intel-sources.ja.md)）。
@@ -164,6 +167,33 @@ recent_criticals:
   oracle: 34
   consumer_iot: 38
 ```
+
+<details>
+<summary><b>供給網の15件（2026年10月）— 検証済みの一覧を開く</b></summary>
+
+| # | 事案 | 何が起きたか（かみ砕くと） | 状態 |
+|---|---|---|---|
+| 1 | Railway | 顧客の環境変数（＝秘密）が復号された可能性。全ローテート | ベンダ |
+| 2 | LiteLLM 1.107.0 | 入れた時点で侵害。Python 起動のたびに資格情報を窃取 | 研究＋ベンダ |
+| 3 | Zeabur | 内部資格情報の漏えい → クラスタとGCP機の環境変数を読まれる。2か月で2回目 | ベンダ |
+| 4 | OpenCode | Console 事案でプロバイダキーが露出、キー失効。勧告は未公開 | 利用者報告 |
+| 5 | OVHcloud CLI | 公式リリース資産が94分間だけ差し替え（v0.11.0〜v0.15.0） | ベンダ（GHSA） |
+| 6 | Rank Math PRO | 3.0.123 の一部にマルウェア。修正 3.0.124（CVE-2026-111862、9.8） | 研究＋ベンダ |
+| 7 | TeamUpdraft | 顧客DBを読まれ、接続キーで WordPress へ悪性プラグインを投入 | ベンダ＋研究 |
+| 8 | ConnectWise | クラウドバックアップの身元侵害——**一次ソースが見つからない** | **未確認** |
+| 9 | Tensorlake (npm) | `tensorlake@0.5.144`。窃取＋ワーム＋失効させると `$HOME` を消す罠 | 研究 |
+| 10 | SubQuery (npm) | `@subql/common@5.8.3`。インストール時と import 時に資格情報を収集 | 研究 |
+| 11 | GhostAction | 偽 `security-audit.yml` が345リポジトリの秘密と履歴を外部送信 | 研究 |
+| 12 | PHP | php2shell、5.4.0 以降の全リリース | ベンダ |
+| 13 | Node.js | 22.23.4 / 24.22.1 / 26.12.1 で修正 | ベンダ |
+| 14 | eMudhra | 中間CA 8本の秘密鍵が弱すぎる（1本は `4`） | ベンダ＋研究 |
+| 15 | Tailscale | 当該中間CAを信頼していた。v1.104.2（Go 1.27.3）で修正 | ベンダ |
+
+15件のうち **14件は一次ソースで確認済み**、ConnectWise だけ確認できていません。
+共通点は「何のコードが動くかを決める信頼」の側が壊れたこと——詳細と対策は
+[`docs/14`](docs/14-supply-chain-oct2026.ja.md)。
+
+</details>
 
 ---
 
@@ -481,6 +511,7 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/11-week-of-oct-20.ja.md`](docs/11-week-of-oct-20.ja.md) | vx-underground のリストを検証: Railway、OpenCode、「鍵が狙われている」の整理 |
 | [`docs/12-plex-oct2026.ja.md`](docs/12-plex-oct2026.ja.md) | Plex の5件（KEV、連鎖、期限）、NAS のパッケージ遅延、トークンローテート |
 | [`docs/13-recent-criticals.ja.md`](docs/13-recent-criticals.ja.md) | 直近2週間の CRITICAL 120件の走査、残った12件、データの4つの罠 |
+| [`docs/14-supply-chain-oct2026.ja.md`](docs/14-supply-chain-oct2026.ja.md) | 供給網の15件を1件ずつ検証（14件確認・1件未確認）、8件の詳細、統制の表 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
 | [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |
@@ -489,6 +520,7 @@ bash tools/copy-prompt.sh intel ja
 | [`tools/copy-prompt.sh`](tools/copy-prompt.sh) | AI に渡すプロンプトをクリップボードへ（`en` / `ja` / `intel` / `intel ja`） |
 | [`prompts/`](prompts/) | コピペ用プロンプト（対応用・判断用、英語版・日本語版） |
 | [`data/2026-10-22/`](data/2026-10-22/) | 取得した生データ（Java 55件、KEV 差分、MSRC、JVN、フィード、NVD、PHP リリース一覧） |
+| [`site/`](site/) | タップ進行のブリーフィングサイト（<https://2026-incident-briefing.pages.dev>）。擬似3D・自作SFX・生成Lofi |
 | [`SOURCES.ja.md`](SOURCES.ja.md) | 全ソースと再取得コマンド |
 
 ツールは「見つける・止める・確かめる」の3点に絞ってあります。攻撃コードは含みません。
