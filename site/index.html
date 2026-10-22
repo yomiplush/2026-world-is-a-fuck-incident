@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#05080d">
 <title>OCT 2026 — Incident Briefing</title>
 <meta name="description" content="2026年10月に重なったセキュリティ事案を、タップで進むブリーフィング形式のモーショングラフィックスで時系列に追う。">
-<link rel="stylesheet" href="./style.css?v=5">
+<link rel="stylesheet" href="./style.css?v=6">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070b12'/><path d='M6 22 L16 8 L26 22' stroke='%23ffb545' stroke-width='2' fill='none'/><circle cx='16' cy='22' r='2.5' fill='%23ffb545'/></svg>">
 </head>
 <body>
@@ -24,12 +24,16 @@
       <span class="tag">OCT 2026</span>
       <span class="sep"></span>
       <span id="chapter" class="chapter">BRIEFING 00</span>
+      <span id="asof" class="asof">as of 21:20 JST</span>
     </div>
     <div class="hud-right">
-      <div class="lang" id="lang" role="group" aria-label="Language / 言語">
-        <button type="button" class="langbtn" data-lang="ja" aria-pressed="true">JA</button>
-        <button type="button" class="langbtn" data-lang="en" aria-pressed="false">EN</button>
-      </div>
+      <label class="langwrap" title="言語 / Language (L)">
+        <select id="lang-select" class="langselect" aria-label="Language / 言語">
+          <option value="ja">日本語</option>
+          <option value="en">English</option>
+        </select>
+        <span class="caret" aria-hidden="true">▾</span>
+      </label>
       <button type="button" id="btn-audio" class="chip" aria-pressed="true" title="サウンド (M)">SOUND ON</button>
       <button type="button" id="btn-info" class="chip" title="出典">SOURCES</button>
     </div>
@@ -84,9 +88,9 @@
   </aside>
 </main>
 
-<script src="./data.js?v=5"></script>
-<script src="./audio.js?v=5"></script>
-<script src="./visuals.js?v=5"></script>
-<script src="./app.js?v=5"></script>
+<script src="./data.js?v=6"></script>
+<script src="./audio.js?v=6"></script>
+<script src="./visuals.js?v=6"></script>
+<script src="./app.js?v=6"></script>
 </body>
 </html>

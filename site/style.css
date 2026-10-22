@@ -113,13 +113,24 @@ h1#title{font-size:clamp(24px,4.6vw,44px);line-height:1.14;margin:.1em 0 .5em;
 .cover-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.34em;color:var(--amber);margin:0 0 14px}
 .cover-title{font-size:clamp(30px,7vw,60px);line-height:.98;letter-spacing:-.02em;margin:0 0 16px;font-weight:900}
 .cover-title em{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(230,238,246,.55)}
-/* segmented language control: the active language is always visible */
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
-.langbtn{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);
-  padding:6px 9px;line-height:1;transition:.15s color,.15s background}
-.langbtn[aria-pressed="true"]{color:#0a0d12;background:var(--amber);font-weight:700}
-.langbtn:hover:not([aria-pressed="true"]){color:var(--ink)}
-.langbtn:focus-visible{outline:1px solid var(--cyan);outline-offset:-1px}
+/* pull-down language selector: a native <select> styled to match the HUD */
+.langwrap{position:relative;display:inline-flex;align-items:center}
+.langselect{
+  appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+  color:var(--ink);background:rgba(255,255,255,.04);
+  border:1px solid var(--line);border-radius:2px;
+  padding:6px 22px 6px 9px;line-height:1;cursor:pointer;
+  transition:border-color .15s,color .15s;
+}
+.langselect:hover,.langselect:focus-visible{border-color:rgba(255,255,255,.45);outline:none}
+.langselect:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
+.langselect option{background:#0b1118;color:var(--ink)}
+.caret{position:absolute;right:7px;top:50%;transform:translateY(-50%);
+  font-size:9px;color:var(--amber);pointer-events:none}
+.asof{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:rgba(138,155,171,.75);
+  border-left:1px solid var(--line);padding-left:10px;white-space:nowrap}
+@media (max-width:520px){.asof{display:none}}
 .cover-sub{color:#b6c6d4;font-size:clamp(13px,1.6vw,15px);line-height:1.85;margin:0 0 22px}
 .start{font-family:var(--mono);font-size:13px;letter-spacing:.2em;font-weight:700;color:#0a0d12;
   background:var(--amber);padding:14px 26px;border-radius:2px;transition:.18s}
