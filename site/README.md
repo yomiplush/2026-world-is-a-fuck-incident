@@ -48,6 +48,14 @@ Everything is synthesised in the browser; there are no audio files to license or
   reverb impulse. Scheduled with a 140 ms lookahead so it does not drift.
 - Audio only starts after a gesture (browser rule). `M` or the SOUND button toggles everything.
 
+## Bilingual (JA / EN)
+
+Every scene carries `ja` and `en` copy in `data.js`; numbers, visuals and audio cues are shared.
+The HUD switch (or `L`) flips language without restarting the scene, remembers the choice in
+`localStorage`, and honours `?lang=en` / `?lang=ja`. The default follows `navigator.language`,
+so a Japanese browser opens in Japanese and everything else in English. `<html lang>` is updated
+with the text, and the rail's aria-labels follow too.
+
 ## Content rule
 
 The copy in `data.js` is a summary of `docs/` in the parent repository, which cites primary
