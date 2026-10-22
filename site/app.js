@@ -9,7 +9,8 @@
   [
     "scene", "panel", "kicker", "stamp", "title", "lede", "points", "metric", "metric-val",
     "metric-label", "chapter", "rail", "btn-next", "btn-prev", "btn-audio", "btn-info",
-    "btn-close", "lang", "drawer", "source-list", "cover", "btn-start", "hint", "more",
+    "btn-close", "lang-select", "asof", "drawer", "source-list", "cover", "btn-start",
+    "hint", "more",
     "cover-kicker", "cover-title-a", "cover-title-b", "cover-sub", "cover-foot",
     "drawer-title", "drawer-foot"
   ].forEach((id) => {
@@ -39,9 +40,8 @@
   function applyChrome() {
     document.documentElement.lang = lang;
     el.chapter.textContent = `${ui("chapter")} ${String(index + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")}`;
-    [...el.lang.querySelectorAll("button")].forEach((b) => {
-      b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false");
-    });
+    if (el.langSelect && el.langSelect.value !== lang) el.langSelect.value = lang;
+    if (el.asof) el.asof.textContent = ui("asof");
     el.btnAudio.textContent = `${ui("sound")} ${A.isOn && A.isOn() ? ui("on") : ui("off")}`;
     el.btnInfo.textContent = ui("sources");
     el.btnClose.textContent = ui("close");
@@ -177,13 +177,13 @@
   el.panel.addEventListener("scroll", updateMore, { passive: true });
   el.btnNext.addEventListener("click", (e) => { e.stopPropagation(); next(); });
   el.btnPrev.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
-  el.lang.addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-lang]");
-    if (!btn) return;
+  // pull-down: change fires on selection, and on phones the native picker is used
+  el.langSelect.addEventListener("change", (e) => {
     e.stopPropagation();
-    const want = btn.dataset.lang;
-    if (want === lang) { A.sfx("blip"); return; }
+    const want = el.langSelect.value;
+    if (want === lang) return;
     setLang(want);
+    el.langSelect.blur();          // give the canvas/tap area back on mobile
   });
   // keyboard shortcut still flips, for people who never touch the mouse
   window.addEventListener("keydown", (e) => {
@@ -197,7 +197,7 @@
   }, { passive: true });
   document.addEventListener("pointerup", (e) => {
     if (!started) return;
-    if (e.target.closest("button, a, .drawer")) return;
+    if (e.target.closest("button, a, select, label, .drawer")) return;
     const dx = e.clientX - downX, dy = e.clientY - downY;
     const dt = Date.now() - downT;
     if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) && dt < 700) {

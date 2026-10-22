@@ -64,7 +64,7 @@ bash tools/copy-prompt.sh intel ja   # decision prompt, Japanese
 
 **Tap-through briefing (web)**: <https://2026-incident-briefing.pages.dev> — the fifteen items in order, with pseudo-3D
 motion, synthesised SFX and a generated lofi loop. Sound is on; toggle it top-right.
-**JA / EN toggle** included (`?lang=en`, or press `L`). Phone: tap/swipe. Desktop: space / arrows.
+**Language pull-down** (日本語 / English, `?lang=`, or press `L`). Phone: tap/swipe. Desktop: space / arrows.
 
 The remediation prompt keeps the agent read-only first, makes it branch on the table in §2-3,
 verify versions against the running binary, and never describe a partial mitigation as a fix.
@@ -80,8 +80,9 @@ GitLab**, **a supply-chain compromise of LiteLLM**, **Railway's environment-vari
 compromised eMudhra CA keys**. This repository is the record: what happened, the primary sources, the reproduction
 steps, and a defence toolkit you can actually run. It is meant to be **read** and **executed**.
 
-**Data as of 2026-10-22 00:15 UTC** (last verified). No newer patch exists — confirmed against
-the Node.js release index and the advisory list.
+**Data as of 2026-10-22 00:15 UTC**, re-collected the same day at **21:20 JST** (diff in
+[`docs/16`](docs/16-snapshot-2120jst.md)). No newer patch exists — confirmed against the Node.js,
+PHP, Tomcat, httpd and Oracle release indexes.
 
 > Every document has an English original (`NAME.md`) and a Japanese mirror (`NAME.ja.md`).
 > This README is the English entry point and carries every fact needed to act on its own.
@@ -529,6 +530,7 @@ bash tools/copy-prompt.sh intel
 | `docs/13-recent-criticals.md` | A two-week CRITICAL sweep: 120 CVEs, the twelve that survived, four traps in the data |
 | `docs/14-supply-chain-oct2026.md` | The 15-item October list checked one by one: 14 verified, 1 not, and the controls that would have helped |
 | `docs/15-apache-oct2026.md` | Apache in October: three Tomcat fixes, httpd 2.4.69, Traffic Server smuggling, and labels versus CVSS |
+| `docs/16-snapshot-2120jst.md` | The 21:20 JST re-read: KEV unchanged, MSRC 2,575→2,578, CRITICAL 120→124, current Plex build |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
 | `runbooks/nodejs.md` | Audit → containers → hosts → rollback |
 | `tools/php2shell/` | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`, ini, systemd unit, selftest |

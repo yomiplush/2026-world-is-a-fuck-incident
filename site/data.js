@@ -15,6 +15,7 @@ window.CONTENT = {
       coverFoot: "出所はすべて一次ソース。1件だけ未確認（ConnectWise）。",
       drawerTitle: "出典 / SOURCES",
       drawerFoot: "14/15 は一次ソースで確認済み。ConnectWise は未確認として記載。",
+      asof: "2026-10-22 21:20 JST 時点",
       lang: "JA"
     },
     en: {
@@ -29,6 +30,7 @@ window.CONTENT = {
       coverFoot: "Every claim traces to a primary source. One row (ConnectWise) is unverified.",
       drawerTitle: "SOURCES",
       drawerFoot: "14 of 15 verified against primary sources. ConnectWise is carried as unverified.",
+      asof: "as of 2026-10-22 21:20 JST",
       lang: "EN"
     }
   },
@@ -300,7 +302,7 @@ window.CONTENT = {
           "KEV 追加 10-20 / 期限 <b>10-23</b>（96656 と 96654）",
           "連鎖: 任意の X-Plex-Token → SSRF → プラグイン呼び出し → 管理書き込み → 起動時に .so 実行",
           "96651 は KEV 外だが <b>PlexOnlineToken</b> を読む＝アカウント掌握",
-          "修正 <b>1.43.3.10861</b>。NAS のパッケージは遅れる（ベンダも警告）"
+          "修正 <b>1.43.3.10861</b>、最新は <b>1.43.5.11029</b>（21:20 JST 時点）。NAS のパッケージは遅れる"
         ]
       },
       en: {
@@ -311,7 +313,7 @@ window.CONTENT = {
           "added to KEV 10-20 / due <b>10-23</b> for 96656 and 96654",
           "chain: any X-Plex-Token → SSRF → plugin call → admin file write → .so executed at startup",
           "96651 is not in KEV, yet it reads <b>PlexOnlineToken</b> — account takeover",
-          "fixed in <b>1.43.3.10861</b>; NAS package stores lag, and the vendor says so"
+          "fixed in <b>1.43.3.10861</b>, but the current release is <b>1.43.5.11029</b>; NAS stores lag"
         ]
       }
     },
@@ -478,7 +480,7 @@ window.CONTENT = {
     },
     {
       id: "sweep", stamp: "10.22",
-      metric: { val: "120 : 1", label: { ja: "critical CVEs : known exploited", en: "critical CVEs : known exploited" } },
+      metric: { val: "124 : 1", label: { ja: "critical CVEs : known exploited", en: "critical CVEs : known exploited" } },
       visual: { type: "bars", values: [120, 1], labels: ["CRITICAL", "KEV"] }, cue: "confirm",
       sources: [
         { name: "NVD API 2.0", url: "https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=CRITICAL",
@@ -490,22 +492,22 @@ window.CONTENT = {
       ],
       ja: {
         kicker: "THE SWEEP · NVD, 14 DAYS",
-        title: "2週間で CRITICAL 120件。悪用は1件。",
+        title: "2週間で CRITICAL 124件。悪用は1件。",
         lede: "件数はリスクではなく、開示のまとめ方を測っている。CVSS の最大値も、他人の仮定を含む。",
         points: [
-          "120件のうち <b>60%</b> は Oracle とコンシューマ IoT",
-          "NVD の CPE 紐付けは <b>27%</b> — ベンダ別集計は3分の1しか見えない",
+          "124件のうち <b>58%</b> は Oracle とコンシューマ IoT（今日4件増、うち3件は2021/2022のCVE）",
+          "NVD の CPE 紐付けは <b>26%</b> — ベンダ別集計は4分の1しか見えない",
           "EPSS 最高は 3.0%。KEV 入りの Plex 96656 は <b>0.76%</b>（新しい CVE では使えない）",
           "CNA と NVD でスコアが割れる: MOVEit / TeamCity は 8.1（AC:H）と 9.8（AC:L）"
         ]
       },
       en: {
         kicker: "THE SWEEP · NVD, 14 DAYS",
-        title: "120 CRITICALs in two weeks. One is exploited.",
+        title: "124 CRITICALs in two weeks. One is exploited.",
         lede: "The count measures disclosure batching, not risk. A maximum CVSS also carries someone else's assumptions.",
         points: [
-          "<b>60%</b> of the 120 are Oracle\'s quarterly batch and consumer IoT firmware",
-          "only <b>27%</b> have an NVD CPE mapping, so vendor-level counts see a third of it",
+          "<b>58%</b> of the 124 are Oracle\'s quarterly batch and consumer IoT firmware (four added today, three of them 2021/2022 CVEs)",
+          "only <b>26%</b> have an NVD CPE mapping, so vendor-level counts see a quarter of it",
           "highest EPSS: 3.0%; the KEV-listed Plex bug sits at <b>0.76%</b> — useless this early",
           "CNA and NVD disagree: MOVEit and TeamCity are 8.1 (AC:H) from the vendor, 9.8 (AC:L) from NVD"
         ]
@@ -520,6 +522,8 @@ window.CONTENT = {
           note: { ja: "14件確認 / 1件未確認", en: "14 verified, one not" } },
         { name: "docs/15 Apache", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/15-apache-oct2026.md",
           note: { ja: "深刻度ラベルの食い違い", en: "labels versus CVSS" } },
+        { name: "docs/16 snapshot 21:20 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/16-snapshot-2120jst.md",
+          note: { ja: "当日2回目の取得と差分", en: "second read of the day, with the diff" } },
         { name: "Repository", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident",
           note: { ja: "一次ソースと検証コマンド", en: "primary sources and re-fetch commands" } }
       ],

@@ -63,7 +63,7 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 ```
 
 **タップで進むブリーフィング（Web）**: <https://2026-incident-briefing.pages.dev> — 15件を時系列に、3D演出・効果音・自作Lofiで。
-音が出ます（右上の SOUND で消せます）。**JA / EN トグル**あり（`?lang=en` / `L` キー）。
+音が出ます（右上の SOUND で消せます）。**言語はプルダウン**（日本語 / English、`?lang=` / `L` キー）。
 スマホはタップ／スワイプ、PCはスペース／←→。
 
 対応用は「まず読み取り専用」「§2-3 の表で分岐」「バージョンは実行中のバイナリで確認」
@@ -77,8 +77,9 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 **Oracle Java の四半期パッチ**、**eMudhra の CA 鍵8本**）について、事実・一次ソース・
 再現手順・実行できる防御ツールをひとまとめにした記録です。**読むため**と、**手を動かすため**の両方に使えます。
 
-**データ基準時点**: 2026-10-22 00:15 UTC（最終確認）。
-新しいパッチは出ていないことを Node.js のリリース索引と勧告一覧で確認済み。
+**データ基準時点**: 2026-10-22 00:15 UTC / 同日 **21:20 JST** に再取得（差分は
+[`docs/16`](docs/16-snapshot-2120jst.ja.md)）。新しいパッチが出ていないことは Node.js・PHP・
+Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
 
 ---
 
@@ -515,6 +516,7 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/13-recent-criticals.ja.md`](docs/13-recent-criticals.ja.md) | 直近2週間の CRITICAL 120件の走査、残った12件、データの4つの罠 |
 | [`docs/14-supply-chain-oct2026.ja.md`](docs/14-supply-chain-oct2026.ja.md) | 供給網の15件を1件ずつ検証（14件確認・1件未確認）、8件の詳細、統制の表 |
 | [`docs/15-apache-oct2026.ja.md`](docs/15-apache-oct2026.ja.md) | Apache の10月分: Tomcat 3件・httpd 2.4.69・Traffic Server、深刻度ラベルと CVSS の食い違い |
+| [`docs/16-snapshot-2120jst.ja.md`](docs/16-snapshot-2120jst.ja.md) | 2026-10-22 21:20 JST の再取得。KEV 据え置き / MSRC 2,575→2,578 / CRITICAL 120→124 / Plex 最新版 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
 | [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |

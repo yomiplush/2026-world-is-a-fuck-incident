@@ -1,0 +1,61 @@
+{
+ "source": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-266-01.json",
+ "advisory": "VA-26-266-01",
+ "title": "Plex Media Server",
+ "published": "2026-09-23T15:39:29Z",
+ "current_release": "2026-09-23T15:39:29Z",
+ "fixed_versions": [
+  "1.43.3.10861."
+ ],
+ "risk_evaluation": "Plex Media Server before 1.43.3.10861 contains multiple vulnerabilities. In the worst case, a remote attacker could steal a legitimate user's account credentials and eventually write arbitrary files or execute code.",
+ "cve_count": 5,
+ "cves": [
+  {
+   "cve": "CVE-2026-96651",
+   "title": "Plex Media Server path traversal",
+   "cvss_v3": 6.5,
+   "notes": [
+    "Plex Media Server before 1.43.3.10861 builds a file path from the url parameter without checking it for ../ sequences, allowing path traversal via '/system/agents/media/get'. A remote attacker with a valid session token could read any file that the target user can access. This access includes the PlexOnlineToken, which grants control of the Plex account and server. A LAN-adjacent attacker with a client-supplied X-Forwarded-For header could exploit the same issue.",
+    "SSVCv2/E:N/A:N/T:P/2026-09-14T18:18:59Z/"
+   ]
+  },
+  {
+   "cve": "CVE-2026-96652",
+   "title": "Plex Media Server SSRF",
+   "cvss_v3": 4.3,
+   "notes": [
+    "Plex Media Server before 1.43.3.10861 allows SSRF via '/player/timeline'. An attacker using any X-Plex-Token value can include a full URL in the 'protocol' parameter and force the Plex server to POST to the attacker's chosen destination.",
+    "SSVCv2/E:N/A:N/T:P/2026-09-14T18:19:53Z/"
+   ]
+  },
+  {
+   "cve": "CVE-2026-96654",
+   "title": "Plex Media Server URL injection",
+   "cvss_v3": 6.5,
+   "notes": [
+    "Plex Media Server before 1.43.3.10861 does not correctly neutralize URL values included in 'searchOne,' allowing an attacker to call other plugins' functions and supply their own parameters.",
+    "SSVCv2/E:N/A:N/T:P/2026-09-14T18:22:58Z/"
+   ]
+  },
+  {
+   "cve": "CVE-2026-96655",
+   "title": "Plex Media Server arbitrary-host SSRF",
+   "cvss_v3": 4.3,
+   "notes": [
+    "Plex Media Server before 1.43.3.10861 allows an authenticated user to request arbitrary internal or external addresses via the '/video/:/transcode/universal' path parameter.",
+    "SSVCv2/E:N/A:N/T:P/2026-09-14T18:23:48Z/"
+   ]
+  },
+  {
+   "cve": "CVE-2026-96656",
+   "title": "Plex Media Server arbitrary file write",
+   "cvss_v3": 7.2,
+   "notes": [
+    "Plex Media Server before 1.43.3.10861 allows an admin user to write arbitrary files that may be executed on load. The preference TranscoderH264Options is appended verbatim to x264's option string on every transcode. At startup, all .so files are run without signature, execute bit, or symbol checks.",
+    "SSVCv2/E:N/A:N/T:T/2026-09-14T18:24:56Z/"
+   ]
+  }
+ ],
+ "fetched_at": "2026-10-22T12:22:53Z",
+ "tool": "tools/intel/fetch-intel"
+}
