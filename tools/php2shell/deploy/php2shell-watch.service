@@ -1,0 +1,14 @@
+[Unit]
+Description=php2shell defense watchdog (PHP inventory + file integrity + drift)
+Documentation=https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/runbooks/php2shell.md
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+Environment=PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+# Reads docker (group access) and the php container. No root needed.
+ExecStart=%h/php2shell-defense/bin/p2s-watch --quiet
+# Non-zero just means "a human should look"; don't let systemd mark it failed
+# unless the script itself broke.
+SuccessExitStatus=0 10
+TimeoutStartSec=300

@@ -1,0 +1,12 @@
+[Unit]
+Description=Run the php2shell defense watchdog every 6 hours
+Documentation=file://%h/php2shell-defense/docs/runbook.md
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=6h
+Persistent=true
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target

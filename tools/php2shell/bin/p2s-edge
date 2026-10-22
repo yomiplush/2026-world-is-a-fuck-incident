@@ -1,0 +1,235 @@
+#!/usr/bin/env bash
+# p2s-edge — put the php2shell primitive out of reach at the Cloudflare edge.
+#
+#   p2s-edge --dry-run                       # print the ruleset, change nothing
+#   p2s-edge --zone example.com --apply
+#   p2s-edge --zone all --apply              # every zone the credentials can see
+#   p2s-edge --zone all --remove --apply     # emergency: delete our rules
+#
+# Auth: an API token (CF_API_TOKEN) or, if that is all you have, the account
+# Global API Key (CF_API_EMAIL + CF_API_KEY). Read from ~/.config/cloudflare/*.env.
+# A token scoped to Zone WAF:Edit + Zone Read is strongly preferred.
+#
+# Four rules, all `contains` so they fit a Free plan (the regex operator needs
+# Business):
+#   1. body     — request body carries PHP_SESSION_UPLOAD_PROGRESS. This is the
+#                 one that matters: php2shell rides in a multipart body, so path
+#                 and query rules never see it.
+#   2. php/cgi  — requests for .php/.phtml/.phar, /cgi-bin/, scanner bait.
+#                 Any host that legitimately serves PHP must be excluded with
+#                 --php-host, or you will block the real application.
+#   3. dotfiles — .env/.git/.aws/wp-config leaks.
+#   4. cgi args — auto_prepend_file / allow_url_include / php://input markers.
+#
+# Rules are owned by this script: descriptions starting with "p2s:" or "cw:" are
+# replaced, everything else in the zone's custom ruleset is preserved.
+#
+# Exit: 0 ok, 1 failure, 2 usage.
+set -uo pipefail
+
+API="https://api.cloudflare.com/client/v4"
+ZONE=""
+DRY=1
+PRINT_JSON=0
+PRINT_CREDS=0
+REMOVE=0
+ENV_FILE="${CF_ENV:-}"
+PHP_HOSTS=()
+
+usage() { sed -n '2,25p' "$0" | sed 's/^# \{0,1\}//'; }
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --zone)      ZONE="${2:-}"; shift 2 ;;
+    --all)       ZONE="all"; shift ;;
+    --apply)     DRY=0; shift ;;
+    --dry-run)   DRY=1; shift ;;
+    --remove)    REMOVE=1; shift ;;
+    --php-host)  PHP_HOSTS+=("${2:-}"); shift 2 ;;
+    --json)      PRINT_JSON=1; shift ;;
+    --which-creds) PRINT_CREDS=1; shift ;;
+    --env)       ENV_FILE="${2:-}"; shift 2 ;;
+    -h|--help)   usage; exit 0 ;;
+    *) echo "p2s-edge: unknown argument $1" >&2; exit 2 ;;
+  esac
+done
+
+# ---------------------------------------------------------------------------
+# expressions
+# ---------------------------------------------------------------------------
+php_path_expr='(lower(http.request.uri.path) contains ".php" or lower(http.request.uri.path) contains ".phtml" or lower(http.request.uri.path) contains ".phar" or lower(http.request.uri.path) contains "/cgi-bin/" or lower(http.request.uri.path) contains "phpmyadmin" or lower(http.request.uri.path) contains "xmlrpc" or lower(http.request.uri.path) contains "wp-login" or lower(http.request.uri.path) contains "wp-admin" or lower(http.request.uri.path) contains "wp-content" or lower(http.request.uri.path) contains "wp-includes")'
+for h in "${PHP_HOSTS[@]:-}"; do
+  [ -n "$h" ] || continue
+  php_path_expr+=" and not http.host eq \"$h\""
+done
+
+build_rules() {  # [--no-body]
+  local with_body=1
+  [ "${1:-}" = "--no-body" ] && with_body=0
+  local rules
+  rules=$(jq -n \
+    --arg body 'lower(http.request.body.raw) contains "php_session_upload_progress"' \
+    --arg php "$php_path_expr" \
+    --arg dots 'lower(http.request.uri.path) contains "/.env" or lower(http.request.uri.path) contains "/.git" or lower(http.request.uri.path) contains "/.svn" or lower(http.request.uri.path) contains "/.hg" or lower(http.request.uri.path) contains "/.htaccess" or lower(http.request.uri.path) contains "/.htpasswd" or lower(http.request.uri.path) contains "/.aws" or lower(http.request.uri.path) contains "/.ds_store" or lower(http.request.uri.path) contains "/wp-config"' \
+    --arg cgi 'lower(http.request.uri.query) contains "auto_prepend_file" or lower(http.request.uri.query) contains "allow_url_include" or lower(http.request.uri.query) contains "php://input" or http.request.uri.query contains "%ad" or http.request.uri.query contains "%AD"' \
+    '[ {action:"block", description:"p2s: php2shell upload-progress field in body", expression:("(" + $body + ")"), enabled:true},
+       {action:"block", description:"p2s: no PHP, no CGI, no scanner surface",   expression:("(" + $php  + ")"), enabled:true},
+       {action:"block", description:"p2s: dotfiles and config leaks",             expression:("(" + $dots + ")"), enabled:true},
+       {action:"block", description:"p2s: PHP-CGI argument injection markers",    expression:("(" + $cgi  + ")"), enabled:true} ]')
+  if [ "$with_body" = "0" ]; then
+    printf '%s' "$rules" | jq '[.[] | select(.description | test("upload-progress") | not)]'
+  else
+    printf '%s' "$rules"
+  fi
+}
+
+if [ "$REMOVE" = "1" ]; then RULES='[]'; else RULES=$(build_rules); fi
+
+if [ "$PRINT_JSON" = "1" ]; then printf '%s\n' "$RULES" | jq .; exit 0; fi
+
+if [ "$DRY" = "1" ] && [ -z "$ZONE" ]; then
+  [ "$REMOVE" = "1" ] && { echo "would delete every p2s:/cw: rule"; exit 0; }
+  echo "phase: http_request_firewall_custom"
+  printf '%s' "$RULES" | jq -r '.[] | "  [" + .action + "] " + .description + "\n      " + .expression'
+  printf '\n  note: the body rule needs WAF Advanced; on Free the apply step drops it\n' >&2
+  exit 0
+fi
+
+[ -n "$ZONE" ] || { usage; exit 2; }
+
+# ---------------------------------------------------------------------------
+# credentials: token first, global key as fallback. Try every file we know about
+# and keep the first one the API actually accepts — a stale token in one file
+# should not mask a working credential in another.
+# ---------------------------------------------------------------------------
+candidates=()
+[ -n "$ENV_FILE" ] && candidates+=("$ENV_FILE")
+candidates+=("$HOME/.config/cloudflare/token.env" "$HOME/.config/cloudflare/global.env")
+
+AUTH=()
+creds_ok=0
+for f in "${candidates[@]}"; do
+  [ -r "$f" ] || continue
+  # source in a subshell so one file's variables cannot leak into the next,
+  # and never write the secret to disk on the way through
+  line=$(bash -c '
+    set -a; . "$1"; set +a
+    if [ -n "${CF_API_TOKEN:-}" ]; then printf "tok\t%s" "$CF_API_TOKEN"
+    elif [ -n "${CF_API_KEY:-}" ] && [ -n "${CF_API_EMAIL:-}" ]; then
+      printf "key\t%s\t%s" "$CF_API_EMAIL" "$CF_API_KEY"
+    fi' _ "$f")
+  IFS=$'\t' read -r kind a b <<< "$line"
+  case "${kind:-}" in
+    tok) AUTH=(-H "Authorization: Bearer $a") ;;
+    key) AUTH=(-H "X-Auth-Email: $a" -H "X-Auth-Key: $b") ;;
+    *)   continue ;;
+  esac
+  if [ "$(curl -sS "${AUTH[@]}" "$API/zones?per_page=1" | jq -r '.success // false' 2>/dev/null)" = "true" ]; then
+    ENV_FILE="$f"; creds_ok=1; break
+  fi
+done
+[ "$creds_ok" = "1" ] || {
+  echo "p2s-edge: no working credentials. Need CF_API_TOKEN (Zone WAF:Edit + Zone Read)" >&2
+  echo "           or CF_API_EMAIL + CF_API_KEY in ~/.config/cloudflare/*.env" >&2
+  exit 1
+}
+[ "${PRINT_CREDS:-0}" = "1" ] && echo "using credentials from $ENV_FILE"
+
+api() { curl -sS "${AUTH[@]}" -H 'Content-Type: application/json' "$@"; }
+
+zone_ok() { # $1=zone id ; echoes http code for the WAF ruleset
+  curl -sS -o /dev/null -w '%{http_code}' "${AUTH[@]}" \
+    "$API/zones/$1/rulesets/phases/http_request_firewall_custom/entrypoint"
+}
+
+resolve_zones() {
+  if [ "$ZONE" = "all" ]; then
+    api "$API/zones?per_page=50" | jq -r '.result[]? | .id + " " + .name'
+    return
+  fi
+  case "$ZONE" in
+    *[!0-9a-f]*) api "$API/zones?name=$ZONE" | jq -r '.result[]? | .id + " " + .name' ;;
+    *)           echo "$ZONE (by id)" ;;
+  esac
+}
+
+applied=0; failed=0
+while read -r id name; do
+  [ -n "$id" ] || continue
+  name="${name:-$id}"
+  echo "== $name ($id)"
+
+  code=$(zone_ok "$id")
+  case "$code" in
+    200|404) ;;
+    401|403)
+      echo "   cannot manage WAF rules (HTTP $code) — needs Zone -> Zone WAF -> Edit. Nothing changed." >&2
+      failed=$((failed+1)); continue ;;
+    *)
+      echo "   unexpected HTTP $code from the WAF API; skipping" >&2
+      failed=$((failed+1)); continue ;;
+  esac
+
+  if [ "$DRY" = "1" ]; then
+    echo "   would install $(printf '%s' "$RULES" | jq 'length') rule(s)"
+    applied=$((applied+1)); continue
+  fi
+
+  entry="$API/zones/$id/rulesets/phases/http_request_firewall_custom/entrypoint"
+  existing=$(api "$entry")
+
+  if [ "$(printf '%s' "$existing" | jq -r '.success // false')" != "true" ] && [ "$code" != "404" ]; then
+    echo "   no ruleset and none could be created; skipping" >&2
+    failed=$((failed+1)); continue
+  fi
+  if [ "$code" = "404" ] && [ "$REMOVE" = "1" ]; then
+    echo "   no ruleset; nothing to remove"
+    applied=$((applied+1)); continue
+  fi
+  if [ "$code" = "404" ] && [ -z "${existing:-}" ]; then existing='{"result":{"rules":[]}}'; fi
+
+  # Downgrade ladder: a Free plan cannot inspect bodies (WAF Advanced field) and
+  # caps the phase at 5 rules, some zones already spend slots. High value first,
+  # so the rule that blocks .php probes survives whatever has to be dropped.
+  merged() { # $1 = our rules json
+    printf '%s' "$existing" | jq --argjson ours "$1" '
+      { rules: ($ours + [ (.result.rules // [])[]
+          | select(((.description // "") | test("^(p2s|cw):")) | not) ]) }'
+  }
+  variant() {
+    case "$1" in
+      full)     build_rules ;;
+      no_body)  build_rules --no-body ;;
+      minimal)  build_rules --no-body | jq '[.[] | select(.description | test("PHP-CGI") | not)]' ;;
+      php_only) build_rules --no-body | jq '[.[] | select(.description | test("no PHP, no CGI"))]' ;;
+    esac
+  }
+
+  note=""
+  for v in full no_body minimal php_only; do
+    RULES=$(variant "$v")
+    out=$(api -X PUT "$entry" --data-binary "$(merged "$RULES")")
+    if [ "$(printf '%s' "$out" | jq -r '.success // false')" = "true" ]; then
+      echo "   now $(printf '%s' "$out" | jq '.result.rules | length') rule(s) in the custom ruleset (${v})"
+      [ -n "$note" ] && echo "   $note" >&2
+      applied=$((applied+1))
+      continue 2
+    fi
+    msg=$(printf '%s' "$out" | jq -r '[.errors[]? | .message] | join("; ")' 2>/dev/null)
+    case "$msg" in
+      *body.raw*)     note="Free plan: request bodies cannot be inspected (WAF Advanced). Body rule dropped." ;;
+      *"maximum number of rules"*)
+                      note="plan rule limit reached; installed the highest-priority subset." ;;
+      *)              break ;;
+    esac
+  done
+  echo "   failed: ${msg:-unknown error}" >&2
+  failed=$((failed+1))
+done < <(resolve_zones)
+
+echo "p2s-edge: $applied zone(s) ok, $failed failed"
+if [ "$applied" -eq 0 ] && [ "$failed" -eq 0 ]; then
+  echo "   no zone matched. Pass --zone <name|id> explicitly." >&2
+  exit 1
+fi
+[ "$failed" -eq 0 ] && [ "$applied" -gt 0 ]
