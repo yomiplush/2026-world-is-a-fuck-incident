@@ -112,6 +112,29 @@ window.registerLocale("fr", {
         "le travail porte sur <b>toutes</b> les variables, pas sur celle que vous croyez fuie",
         "mots de passe SMTP, secrets de webhook et JWT_SECRET y vivent aussi"],
       metric: "variables à faire tourner" },
+    bind: {
+      title: "Un paquet rejoué corrompt la mémoire.",
+      lede: "Rejouer un message UDP signé GSS-TSIG corrompt la mémoire de named. ISC indique qu'aucun contournement n'existe.",
+      points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1 (AV:N, AC:H) / gravité <b>High</b> chez ISC / exploitable à distance",
+          "Touche 9.11.0–9.18.50, 9.20.0–9.20.29, 9.21.0–9.21.26 (et S1) → corrigé en <b>9.20.30 / 9.21.27</b>",
+          "Le chemin est le gestionnaire GSS-TSIG : `named-checkconf -p | grep -i gssapi` dit s'il est configuré",
+          "Aucun contournement. Les branches EOL (9.11–9.18) doivent passer à 9.20 / 9.21"
+      ],
+      metric: "CVSS · sans contournement"
+    },
+    lkml: {
+      title: "Six 0day sont partis sur la liste publique.",
+      lede: "ZDI a envoyé les rapports à la LKML publique au lieu de la liste privée, et Greg Kroah-Hartman a répondu à chacun.",
+      points: [
+          "Sous-dépassement dans SMB Direct (<b>9.0</b>) et une course dans ksmbd (<b>9.0</b>) : deux RCE distantes",
+          "LPE dans skb_zerocopy, écriture hors limites dans vmwgfx, ressource non initialisée dans nvmet, débordement TCP",
+          "Le mainline n'est <b>pas corrigé</b> : les patches sont dans une branche v7.5 et -next, aucun commit ne cite les ids ZDI",
+          "Réduire l'exposition : arrêter <b>ksmbd</b> s'il est inutilisé, ne pas exposer SMB Direct"
+      ],
+      metric: "rapports envoyés publiquement"
+    },
+
     sweep: { title: "124 CRITICAL en deux semaines. Un seul exploité.",
       lede: "Le compte mesure le lotissement des divulgations, pas le risque. Le CVSS maximal porte aussi les hypothèses d'autrui.",
       points: ["<b>58 %</b> des 124 sont le lot trimestriel d'Oracle et des firmwares IoT (quatre aujourd'hui, trois CVE de 2021/2022)",

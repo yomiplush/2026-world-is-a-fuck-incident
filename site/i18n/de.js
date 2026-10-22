@@ -112,6 +112,29 @@ window.registerLocale("de", {
         "die Arbeit betrifft <b>alle</b> Variablen, nicht die vermutete",
         "SMTP-Passwörter, Webhook-Secrets und JWT_SECRET liegen dort ebenfalls"],
       metric: "zu rotierende Variablen" },
+    bind: {
+      title: "Ein erneut gesendetes Paket zerstört Speicher.",
+      lede: "Das Wiederholen einer GSS-TSIG-signierten UDP-Nachricht beschädigt den Speicher von named. ISC nennt keinen Workaround.",
+      points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1 (AV:N, AC:H) / ISC-Schweregrad <b>High</b> / aus der Ferne ausnutzbar",
+          "Betroffen: 9.11.0–9.18.50, 9.20.0–9.20.29, 9.21.0–9.21.26 (und S1) → behoben in <b>9.20.30 / 9.21.27</b>",
+          "Der Pfad ist der GSS-TSIG-Handler: `named-checkconf -p | grep -i gssapi` zeigt, ob er konfiguriert ist",
+          "Kein Workaround. EOL-Zweige (9.11–9.18) müssen auf 9.20 / 9.21 wechseln"
+      ],
+      metric: "CVSS · kein Workaround"
+    },
+    lkml: {
+      title: "Sechs 0days gingen an die öffentliche Liste.",
+      lede: "ZDI schickte die Berichte an die öffentliche LKML statt an die private Liste; Greg Kroah-Hartman antwortete auf jeden.",
+      points: [
+          "Integer-Underflow in SMB Direct (<b>9.0</b>) und ein Race in ksmbd (<b>9.0</b>) — beides Remote-RCE",
+          "LPE in skb_zerocopy, Out-of-Bounds-Write in vmwgfx, nicht initialisierte Ressource in nvmet, TCP-Stack-Overflow",
+          "Mainline ist <b>ungepatcht</b>: Fixes liegen in einem v7.5-Zweig und -next, kein Commit nennt die ZDI-Ids",
+          "Exposition senken: ungenutztes <b>ksmbd</b> stoppen, SMB Direct nicht ins offene Netz stellen"
+      ],
+      metric: "öffentlich versendete Berichte"
+    },
+
     sweep: { title: "124 CRITICAL in zwei Wochen. Eines ausgenutzt.",
       lede: "Die Zahl misst die Bündelung von Offenlegungen, nicht das Risiko. Maximales CVSS trägt fremde Annahmen.",
       points: ["<b>58 %</b> der 124 sind Oracles Quartalsbatch und Consumer-IoT (vier heute, drei davon 2021/2022)",

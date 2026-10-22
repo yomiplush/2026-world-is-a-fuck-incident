@@ -112,6 +112,29 @@ window.registerLocale("id", {
         "pekerjaannya <b>semua</b> variabel, bukan yang Anda duga bocor",
         "kata sandi SMTP, rahasia webhook, dan JWT_SECRET juga ada di sana"],
       metric: "variabel untuk dirotasi" },
+    bind: {
+      title: "Satu paket yang diputar ulang merusak memori.",
+      lede: "Memutar ulang pesan UDP bertanda tangan GSS-TSIG merusak memori named. ISC menyatakan tidak ada solusi pengganti.",
+      points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1 (AV:N, AC:H) / tingkat <b>High</b> dari ISC / dapat dieksploitasi jarak jauh",
+          "Terdampak 9.11.0–9.18.50, 9.20.0–9.20.29, 9.21.0–9.21.26 (dan S1) → diperbaiki di <b>9.20.30 / 9.21.27</b>",
+          "Jalurnya adalah handler GSS-TSIG: `named-checkconf -p | grep -i gssapi` menunjukkan apakah aktif",
+          "Tanpa solusi pengganti. Cabang EOL (9.11–9.18) harus pindah ke 9.20 / 9.21"
+      ],
+      metric: "CVSS · tanpa solusi"
+    },
+    lkml: {
+      title: "Enam 0day bocor ke daftar publik.",
+      lede: "ZDI mengirim laporan ke LKML publik alih-alih daftar privat, dan Greg Kroah-Hartman membalas setiap laporan.",
+      points: [
+          "Integer underflow di SMB Direct (<b>9.0</b>) dan race di ksmbd (<b>9.0</b>) — keduanya RCE jarak jauh",
+          "LPE di skb_zerocopy, tulis di luar batas di vmwgfx, nvmet tak terinisialisasi, overflow kueri TCP",
+          "Mainline <b>belum ditambal</b>: patch ada di cabang v7.5 dan -next, tak ada commit yang menyebut id ZDI",
+          "Kurangi paparan: hentikan <b>ksmbd</b> bila tak dipakai, jangan ekspos SMB Direct ke jaringan tak tepercaya"
+      ],
+      metric: "laporan dikirim publik"
+    },
+
     sweep: { title: "124 CRITICAL dalam dua minggu. Satu dieksploitasi.",
       lede: "Angka itu mengukur pengelompokan pengungkapan, bukan risiko. CVSS tertinggi juga memuat asumsi orang lain.",
       points: ["<b>58%</b> dari 124 adalah batch kuartalan Oracle dan firmware IoT (empat hari ini, tiga di antaranya CVE 2021/2022)",
