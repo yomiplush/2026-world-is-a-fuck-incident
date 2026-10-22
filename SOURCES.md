@@ -74,6 +74,17 @@ All feeds at once: `tools/intel/fetch-intel --sources feeds`.
 | OpenCode incident reports | <https://github.com/anomalyco/opencode/issues/56833> | user-side evidence of the key revocation (no vendor advisory exists) | browser |
 | OpenCode repo leak | <https://github.com/anomalyco/opencode/issues/56819> | committed secret confirmed by the project's own bot | browser |
 
+### Plex and the recent-critical sweep (`docs/12`, `docs/13`)
+
+| Subject | URL | What it tells you | Re-fetch |
+|---|---|---|---|
+| CISA CSAF library (2026) | <https://github.com/cisagov/CSAF/tree/develop/csaf_files/IT/white/2026> | machine-readable advisories, often before NVD has analysis | `tools/intel/fetch-intel --sources csaf` |
+| CSAF VA-26-266-01 (Plex) | <https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-266-01.json> | the five CVEs and the fixed version | same |
+| Plex vendor notice | <https://forums.plex.tv/t/important-security-update-for-plex-media-server-v1-43-2-and-earlier/942319> | per-platform update steps, NAS package-lag warning | browser |
+| NVD API, severity filter | <https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=CRITICAL&pubStartDate=2026-10-08T00:00:00.000&pubEndDate=2026-10-22T23:59:59.999> | the CRITICAL sweep itself | `tools/intel/fetch-intel --sources nvd-critical` |
+| EPSS API | <https://api.first.org/data/v1/epss?cve=CVE-2026-96656> | exploitation probability (lags on new CVEs) | same |
+| KEV filter for Plex | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | due dates and the chain note | `jq '.vulnerabilities[]|select(.vendorProject=="Plex")'` |
+
 ### The CA compromise (`docs/03`)
 
 | Subject | URL | What it tells you |

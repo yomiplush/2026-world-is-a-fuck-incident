@@ -39,10 +39,14 @@ TIMEOUT = 60
 
 ORACLE_CPU = "https://www.oracle.com/security-alerts/cpu{cpu}.html"
 KEV = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+NVD = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 JVN_RSS = "https://jvn.jp/rss/jvn.rdf"
 MSRC_CVRF = "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/{month}"
 GITLAB_PATCH = "https://docs.gitlab.com/releases/patches/{slug}/"
 LITELLM_INCIDENT = "https://api.github.com/repos/{repo}/issues/{issue}"
+PLEX_CSAF = ("https://raw.githubusercontent.com/cisagov/CSAF/develop/"
+             "csaf_files/IT/white/2026/{id}.json")
+EPSS = "https://api.first.org/data/v1/epss?cve={ids}&limit=200"
 
 # Researcher / infosec feeds. Grouped by who owns the claim, because that is what
 # decides how much weight it carries: the finding's authors first, then vendor
@@ -485,6 +489,129 @@ def collect_litellm(repo: str, issue: str) -> dict:
     }
 
 
+# ------------------------------------------------------------- vendor CSAF / NVD
+
+def collect_csaf(adv_id: str) -> dict:
+    """Read a CISA-published CSAF advisory (the machine-readable form of VA-*).
+
+    Plex is the reason this exists: CISA published VA-26-266-01 nine days before
+    the CVEs appeared in NVD, and it carries the fixed version in a
+    machine-readable field. A vendor forum post does not.
+    """
+    url = PLEX_CSAF.format(id=adv_id)
+    d = json.loads(get(url))
+    fix = set()
+    cves = []
+    for v in d.get("vulnerabilities", []):
+        for r in v.get("remediations", []) or []:
+            m = re.search(r"Fixed in ([\w.]+)", r.get("details") or "")
+            if m:
+                fix.add(m.group(1))
+        scores = [sc.get("cvss_v3", {}).get("baseScore") for sc in v.get("scores", [])]
+        scores = [x for x in scores if isinstance(x, (int, float))]
+        cves.append({
+            "cve": v.get("cve"),
+            "title": v.get("title"),
+            "cvss_v3": scores[0] if scores else None,
+            "notes": [n.get("text") for n in v.get("notes", []) or []],
+        })
+    return {
+        "source": url,
+        "advisory": d.get("document", {}).get("tracking", {}).get("id"),
+        "title": d.get("document", {}).get("title"),
+        "published": d.get("document", {}).get("tracking", {}).get("initial_release_date"),
+        "current_release": d.get("document", {}).get("tracking", {}).get("current_release_date"),
+        "fixed_versions": sorted(fix),
+        "risk_evaluation": next((n.get("text") for n in d.get("document", {}).get("notes", [])
+                                 if n.get("title") == "Risk Evaluation"), None),
+        "cve_count": len(cves),
+        "cves": cves,
+    }
+
+
+def epss_scores(ids: list[str]) -> dict:
+    out = {}
+    for i in range(0, len(ids), 90):
+        url = EPSS.format(ids=",".join(ids[i:i + 90]))
+        try:
+            d = json.loads(get(url))
+        except (urllib.error.URLError, OSError, json.JSONDecodeError):
+            continue
+        for e in d.get("data", []):
+            out[e["cve"]] = float(e["epss"])
+    return out
+
+
+def collect_nvd_critical(days: int) -> dict:
+    """Every CRITICAL CVE NVD published in the window, with KEV and EPSS flags.
+
+    The point is not the list; it is that the list is mostly noise and you need
+    the three columns here (CVSS, KEV, EPSS) to see which rows are not.
+    """
+    end = dt.datetime.now(dt.timezone.utc).date()
+    start = end - dt.timedelta(days=days)
+    q = ("pubStartDate={s}T00:00:00.000&pubEndDate={e}T23:59:59.999"
+         "&cvssV3Severity=CRITICAL&resultsPerPage=2000")
+    url = NVD + "?" + q.format(s=start.isoformat(), e=end.isoformat())
+    d = json.loads(get(url))
+
+    kev_ids = set()
+    try:
+        kev_ids = {x["cveID"] for x in json.loads(get(KEV))["vulnerabilities"]}
+    except (urllib.error.URLError, OSError, json.JSONDecodeError, KeyError):
+        pass
+
+    entries = []
+    for v in d.get("vulnerabilities", []):
+        c = v["cve"]
+        m = c.get("metrics", {})
+        def first(kind):
+            for e in m.get(kind, []):
+                return e["cvssData"]["baseScore"], e["cvssData"].get("vectorString")
+            return None, None
+        v31, vec31 = first("cvssMetricV31")
+        v40, _ = first("cvssMetricV40")
+        vendor = product = ""
+        for conf in c.get("configurations", []) or []:
+            for node in conf.get("nodes", []):
+                for match in node.get("cpeMatch", []):
+                    parts = match["criteria"].split(":")
+                    if len(parts) > 4:
+                        vendor, product = parts[3], parts[4]
+                        break
+                if vendor:
+                    break
+            if vendor:
+                break
+        entries.append({
+            "cve": c["id"],
+            "published": c["published"][:10],
+            "cvss_v31": v31,
+            "cvss_v40": v40,
+            "vector_v31": vec31,
+            "vendor": vendor,
+            "product": product,
+            "kev": c["id"] in kev_ids,
+            "description": c["descriptions"][0]["value"],
+        })
+
+    scores = epss_scores([e["cve"] for e in entries])
+    for e in entries:
+        e["epss"] = scores.get(e["cve"])
+
+    entries.sort(key=lambda e: (-(e["cvss_v31"] or 0), e["published"]))
+    return {
+        "source": url,
+        "window_start": start.isoformat(),
+        "window_end": end.isoformat(),
+        "total": len(entries),
+        "in_kev": sum(1 for e in entries if e["kev"]),
+        "with_cpe": sum(1 for e in entries if e["vendor"]),
+        "with_epss": sum(1 for e in entries if e["epss"] is not None),
+        "entries": entries,
+    }
+
+
 # ----------------------------------------------------------------------- main
 
 def main(argv: list[str]) -> int:
@@ -498,14 +625,20 @@ def main(argv: list[str]) -> int:
                     help="MSRC month, e.g. 2026-Oct")
     ap.add_argument("--kev-days", type=int, default=30, help="KEV look-back window")
     ap.add_argument("--limit", type=int, default=12, help="items per feed")
-    ap.add_argument("--sources", default="oracle,kev,jvn,feeds,msrc,gitlab,litellm",
-                    help="comma list of: oracle,kev,jvn,feeds,msrc,gitlab,litellm")
+    ap.add_argument("--sources",
+                    default="oracle,kev,jvn,feeds,msrc,gitlab,litellm,csaf,nvd-critical",
+                    help="comma list of: oracle,kev,jvn,feeds,msrc,gitlab,litellm,"
+                         "csaf,nvd-critical")
     ap.add_argument("--gitlab-slug", default="patch-release-gitlab-19-5-1-released",
                     help="GitLab patch-release page slug (docs.gitlab.com/releases/patches/<slug>/)")
     ap.add_argument("--litellm-repo", default="BerriAI/litellm",
                     help="repo holding the LiteLLM compromise issue")
     ap.add_argument("--litellm-issue", default="47826",
                     help="issue number of the LiteLLM compromise report")
+    ap.add_argument("--csaf-id", default="va-26-266-01",
+                    help="CISA CSAF advisory id (csaf_files/IT/white/<year>/<id>.json)")
+    ap.add_argument("--critical-days", type=int, default=14,
+                    help="window for the NVD CRITICAL sweep")
     ap.add_argument("--out", default=None, help="output directory (default data/<date>)")
     args = ap.parse_args(argv)
 
@@ -538,6 +671,9 @@ def main(argv: list[str]) -> int:
                             collect_gitlab(args.gitlab_slug))],
         "litellm": lambda: [("litellm-issue-" + args.litellm_issue + ".json",
                              collect_litellm(args.litellm_repo, args.litellm_issue))],
+        "csaf": lambda: [("csaf-" + args.csaf_id.lower() + ".json", collect_csaf(args.csaf_id))],
+        "nvd-critical": lambda: [("nvd-critical-" + str(args.critical_days) + "d.json",
+                                  collect_nvd_critical(args.critical_days))],
     }
     unknown = [w for w in wanted if w not in jobs]
     if unknown:
@@ -588,6 +724,12 @@ def main(argv: list[str]) -> int:
         elif name == "gitlab":
             print(f"GitLab {p['slug']}: {p['cve_count']} CVEs, "
                   f"max CVSS {p['max_cvss']} -> {rel}")
+        elif name == "csaf":
+            print(f"CSAF {p['advisory']}: {p['cve_count']} CVEs, "
+                  f"fixed {', '.join(p['fixed_versions'])} -> {rel}")
+        elif name == "nvd-critical":
+            print(f"NVD CRITICAL {p['window_start']}..{p['window_end']}: "
+                  f"{p['total']} CVEs, {p['in_kev']} in KEV, {p['with_epss']} with EPSS -> {rel}")
         elif name == "litellm":
             print(f"LiteLLM issue #{p['issue']}: {(p['title'] or '')[:50]}... -> {rel}")
         elif name == "msrc":

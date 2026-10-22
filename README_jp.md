@@ -4,7 +4,8 @@
 
 ## 0. 忙しい人向け — 3分で「自分に関係あるか」まで
 
-この1週間に**7件**が重なりました。全部を読む必要はありません。自分に該当する行だけ追ってください。
+この2週間に**8件**が重なりました。全部を読む必要はありません。自分に該当する行だけ追ってください。
+（さらに広く「直近の CRITICAL」を見たい場合は [`docs/13`](docs/13-recent-criticals.ja.md)。）
 
 ### 0-1. 今日やる（すでに現実になっているもの）
 
@@ -14,6 +15,7 @@
 | **自前の GitLab を運用している** | 満点（CVSS 10.0）。ログインなしでコード実行。**先週パッチを当てていても該当する** | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** へ → [`docs/09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM を 1.107.0 で入れた** | 入れた時点で侵害。Python を起動するたびに資格情報を外部へ送る | **先に `pip` を実行しない**。手順どおり除去とローテート → [`docs/10`](docs/10-litellm-1-107-0.ja.md) |
 | **Railway にデプロイしている** | 環境変数（＝APIキー、DBのパスワード）が復号された可能性 | 環境変数を**全部**作り直す → [`docs/11`](docs/11-week-of-oct-20.ja.md) |
+| **Plex Media Server を外部公開している** | **KEV 収載**（実悪用）。個々は 4.3〜7.2 だが連鎖でコード実行。期限が 10-23 のものあり | 1.43.3.10861 へ更新＋アカウントトークンをローテート → [`docs/12`](docs/12-plex-oct2026.ja.md) |
 
 ### 0-2. 今週中（条件が揃えば効くもの）
 
@@ -76,20 +78,24 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 
 ---
 
-## 1. 今週の全体像（8件）
+## 1. 今週の全体像（9件）
 
 | 事案 | 何が起きたか | 深刻度 | 該当する人 | 修正・対処 | 詳細 |
 |---|---|---|---|---|---|
 | **php2shell** | PHP 本体の RCE 2件。5.4.0 以降の全リリース | **9.2** Critical | PHP を公開している | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**（10-21） | [`01`](docs/01-php2shell.ja.md) |
 | **GitLab** | 正規表現エンジンの整数オーバーフロー → 未認証 RCE。**7.0（2014年）以降すべて** | **10.0**（満点） | self-managed を運用 | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13**（10-21） | [`09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM** | 1.107.0 の wheel が Python 起動時に資格情報を窃取＋遠隔ローダ | GHSA 未公開 | `pip` / Docker で導入した | **1.106.2 に戻す**＋全資格情報ローテート | [`10`](docs/10-litellm-1-107-0.ja.md) |
+| **Plex Media Server** | 5件（パストラバーサル／SSRF 2件／プラグイン呼び出し／管理権限のファイル書き込み→起動時実行）。**KEV 収載** | 4.3〜7.2 | Plex を外部公開している | **1.43.3.10861** へ＋トークンローテート | [`12`](docs/12-plex-oct2026.ja.md) |
 | **Railway** | 顧客の環境変数（＝秘密）が復号された可能性。デプロイ停止 | — | Railway にデプロイ | 環境変数・レジストリ資格情報を全ローテート | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **OpenCode** | Console 事案でプロバイダキーが露出、利用者のキーが失効（利用者報告） | — | OpenCode を利用 | プロバイダキーを再発行し利用履歴を確認 | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **Oracle Java SE** | 10月 CPU で55件。最大 7.5、KEV 未収載 | 7.5 | JVM を動かしている | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1**（10-20） | [`07`](docs/07-oracle-java-oct2026.ja.md) |
 | **eMudhra CA** | 中間CA **8本**の秘密鍵が弱すぎる（1本は `4`）。誰でも計算可能 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
 | **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱 | high | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21） | [`02`](docs/02-nodejs-oct2026.ja.md) |
 
-8件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
+9件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
+
+この表は「名前が付いた事案」だけです。**直近2週間の NVD CRITICAL は120件**あり、そのうち実際に
+悪用が確認されているのは1件でした。絞り込みの手順と残った12件は [`docs/13`](docs/13-recent-criticals.ja.md)。
 
 ただし今週を特徴づけるのは**鍵の窃取**です。Railway・LiteLLM・OpenCode の3件は、
 「AI 推論プロバイダの資格情報」という同じ獲物を狙う同じ形をしています。この読み方は
@@ -143,9 +149,20 @@ litellm:
 railway:
   event: "customer environment variables possibly decrypted"
   action: "roll every env var and registry credential"
+plex:
+  cves: [CVE-2026-96651, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
+  fixed: "1.43.3.10861"
+  kev: [CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
+  kev_due: "2026-10-23 (96654, 96656)"
 opencode:
   event: "Console incident; provider keys exposed, user keys revoked"
   published_by_vendor: false
+recent_criticals:
+  window: "2026-10-08..2026-10-22"
+  total: 120
+  in_kev: 1
+  oracle: 34
+  consumer_iot: 38
 ```
 
 ---
@@ -429,8 +446,9 @@ tools/intel/fetch-intel --out /tmp/intel      # 別の場所に
 
 - 取得結果は [`data/2026-10-22/`](data/2026-10-22/) にあります（Oracle Java 55件、GitLab 勧告を
   CVE 単位に構造化したもの、LiteLLM 事案記録の逐語、KEV 差分、MSRC、JVN、12本のフィード）。
-- 取得元に `gitlab` と `litellm` を追加したので、`docs/09` / `docs/10` の表も他と同じ手順で
-  作り直せます。
+- 取得元に `gitlab` / `litellm` / `csaf` / `nvd-critical` を追加したので、`docs/09`・`docs/10`・
+  `docs/12`・`docs/13` の表も他と同じ手順で作り直せます。
+- `nvd-critical` は NVD の CRITICAL を期間で抜き、KEV と EPSS を付けて出力します（`--critical-days`）。
 - 終了コードは `0` 全部 / `10` 一部失敗（残りは書き込み済み）/ `2` 何も取れず。
 - 同じコマンド・同じファイル名なので、2時点の `git diff` が「世界のどこが変わったか」に
   なります。**数値は必ず取り直して比べる。** 手で写した件数は検算できない主張です。
@@ -461,6 +479,8 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/09-gitlab-19-5-1.ja.md`](docs/09-gitlab-19-5-1.ja.md) | CVE-2026-110264（CVSS 10.0）: 影響／修正ブランチ、「先週パッチ済み」の罠、検知 |
 | [`docs/10-litellm-1-107-0.ja.md`](docs/10-litellm-1-107-0.ja.md) | LiteLLM 1.107.0: ペイロードのファイル、検出、対処の順序、3月の前例 |
 | [`docs/11-week-of-oct-20.ja.md`](docs/11-week-of-oct-20.ja.md) | vx-underground のリストを検証: Railway、OpenCode、「鍵が狙われている」の整理 |
+| [`docs/12-plex-oct2026.ja.md`](docs/12-plex-oct2026.ja.md) | Plex の5件（KEV、連鎖、期限）、NAS のパッケージ遅延、トークンローテート |
+| [`docs/13-recent-criticals.ja.md`](docs/13-recent-criticals.ja.md) | 直近2週間の CRITICAL 120件の走査、残った12件、データの4つの罠 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
 | [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |

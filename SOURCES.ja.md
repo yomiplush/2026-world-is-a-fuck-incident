@@ -73,6 +73,17 @@
 | OpenCode の利用者報告 | <https://github.com/anomalyco/opencode/issues/56833> | キー失効の利用者側の証拠（ベンダの勧告は存在しない） | ブラウザ |
 | OpenCode のリポジトリ漏えい | <https://github.com/anomalyco/opencode/issues/56819> | プロジェクト自身の bot が確認したコミット済み秘密 | ブラウザ |
 
+### Plex と直近クリティカル走査（`docs/12`・`docs/13`）
+
+| 対象 | URL | 何が分かる | 再取得 |
+|---|---|---|---|
+| CISA CSAF ライブラリ（2026） | <https://github.com/cisagov/CSAF/tree/develop/csaf_files/IT/white/2026> | 機械可読のアドバイザリ。NVD の解析より先に存在することが多い | `tools/intel/fetch-intel --sources csaf` |
+| CSAF VA-26-266-01（Plex） | <https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2026/va-26-266-01.json> | 5件と修正版 | 同上 |
+| Plex のベンダ告知 | <https://forums.plex.tv/t/important-security-update-for-plex-media-server-v1-43-2-and-earlier/942319> | プラットフォーム別の更新手順、NAS のパッケージ遅延の注意 | ブラウザ |
+| NVD API（深刻度で絞る） | <https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=CRITICAL&pubStartDate=2026-10-08T00:00:00.000&pubEndDate=2026-10-22T23:59:59.999> | CRITICAL の走査そのもの | `tools/intel/fetch-intel --sources nvd-critical` |
+| EPSS API | <https://api.first.org/data/v1/epss?cve=CVE-2026-96656> | 悪用確率（新しい CVE では遅れる） | 同上 |
+| Plex の KEV 絞り込み | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | 期限と連鎖の注記 | `jq '.vulnerabilities[]|select(.vendorProject=="Plex")'` |
+
 ### CA 侵害（`docs/03`）
 
 | 対象 | URL | 何が分かる |

@@ -4,7 +4,8 @@
 
 ## 0. Busy? Read this — three minutes to "is this mine?"
 
-**Seven things landed in one week.** You do not need to read all of them. Find your row.
+**Eight things landed in two weeks.** You do not need to read all of them. Find your row.
+(For a wider "what else is critical right now", see [`docs/13`](docs/13-recent-criticals.md).)
 
 ### 0-1. Today (this is already happening)
 
@@ -14,6 +15,7 @@
 | **run GitLab yourself** | a perfect-10.0 hole: no login needed to run code. **Patching last week is not enough** | upgrade to **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** → [`docs/09`](docs/09-gitlab-19-5-1.md) |
 | **installed LiteLLM 1.107.0** | installing it *was* the compromise: every Python start ships credentials out | **do not run `pip` first**; remove, then rotate → [`docs/10`](docs/10-litellm-1-107-0.md) |
 | **deploy on Railway** | customer environment variables — i.e. your secrets — may have been decrypted | regenerate **every** env var → [`docs/11`](docs/11-week-of-oct-20.md) |
+| **expose Plex Media Server** | **in KEV** (real exploitation): 4.3–7.2 individually, but chainable to code execution, with a 2026-10-23 deadline | update to 1.43.3.10861 and rotate account tokens → [`docs/12`](docs/12-plex-oct2026.md) |
 
 ### 0-2. This week (real, but conditional)
 
@@ -82,20 +84,25 @@ the Node.js release index and the advisory list.
 
 ---
 
-## 1. The week at a glance (eight items)
+## 1. The week at a glance (nine items)
 
 | Event | What happened | Severity | Who cares | Fix | Detail |
 |---|---|---|---|---|---|
 | **php2shell** | RCE in PHP core, every release from 5.4.0 | **9.2** Critical | anyone serving PHP | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** (10-21) | [`01`](docs/01-php2shell.md) |
 | **GitLab** | integer overflow in the regex engine → unauthenticated RCE, **every release since 7.0 (2014)** | **10.0** (max) | self-managed operators | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** (10-21) | [`09`](docs/09-gitlab-19-5-1.md) |
 | **LiteLLM** | 1.107.0 wheels execute a credential stealer on any Python start, plus a remote loader | no GHSA | anyone who `pip`/Docker installed it | **back to 1.106.2** + rotate everything | [`10`](docs/10-litellm-1-107-0.md) |
+| **Plex Media Server** | five CVEs: path traversal, two SSRF, plugin call, admin file write that executes at startup. **In KEV** | 4.3–7.2 | anyone exposing Plex | **1.43.3.10861** + rotate tokens | [`12`](docs/12-plex-oct2026.md) |
 | **Railway** | customer environment variables (i.e. secrets) may have been decrypted; deploys paused | — | Railway customers | rotate all env vars and registry credentials | [`11`](docs/11-week-of-oct-20.md) |
 | **OpenCode** | Console incident: provider keys exposed, user keys revoked (user-reported) | — | OpenCode users | re-issue provider keys, check usage | [`11`](docs/11-week-of-oct-20.md) |
 | **Oracle Java SE** | 55 CVEs in the October CPU; highest 7.5, none in KEV | 7.5 | anyone running a JVM | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1** (10-20) | [`07`](docs/07-oracle-java-oct2026.md) |
 | **eMudhra CA** | **eight** intermediate private keys too weak to be secret (one is `4`); computable by anyone | PKI | anyone shipping a trust store | update `ca-certificates` / `certifi` / Go / NSS | [`03`](docs/03-emudhra-ca.md) |
 | **Node.js** | nine October CVEs, plus the CA-bundle update | high | Node 22 / 24 / 26; **20 is EOL** | **22.23.4 / 24.22.1 / 26.12.1** (10-21) | [`02`](docs/02-nodejs-oct2026.md) |
 
-The eight are **independent**. Patching PHP does not fix GitLab; the CA and Java are separate again.
+The nine are **independent**. Patching PHP does not fix GitLab; the CA and Java are separate again.
+
+That table is only the named incidents. **NVD published 120 CRITICALs in the same two weeks**, and exactly
+one of them is known-exploited. The filter, and the twelve rows that survived it, are in
+[`docs/13`](docs/13-recent-criticals.md).
 
 What defines the week, though, is **credential theft**: Railway, LiteLLM and OpenCode are the same
 attack against three different key stores, all aimed at AI inference credentials. That reading is
@@ -149,9 +156,20 @@ litellm:
 railway:
   event: "customer environment variables possibly decrypted"
   action: "roll every env var and registry credential"
+plex:
+  cves: [CVE-2026-96651, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
+  fixed: "1.43.3.10861"
+  kev: [CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656]
+  kev_due: "2026-10-23 (96654, 96656)"
 opencode:
   event: "Console incident; provider keys exposed, user keys revoked"
   published_by_vendor: false
+recent_criticals:
+  window: "2026-10-08..2026-10-22"
+  total: 120
+  in_kev: 1
+  oracle: 34
+  consumer_iot: 38
 ```
 
 ---
@@ -441,8 +459,10 @@ tools/intel/fetch-intel --out /tmp/intel      # somewhere else
 - Results live in [`data/2026-10-22/`](data/2026-10-22/): the 55 Java CVEs, the GitLab advisory
   parsed to one record per CVE, the LiteLLM incident report verbatim, the KEV delta, MSRC, JVN,
   and 12 feeds.
-- Sources now include `gitlab` and `litellm`, so the tables in `docs/09` and `docs/10` are
-  regenerated the same way as everything else.
+- Sources now include `gitlab`, `litellm`, `csaf` and `nvd-critical`, so the tables in `docs/09`,
+  `docs/10`, `docs/12` and `docs/13` are regenerated the same way as everything else.
+- `nvd-critical` pulls NVD CRITICALs for a window and attaches KEV membership and EPSS
+  (`--critical-days`).
 - Exit codes: `0` all fetched, `10` partial (the rest written), `2` nothing fetched.
 - Same command, same file names — so `git diff` between two snapshots shows what the world
   changed. **Re-derive counts; never copy them.** A copied count is a claim you cannot check.
@@ -473,6 +493,8 @@ bash tools/copy-prompt.sh intel
 | `docs/09-gitlab-19-5-1.md` | CVE-2026-110264 (CVSS 10.0): affected/fixed branches, the patch-history trap, detections |
 | `docs/10-litellm-1-107-0.md` | LiteLLM 1.107.0: payload files, detection, remediation order, the March precedent |
 | `docs/11-week-of-oct-20.md` | The vx-underground list fact-checked: Railway, OpenCode, and the "it is the keys" reading |
+| `docs/12-plex-oct2026.md` | Plex's five CVEs (KEV, the chain, the deadline), NAS package lag, token rotation |
+| `docs/13-recent-criticals.md` | A two-week CRITICAL sweep: 120 CVEs, the twelve that survived, four traps in the data |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
 | `runbooks/nodejs.md` | Audit → containers → hosts → rollback |
 | `tools/php2shell/` | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`, ini, systemd unit, selftest |
