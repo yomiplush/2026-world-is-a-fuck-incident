@@ -168,6 +168,29 @@ window.registerLocale("ko", {
       ],
       metric: "교체할 환경 변수"
     },
+    bind: {
+      title: "재전송된 패킷 하나가 메모리를 깨뜨린다.",
+      lede: "GSS-TSIG로 서명된 UDP 메시지를 재생하면 named의 메모리가 손상됩니다. ISC는 우회 방법이 없다고 명시합니다.",
+      points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1(AV:N, AC:H) / ISC 심각도 <b>High</b> / 원격 악용 가능",
+          "영향: 9.11.0–9.18.50, 9.20.0–9.20.29, 9.21.0–9.21.26(S1 포함) → 수정 <b>9.20.30 / 9.21.27</b>",
+          "경로는 GSS-TSIG 핸들러: `named-checkconf -p | grep -i gssapi`로 설정 여부 확인",
+          "우회 방법 없음. EOL 브랜치(9.11–9.18)는 9.20 / 9.21로 옮겨야 합니다"
+      ],
+      metric: "CVSS · 우회 불가"
+    },
+    lkml: {
+      title: "공개 목록에 0day 6건이 흘렀다.",
+      lede: "ZDI가 비공개 security 목록이 아니라 공개 LKML로 보고서를 보냈고, Greg Kroah-Hartman이 각 건에 답했습니다.",
+      points: [
+          "SMB Direct 정수 언더플로(<b>9.0</b>)와 ksmbd 경쟁 조건(<b>9.0</b>) — 둘 다 원격 코드 실행",
+          "skb_zerocopy 로컬 권한 상승, vmwgfx 범위 초과 쓰기, nvmet 미초기화, TCP 쿼리 스택 오버플로",
+          "메인라인은 <b>미수정</b>. 패치는 v7.5 브랜치와 -next에 있고, ZDI 번호를 참조하는 메인라인 커밋은 없음",
+          "노출 축소: 쓰지 않는 <b>ksmbd</b> 중지, SMB Direct를 신뢰할 수 없는 망에 노출하지 않기"
+      ],
+      metric: "공개로 보낸 보고서"
+    },
+
     sweep: {
       title: "2주에 CRITICAL 124건, 악용은 1건.",
       lede: "이 수치는 위험이 아니라 공개 묶음의 크기를 잽니다. 최고 CVSS에는 남의 가정도 들어 있습니다.",

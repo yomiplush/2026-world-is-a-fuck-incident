@@ -170,6 +170,29 @@ window.registerLocale("zh", {
       ],
       metric: "需要轮换的环境变量"
     },
+    bind: {
+      title: "一个被重放的报文，就能破坏内存。",
+      lede: "重放带 GSS-TSIG 签名的 UDP 报文会破坏 named 的内存。ISC 明确表示没有规避方案。",
+      points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1（AV:N、AC:H）/ ISC 严重度 <b>High</b> / 可远程利用",
+          "受影响 9.11.0–9.18.50、9.20.0–9.20.29、9.21.0–9.21.26（含 S1）→ 修复 <b>9.20.30 / 9.21.27</b>",
+          "入口是 GSS-TSIG 处理器：用 `named-checkconf -p | grep -i gssapi` 确认是否启用",
+          "没有规避方案。EOL 分支（9.11–9.18）只能迁移到 9.20 / 9.21"
+      ],
+      metric: "CVSS · 无规避方案"
+    },
+    lkml: {
+      title: "六个 0day 被发到了公开列表。",
+      lede: "ZDI 把报告发到了公开的 LKML，而不是私有的 security 列表；Greg Kroah-Hartman 逐条回复询问原因。",
+      points: [
+          "SMB Direct 整数下溢（<b>9.0</b>）与 ksmbd 竞态（<b>9.0</b>）——都是远程代码执行",
+          "skb_zerocopy 的本地提权、vmwgfx 越界写、nvmet 未初始化、TCP 查询栈溢出",
+          "主线<b>尚未修复</b>：补丁在 v7.5 分支与 -next（10-22），主线无提交引用这些 ZDI 编号",
+          "降低暴露：不用的 <b>ksmbd</b> 停掉；不要把 SMB Direct 暴露给不可信网络"
+      ],
+      metric: "公开提交的报告数"
+    },
+
     sweep: {
       title: "两周内 124 个 CRITICAL，只有 1 个被利用。",
       lede: "这个数字衡量的是披露的批量，不是风险。最高 CVSS 里也含着他人的假设。",

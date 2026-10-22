@@ -101,6 +101,15 @@ The HUD switch (or `L`) flips language without restarting the scene, remembers t
 so a Japanese browser opens in Japanese and everything else in English. `<html lang>` is updated
 with the text, and the rail's aria-labels follow too.
 
+## Sharing and discovery
+
+- `og.png` — 1200×630 social preview, generated locally with PIL (HUD frame, title, radar arc).
+  Regenerate it by re-running the snippet in the commit message if the headline changes.
+- `index.html` carries `og:*` and `twitter:*` tags plus **12 `hreflang` alternates** and an
+  `x-default`, so each `?lang=` URL is understood as the same page in another language.
+- `sitemap.xml` lists the twelve language URLs with `xhtml:link` alternates; `robots.txt` points at
+  it. Hash fragments (`#9`) are not separate pages, so they are deliberately not in the sitemap.
+
 ## Content rule
 
 The copy in `data.js` is a summary of `docs/` in the parent repository, which cites primary

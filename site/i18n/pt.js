@@ -112,6 +112,29 @@ window.registerLocale("pt", {
         "o trabalho é <b>todas</b> as variáveis, não a que você acha que vazou",
         "senhas SMTP, segredos de webhook e JWT_SECRET também vivem ali"],
       metric: "variáveis a rotacionar" },
+    bind: {
+      title: "Um pacote reenviado corrompe a memória.",
+      lede: "Reproduzir uma mensagem UDP assinada com GSS-TSIG corrompe a memória do named. A ISC afirma que não há solução alternativa.",
+      points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1 (AV:N, AC:H) / severidade <b>High</b> da ISC / explorável remotamente",
+          "Afeta 9.11.0–9.18.50, 9.20.0–9.20.29, 9.21.0–9.21.26 (e S1) → corrigido em <b>9.20.30 / 9.21.27</b>",
+          "O caminho é o manipulador GSS-TSIG: `named-checkconf -p | grep -i gssapi` diz se está configurado",
+          "Sem solução alternativa. Ramos EOL (9.11–9.18) só podem ir para 9.20 / 9.21"
+      ],
+      metric: "CVSS · sem solução"
+    },
+    lkml: {
+      title: "Seis 0days foram para a lista pública.",
+      lede: "A ZDI enviou os relatórios para a LKML pública em vez da lista privada, e Greg Kroah-Hartman respondeu a cada um.",
+      points: [
+          "Underflow em SMB Direct (<b>9.0</b>) e uma corrida no ksmbd (<b>9.0</b>) — ambos RCE remotos",
+          "LPE no skb_zerocopy, escrita fora dos limites no vmwgfx, nvmet não inicializado, overflow em consulta TCP",
+          "O mainline está <b>sem correção</b>: patches em um ramo v7.5 e em -next, sem commits citando os ids ZDI",
+          "Reduzir exposição: parar o <b>ksmbd</b> se não for usado, não expor SMB Direct"
+      ],
+      metric: "relatórios enviados em público"
+    },
+
     sweep: { title: "124 CRITICAL em duas semanas. Um explorado.",
       lede: "A contagem mede o loteamento de divulgações, não o risco. O CVSS máximo também carrega premissas alheias.",
       points: ["<b>58%</b> dos 124 são o lote trimestral da Oracle e firmware IoT (quatro hoje, três de 2021/2022)",
