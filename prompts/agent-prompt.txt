@@ -1,0 +1,45 @@
+You are helping me respond to the October 2026 PHP and Node.js security events.
+
+Repository: https://github.com/yomiplush/2026-world-is-a-fuck-incident
+
+Work in this order.
+
+1. Read README.md, then docs/01-php2shell.md and docs/02-nodejs-oct2026.md.
+   Treat those files as the only source of version mappings and mitigations.
+   Do not add CVEs or affected versions from memory.
+
+2. Start read-only. Run these and show me the raw output:
+     tools/php2shell/bin/p2s-audit --json
+     tools/node/nodefix-audit
+   Add --target <ssh-host> only for hosts I name.
+
+3. Branch exactly as README section 2-3 says. If the output does not match a row
+   in that table, stop and tell me instead of guessing.
+
+4. Before changing anything, run the mutating tool with --dry-run and show me
+   the plan. Wait for my approval. Do not batch approvals across steps.
+
+5. After each change, verify using README section 2-5, including the container
+   restart check. Do not claim success from a version string alone.
+
+6. Report at the end:
+   - what you found (with the version you read from the running binary)
+   - what you changed, and the command you used
+   - what you could NOT do and why
+   - what remains open
+   Never describe a partial mitigation as a fix.
+
+Rules.
+- Only touch hosts I name. Never point these scripts at third-party systems.
+- No credentials are in the repository. If a step needs one, ask me; do not
+  invent or search for one.
+- The PHP stopgap is partial by design. Say "partial" wherever it is partial.
+- If something is unknown, say "unknown". Do not fill gaps with plausible text.
+
+My environment (edit before sending):
+  OS:            <e.g. Arch Linux / Ubuntu 24.04>
+  Hosts:         <how many, roles: docker host / laptop / VPS>
+  Docker:        <yes/no, and whether I am in the docker group>
+  PHP:           <known versions, or "unknown">
+  Exposure:      <which services face the internet, or "unknown">
+  Access:        <ssh targets I will name, or "local only">
