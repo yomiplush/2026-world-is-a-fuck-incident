@@ -84,7 +84,7 @@ Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
 
 ---
 
-## 1. 今週の全体像（10件）
+## 1. 今週の全体像（12件）
 
 | 事案 | 何が起きたか | 深刻度 | 該当する人 | 修正・対処 | 詳細 |
 |---|---|---|---|---|---|
@@ -92,6 +92,8 @@ Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
 | **GitLab** | 正規表現エンジンの整数オーバーフロー → 未認証 RCE。**7.0（2014年）以降すべて** | **10.0**（満点） | self-managed を運用 | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13**（10-21） | [`09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM** | 1.107.0 の wheel が Python 起動時に資格情報を窃取＋遠隔ローダ | GHSA 未公開 | `pip` / Docker で導入した | **1.106.2 に戻す**＋全資格情報ローテート | [`10`](docs/10-litellm-1-107-0.ja.md) |
 | **Plex Media Server** | 5件（パストラバーサル／SSRF 2件／プラグイン呼び出し／管理権限のファイル書き込み→起動時実行）。**KEV 収載** | 4.3〜7.2 | Plex を外部公開している | **1.43.3.10861** へ＋トークンローテート | [`12`](docs/12-plex-oct2026.ja.md) |
+| **ISC BIND 9（DNS）** | GSS-TSIG の署名済み UDP を**再送**されると `named` のメモリが壊れ、RCE の可能性。**回避策なし** | 8.1 | AD/Kerberos 連携 DNS を運用 | **9.20.30 / 9.21.27**（S1 は 9.20.30-S1）へ | [`18`](docs/18-bind-cve-2026-94300.ja.md) |
+| **Linux カーネル（LKML）** | 6件の脆弱性報告が非公開リストではなく**公開 LKML** に流れた。SMB Direct と ksmbd はリモート RCE（9.0） | 9.0 | カーネル運用・SMB / NVMe-oF | **未修正**（10-22 時点）。distro カーネルを追従、不要な `ksmbd` を停止 | [`17`](docs/17-lkml-oct2026.ja.md) |
 | **Apache（Tomcat / httpd / Traffic Server）** | Tomcat は認証バイパス＋利用者間の応答混線（HTTP/2・AJP）、httpd は 2.4.69、Traffic Server はスマグリング2件 | 9.1 / 8.9 | Tomcat・httpd を運用 | **11.0.27 / 10.1.61 / 9.0.123**、httpd **2.4.69** | [`15`](docs/15-apache-oct2026.ja.md) |
 | **Railway** | 顧客の環境変数（＝秘密）が復号された可能性。デプロイ停止 | — | Railway にデプロイ | 環境変数・レジストリ資格情報を全ローテート | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **OpenCode** | Console 事案でプロバイダキーが露出、利用者のキーが失効（利用者報告） | — | OpenCode を利用 | プロバイダキーを再発行し利用履歴を確認 | [`11`](docs/11-week-of-oct-20.ja.md) |
@@ -99,7 +101,7 @@ Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
 | **eMudhra CA** | 中間CA **8本**の秘密鍵が **3〜8ビット**しかない（`4, 56, 66, 115, 155, 156, 230, 237`）。2025-04-30 の鍵生成で wrap/unwrap が誤り、24本の下位CAのうち8本に弱い鍵 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
 | **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱 | high | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21） | [`02`](docs/02-nodejs-oct2026.ja.md) |
 
-10件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
+12件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
 
 この表は「名前が付いた事案」だけです。**直近2週間の NVD CRITICAL は120件**あり、そのうち実際に
 悪用が確認されているのは1件でした。絞り込みの手順と残った12件は [`docs/13`](docs/13-recent-criticals.ja.md)。
@@ -518,6 +520,8 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/14-supply-chain-oct2026.ja.md`](docs/14-supply-chain-oct2026.ja.md) | 供給網の15件を1件ずつ検証（14件確認・1件未確認）、8件の詳細、統制の表 |
 | [`docs/15-apache-oct2026.ja.md`](docs/15-apache-oct2026.ja.md) | Apache の10月分: Tomcat 3件・httpd 2.4.69・Traffic Server、深刻度ラベルと CVSS の食い違い |
 | [`docs/16-snapshot-2120jst.ja.md`](docs/16-snapshot-2120jst.ja.md) | 2026-10-22 21:20 JST の再取得。KEV 据え置き / MSRC 2,575→2,578 / CRITICAL 120→124 / Plex 最新版 |
+| [`docs/17-lkml-oct2026.ja.md`](docs/17-lkml-oct2026.ja.md) | Linux カーネルの6件が公開 LKML へ。SMB Direct / ksmbd の 9.0、未修正、露出削減、検証できたこと・できなかったこと |
+| [`docs/18-bind-cve-2026-94300.ja.md`](docs/18-bind-cve-2026-94300.ja.md) | BIND 9 の GSS-TSIG リプレイ（CVSS 8.1、回避策なし）、影響版と修正版、設定の確認方法 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
 | [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |

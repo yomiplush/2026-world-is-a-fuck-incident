@@ -23,6 +23,11 @@
   const ctx = el.scene.getContext("2d", { alpha: true });
   let w = 0, h = 0, dpr = 1;
   let index = 0, started = false, sceneStart = 0, last = 0;
+  // 3D tilt: drag steers it, long-press rotates it, release springs back
+  const tilt = { yaw: 0, pitch: 0 };
+  const tiltTarget = { yaw: 0, pitch: 0 };
+  let drag = null, holdTimer = null, holding = false;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   let lang = "en";
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -46,7 +51,7 @@
     if (loading[code]) return loading[code];
     loading[code] = new Promise((resolve) => {
       const s = document.createElement("script");
-      s.src = "./i18n/" + code + ".js?v=8";
+      s.src = "./i18n/" + code + ".js?v=10";
       s.async = true;
       s.onload = () => resolve(hasLocale(code));
       s.onerror = () => resolve(false);
@@ -118,7 +123,8 @@
     el.btnPrev.setAttribute("aria-label", ui("tap"));
     el.btnNext.querySelector(".next-label").textContent =
       index === scenes.length - 1 ? ui("replay") : ui("tap");
-    el.hint.textContent = index === scenes.length - 1 ? ui("hintEnd") : ui("hint");
+    el.hint.textContent = (index === scenes.length - 1 ? ui("hintEnd") : ui("hint")) +
+      " · DRAG / HOLD = 3D";
   }
 
   async function setLang(code, opts) {
@@ -168,7 +174,17 @@
   }
 
   function loop(now) {
+    const dt = Math.min(0.05, (now - last) / 1000) || 0;
     last = now;
+    if (holding) {
+      // hold: keep turning, with a slow pitch sway, so it reads as "grabbed"
+      tilt.yaw += 0.55 * dt;
+      tilt.pitch = Math.sin(now / 900) * 0.16;
+    } else {
+      tilt.yaw += (tiltTarget.yaw - tilt.yaw) * 0.12;
+      tilt.pitch += (tiltTarget.pitch - tilt.pitch) * 0.12;
+    }
+    V.setTilt(tilt.yaw, tilt.pitch);
     drawFrame(now);
     requestAnimationFrame(loop);
   }
@@ -209,6 +225,8 @@
     buildSources(s);
 
     sceneStart = performance.now();
+    tilt.yaw = tiltTarget.yaw = 0;
+    tilt.pitch = tiltTarget.pitch = 0;
     requestAnimationFrame(updateMore);
     if (started && !silent) {
       A.sfx(s.cue || "blip");
@@ -253,21 +271,69 @@
   });
 
   /* ---------- input ---------- */
-  let downX = 0, downY = 0, downT = 0;
+  // Push the current tilt into the renderer and paint now. Called from input so the
+  // scene answers even if requestAnimationFrame is throttled (background tab, tests).
+  function applyTilt(snap) {
+    if (snap) {
+      tilt.yaw += (tiltTarget.yaw - tilt.yaw) * 0.55;
+      tilt.pitch += (tiltTarget.pitch - tilt.pitch) * 0.55;
+    }
+    V.setTilt(tilt.yaw, tilt.pitch);
+    drawFrame(performance.now());
+  }
+
+  function endDrag() {
+    if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+    holding = false;
+    drag = null;
+    tiltTarget.yaw = 0;                 // spring back to the scene's own angle
+    tiltTarget.pitch = 0;
+  }
+
   document.addEventListener("pointerdown", (e) => {
-    downX = e.clientX; downY = e.clientY; downT = Date.now();
-  }, { passive: true });
-  document.addEventListener("pointerup", (e) => {
     if (!started) return;
     if (e.target.closest("button, a, select, label, .drawer")) return;
-    const dx = e.clientX - downX, dy = e.clientY - downY;
-    const dt = Date.now() - downT;
-    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) && dt < 700) {
-      dx < 0 ? next() : prev();
-      return;
-    }
-    if (Math.abs(dx) < 12 && Math.abs(dy) < 12 && dt < 700) next();
+    drag = { x: e.clientX, y: e.clientY, t: Date.now(), moved: false };
+    window.__in = window.__in || { down: 0, move: 0, up: 0, hold: 0 };
+    window.__in.down++;
+    holdTimer = setTimeout(() => {
+      if (drag && !drag.moved) {
+        holding = true; window.__in.hold++;
+        tilt.yaw += 0.16; tilt.pitch = 0.06;      // immediate feedback on hold
+        applyTilt(false);
+      }
+    }, 280);
   }, { passive: true });
+
+  document.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    window.__in = window.__in || { down: 0, move: 0, up: 0, hold: 0 };
+    window.__in.move++;
+    window.__lastXY = [e.clientX, e.clientY, dx, dy, !!drag.moved];
+    if (!drag.moved && Math.hypot(dx, dy) > 8) {
+      drag.moved = true;
+      if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+      holding = false;
+    }
+    if (!drag.moved) return;
+    drag.x = e.clientX; drag.y = e.clientY;
+    tiltTarget.yaw = clamp(tiltTarget.yaw + dx * 0.006, -1.1, 1.1);
+    tiltTarget.pitch = clamp(tiltTarget.pitch + dy * 0.004, -0.5, 0.5);
+    applyTilt(true);
+  }, { passive: true });
+
+  document.addEventListener("pointerup", (e) => {
+    if (!started) return;
+    if (!drag) return;
+    const wasTap = !drag.moved && !holding && Date.now() - drag.t < 700;
+    endDrag();
+    applyTilt(false);
+    if (wasTap) next();
+    void e;
+  }, { passive: true });
+
+  document.addEventListener("pointercancel", endDrag, { passive: true });
 
   window.addEventListener("keydown", (e) => {
     if (e.key === " " || e.key === "ArrowRight" || e.key === "Enter") {
@@ -386,6 +452,18 @@
   window.__booted = true;
   drawFrame(performance.now());
 
+  // ?tilt=yaw,pitch — preset the 3D angle (used for screenshots and for sharing a view)
+  (function presetTilt() {
+    const q = new URLSearchParams(location.search).get("tilt");
+    if (!q) return;
+    const [y, pch] = q.split(",").map(Number);
+    if (!isFinite(y) || !isFinite(pch)) return;
+    tilt.yaw = tiltTarget.yaw = clamp(y, -1.1, 1.1);
+    tilt.pitch = tiltTarget.pitch = clamp(pch, -0.5, 0.5);
+    V.setTilt(tilt.yaw, tilt.pitch);
+    drawFrame(performance.now());
+  })();
+
   // if the chosen language is lazy, load it and re-render in place
   if (!hasLocale(lang)) {
     const wanted = lang;
@@ -408,7 +486,8 @@
         Math.round(el.scene.width * 0.65), Math.round(el.scene.height * 0.55)).data;
       let band = 0;
       for (let i = 0; i < b.length; i += 4) { if (b[i] + b[i + 1] + b[i + 2] > 120) band++; }
-      document.title = "DEBUG loaded=" + Object.keys(LOCALES).join(",") +
+      document.title = "DEBUG tilt=" + tilt.yaw.toFixed(2) + "/" + tilt.pitch.toFixed(2) +
+        " loaded=" + Object.keys(LOCALES).join(",") +
         " lang=" + lang + " dir=" + document.documentElement.dir +
         " locale=" + (hasLocale(lang) ? "loaded" : "missing") +
         " panel=" + el.panel.scrollHeight + "/" + el.panel.clientHeight +

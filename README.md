@@ -91,7 +91,7 @@ PHP, Tomcat, httpd and Oracle release indexes.
 
 ---
 
-## 1. The week at a glance (ten items)
+## 1. The week at a glance (twelve items)
 
 | Event | What happened | Severity | Who cares | Fix | Detail |
 |---|---|---|---|---|---|
@@ -99,6 +99,8 @@ PHP, Tomcat, httpd and Oracle release indexes.
 | **GitLab** | integer overflow in the regex engine → unauthenticated RCE, **every release since 7.0 (2014)** | **10.0** (max) | self-managed operators | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** (10-21) | [`09`](docs/09-gitlab-19-5-1.md) |
 | **LiteLLM** | 1.107.0 wheels execute a credential stealer on any Python start, plus a remote loader | no GHSA | anyone who `pip`/Docker installed it | **back to 1.106.2** + rotate everything | [`10`](docs/10-litellm-1-107-0.md) |
 | **Plex Media Server** | five CVEs: path traversal, two SSRF, plugin call, admin file write that executes at startup. **In KEV** | 4.3–7.2 | anyone exposing Plex | **1.43.3.10861** + rotate tokens | [`12`](docs/12-plex-oct2026.md) |
+| **ISC BIND 9 (DNS)** | replaying GSS-TSIG-signed UDP corrupts `named`'s memory, with possible RCE. **No workaround** | 8.1 | AD/Kerberos-integrated DNS | **9.20.30 / 9.21.27** (S1: 9.20.30-S1) | [`18`](docs/18-bind-cve-2026-94300.md) |
+| **Linux kernel (LKML)** | six vulnerability reports went to the **public** mailing list instead of the private one; SMB Direct and ksmbd are remote RCEs at 9.0 | 9.0 | kernel operators, SMB / NVMe-oF | **unpatched** as of 10-22; follow the distro kernel, drop ksmbd if unused | [`17`](docs/17-lkml-oct2026.md) |
 | **Apache (Tomcat / httpd / Traffic Server)** | Tomcat: an auth bypass plus cross-user response mix-ups (HTTP/2, AJP); httpd 2.4.69; two Traffic Server smuggling bugs | 9.1 / 8.9 | anyone running Tomcat or httpd | **11.0.27 / 10.1.61 / 9.0.123**, httpd **2.4.69** | [`15`](docs/15-apache-oct2026.md) |
 | **Railway** | customer environment variables (i.e. secrets) may have been decrypted; deploys paused | — | Railway customers | rotate all env vars and registry credentials | [`11`](docs/11-week-of-oct-20.md) |
 | **OpenCode** | Console incident: provider keys exposed, user keys revoked (user-reported) | — | OpenCode users | re-issue provider keys, check usage | [`11`](docs/11-week-of-oct-20.md) |
@@ -106,7 +108,7 @@ PHP, Tomcat, httpd and Oracle release indexes.
 | **eMudhra CA** | **eight** intermediate private keys with **3–8 bits** of entropy (`4, 56, 66, 115, 155, 156, 230, 237`): a 2025-04-30 ceremony's wrap/unwrap step produced a second, weak key set for 8 of 24 subordinates | PKI | anyone shipping a trust store | update `ca-certificates` / `certifi` / Go / NSS | [`03`](docs/03-emudhra-ca.md) |
 | **Node.js** | nine October CVEs, plus the CA-bundle update | high | Node 22 / 24 / 26; **20 is EOL** | **22.23.4 / 24.22.1 / 26.12.1** (10-21) | [`02`](docs/02-nodejs-oct2026.md) |
 
-The ten are **independent**. Patching PHP does not fix GitLab; the CA, Java and Apache are separate again.
+The twelve are **independent**. Patching PHP does not fix GitLab; the CA, Java, Apache, the kernel and BIND are separate again.
 
 That table is only the named incidents. **NVD published 120 CRITICALs in the same two weeks**, and exactly
 one of them is known-exploited. The filter, and the twelve rows that survived it, are in
@@ -533,6 +535,8 @@ bash tools/copy-prompt.sh intel
 | `docs/14-supply-chain-oct2026.md` | The 15-item October list checked one by one: 14 verified, 1 not, and the controls that would have helped |
 | `docs/15-apache-oct2026.md` | Apache in October: three Tomcat fixes, httpd 2.4.69, Traffic Server smuggling, and labels versus CVSS |
 | `docs/16-snapshot-2120jst.md` | The 21:20 JST re-read: KEV unchanged, MSRC 2,575→2,578, CRITICAL 120→124, current Plex build |
+| `docs/17-lkml-oct2026.md` | Six kernel reports posted publicly: SMB Direct and ksmbd at 9.0, still unpatched, and what was verifiable |
+| `docs/18-bind-cve-2026-94300.md` | BIND 9 GSS-TSIG replay: CVSS 8.1, no workaround, affected/fixed versions, how to check your config |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
 | `runbooks/nodejs.md` | Audit → containers → hosts → rollback |
 | `tools/php2shell/` | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`, ini, systemd unit, selftest |
