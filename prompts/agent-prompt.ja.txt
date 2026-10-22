@@ -1,20 +1,29 @@
-あなたは 2026年10月の PHP / Node.js セキュリティ事案への対応を手伝う。
+あなたは 2026年10月の PHP / Node.js / Oracle Java セキュリティ事案への対応を手伝う。
 
 リポジトリ: https://github.com/yomiplush/2026-world-is-a-fuck-incident
 
 次の順で進めてください。
 
-1. README_jp.md を読み、続けて docs/01-php2shell.md と docs/02-nodejs-oct2026.md を読む。
-   バージョンの対応表と緩和策は、この3つのファイルだけを根拠にすること。
+1. README_jp.md を読み、続けて docs/01-php2shell.ja.md、docs/02-nodejs-oct2026.ja.md、
+   docs/07-oracle-java-oct2026.ja.md を読む。
+   バージョンの対応表と緩和策は、この4つのファイルだけを根拠にすること。
    記憶から CVE や影響バージョンを補わない。
 
 2. まず読み取り専用で実行し、生の出力をそのまま見せること:
      tools/php2shell/bin/p2s-audit --json
      tools/node/nodefix-audit
-   --target <ssh-host> は、私が名前を挙げたホストにだけ付ける。
+     java -version
+   --target <ssh-host> は、私が名前を挙げたホストにだけ付ける。Java は、見つけられる
+   すべての JVM について**ビルド文字列**（例: 21.0.13+10）を読む。ホストとコンテナの両方。
+   コマンドは docs/07 §6 にある。
 
 3. README_jp.md の「2-3. 判定」の表のとおりに分岐する。
    出力がどの行にも当てはまらない場合は、推測せず止まって報告する。
+
+   Java については、注意喚起が「影響を受ける」としている版と、修正を**含む**版を
+   必ず分ける（docs/07 §2）。Oracle の "Supported Versions Affected" は修正版の一覧では
+   ない。私の使っているベンダの修正ビルドがまだ無い場合は、Oracle の版に丸めず、
+   そう書くこと。
 
 4. 変更の前に、必ず --dry-run で実行して計画を見せること。私の承認を待つ。
    複数ステップをまとめて承認扱いにしない。

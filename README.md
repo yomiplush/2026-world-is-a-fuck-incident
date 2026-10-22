@@ -1,4 +1,4 @@
-# 2026 — php2shell, Node.js October 2026, and a CA compromise
+# 2026 — php2shell, Node.js October 2026, Oracle Java, and a CA compromise
 
 [**English**](README.md) | [日本語](README_jp.md)
 
@@ -9,34 +9,43 @@
   **before** the fix shipped — if you serve PHP, patch today.
 - **Node.js**: **22.23.4 / 24.22.1 / 26.12.1** are current, and there is **no newer patch**.
   20.x is EOL and will never be fixed.
+- **Oracle Java SE** (October 2026 CPU): 55 CVEs, highest CVSS **7.5**, none in KEV. The trap is
+  that **"affected" and "fixed" are different versions** (affected 21.0.12.1 → fixed 21.0.13).
+  Patch JVMs you expose today. Details: [`docs/07`](docs/07-oracle-java-oct2026.md).
 - **CA**: eMudhra intermediate keys were compromised. Runtimes that bundle their own CA store
   (Node, Go, Python, Java) must be updated.
 - **Everything else here is context.** It only matters after one of the above fires.
 
-Check your own estate — two read-only commands, about a minute:
+Check your own estate — three read-only commands, about a minute:
 
 ```bash
 git clone https://github.com/yomiplush/2026-world-is-a-fuck-incident.git
 cd 2026-world-is-a-fuck-incident
 tools/php2shell/bin/p2s-audit --json      # exit 10 = a PHP runtime is exposed
 tools/node/nodefix-audit                  # Node runtimes below the fixed versions
+java -version                             # for Java read the build string (docs/07 §2)
 ```
 
 **Handing this to an AI?** Copy the prompt, then paste it together with the repository URL:
 
 ```bash
-bash tools/copy-prompt.sh        # English prompt -> clipboard
-bash tools/copy-prompt.sh ja     # Japanese prompt -> clipboard
+bash tools/copy-prompt.sh            # remediation prompt -> clipboard
+bash tools/copy-prompt.sh ja         # remediation prompt, Japanese
+bash tools/copy-prompt.sh intel      # decision prompt, from the dated source snapshot
+bash tools/copy-prompt.sh intel ja   # decision prompt, Japanese
 ```
 
-The prompt keeps the agent read-only first, makes it branch on the table in §2-3, verify
-versions against the running binary, and never describe a partial mitigation as a fix.
+The remediation prompt keeps the agent read-only first, makes it branch on the table in §2-3,
+verify versions against the running binary, and never describe a partial mitigation as a fix.
+The decision prompt makes it re-fetch the data first, keep affected and fixed versions apart,
+cite a retrieval date per claim, and never fill a gap from memory
+([`docs/08`](docs/08-intel-sources.md)).
 
 ---
 
-Three events landed in the same week of October 2026 — **two critical RCEs in PHP itself**,
-**the Node.js October security releases**, and **the compromise of a public CA's intermediate
-keys**. This repository is the record: what happened, the primary sources, the reproduction
+Four events landed in the same weeks of October 2026 — **two critical RCEs in PHP itself**,
+**the Node.js October security releases**, **the Oracle Java SE quarterly patch batch**, and
+**the compromise of a public CA's intermediate keys**. This repository is the record: what happened, the primary sources, the reproduction
 steps, and a defence toolkit you can actually run. It is meant to be **read** and **executed**.
 
 **Data as of 2026-10-22 00:15 UTC** (last verified). No newer patch exists — confirmed against
@@ -47,15 +56,16 @@ the Node.js release index and the advisory list.
 
 ---
 
-## 1. The three events at a glance
+## 1. The four events at a glance
 
 | Event | CVE | Severity | Affects | Fixed in | Exploited | Do this |
 |---|---|---|---|---|---|---|
 | **php2shell** (RCE in PHP core) | CVE-2026-109618<br>CVE-2026-109619 | CVSS 4.0 **9.2** Critical | **Every PHP release from 5.4.0 on.** FPM / mod_php / php-cgi / FrankenPHP / LiteSpeed | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** (2026-10-21) | **Yes — public.** Attempts seen at 07:43 UTC, before the fix shipped | Upgrade PHP. If you cannot, block multipart + apply partial mitigations |
 | **Node.js October** | CVE-2026-111497 and 8 more | highest **high** | Node 22 / 24 / 26. **20 is EOL with no fix** | **22.23.4 / 24.22.1 / 26.12.1** (2026-10-21) | Not observed (public PoC territory) | Update within the same major line (keeps ABI) |
+| **Oracle Java SE October CPU** | 55 CVEs (e.g. CVE-2026-91415) | highest **7.5** | Java SE `8u503` / `11.0.32.1` / `17.0.20.1` / `21.0.12.1` / `25.0.4.1` / `26.0.2` / `27` | **`8u511` / `11.0.33` / `17.0.21` / `21.0.13` / `25.0.5` / `27.0.1`** (2026-10-20) | Not in KEV | Move to the fixed build. JDK 26 has no fix — go to 27 |
 | **eMudhra intermediate CA compromise** | CVE-2026-111943 (Go's tracking ID) | — | Any trust store that trusts those intermediates | Vendor `ca-certificates` / runtime bundles | Requires a MITM position | Update the CA bundle |
 
-The three are **independent**. Patching PHP does not fix Node; the CA is separate again.
+The four are **independent**. Patching PHP does not fix Node; the CA and Java are separate again.
 
 **Only php2shell is urgent.** Attack code is public, exploitation was observed before the fix,
 and the bug sits in PHP's request handling — no application-level fix can remove it.
@@ -77,6 +87,15 @@ php:
 node:
   latest: { "26": "26.12.1", "24": "24.22.1", "22": "22.23.4" }
   eol_no_fix: "20.x"
+java:
+  cpu: "2026-10"
+  cves: 55
+  remote_no_auth: 49
+  max_cvss: 7.5
+  affected: ["8u503", "8u503-perf", "11.0.32.1", "17.0.20.1", "21.0.12.1", "25.0.4.1", "26.0.2", "27"]
+  fixed:    ["8u511", "11.0.33", "17.0.21", "21.0.13", "25.0.5", "27.0.1"]   # 2026-10-20
+  no_fix:   "26 (26.0.3 does not exist; move to 27)"
+  in_kev: false
 ca:
   event: "eMudhra intermediate CA key compromise"
   roots: ["Comodo AAA Services root", "emSign ECC Root CA - G3"]
@@ -142,6 +161,7 @@ running?". A host with no PHP at all is unconditionally safe from this bug.
 | PHP < fixed, image can be bumped | **Needs patch** | §2-4-A |
 | PHP < fixed, cannot bump yet (vendor wait, ≤8.1) | **Needs mitigation** | §2-4-B |
 | Node < 22.23.4 / 24.22.1 / 26.12.1, or 20.x | **Needs patch** | §2-4-C |
+| JVM build is below the fixed release (e.g. `21.0.12.1`) | **Needs fix** | §2-4-E |
 | `ca-certificates` still trusts the eMudhra intermediates | Needs update | §2-4-D |
 
 > Check the version **with the running binary, not the tag**:
@@ -232,12 +252,48 @@ sudo pacman -Syu ca-certificates                    # Arch
 
 Details and the three preconditions: `docs/03-emudhra-ca.md`.
 
+### 2-4-E. Patch Java
+
+**Do not confuse the affected list with the fixed list.** Oracle's column is what you are
+probably running.
+
+| Line | Affected (before) | Fixed (2026-10-20) |
+|---|---|---|
+| 8 | `8u503` / `8u503-perf` | **8u511** |
+| 11 | `11.0.32.1` | **11.0.33** |
+| 17 | `17.0.20.1` | **17.0.21** |
+| 21 | `21.0.12.1` | **21.0.13** |
+| 25 | `25.0.4.1` | **25.0.5** |
+| 26 | `26.0.2` | no fix (no `26.0.3`) → move to 27 |
+| 27 | `27` | **27.0.1** |
+
+```bash
+# Which JVMs are running (read-only, and read the build string)
+for j in $(command -v java 2>/dev/null) /usr/lib/jvm/*/bin/java; do
+  [ -x "$j" ] && printf '%s -> ' "$j" && "$j" -version 2>&1 | head -1
+done
+docker ps -q | xargs -r -I{} sh -c 'docker exec {} java -version 2>&1 | head -1 | sed "s|^|{} |"'
+
+# Distribution packages (examples)
+sudo apt install --only-upgrade openjdk-21-jre-headless
+sudo pacman -Syu jre-openjdk
+```
+
+- **Temurin / Corretto / Zulu lag Oracle.** On 2026-10-22 Temurin's newest builds were still the
+  August ones (`21.0.12.1+1`). Check that vendor's release notes and upgrade when it ships.
+- **Rebuild container images** on the fixed tag. Do not copy a JRE into a running container.
+- Verify with the **build string** (`21.0.13+10`), not the product name.
+
+The full 55-CVE table, the Note 1/2/3 reading, and where Java hides:
+[`docs/07-oracle-java-oct2026.md`](docs/07-oracle-java-oct2026.md).
+
 ### 2-5. Verify (remove "I think I fixed it")
 
 ```bash
 tools/php2shell/bin/p2s-audit --target <ssh-host>          # no longer exits 10
 docker exec <name> php -v                                  # the actual version
 docker exec <name> php -i | grep -E 'session.upload_progress|memory_limit|post_max_size'
+for j in $(command -v java 2>/dev/null) /usr/lib/jvm/*/bin/java; do "$j" -version 2>&1 | head -1; done
 tools/php2shell/bin/p2s-hunt --container <name> --target <ssh-host> --scan   # RESULT: clean
 bash tools/php2shell/tests/selftest.sh <ssh-host>          # survives a restart
 ```
@@ -274,7 +330,36 @@ If Node is behind, go to `runbooks/nodejs.md`.
 
 ---
 
-## 4. What is in here
+## 4. Data and sources (what to hand an AI)
+
+**A list is stale in days. The sources and the way to re-ask them are what survives.**
+[`docs/08-intel-sources.md`](docs/08-intel-sources.md) holds the catalog — 12 researcher and
+industry feeds, four official feeds — plus the 2026-10-22 snapshot (KEV's last 37 additions,
+2,575 MSRC entries, 20 JVN items). No hand-copied counts: every number is regenerated.
+
+```bash
+tools/intel/fetch-intel                       # everything into data/YYYY-MM-DD/
+tools/intel/fetch-intel --sources oracle,kev  # a subset
+tools/intel/fetch-intel --out /tmp/intel      # somewhere else
+```
+
+- Results live in [`data/2026-10-22/`](data/2026-10-22/): the 55 Java CVEs as JSON, the KEV
+  delta, MSRC, JVN, and 12 feeds.
+- Exit codes: `0` all fetched, `10` partial (the rest written), `2` nothing fetched.
+- Same command, same file names — so `git diff` between two snapshots shows what the world
+  changed. **Re-derive counts; never copy them.** A copied count is a claim you cannot check.
+- "Exploited" means different things per source (CISA "not observed", Unit 42 "PoC seen", a KEV
+  listing). [`docs/08` §4](docs/08-intel-sources.md) works through the php2shell example.
+
+For decisions rather than remediation, use the decision prompt, not the remediation one:
+
+```bash
+bash tools/copy-prompt.sh intel
+```
+
+---
+
+## 5. What is in here
 
 | Path | Contents |
 |---|---|
@@ -285,13 +370,16 @@ If Node is behind, go to `runbooks/nodejs.md`.
 | `docs/04-cisa-kev-oct2026.md` | Other known-exploited products from the same week |
 | `docs/05-other-incidents.md` | Microsoft, Oracle, ransomware/economic-sanctions news |
 | `docs/06-lessons-and-gotchas.md` | The mistakes made while responding, and what they cost |
+| `docs/07-oracle-java-oct2026.md` | All 55 Java SE CVEs, affected-vs-fixed, Notes 1/2/3, detection and patching |
+| `docs/08-intel-sources.md` | Source catalog, the 2026-10-22 snapshot, the four meanings of "exploited" |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
 | `runbooks/nodejs.md` | Audit → containers → hosts → rollback |
 | `tools/php2shell/` | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`, ini, systemd unit, selftest |
 | `tools/node/nodefix-audit` | Lists Node runtimes below the fixed versions |
-| `tools/copy-prompt.sh` | Puts the AI handoff prompt on the clipboard (`en` / `ja`) |
-| `prompts/` | Ready-to-paste agent prompts, English and Japanese |
-| `data/2026-10-22/` | Raw API responses the numbers come from |
+| `tools/intel/fetch-intel` | Collects the primary sources (Oracle CPU / KEV / JVN / MSRC / 12 feeds) into JSON |
+| `tools/copy-prompt.sh` | Puts an AI prompt on the clipboard (`en` / `ja` / `intel` / `intel ja`) |
+| `prompts/` | Ready-to-paste prompts: remediation and decision, English and Japanese |
+| `data/2026-10-22/` | Raw API responses the numbers come from (Java, KEV, MSRC, JVN, feeds, NVD) |
 | `SOURCES.md` | Every source, with the command to re-fetch it |
 
 Each of the files above also exists as `NAME.ja.md` (Japanese).
@@ -300,7 +388,7 @@ The tools do three things only: **find it, stop it, prove it**. No exploit code.
 
 ---
 
-## 5. What this repository deliberately excludes
+## 6. What this repository deliberately excludes
 
 - **Credentials, API tokens, private keys.** Tokens are expected to live outside the repo.
 - **Owner-specific domains, hostnames, IPs and device inventories.** Not needed to reproduce the
@@ -312,7 +400,7 @@ The tools do three things only: **find it, stop it, prove it**. No exploit code.
 
 ---
 
-## 6. Freshness (important)
+## 7. Freshness (important)
 
 This is a **snapshot from 2026-10-22**. Vulnerability data decays in days.
 
@@ -321,6 +409,6 @@ This is a **snapshot from 2026-10-22**. Vulnerability data decays in days.
   Node.js `dist/index.json` and the PHP release listing tell you the current state by themselves.
 - If upstream has shipped newer fixed versions, **upstream wins over this README**.
 
-## 7. License
+## 8. License
 
 MIT (`LICENSE`). Quoted primary sources remain the property of their publishers.

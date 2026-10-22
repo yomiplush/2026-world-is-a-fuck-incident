@@ -1,20 +1,30 @@
-You are helping me respond to the October 2026 PHP and Node.js security events.
+You are helping me respond to the October 2026 PHP, Node.js and Oracle Java
+security events.
 
 Repository: https://github.com/yomiplush/2026-world-is-a-fuck-incident
 
 Work in this order.
 
-1. Read README.md, then docs/01-php2shell.md and docs/02-nodejs-oct2026.md.
+1. Read README.md, then docs/01-php2shell.md, docs/02-nodejs-oct2026.md and
+   docs/07-oracle-java-oct2026.md.
    Treat those files as the only source of version mappings and mitigations.
    Do not add CVEs or affected versions from memory.
 
 2. Start read-only. Run these and show me the raw output:
      tools/php2shell/bin/p2s-audit --json
      tools/node/nodefix-audit
-   Add --target <ssh-host> only for hosts I name.
+     java -version
+   Add --target <ssh-host> only for hosts I name. For Java, read the build string
+   (e.g. 21.0.13+10) from every JVM you can find, host and container alike;
+   docs/07 section 6 has the commands.
 
 3. Branch exactly as README section 2-3 says. If the output does not match a row
    in that table, stop and tell me instead of guessing.
+
+   For Java, keep two lists apart: the versions the advisory says are AFFECTED,
+   and the versions that CONTAIN THE FIX (docs/07 section 2). Oracle's
+   "Supported Versions Affected" column is not a fix list. If my vendor's fixed
+   build does not exist yet, say that instead of rounding up to Oracle's.
 
 4. Before changing anything, run the mutating tool with --dry-run and show me
    the plan. Wait for my approval. Do not batch approvals across steps.
@@ -41,5 +51,6 @@ My environment (edit before sending):
   Hosts:         <how many, roles: docker host / laptop / VPS>
   Docker:        <yes/no, and whether I am in the docker group>
   PHP:           <known versions, or "unknown">
+  Java:          <known versions, or "unknown">
   Exposure:      <which services face the internet, or "unknown">
   Access:        <ssh targets I will name, or "local only">
