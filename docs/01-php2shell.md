@@ -1,102 +1,109 @@
-# php2shell — PHP 本体の RCE 2件（CVE-2026-109618 / CVE-2026-109619）
+# php2shell — two RCEs in PHP itself (CVE-2026-109618 / CVE-2026-109619)
 
-コミュニティ名 "php2shell"（漏洩した Exploit ツールの名前から）。防御側が知るべき点に絞る。
+[**English**](01-php2shell.md) | [日本語](01-php2shell.ja.md)
 
-## 1. 何が脆いのか
+The community name comes from the leaked exploit tool. This document covers only what a defender
+needs.
 
-| 項目 | 内容 |
+## 1. What is vulnerable
+
+| Item | Detail |
 |---|---|
-| 影響 | **PHP 5.4.0（2012年）以降の全リリース** |
-| SAPI | php-fpm / Apache mod_php / php-cgi / FrankenPHP / LiteSpeed。**Web リクエストを処理する全て** |
-| 修正 | 2026-10-21 公開。8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 |
-| 8.1 以前 | **公式修正なし**。PHP プロジェクトは 7.4 / 8.0 / 8.1 向けの「最小ソースバックポート」を別途公開 |
-| CVSS | v4.0 **9.2**（両方）。v3.1 では 9.8 |
-| 攻撃条件 | 認証不要。ただし複雑度は High（`AC:H`） |
-| 悪用 | 公開済み。修正公開前の 07:43 UTC に攻撃試行を観測 |
+| Affected | **Every PHP release from 5.4.0 (2012) onward** |
+| SAPI | php-fpm, Apache mod_php, php-cgi, FrankenPHP, LiteSpeed — **anything serving web requests** |
+| Fixed | Published 2026-10-21: 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 |
+| 8.1 and older | **No official fix.** The PHP project published minimal source backports for 7.4 / 8.0 / 8.1 |
+| CVSS | v4.0 **9.2** (both). 9.8 under v3.1 |
+| Attack requirements | No authentication, but High complexity (`AC:H`) |
+| Exploitation | Public. Attempts observed at 07:43 UTC, before the fix shipped |
 
-**最重要**: 脆弱性は `php-src` のリクエスト処理の中にある。アプリのコード、フレームワークの
-ルータ、プラグイン、パスベースの WAF は**すべて素通りする**。だから「アプリは最新です」は
-対策にならない。
+**The important property**: the bug lives in `php-src` request handling. Application code, framework
+routers, plugins and path-based WAF rules are all bypassed. "My app is up to date" is not a
+mitigation.
 
-## 2. 2つの CVE は別物
+## 2. The two CVEs are different bugs
 
-### CVE-2026-109618 — OOM 時のリクエスト状態破壊
+### CVE-2026-109618 — request state corrupted by OOM handling
 
-PHP はメモリ確保失敗（OOM）を `longjmp()` で処理し、リクエストの処理を打ち切る。この経路の
-一部で、リクエストメモリが**未初期化のまま**後段に渡る。その後のクリーンアップが不正な
-データを有効なものとして扱い、RCE に至る。
+PHP handles allocation failure (OOM) with `longjmp()`, aborting request handling. On some paths,
+request memory is passed onward **uninitialised**, and cleanup then treats invalid data as valid,
+leading to RCE.
 
-攻撃側から見た実体は **upload-progress の unserializer の use-after-free** で、以下の副次効果がある:
+From the attacker's side the concrete primitive is a **use-after-free in the upload-progress
+unserialiser**, which has a side effect:
 
-- **worker が解放したメモリが `PHPSESSID` 応答 Cookie に載って返る**（Sansec の分析）。
-  Heartbleed に似た情報漏洩で、他リクエストのパスワード、セッショントークン、API キー、
-  TLS 秘密鍵が含まれ得る。
-- この経路は `session_start()` を呼ばないアプリでも動く（ハンドラがアプリコードより先に走るため）。
+- **Freed worker memory is returned to the client inside the `PHPSESSID` response cookie**
+  (Sansec's analysis). A Heartbleed-like disclosure that can contain other requests' passwords,
+  session tokens, API keys and TLS private keys.
+- It works even in applications that never call `session_start()`, because the handler runs before
+  application code.
 
-### CVE-2026-109619 — 残留グローバル状態の再利用
+### CVE-2026-109619 — stale global state reused
 
-PHP はリクエストメモリを指すグローバル状態をいくつか持つ。一部のシナリオで、その状態が
-リセットされない、あるいはリセット後に再び埋められる。結果として、**解放済みのメモリを
-指したまま**になる。同じ worker が次のリクエストを処理するとき、正常な初期化が上書きする前に
-その古い状態を読むと RCE に至る。OPcache の型混同を伴う。
+PHP keeps several pieces of global state pointing into request memory. In some scenarios that state
+is not reset, or is repopulated after being reset, leaving it **pointing at freed memory**. When the
+same worker handles the next request, reading that stale state before normal initialisation
+overwrites it gives RCE. OPcache type confusion is involved.
 
-## 3. だから緩和は「機能単位」で切る
+## 3. So mitigation has to work at feature level
 
-パターンフィルタでは消せない。**既知のトリガーはすべて `multipart/form-data` のリクエスト本文**
-（Sansec）。パスを見るルールでは見えない。
+Pattern filtering does not help. **Every known trigger is a `multipart/form-data` request body**
+(Sansec). Rules that inspect paths never see it.
 
-| 対象 | PHP 公式が示した緩和 | 効果の限界 |
+| Target | PHP's stated mitigation | Limit of the mitigation |
 |---|---|---|
-| 109618 | `memory_limit = -1` を**アプリが上書きできない形**で設定（FPM プールの `php_admin_value`、Apache 設定）。加えて `post_max_size` を小さく（アップロード不要なら 8M、必要なら 32M）、`upload_max_filesize` はその下 | メモリ上限を跨ぐ失敗は消えるが、**確保失敗そのものは残る** |
-| 109619 | `session.upload_progress.enabled = 0` を `php.ini` / FPM プール / サーバ設定で。PHP 8.5 は `fatal_error_backtraces = 0` | **確認済みの経路のみ**。他の変種は塞げない |
-| 両方 | `multipart/form-data` を Web サーバで拒否（Sansec の推奨） | ファイルアップロードが壊れる。業務次第で使えない |
+| 109618 | `memory_limit = -1` set where applications **cannot override it** (FPM pool `php_admin_value`, Apache config). Plus a small `post_max_size` (8M without uploads, 32M with), `upload_max_filesize` below it | Removes the controllable memory-limit failure. **An underlying allocation failure can still reach the vulnerable path** |
+| 109619 | `session.upload_progress.enabled = 0` via `php.ini` / FPM pool / server config. On PHP 8.5 also `fatal_error_backtraces = 0` | **Confirmed paths only.** Other variants remain |
+| Both | Reject `multipart/form-data` at the web server (Sansec's recommendation) | Breaks file uploads. May be unusable depending on the app |
 
-設定は `conf.d` のドロップインか FPM プールに置く。**`.user.ini` と `ini_set()` は不可**——
-PHP 公式が明記している。前者はリクエスト解析より後に読まれ、後者は管理者権限の設定を
-上書きできないため。
+Put the settings in a `conf.d` drop-in or the FPM pool. **`.user.ini` and `ini_set()` are not
+acceptable** — PHP says so explicitly: the former is read after request parsing, the latter cannot
+override admin-level settings.
 
-FPM プールでの書き方（例）:
+Example FPM pool configuration:
 
 ```ini
 ; /etc/php/8.3/fpm/pool.d/www.conf
 php_admin_value[memory_limit] = -1
 php_admin_value[post_max_size] = 8M
 php_admin_flag[session.upload_progress.enabled] = off
-; PHP 8.5 のみ
+; PHP 8.5 only
 php_admin_value[fatal_error_backtraces] = 0
 ```
 
-`memory_limit=-1` は**可用性のリスクと引き換え**。1リクエストがサーバのメモリを使い切れる。
-cgroup / コンテナのメモリ上限を別に置き、影響を受けた worker だけが死ぬようにする
-（PHP 公式は `RLIMIT_AS` / `RLIMIT_DATA` を代替に使うなと明記。脆弱な確保失敗を誘発するため）。
+`memory_limit=-1` **trades away availability**: one request can consume all server memory. Put a
+cgroup / container memory limit alongside it so only the affected worker dies. PHP explicitly warns
+against substituting `RLIMIT_AS` or `RLIMIT_DATA`, because those can trigger the vulnerable
+allocation failure.
 
-## 4. エコシステム側の穴
+## 4. Gaps in the ecosystem
 
-- **Remi リポジトリ**（RHEL 系で一般的）は 10-21 に更新を出さなかった。PHP 公式が
-  「ディストリ配布パッケージかソースビルドに切り替えろ」と異例の明記をしている。
-- **8.1 以前は公式サポート外**。修正版が存在しないので、緩和で凌ぐか、止めるか、上げるかの三択。
-- **家電・アプライアンス・管理インタフェースに埋め込まれた PHP** は、管理者が PHP を
-  直接更新できない。ベンダ待ちになる。NCSC-NL が対象製品リストを SPDX で管理している。
-- 規模（VirusTotal の観測、The Record 経由）: PHP を動かす IP が約 510 万、うち約 75.8 万が
-  EOL 版、修正直前の最新版は約 8.5 万。
+- **The Remi repository** (common on RHEL-family systems) published no update on 10-21. PHP's
+  advisory unusually tells users to switch to distribution packages or build from source.
+- **8.1 and older** get no official fix. There is no "fixed version", so the choice is: mitigate,
+  turn it off, or upgrade.
+- **PHP embedded in appliances and management interfaces** cannot be patched by the administrator.
+  You wait for the vendor. NCSC-NL maintains a product list in SPDX.
+- Scale (VirusTotal, via The Record): ~5.1M IPs run PHP, ~758k on EOL versions, ~85k on the newest
+  release available before the fix.
 
-## 5. 検知の信号（攻撃コードを持つ必要はない）
+## 5. Detection signals (no exploit code needed)
 
-| 信号 | 意味 |
+| Signal | Meaning |
 |---|---|
-| 新規・改変された `.php` ファイル | Web シェルの設置（最も直接的な痕跡） |
-| アップロードディレクトリ配下の `.php` | 正当なファイルと外見が区別できない。**ベースラインにあっても検出扱い**にする |
-| 5xx の急増 | クラッシュする php-fpm worker。UAF の外的な見え方 |
-| php-fpm worker からの不審な子プロセス / 外向き通信 | 実行後の段階 |
+| New or modified `.php` file | A web shell. The most direct evidence |
+| A `.php` file under an upload directory | Indistinguishable from a legitimate file by sight. **Treat as a finding even if it is in the baseline** |
+| A burst of 5xx | A crashing php-fpm worker — what the UAF looks like from outside |
+| Unexpected child processes / egress from a php-fpm worker | Post-exploitation |
 
-ATT&CK 対応: T1190（公開アプリの悪用）→ T1505.003（Web シェル）→ T1059.004（Unix シェル）
-→ T1041（C2 経由の持ち出し）。
+ATT&CK: T1190 (exploit public-facing application) → T1505.003 (web shell) → T1059.004 (Unix shell) →
+T1041 (exfiltration over C2 channel).
 
-## 6. 出所
+## 6. Sources
 
-- PHP 公式勧告: <https://www.php.net/archive/2026.php#2026-10-21-5>
+- PHP advisory: <https://www.php.net/archive/2026.php#2026-10-21-5>
 - NVD: <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-109618>
-- Sansec: <https://sansec.io/research/php2shell>（攻撃チェーン、multipart、メモリ漏洩）
-- NCSC-NL: <https://github.com/NCSC-NL/php2shell>（CERT-EU 版の運用情報、対象製品リスト）
+- Sansec: <https://sansec.io/research/php2shell> (attack chain, multipart, memory disclosure)
+- NCSC-NL: <https://github.com/NCSC-NL/php2shell> (CERT-EU operational info, affected products)
 - Cloudflare: <https://blog.cloudflare.com/php-vulnerabilities-waf-protection>
-- The Record: <https://therecord.media/php-foundation-statement-critical-vulnerabilities>（発見の経緯）
+- The Record: <https://therecord.media/php-foundation-statement-critical-vulnerabilities> (discovery history)

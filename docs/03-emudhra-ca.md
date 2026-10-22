@@ -1,69 +1,71 @@
-# eMudhra 中間CA 秘密鍵の侵害（2026年10月）
+# The eMudhra intermediate-CA key compromise (October 2026)
 
-**ソフトウェアの脆弱性ではない。** 公開CA（eMudhra）の**中間CA の秘密鍵が侵害**された事案。
-TLS の信頼の連鎖に関わるので、サーバ運用者にも影響する。
+[**English**](03-emudhra-ca.md) | [日本語](03-emudhra-ca.ja.md)
 
-## 1. 何が起きたか
+**This is not a software vulnerability.** The private keys of intermediate CA certificates issued by
+the public CA eMudhra were compromised. It affects the TLS chain of trust, so server operators are
+in scope.
 
-- eMudhra の**複数の中間CA 証明書の秘密鍵が侵害**された。
-- 当該中間CA は次の2つのルートCA に署名されている:
+## 1. What happened
+
+- The **private keys of several eMudhra intermediate CA certificates were compromised**.
+- Those intermediates are signed by two roots:
   - **Comodo AAA Services root**
   - **emSign ECC Root CA - G3**
-- 秘密鍵を持つ攻撃者は、**任意のドメインに対して正規に見える証明書を発行できる**。
-  MITM の位置にいれば、TLS を復号・改変できる。
+- With a private key, an attacker can issue **certificates that look valid for any domain**. From a
+  man-in-the-middle position, that means decrypting and modifying TLS traffic.
 
-## 2. 影響する条件（3つすべてが揃うとき）
+## 2. The three preconditions
 
-Red Hat の整理（RHSB-2026-012）が明快:
+Red Hat's summary (RHSB-2026-012) is the clearest:
 
-1. システムのトラストストア（`ca-certificates` 等）が、当該 eMudhra 中間CA を信頼している
-2. 攻撃者が侵害された秘密鍵のいずれかを保持している
-3. 攻撃者が TLS 接続を傍受できるネットワーク位置にいる
+1. The system's trust store (`ca-certificates` or equivalent) trusts those eMudhra intermediates
+2. The attacker holds one of the compromised private keys
+3. The attacker is in a network position to intercept TLS connections
 
-**「侵害された」＝「自分のシステムが侵害された」ではない。** 条件が揃わなければ実害は無い。
-ただし条件1は、更新しない限り誰でも満たしてしまう。
+**"Compromised" does not mean "your system was compromised".** Without all three there is no
+impact. But precondition 1 stays true for everyone until the bundle is updated.
 
-## 3. エコシステムの対応
+## 3. How the ecosystem responded
 
-| 主体 | 対応 |
+| Party | Response |
 |---|---|
-| Chrome / Android | 該当証明書の信頼を停止 |
-| Firefox（Mozilla） | 同様に信頼停止。Red Hat は Mozilla の迅速な公開を評価している |
-| Go | `crypto/x509` に**拒否リスト**を追加し、`Verify` 時にエラーを返す（**CVE-2026-111943**） |
-| Node.js | 10月のセキュリティリリースに **ca-cert の更新**を同梱（22.23.4 / 24.22.1 / 26.12.1） |
-| Red Hat | `ca-certificates` パッケージの更新を全 TLS 利用者に推奨 |
+| Chrome / Android | Stopped trusting the affected certificates |
+| Firefox (Mozilla) | Same. Red Hat credits Mozilla for publishing quickly |
+| Go | Added a **denylist** in `crypto/x509`; `Verify` returns an error for the known intermediates (**CVE-2026-111943**) |
+| Node.js | Shipped a **ca-cert update** in the October releases (22.23.4 / 24.22.1 / 26.12.1) |
+| Red Hat | Recommends the `ca-certificates` update for every TLS user |
 
-## 4. 何を更新すれば足りるか
+## 4. What to update (and what not to)
 
-| 層 | 対応 |
+| Layer | Action |
 |---|---|
-| OS のトラストストア | `ca-certificates` を更新（Debian/Ubuntu: `apt install --only-upgrade ca-certificates`、Arch: `pacman -Syu ca-certificates`、RHEL: `dnf upgrade ca-certificates`） |
-| ランタイム同梱のバンドル | Node.js / Go / Python（`certifi`）/ Java（cacerts）など、**自前でバンドルを持つもの**はランタイム側を更新 |
-| アプリ独自のピン留め | 個別確認。eMudhra の中間CA を明示的に信頼している設定があれば削除する |
+| OS trust store | Update `ca-certificates` (Debian/Ubuntu: `apt install --only-upgrade ca-certificates`; Arch: `pacman -Syu ca-certificates`; RHEL: `dnf upgrade ca-certificates`) |
+| Runtimes that bundle their own | Node.js / Go / Python (`certifi`) / Java (`cacerts`) — update the runtime |
+| App-level pinning | Check individually. Remove any configuration that explicitly trusts the eMudhra intermediates |
 
-**やらなくてよいこと**: アプリケーションコードの変更、TLS 設定の変更、証明書の再発行
-（自分のサーバ証明書が eMudhra 発行でなければ）。ただし**自組織の証明書が eMudhra 系で
-発行されている場合は、CA 側の対応状況を確認する**こと。
+**You do not need to**: change application code, change TLS settings, or reissue certificates
+(unless your own certificate was issued by eMudhra — in which case check with that CA).
 
-## 5. 検出・確認のしかた
+## 5. How to check
 
 ```bash
-# システムのトラストストアに eMudhra 系が残っていないか
-trust list 2>/dev/null | grep -i -A3 emudhra   # p11-kit がある場合
+# is anything eMudhra-shaped left in the system trust store?
+trust list 2>/dev/null | grep -i -A3 emudhra   # if p11-kit is present
 grep -ril emudhra /etc/ssl/certs/ 2>/dev/null | head
-openssl version -d                             # 使っているバンドルの場所
+openssl version -d                             # where the bundle lives
 
-# Node が使うバンドル
-node -e 'console.log(process.versions.openssl)'   # 版が上がっているか
+# the bundle Node uses
+node -e 'console.log(process.versions.openssl)'   # did the version move?
 ```
 
-「怪しい証明書を見つける」作業ではなく、**「信頼してはいけないものを信頼し続けていないか」**
-を確認する作業。CT ログの監視をしているなら、eMudhra 発行の証明書が自ドメインに出ていないか
-を見るのが実務的。
+The task is not "find a suspicious certificate". It is **"am I still trusting something I should
+not?"**. If you monitor Certificate Transparency logs, look for eMudhra-issued certificates for your
+own domains.
 
-## 6. 出所
+## 6. Sources
 
 - Red Hat RHSB-2026-012: <https://access.redhat.com/security/vulnerabilities/RHSB-2026-012>
-- NVD（Go 側の追跡ID）: <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111943>
-- Node.js 10月勧告（ca-cert 更新の記載）: <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases>
-- Mozilla Security Blog: eMudhra 中間CA 侵害後の Firefox 利用者保護（Red Hat の参照先）
+- NVD (Go's tracking ID): <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111943>
+- Node.js October advisory (ca-cert update): <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases>
+- Mozilla Security Blog: protecting Firefox users after the eMudhra intermediate compromise

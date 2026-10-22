@@ -42,8 +42,8 @@ steps, and a defence toolkit you can actually run. It is meant to be **read** an
 **Data as of 2026-10-22 00:15 UTC** (last verified). No newer patch exists — confirmed against
 the Node.js release index and the advisory list.
 
-> The detailed docs under `docs/` and `runbooks/` are currently written in Japanese.
-> This README is the English entry point and carries every fact needed to act.
+> Every document has an English original (`NAME.md`) and a Japanese mirror (`NAME.ja.md`).
+> This README is the English entry point and carries every fact needed to act on its own.
 
 ---
 
@@ -293,6 +293,8 @@ If Node is behind, go to `runbooks/nodejs.md`.
 | `prompts/` | Ready-to-paste agent prompts, English and Japanese |
 | `data/2026-10-22/` | Raw API responses the numbers come from |
 | `SOURCES.md` | Every source, with the command to re-fetch it |
+
+Each of the files above also exists as `NAME.ja.md` (Japanese).
 
 The tools do three things only: **find it, stop it, prove it**. No exploit code.
 

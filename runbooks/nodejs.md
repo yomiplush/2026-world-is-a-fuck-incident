@@ -1,42 +1,45 @@
-# Runbook — Node.js 2026年10月分
+# Runbook — Node.js, October 2026 releases
 
-対象: Node.js で動くホスト／コンテナ。所要 20〜60 分（イメージの再ビルドを含む場合）。
-修正版は **22.23.4 / 24.22.1 / 26.12.1**。**20.x は EOL で修正なし。**
+[**English**](nodejs.md) | [日本語](nodejs.ja.md)
+
+Scope: hosts and containers running Node.js. 20–60 minutes (longer if images must be rebuilt).
+Fixed versions **22.23.4 / 24.22.1 / 26.12.1**. **20.x is EOL and gets nothing.**
 
 ---
 
-## 0. 発見
+## 0. Discover
 
 ```bash
-tools/node/nodefix-audit                    # ローカル
+tools/node/nodefix-audit                    # local
 tools/node/nodefix-audit --target <ssh-host>
 ```
 
-見ているもの: `docker ps` の全コンテナ、ホストの `/usr/bin/node` と `~/.local/bin/node`。
-**同じホストに複数の node があること**が最大の落とし穴（[`../docs/06-lessons-and-gotchas.md`](../docs/06-lessons-and-gotchas.md) §6）。
+It looks at every container from `docker ps` and at the host's `/usr/bin/node` and
+`~/.local/bin/node`. **Several node binaries on one host** is the biggest trap
+(`../docs/06-lessons-and-gotchas.md` §6).
 
 ```bash
 which -a node
 node -v
-/usr/bin/node -v 2>/dev/null       # システムのもの（root サービスが掴む）
+/usr/bin/node -v 2>/dev/null       # the system one, used by root services
 ```
 
 ---
 
-## 1. 分岐
+## 1. Branch
 
-| 状況 | 手段 |
+| Situation | Action |
 |---|---|
-| コンテナ（アプリが Node を同梱） | §2 派生イメージ、またはアプリを再ビルド |
-| ホスト（Debian/Ubuntu + NodeSource） | §3-1 |
-| ホスト（Arch） | §3-2 |
-| 20.x が残っている | **メジャーアップが必要**。§4 |
+| Containers (the app bundles Node) | §2 derived image, or rebuild the app |
+| Hosts (Debian/Ubuntu with NodeSource) | §3-1 |
+| Hosts (Arch) | §3-2 |
+| 20.x still present | **Major upgrade required**. §4 |
 
 ---
 
-## 2. コンテナ
+## 2. Containers
 
-### 2-1. まず「上流が直したか」を確認する
+### 2-1. Check whether upstream already fixed it
 
 ```bash
 curl -s "https://hub.docker.com/v2/repositories/<owner>/<repo>/tags?page_size=5&ordering=last_updated" \
@@ -44,7 +47,7 @@ curl -s "https://hub.docker.com/v2/repositories/<owner>/<repo>/tags?page_size=5&
 docker exec <c> node -v
 ```
 
-上流イメージが修正版を同梱していれば、`pull` して再作成するだけで済む。
+If the upstream image now ships a fixed Node, pull and recreate:
 
 ```bash
 docker compose pull <service>
@@ -52,7 +55,7 @@ docker compose up -d --force-recreate --no-deps <service>
 docker exec <c> node -v
 ```
 
-### 2-2. 上流が未追随なら、ランタイムだけ差し替える
+### 2-2. Otherwise, swap only the runtime
 
 ```dockerfile
 # Dockerfile.nodefix
@@ -62,90 +65,89 @@ COPY --from=node:22.23.4-bookworm-slim /usr/local/bin/node /usr/local/bin/node
 
 ```bash
 docker build -f Dockerfile.nodefix -t <app>:node22.23.4 .
-# docker-compose.yml の image: を <app>:node22.23.4 に変更
+# change image: in docker-compose.yml to <app>:node22.23.4
 docker compose up -d --force-recreate --no-deps <service>
 docker exec <c> node -v
 ```
 
-**守ること**:
+**Rules**:
 
-- **同じメジャーライン**の node を使う（ABI を維持するため）。
-- Wolfi / Alpine ベースは共有ライブラリが足りないことがある（`apk add libatomic` 等）。
-- **ネイティブモジュール（`better-sqlite3` 等）を持つアプリはこの方法では動かない**。
-  ソースから再ビルドする（§2-3）。
-- 起動ログを確認する。`node -v` が上がっていても、アプリが起動時に落ちることがある。
+- Use the **same major line** of node (ABI compatibility).
+- Wolfi / Alpine bases may lack shared libraries (`apk add libatomic` etc.).
+- **Apps with native modules (`better-sqlite3`…) will not work this way.** Rebuild from source (§2-3).
+- Read the startup logs. `node -v` can be correct while the app fails to boot.
 
-### 2-3. ソースから再ビルドする場合
+### 2-3. Rebuild from source
 
 ```dockerfile
 FROM node:22.23.4-bookworm-slim AS build
-# ... 依存インストールとビルド ...
+# ... install deps and build ...
 ```
 
-`node-gyp` 系は新しい ABI でコンパイルし直す必要がある。`npm ci` をクリーンに流すこと
-（`node_modules` を使い回すと古い `.node` が残る）。
+Anything built with `node-gyp` must be recompiled against the new ABI. Run a clean `npm ci`
+(reusing `node_modules` leaves stale `.node` binaries behind).
 
 ---
 
-## 3. ホスト
+## 3. Hosts
 
-### 3-1. Debian / Ubuntu（NodeSource）
+### 3-1. Debian / Ubuntu (NodeSource)
 
 ```bash
 sudo apt update
-apt-cache policy nodejs          # Candidate が修正版か
+apt-cache policy nodejs          # is Candidate the fixed version?
 sudo apt install --only-upgrade nodejs
 node -v
 ```
 
-`Candidate` が古いままなら、NodeSource の公開待ち。**その間の回避策**:
-修正版をユーザー領域に入れて PATH で優先させる。
+If `Candidate` is still old, you are waiting on NodeSource. **Meanwhile**: install the fixed release
+under your home directory and put it earlier in `PATH`.
 
 ```bash
-# 例: 公式 tarball を ~/.local/opt に展開し、~/.local/bin にリンク
-# PATH は ~/.local/bin が /usr/bin より前にあること
+# e.g. unpack the official tarball into ~/.local/opt and link into ~/.local/bin
+# ensure ~/.local/bin precedes /usr/bin in PATH
 ```
 
-ただし **root が実行するサービスは `/usr/bin/node` を掴む**。そこは残る。
-systemd の unit に `ExecStart=/home/<user>/.local/bin/node ...` と書くか、
-`drop-in` で `Environment=PATH=...` を固定する。
+Note that **services run by root still pick up `/usr/bin/node`**. Either point the unit at the
+user-local binary (`ExecStart=/home/<user>/.local/bin/node …`) or pin `Environment=PATH=…` in a
+drop-in.
 
 ### 3-2. Arch
 
 ```bash
-pacman -Si nodejs      # リポジトリの版を先に見る
+pacman -Si nodejs      # check the repo version first
 sudo pacman -Syu nodejs
 node -v
 ```
 
-**リポジトリの版が修正版未満なら、pacman で上げても意味がない**。
-その場合はユーザー領域の修正版を PATH で優先させる（§3-1 と同じ）。
+**If the repository version is below the fixed version, upgrading achieves nothing.** Use the
+user-local fixed release earlier in `PATH` (§3-1).
 
 ---
 
-## 4. 20.x（EOL）からの移行
+## 4. Leaving 20.x (EOL)
 
-20.x には修正が来ない。22 以上へ移す以外に道はない。
+There is no fix for 20.x. Moving to 22 or later is the only option.
 
-1. アプリの `engines` 制約を確認する
+1. Check the app's `engines` constraint
    ```bash
    docker exec <c> node -e 'console.log(require("/app/package.json").engines)'
    ```
-2. 22 が許容範囲なら、そのまま §2 の方法で上げる
-3. ネイティブモジュールがあれば再ビルド（§2-3）
-4. **移行後は必ずアプリの主要動線を触る**（ログイン、API、バックグラウンドジョブ）
+2. If 22 is acceptable, update as in §2
+3. Rebuild native modules if present (§2-3)
+4. **Exercise the main flows** afterwards (login, API, background jobs)
 
 ---
 
-## 5. 検証
+## 5. Verify
 
 ```bash
-tools/node/nodefix-audit                 # 全て ok になること
-docker exec <c> node -v                  # 各コンテナ
-/usr/bin/node -v                         # ホスト（root サービス用）
+tools/node/nodefix-audit                 # every line must be ok
+docker exec <c> node -v                  # each container
+/usr/bin/node -v                         # the host, for root services
 ```
 
-アプリの健全性も見る（バージョンが上がったことと、動いていることは別）:
+Also check application health — a new version is not the same as a working service:
 
 ```bash
 docker compose ps
@@ -155,25 +157,25 @@ curl -sS -o /dev/null -w '%{http_code}\n' http://127.0.0.1:<port>/
 
 ---
 
-## 6. ロールバック
+## 6. Rollback
 
-| 手段 | 戻し方 |
+| Method | How |
 |---|---|
-| 派生イメージ | compose の `image:` 行を元に戻し、`up -d --force-recreate --no-deps` |
-| ホスト（apt） | `sudo apt install nodejs=<旧版>` |
-| ホスト（pacman） | `sudo pacman -U /var/cache/pacman/pkg/nodejs-<旧版>.pkg.tar.zst` |
+| Derived image | Revert `image:` in compose, then `up -d --force-recreate --no-deps` |
+| Host (apt) | `sudo apt install nodejs=<old version>` |
+| Host (pacman) | `sudo pacman -U /var/cache/pacman/pkg/nodejs-<old>.pkg.tar.zst` |
 
-**戻せる状態を確保してから上げる**。pacman はキャッシュが消えていることがあるので、
-上げる前に `/var/cache/pacman/pkg` を確認する。
+**Make sure rollback is possible before you upgrade.** pacman caches are sometimes already cleaned —
+check `/var/cache/pacman/pkg` first.
 
 ---
 
-## 7. 注意すべき CVE
+## 7. CVEs worth knowing
 
-| CVE | なぜ重要か |
+| CVE | Why it matters |
 |---|---|
-| CVE-2026-111497 | Brotli デコーダの OOB write → RCE。`Accept-Encoding: br` を扱う HTTP サーバなら**未認証で到達し得る** |
-| CVE-2026-106069 / 105483 | TLS ホスト名検証のバイパス。内部 API の相互 TLS やプロキシ越しの検証に効く |
-| CVE-2026-106074 | 起動スナップショット/SEA にエントロピーキャッシュが残り、全プロセスが同じ乱数を出す。トークン生成に使っているなら影響大 |
+| CVE-2026-111497 | Brotli decoder OOB write → RCE. On an HTTP server that honours `Accept-Encoding: br`, **reachable unauthenticated** |
+| CVE-2026-106069 / 105483 | TLS hostname verification bypass. Affects mutual TLS between services and validation behind proxies |
+| CVE-2026-106074 | The entropy cache survives into start-up snapshots/SEAs, so every process emits the same random values. Serious if you generate tokens |
 
-詳細: [`../docs/02-nodejs-oct2026.md`](../docs/02-nodejs-oct2026.md)
+Detail: `../docs/02-nodejs-oct2026.md`

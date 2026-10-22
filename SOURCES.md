@@ -1,52 +1,57 @@
-# ソースと再取得コマンド
+# Sources and re-fetch commands
 
-**原則**: 一次ソース（ベンダの勧告・API・リポジトリ）のみを根拠にする。二次報道を使う場合は
-本文で「（二次）」と明記する。来歴が検証できない情報（非公開フォーラム等）は使わない。
+[**English**](SOURCES.md) | [日本語](SOURCES.ja.md)
 
-## 一次ソース
+**Rule**: primary sources only (vendor advisories, APIs, repositories). When secondary reporting is
+used, it is marked **(secondary)** in the text. Material whose provenance cannot be verified is not
+used at all.
 
-| 対象 | URL | 何が分かる | 再取得 |
+## Primary sources
+
+| Subject | URL | What it tells you | Re-fetch |
 |---|---|---|---|
-| PHP 公式勧告 | <https://www.php.net/archive/2026.php#2026-10-21-5> | 2 CVE の公式説明と**有効な緩和** | ブラウザ |
-| PHP リリース一覧 | <https://www.php.net/releases/index.php?json&version=8.3> | 修正版の確認（8.2〜8.5） | `curl -s 'https://www.php.net/releases/index.php?json&version=8.3'` |
-| php-src NEWS | <https://raw.githubusercontent.com/php/php-src/PHP-8.3.36/NEWS> | 修正の要約（"Avoid state corruption via bailout"） | 同 URL |
-| NVD（109618） | <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-109618> | CVSS・公式説明 | `curl -s '...' \| jq` |
-| NVD（期間指定） | <https://services.nvd.nist.gov/rest/json/cves/2.0> | 期間内の Critical 一覧 | `?pubStartDate=...&pubEndDate=...&cvssV3Severity=CRITICAL` |
-| CISA KEV | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | 悪用確認済みと期限 | `curl -s <URL> \| jq '.vulnerabilities\|length'` |
-| CISA 勧告フィード | <https://www.cisa.gov/cybersecurity-advisories/all.xml> | PHP 緊急勧告、#StopRansomware | `curl -s <URL>` |
-| Node.js 勧告 | <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases> | CVE 一覧・重大度・依存更新 | ブラウザ |
-| Node.js リリース索引 | <https://nodejs.org/dist/index.json> | 各ライン最新版とビルド日 | `curl -s <URL> \| jq -r '.[0:3][]\|"\(.version) \(.date)"'` |
-| NodeSource（deb） | <https://deb.nodesource.com/node_22.x/dists/nodistro/main/binary-amd64/Packages.gz> | 配布パッケージの追従状況 | `curl -s <URL> \| zcat \| grep -A2 '^Package: nodejs'` |
-| Arch パッケージ | <https://archlinux.org/packages/extra/x86_64/nodejs/json/> | リポジトリの版 | `curl -s <URL> \| jq -r '.pkgver'` |
-| Red Hat（eMudhra） | <https://access.redhat.com/security/vulnerabilities/RHSB-2026-012> | CA 侵害の条件・影響・対応 | ブラウザ |
-| MSRC CVRF | <https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct> | 10月分の悪用確認 CVE | `curl -s <URL>` |
-| NCSC-NL | <https://github.com/NCSC-NL/php2shell> | CERT-EU 版の運用情報・対象製品リスト | `curl -s <raw README>` |
-| Sansec | <https://sansec.io/research/php2shell> | 攻撃チェーン・multipart・メモリ漏洩 | ブラウザ |
-| Cloudflare | <https://blog.cloudflare.com/php-vulnerabilities-waf-protection> | 修正前の攻撃試行観測 | ブラウザ |
-| Docker Hub API | <https://hub.docker.com/v2/repositories/<owner>/<repo>/tags> | イメージの再ビルド確認 | `curl -s <URL> \| jq` |
+| PHP advisory | <https://www.php.net/archive/2026.php#2026-10-21-5> | Official description of both CVEs and **the mitigations that actually work** | browser |
+| PHP releases | <https://www.php.net/releases/index.php?json&version=8.3> | Fixed versions (8.2–8.5) | `curl -s 'https://www.php.net/releases/index.php?json&version=8.3'` |
+| php-src NEWS | <https://raw.githubusercontent.com/php/php-src/PHP-8.3.36/NEWS> | Fix summary ("Avoid state corruption via bailout") | same URL |
+| NVD (109618) | <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-109618> | CVSS and official description | `curl -s '…' \| jq` |
+| NVD (date range) | <https://services.nvd.nist.gov/rest/json/cves/2.0> | Criticals in a window | `?pubStartDate=…&pubEndDate=…&cvssV3Severity=CRITICAL` |
+| CISA KEV | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | Confirmed exploitation and deadlines | `curl -s <URL> \| jq '.vulnerabilities\|length'` |
+| CISA advisories | <https://www.cisa.gov/cybersecurity-advisories/all.xml> | The PHP emergency alert, #StopRansomware | `curl -s <URL>` |
+| Node.js advisory | <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases> | CVE list, severities, dependency updates | browser |
+| Node.js release index | <https://nodejs.org/dist/index.json> | Latest version per line and build date | `curl -s <URL> \| jq -r '.[0:3][]\|"\(.version) \(.date)"'` |
+| NodeSource (deb) | <https://deb.nodesource.com/node_22.x/dists/nodistro/main/binary-amd64/Packages.gz> | Whether the package repo caught up | `curl -s <URL> \| zcat \| grep -A2 '^Package: nodejs'` |
+| Arch package | <https://archlinux.org/packages/extra/x86_64/nodejs/json/> | Repository version | `curl -s <URL> \| jq -r '.pkgver'` |
+| Red Hat (eMudhra) | <https://access.redhat.com/security/vulnerabilities/RHSB-2026-012> | CA compromise preconditions, impact, response | browser |
+| MSRC CVRF | <https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct> | The exploited CVE in the October batch | `curl -s <URL>` |
+| NCSC-NL | <https://github.com/NCSC-NL/php2shell> | CERT-EU operational info and affected-product list | `curl -s <raw README>` |
+| Sansec | <https://sansec.io/research/php2shell> | Attack chain, multipart, memory disclosure | browser |
+| Cloudflare | <https://blog.cloudflare.com/php-vulnerabilities-waf-protection> | Attacker attempts before the fix | browser |
+| Docker Hub API | <https://hub.docker.com/v2/repositories/<owner>/<repo>/tags> | Whether an image was rebuilt | `curl -s <URL> \| jq` |
 
-## 二次（本文で明記しているもの）
+## Secondary (always marked as such in the text)
 
-| 媒体 | 用途 |
+| Outlet | Used for |
 |---|---|
-| The Record | PHP Foundation の声明、発見の経緯、各国の停止措置 |
-| Krebs on Security | ランサム交渉業者と ShinyHunters の件、制裁 |
-| The Hacker News 等 | eMudhra の鍵本数の報道 |
+| The Record | PHP Foundation statement, discovery history, sites taken offline |
+| Krebs on Security | Ransomware-negotiation firm and ShinyHunters, sanctions |
+| The Hacker News and others | Reporting on the number of eMudhra keys |
 
-## 検算のしかた
+## How to check a number
 
-数字が怪しいときは、この順で疑う。
+When a figure looks wrong, doubt it in this order:
 
-1. **件数**（「1,400 件の脆弱性」なのか「2,578 の CVE エントリ」なのか）
-   → CVRF を取って `grep -c 'CVE-'` と `sort -u` の両方を見る
-2. **日付**（公開日 / ビルド日 / チェンジログの日付はずれる）
-   → バージョン番号で突き合わせる
-3. **「修正済み」の根拠**（タグか、実行中のバイナリか）
+1. **The unit** ("1,400 vulnerabilities" vs "2,578 CVE entries")
+   → pull the CVRF and look at both `grep -c 'CVE-'` and `sort -u`
+2. **The date** (publication, build and changelog dates differ)
+   → match on version numbers
+3. **The basis for "patched"** (a tag, or the running binary)
    → `docker exec <c> php -v` / `node -v`
-4. **悪用の有無**（KEV に載っているか、ベンダが「観測」と言っているか）
-   → KEV の JSON と、ベンダの原文を両方読む
+4. **Whether it is actually exploited** (in KEV, or a vendor saying "observed")
+   → read the KEV JSON and the vendor's wording
 
-## このリポジトリのスナップショット
+## Snapshot in this repository
 
-`data/2026-10-22/` に取得時点の生データを置いてある。再取得コマンドは上の表のとおり。
-JSON は CISA / NVD / php.net の公開 API の応答をそのまま保存したもの（改変していない）。
+`data/2026-10-22/` holds the raw responses as retrieved. Re-fetch commands are in the table above.
+The JSON files are unmodified responses from the public CISA / NVD / php.net APIs.
+`ncsc.md` is a verbatim copy of NCSC-NL's README, so its relative links point at that
+repository, not at this one.

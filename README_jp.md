@@ -141,7 +141,7 @@ p2s-audit の終了コード: 0 = 露出なし / 10 = 露出あり（要対応�
 
 > バージョンは**タグではなく実行中のバイナリで確認**すること。
 > `docker exec <c> php -v` / `docker exec <c> node -v`。
-> タグが `latest` のまま中身が古い、という事故が実際に起きます（`docs/06-lessons-and-gotchas.md` §4）。
+> タグが `latest` のまま中身が古い、という事故が実際に起きます（`docs/06-lessons-and-gotchas.ja.md` §4）。
 
 ### 2-4-A. PHP を修正版に上げる（最優先）
 
@@ -224,7 +224,7 @@ sudo pacman -Syu ca-certificates                    # Arch
 # Node/Go/Python など自前バンドルを持つランタイムは、ランタイム自体を更新する
 ```
 
-詳細と条件は [`docs/03-emudhra-ca.md`](docs/03-emudhra-ca.md)。
+詳細と条件は [`docs/03-emudhra-ca.ja.md`](docs/03-emudhra-ca.ja.md)。
 
 ### 2-5. 検証（対策したつもりを排除する）
 
@@ -237,11 +237,11 @@ bash tools/php2shell/tests/selftest.sh <ssh-host>          # 再起動を跨い�
 ```
 
 **再起動を跨いだ確認を省かないこと。** `docker exec` で一時的に ini を置いても、
-次の `docker compose up -d` で静かに消えます（`docs/06-lessons-and-gotchas.md` §2）。
+次の `docker compose up -d` で静かに消えます（`docs/06-lessons-and-gotchas.ja.md` §2）。
 
 ### 2-6. 侵害を疑う場合
 
-`runbooks/php2shell.md` §4 の順序（**遮断 → 保全 → 調査 → 再構築 → 認証情報のローテート**）に
+`runbooks/php2shell.ja.md` §4 の順序（**遮断 → 保全 → 調査 → 再構築 → 認証情報のローテート**）に
 従ってください。特に:
 - `docker stop` で止める（消さない）。`docker cp` で Web ルートを保全する。
 - Web ルートを「掃除」しない。変更されたファイルが唯一の証拠になり得る。
@@ -263,8 +263,8 @@ tools/php2shell/bin/p2s-audit --target <your-host>   # 露出の有無（読み�
 tools/node/nodefix-audit --target <your-host>        # Node ランタイムの版
 ```
 
-`p2s-audit` が終了コード 10 を返したら、[`runbooks/php2shell.md`](runbooks/php2shell.md) へ。
-0 なら PHP は安全です。Node が古ければ [`runbooks/nodejs.md`](runbooks/nodejs.md)。
+`p2s-audit` が終了コード 10 を返したら、[`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) へ。
+0 なら PHP は安全です。Node が古ければ [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md)。
 
 ---
 
@@ -272,23 +272,26 @@ tools/node/nodefix-audit --target <your-host>        # Node ランタイムの�
 
 | パス | 中身 |
 |---|---|
-| [`docs/00-timeline.md`](docs/00-timeline.md) | 何がいつ起きたか（UTC/JST） |
-| [`docs/01-php2shell.md`](docs/01-php2shell.md) | php2shell の技術解説・影響範囲・緩和の限界 |
-| [`docs/02-nodejs-oct2026.md`](docs/02-nodejs-oct2026.md) | Node.js 10月分の CVE 一覧と更新方法 |
-| [`docs/03-emudhra-ca.md`](docs/03-emudhra-ca.md) | 中間CA 鍵侵害と、どこを更新すれば足りるか |
-| [`docs/04-cisa-kev-oct2026.md`](docs/04-cisa-kev-oct2026.md) | 同時期に悪用が確認された他の製品（期限つき） |
-| [`docs/05-other-incidents.md`](docs/05-other-incidents.md) | その他の事案（Microsoft / Oracle / ランサムウェア動向） |
-| [`docs/06-lessons-and-gotchas.md`](docs/06-lessons-and-gotchas.md) | 実装中に踏んだ罠と、判断を間違えた箇所の記録 |
-| [`runbooks/php2shell.md`](runbooks/php2shell.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
-| [`runbooks/nodejs.md`](runbooks/nodejs.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
+| [`docs/00-timeline.ja.md`](docs/00-timeline.ja.md) | 何がいつ起きたか（UTC/JST） |
+| [`docs/01-php2shell.ja.md`](docs/01-php2shell.ja.md) | php2shell の技術解説・影響範囲・緩和の限界 |
+| [`docs/02-nodejs-oct2026.ja.md`](docs/02-nodejs-oct2026.ja.md) | Node.js 10月分の CVE 一覧と更新方法 |
+| [`docs/03-emudhra-ca.ja.md`](docs/03-emudhra-ca.ja.md) | 中間CA 鍵侵害と、どこを更新すれば足りるか |
+| [`docs/04-cisa-kev-oct2026.ja.md`](docs/04-cisa-kev-oct2026.ja.md) | 同時期に悪用が確認された他の製品（期限つき） |
+| [`docs/05-other-incidents.ja.md`](docs/05-other-incidents.ja.md) | その他の事案（Microsoft / Oracle / ランサムウェア動向） |
+| [`docs/06-lessons-and-gotchas.ja.md`](docs/06-lessons-and-gotchas.ja.md) | 実装中に踏んだ罠と、判断を間違えた箇所の記録 |
+| [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
+| [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |
 | [`tools/node/nodefix-audit`](tools/node/nodefix-audit) | Node ランタイムの版監査（修正版未満を列挙） |
 | [`tools/copy-prompt.sh`](tools/copy-prompt.sh) | AI に渡すプロンプトをクリップボードへ（`en` / `ja`） |
 | [`prompts/`](prompts/) | コピペ用プロンプト（英語版・日本語版） |
 | [`data/2026-10-22/`](data/2026-10-22/) | 取得した生データ（CISA KEV 差分、NVD、PHP リリース一覧） |
-| [`SOURCES.md`](SOURCES.md) | 全ソースと再取得コマンド |
+| [`SOURCES.ja.md`](SOURCES.ja.md) | 全ソースと再取得コマンド |
 
 ツールは「見つける・止める・確かめる」の3点に絞ってあります。攻撃コードは含みません。
+
+`docs/` `runbooks/` `SOURCES` は、英語の原文（`NAME.md`）と日本語版（`NAME.ja.md`）の
+2つを並べています。この README からは日本語版にリンクしています。
 
 ---
 
@@ -309,7 +312,7 @@ tools/node/nodefix-audit --target <your-host>        # Node ランタイムの�
 このリポジトリは **2026-10-22 時点のスナップショット**です。脆弱性情報は数日で古くなります。
 
 - バージョン判定は必ず**実行中のバイナリ**で行う。タグ・イメージ名は信用しない。
-- 数日以上経っているなら、まず `SOURCES.md` の一次ソースを叩き直す。
+- 数日以上経っているなら、まず `SOURCES.ja.md` の一次ソースを叩き直す。
   特に Node.js の `dist/index.json` と PHP のリリース一覧は、見るだけで最新が分かります。
 - 修正版が上がっていれば、この README の表より**上流を優先**してください。
 

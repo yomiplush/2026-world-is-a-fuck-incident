@@ -1,159 +1,158 @@
-# 実装中に踏んだ罠と、判断を間違えた箇所
+# Traps we walked into, and judgement calls we got wrong
 
-これは「きれいにまとめた後知恵」ではなく、**実際に手を動かして失敗した記録**。
-同じ道を辿る人（とAI）が同じ穴に落ちないために残す。
+[**English**](06-lessons-and-gotchas.md) | [日本語](06-lessons-and-gotchas.ja.md)
 
-## 1. 一次情報が出る前に「機構」を断定した
+This is not a tidy retrospective written after the fact. It is the record of **what went wrong while
+doing the work**, kept so the next person (or agent) does not repeat it.
 
-**何をしたか**: 漏洩段階の公開分析が `session.upload_progress` の use-after-free に収束していたため、
-「この機能を切れば塞がる」と判断し、それを主対策として実装した。
+## 1. We called the mechanism before the primary source existed
 
-**何が違ったか**: PHP 公式の勧告は2系統に分かれていた。
+**What we did**: leaked-stage public analyses converged on a `session.upload_progress` use-after-free,
+so we concluded "disable that feature and the bug is closed" and implemented it as the main control.
 
-| CVE | 実体 | 有効な緩和 |
+**What was actually true**: PHP's advisory split it in two.
+
+| CVE | Reality | Effective mitigation |
 |---|---|---|
-| CVE-2026-109618 | OOM 処理（`longjmp`）がリクエスト状態を壊す。upload-progress の unserializer UAF を含む | `memory_limit=-1` + `post_max_size` 制限 |
-| CVE-2026-109619 | 解放済みのグローバル状態を次のリクエストが読む | `session.upload_progress.enabled=0` |
+| CVE-2026-109618 | OOM handling (`longjmp`) corrupts request state; includes the upload-progress unserialiser UAF | `memory_limit=-1` + `post_max_size` cap |
+| CVE-2026-109619 | Freed global state reused by the next request | `session.upload_progress.enabled=0` |
 
-つまり実装した ini は **109619 側しか塞いでいなかった**。109618 側には `memory_limit` が要る。
+The ini we shipped closed **only the 109619 half**. The 109618 half needs `memory_limit`.
 
-**教訓**: 漏洩段階の分析は「攻撃の見え方」であって「修正の単位」ではない。
-**緩和は公式勧告が出てから確定する**。それまでは「暫定」と明示して実装し、
-公式が出た日に**必ず突き合わせる**。今回はそれが漏れかけた。
+**Lesson**: leaked-stage analysis describes what an attack *looks like*, not what the *fix* is.
+Mitigation is only settled when the vendor advisory lands. Until then, implement it as
+**provisional**, and reconcile against the advisory on release day. We nearly missed that step.
 
-**一般化**: 「対策を実装した」と「対策が効く」は別。実装の根拠が推定なら、
-推定であることをコードかドキュメントに残す（そうすれば後で直せる）。
+**Generalised**: "we implemented a control" and "the control works" are different claims. When the
+basis is an inference, write down that it is an inference — so it can be corrected later.
 
-## 2. `docker exec` で入れた設定は、次の `up -d` で静かに消える
+## 2. Settings applied with `docker exec` vanish silently at the next `up -d`
 
-コンテナ内の `php.ini` を `sed` で書き換える方法は、**次の `docker compose up -d` で
-イメージから作り直されて消える**。しかもエラーは出ない。「対策した」つもりで、
-翌日の再起動で元に戻る。
+Rewriting `php.ini` inside a container is undone by the next `docker compose up -d`, because the
+container is recreated from the image. **No error is raised.** You believe you are covered, and the
+next restart removes it.
 
-**正解**: compose の override で読み取り専用マウントする。
+**Correct approach**: mount it read-only through a compose override.
 
 ```yaml
-# docker-compose.override.yml（自動で読まれるので再作成後も残る）
+# docker-compose.override.yml (auto-loaded, so it survives recreation)
 services:
   app:
     volumes:
       - ./zz-php2shell.ini:/usr/local/etc/php/conf.d/zz-php2shell.ini:ro
 ```
 
-設定ファイルは `zz-` 接頭辞にして**最後に読ませる**（イメージ既定値を上書きするため）。
-置き場所は `php -i | grep 'Scan this dir'` で確認する。イメージによって違う。
+Name it `zz-…` so it is read **last** (overriding image defaults). Confirm the directory with
+`php -i | grep 'Scan this dir'`; it differs between images.
 
-## 3. compose がマウントの追加を検知しない
+## 3. compose does not notice a new mount
 
-`docker-compose.override.yml` に `volumes:` を足して `docker compose up -d` しても、
-**「Container ... Running」と表示されて何も変わらない**ことがある（compose のバージョンによる）。
-設定ファイルの変更は compose の再作成トリガーにならないため。
+Adding a `volumes:` entry to `docker-compose.override.yml` and running `docker compose up -d` can
+print **"Container ... Running" and change nothing** (depends on the compose version). A config file
+change is not a recreation trigger.
 
-**正解**: `--force-recreate` を付ける。
+**Correct approach**: force it, then verify **inside** the container.
 
 ```bash
 docker compose up -d --force-recreate --no-deps <service>
-```
-
-そして**コンテナの中で**設定を読んで確認する。外から見て「動いている」は何の証拠にもならない。
-
-```bash
 docker exec <c> php -r 'echo ini_get("session.upload_progress.enabled");'
 ```
 
-## 4. タグと中身が一致しているとは限らない
+"It is running" from the outside is not evidence of anything.
 
-`image: latest` のまま中身が数世代前、という状態は普通に起きる。
-とくに「ベンダが修正版で再ビルドしたか」は**タグでは分からない**。
+## 4. The tag does not necessarily match the contents
 
-**正解**: 実行中のバイナリに聞く。
+`image: latest` with a binary several generations old is normal. In particular, **you cannot tell
+from a tag whether the vendor rebuilt on a fixed runtime**.
+
+**Correct approach**: ask the running binary.
 
 ```bash
-docker exec <c> php -v          # 8.3.36 のように修正版か
+docker exec <c> php -v          # 8.3.36-style version, or not
 docker inspect <c> --format '{{.Image}}'
-docker images --digests | grep <image>   # ダイジェストが変わったか
+docker images --digests | grep <image>
 ```
 
-イメージの公開日時は Docker Hub の API で確認できる:
+Publication times come from the Docker Hub API:
 
 ```bash
 curl -s "https://hub.docker.com/v2/repositories/<owner>/<repo>/tags?page_size=5&ordering=last_updated" \
   | jq -r '.results[]|"\(.name)\t\(.last_updated)\t\(.digest[0:19])"'
 ```
 
-## 5. 「適用できないルール」を「適用した」と書かない
+## 5. Never report a rule you could not install as installed
 
-Cloudflare の Free プランでは、リクエスト本文を検査する WAF ルールが使えない
-（`http.request.body.raw` は WAF Advanced のフィールド）。API は明示的に拒否する:
+On Cloudflare's Free plan you cannot inspect request bodies ( `http.request.body.raw` is a WAF
+Advanced field). The API refuses:
 
 ```
 not entitled: the use of field http.request.body.raw is not allowed,
 a WAF Advanced plan is required
 ```
 
-**やってはいけないこと**: ルールを書いたが適用できなかった、を「対策済み」として報告する。
-**やってよいこと**: 「パスベースのルールは入った。本文ルールはプラン制約で入らない。
-オリジン側の対策が本体」と、できなかったことを明示する。
+**Do not**: write the rule, fail to apply it, and report "mitigated".
+**Do**: report "path-based rules are in place; the body rule is blocked by the plan; the origin-side
+control is the real one."
 
-この種の「部分成功」は、成功として報告されると**最も危険**。対策の一覧を渡すときは、
-必ず「入ったもの／入らなかったもの」を分けて書く。
+This kind of partial success is **most dangerous when it is reported as success**. When handing over
+a list of controls, always separate what landed from what did not.
 
-## 6. ディストリのパッケージは遅れる。ランタイムは直っていても、`/usr/bin/node` は残る
+## 6. Distribution packages lag. The runtime is fixed, `/usr/bin/node` is not
 
-コンテナやユーザー領域のランタイムを修正版にしても、**ディストリ配布の
-`/usr/bin/node` は古いまま**という状態が普通に起こる（リポジトリの追従待ち）。
-root が実行する systemd サービスは `/usr/bin/node` を掴むので、そこだけ露出が残る。
+Fixing container and user-local runtimes still leaves the distribution's `/usr/bin/node` behind,
+waiting for the repo to catch up. systemd services run as root pick up `/usr/bin/node`, so that one
+runtime stays exposed.
 
-**教訓**: 「Node を上げた」と言うときは、**どの node を上げたか**を書く。
-`which -a node` と `nodefix-audit` の出力（ホストとコンテナの両方）を添える。
+**Lesson**: when you say "we updated Node", say **which** node. Include `which -a node` and the
+`nodefix-audit` output (host and containers).
 
-## 7. 派生イメージ方式には ABI の制約がある
+## 7. The derived-image method has ABI limits
 
-`COPY --from=node:<fixed> /usr/local/bin/node` でランタイムだけ差し替える方法は、
-**同じメジャーライン内**なら動く（ABI が一致するため）。ただし:
+`COPY --from=node:<fixed> /usr/local/bin/node` works **within the same major line** (matching ABI).
+But:
 
-- Wolfi / Alpine ベースでは共有ライブラリが足りないことがある（`libatomic` 等）
-- `better-sqlite3` のような**ネイティブモジュールは新しい ABI で再コンパイルが必要**。
-  バイナリ差し替えでは動かない → ソースから再ビルドする
-- 派生イメージは**アプリのバージョンを固定する**。上流が修正版で再ビルドしたら、
-  派生タグを捨てて元の行に戻す。忘れるとアプリ側の更新が止まる
+- Wolfi / Alpine bases may lack shared libraries (`libatomic` etc.)
+- **Native modules such as `better-sqlite3` must be recompiled against the new ABI.** Swapping the
+  binary will not work — rebuild from source
+- The derived image **pins the app version**. When upstream rebuilds, drop the derived tag; forget
+  and the app stops being updated
 
-## 8. `.user.ini` と `ini_set()` は「効かない」と公式が言っている
+## 8. The vendor says not to rely on `.user.ini` or `ini_set()`
 
-PHP 公式は、この2つの緩和について**`.user.ini` や `ini_set()` に頼るな**と明記した。
-`.user.ini` はリクエスト解析より後に読まれ、`ini_set()` は管理者権限の設定を上書きできない。
-共有ホスティングで `.user.ini` しか使えないなら、**それは緩和になっていない**と理解する。
+PHP's advisory explicitly warns against both for these mitigations. `.user.ini` is read after request
+parsing; `ini_set()` cannot override admin-level settings. On shared hosting where `.user.ini` is all
+you have, **that is not a mitigation** — know that.
 
-## 9. 「サポート終了」は「安全」の根拠にならない
+## 9. "End of life" is not a safety argument
 
-8.1 以前の PHP は公式修正が出ない。これは「対象外」ではなく「**修正が存在しない＝露出が続く**」。
-EOL 版を動かしているホストは、緩和で凌ぐか、止めるか、上げるかの三択を迫られる。
-「サポート終了なので対象外」と書いた瞬間、そのホストは誰にも見られなくなる。
+PHP 8.1 and older get no official fix. That is not "out of scope" — it is **no fix exists, so
+exposure continues**. Those hosts face a three-way choice: mitigate, take it down, or upgrade. The
+moment you write "EOL, therefore not affected", that host becomes invisible.
 
-## 10. 日付は1日ずれる。バージョン番号で判断する
+## 10. Dates drift by a day. Match on version numbers
 
-同じリリースでも、ブログの公開日・`dist/index.json` のビルド日・チェンジログの日付が
-1日ずれることがある（タイムゾーンと公開タイミングの差）。**日付で突き合わせると混乱する。
-バージョン番号で突き合わせる。**
+The blog date, the `dist/index.json` build date and the changelog date for the same release can
+disagree by a day (timezone plus publication timing). **Matching by date produces confusion.
+Matching by version number does not.**
 
-## 11. 止まっているイメージは「在庫」であり「未来の脆弱性」
+## 11. A stopped image is inventory, and future vulnerability
 
-`docker ps` に出てこないイメージ（数年前の PHP イメージ、使っていない CMS のイメージ）は、
-**起動した瞬間に脆弱なランタイムが復活する**。今回の調査でも、4年前のイメージが
-そのまま残っていた。定期的に「イメージ在庫」を見て、古いものは消すか、
-起動前に必ず再取得するルールにする。
+Images that never appear in `docker ps` — a multi-year-old PHP image, an unused CMS — **restore a
+vulnerable runtime the moment someone starts them**. One such image was still sitting there four
+years on. Review the image inventory periodically: delete what you do not need, and re-pull before
+starting anything you have not run in a while.
 
-## 12. 検証は「再起動を跨いで」行う
+## 12. Verification has to survive a restart
 
-設定を入れた直後に動いていても、それは何の証明にもならない（§2、§3）。
-**コンテナを再作成して、それでも設定が残っていること**を確認して初めて「対策した」と言える。
-`tools/php2shell/tests/selftest.sh` の最後にこの確認を入れてある。
+A setting that works right after you apply it proves nothing (§2, §3). "Mitigated" only becomes true
+once the container has been **recreated and the setting is still there**.
+`tools/php2shell/tests/selftest.sh` ends with exactly that check.
 
-## まとめ: 次に同じ状況になったら
+## Summary: next time
 
-1. 漏洩段階では**暫定**と明示して実装し、公式勧告が出た日に必ず突き合わせる
-2. 設定は `docker exec` ではなく **compose override のマウント**で入れる
-3. 変更は `--force-recreate` して、**コンテナの中で**確認する
-4. バージョンは**実行中のバイナリ**で確認する（タグを信じない）
-5. 適用できなかった対策を、**できたことにしない**
-6. 「どのランタイムを上げたか」を**具体的に**記録する
+1. During the leak window, implement as **provisional** and reconcile on release day
+2. Apply settings through a **compose override mount**, not `docker exec`
+3. Change with `--force-recreate`, verify **inside** the container
+4. Read versions from the **running binary** (do not trust tags)
+5. Do not report a control you **could not install** as installed
+6. Record **which runtime** you updated, specifically
