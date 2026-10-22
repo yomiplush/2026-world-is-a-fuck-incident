@@ -63,7 +63,8 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 ```
 
 **タップで進むブリーフィング（Web）**: <https://2026-incident-briefing.pages.dev> — 15件を時系列に、3D演出・効果音・自作Lofiで。
-音が出ます（右上の SOUND で消せます）。スマホはタップ／スワイプ、PCはスペース／←→。
+音が出ます（右上の SOUND で消せます）。**JA / EN トグル**あり（`?lang=en` / `L` キー）。
+スマホはタップ／スワイプ、PCはスペース／←→。
 
 対応用は「まず読み取り専用」「§2-3 の表で分岐」「バージョンは実行中のバイナリで確認」
 「部分的な緩和を修正と呼ばない」を守らせる。判断用は「まずデータを再取得」「影響版と修正版を
@@ -81,7 +82,7 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 
 ---
 
-## 1. 今週の全体像（9件）
+## 1. 今週の全体像（10件）
 
 | 事案 | 何が起きたか | 深刻度 | 該当する人 | 修正・対処 | 詳細 |
 |---|---|---|---|---|---|
@@ -89,13 +90,14 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 | **GitLab** | 正規表現エンジンの整数オーバーフロー → 未認証 RCE。**7.0（2014年）以降すべて** | **10.0**（満点） | self-managed を運用 | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13**（10-21） | [`09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM** | 1.107.0 の wheel が Python 起動時に資格情報を窃取＋遠隔ローダ | GHSA 未公開 | `pip` / Docker で導入した | **1.106.2 に戻す**＋全資格情報ローテート | [`10`](docs/10-litellm-1-107-0.ja.md) |
 | **Plex Media Server** | 5件（パストラバーサル／SSRF 2件／プラグイン呼び出し／管理権限のファイル書き込み→起動時実行）。**KEV 収載** | 4.3〜7.2 | Plex を外部公開している | **1.43.3.10861** へ＋トークンローテート | [`12`](docs/12-plex-oct2026.ja.md) |
+| **Apache（Tomcat / httpd / Traffic Server）** | Tomcat は認証バイパス＋利用者間の応答混線（HTTP/2・AJP）、httpd は 2.4.69、Traffic Server はスマグリング2件 | 9.1 / 8.9 | Tomcat・httpd を運用 | **11.0.27 / 10.1.61 / 9.0.123**、httpd **2.4.69** | [`15`](docs/15-apache-oct2026.ja.md) |
 | **Railway** | 顧客の環境変数（＝秘密）が復号された可能性。デプロイ停止 | — | Railway にデプロイ | 環境変数・レジストリ資格情報を全ローテート | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **OpenCode** | Console 事案でプロバイダキーが露出、利用者のキーが失効（利用者報告） | — | OpenCode を利用 | プロバイダキーを再発行し利用履歴を確認 | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **Oracle Java SE** | 10月 CPU で55件。最大 7.5、KEV 未収載 | 7.5 | JVM を動かしている | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1**（10-20） | [`07`](docs/07-oracle-java-oct2026.ja.md) |
 | **eMudhra CA** | 中間CA **8本**の秘密鍵が弱すぎる（1本は `4`）。誰でも計算可能 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
 | **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱 | high | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21） | [`02`](docs/02-nodejs-oct2026.ja.md) |
 
-9件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
+10件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
 
 この表は「名前が付いた事案」だけです。**直近2週間の NVD CRITICAL は120件**あり、そのうち実際に
 悪用が確認されているのは1件でした。絞り込みの手順と残った12件は [`docs/13`](docs/13-recent-criticals.ja.md)。
@@ -512,6 +514,7 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/12-plex-oct2026.ja.md`](docs/12-plex-oct2026.ja.md) | Plex の5件（KEV、連鎖、期限）、NAS のパッケージ遅延、トークンローテート |
 | [`docs/13-recent-criticals.ja.md`](docs/13-recent-criticals.ja.md) | 直近2週間の CRITICAL 120件の走査、残った12件、データの4つの罠 |
 | [`docs/14-supply-chain-oct2026.ja.md`](docs/14-supply-chain-oct2026.ja.md) | 供給網の15件を1件ずつ検証（14件確認・1件未確認）、8件の詳細、統制の表 |
+| [`docs/15-apache-oct2026.ja.md`](docs/15-apache-oct2026.ja.md) | Apache の10月分: Tomcat 3件・httpd 2.4.69・Traffic Server、深刻度ラベルと CVSS の食い違い |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
 | [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |

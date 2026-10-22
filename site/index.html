@@ -26,6 +26,7 @@
       <span id="chapter" class="chapter">BRIEFING 00</span>
     </div>
     <div class="hud-right">
+      <button id="btn-lang" class="chip" title="言語 / Language (L)">EN</button>
       <button id="btn-audio" class="chip" aria-pressed="true" title="サウンド (M)">SOUND ON</button>
       <button id="btn-info" class="chip" title="出典">SOURCES</button>
     </div>
@@ -57,22 +58,22 @@
   <!-- start overlay -->
   <div class="cover" id="cover">
     <div class="cover-inner">
-      <p class="cover-kicker">INCIDENT BRIEFING · 2026-10</p>
-      <h2 class="cover-title">ONE MONTH<br><span>OF BROKEN TRUST</span></h2>
-      <p class="cover-sub">15件の事案を、時系列で。<br>タップで進みます。音が出ます。</p>
+      <p class="cover-kicker" id="cover-kicker">INCIDENT BRIEFING · 2026-10</p>
+      <h2 class="cover-title"><span id="cover-title-a">ONE MONTH,</span><br><em id="cover-title-b">15 INCIDENTS.</em></h2>
+      <p class="cover-sub" id="cover-sub">October 2026, in the order it happened.<br>Tap to advance. Sound is on.</p>
       <button id="btn-start" class="start">TAP TO BEGIN</button>
-      <p class="cover-foot">出所はすべて一次ソース。1件だけ未確認（ConnectWise）。</p>
+      <p class="cover-foot" id="cover-foot">Every claim traces to a primary source.</p>
     </div>
   </div>
 
   <!-- sources drawer -->
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-head">
-      <h3>出典 / SOURCES</h3>
+      <h3 id="drawer-title">SOURCES</h3>
       <button id="btn-close" class="chip" aria-label="閉じる">CLOSE</button>
     </div>
     <ul id="source-list"></ul>
-    <p class="drawer-foot">
+    <p class="drawer-foot" id="drawer-foot">
       全文と検証過程: <a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a><br>
       14/15 は一次ソースで確認済み。ConnectWise は未確認として記載。
     </p>
