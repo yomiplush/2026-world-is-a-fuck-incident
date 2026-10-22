@@ -1,0 +1,71 @@
+You are helping me decide what to patch in my own environment, using the dated
+snapshot in this repository. You are not writing a report for the public.
+
+Repository: https://github.com/yomiplush/2026-world-is-a-fuck-incident
+
+Order of work:
+
+1. Read, in this order: README.md, docs/07-oracle-java-oct2026.md,
+   docs/08-intel-sources.md, SOURCES.md.
+   These four files are the only allowed basis for CVE ids, CVSS scores,
+   affected versions and fix versions. Do not add a CVE from memory, do not
+   "fill in" a version you think is plausible, and do not merge in items you
+   recall from other advisories.
+
+2. Before answering anything, refresh the data and show the diff:
+
+     git clone https://github.com/yomiplush/2026-world-is-a-fuck-incident.git
+     cd 2026-world-is-a-fuck-incident
+     tools/intel/fetch-intel
+
+   Then compare what it printed with the numbers in docs/07 §1 and docs/08 §3.
+   If any number moved (new KEV entries, a new Oracle release, a new MSRC
+   count), say so in one sentence at the top of your answer, and treat the
+   FRESH data as the basis, not the document. If the fetch fails, say which
+   source failed and continue on the dated snapshot, labelled as such.
+
+3. Separate these two things every time, because they are not the same column:
+     - versions AFFECTED by the vulnerability (e.g. Oracle lists 21.0.12.1)
+     - versions that CONTAIN THE FIX   (e.g. 21.0.13)
+   Never report a vendor's "affected versions" list as the fix list. If a
+   vendor's fixed build is missing or late (third-party OpenJDK builds lag
+   Oracle), say so instead of rounding up.
+
+4. Then work only on my environment. Read-only first, and show raw output:
+
+     java -version
+     for j in $(command -v java javac 2>/dev/null) /usr/lib/jvm/*/bin/java; do
+       [ -x "$j" ] && printf '%s -> ' "$j" && "$j" -version 2>&1 | head -1
+     done
+     docker ps -q | xargs -r -I{} sh -c 'docker exec {} java -version 2>&1 | head -1 | sed "s|^|{} |"'
+
+   Read the BUILD string (21.0.13+10), not the product name. If you cannot
+   inspect a host or container, say "undetermined" for it; do not assume.
+
+5. Answer with exactly these four lists, each item carrying its source and the
+   date the source was retrieved:
+
+     A. Confirmed in my environment (with the observed version string)
+     B. Needs action now (why now: exploited in KEV / internet-facing / no fix yet)
+     C. Cannot determine (and the one command that would settle it)
+     D. Ruled out (and the observation that ruled it out)
+
+   Then: "What would change this answer" — the two or three facts that, if
+   different, would move an item between the lists.
+
+Rules:
+- Never call a partial mitigation a fix. If a workaround only closes one code
+  path, write "partial".
+- "Not in CISA KEV" means "no confirmed in-the-wild exploitation"; it does not
+  mean safe. Keep those two sentences distinct.
+- If a source was unavailable or under maintenance, name it and name the
+  fallback you used.
+- Do not run anything that changes state (package install, image pull, restart)
+  without showing the exact command and waiting for my approval. One approval
+  per command, not per plan.
+- My environment (fill in before sending):
+    OS / patch tool:  <e.g. Arch Linux, pacman / Ubuntu 24.04, apt / RHEL 9, dnf>
+    Exposure:         <which hosts are internet-facing, or "unknown">
+    Runtimes:         <java versions you already know, or "unknown">
+    Containers:       <docker/podman, and whether I am in the group>
+    Access:           <ssh hosts you may touch, or "local only">

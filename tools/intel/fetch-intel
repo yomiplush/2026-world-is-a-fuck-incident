@@ -1,0 +1,493 @@
+#!/usr/bin/env python3
+"""fetch-intel — collect the primary-source data this repository cites.
+
+Writes JSON under data/<YYYY-MM-DD>/ so that every number in the docs can be
+re-derived instead of trusted. Python 3 standard library only: no requests, no
+bs4, no jq. Network is the only external dependency.
+
+  tools/intel/fetch-intel                       # today's date, current quarter
+  tools/intel/fetch-intel --date 2026-10-22 --cpu Oct2026
+  tools/intel/fetch-intel --sources oracle,kev  # subset
+  tools/intel/fetch-intel --out /tmp/intel      # somewhere else
+
+Exit codes: 0 = every source fetched, 10 = partial (some source failed, the rest
+was written), 1 = usage error, 2 = nothing could be fetched.
+
+Why this exists: when an advisory is republished, the only way to notice is to
+diff the source. Keeping the raw shape of each source (not a hand-copied table)
+is what makes that diff trustworthy.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import email.utils
+import html
+import json
+import os
+import re
+import ssl
+import sys
+import urllib.error
+import urllib.request
+from html.parser import HTMLParser
+from xml.etree import ElementTree as ET
+
+UA = "fetch-intel/1.0 (+https://github.com/yomiplush/2026-world-is-a-fuck-incident)"
+TIMEOUT = 60
+
+ORACLE_CPU = "https://www.oracle.com/security-alerts/cpu{cpu}.html"
+KEV = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+JVN_RSS = "https://jvn.jp/rss/jvn.rdf"
+MSRC_CVRF = "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/{month}"
+
+# Researcher / infosec feeds. Grouped by who owns the claim, because that is what
+# decides how much weight it carries: the finding's authors first, then vendor
+# incident response, then official advisories, then policy research.
+FEEDS = {
+    # findings by the people who did the research
+    "project-zero": "https://googleprojectzero.blogspot.com/feeds/posts/default?alt=rss&max-results=20",
+    "portswigger-research": "https://portswigger.net/research/rss",
+    "trail-of-bits": "https://blog.trailofbits.com/feed/",
+    "github-security": "https://github.blog/security/feed/",
+    # vendor incident response
+    "unit42": "https://unit42.paloaltonetworks.com/feed/",
+    "talos": "https://blog.talosintelligence.com/rss/",
+    "microsoft-security": "https://www.microsoft.com/security/blog/feed/",
+    # practitioner / DFIR
+    "sans-isc": "https://isc.sans.edu/rssfeed.xml",
+    "dfir-report": "https://thedfirreport.com/feed/",
+    # official advisories
+    "cisa-advisories": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+    "jpcert": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+    # policy / spyware research
+    "citizenlab": "https://citizenlab.ca/feed/",
+}
+
+CVSS_KEYS = ("attack_vector", "attack_complexity", "privileges_required",
+             "user_interaction", "scope", "confidentiality", "integrity",
+             "availability")
+AV = {"Network": "N", "Adjacent": "A", "Local": "L", "Physical": "P"}
+AC = {"Low": "L", "High": "H"}
+PR = {"None": "N", "Low": "L", "High": "H"}
+UI = {"None": "N", "Required": "R"}
+SC = {"Unchanged": "U", "Changed": "C"}
+CIA = {"High": "H", "Low": "L", "None": "N"}
+
+
+# --------------------------------------------------------------------------- io
+
+def get(url: str) -> bytes:
+    req = urllib.request.Request(url, headers={"User-Agent": UA,
+                                              "Accept": "*/*"})
+    ctx = ssl.create_default_context()
+    with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
+        return r.read()
+
+
+def norm(s: str) -> str:
+    """Collapse the whitespace and hyphenation Oracle's HTML adds."""
+    s = html.unescape(s or "")
+    s = s.replace("\xa0", " ").replace("\u2011", "-")
+    s = re.sub(r"(?<=\w)-\s+(?=\w)", "-", s)   # "Un- changed" -> "Un-changed"
+    return re.sub(r"\s+", " ", s).strip()
+
+
+# --------------------------------------------------------------- Oracle CPU
+
+class TableCollector(HTMLParser):
+    """Collect every <table> as a list of rows, remembering the nearest heading.
+
+    Deliberately dumb: we only need the table that follows the
+    "<product> Risk Matrix" heading. Colspan/rowspan do not occur in Oracle's
+    risk matrices, and a row whose cell count looks wrong is reported instead of
+    silently mis-aligned.
+    """
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.tables: list[tuple[str, list[list[str]]]] = []
+        self._heading = ""
+        self._in_heading = None
+        self._heading_buf: list[str] = []
+        self._table: list[list[str]] | None = None
+        self._row: list[str] | None = None
+        self._cell: list[str] | None = None
+        self._depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("h2", "h3", "h4", "h5"):
+            self._in_heading = True
+            self._heading_buf = []
+        elif tag == "table":
+            self._table, self._depth = [], self._depth + 1
+        elif tag == "tr" and self._table is not None:
+            self._row = []
+        elif tag in ("td", "th") and self._row is not None:
+            self._cell = []
+
+    def handle_endtag(self, tag):
+        if tag in ("h2", "h3", "h4", "h5") and self._in_heading:
+            self._heading = norm("".join(self._heading_buf))
+            self._in_heading = False
+        elif tag == "table" and self._table is not None:
+            self._depth -= 1
+            if self._depth == 0:
+                self.tables.append((self._heading, self._table))
+                self._table = None
+        elif tag == "tr" and self._row is not None:
+            if self._row:
+                self._table.append(self._row)          # type: ignore[union-attr]
+            self._row = None
+        elif tag in ("td", "th") and self._cell is not None:
+            self._row.append(norm("".join(self._cell)))  # type: ignore[union-attr]
+            self._cell = None
+
+    def handle_data(self, data):
+        if self._in_heading:
+            self._heading_buf.append(data)
+        if self._cell is not None:
+            self._cell.append(data)
+
+
+def split_flavours(affected: str) -> dict:
+    """'Oracle Java SE: 8u503, 8u503-perf; Oracle JavaFX: 21.0.12' -> dict.
+
+    Oracle packs three products into one cell. Which clause a version came from
+    decides whether a Java-SE-only host cares, so keep them apart instead of
+    flattenting the string into one version list.
+    """
+    out = {}
+    for part in affected.split(";"):
+        if ":" not in part:
+            continue
+        label, _, versions = part.partition(":")
+        key = re.sub(r"^Oracle\s+", "", label.strip()).lower().replace(" ", "-")
+        out[key] = [v.strip() for v in versions.split(",") if v.strip()]
+    return out
+
+
+def cvss_vector(parts: dict[str, str]) -> str | None:
+    try:
+        return ("CVSS:3.1/AV:{}/AC:{}/PR:{}/UI:{}/S:{}/C:{}/I:{}/A:{}".format(
+            AV[parts["attack_vector"]], AC[parts["attack_complexity"]],
+            PR[parts["privileges_required"]], UI[parts["user_interaction"]],
+            SC[parts["scope"]], CIA[parts["confidentiality"]],
+            CIA[parts["integrity"]], CIA[parts["availability"]]))
+    except KeyError:
+        return None
+
+
+def parse_oracle_java(page: str) -> dict:
+    p = TableCollector()
+    p.feed(page)
+
+    table, heading = None, None
+    for h, rows in p.tables:
+        if "Java SE Risk Matrix" in h:
+            table, heading = rows, h
+            break
+    if table is None:
+        raise ValueError("Java SE risk matrix not found (page layout changed?)")
+
+    cves, bad = [], []
+    for row in table:
+        if len(row) != 16 or not row[0].startswith("CVE-"):
+            if row and row[0].startswith("CVE-"):
+                bad.append(row)
+            continue
+        (cve, product, component, proto, remote, base, *rest) = row[:6]
+        parts = dict(zip(CVSS_KEYS, row[6:14]))
+        affected, note = row[14], row[15]
+        try:
+            score = float(base)
+        except ValueError:
+            score = None
+        cves.append({
+            "cve": cve,
+            "product": product,
+            "component": component,
+            "protocol": proto if proto else None,
+            "remote_no_auth": remote.lower() == "yes",
+            "cvss_base": score,
+            "cvss_components": {k: v for k, v in parts.items()},
+            "cvss_vector_derived": cvss_vector(parts),
+            "affected": affected,
+            "affected_by_flavour": split_flavours(affected),
+            "note": note,
+        })
+
+    text = norm(re.sub(r"<[^>]+>", " ", page))
+    m = re.search(r"contains (\d+) new security patches for Oracle Java SE\.\s*(\d+) of these", text)
+    total, remote = (int(m.group(1)), int(m.group(2))) if m else (len(cves), None)
+
+    versions = sorted({v for c in cves
+                       for v in c["affected_by_flavour"].get("java-se", [])},
+                      key=lambda v: (v[0].isdigit(), v))
+    scores = [c["cvss_base"] for c in cves if c["cvss_base"] is not None]
+    return {
+        "advisory_heading": heading,
+        "cve_count_reported": total,
+        "remote_no_auth_reported": remote,
+        "cve_count_parsed": len(cves),
+        "unparsed_rows": bad,
+        "max_cvss": max(scores) if scores else None,
+        "java_versions_listed_affected": versions,
+        "cves": cves,
+    }
+
+
+# -------------------------------------------------------------------- sources
+
+def collect_oracle(cpu: str) -> dict:
+    url = ORACLE_CPU.format(cpu=cpu)
+    page = get(url).decode("utf-8", "replace")
+    return {"source": url, "cpu": cpu, **parse_oracle_java(page)}
+
+
+def collect_kev(days: int) -> tuple[list, dict]:
+    """Return (recent entries, catalog metadata) as two separate files.
+
+    `kev-recent.json` stays a bare list of CISA objects — that is the shape
+    docs/04 links to, and it is one `jq '.[]'` away from being usable. The
+    catalog version and counts go to `kev-catalog.json` so the list keeps its
+    original shape.
+    """
+    raw = json.loads(get(KEV))
+    cut = (dt.date.today() - dt.timedelta(days=days)).isoformat()
+    v = raw["vulnerabilities"]
+    recent = sorted((x for x in v if x["dateAdded"] >= cut),
+                    key=lambda x: x["dateAdded"], reverse=True)
+    java = [x["cveID"] for x in recent
+            if re.search(r"java|jre|jdk",
+                         (x.get("vendorProject") or "") + (x.get("product") or ""), re.I)]
+    meta = {
+        "source": KEV,
+        "catalogVersion": raw.get("catalogVersion"),
+        "dateReleased": raw.get("dateReleased"),
+        "total": raw.get("count"),
+        "window_days": days,
+        "window_start": cut,
+        "recent_count": len(recent),
+        "java_entries_in_window": java,
+    }
+    return recent, meta
+
+
+def collect_jvn(limit: int) -> dict:
+    xml = get(JVN_RSS).decode("utf-8", "replace")
+    out = []
+    for block in re.findall(r"<item\b[^>]*>(.*?)</item>", xml, re.S):
+        def grab(pat):
+            m = re.search(pat, block, re.S)
+            return norm(re.sub(r"<!\[CDATA\[|\]\]>", "", m.group(1))) if m else ""
+        out.append({
+            "title": grab(r"<title>(.*?)</title>"),
+            "url": grab(r"<link>(.*?)</link>"),
+            "issued": grab(r"<dcterms:issued>(.*?)</dcterms:issued>")
+                      or grab(r"<dc:date>(.*?)</dc:date>"),
+        })
+    out.sort(key=lambda x: x["issued"], reverse=True)
+    # JVN's feed is already short (~20 items), so keep all of it: a truncated
+    # feed is what makes a doc say "20 items" while the file holds 12.
+    kept = out[:max(limit, 30)]
+    return {"source": JVN_RSS, "count": len(out), "returned": len(kept),
+            "items": kept}
+
+
+def parse_when(s: str) -> dt.datetime | None:
+    s = (s or "").strip()
+    if not s:
+        return None
+    if re.match(r"\d{4}-\d{2}-\d{2}T", s):
+        try:
+            return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    try:
+        d = email.utils.parsedate_to_datetime(s)
+        return d if d.tzinfo else d.replace(tzinfo=dt.timezone.utc)
+    except (TypeError, ValueError):
+        return None
+
+
+def collect_feeds(limit: int) -> dict:
+    out = {}
+    for name, url in FEEDS.items():
+        try:
+            raw = get(url).decode("utf-8", "replace")
+        except (urllib.error.URLError, OSError) as exc:
+            out[name] = {"url": url, "error": str(exc)}
+            print(f"  ! {name}: {exc}", file=sys.stderr)
+            continue
+        items = []
+        for block in re.findall(r"<(?:item|entry)\b[^>]*>(.*?)</(?:item|entry)>", raw, re.S):
+            def grab(pat):
+                m = re.search(pat, block, re.S)
+                return norm(re.sub(r"<!\[CDATA\[|\]\]>", "", m.group(1))) if m else ""
+            title = grab(r"<title[^>]*>(.*?)</title>")
+            link = grab(r'<link[^>]*href="([^"]+)"') or grab(r"<link>(.*?)</link>")
+            when = parse_when(grab(r"<(?:pubDate|published|updated|dc:date)>([^<]+)</"))
+            if title and when:
+                items.append({"date": when.astimezone(dt.timezone.utc).date().isoformat(),
+                              "title": title, "url": link})
+        items.sort(key=lambda x: x["date"], reverse=True)
+        out[name] = {"url": url, "count": len(items), "recent": items[:limit]}
+    return out
+
+
+def collect_msrc(month: str) -> dict:
+    url = MSRC_CVRF.format(month=month)
+    root = ET.fromstring(get(url))
+    ns = {"v": "http://www.icasi.org/CVRF/schema/vuln/1.1"}
+    rows, status = [], set()
+    for v in root.findall(".//v:Vulnerability", ns):
+        cve = (v.findtext("v:CVE", default="", namespaces=ns) or "").strip()
+        title = (v.findtext("v:Title", default="", namespaces=ns) or "").strip()
+        if not cve:
+            continue
+        scores = [float(s.text) for s in v.findall(
+            "v:CVSSScoreSets/v:ScoreSet/v:BaseScore", ns) if s.text]
+        impacts, exploit = set(), ""
+        for t in v.findall("v:Threats/v:Threat", ns):
+            desc = (t.findtext("v:Description", default="", namespaces=ns) or "").strip()
+            if t.get("Type") == "Impact" and desc:
+                impacts.add(desc)
+            elif t.get("Type") == "Exploit Status" and desc:
+                exploit = desc
+        if exploit:
+            status.add(exploit)
+        rows.append({
+            "cve": cve,
+            "title": title,
+            "cvss_base": max(scores) if scores else None,
+            "impact": sorted(impacts),
+            "exploit_status": exploit,
+        })
+    detected = sorted({r["cve"] for r in rows
+                       if "Exploited:Yes" in r["exploit_status"]})
+    disclosed = sorted({r["cve"] for r in rows
+                        if "Publicly Disclosed:Yes" in r["exploit_status"]})
+    cves = [r for r in rows if r["cve"].startswith("CVE-")]
+    scored = [r for r in rows if r["cvss_base"] is not None]
+    return {
+        "source": url,
+        "month": month,
+        "entries": len(rows),
+        "cve_entries": len(cves),
+        "advisory_entries": len(rows) - len(cves),
+        "exploited": detected,
+        "publicly_disclosed": disclosed,
+        "cvss_ge_9_8": sum(1 for r in scored if r["cvss_base"] >= 9.8),
+        "cvss_ge_9_0": sum(1 for r in scored if r["cvss_base"] >= 9.0),
+        "exploit_status_values": sorted(status),
+        "vulnerabilities": sorted(rows, key=lambda r: -(r["cvss_base"] or 0)),
+    }
+
+
+# ----------------------------------------------------------------------- main
+
+def main(argv: list[str]) -> int:
+    today = dt.datetime.now(dt.timezone.utc).date()
+    quarter = f"{['Jan', 'Apr', 'Jul', 'Oct'][(today.month - 1) // 3]}{today.year}"
+    ap = argparse.ArgumentParser(prog="fetch-intel", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--date", default=today.isoformat(), help="output directory name")
+    ap.add_argument("--cpu", default=quarter, help="Oracle CPU, e.g. Oct2026")
+    ap.add_argument("--month", default=f"{today.year}-{today:%b}",
+                    help="MSRC month, e.g. 2026-Oct")
+    ap.add_argument("--kev-days", type=int, default=30, help="KEV look-back window")
+    ap.add_argument("--limit", type=int, default=12, help="items per feed")
+    ap.add_argument("--sources", default="oracle,kev,jvn,feeds,msrc",
+                    help="comma list of: oracle,kev,jvn,feeds,msrc")
+    ap.add_argument("--out", default=None, help="output directory (default data/<date>)")
+    args = ap.parse_args(argv)
+
+    here = os.path.dirname(os.path.abspath(__file__))
+    root = os.path.dirname(os.path.dirname(here))
+    out_dir = args.out or os.path.join(root, "data", args.date)
+    try:
+        os.makedirs(out_dir, exist_ok=True)
+    except OSError as exc:
+        print(f"cannot create {out_dir}: {exc}", file=sys.stderr)
+        return 1
+
+    wanted = [s.strip() for s in args.sources.split(",") if s.strip()]
+
+    def oracle_job():
+        return [("oracle-java-" + args.cpu.lower() + ".json", collect_oracle(args.cpu))]
+
+    def kev_job():
+        recent, meta = collect_kev(args.kev_days)
+        return [("kev-recent.json", recent), ("kev-catalog.json", meta)]
+
+    jobs = {
+        "oracle": oracle_job,
+        "kev": kev_job,
+        "jvn": lambda: [("jvn-recent.json", collect_jvn(args.limit))],
+        "feeds": lambda: [("researcher-feeds.json", collect_feeds(args.limit))],
+        "msrc": lambda: [("msrc-" + args.month.lower() + ".json",
+                          collect_msrc(args.month))],
+    }
+    unknown = [w for w in wanted if w not in jobs]
+    if unknown:
+        print(f"unknown source(s): {', '.join(unknown)}", file=sys.stderr)
+        return 1
+
+    failed, summary = 0, []
+    for name in wanted:
+        print(f"-> {name}", file=sys.stderr)
+        try:
+            produced = jobs[name]()
+        except (urllib.error.URLError, OSError, ValueError, ET.ParseError,
+                json.JSONDecodeError, KeyError) as exc:
+            failed += 1
+            print(f"  ! {name} failed: {exc}", file=sys.stderr)
+            continue
+        stamp = dt.datetime.now(dt.timezone.utc).isoformat(
+            timespec="seconds").replace("+00:00", "Z")
+        for filename, payload in produced:
+            if isinstance(payload, dict):
+                payload["fetched_at"] = stamp
+                payload["tool"] = "tools/intel/fetch-intel"
+            path = os.path.join(out_dir, filename)
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump(payload, fh, ensure_ascii=False, indent=1)
+                fh.write("\n")
+            summary.append((name, path, payload, filename))
+
+    print()
+    for name, path, p, _ in summary:
+        rel = os.path.relpath(path)
+        if name == "oracle":
+            print(f"Oracle Java {p['cpu']}: {p['cve_count_parsed']} CVEs parsed "
+                  f"(advisory says {p['cve_count_reported']}), "
+                  f"max CVSS {p['max_cvss']} -> {rel}")
+        elif name == "kev" and isinstance(p, dict):
+            print(f"KEV {p['catalogVersion']}: {p['recent_count']} added since "
+                  f"{p['window_start']} -> {rel}")
+        elif name == "kev":
+            print(f"KEV: {len(p)} entries kept verbatim -> {rel}")
+        elif name == "jvn":
+            print(f"JVN: {p['count']} items in feed, {p['returned']} kept -> {rel}")
+        elif name == "feeds":
+            ok = sum(1 for k, v in p.items() if k in FEEDS and "recent" in v)
+            empty = [k for k in FEEDS if k in p and not p[k].get("recent")]
+            note = f" (empty: {', '.join(empty)})" if empty else ""
+            print(f"feeds: {ok}/{len(FEEDS)} readable{note} -> {rel}")
+        elif name == "msrc":
+            print(f"MSRC {p['month']}: {p['cve_entries']} CVEs, "
+                  f"{len(p['exploited'])} exploited -> {rel}")
+
+    if failed and not summary:
+        print("\nnothing fetched", file=sys.stderr)
+        return 2
+    if failed:
+        print(f"\n{failed} source(s) failed; the rest was written", file=sys.stderr)
+        return 10
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

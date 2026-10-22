@@ -28,6 +28,39 @@ used at all.
 | Cloudflare | <https://blog.cloudflare.com/php-vulnerabilities-waf-protection> | Attacker attempts before the fix | browser |
 | Docker Hub API | <https://hub.docker.com/v2/repositories/<owner>/<repo>/tags> | Whether an image was rebuilt | `curl -s <URL> \| jq` |
 
+### Oracle Java (`docs/07`)
+
+| Subject | URL | What it tells you | Re-fetch |
+|---|---|---|---|
+| Oracle CPU October 2026 | <https://www.oracle.com/security-alerts/cpuoct2026.html> | The 55 Java SE patches, CVSS, affected versions, Notes 1/2/3, bulk CVE fixes | `tools/intel/fetch-intel --sources oracle` |
+| Oracle release notes | `https://www.oracle.com/java/technologies/javase/<version>-relnotes.html` | **Release date and build string of the fixed build** (e.g. `21-0-13`) | browser |
+| IPA alert (Japan) | <https://www.ipa.go.jp/security/security-alert/2026/1021-jre.html> | Japanese list of affected versions and the fix (2026-10-21) | browser |
+| Adoptium API | <https://api.adoptium.net/v3/assets/latest/21/hotspot?architecture=x64&image_type=jdk&os=linux> | Whether third-party builds (Temurin) have caught up | `curl -s <URL> \| jq -r '.[0].release_name'` |
+| Adoptium releases | <https://api.adoptium.net/v3/info/available_releases> | LTS and current feature lines | `curl -s <URL>` |
+| NVD (one Java CVE) | <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-91484> | Filer and publication time cross-check | `curl -s <URL> \| jq` |
+
+### Feeds used by `docs/08`
+
+| Subject | URL | What it tells you |
+|---|---|---|
+| CISA KEV | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | Confirmed exploitation, deadlines, catalog version |
+| CISA advisories | <https://www.cisa.gov/cybersecurity-advisories/all.xml> | Official alerts, ICS, #StopRansomware |
+| MSRC CVRF | <https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct> | Monthly CVEs with `Exploited` / `Publicly Disclosed` |
+| JVN feed | <https://jvn.jp/rss/jvn.rdf> | Japanese advisories and coordination (not JVN iPedia) |
+| JPCERT/CC | <https://www.jpcert.or.jp/rss/jpcert.rdf> | Weekly roundups, domestic coordination |
+| Project Zero | <https://googleprojectzero.blogspot.com/feeds/posts/default?alt=rss> | Primary analysis of vulnerability classes |
+| PortSwigger Research | <https://portswigger.net/research/rss> | Web attack technique |
+| Trail of Bits | <https://blog.trailofbits.com/feed/> | Audits, supply chain |
+| GitHub Security Lab | <https://github.blog/security/feed/> | Secrets, code scanning |
+| Unit 42 | <https://unit42.paloaltonetworks.com/feed/> | Exploitation status, IR |
+| Cisco Talos | <https://blog.talosintelligence.com/rss/> | Campaigns, exploit analysis |
+| Microsoft Security | <https://www.microsoft.com/security/blog/feed/> | Nation-state, cloud |
+| SANS ISC | <https://isc.sans.edu/rssfeed.xml> | Practitioner triage |
+| The DFIR Report | <https://thedfirreport.com/feed/> | Full intrusion walkthroughs |
+| Citizen Lab | <https://citizenlab.ca/feed/> | Spyware, policy research |
+
+All feeds at once: `tools/intel/fetch-intel --sources feeds`.
+
 ## Secondary (always marked as such in the text)
 
 | Outlet | Used for |
@@ -35,6 +68,20 @@ used at all.
 | The Record | PHP Foundation statement, discovery history, sites taken offline |
 | Krebs on Security | Ransomware-negotiation firm and ShinyHunters, sanctions |
 | The Hacker News and others | Reporting on the number of eMudhra keys |
+
+## Assume a source will fail
+
+Primary sources go down. Measured on 2026-10-22:
+
+| Symptom | What was observed | Use instead |
+|---|---|---|
+| JVN iPedia / MyJVN API | `jvndb.jvn.jp/myjvn?...` returned a 384-byte HTML page titled メンテナンス中, not XML | the `jvn.jp` advisory feed, IPA pages |
+| MSRC blog `/feed` | returned `text/html` with HTTP 200 and zero items | `microsoft.com/security/blog/feed/`, CVRF API |
+| NVD analysis pending | Oracle's October CVEs are `Awaiting Analysis` | the vendor risk matrix |
+| Vendor build lag | Temurin still on August builds two days after Oracle | that vendor's own release notes |
+
+`tools/intel/fetch-intel` writes the sources that worked and exits `10` on partial failure
+(`0` all, `2` nothing).
 
 ## How to check a number
 
@@ -51,7 +98,19 @@ When a figure looks wrong, doubt it in this order:
 
 ## Snapshot in this repository
 
-`data/2026-10-22/` holds the raw responses as retrieved. Re-fetch commands are in the table above.
-The JSON files are unmodified responses from the public CISA / NVD / php.net APIs.
+`data/2026-10-22/` holds the raw responses as retrieved. Re-fetch everything with
+`tools/intel/fetch-intel --date 2026-10-22` (see `docs/08`).
+
+| File | Origin | Transformed? |
+|---|---|---|
+| `oracle-java-oct2026.json` | Oracle CPU Java SE risk matrix, parsed as a table | structured only; values as published |
+| `kev-recent.json` | CISA KEV JSON, entries since 2026-09-22 | filtered only |
+| `kev-catalog.json` | same feed | metadata only |
+| `msrc-2026-oct.json` | MSRC CVRF (XML) | summary plus every entry |
+| `jvn-recent.json` | JVN RDF | extracted |
+| `researcher-feeds.json` | the 12 feeds | extracted |
+| `nvd-recent.json`, `php-all.json`, `node-latest-lines.txt`, `ncsc.md` | public APIs / distribution files | response as-is |
+
 `ncsc.md` is a verbatim copy of NCSC-NL's README, so its relative links point at that
-repository, not at this one.
+repository, not at this one. Counts are as of retrieval: an MSRC CVRF that is re-issued moves
+them (`docs/05` recorded 2,578; the 2026-10-21 re-issue yields 2,575).
