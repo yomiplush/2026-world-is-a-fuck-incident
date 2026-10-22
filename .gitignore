@@ -1,3 +1,6 @@
 # Python bytecode from tools/intel/fetch-intel
 __pycache__/
 *.pyc
+
+# wrangler deploy cache (contains account/state, never commit)
+.wrangler/

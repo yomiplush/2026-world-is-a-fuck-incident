@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05080d">
+<title>OCT 2026 — Incident Briefing</title>
+<meta name="description" content="2026年10月に重なったセキュリティ事案を、タップで進むブリーフィング形式のモーショングラフィックスで時系列に追う。">
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070b12'/><path d='M6 22 L16 8 L26 22' stroke='%23ffb545' stroke-width='2' fill='none'/><circle cx='16' cy='22' r='2.5' fill='%23ffb545'/></svg>">
+</head>
+<body>
+<div id="stage" aria-hidden="true">
+  <canvas id="scene"></canvas>
+  <div class="vignette"></div>
+  <div class="scan"></div>
+  <div class="grain"></div>
+</div>
+
+<main id="app">
+  <!-- briefing chrome -->
+  <header class="hud-top">
+    <div class="hud-left">
+      <span class="tag">OCT 2026</span>
+      <span class="sep"></span>
+      <span id="chapter" class="chapter">BRIEFING 00</span>
+    </div>
+    <div class="hud-right">
+      <button id="btn-audio" class="chip" aria-pressed="true" title="サウンド (M)">SOUND ON</button>
+      <button id="btn-info" class="chip" title="出典">SOURCES</button>
+    </div>
+  </header>
+
+  <!-- scene text -->
+  <section class="panel" id="panel">
+    <p class="kicker" id="kicker">INCIDENT BRIEFING</p>
+    <p class="stamp" id="stamp">2026-10</p>
+    <h1 id="title">読み込み中</h1>
+    <p class="lede" id="lede"></p>
+    <ul class="points" id="points"></ul>
+    <p class="metric" id="metric" hidden><span id="metric-val"></span><span id="metric-label"></span></p>
+  </section>
+
+  <!-- footer / navigation -->
+  <footer class="hud-bottom">
+    <div class="rail" id="rail" role="tablist" aria-label="scene jump"></div>
+    <div class="nav">
+      <button id="btn-prev" class="navbtn" aria-label="前へ">◀</button>
+      <button id="btn-next" class="navbtn primary" aria-label="次へ">
+        <span class="next-label">TAP</span>
+        <span class="next-arrow">▸</span>
+      </button>
+    </div>
+    <p class="hint" id="hint">画面をタップ / クリック / スペース</p>
+  </footer>
+
+  <!-- start overlay -->
+  <div class="cover" id="cover">
+    <div class="cover-inner">
+      <p class="cover-kicker">INCIDENT BRIEFING · 2026-10</p>
+      <h2 class="cover-title">ONE MONTH<br><span>OF BROKEN TRUST</span></h2>
+      <p class="cover-sub">15件の事案を、時系列で。<br>タップで進みます。音が出ます。</p>
+      <button id="btn-start" class="start">TAP TO BEGIN</button>
+      <p class="cover-foot">出所はすべて一次ソース。1件だけ未確認（ConnectWise）。</p>
+    </div>
+  </div>
+
+  <!-- sources drawer -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>出典 / SOURCES</h3>
+      <button id="btn-close" class="chip" aria-label="閉じる">CLOSE</button>
+    </div>
+    <ul id="source-list"></ul>
+    <p class="drawer-foot">
+      全文と検証過程: <a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a><br>
+      14/15 は一次ソースで確認済み。ConnectWise は未確認として記載。
+    </p>
+  </aside>
+</main>
+
+<script src="./data.js"></script>
+<script src="./audio.js"></script>
+<script src="./visuals.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
