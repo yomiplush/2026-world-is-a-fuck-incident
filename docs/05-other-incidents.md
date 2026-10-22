@@ -1,60 +1,60 @@
-# その他の事案（2026年10月）
+# Other incidents (October 2026)
 
-php2shell / Node.js / CA 以外で、同時期に動きのあったもの。**自分に関係あるものだけ読めばよい**
-ように、影響範囲を先に書く。二次報道のみの項目は「（二次）」と明記した。
+[**English**](05-other-incidents.md) | [日本語](05-other-incidents.ja.md)
 
-## 1. Microsoft 10月 Patch Tuesday（2026-10-13）
+Everything outside php2shell, Node.js and the CA compromise. Each item leads with its blast radius
+so you only read what applies to you. Items sourced only from secondary reporting are marked
+**(secondary)**.
 
-- MSRC の CVRF 上、**2,578 件の CVE エントリ**（製品×更新の組み合わせを含む件数。
-  「2,578 個の脆弱性」ではない点に注意。報道では「1,400 件超」と表現されている）。
-- **悪用が確認されているのは 1 件だけ**:
-  **CVE-2026-96951** — Windows Shell のセキュリティ機能バイパス。
-  `command injection` により、ネットワーク経由・ユーザ操作を伴う攻撃で機能を回避される。
-  CVSS 3.1 **8.8**（`AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F`）。更新は KB5126836（Windows 8.1 /
-  Server 2012 R2 系）ほか。
-- 実務的には「悪用確認は1件」なので、**その1件が自分の環境に効くか**だけ見れば足りる。
-  ただし Windows 端末を業務で使っているなら、月例は素直に当てるのが安い。
+## 1. Microsoft October Patch Tuesday (2026-10-13)
 
-出所: <https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct>
+- The MSRC CVRF lists **2,578 CVE entries** (a count across products and updates, not "2,578
+  distinct vulnerabilities"; press reports said "more than 1,400").
+- **Exactly one was confirmed exploited**: **CVE-2026-96951** — Windows Shell security feature
+  bypass. Command injection lets an unauthorised attacker bypass a security feature over the
+  network. CVSS 3.1 **8.8** (`AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F`). Updates include KB5126836.
+- Practically: **check whether that one applies to you** and patch Windows hosts monthly anyway —
+  it is cheap.
 
-## 2. Oracle 10月 Critical Patch Update
+Source: <https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct>
 
-- CVSS **10.0** が複数（JD Edwards EnterpriseOne Orchestrator、SOA Suite、
-  Access Manager、E-Business Suite など）。
-- 10.0 という数字に引っ張られがちだが、**これらは認証済み・内部ネットワーク前提のものが多い**。
-  外部に露出していない Oracle 製品は、四半期サイクルで当てれば足りる。
-- 逆に、外部公開している Oracle HTTP Server / SOA Suite があるなら最優先。
+## 2. Oracle October Critical Patch Update
 
-出所: NVD（`pubStartDate` / `pubEndDate` で期間指定して取得）
+- Several CVSS **10.0** findings (JD Edwards EnterpriseOne Orchestrator, SOA Suite, Access Manager,
+  E-Business Suite and others).
+- It is easy to be led by the 10.0, but **most require authentication and internal network
+  position**. If the Oracle product is not exposed, the quarterly cycle is enough.
+- The exception: an internet-facing Oracle HTTP Server or SOA Suite deserves top priority.
 
-## 3. ランサムウェア・経済制裁まわり
+Source: NVD (query with `pubStartDate` / `pubEndDate`)
 
-| 日付 | 事案 | 出所 |
+## 3. Ransomware and sanctions
+
+| Date | Event | Source |
 |---|---|---|
-| 10-20 | CISA が **#StopRansomware: SafePay** を公開 | CISA 勧告フィード（一次） |
-| 10-19 | 米当局、**ランサム交渉を請け負う業者の幹部が、ShinyHunters の恐喝サイトを運営していた疑い**で逮捕 | Krebs（二次） |
-| 10-14 | 英、暗号資産取引所 **Cryptomus をロシアの資金洗浄容疑で制裁** | Krebs（二次） |
+| 10-20 | CISA publishes **#StopRansomware: SafePay** | CISA advisory feed (primary) |
+| 10-19 | US authorities arrest an executive of a **ransomware negotiation firm suspected of running the ShinyHunters extortion site** | Krebs (secondary) |
+| 10-14 | UK **sanctions crypto exchange Cryptomus** over Russian money laundering | Krebs (secondary) |
 
-**交渉役（negotiation firm）の関与**は、インシデント対応の設計に直接効く話。
-外部の交渉業者に連絡先や被害状況を渡す前に、その業者の立場を確認する必要がある、
-というのがこの一連の報道の含意。自組織のインシデント対応計画に
-「交渉役の選定基準」が無いなら、追加を検討する価値がある。
+The negotiation-firm angle matters for incident-response design: know who you are handing your
+contact details and breach data to. If your IR plan has no criteria for choosing a negotiator, that
+is worth adding.
 
-## 4. その他
+## 4. Also noted
 
-| 日付 | 事案 | 出所 |
+| Date | Event | Source |
 |---|---|---|
-| 10-21 | 蘭、Meta にプライバシー判決で 250 億ドル | The Record（二次） |
-| 10-21 | 技術3社が資金難の公益事業者向けサイバーセキュリティ支援に 1,000 万ドル | The Record（二次） |
-| 10-16 | 選挙・政治キャンペーン関係者への攻撃手法に関する CISA 勧告 | CISA（一次） |
+| 10-21 | Netherlands fines Meta $25B in a privacy ruling | The Record (secondary) |
+| 10-21 | Three tech companies launch a $10M initiative for under-resourced utilities | The Record (secondary) |
+| 10-16 | CISA advisory on techniques used against election and campaign officials | CISA (primary) |
 
-## 5. 「読まなくてよい」と判断するための基準
+## 5. How to decide you do not need to read this
 
-同時期の事案を全部追うと、**自分の環境に効く1件を見落とす**。次の順で切る:
+Chasing every event of the week is how you miss the one that matters. Filter in this order:
 
-1. **その製品を自分が運用しているか**（していないなら読了）
-2. しているなら、**外部に露出しているか**（していないなら優先度を下げる）
-3. 露出しているなら、**悪用が確認されているか**（KEV を見る）
-4. 悪用が確認されているなら、**期限はいつか**
+1. **Do you operate the product?** (No → done)
+2. If yes, **is it exposed?** (No → lower priority)
+3. Is exploitation **confirmed**? (Check KEV)
+4. What is the **deadline**?
 
-この順で切ると、今回の一覧で実際に残るのは Plex（使っていれば）と php2shell だけになる。
+Applied here, only Plex (if you run it) and php2shell survive the filter.

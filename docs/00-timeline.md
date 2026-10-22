@@ -1,34 +1,36 @@
-# タイムライン（UTC / JST）
+# Timeline (UTC / JST)
 
-2026年10月、PHP と Node.js の対応が重なった期間の記録。時刻は一次ソースの記載に従い、
-JST は UTC+9 で併記した。
+[**English**](00-timeline.md) | [日本語](00-timeline.ja.md)
 
-| UTC | JST | 出来事 | 出所 |
+October 2026, when the PHP and Node.js responses collided. Times follow the primary sources;
+JST is UTC+9.
+
+| UTC | JST | Event | Source |
 |---|---|---|---|
-| 2026-08-01 | 08-01 | Calif の Ryan Austin が複数の RCE 経路を発見 | Sansec |
-| 2026-08-11 | 08-11 | Calif が PHP に最初のバグを報告。協調的開示が始まる | Sansec / PHP Foundation |
-| 2026-08-24 | 08-24 | Wiz Research が同じ脆弱性を PHP に報告 | Sansec |
-| 2026-10-13 | 10-13 夜 | Microsoft 10月 Patch Tuesday。悪用確認は CVE-2026-96951 の1件 | MSRC CVRF `2026-Oct` |
-| 2026-10-14 | 10-14 | CISA KEV に Ahsay / Cisco Secure Email / PAN-OS を追加 | CISA KEV |
-| 2026-10-16 | 10-16 | CISA KEV に BeyondTrust / Fortinet を追加 | CISA KEV |
-| 2026-10-20 | 10-20 | 詳細が漏洩。watchTowr が PHP での RCE を確認 | Sansec |
-| 2026-10-20 | 10-20 | CISA KEV に Plex Media Server 4件・Siemens・EG SiteGuard を追加 | CISA KEV |
-| **2026-10-21 07:43** | **10-21 16:43** | **Cloudflare が修正公開前の攻撃試行を観測** | Cloudflare |
-| 2026-10-21 | 10-21 | CISA が「PHP の緊急パッチ」警報を発出 | CISA |
-| **2026-10-21 14:00** | **10-21 23:00** | **PHP が修正版を公開**（8.5.12 / 8.4.27 / 8.3.36 / 8.2.35） | php.net |
-| 2026-10-21 14:17 | 10-21 23:17 | NVD が CVE-2026-109618 / CVE-2026-109619 を公開 | NVD |
-| 2026-10-21 | 10-21 | Node.js が定期セキュリティリリース（26.12.1 / 24.22.1 / 22.23.4） | nodejs.org |
-| 2026-10-21 | 10-22 未明 | 各国政府・報道機関が予防的にサイトを停止（蘭 下院・NCSC・Tweakers 等） | Sansec / The Record（二次） |
-| 2026-10-22 00:15 | 10-22 09:15 | **このリポジトリのスナップショット時点** | — |
+| 2026-08-01 | 08-01 | Ryan Austin (Calif) finds multiple RCE paths | Sansec |
+| 2026-08-11 | 08-11 | Calif reports the first bug to PHP; coordinated disclosure starts | Sansec / PHP Foundation |
+| 2026-08-24 | 08-24 | Wiz Research reports the same vulnerabilities to PHP | Sansec |
+| 2026-10-13 | 10-13 (night) | Microsoft October Patch Tuesday. One exploited CVE: CVE-2026-96951 | MSRC CVRF `2026-Oct` |
+| 2026-10-14 | 10-14 | CISA KEV adds Ahsay / Cisco Secure Email / PAN-OS | CISA KEV |
+| 2026-10-16 | 10-16 | CISA KEV adds BeyondTrust / Fortinet | CISA KEV |
+| 2026-10-20 | 10-20 | Details leak; watchTowr confirms RCE in PHP | Sansec |
+| 2026-10-20 | 10-20 | CISA KEV adds four Plex Media Server CVEs, Siemens, EG SiteGuard | CISA KEV |
+| **2026-10-21 07:43** | **10-21 16:43** | **Cloudflare observes exploitation attempts before the fix exists** | Cloudflare |
+| 2026-10-21 | 10-21 | CISA issues its emergency PHP alert | CISA |
+| **2026-10-21 14:00** | **10-21 23:00** | **PHP publishes the fixed releases** (8.5.12 / 8.4.27 / 8.3.36 / 8.2.35) | php.net |
+| 2026-10-21 14:17 | 10-21 23:17 | NVD publishes CVE-2026-109618 / CVE-2026-109619 | NVD |
+| 2026-10-21 | 10-21 | Node.js ships its regular security releases (26.12.1 / 24.22.1 / 22.23.4) | nodejs.org |
+| 2026-10-21 | 10-22 early | Governments and newsrooms take sites offline as a precaution (Dutch House of Representatives, NCSC, Tweakers, …) | Sansec / The Record (secondary) |
+| 2026-10-22 00:15 | 10-22 09:15 | **Snapshot time for this repository** | — |
 
-## 読むときの注意
+## What to take from this
 
-- **PHP の修正公開は「漏洩の翌日」**。漏洩（10-20）から修正（10-21 14:00 UTC）までの約24時間が、
-  防御側にとって最も危険な窓だった。この窓に PHP を公開していた構成は、修正後も
-  侵害の有無を別途確認する必要がある（`runbooks/php2shell.md` §4）。
-- **Cloudflare の観測（07:43 UTC）は修正公開の6時間以上前**。つまり「公開PoCが出てから
-  慌てる」では間に合わない種類の脆弱性だった。
-- Node.js のリリースと PHP のリリースが同じ日に重なっている。両方を追う必要があるのは
-  この偶然によるもので、関連があるわけではない。
-- 日付がずれて見える箇所がある（例: PHP のチェンジログは 8.5.12 を「22 Oct 2026」と表示）。
-  リリース告知とチェンジログで日付が1日ずれるのは珍しくない。**バージョン番号で判断する**こと。
+- **PHP shipped the fix the day after the leak.** The ~24 hours between the leak (10-20) and the
+  release (10-21 14:00 UTC) was the dangerous window. Anything serving PHP publicly during it needs
+  a separate compromise check afterwards, even once patched (`runbooks/php2shell.md` §4).
+- **Cloudflare's observation at 07:43 UTC is more than six hours before the fix.** "React when the
+  PoC drops" does not work for this class of bug.
+- Node.js and PHP released on the same day by coincidence. There is no shared cause; you simply
+  had to track both.
+- Some dates look off by one (PHP's changelog shows 8.5.12 as "22 Oct 2026" while the release
+  announcement says 21 Oct). That is normal. **Match on version numbers, not dates.**

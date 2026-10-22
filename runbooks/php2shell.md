@@ -1,116 +1,118 @@
 # Runbook — php2shell
 
-対象: PHP が動いているホスト／コンテナ。所要 10〜30 分（修正版がある場合）。
-**この手順は「発見 → 修正 → 検証 → 侵害時の対応」の順に並んでいる。飛ばさない。**
+[**English**](php2shell.md) | [日本語](php2shell.ja.md)
 
-前提: `docker` グループ権限、`ssh`（リモートの場合）、`jq`、`curl`。
-root は原則不要（エッジ操作とホストの ini 配置だけは要ることがある）。
+Scope: any host or container running PHP. 10–30 minutes when a fixed image exists.
+**The steps are ordered: discover → patch → verify → post-compromise. Do not skip ahead.**
+
+Requires: `docker` group membership, `ssh` (for remote), `jq`, `curl`.
+Root is normally unnecessary (only edge operations and host-level ini placement may need it).
 
 ---
 
-## 0. 30秒で判断する
+## 0. Decide in 30 seconds
 
 ```bash
-tools/php2shell/bin/p2s-audit --json                 # ローカル
-tools/php2shell/bin/p2s-audit --target <ssh-host>    # リモート
+tools/php2shell/bin/p2s-audit --json                 # local
+tools/php2shell/bin/p2s-audit --target <ssh-host>    # remote
 ```
 
-| 終了コード | 意味 | 次 |
+| Exit code | Meaning | Next |
 |---|---|---|
-| 0 | PHP が無い、または修正版／緩和済み | §5 検証へ。何もしない |
-| 10 | **PHP が動いていて、危険な設定が有効** | §1 へ |
-| その他 | 実行失敗（ssh / docker グループ / 権限） | 環境を直してから再実行 |
+| 0 | No PHP, or patched/mitigated | §5. Nothing to do |
+| 10 | **PHP is running and the dangerous setting is armed** | §1 |
+| other | The check failed (ssh / docker group / permissions) | Fix the environment, re-run |
 
-`p2s-audit` は**読み取り専用**。何度実行しても安全。
+`p2s-audit` is **read-only**. Running it repeatedly is safe.
 
 ---
 
-## 1. 何が動いているかを確定する
+## 1. Establish what is running
 
 ```bash
-tools/php2shell/bin/p2s-audit                    # 表形式で一覧
+tools/php2shell/bin/p2s-audit                    # tabular view
 docker ps --format '{{.Names}}\t{{.Image}}'
-docker exec <container> php -v                   # 実行中の版（タグではなく）
+docker exec <container> php -v                   # the running version, not the tag
 docker images --format '{{.Repository}}:{{.Tag}}\t{{.CreatedSince}}' | grep -i php
 ```
 
-**停止中のイメージも確認する。** 起動していないだけで、起動すれば露出する。
+**Check stopped images too.** Not running today only means not exposed today.
 
 ```bash
 docker images --format '{{.Repository}}:{{.Tag}}\t{{.CreatedSince}}' | grep -Ei 'nextcloud|wordpress|flarum|php'
 ```
 
-数年前のイメージが残っていたら、起動前に必ず再取得する（[`../docs/06-lessons-and-gotchas.md`](../docs/06-lessons-and-gotchas.md) §11）。
+If an image is years old, re-pull before starting it (`06-lessons-and-gotchas.md` §11).
 
 ---
 
-## 2. 分岐
+## 2. Branch
 
-| 状況 | 手段 |
+| Situation | Action |
 |---|---|
-| 修正版イメージが存在する（`php:8.3.36` 等） | **§3 修正**。これが唯一の完全な対策 |
-| 修正版がまだ無い／ベンダ待ち／8.1 以前 | **§4 緩和**で時間を稼ぐ。同時に移行計画を立てる |
-| 露出していて、侵害の兆候がある | **§6 侵害時対応**。修正より先に遮断 |
+| A fixed image exists (`php:8.3.36` etc.) | **§3 patch.** The only complete fix |
+| No fixed image yet / vendor wait / ≤ 8.1 | **§4 mitigate** to buy time, and plan the migration |
+| Exposed and showing signs of compromise | **§6 post-compromise.** Contain before patching |
 
 ---
 
-## 3. 修正（最優先）
+## 3. Patch (first choice)
 
 ```bash
 tools/php2shell/bin/p2s-patch --container <name> --dry-run
 tools/php2shell/bin/p2s-patch --container <name>
 ```
 
-やっていること: `pull` → 再作成 → **イメージダイジェストと PHP バージョンの前後比較**。
-終了コード 10 は「新しいイメージがまだ公開されていない」。失敗ではないので §4 へ。
+It pulls, recreates, and **compares the image digest and PHP version before/after**.
+Exit code 10 means "no new image published yet" — not a failure; go to §4.
 
-自前イメージの場合:
+If you build your own image:
 
 ```dockerfile
 FROM php:8.3.36-fpm-alpine
-# 8.2.35 / 8.4.27 / 8.5.12 でも同じ
+# same for 8.2.35 / 8.4.27 / 8.5.12
 ```
 
 ```bash
 docker build -t <app>:php8.3.36 . && docker compose up -d --force-recreate --no-deps <service>
 ```
 
-### 修正後の確認（必須）
+### Verify after patching (mandatory)
 
 ```bash
-docker exec <c> php -v      # 8.3.36 等になっているか
-tools/php2shell/bin/p2s-audit --target <host>   # 10 が返らないこと
+docker exec <c> php -v      # 8.3.36 or equivalent
+tools/php2shell/bin/p2s-audit --target <host>   # must no longer exit 10
 ```
 
 ---
 
-## 4. 緩和（**部分対策**。更新の代替ではない）
+## 4. Mitigate (**partial** — never a substitute for updating)
 
-PHP 公式が「完全な修正ではない」と明記している手段。**効く範囲を理解して使う。**
+PHP states these are not complete fixes. **Know what each one covers.**
 
-### 4-1. ツールで入る分（CVE-2026-109619 側）
+### 4-1. What the tool installs (the CVE-2026-109619 side)
 
 ```bash
 tools/php2shell/bin/p2s-mitigate --container <name> --dry-run
 tools/php2shell/bin/p2s-mitigate --container <name>
-docker exec <c> php -r 'echo ini_get("session.upload_progress.enabled");'   # 0 であること
+docker exec <c> php -r 'echo ini_get("session.upload_progress.enabled");'   # must be 0
 ```
 
-これは compose override に ini をマウントする（`docker exec` で書き換えない）。
-再作成後も残るのが利点。`--revert` で戻せる。
+It mounts an ini through a compose override (it does not rewrite files inside the container), so the
+setting survives recreation. `--revert` puts it back.
 
-### 4-2. 手で入れる必要がある分（CVE-2026-109618 側）
+### 4-2. What you must add by hand (the CVE-2026-109618 side)
 
-`memory_limit` はアプリのメモリ挙動を変えるため、ツールは自動で入れない。
+`memory_limit` changes application memory behaviour, so the tool will not set it for you.
 
 ```ini
-; conf.d/zz-php2shell-mem.ini  または FPM プール
+; conf.d/zz-php2shell-mem.ini  or the FPM pool
 memory_limit = -1
 post_max_size = 8M
 upload_max_filesize = 6M
 ```
 
-FPM プール（`/etc/php/<ver>/fpm/pool.d/*.conf`）に書く場合:
+In an FPM pool (`/etc/php/<ver>/fpm/pool.d/*.conf`):
 
 ```ini
 php_admin_value[memory_limit] = -1
@@ -118,19 +120,19 @@ php_admin_value[post_max_size] = 8M
 php_admin_flag[session.upload_progress.enabled] = off
 ```
 
-- アップロードが必要なアプリなら `post_max_size` を 32M 程度に上げ、`upload_max_filesize` を
-  その下に置く。
-- **`memory_limit = -1` は可用性と引き換え**。コンテナ/cgroup のメモリ上限を別に設定し、
-  影響を受けた worker だけが死ぬようにする。`RLIMIT_AS` / `RLIMIT_DATA` は使わない
-  （脆弱な確保失敗を誘発する）。
-- **`.user.ini` と `ini_set()` は不可**（PHP 公式が明記）。
+- If the application needs uploads, raise `post_max_size` to about 32M and keep
+  `upload_max_filesize` below it.
+- **`memory_limit = -1` trades away availability.** Set a container/cgroup memory limit so only the
+  affected worker dies. Do not use `RLIMIT_AS` / `RLIMIT_DATA` (they can trigger the vulnerable
+  allocation failure).
+- **`.user.ini` and `ini_set()` are not acceptable** (PHP says so explicitly).
 
-### 4-3. トリガーそのものを落とす（任意・要検証）
+### 4-3. Drop the trigger itself (optional, must be tested)
 
-既知のトリガーはすべて `multipart/form-data` の本文。
+Every known trigger is a `multipart/form-data` body.
 
 ```nginx
-# アプリのファイルアップロードが壊れるので、必ず検証してから入れる
+# this breaks file uploads — verify before keeping it
 if ($http_content_type ~* "multipart/form-data") { return 403; }
 ```
 
@@ -142,102 +144,103 @@ RewriteCond %{HTTP:Content-Type} multipart/form-data [NC]
 RewriteRule ^ - [F]
 ```
 
-入れたら**必ずアプリの主要動線（ログイン、投稿、アップロード）を触る**。
-壊れたら即座に外す。修正版が入ったら外すのが前提の暫定策。
+After adding it, **exercise the main flows** (login, post, upload). If something breaks, remove it
+immediately. It is meant to be removed once the patched runtime is in place.
 
 ---
 
-## 5. 検証
+## 5. Verify
 
 ```bash
-tools/php2shell/bin/p2s-audit --target <host>            # 露出なし
-docker exec <c> php -v                                   # 実行中の版
+tools/php2shell/bin/p2s-audit --target <host>            # nothing exposed
+docker exec <c> php -v                                   # the running version
 docker exec <c> php -i | grep -E 'session.upload_progress|memory_limit|post_max_size'
 tools/php2shell/bin/p2s-hunt --container <c> --target <host> --scan
-bash tools/php2shell/tests/selftest.sh <host>            # 再起動を跨ぐ確認を含む
+bash tools/php2shell/tests/selftest.sh <host>            # includes the restart check
 ```
 
-**再起動を跨いだ確認を省かない。** `docker compose up -d` で設定が静かに消える事故が起きる。
-`selftest.sh` は最後にコンテナを再起動して、設定が残っているかを見る。
+**Do not skip the restart check.** Settings disappearing on `docker compose up -d` is a real failure
+mode. `selftest.sh` restarts the container at the end and re-reads the values.
 
 ---
 
-## 6. 侵害を疑うとき
+## 6. When you suspect compromise
 
-**順序を守る: 遮断 → 保全 → 調査 → 再構築 → 認証情報のローテート。**
-「掃除」を先にやると証拠が消える。
+**Order: contain → preserve → investigate → rebuild → rotate.**
+Cleaning first destroys the evidence.
 
-### 6-1. 兆候
+### 6-1. Signals
 
-| 兆候 | 確認方法 |
+| Signal | How to check |
 |---|---|
-| 新規・改変された `.php` ファイル | `p2s-hunt --scan`（ベースラインとの差分） |
-| アップロードディレクトリ配下の `.php` | 同上（ベースラインにあっても検出扱い） |
-| 5xx の急増 | `p2s-hunt --logs --since 72h` |
-| 不審な外向き通信 | `p2s-hunt --scan`（非ループバックのソケット） |
+| New or modified `.php` file | `p2s-hunt --scan` (diff against baseline) |
+| `.php` file under an upload directory | Same (a finding even if baselined) |
+| A burst of 5xx | `p2s-hunt --logs --since 72h` |
+| Unexpected egress | `p2s-hunt --scan` (non-loopback sockets) |
 
-### 6-2. 手順
+### 6-2. Procedure
 
 ```bash
-# 1. 遮断（消さない）
+# 1. contain (do not delete)
 docker stop <container>
 
-# 2. 保全
+# 2. preserve
 docker cp <container>:/var/www/html /tmp/evidence-html-$(date +%s)
 docker logs <container> > /tmp/evidence-log-$(date +%s).txt 2>&1
 
-# 3. 調査
+# 3. investigate
 tools/php2shell/bin/p2s-hunt --container <c> --target <host> --logs --since 72h
 ```
 
-その後の順序:
+Then, in this order:
 
-1. **認証情報のローテート**: そのコンテナが読めたもの全部（アプリのログイン、DB、設定内の API キー）。
-   **CVE-2026-109618 はメモリ漏洩を伴う**ので、同じ worker が扱った他リクエストの
-   セッション・トークンも漏れた可能性がある。SSO のセッションも疑う。
-2. **イメージから再構築する**。稼働中コンテナを「きれいにする」のは不可。
-3. **横展開の確認**: コンテナが非ループバックへ通信していないか。Docker ソケットを
-   マウントしていないか（していれば host 侵害を疑う）。
-4. **入口の特定**: リバースプロキシ / CDN / SSO のログで、いつ・どのセッションが叩いたか。
+1. **Rotate credentials** the container could read: application logins, the database, API keys in
+   its settings. **CVE-2026-109618 leaks memory**, so tokens and sessions from other requests the
+   same worker handled may also have leaked — include SSO sessions in your thinking.
+2. **Rebuild from the image.** Do not "clean" a running container.
+3. **Check lateral movement**: is the container talking to non-loopback addresses? Is the Docker
+   socket mounted (if so, assume host compromise)?
+4. **Find the entry**: reverse proxy / CDN / SSO logs, to identify when and which session.
 
 ---
 
-## 7. エッジ（任意）
+## 7. Edge (optional)
 
 ```bash
-tools/php2shell/bin/p2s-edge --zone <zone> --dry-run       # 既定は dry-run
+tools/php2shell/bin/p2s-edge --zone <zone> --dry-run       # dry-run by default
 tools/php2shell/bin/p2s-edge --zone <zone> --apply
-tools/php2shell/bin/p2s-edge --zone <zone> --php-host <host> --apply   # PHP を配信するホストを除外
+tools/php2shell/bin/p2s-edge --zone <zone> --php-host <host> --apply   # exempt a PHP-serving host
 ```
 
-入るもの: `.php`/`.phtml`/`.phar` のパス、`/cgi-bin/`、phpmyadmin / wp-login 等、
-ドットファイル（`/.env` `/.git`）、PHP-CGI の引数注入マーカ。
+What it installs: `.php`/`.phtml`/`.phar` paths, `/cgi-bin/`, phpmyadmin / wp-login, dotfiles
+(`/.env`, `/.git`), PHP-CGI argument-injection markers.
 
-**入らないもの**: リクエスト本文を見るルール。Cloudflare の Free プランでは
-`http.request.body.raw` が使えない。ツールは拒否を検知して、そのルールだけ落とす。
+**What it cannot install**: request-body rules. On Cloudflare's Free plan `http.request.body.raw` is
+unavailable; the tool detects the rejection and drops just that rule.
 
-> **重要**: エッジは「スキャナの波を止める」ための層であって、php2shell の本体対策ではない。
-> **オリジン側（§3 か §4）が本体**。エッジを入れたことを対策完了の根拠にしない。
+> **Important**: the edge stops the scanner wave, not php2shell itself. **The origin control (§3 or
+> §4) is the real mitigation.** Do not treat the edge as completion.
 
 ---
 
-## 8. 定期的に回す
+## 8. Run it continuously
 
 ```bash
-tools/php2shell/deploy/install.sh <ssh-host>    # 6時間ごとの systemd user timer
+tools/php2shell/deploy/install.sh <ssh-host>    # 6-hourly systemd user timer
 systemctl --user list-timers php2shell-watch.timer
 journalctl --user -u php2shell-watch
 ```
 
-`p2s-watch` は「PHP ランタイムの露出」「Web ルートの完全性」「**新しい PHP 面の出現**」を見る。
-最後の項目が重要で、停止していた CMS を誰かが起動した瞬間に検知できる。
+`p2s-watch` checks three things: runtime exposure, web-root integrity, and **the appearance of a new
+PHP surface**. The third one matters — it catches the moment someone starts a dormant CMS.
 
 ---
 
-## 9. 既知のギャップ（意図的に未対応）
+## 9. Known gaps (deliberately not addressed)
 
-- **レート制限 / Fail2ban は未導入**。変更がリクエスト処理に影響するので、独立した作業窓が要る。
-- **コンテナの外向き通信は制限していない**。侵害されたコンテナは持ち出し経路にもなる。
-  `DOCKER-USER` での許可リスト化が次の段階だが、各コンテナの正当な通信先の棚卸しが前提。
-- **LAN に公開しているポート**は別問題。Docker は `ufw` を迂回してポートを公開するので、
-  「ufw で塞いである」は根拠にならない。php2shell とは独立に監査する価値がある。
+- **No rate limiting / Fail2ban.** It changes request handling and deserves its own change window.
+- **Container egress is unrestricted.** A compromised container is also an exfiltration path.
+  `DOCKER-USER` allowlisting is the next step, but it needs an inventory of each container's
+  legitimate destinations first.
+- **Ports published on the LAN** are a separate problem. Docker publishes ports past `ufw`, so
+  "ufw blocks it" is not evidence. Worth auditing independently of php2shell.

@@ -1,119 +1,122 @@
-# Node.js — 2026年10月のセキュリティリリース
+# Node.js — the October 2026 security releases
 
-2026-10-21 公開。修正版は **22.23.4 / 24.22.1 / 26.12.1**。**20.x は EOL で修正なし。**
+[**English**](02-nodejs-oct2026.md) | [日本語](02-nodejs-oct2026.ja.md)
 
-## 1. CVE 一覧
+Published 2026-10-21. Fixed versions **22.23.4 / 24.22.1 / 26.12.1**. **20.x is EOL and gets
+nothing.**
 
-| CVE | 重大度 | 内容 | 22 | 24 | 26 |
+
+## 1. The CVEs
+
+| CVE | Severity | Issue | 22 | 24 | 26 |
 |---|---|---|---|---|---|
-| CVE-2026-111497 | **high** | Brotli デコーダの out-of-bounds write → リモートコード実行 | ✓ | ✓ | ✓ |
-| CVE-2026-105482 | **high** | `dns.resolve` が NUL 文字を含む名前を切り詰める | ✓ | ✓ | ✓ |
-| CVE-2026-105483 | high | TLS ホスト名検証バイパス（IP を全角数字で書いた場合） | — | ✓ | ✓ |
-| CVE-2026-106069 | high | TLS ホスト名検証バイパス（ホスト名が緩く IP に解決される場合） | ✓ | ✓ | ✓ |
-| CVE-2026-105481 | medium | keep-alive 接続で、リクエスト到着前に応答が書かれる | ✓ | ✓ | ✓ |
-| CVE-2026-106072 | medium | 非正規 IPv4 ホスト名で DNS SAN が IP エンドポイントを認証してしまう | ✓ | ✓ | ✓ |
-| CVE-2026-106074 | medium | `crypto.randomUUID()` / `randomInt()` のエントロピーキャッシュが起動スナップショット・SEA に保存され、全プロセスが同じ値を繰り返す | ✓ | ✓ | ✓ |
-| CVE-2026-106070 | low | ZipFile がヘッダ検証失敗後に攻撃者制御の接頭辞バイトを返す | — | — | ✓ |
-| CVE-2026-106071 / 106073 | low | Permission Model / ZipFile 関連 | — | — | ✓ |
+| CVE-2026-111497 | **high** | Brotli decoder out-of-bounds write → remote code execution | ✓ | ✓ | ✓ |
+| CVE-2026-105482 | **high** | `dns.resolve` truncates names containing a NUL character | ✓ | ✓ | ✓ |
+| CVE-2026-105483 | high | TLS hostname verification bypass (IP written in fullwidth digits) | — | ✓ | ✓ |
+| CVE-2026-106069 | high | TLS hostname verification bypass (host loosely resolves to an IP) | ✓ | ✓ | ✓ |
+| CVE-2026-105481 | medium | keep-alive connection writes a response before the request arrives | ✓ | ✓ | ✓ |
+| CVE-2026-106072 | medium | Non-canonical IPv4 hostname lets a DNS SAN authenticate an IP endpoint | ✓ | ✓ | ✓ |
+| CVE-2026-106074 | medium | `crypto.randomUUID()` / `randomInt()` entropy cache is saved into start-up snapshots and SEAs, so every process repeats the same values | ✓ | ✓ | ✓ |
+| CVE-2026-106070 | low | ZipFile returns attacker-controlled prefix bytes after failed header validation | — | — | ✓ |
+| CVE-2026-106071 / 106073 | low | Permission Model / ZipFile related | — | — | ✓ |
 
-**実務上の優先度**: CVE-2026-111497（Brotli）が最も重い。HTTP サーバが
-`Accept-Encoding: br` を扱う構成なら、**未認証のリクエストで到達し得る**。
-TLS 系 3件は「証明書検証を信頼している」処理に効くので、内部 API の相互 TLS や
-プロキシ越しの検証に影響する。
+**Practical priority**: CVE-2026-111497 is the heaviest. If an HTTP server honours
+`Accept-Encoding: br`, it is **reachable by an unauthenticated request**. The three TLS issues
+matter wherever certificate validation is trusted — mutual TLS between internal services, or
+validation behind a proxy.
 
-## 2. 同時に入った依存関係の更新
+## 2. Dependency updates shipped alongside
 
-- **c-ares**（26/24/22）
-- **ca-cert（eMudhra 中間CA 侵害への対応）**（26/24/22） — [`03-emudhra-ca.md`](03-emudhra-ca.md)
-- OpenSSL（24/22）
-- SQLite（22）
-- Undici（26/24/22）
+- **c-ares** (26/24/22)
+- **ca-cert (the eMudhra intermediate-CA response)** (26/24/22) — `03-emudhra-ca.md`
+- OpenSSL (24/22)
+- SQLite (22)
+- Undici (26/24/22)
 
-**ca-cert の更新はランタイムの信頼ストアを変える**。つまり Node を上げることは、
-CA 侵害への対策も兼ねる。Node を独自にビルド・同梱している場合（`--openssl-system-ca-path`
-等を使っている場合）は、そのバンドルも別途確認が必要。
+**The ca-cert update changes the runtime's trust store.** Updating Node therefore also addresses the
+CA compromise. If you build Node yourself or point it at a system bundle
+(`--openssl-system-ca-path`), check that bundle separately.
 
-## 3. 更新のしかた
+## 3. How to update
 
-### 3-1. コンテナ（アプリを触らずにランタイムだけ差し替える）
+### 3-1. Containers (swap the runtime, leave the app alone)
 
-公式イメージが修正版に追随するまで待てない場合の方法。**同じメジャーライン**を使うこと
-（ネイティブモジュールの ABI を維持するため）。
+For when the app image has not caught up. **Stay in the same major line** so native module ABIs keep
+working.
 
 ```dockerfile
 # Dockerfile.nodefix
 FROM <your-app-image>
 
-# 同メジャーの修正版から node バイナリだけ持ってくる
+# take the binary from the fixed build of the same major
 COPY --from=node:22.23.4-bookworm-slim /usr/local/bin/node /usr/local/bin/node
 ```
 
 ```bash
 docker build -f Dockerfile.nodefix -t <app>:node22.23.4 .
-# compose の image: 行を <app>:node22.23.4 に変えて
+# change image: in compose to <app>:node22.23.4
 docker compose up -d --force-recreate --no-deps <service>
 ```
 
-注意点:
+Caveats:
 
-- **Wolfi / Alpine ベースのイメージ**では、差し替え先のバイナリが要求する共有ライブラリが
-  足りないことがある（例: `libatomic` を `apk add` する必要があった）。
-- **`better-sqlite3` などのネイティブモジュールを持つアプリは、この方法では動かない**。
-  新しい ABI で再コンパイルが必要なので、イメージをソースから再ビルドする。
-- 派生イメージはアプリのバージョンを固定する。上流が修正版で再ビルドしたら、派生タグを捨てて
-  元の行に戻す（固定したまま忘れると、アプリ側の更新が止まる）。
+- **Wolfi / Alpine bases** may lack shared libraries the replacement binary needs (e.g.
+  `apk add libatomic`).
+- **Apps with native modules (`better-sqlite3` and friends) will not work.** Rebuild from source
+  against the new ABI instead.
+- The derived image **pins the app version**. When upstream rebuilds on a fixed Node, drop the
+  derived tag and go back — otherwise the app stops being updated.
 
-### 3-2. ホスト（Debian/Ubuntu + NodeSource）
+### 3-2. Hosts (Debian/Ubuntu with NodeSource)
 
 ```bash
 sudo apt update
-apt-cache policy nodejs        # Candidate が修正版か確認
+apt-cache policy nodejs        # is Candidate the fixed version?
 sudo apt install --only-upgrade nodejs
 node -v
 ```
 
-`Candidate` が古いままなら、NodeSource 側の公開待ち。**ランタイムをユーザー領域に入れて
-PATH で優先させる**のが現実的な回避策（`~/.local/opt/node-vXX...` + `~/.local/bin`）。
-ただし root が実行するサービスは `/usr/bin/node` を掴むので、そこだけは残る。
+If `Candidate` is still old, you are waiting on NodeSource. The practical workaround is a
+user-local runtime earlier in `PATH` (`~/.local/opt/node-vXX…` plus `~/.local/bin`). Note that
+services run by root still pick up `/usr/bin/node`.
 
-### 3-3. ホスト（Arch）
+### 3-3. Hosts (Arch)
 
 ```bash
 sudo pacman -Syu nodejs
 node -v
 ```
 
-Arch は `extra` の更新が速いが、修正版の公開とパッケージ化には時差がある。
-**リポジトリの版が修正版未満なら、pacman で上げても意味がない**。`pacman -Si nodejs` で
-バージョンを確認してから実行する。
+Arch moves quickly, but packaging still lags the release. **If the repository version is below the
+fixed version, upgrading is pointless.** Check `pacman -Si nodejs` first.
 
-## 4. 検証
+## 4. Verify
 
 ```bash
-tools/node/nodefix-audit                    # ローカル
+tools/node/nodefix-audit                    # local
 tools/node/nodefix-audit --target <ssh-host>
-# 出力の STATE が ok 以外なら未対応。版は必ず実行中のバイナリで確認する:
+# anything whose STATE is not ok is unpatched. Always confirm with the binary:
 docker exec <container> node -v
 ```
 
-`nodefix-audit` は `docker ps` の全コンテナと、ホストの `node`（`/usr/bin/node` と
-`~/.local/bin/node` の両方）を見る。**同じホストに複数の node があること**が、
-この手の対応で最も見落とされやすい。
+`nodefix-audit` looks at every container from `docker ps` and at the host's `node` (both
+`/usr/bin/node` and `~/.local/bin/node`). **Multiple node binaries on one host** is the most
+commonly missed part of this work.
 
-## 5. ロールバック
+## 5. Rollback
 
-派生イメージ方式なら、compose の1行を戻すだけで済む（元イメージは削除していないため）。
+With the derived-image method, rollback is one line in compose (the original image is still there):
 
 ```bash
 cp docker-compose.yml.bak-<timestamp> docker-compose.yml
 docker compose up -d --force-recreate --no-deps <service>
 ```
 
-ホストのパッケージは `apt install nodejs=<version>` / `pacman -U <cached .pkg.tar.zst>`。
-**バージョンを固定できる状態を確保してから**上げること。
+For host packages: `apt install nodejs=<version>` / `pacman -U <cached .pkg.tar.zst>`.
+**Make sure you can go back before you go forward** — pacman caches are sometimes already cleaned.
 
-## 6. 出所
+## 6. Sources
 
-- 勧告: <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases>
-- リリース索引（版と日付の一次データ）: <https://nodejs.org/dist/index.json>
-- 勧告一覧（新しい順）: <https://nodejs.org/en/blog/vulnerability>
+- Advisory: <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases>
+- Release index (versions and build dates): <https://nodejs.org/dist/index.json>
+- Advisory list, newest first: <https://nodejs.org/en/blog/vulnerability>
