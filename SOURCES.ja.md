@@ -82,7 +82,7 @@
 | Plex のベンダ告知 | <https://forums.plex.tv/t/important-security-update-for-plex-media-server-v1-43-2-and-earlier/942319> | プラットフォーム別の更新手順、NAS のパッケージ遅延の注意 | ブラウザ |
 | NVD API（深刻度で絞る） | <https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=CRITICAL&pubStartDate=2026-10-08T00:00:00.000&pubEndDate=2026-10-22T23:59:59.999> | CRITICAL の走査そのもの | `tools/intel/fetch-intel --sources nvd-critical` |
 | EPSS API | <https://api.first.org/data/v1/epss?cve=CVE-2026-96656> | 悪用確率（新しい CVE では遅れる） | 同上 |
-| Plex の KEV 絞り込み | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | 期限と連鎖の注記 | `jq '.vulnerabilities[]|select(.vendorProject=="Plex")'` |
+| Plex の KEV 絞り込み | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | 期限と連鎖の注記 | `jq '.vulnerabilities[]\|select(.vendorProject=="Plex")'` |
 
 ### CA 侵害（`docs/03`）
 
@@ -90,6 +90,10 @@
 |---|---|---|
 | Google（Chrome Root Program） | <https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/> | SPKI ブロック、CT の見解、ルート削除 |
 | Mozilla Security Blog | <https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/> | OneCRL / NSS の対応 |
+| Cisco Talos（2026-10-21） | <https://blog.talosintelligence.com/compromised-intermediate-certificates/> | 8本の証明書と CCADB ID、セレモニーと wrap/unwrap の原因、Microsoft のブロック、Go の CVE と版 |
+| Mozilla bug 2083449 | <https://bugzilla.mozilla.org/show_bug.cgi?id=2083449> | Talos が転記した証明書一覧の原典 |
+| 非公式勧告サイト | <https://emudhra.we-have-a-problem.com/> | 「We have a problem here – Wayne」の署名ページ |
+| Ars Technica（2026-10-20） | <https://arstechnica.com/security/2026/10/the-internet-goes-on-high-alert-after-discovery-of-8-compromised-tls-certs/> | **二次**: 8個の鍵の値、Valsorda の Heartbleed 比較、長い尾のリスト |
 | eMudhra 声明 | <https://emudhra.com/en/post/certificate-security-incident> | ベンダの範囲主張、Mozilla 時系列の引用元 |
 | Scott Helme | <https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/> | 8本すべての復元、小整数という原因 |
 | Go issue / commit | <https://github.com/golang/go/issues/82345> | CVE-2026-111943、URGENT トラック、拒否リストの挙動 |

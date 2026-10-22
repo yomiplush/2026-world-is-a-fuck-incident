@@ -215,29 +215,35 @@ window.CONTENT = {
           note: { ja: "SPKI 遮断 / ルート削除", en: "SPKI block, root removal" } },
         { name: "Scott Helme", url: "https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/",
           note: { ja: "鍵の復元", en: "recovering the keys" } },
+        { name: "Cisco Talos", url: "https://blog.talosintelligence.com/compromised-intermediate-certificates/",
+          note: { ja: "8本の一覧・原因・Go の CVE（2026-10-21）", en: "the eight certs, the cause, Go's CVE (2026-10-21)" } },
+        { name: "Ars Technica", url: "https://arstechnica.com/security/2026/10/the-internet-goes-on-high-alert-after-discovery-of-8-compromised-tls-certs/",
+          note: { ja: "二次: 鍵の値と Heartbleed 比較", en: "secondary: the key values and the Heartbleed comparison" } },
+        { name: "Mozilla bug 2083449", url: "https://bugzilla.mozilla.org/show_bug.cgi?id=2083449",
+          note: { ja: "証明書一覧の原典", en: "source of the certificate table" } },
         { name: "Tailscale TS-2026-013", url: "https://tailscale.com/security-bulletins",
           note: { ja: "2026-10-21", en: "2026-10-21" } }
       ],
       ja: {
         kicker: "EMUDHRA · CERTIFICATE AUTHORITY",
         title: "鍵は盗まれていない。弱すぎた。",
-        lede: "P-384 の秘密鍵が、小さい整数だった。1本は文字通り「4」。ノートPCで1秒未満で復元できる。",
+        lede: "P-384 の秘密鍵が、小さい整数だった。当てられたのは「4, 56, 66, 115, 155, 156, 230, 237」。3〜8ビットしかない。",
         points: [
-          "中間CA <b>8本</b>（TLS 6＋コード署名 2）、2025年4月の鍵生成セレモニー",
-          "10-17 18:05 UTC 報告 → 19:45 Chrome が SPKI ハッシュで遮断、22:59 に Firefox 全台",
-          "CT は TLS のみ。コード署名の2本は「CTに無い」では晴れない",
-          "10-21 Tailscale <b>TS-2026-013</b>: v1.104.2 で Go 1.27.3 の拒否リストを取り込み"
+          "中間CA <b>8本</b>（TLS 6＋コード署名 2）。2025-04-30 の鍵生成で <b>24本</b>の下位CAを作る際、wrap/unwrap の不具合が「弱い鍵の2セット目」を生んだ",
+          "10-17 18:05 UTC 報告 → 19:45 Chrome が SPKI で遮断 → 22:59 Firefox 全台。**Apple は TLS 6本、Microsoft はコード署名2本**を遮断",
+          "ブラウザは自分の分を片付けただけ。残るのは Docker・Kubernetes・IoT・Python 同梱ルート——Go は <b>CVE-2026-111943</b> として 1.27.3 / 1.26.10 で拒否",
+          "直近で鋭いのは <b>VPN クライアント</b>（Talos / Ars）。「Heartbleed より大きい後片付け」と Go の暗号担当"
         ]
       },
       en: {
         kicker: "EMUDHRA · CERTIFICATE AUTHORITY",
         title: "The keys were not stolen. They were too weak to be secret.",
-        lede: "P-384 private keys that were small integers — one of them literally 4 — recoverable from the public certificates in under a second.",
+        lede: "P-384 private keys that were small integers — 4, 56, 66, 115, 155, 156, 230, 237. Between 3 and 8 bits of entropy.",
         points: [
-          "<b>eight</b> intermediate CAs (six TLS, two code signing), created in an April 2025 ceremony",
-          "10-17 18:05 UTC report → 19:45 Chrome blocks by SPKI hash → 22:59 all Firefox installs",
-          "CT only covers TLS; \u201cno CT entries\u201d says nothing about the two code-signing CAs",
-          "10-21 Tailscale <b>TS-2026-013</b>: v1.104.2 pulls in Go 1.27.3's denylist"
+          "<b>eight</b> intermediate CAs (six TLS, two code signing). A 2025-04-30 ceremony for <b>24 subordinates</b> produced a second, weak key set through a wrap/unwrap flaw",
+          "10-17 18:05 UTC report → 19:45 Chrome blocks by SPKI → 22:59 all Firefox. <b>Apple blocked the six TLS, Microsoft the two code-signing</b>",
+          "Browsers only cleaned up their own copy: Docker, Kubernetes, IoT and Python bundles remain. Go shipped <b>CVE-2026-111943</b> in 1.27.3 / 1.26.10",
+          "The sharpest near-term risk is <b>VPN clients</b> (Talos, Ars): \u201cbigger cleanup than Heartbleed\u201d, per Go's crypto maintainer"
         ]
       }
     },

@@ -25,9 +25,43 @@ TLS の6本は `emSign Root TLS CA - G3` 経由で `emSign ECC Root CA - G3` に
 ——初版が Comodo/AAA を挙げていたのはこのためで、更新していないストアではこの第2の信頼経路が
 今も有効です。
 
+
+### 1.1 8本の証明書（grep できるハッシュ付き）
+
+Cisco Talos が Mozilla のバグ報告から転記した一覧です。SHA-256 の全値は Talos と Mozilla の
+投稿にあり、先頭24桁あればトラストストアのダンプから特定できます。
+
+| 証明書 | 保有者 | CCADB | SPKI の SHA-256 | 発行者 |
+|---|---|---|---|---|
+| `EM EV TLS CA - G3B` | eMudhra BV | `A012304` | `E7568FE6E12331F4FD7DE61D…` | `emSign Root TLS CA - G3` |
+| `EM OV TLS CA - G3B` | eMudhra BV | `A012308` | `98B896625C0C230ADEEC3EB2…` | `emSign Root TLS CA - G3` |
+| `EM DV TLS CA - G3B` | eMudhra BV | `A012302` | `42C4ACCD12C4F59597925E1A…` | `emSign Root TLS CA - G3` |
+| `EM EV TLS CA - G3C` | eMudhra Inc | `A012296` | `432EC25F0D28DE9006D97BF7…` | `emSign Root TLS CA - G3` |
+| `EM OV TLS CA - G3C` | eMudhra Inc | `A012300` | `CB6E15165AC802E9B3F993F1…` | `emSign Root TLS CA - G3` |
+| `EM DV TLS CA - G3C` | eMudhra Inc | `A012294` | `0164D7CEAE5BB909C272AF15…` | `emSign Root TLS CA - G3` |
+| `EM OV CS CA - G3B` | eMudhra BV | `A012306` | `9E39DE2881273ACC225A149C…` | `emSign Root CS CA - G3` |
+| `EM OV CS CA - G3C` | eMudhra Inc | `A012298` | `4B2460A466F95FD40113BCDC…` | `emSign Root CS CA - G3` |
+
+発行者に注目してください。TLS の6本は `emSign Root TLS CA - G3`、コード署名の2本は
+`emSign Root CS CA - G3` に連なります——多くの解説が挙げるルートとは**別のルート**です。
+
 ## 2. なぜ破れたか: 鍵が小さい整数だった
 
 ここが覚えておく価値のある部分で、攻撃者が何かを盗んだ話ではありません。
+
+
+### 2.1 セレモニーで何が起きたか（Talos の説明）
+
+**2025-04-30**、eMudhra は `emSign Root TLS CA - G3`（`Comodo AAA Certificate Services` で
+クロス署名）の下で**24本の下位CA**の鍵生成セレモニーを実施しました。**wrap/unwrap 工程の不具合**
+により P-384 鍵の「2セット目」が生成され、そちらは 384 ビットではなく **3〜8 ビット**の
+エントロピーしか持たず、その弱い鍵が8本の中間CAに使われました。Ars Technica は8個の値を
+列挙しています——**4, 56, 66, 115, 155, 156, 230, 237**。
+
+これが理論でない証拠として、`emudhra.we-have-a-problem.com` の非公式勧告には
+*「We have a problem here – Wayne.」* というメッセージが、**当該証明書の秘密鍵でデジタル署名**
+されて載っていました（Ars Technica）。秘密であるべき鍵で署名を見せることが、それ自体で
+全部の説明になっています。
 
 - P-384 の楕円曲線鍵です。秘密鍵は整数 `d` そのもので、公開鍵は `d × G`。
 - セレモニーは `d` を**十分な乱数で生成しなかった**ため、`d` は*小さい*数になりました。
@@ -80,6 +114,27 @@ HTTPS については本当に安心できる結果です。**ただし §5 を�
 再検証できるまで信頼しないこと。プラットフォーム側がこれら連鎖のコード署名検証を厳格化すると
 考えてください。**自分が署名者なら**、別CAの証明書に切り替えて再署名します。タイムスタンプでは
 救われません。鍵が盗まれたのではなく**偽造可能**だからです。
+
+
+## 5.5 後片付けの規模は？ Go の暗号担当者いわく「Heartbleed より大きい」
+
+Cisco Talos と Ars Technica は、視野をブラウザの外へ広げています。
+
+- **すでに止めたもの**: Chrome・Mozilla・Apple が TLS 6本を、**Microsoft がコード署名2本**を
+  ブロック。eMudhra は証明書を失効させ、G3 ルート下での新規発行を停止（Talos）。
+- **止まっていないもの**: 自前のトラストストアを同梱し、失効を反映しないもの——Docker
+  イメージ、Kubernetes ノード、Terraform / Prometheus のビルド、Python の `certifi` コピー、
+  メンテナンスされていない CLI ツール、IoT ファームウェア、「忘れられた Linux マシン」。
+  Go の暗号担当 Filippo Valsorda の Ars へのコメント: *「これは Heartbleed より大きな
+  後片付けになる。非常に長い尾が残る」*。
+- **なぜ Go がこれを脆弱性として扱ったか**: Go は OpenSSL に任せず `crypto/x509` で X.509 検証を
+  自前実装しているため、拒否リストをランタイムで配る必要がありました。これが
+  `CVE-2026-111943`、**Go 1.27.3 / 1.26.10** で修正、8本すべての SPKI の SHA-256 で連鎖を
+  フィルタします（Talos）。
+- **直近で一番鋭いリスクはブラウザではない**: Talos も Ars も **VPN クライアント**とその他の
+  非ブラウザ TLS 利用者を挙げています。政府による傍受が現実的な環境では特に。
+
+「ブラウザが対応した」と「対応が終わった」は別のことです。ブラウザは**自分の分**を片付けただけです。
 
 ## 6. 誰が何を出したか、「修正」の意味
 
@@ -148,6 +203,17 @@ eMudhra 系で発行されている場合は、別CAで再発行**してくだ�
 
 ## 8. 出所
 
+- Cisco Talos「Compromised eMudhra intermediate certificates」（2026-10-21）— 8本の証明書と
+  CCADB ID、セレモニーと wrap/unwrap の原因、Microsoft によるコード署名2本のブロック、
+  Go の CVE と修正版:
+  <https://blog.talosintelligence.com/compromised-intermediate-certificates/>
+- Ars Technica「The Internet goes on high alert after discovery of 8 compromised TLS certs」
+  （2026-10-20）— 8個の鍵の値、「We have a problem here – Wayne」の署名、Valsorda の
+  Heartbleed 比較と長い尾のリスト（二次報道として明記）:
+  <https://arstechnica.com/security/2026/10/the-internet-goes-on-high-alert-after-discovery-of-8-compromised-tls-certs/>
+- Mozilla のバグ報告（証明書一覧の原典）:
+  <https://bugzilla.mozilla.org/show_bug.cgi?id=2083449>
+- 両記事が参照する非公式勧告サイト: <https://emudhra.we-have-a-problem.com/>
 - Google（Chrome Root Program）2026-10-20 — SPKI ブロック、CT の見解、ルート削除:
   <https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/>
 - Mozilla Security Blog 2026-10-20:

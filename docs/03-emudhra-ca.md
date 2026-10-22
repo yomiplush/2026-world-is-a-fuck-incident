@@ -26,10 +26,45 @@ were also cross-signed by Sectigo's `AAA Certificate Services` root in May 2025*
 the older version of this document named Comodo/AAA: that is the second trust path, still valid
 in stores that have not been updated.
 
+
+### 1.1 The eight certificates, with hashes you can grep for
+
+Cisco Talos reproduces the list from Mozilla's bug report. The full SHA-256 values are in
+[`data/2026-10-22`](../data/2026-10-22/) sources and in the Talos and Mozilla posts; the first 24 hex
+characters are enough to identify them in a trust store dump.
+
+| Certificate | Holder | CCADB | SHA-256 of SPKI | Issuer |
+|---|---|---|---|---|
+| `EM EV TLS CA - G3B` | eMudhra BV | `A012304` | `E7568FE6E12331F4FD7DE61D…` | `emSign Root TLS CA - G3` |
+| `EM OV TLS CA - G3B` | eMudhra BV | `A012308` | `98B896625C0C230ADEEC3EB2…` | `emSign Root TLS CA - G3` |
+| `EM DV TLS CA - G3B` | eMudhra BV | `A012302` | `42C4ACCD12C4F59597925E1A…` | `emSign Root TLS CA - G3` |
+| `EM EV TLS CA - G3C` | eMudhra Inc | `A012296` | `432EC25F0D28DE9006D97BF7…` | `emSign Root TLS CA - G3` |
+| `EM OV TLS CA - G3C` | eMudhra Inc | `A012300` | `CB6E15165AC802E9B3F993F1…` | `emSign Root TLS CA - G3` |
+| `EM DV TLS CA - G3C` | eMudhra Inc | `A012294` | `0164D7CEAE5BB909C272AF15…` | `emSign Root TLS CA - G3` |
+| `EM OV CS CA - G3B` | eMudhra BV | `A012306` | `9E39DE2881273ACC225A149C…` | `emSign Root CS CA - G3` |
+| `EM OV CS CA - G3C` | eMudhra Inc | `A012298` | `4B2460A466F95FD40113BCDC…` | `emSign Root CS CA - G3` |
+
+Note the issuers: six chain to `emSign Root TLS CA - G3`, the two code-signing CAs chain to
+`emSign Root CS CA - G3` — a **different** root from the one most write-ups name.
+
 ## 2. Why they broke: the keys are tiny integers
 
 This is the part worth remembering, because it is not a story about an attacker stealing
 anything:
+
+
+### 2.1 The ceremony, in Talos's account
+
+On **2025-04-30** eMudhra ran a key-generation ceremony for **24 subordinate CAs** under
+`emSign Root TLS CA - G3`, cross-signed by `Comodo AAA Certificate Services`. A flaw in the
+**wrap/unwrap step** produced a *second* set of P-384 keys — this time with 3–8 bits of entropy
+instead of 384 — and those weak keys were the ones used for eight of the intermediates. Both Talos
+and Ars Technica report the values, and Ars lists all eight: **4, 56, 66, 115, 155, 156, 230, 237**.
+
+The proof that this was not theoretical: an informal advisory at `emudhra.we-have-a-problem.com`
+carried the message *"We have a problem here – Wayne."* **digitally signed with the private key of
+one of the certificates** (Ars Technica). Publishing a signature made with a key that is supposed
+to be secret is the whole argument in one line.
 
 - These are elliptic-curve keys on **P-384**. A private key is just an integer `d`; the public
   key is `d × G`.
@@ -86,6 +121,29 @@ October 2026 as untrustworthy until re-verified, and expect platform vendors to 
 code-signing validation for these chains. If you *are* a signer using these CAs, get a
 replacement certificate from another CA and re-sign; timestamping does not save you here, because
 the key that signed is forgeable, not merely stolen.
+
+
+## 5.5 How big is the cleanup? "Bigger than Heartbleed", per Go's crypto maintainer
+
+Cisco Talos and Ars Technica both widen the frame beyond browsers:
+
+- **What is blocked already**: Chrome, Mozilla and Apple blocked the six TLS intermediates;
+  **Microsoft blocked the two code-signing ones**. eMudhra revoked the certificates and stopped
+  issuing under the G3 root (Talos).
+- **What is not**: anything that ships its own trust store and never applies revocation —
+  Docker images, Kubernetes nodes, Terraform and Prometheus builds, Python `certifi` copies,
+  unmaintained CLI tools, IoT firmware, and "forgotten Linux machines".
+  Filippo Valsorda (Go cryptography maintainer) to Ars: *"This will be a massive cleanup job,
+  bigger than Heartbleed… There will be a very, very long tail."*
+- **Why Go treated it as a vulnerability at all**: Go implements X.509 verification itself
+  (`crypto/x509`) instead of deferring to OpenSSL, so the denylist had to ship in the runtime.
+  That is `CVE-2026-111943`, fixed in **Go 1.27.3 / 1.26.10**, filtering chains by the SHA-256 of
+  the SPKI for all eight certificates (Talos).
+- **The sharpest near-term risk is not the browser**: Talos and Ars both point at **VPN clients**
+  and other non-browser TLS consumers, especially where a government is plausibly intercepting.
+
+That is the difference between "the browsers handled it" and "it is handled". The browsers handled
+*theirs*.
 
 ## 6. Who shipped a fix, and what "fixed" means
 
@@ -156,6 +214,17 @@ legitimate chains will stop working, and Chrome said so explicitly.
 
 ## 8. Sources
 
+- Cisco Talos, "Compromised eMudhra intermediate certificates" (2026-10-21) — the eight
+  certificates with CCADB ids, the ceremony and wrap/unwrap cause, Microsoft's block of the two
+  code-signing CAs, Go's CVE and fixed versions:
+  <https://blog.talosintelligence.com/compromised-intermediate-certificates/>
+- Ars Technica, "The Internet goes on high alert after discovery of 8 compromised TLS certs"
+  (2026-10-20) — the eight key values, the signed "We have a problem here – Wayne" message,
+  Valsorda's Heartbleed comparison and the long-tail list (secondary reporting, clearly marked):
+  <https://arstechnica.com/security/2026/10/the-internet-goes-on-high-alert-after-discovery-of-8-compromised-tls-certs/>
+- Mozilla bug report (source of the certificate table):
+  <https://bugzilla.mozilla.org/show_bug.cgi?id=2083449>
+- Informal advisory site referenced by both: <https://emudhra.we-have-a-problem.com/>
 - Google (Chrome Root Program), 2026-10-20 — SPKI blocking, CT statement, root removal:
   <https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/>
 - Mozilla Security Blog, 2026-10-20:

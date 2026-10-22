@@ -83,7 +83,7 @@ All feeds at once: `tools/intel/fetch-intel --sources feeds`.
 | Plex vendor notice | <https://forums.plex.tv/t/important-security-update-for-plex-media-server-v1-43-2-and-earlier/942319> | per-platform update steps, NAS package-lag warning | browser |
 | NVD API, severity filter | <https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=CRITICAL&pubStartDate=2026-10-08T00:00:00.000&pubEndDate=2026-10-22T23:59:59.999> | the CRITICAL sweep itself | `tools/intel/fetch-intel --sources nvd-critical` |
 | EPSS API | <https://api.first.org/data/v1/epss?cve=CVE-2026-96656> | exploitation probability (lags on new CVEs) | same |
-| KEV filter for Plex | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | due dates and the chain note | `jq '.vulnerabilities[]|select(.vendorProject=="Plex")'` |
+| KEV filter for Plex | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | due dates and the chain note | `jq '.vulnerabilities[]\|select(.vendorProject=="Plex")'` |
 
 ### The CA compromise (`docs/03`)
 
@@ -91,6 +91,10 @@ All feeds at once: `tools/intel/fetch-intel --sources feeds`.
 |---|---|---|
 | Google (Chrome Root Program) | <https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/> | SPKI blocking, CT statement, root removal |
 | Mozilla Security Blog | <https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/> | OneCRL / NSS response |
+| Cisco Talos (2026-10-21) | <https://blog.talosintelligence.com/compromised-intermediate-certificates/> | the eight certs with CCADB ids, the ceremony and wrap/unwrap cause, Microsoft's block, Go's CVE and versions |
+| Mozilla bug 2083449 | <https://bugzilla.mozilla.org/show_bug.cgi?id=2083449> | the certificate table Talos reproduces |
+| Informal advisory site | <https://emudhra.we-have-a-problem.com/> | the signed "We have a problem here – Wayne" page |
+| Ars Technica (2026-10-20) | <https://arstechnica.com/security/2026/10/the-internet-goes-on-high-alert-after-discovery-of-8-compromised-tls-certs/> | **secondary**: the eight key values, Valsorda's Heartbleed comparison, the long-tail list |
 | eMudhra statement | <https://emudhra.com/en/post/certificate-security-incident> | vendor scope claims, and Mozilla's timeline quoted |
 | Scott Helme | <https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/> | recovery of all eight keys; the small-integer cause |
 | Go issue / commit | <https://github.com/golang/go/issues/82345> | CVE-2026-111943, URGENT track, denylist behaviour |

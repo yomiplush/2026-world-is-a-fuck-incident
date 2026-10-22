@@ -22,7 +22,7 @@
 | If you... | What happened | Do this |
 |---|---|---|
 | **run Java on a server** | 55 CVEs, highest 7.5, no known exploitation — but **"affected" and "fixed" are different versions** (21.0.12.1 → 21.0.13) | move to the fixed build → [`docs/07`](docs/07-oracle-java-oct2026.md) |
-| **ship your own trust store** (Go / Python / Node / Java / containers) | eight eMudhra intermediate keys were **too weak to be secret** — one is literally `4` | update `ca-certificates` / `certifi` / Go / NSS → [`docs/03`](docs/03-emudhra-ca.md) |
+| **ship your own trust store** (Go / Python / Node / Java / containers / VPN) | eight eMudhra intermediate keys were **too weak to be secret** — 3–8 bits. Browsers handled theirs; the long tail is Docker, IoT, Python bundles | update `ca-certificates` / `certifi` / Go / NSS → [`docs/03`](docs/03-emudhra-ca.md) |
 | **gave provider keys to an AI tool** | this week's attacks target **keys** (Railway, LiteLLM, OpenCode) | inventory keys, read provider usage logs → [`docs/11` §5](docs/11-week-of-oct-20.md) |
 | **run Node.js 20.x** | 20 is EOL and will never be patched | move to **22.23.4 / 24.22.1 / 26.12.1** → [`docs/02`](docs/02-nodejs-oct2026.md) |
 
@@ -103,7 +103,7 @@ PHP, Tomcat, httpd and Oracle release indexes.
 | **Railway** | customer environment variables (i.e. secrets) may have been decrypted; deploys paused | — | Railway customers | rotate all env vars and registry credentials | [`11`](docs/11-week-of-oct-20.md) |
 | **OpenCode** | Console incident: provider keys exposed, user keys revoked (user-reported) | — | OpenCode users | re-issue provider keys, check usage | [`11`](docs/11-week-of-oct-20.md) |
 | **Oracle Java SE** | 55 CVEs in the October CPU; highest 7.5, none in KEV | 7.5 | anyone running a JVM | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1** (10-20) | [`07`](docs/07-oracle-java-oct2026.md) |
-| **eMudhra CA** | **eight** intermediate private keys too weak to be secret (one is `4`); computable by anyone | PKI | anyone shipping a trust store | update `ca-certificates` / `certifi` / Go / NSS | [`03`](docs/03-emudhra-ca.md) |
+| **eMudhra CA** | **eight** intermediate private keys with **3–8 bits** of entropy (`4, 56, 66, 115, 155, 156, 230, 237`): a 2025-04-30 ceremony's wrap/unwrap step produced a second, weak key set for 8 of 24 subordinates | PKI | anyone shipping a trust store | update `ca-certificates` / `certifi` / Go / NSS | [`03`](docs/03-emudhra-ca.md) |
 | **Node.js** | nine October CVEs, plus the CA-bundle update | high | Node 22 / 24 / 26; **20 is EOL** | **22.23.4 / 24.22.1 / 26.12.1** (10-21) | [`02`](docs/02-nodejs-oct2026.md) |
 
 The ten are **independent**. Patching PHP does not fix GitLab; the CA, Java and Apache are separate again.
