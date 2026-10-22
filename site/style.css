@@ -35,8 +35,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
 
 /* ---------- chrome ---------- */
-#app{position:relative;z-index:2;min-height:100dvh;display:grid;
-  grid-template-rows:auto 1fr auto;
+#app{position:relative;z-index:2;height:100dvh;display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
   padding:calc(var(--pad) + env(safe-area-inset-top)) var(--pad) calc(var(--pad) + env(safe-area-inset-bottom))}
 .hud-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .hud-left,.hud-right{display:flex;align-items:center;gap:10px}
@@ -55,7 +55,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   align-self:end;max-width:min(58ch,92vw);
   padding-left:14px;border-left:2px solid var(--amber);
   margin-bottom:8px;
+  /* long scenes must never be clipped: this element is the scroller */
+  max-height:100%;overflow-y:auto;overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+  scrollbar-color:rgba(140,170,190,.35) transparent;
 }
+.panel::-webkit-scrollbar{width:6px}
+.panel::-webkit-scrollbar-thumb{background:rgba(140,170,190,.32);border-radius:3px}
+.panel::-webkit-scrollbar-track{background:transparent}
+.more{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--amber);
+  animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
 .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.26em;color:var(--amber);margin:0 0 6px}
 .stamp{font-family:var(--mono);font-size:clamp(30px,6vw,54px);line-height:.95;margin:0;
   color:rgba(230,238,246,.14);letter-spacing:-.02em;font-weight:700}
@@ -103,7 +113,13 @@ h1#title{font-size:clamp(24px,4.6vw,44px);line-height:1.14;margin:.1em 0 .5em;
 .cover-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.34em;color:var(--amber);margin:0 0 14px}
 .cover-title{font-size:clamp(30px,7vw,60px);line-height:.98;letter-spacing:-.02em;margin:0 0 16px;font-weight:900}
 .cover-title em{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(230,238,246,.55)}
-#btn-lang{min-width:38px}
+/* segmented language control: the active language is always visible */
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.langbtn{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);
+  padding:6px 9px;line-height:1;transition:.15s color,.15s background}
+.langbtn[aria-pressed="true"]{color:#0a0d12;background:var(--amber);font-weight:700}
+.langbtn:hover:not([aria-pressed="true"]){color:var(--ink)}
+.langbtn:focus-visible{outline:1px solid var(--cyan);outline-offset:-1px}
 .cover-sub{color:#b6c6d4;font-size:clamp(13px,1.6vw,15px);line-height:1.85;margin:0 0 22px}
 .start{font-family:var(--mono);font-size:13px;letter-spacing:.2em;font-weight:700;color:#0a0d12;
   background:var(--amber);padding:14px 26px;border-radius:2px;transition:.18s}
@@ -143,20 +159,33 @@ h1#title{font-size:clamp(24px,4.6vw,44px);line-height:1.14;margin:.1em 0 .5em;
 
 /* ---------- responsive ---------- */
 @media (max-width:720px){
-  .panel{max-width:100%;align-self:end;margin-bottom:4px}
+  .panel{max-width:100%;align-self:end;margin-bottom:4px;padding-left:10px;padding-right:2px}
   .hint{display:none}
   .rail{gap:4px}
   .tick{width:11px}
   .tick[aria-current="true"]{width:20px}
   .hud-bottom{gap:10px}
   .navbtn{padding:11px 14px}
-  .stamp{font-size:clamp(26px,9vw,38px)}
+  .stamp{font-size:clamp(22px,7.5vw,32px)}
+  h1#title{font-size:clamp(21px,6vw,32px);margin:.05em 0 .4em;line-height:1.16}
+  .lede{font-size:13px;line-height:1.7;margin-bottom:.55em}
+  .points li{font-size:12px;line-height:1.55;padding-left:14px}
+  .kicker{font-size:9px;letter-spacing:.2em}
+  .metric{margin-top:10px}
+  #metric-val{font-size:clamp(22px,7vw,32px)}
+  #metric-label{font-size:10px}
 }
+/* short viewports (landscape phones): tighten everything, keep all copy */
 @media (max-height:560px){
-  .points{display:none}
-  h1#title{font-size:clamp(20px,5vw,30px);margin-bottom:.3em}
-  .lede{font-size:12px;line-height:1.6}
-  .metric{margin-top:8px}
+  h1#title{font-size:clamp(18px,4.2vw,26px);margin-bottom:.3em}
+  .lede{font-size:11.5px;line-height:1.55}
+  .points{gap:3px}
+  .points li{font-size:10.5px;line-height:1.45}
+  .stamp{font-size:clamp(16px,4vw,24px)}
+  .metric{margin-top:6px}
+  #metric-val{font-size:clamp(18px,4vw,26px)}
+  .panel{margin-bottom:2px}
+  .hud-bottom{margin-top:8px}
 }
 @media (prefers-reduced-motion:reduce){
   .next-arrow{animation:none}

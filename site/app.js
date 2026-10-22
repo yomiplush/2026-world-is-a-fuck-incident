@@ -9,7 +9,7 @@
   [
     "scene", "panel", "kicker", "stamp", "title", "lede", "points", "metric", "metric-val",
     "metric-label", "chapter", "rail", "btn-next", "btn-prev", "btn-audio", "btn-info",
-    "btn-close", "btn-lang", "drawer", "source-list", "cover", "btn-start", "hint",
+    "btn-close", "lang", "drawer", "source-list", "cover", "btn-start", "hint", "more",
     "cover-kicker", "cover-title-a", "cover-title-b", "cover-sub", "cover-foot",
     "drawer-title", "drawer-foot"
   ].forEach((id) => {
@@ -39,7 +39,9 @@
   function applyChrome() {
     document.documentElement.lang = lang;
     el.chapter.textContent = `${ui("chapter")} ${String(index + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")}`;
-    el.btnLang.textContent = lang === "ja" ? "EN" : "JA";
+    [...el.lang.querySelectorAll("button")].forEach((b) => {
+      b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false");
+    });
     el.btnAudio.textContent = `${ui("sound")} ${A.isOn && A.isOn() ? ui("on") : ui("off")}`;
     el.btnInfo.textContent = ui("sources");
     el.btnClose.textContent = ui("close");
@@ -62,6 +64,11 @@
     lang = next;
     try { localStorage.setItem("briefing-lang", lang); } catch (e) { /* ignore */ }
     applyChrome();
+    try {
+      const u = new URL(location.href);
+      u.searchParams.set("lang", lang);
+      history.replaceState(null, "", u);
+    } catch (e) { /* file:// or blocked history */ }
     renderScene(index, 0, true);
     if (opts && opts.silent !== true) A.sfx("blip");
   }
@@ -74,7 +81,7 @@
     el.scene.width = Math.floor(w * dpr);
     el.scene.height = Math.floor(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (window.__booted) drawFrame(performance.now());
+    if (window.__booted) { drawFrame(performance.now()); updateMore(); }
   }
   window.addEventListener("resize", resize, { passive: true });
 
@@ -120,6 +127,7 @@
       el.metric.hidden = true;
     }
     el.panel.classList.add("swap");
+    el.panel.scrollTop = 0;
 
     [...el.rail.children].forEach((b, k) => b.setAttribute("aria-current", k === i ? "true" : "false"));
     el.btnPrev.disabled = i === 0;
@@ -127,6 +135,7 @@
     buildSources(s);
 
     sceneStart = performance.now();
+    requestAnimationFrame(updateMore);
     if (started && !silent) {
       A.sfx(s.cue || "blip");
       if (dir !== 0) A.sfx("blip");
@@ -147,6 +156,14 @@
     ));
   }
 
+  function updateMore() {
+    const p = el.panel;
+    const over = p.scrollHeight - p.clientHeight > 2;
+    const atEnd = p.scrollTop + p.clientHeight >= p.scrollHeight - 2;
+    if (el.more) el.more.hidden = !(over && !atEnd);
+    p.classList.toggle("scrollable", over);
+  }
+
   /* ---------- navigation ---------- */
   function go(i, dir) {
     if (i < 0) return;
@@ -157,12 +174,20 @@
   const next = () => go(index + 1, 1);
   const prev = () => go(index - 1, -1);
 
+  el.panel.addEventListener("scroll", updateMore, { passive: true });
   el.btnNext.addEventListener("click", (e) => { e.stopPropagation(); next(); });
   el.btnPrev.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
-  el.btnLang.addEventListener("click", (e) => {
+  el.lang.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-lang]");
+    if (!btn) return;
     e.stopPropagation();
-    setLang(lang === "ja" ? "en" : "ja");
-    if (!started) return;
+    const want = btn.dataset.lang;
+    if (want === lang) { A.sfx("blip"); return; }
+    setLang(want);
+  });
+  // keyboard shortcut still flips, for people who never touch the mouse
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "l" || e.key === "L") setLang(lang === "ja" ? "en" : "ja");
   });
 
   /* ---------- input ---------- */
@@ -192,8 +217,6 @@
       toggleAudio();
     } else if (e.key === "s" || e.key === "S") {
       toggleDrawer();
-    } else if (e.key === "l" || e.key === "L") {
-      setLang(lang === "ja" ? "en" : "ja");
     } else if (e.key === "Escape") {
       el.drawer.classList.remove("open");
     }
@@ -248,6 +271,18 @@
     });
   }
 
+  if (!scenes.length || !C.ui.ja) {
+    // markup and scripts came from different deploys (stale cache)
+    const u = new URL(location.href);
+    if (!u.searchParams.get("fresh")) {
+      u.searchParams.set("fresh", "1");
+      location.replace(u.toString());
+      return;
+    }
+    document.getElementById("title").textContent = "読み込みに失敗しました / failed to load assets";
+    return;
+  }
+
   lang = pickLang();
   if (new URLSearchParams(location.search).get("still") === "1") {
     document.body.classList.add("still");
@@ -292,7 +327,9 @@
         Math.round(el.scene.width * 0.65), Math.round(el.scene.height * 0.55)).data;
       let band = 0;
       for (let i = 0; i < b.length; i += 4) { if (b[i] + b[i + 1] + b[i + 2] > 120) band++; }
-      document.title = "DEBUG lang=" + lang + " err=" + (window.__drawErr || "none") +
+      const pm = " panel=" + el.panel.scrollHeight + "/" + el.panel.clientHeight +
+        " more=" + (el.more && !el.more.hidden) + " points=" + el.points.children.length;
+      document.title = "DEBUG lang=" + lang + pm + " err=" + (window.__drawErr || "none") +
         " stack=" + (window.__drawStack || "-") + " band=" + band + " lit=" + lit +
         " max=" + max + " size=" + el.scene.width + "x" + el.scene.height +
         " scene=" + index + " visual=" + (scenes[index].visual || {}).type +
