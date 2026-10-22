@@ -93,6 +93,10 @@
 | Cisco Talos（2026-10-21） | <https://blog.talosintelligence.com/compromised-intermediate-certificates/> | 8本の証明書と CCADB ID、セレモニーと wrap/unwrap の原因、Microsoft のブロック、Go の CVE と版 |
 | Mozilla bug 2083449 | <https://bugzilla.mozilla.org/show_bug.cgi?id=2083449> | Talos が転記した証明書一覧の原典 |
 | 非公式勧告サイト | <https://emudhra.we-have-a-problem.com/> | 「We have a problem here – Wayne」の署名ページ |
+| ISC 勧告 CVE-2026-94300 | <https://kb.isc.org/docs/cve-2026-94300> | 深刻度、影響版／修正版、「回避策なし」、謝辞 |
+| CVE.org / NVD（CVE-2026-94300） | <https://www.cve.org/CVERecord?id=CVE-2026-94300> · <https://nvd.nist.gov/vuln/detail/CVE-2026-94300> | CNA 原文、CVSS 8.1、影響範囲 |
+| Phoronix（2026-10-22） | <https://www.phoronix.com/news/LKML-New-Trend-Vulnerabilities> | **二次**: 公開 LKML に出た6件の ZDI 報告（各件へのリンク付き） |
+| LKML の各報告（lore.kernel.org） | <https://lore.kernel.org/lkml/> | 一次メッセージ本体。**Anubis の proof-of-work が自動取得をブロック**（2026-10-22 記録） |
 | Ars Technica（2026-10-20） | <https://arstechnica.com/security/2026/10/the-internet-goes-on-high-alert-after-discovery-of-8-compromised-tls-certs/> | **二次**: 8個の鍵の値、Valsorda の Heartbleed 比較、長い尾のリスト |
 | eMudhra 声明 | <https://emudhra.com/en/post/certificate-security-incident> | ベンダの範囲主張、Mozilla 時系列の引用元 |
 | Scott Helme | <https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/> | 8本すべての復元、小整数という原因 |

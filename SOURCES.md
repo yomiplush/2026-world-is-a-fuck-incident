@@ -94,6 +94,10 @@ All feeds at once: `tools/intel/fetch-intel --sources feeds`.
 | Cisco Talos (2026-10-21) | <https://blog.talosintelligence.com/compromised-intermediate-certificates/> | the eight certs with CCADB ids, the ceremony and wrap/unwrap cause, Microsoft's block, Go's CVE and versions |
 | Mozilla bug 2083449 | <https://bugzilla.mozilla.org/show_bug.cgi?id=2083449> | the certificate table Talos reproduces |
 | Informal advisory site | <https://emudhra.we-have-a-problem.com/> | the signed "We have a problem here – Wayne" page |
+| ISC advisory CVE-2026-94300 | <https://kb.isc.org/docs/cve-2026-94300> | severity, affected/fixed versions, "no workarounds", credit |
+| CVE.org / NVD (CVE-2026-94300) | <https://www.cve.org/CVERecord?id=CVE-2026-94300> · <https://nvd.nist.gov/vuln/detail/CVE-2026-94300> | CNA text, CVSS 8.1, affected ranges |
+| Phoronix (2026-10-22) | <https://www.phoronix.com/news/LKML-New-Trend-Vulnerabilities> | **secondary**: the six ZDI reports on the public LKML, with links to each |
+| LKML reports (lore.kernel.org) | <https://lore.kernel.org/lkml/> | the primary messages — **Anubis proof-of-work blocks automated fetch** (recorded 2026-10-22) |
 | Ars Technica (2026-10-20) | <https://arstechnica.com/security/2026/10/the-internet-goes-on-high-alert-after-discovery-of-8-compromised-tls-certs/> | **secondary**: the eight key values, Valsorda's Heartbleed comparison, the long-tail list |
 | eMudhra statement | <https://emudhra.com/en/post/certificate-security-incident> | vendor scope claims, and Mozilla's timeline quoted |
 | Scott Helme | <https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/> | recovery of all eight keys; the small-integer cause |

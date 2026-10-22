@@ -1,15 +1,19 @@
 # Briefing site — `site/`
 
 A single-page, tap-to-advance motion-graphic briefing of the October 2026 incidents, in
-chronological order. Built for phones first (tap / swipe), keyboard on desktop (space, arrows, M,
-S). Deployed to Cloudflare Pages.
+chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).
+Deployed to Cloudflare Pages.
+
+**Seventeen scenes**: the fifteen checked incidents, plus an Apache addendum and a Linux-kernel
+addendum (six ZDI reports posted to the public LKML). **Drag or press-and-hold the scene to tilt
+the 3D view** — release springs it back to the scene's own angle; `?tilt=yaw,pitch` presets it.
 
 ```
 site/
   index.html    markup + HUD (no build step, no framework)
   style.css     HUD/Briefing look, responsive, reduced-motion + ?still=1 static mode
   data.js       the 15 scenes: copy, numbers, per-scene sources
-  visuals.js    ~13 pseudo-3D canvas renderers (radar, chain, bars, clock, keys, …)
+  visuals.js    14 pseudo-3D canvas renderers (radar, chain, bars, clock, keys, leak, …)
   audio.js      Web Audio synthesis: 7 SFX + a generative lofi loop (no samples)
   app.js        scene controller, input, canvas loop, deep links, sources drawer
 ```
@@ -21,6 +25,7 @@ cd site && python3 -m http.server 8088
 # http://127.0.0.1:8088/          start screen (tap to begin, audio starts on the tap)
 # http://127.0.0.1:8088/#9        jump to scene 9
 # http://127.0.0.1:8088/?still=1#9   static render (no entrance animation) — screenshots, low-motion
+# http://127.0.0.1:8088/?tilt=0.6,0.2&lang=ja#6   preset the 3D angle (debug / sharing a view)
 ```
 
 `#N` and `?scene=N` deep-link to a scene, and `?still=1` disables entrance animations. Both
@@ -47,6 +52,21 @@ Everything is synthesised in the browser; there are no audio files to license or
   boom-bap kick/snare with swung 8th hats, vinyl noise plus random crackle, and a generated
   reverb impulse. Scheduled with a 140 ms lookahead so it does not drift.
 - Audio only starts after a gesture (browser rule). `M` or the SOUND button toggles everything.
+
+## Camera tilt (drag / hold)
+
+`app.js` keeps a `tilt`/`tiltTarget` pair and pushes it into `VISUALS.setTilt()`; `visuals.js`
+adds it to every camera's yaw/pitch, and applies a small skew/rotate/scale to the screen-space
+renderers (radar, clock, matrix, storm) so every scene answers a drag, not just the 3D ones.
+
+- **Tap** (no movement, < 700 ms) advances.
+- **Drag** steers yaw ±1.1 rad and pitch ±0.5 rad. The angle is applied synchronously on input, so
+  it responds even when `requestAnimationFrame` is throttled.
+- **Press and hold** (280 ms) switches to a continuous turn with a slow pitch sway until release.
+- Releasing springs back to the scene's default angle; changing scene resets it.
+
+Swipe no longer changes scenes (that gesture now belongs to the camera); the next/prev buttons,
+the rail and the keyboard still navigate.
 
 ## Phone layout
 

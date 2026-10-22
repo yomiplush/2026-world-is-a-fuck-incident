@@ -504,6 +504,80 @@ window.CONTENT = {
       }
     },
     {
+      id: "bind", stamp: "10.21",
+      metric: { val: "8.1", label: { ja: "CVSS · 回避策なし", en: "CVSS · no workaround" } },
+      visual: { type: "dns", clients: 7 }, cue: "alarm",
+      sources: [
+        { name: "ISC advisory", url: "https://kb.isc.org/docs/cve-2026-94300",
+          note: { ja: "深刻度・影響版・修正版・「回避策なし」の正", en: "severity, versions, \"no workarounds\"" } },
+        { name: "CVE.org", url: "https://www.cve.org/CVERecord?id=CVE-2026-94300",
+          note: { ja: "CNA（ISC）の原文", en: "the CNA (ISC) text" } },
+        { name: "NVD", url: "https://nvd.nist.gov/vuln/detail/CVE-2026-94300",
+          note: { ja: "CVSS 8.1 / AV:N/AC:H", en: "CVSS 8.1 / AV:N/AC:H" } },
+        { name: "docs/18", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/18-bind-cve-2026-94300.md",
+          note: { ja: "設定の確認方法", en: "how to check your config" } }
+      ],
+      ja: {
+        kicker: "ADDENDUM · ISC BIND 9 / DNS",
+        title: "再送された1パケットが、メモリを壊す。",
+        lede: "GSS-TSIG で署名された UDP を再生されると named が壊れる。ISC は「回避策なし」と明記。",
+        points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1（AV:N・AC:H）/ 深刻度 <b>High</b> / リモートから",
+          "影響: 9.11.0–9.18.50、9.20.0–9.20.29、9.21.0–9.21.26（S1 系も）→ 修正 <b>9.20.30 / 9.21.27</b>",
+          "入口は GSS-TSIG ハンドラ。`named-checkconf -p | grep -i gssapi` で設定の有無を確認",
+          "回避策は無い。EOL ブランチ（9.11〜9.18）は 9.20 / 9.21 へ移すしかない"
+        ]
+      },
+      en: {
+        kicker: "ADDENDUM · ISC BIND 9 / DNS",
+        title: "One replayed packet corrupts memory.",
+        lede: "Replaying a GSS-TSIG-signed UDP message breaks `named`. ISC states there is no workaround.",
+        points: [
+          "<b>CVE-2026-94300</b> / CVSS 8.1 (AV:N, AC:H) / ISC severity <b>High</b> / remotely exploitable",
+          "Affected 9.11.0–9.18.50, 9.20.0–9.20.29, 9.21.0–9.21.26 (and S1) → fixed in <b>9.20.30 / 9.21.27</b>",
+          "The path is the GSS-TSIG handler: `named-checkconf -p | grep -i gssapi` tells you if it is configured",
+          "No workaround. EOL branches (9.11–9.18) have to move to 9.20 / 9.21"
+        ]
+      }
+    },
+    {
+      id: "lkml", stamp: "10.22",
+      metric: { val: "6", label: { ja: "reports sent public", en: "reports sent public" } },
+      visual: { type: "leak", ids: ["33549", "33774", "33367", "34068", "34076", "32005"] }, cue: "glitch",
+      sources: [
+        { name: "Phoronix (2026-10-22)", url: "https://www.phoronix.com/news/LKML-New-Trend-Vulnerabilities",
+          note: { ja: "二次。全件の LKML リンク付き", en: "secondary, but links every report" } },
+        { name: "lore.kernel.org", url: "https://lore.kernel.org/lkml/",
+          note: { ja: "一次メッセージ。Anubis が自動取得をブロック", en: "the primary messages — Anubis blocks automated fetch" } },
+        { name: "torvalds/linux", url: "https://github.com/torvalds/linux/commits/master",
+          note: { ja: "ZDI ID を参照するコミットは無い（10-22）", en: "no commit references the ZDI ids (10-22)" } },
+        { name: "docs/17", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/17-lkml-oct2026.md",
+          note: { ja: "何を検証できた/できなかったか", en: "what was and was not verifiable" } }
+      ],
+      ja: {
+        kicker: "ADDENDUM · LINUX KERNEL / LKML",
+        title: "公開リストに、0day が6件流れた。",
+        lede: "ZDI が非公開の security リストではなく公開の LKML に投稿。Greg Kroah-Hartman が各件に返信している。",
+        points: [
+          "SMB Direct の整数アンダーフロー（<b>9.0</b>）と ksmbd の競合（<b>9.0</b>）——どちらもリモート RCE",
+          "skb_zerocopy の LPE、vmwgfx の範囲外書き込み、nvmet の未初期化、TCP クエリのスタック溢れ",
+          "mainline は<b>未修正</b>。v7.5 向けブランチと -next にパッチ（10-22 時点）。ZDI ID を参照する mainline コミットは無い",
+          "露出削減: 使っていない <b>ksmbd</b> を止める / SMB Direct を untrusted に晒さない"
+        ]
+      },
+      en: {
+        kicker: "ADDENDUM · LINUX KERNEL / LKML",
+        title: "Six 0-days went to the public list.",
+        lede: "ZDI sent the reports to the public LKML instead of the private security list, and Greg Kroah-Hartman replied to each one asking why.",
+        points: [
+          "SMB Direct integer underflow (<b>9.0</b>) and a ksmbd race (<b>9.0</b>) — both remote code execution",
+          "skb_zerocopy LPE, a vmwgfx out-of-bounds write, an nvmet uninitialised resource, a TCP search-domain overflow",
+          "Mainline is <b>unpatched</b>: fixes sit in a v7.5 branch and -next (10-22), and no mainline commit references the ZDI ids",
+          "Reduce exposure: stop <b>ksmbd</b> if unused, never expose SMB Direct to untrusted networks"
+        ]
+      }
+    },
+    {
       id: "sweep", stamp: "10.22",
       metric: { val: "124 : 1", label: { ja: "critical CVEs : known exploited", en: "critical CVEs : known exploited" } },
       visual: { type: "bars", values: [120, 1], labels: ["CRITICAL", "KEV"] }, cue: "confirm",

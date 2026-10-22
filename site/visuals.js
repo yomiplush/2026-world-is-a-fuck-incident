@@ -7,13 +7,17 @@ window.VISUALS = (function () {
     dim: "rgba(150,175,195,.45)", faint: "rgba(150,175,195,.16)", ink: "#e6eef6"
   };
 
+  /* ---------- user tilt (drag / long-press) ---------- */
+  const TILT = { yaw: 0, pitch: 0 };
+  const SCREEN_SPACE = new Set(["radar", "clock", "matrix", "storm"]);
+
   /* ---------- camera ---------- */
   const VIEW = { zoom: 0.62 };
   function cam(t, opts) {
     const o = opts || {};
     return {
-      yaw: (o.yaw || 0) + (o.spin ? Math.sin(t * 0.12) * 0.18 : 0),
-      pitch: o.pitch || -0.30,
+      yaw: (o.yaw || 0) + (o.spin ? Math.sin(t * 0.12) * 0.18 : 0) + TILT.yaw,
+      pitch: (o.pitch || -0.30) + TILT.pitch,
       dist: (o.dist || 1000) * VIEW.zoom,
       f: 900
     };
@@ -470,6 +474,87 @@ window.VISUALS = (function () {
     label(ctx, [cx, h * 0.82], "THE CODE WE TRUST", "rgba(255,181,69,.55)", 11);
   };
 
+  scenes.leak = (ctx, w, h, t, o) => {
+    const c = cam(t, { pitch: -0.12, dist: 980, yaw: 0.18 });
+    const ids = o.ids || ["33549", "33774", "33367", "34068", "34076", "32005"];
+    const top = -300, gap = 120;
+    // two rails: private security list (left) and public LKML (right)
+    const railA = [[-430, top, 0], [-430, top + gap * (ids.length - 1) + 120, 0]];
+    const railB = [[430, top, 0], [430, top + gap * (ids.length - 1) + 120, 0]];
+    poly(ctx, railA.map((p) => project(c, p[0], p[1], p[2], w, h)), "rgba(88,224,255,.18)", 9, false);
+    poly(ctx, railA.map((p) => project(c, p[0], p[1], p[2], w, h)), "rgba(88,224,255,.70)", 3, false);
+    poly(ctx, railB.map((p) => project(c, p[0], p[1], p[2], w, h)), "rgba(255,91,87,.16)", 9, false);
+    poly(ctx, railB.map((p) => project(c, p[0], p[1], p[2], w, h)), "rgba(255,91,87,.80)", 3, false);
+    const la = project(c, railA[0][0], top - 60, 0, w, h);
+    const lb = project(c, railB[0][0], top - 60, 0, w, h);
+    label(ctx, [la[0], la[1] - 16], "SECURITY (PRIVATE)", C.cyan, 12);
+    label(ctx, [lb[0], lb[1] - 16], "LKML (PUBLIC)", C.red, 12);
+
+    ids.forEach((id, i) => {
+      const y = top + i * gap;
+      const src = project(c, -430, y, 0, w, h);
+      const dst = project(c, 430, y, 0, w, h);
+      // per-row guide so the crossing lines read as a grid
+      poly(ctx, [project(c, -430, y, 0, w, h), project(c, 430, y, 0, w, h)], "rgba(150,175,195,.10)", 1, false);
+      glowDot(ctx, src, 4, C.cyan, 0.45);
+      const k = ((t * 0.42 + i * 0.13) % 1);
+      const x = -430 + 860 * k;
+      const p = project(c, x, y - Math.sin(k * Math.PI) * 60, 0, w, h);
+      glowDot(ctx, p, 4, k > 0.75 ? C.red : C.amber, 0.75);
+      glowDot(ctx, dst, 3.6 + (k > 0.9 ? 2.2 : 0), C.red, 0.6);
+      label(ctx, [dst[0] + 46 * p[2], dst[1] + 5], `ZDI-CAN-${id}`, "rgba(255,91,87,.95)", 11, "left");
+    });
+    label(ctx, [w / 2, h * 0.84], "EMBARGO LOST", "rgba(255,91,87,.7)", 12);
+  };
+
+  scenes.dns = (ctx, w, h, t, o) => {
+    const c = cam(t, { pitch: -0.30, dist: 980, yaw: 0.12 });
+    const cx = w / 2, cy = h / 2;
+    // a resolver ring: one node, many queries
+    const core = project(c, 0, 120, 0, w, h);
+    for (let i = 1; i <= 3; i++) {
+      ctx.beginPath();
+      ctx.arc(core[0], core[1], 46 * i, 0, TAU);
+      ctx.strokeStyle = `rgba(88,224,255,${0.18 - i * 0.03})`;
+      ctx.lineWidth = 1.4; ctx.stroke();
+    }
+    glowDot(ctx, core, 9, C.amber, 0.55);
+    label(ctx, [core[0], core[1] + 4], "named", C.ink, 12);
+    label(ctx, [core[0], core[1] + 62], "GSS-TSIG handler", "rgba(255,181,69,.7)", 10);
+
+    const N = (o.clients || 7);
+    for (let i = 0; i < N; i++) {
+      const a = (i / N) * TAU + 0.4;
+      const R = 360;
+      const x = Math.cos(a) * R, z = Math.sin(a) * R, y = 120 - Math.abs(Math.sin(a)) * 60;
+      const p = project(c, x, y, z, w, h);
+      dot(ctx, p, 3, "rgba(150,200,230,.6)");
+      // signed query travelling in
+      const k = ((t * 0.5 + i * 0.14) % 1);
+      const qx = x * (1 - k), qz = z * (1 - k), qy = y + (120 - y) * k;
+      const q = project(c, qx, qy, qz, w, h);
+      glowDot(ctx, q, 2.4, C.cyan, 0.5);
+      // the replay: same datagram, second pass, red
+      const k2 = ((t * 0.5 + i * 0.14 + 0.45) % 1);
+      if (k2 < 0.75) {
+        const rx = x * (1 - k2), rz = z * (1 - k2), ry = y + (120 - y) * k2;
+        const rp = project(c, rx, ry, rz, w, h);
+        glowDot(ctx, rp, 3.2, C.red, 0.65);
+      }
+    }
+    // memory-corruption flash around the core
+    const flash = Math.max(0, Math.sin(t * 1.6)) ** 6;
+    if (flash > 0.02) {
+      const g = ctx.createRadialGradient(core[0], core[1], 0, core[0], core[1], 90);
+      g.addColorStop(0, `rgba(255,91,87,${0.45 * flash})`);
+      g.addColorStop(1, "rgba(255,91,87,0)");
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(core[0], core[1], 90, 0, TAU); ctx.fill();
+    }
+    label(ctx, [cx, h * 0.84], "REPLAY → CORRUPTION", "rgba(255,91,87,.7)", 11);
+    void o;
+  };
+
   /* ---------- screen-space HUD frame ---------- */
   function frame(ctx, w, h, t) {
     const m = Math.max(14, Math.min(w, h) * 0.035);
@@ -504,6 +589,8 @@ window.VISUALS = (function () {
 
   /* ---------- entry ---------- */
   return {
+    setTilt(yaw, pitch) { TILT.yaw = yaw; TILT.pitch = pitch; },
+    getTilt() { return { yaw: TILT.yaw, pitch: TILT.pitch }; },
     draw(visual, ctx, w, h, t, reduced, ox, oy) {
       VIEW.zoom = Math.min(w, h) < 640 ? 0.56 : 0.63;
       const fn = scenes[visual && visual.type] || scenes.radar;
@@ -514,8 +601,18 @@ window.VISUALS = (function () {
       g.addColorStop(1, "rgba(4,7,11,0)");
       ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
       // keep the diagram clear of the text panel (bottom-left)
+      const type = (visual && visual.type) || "radar";
+      const tilted = Math.abs(TILT.yaw) + Math.abs(TILT.pitch) > 0.0005;
       ctx.save();
       ctx.translate(ox || 0, oy || 0);
+      if (SCREEN_SPACE.has(type) && tilted) {
+        // fake perspective: skew + slight rotate + scale, anchored at the centre
+        ctx.translate(w / 2, h / 2);
+        ctx.transform(1, TILT.yaw * 0.12, -TILT.yaw * 0.10, 1, 0, 0);
+        ctx.rotate(TILT.yaw * 0.05);
+        ctx.scale(1 + TILT.pitch * 0.03, 1 - TILT.pitch * 0.03);
+        ctx.translate(-w / 2, -h / 2);
+      }
       fn(ctx, w, h, reduced ? 1.2 : t, visual || {});
       ctx.restore();
       frame(ctx, w, h, t);
