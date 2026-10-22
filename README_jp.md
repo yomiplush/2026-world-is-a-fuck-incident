@@ -22,7 +22,7 @@
 | あなたが | 何が起きたか | やること |
 |---|---|---|
 | **サーバで Java を動かしている** | 55件。最大 7.5 で悪用は未確認。ただし**「影響版」と「修正版」が別**（21.0.12.1 → 21.0.13） | 修正版ビルドへ → [`docs/07`](docs/07-oracle-java-oct2026.ja.md) |
-| **CA バンドルを自前で持つ**（Go / Python / Node / Java / コンテナ） | eMudhra の中間CA **8本**の鍵が弱すぎて、誰でも計算できる（1本は `4`） | `ca-certificates` / `certifi` / Go / NSS を更新 → [`docs/03`](docs/03-emudhra-ca.ja.md) |
+| **CA バンドルを自前で持つ**（Go / Python / Node / Java / コンテナ / VPN） | eMudhra の中間CA **8本**の鍵が弱すぎて、誰でも計算できる（**3〜8ビット**）。ブラウザは対応済み、長い尾は Docker・IoT・Python の同梱ルート | `ca-certificates` / `certifi` / Go / NSS を更新 → [`docs/03`](docs/03-emudhra-ca.ja.md) |
 | **AI ツールにプロバイダキーを渡している** | 今週の攻撃は**鍵**を狙っている（Railway / LiteLLM / OpenCode） | キーを棚卸しし、プロバイダ側の利用履歴を見る → [`docs/11` §5](docs/11-week-of-oct-20.ja.md) |
 | **Node.js を 20.x で動かしている** | 20 は EOL。修正が来ない | **22.23.4 / 24.22.1 / 26.12.1** へ → [`docs/02`](docs/02-nodejs-oct2026.ja.md) |
 
@@ -96,7 +96,7 @@ Tomcat・httpd・Oracle のリリース索引と勧告一覧で確認済み。
 | **Railway** | 顧客の環境変数（＝秘密）が復号された可能性。デプロイ停止 | — | Railway にデプロイ | 環境変数・レジストリ資格情報を全ローテート | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **OpenCode** | Console 事案でプロバイダキーが露出、利用者のキーが失効（利用者報告） | — | OpenCode を利用 | プロバイダキーを再発行し利用履歴を確認 | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **Oracle Java SE** | 10月 CPU で55件。最大 7.5、KEV 未収載 | 7.5 | JVM を動かしている | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1**（10-20） | [`07`](docs/07-oracle-java-oct2026.ja.md) |
-| **eMudhra CA** | 中間CA **8本**の秘密鍵が弱すぎる（1本は `4`）。誰でも計算可能 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
+| **eMudhra CA** | 中間CA **8本**の秘密鍵が **3〜8ビット**しかない（`4, 56, 66, 115, 155, 156, 230, 237`）。2025-04-30 の鍵生成で wrap/unwrap が誤り、24本の下位CAのうち8本に弱い鍵 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
 | **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱 | high | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21） | [`02`](docs/02-nodejs-oct2026.ja.md) |
 
 10件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
