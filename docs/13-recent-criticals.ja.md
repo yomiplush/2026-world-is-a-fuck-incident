@@ -1,0 +1,164 @@
+# 直近2週間の CRITICAL — 120件、実際に悪用されているのは1件
+
+[English](13-recent-criticals.md) | [**日本語**](13-recent-criticals.ja.md)
+
+「他に深刻なものは無いの？」は正しい問いですが、形が良くありません。NVD を2週間分なめると
+**CRITICAL が120件**返り、上から順に読むと、自分が持っていないルータに1日を使い、
+悪用されている1件については何も分からないまま終わります。
+
+そこでこの文書は「走査」＋「フィルタ」です。データが何を言っているか、何が残ったか、そして
+数字を額面どおり受け取ると誤る**4つの罠**。
+
+## 1. 方法
+
+```bash
+tools/intel/fetch-intel --sources nvd-critical      # NVD API、cvssV3Severity=CRITICAL
+tools/intel/fetch-intel --sources csaf,kev          # ベンダのCSAF＋悪用リスト
+```
+
+- **対象期間**: 2026-10-08 〜 2026-10-22（14日間）。基準は NVD の `published` で、CVE の年では
+  ありません。古い CVE の再公開も「公開」に数えられます（後述の `CVE-2020-37282` がその例）。
+- **条件**: `cvssV3Severity=CRITICAL`（CVSS 3.1 で 9.0 以上）。`cvssV4Severity=CRITICAL` で別途
+  問い合わせると **0件**——これは脆弱性ではなく NVD の v4 カバレッジの話です。
+- **付加情報**: 各 CVE の KEV 収載、EPSS（120件中109件がスコアあり、11件は未提供）。
+- 機械可読の結果:
+  [`data/2026-10-22/nvd-critical-14d.json`](../data/2026-10-22/nvd-critical-14d.json)。
+
+## 2. 解釈の前に、数字
+
+| 指標 | 値 |
+|---|--:|
+| 期間内に公開された CRITICAL | **120** |
+| うち CISA KEV 収載 | **1** |
+| ちょうど 10.0 | 11 |
+| 9.8 以上 | 48 |
+| NVD が CPE ベンダを紐付けているもの | 32（27%） |
+| EPSS スコアがあるもの | 109 |
+| 期間内の最高 EPSS | **3.0%** |
+| Oracle 製品群 | 34 |
+| コンシューマ向けルータ／カメラ／IoT（Tenda、TOTOLINK、D-Link、H3C、DrayTek、`boa` 系） | 38 |
+
+**120件のうち72件（60%）が Oracle かコンシューマ IoT** です。品質の話ではなく、
+「誰がまとめて公開し、誰がスキャン型 CNA に CVE を割り当てられているか」の話。あなたの環境は
+おそらくどちらでもありません。
+
+## 3. フィルタを生き残ったもの
+
+時間を使う価値がある順。スコアは NVD の CVSS 3.1（注記がある場合を除く）。「なぜ」が、
+そもそもここに載せた理由です。
+
+| 製品 | CVE | スコア | なぜ載るか | 対応 |
+|---|---|--:|---|---|
+| **Plex Media Server** | 96651〜96656 | 4.3〜7.2 | **KEV 収載**、連鎖でコード実行、公開されがち（[`docs/12`](12-plex-oct2026.ja.md)） | 1.43.3.10861 へ、トークンローテート |
+| **Cisco Unified CM / Emergency Responder / Prime Collaboration Deployment** | `CVE-2026-76473` / `-76474` / `-76475` | 9.8 / 9.8 / 9.3 | Call Manager はインターネット近傍に置かれることが多く、過去に狙われている。2026-10-21 公開なので KEV は**まだ**無い | CUCM の版を Cisco 勧告と突き合わせ |
+| **Cisco Snort 3** | `CVE-2026-20043` | 9.0 | IDS/IPS エンジン自身。検査回避はホスト侵害ではなく**死角** | Snort 3 を更新 |
+| **Broadcom / Brocade Fabric OS** | `CVE-2026-87659` / `-87684` | 9.8 | 侵害されたスイッチがファブリックへ管理トラフィックを注入できる。SAN の管理プレーン | Fabric OS 10.0.1 以上 |
+| **Progress MOVEit Transfer** | `CVE-2026-89068` | 8.1 *(CNA)* / 9.8 *(NVD)* | LDAP モジュールの認証バイパス。MOVEit は既知の大量悪用対象 | 2025.1.6 / 2026.0.4 で修正 |
+| **JetBrains TeamCity** | `CVE-2026-111094` | 8.1 *(CNA)* / 9.8 *(NVD)* | ビルドメッセージプロトコルの許可リスト回避による RCE。CI はデプロイ資格情報を持つ | 2026.2 / 2026.1.4 / 2025.11.8 で修正 |
+| **IBM DataStage on Cloud Pak for Data** | `CVE-2026-81212` / `-82101` / `-82110` | 10.0 / 9.6 / 9.6 | 未認証で共有 Redis に任意テナントのキーで書き込める。管理プラットフォームのテナント境界破壊 | IBM の修正適用、テナント分離の前提を再確認 |
+| **Froxlor** | `CVE-2026-113678` | 9.9 | ホスティングパネル。認証済み顧客が root の cron 経由で任意のホストディレクトリを掌握 | 2.3.15 へ |
+| **FreeBSD（RACK スタック）** | `CVE-2026-101307` | 9.1 | カーネル TCP スタックで 16bit の確保カウンタがラップ。遠隔からの DoS／RCE 面 | パッチ、または RACK を無効化 |
+| **Node.js `undici`** | `CVE-2026-109383` / `-109829` | 7.4 | Node ツールチェーンの広い範囲が使う HTTP クライアント。6.29.0+ / 7.30.0+ / 8.12.1+ で修正 | 依存を上げる |
+| **BeyondTrust Remote Support** | `CVE-2026-102764` | 9.8 | **2026-10-16 に KEV 収載、期限 2026-10-19**——すでに過ぎている | パッチ＋フォレンジックトリアージ（CISA が必須と指定） |
+| **Dell Secure Connect Gateway Policy Manager** | `CVE-2026-76779` | 7.4 | 多数の Dell 機器の資格情報を持つ管理アプライアンス | 更新 |
+
+2件には重要な注記があります。MOVEit と TeamCity は**同じ NVD レコードに CVSS 3.1 が2つ**
+入っています——ベンダの 8.1（`AC:H`）と NVD の 9.8（`AC:L`）。§5.1 参照。
+
+IBM Guardium 群（8.1 が11件）と DataPower（4件）は表に入れていません。実在しますが、
+「あるベンダが1日にまとめて出した」だけで、対応は全件同じ（IBM の更新を適用）。これは
+トリアージではなくスケジュールの仕事です。
+
+## 4. このリポジトリで既に扱っているもの
+
+ここでは繰り返しません。専用の文書があります。
+
+| 事案 | 場所 | スコア |
+|---|---|---|
+| PHP 本体の RCE（php2shell） | [`01`](01-php2shell.ja.md) | 9.2（CVSS 4.0）/ 9.8（CVSS 3.1） |
+| GitLab の未認証 RCE | [`09`](09-gitlab-19-5-1.ja.md) | 10.0 |
+| LiteLLM のサプライチェーン侵害 | [`10`](10-litellm-1-107-0.ja.md) | CVSS 無し——その種の事案ではない |
+| Plex Media Server | [`12`](12-plex-oct2026.ja.md) | 4.3〜7.2、KEV 収載 |
+| Oracle 10月 CPU（Java 以外） | [`05`](05-other-incidents.ja.md) §2 | 10.0 が複数、多くは認証済み前提 |
+
+## 5. データの4つの罠
+
+### 5.1 同じ CVE に CVSS が2つあり、高い方が自分に当てはまるとは限らない
+
+MOVEit と TeamCity は、1つのレコードに **CNA の 8.1** と **NVD の 9.8** が併記されています。
+差は1つの要素です。
+
+```
+8.1  CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H    ← CNA（Progress / JetBrains）
+9.8  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H    ← NVD
+```
+
+`AC:H` は「攻撃者が制御できない条件が要る」の意味で、前提を知っているベンダは「難しい」と
+言っています。`AC:L` は「易しい」。最大値をトリアージに使うと、**他人の仮定**を読むことになります。
+**数字ではなく、ベクターと出所を引用してください。**
+
+### 5.2 CVSS 3.1 と 4.0 は丸め誤差以上に食い違う
+
+PHP は **CVSS 3.1 で 9.8**、**CVSS 4.0 で 9.2**。このリポジトリが 9.2 を使うのは PHP 自身の
+勧告がそうだからです。どちらも正しく、攻撃複雑度の仮定が違う別の尺度です。ラベル無しで混ぜた
+表は、何とも比較できません。
+
+### 5.3 EPSS は「数日前の CVE」には使えない
+
+期間内の最高 EPSS は **3.0%**。KEV 収載の2件はこうです。
+
+| CVE | EPSS | KEV |
+|---|--:|---|
+| `CVE-2026-102764`（BeyondTrust） | 1.2% | KEV 収載、**期限は既に経過** |
+| `CVE-2026-96656`（Plex） | 0.76% | KEV 収載、期限 2026-10-23 |
+
+EPSS は「これまでに蓄積した証拠を踏まえた悪用確率」なので、先週公開された CVE には証拠が
+ほとんどありません。同じ週の判断では **KEV と露出が EPSS に勝ち**、「EPSS が低い」は待つ理由に
+なりません。EPSS は6〜18か月の裾に使うものです。
+
+### 5.4 件数はリスクではなく「開示のまとめ方」を測っている
+
+- 120件中34件は Oracle の四半期 CPU——1回の公開イベント。
+- 38件はコンシューマ IoT のファームウェア。スキャン型 CNA 由来が多く、全部 9.8〜10.0、
+  所有者にパッチが提供されないものも多い。
+- 18件は IBM の一括公開。
+- NVD が CPE を紐付けているのは **120件中32件（27%）**。NVD だけでベンダ別集計をすると、
+  3分の1しか見えません。
+
+「今週、重大な脆弱性が40%増えました」という週報は、**プレスリリースを数えている**だけです。
+
+## 6. この走査が支えるトリアージ手順
+
+1. **動かしていない行を捨てる。** Oracle EBS、Fabric OS、DataStage——棚卸しに無ければ終わり。
+   （これで120件の60%が消えます。）
+2. **残りは最大スコアではなく CNA のベクターを読む。** `AC:H` と `PR:H` が優先度を変えます。
+   社内ネットワークで管理者認証が要る 10.0 は、保守作業です。
+3. **EPSS より先に KEV を見る。** KEV は期限付きの「悪用観測」の主張、EPSS は遅れのある確率。
+4. **「どれくらい悪いか」より「何を持っているか」を問う。** CI サーバ（TeamCity）と MFT
+   （MOVEit）は全システムの資格情報を持ち、メディアサーバ（Plex）はアカウントのトークンを
+   持ちます。この問いの方が、どのスコアより速く順番を入れ替えます。
+5. **やらないと決めたことと理由を書く。** 次の走査では同じ CVE に新しい数字が付いて再登場し、
+   あなたは理由を覚えていません。
+
+## 7. 再取得
+
+```bash
+tools/intel/fetch-intel --sources nvd-critical               # 14日 CRITICAL＋KEV＋EPSS
+tools/intel/fetch-intel --sources nvd-critical --critical-days 7
+tools/intel/fetch-intel --sources csaf                       # Plex の CSAF VA-26-266-01
+```
+
+NVD API はキー無しだとレート制限があります。収集ツールは2リクエスト（CVE、EPSSは分割）で、
+EPSS が失敗しても `epss: null` として残し、CVE を落としません。
+
+## 8. 出所
+
+- NVD API 2.0（走査そのもの）:
+  <https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-08T00:00:00.000&pubEndDate=2026-10-22T23:59:59.999&cvssV3Severity=CRITICAL>
+- CISA KEV（悪用の列）:
+  <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json>
+- EPSS（確率の列）: <https://api.first.org/data/v1/epss>
+- CISA CSAF ライブラリ（ベンダ非依存の機械可読アドバイザリ）:
+  <https://github.com/cisagov/CSAF/tree/develop/csaf_files/IT/white/2026>
+- §3 各行のベンダ勧告: Cisco、Broadcom、IBM、Progress、JetBrains、Froxlor、FreeBSD、
+  Node.js/undici、Dell、BeyondTrust（いずれも NVD レコードの references から辿れます）
