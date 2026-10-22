@@ -1,0 +1,132 @@
+{
+ "source": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/",
+ "slug": "patch-release-gitlab-19-5-1-released",
+ "release_date": "October 21, 2026",
+ "fixed_versions": [
+  "19.5.1",
+  "19.4.3",
+  "19.3.6",
+  "19.2.9",
+  "19.1.9",
+  "19.0.10",
+  "18.11.13"
+ ],
+ "cve_count": 12,
+ "max_cvss": 10.0,
+ "detections": [
+  "Onigmo native worker crash",
+  "Org mode render error burst"
+ ],
+ "cves": [
+  {
+   "cve": "CVE-2026-103515",
+   "title": "Improper Access Control issue in group Duo admin-lock enforcement for Amazon Q settings impacts GitLab EE",
+   "description": "GitLab has remediated an issue that, when an instance administrator locked a group’s Duo availability, an authenticated user with group Owner permissions could have re-enabled AI-backed data egress to a third-party service for that group and its descendant projects, due to insufficient granularity of the admin-lock enforcement controls.",
+   "impacted_versions": "GitLab EE: all versions from 19.2 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 2.7,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:N",
+   "reporter": "3nvz"
+  },
+  {
+   "cve": "CVE-2026-110264",
+   "title": "Integer Overflow issue in Regular Expression Compiler impacts GitLab CE/EE",
+   "description": "GitLab has remediated an issue that, under certain conditions, could have allowed an unauthenticated user to execute arbitrary code on the GitLab server due to integer overflow when compiling a specially crafted regular expression.",
+   "impacted_versions": "GitLab CE/EE: all versions from 7.0 before 18.11.13, 19.0 before 19.0.10, 19.1 before 19.1.9, 19.2 before 19.2.9, 19.3 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 10.0,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+   "reporter": "joaxcar"
+  },
+  {
+   "cve": "CVE-2026-105711",
+   "title": "Use of Cache Containing Sensitive Information issue in merge request title rendering impacts GitLab CE/EE",
+   "description": "GitLab has remediated an issue that, when a merge request in a public project referenced a confidential issue from a private project, an authenticated user with no project membership could have read the confidential issue’s title, due to a viewer-independent fragment cache key that incorrectly shared per-user-redacted rendered content across all users.",
+   "impacted_versions": "GitLab CE/EE: all versions from 15.0 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 3.5,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:N/A:N",
+   "reporter": "20kilograma"
+  },
+  {
+   "cve": "CVE-2026-13319",
+   "title": "Authorization Bypass Through User-Controlled Key issue in group milestones API impacts GitLab CE/EE",
+   "description": "GitLab has remediated an issue that could have allowed an authenticated user to read milestone metadata, including titles, descriptions, and full project paths, from arbitrary private projects across the instance without any project membership, due to missing authorization checks on a user-supplied project filter parameter in the group milestones API.",
+   "impacted_versions": "GitLab CE/EE: all versions from 15.10 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 4.3,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+   "reporter": "a0xnirudh"
+  },
+  {
+   "cve": "CVE-2026-15723",
+   "title": "Improper Authentication issue in OmniAuth-to-LDAP auto-linking email lookup impacts GitLab CE/EE",
+   "description": "GitLab has remediated an issue that, when OmniAuth SAML and LDAP auto-linking were both enabled, an authenticated user could have taken over an existing LDAP-backed account without any interaction from the targeted user, due to improper input sanitization in the LDAP email lookup path used during OmniAuth identity linking.",
+   "impacted_versions": "GitLab CE/EE: all versions from 10.1 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 8.2,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:N",
+   "reporter": "stealthy"
+  },
+  {
+   "cve": "CVE-2026-16255",
+   "title": "Incomplete enforcement of instance-wide SAML/LDAP membership lock allows unauthorized member additions in GitLab EE",
+   "description": "GitLab has remediated an issue that, when the instance-wide SAML or LDAP membership lock was enabled, an authenticated user could have granted or accepted project and group membership outside the identity provider’s control, due to incomplete enforcement of the membership lock on requests created before the lock was enabled.",
+   "impacted_versions": "GitLab EE: all versions from 12.0 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 5.9,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:L/A:N",
+   "reporter": "3nvz"
+  },
+  {
+   "cve": "CVE-2026-112212",
+   "title": "Cache Poisoning issue in OAuth/OIDC discovery endpoints impacts GitLab CE/EE",
+   "description": "GitLab has remediated an issue that, under certain conditions, an unauthenticated user could have poisoned a shared cache’s OAuth/OIDC discovery document to redirect certain flows to an externally controlled server, due to improper trust of user-supplied values when constructing endpoint URLs in cached discovery responses.",
+   "impacted_versions": "GitLab CE/EE: all versions from 18.3 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 7.5,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:L/A:L",
+   "reporter": ""
+  },
+  {
+   "cve": "CVE-2026-112326",
+   "title": "Improper Cleanup on Thrown Exception issue in security findings impacts GitLab EE",
+   "description": "GitLab has remediated an issue that, under certain conditions, could have allowed an authenticated user with read-only permissions to permanently delete existing vulnerability records due to improper cleanup logic that failed to distinguish between pre-existing records from newly created ones during error handling.",
+   "impacted_versions": "GitLab EE: all versions from 17.8 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 3.1,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+   "reporter": ""
+  },
+  {
+   "cve": "CVE-2026-12664",
+   "title": "Improper Access Control issue in GraphQL work item email address field impacts GitLab CE/EE",
+   "description": "GitLab has remediated an issue that, under certain conditions, could have allowed an authenticated user with a read_api-scoped token to retrieve a project’s incoming email address and create work items, bypassing the token’s restrictions, due to insufficient scope enforcement on a GraphQL field.",
+   "impacted_versions": "GitLab CE/EE: all versions from 18.2 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 6.8,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N",
+   "reporter": "go7f0"
+  },
+  {
+   "cve": "CVE-2026-14288",
+   "title": "Improper Access Control issue in merge request approval policy enforcement impacts GitLab EE",
+   "description": "GitLab has remediated an issue that under certain conditions could have allowed an authenticated user to bypass a required merge request approval policy on a protected branch due to improper access control during approval rule synchronization.",
+   "impacted_versions": "GitLab EE: all versions from 17.4 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 3.1,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+   "reporter": "3nvz"
+  },
+  {
+   "cve": "CVE-2026-112378",
+   "title": "Use of Less Trusted Source issue in AI Gateway feature enablement header impacts GitLab EE",
+   "description": "GitLab has remediated an issue that under certain conditions could have allowed an authenticated user to access paid AI features without a valid subscription due to insufficient server-side validation in billing eligibility checks.",
+   "impacted_versions": "GitLab EE: all versions from 17.8 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 4.3,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N",
+   "reporter": ""
+  },
+  {
+   "cve": "CVE-2026-105777",
+   "title": "Internal Credential Exposure issue in internal response headers impacts GitLab CE/EE",
+   "description": "GitLab has remediated an issue that, under certain conditions, an unauthenticated user could have retrieved sensitive internal server credentials due to improper filtering of internal response headers.",
+   "impacted_versions": "GitLab CE/EE: all versions from 17.6.5 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1",
+   "cvss_base": 4.3,
+   "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+   "reporter": "altair00"
+  }
+ ],
+ "fetched_at": "2026-10-22T02:08:57Z",
+ "tool": "tools/intel/fetch-intel"
+}
