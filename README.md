@@ -64,7 +64,9 @@ bash tools/copy-prompt.sh intel ja   # decision prompt, Japanese
 
 **Tap-through briefing (web)**: <https://2026-incident-briefing.pages.dev> — the fifteen items in order, with pseudo-3D
 motion, synthesised SFX and a generated lofi loop. Sound is on; toggle it top-right.
-**Language pull-down** (日本語 / English, `?lang=`, or press `L`). Phone: tap/swipe. Desktop: space / arrows.
+**Language pull-down, 12 languages** (English / 日本語 / 中文 / 한국어 / Español / Français / Deutsch /
+Português / Русский / العربية / हिन्दी / Bahasa Indonesia; `?lang=`, or press `L`).
+Phone: tap/swipe. Desktop: space / arrows.
 
 The remediation prompt keeps the agent read-only first, makes it branch on the table in §2-3,
 verify versions against the running binary, and never describe a partial mitigation as a fix.

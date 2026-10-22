@@ -56,6 +56,23 @@ scene's copy does not fit — common on landscape phones — the panel scrolls a
 chip appears until you reach the end. Animated assets are cached per deploy, so the scroll state
 and the language survive scene changes; each scene resets to the top of its own text.
 
+## Languages (12)
+
+English, 日本語, 中文（简体）, 한국어, Español, Français, Deutsch, Português, Русский,
+العربية, हिन्दी, Bahasa Indonesia.
+
+- The pull-down is a native `<select>` (native picker on phones); the list comes from
+  `LANGUAGES` in `data.js` (code, native name, BCP-47 tag, direction).
+- `ja` and `en` live inline in `data.js`; the other ten are **lazy-loaded** from `i18n/<code>.js`
+  on first selection, so the initial page stays small. Any field a locale omits falls back to
+  English, so a partial translation degrades field by field instead of breaking the page.
+- `ar` switches the document to `dir="rtl"`; the panel border side, list bullets, the pull-down
+  caret and the diagram offset all flip (the canvas moves to the opposite side of the panel).
+- Adding a language is one entry in `LANGUAGES` plus one `i18n/<code>.js` with the same scene
+  ids; nothing else needs to change.
+- Careful: a scene has its own `id` field, so the Indonesian code `id` is looked up with a
+  type guard in `copyFor()` — otherwise it resolves to the scene's id string.
+
 ## Bilingual (JA / EN)
 
 Every scene carries `ja` and `en` copy in `data.js`; numbers, visuals and audio cues are shared.

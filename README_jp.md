@@ -63,7 +63,8 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 ```
 
 **タップで進むブリーフィング（Web）**: <https://2026-incident-briefing.pages.dev> — 15件を時系列に、3D演出・効果音・自作Lofiで。
-音が出ます（右上の SOUND で消せます）。**言語はプルダウン**（日本語 / English、`?lang=` / `L` キー）。
+音が出ます（右上の SOUND で消せます）。**言語はプルダウンで12言語**（English / 日本語 / 中文 / 한국어 /
+Español / Français / Deutsch / Português / Русский / العربية / हिन्दी / Bahasa Indonesia。`?lang=` / `L` キー）。
 スマホはタップ／スワイプ、PCはスペース／←→。
 
 対応用は「まず読み取り専用」「§2-3 の表で分岐」「バージョンは実行中のバイナリで確認」
