@@ -13,13 +13,19 @@ needs.
 | SAPI | php-fpm, Apache mod_php, php-cgi, FrankenPHP, LiteSpeed — **anything serving web requests** |
 | Fixed | Published 2026-10-21: 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 |
 | 8.1 and older | **No official fix.** The PHP project published minimal source backports for 7.4 / 8.0 / 8.1 |
-| CVSS | v4.0 **9.2** (both). 9.8 under v3.1 |
+| CVSS | v4.0 **9.2** (both, PHP's own). v3.1 from NVD: **9.8** for 109618, **8.1** for 109619 — rescored 2026-10-22, see below |
 | Attack requirements | No authentication, but High complexity (`AC:H`) |
 | Exploitation | Public. Attempts observed at 07:43 UTC, before the fix shipped |
 
 **The important property**: the bug lives in `php-src` request handling. Application code, framework
 routers, plugins and path-based WAF rules are all bypassed. "My app is up to date" is not a
 mitigation.
+
+**The two CVEs no longer share a v3.1 score.** NVD moved `CVE-2026-109619` from 9.8 to **8.1** on
+2026-10-22 21:17Z (`AC:L` → `AC:H`), leaving 109618 at 9.8 and PHP's own CVSS 4.0 at 9.2 for both.
+The fix, the affected range and the mitigations below are unchanged — but a "≥ 9.0 only" triage
+filter now silently drops one half of this advisory. Patch by advisory, not by score
+([`docs/19` §2](19-snapshot-0730jst.md)).
 
 ## 2. The two CVEs are different bugs
 

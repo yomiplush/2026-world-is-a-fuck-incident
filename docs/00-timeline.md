@@ -22,6 +22,10 @@ JST is UTC+9.
 | 2026-10-21 | 10-21 | Node.js ships its regular security releases (26.12.1 / 24.22.1 / 22.23.4) | nodejs.org |
 | 2026-10-21 | 10-22 early | Governments and newsrooms take sites offline as a precaution (Dutch House of Representatives, NCSC, Tweakers, …) | Sansec / The Record (secondary) |
 | 2026-10-22 00:15 | 10-22 09:15 | **Snapshot time for this repository** | — |
+| 2026-10-22 12:22 | 10-22 21:22 | Second read the same day (MSRC re-issued, +3 CVEs) | [`docs/16`](16-snapshot-2120jst.md) |
+| 2026-10-22 21:17 | 10-23 06:17 | **NVD rescored `CVE-2026-109619` from 9.8 to 8.1** (`AC:L` → `AC:H`); 109618 stays 9.8 | NVD |
+| 2026-10-22 22:25 | 10-23 07:25 | **Snapshot time for this repository (third read)** | [`docs/19`](19-snapshot-0730jst.md) |
+| 2026-10-23 | 10-23 | KEV due dates fall due for Plex (`CVE-2026-96654`, `CVE-2026-96656`) and EG SiteGuard (`CVE-2026-106931`) | CISA KEV |
 
 ## What to take from this
 
@@ -34,3 +38,7 @@ JST is UTC+9.
   had to track both.
 - Some dates look off by one (PHP's changelog shows 8.5.12 as "22 Oct 2026" while the release
   announcement says 21 Oct). That is normal. **Match on version numbers, not dates.**
+- **The score is part of the timeline.** NVD moved `CVE-2026-109619` from 9.8 to 8.1 twenty-eight
+  hours after publishing it, while the fix and the advisory stayed identical. If your record of
+  "what happened when" stops at the publication date, it is missing the events that change
+  decisions ([`docs/19` §2](19-snapshot-0730jst.md)).

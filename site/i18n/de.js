@@ -12,7 +12,7 @@ window.registerLocale("de", {
     coverFoot: "Jede Aussage führt auf eine Primärquelle zurück. Nur ConnectWise ist unbestätigt.",
     drawerTitle: "QUELLEN / SOURCES",
     drawerFoot: "14 von 15 an Primärquellen geprüft. ConnectWise ist als unbestätigt markiert.",
-    asof: "Stand 2026-10-22 21:20 JST"
+    asof: "Stand 2026-10-23 07:25 JST"
   },
   scenes: {
     intro: { title: "Ein Monat, fünfzehn Vorfälle.",

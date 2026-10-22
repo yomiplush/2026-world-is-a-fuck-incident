@@ -57,11 +57,14 @@ Three consequences, each of which has bitten a real deployment:
 2. **JDK 26 gets no fix.** `26.0.3` does not exist (404 at Oracle), and the 26.0.2 release
    notes already say not to use it after the 2026-08-18 update. JDK 26 is a non-LTS line
    that hands over to 27; the only fix is to move lines.
-3. **OpenJDK builds lag.** Two days after Oracle, Eclipse Temurin's newest builds were still
-   the August ones (`8u504-b01`, `11.0.32.1+1`, `17.0.20.1+1`, `21.0.12.1+1`, `25.0.4.1+1`,
-   `27+35`). Verified 2026-10-22 via `api.adoptium.net`. If you run Temurin, Corretto, Zulu
-   or a distro package, **your fix arrives on your vendor's schedule, and the version number
-   will not look like Oracle's.** Compare against your vendor's own release notes.
+3. **OpenJDK builds lag — but Temurin has now caught up on three of the five lines.** On
+   2026-10-22 (12:07–17:28 UTC) Adoptium published `17.0.21+9`, `21.0.13+9` and `25.0.5+8`,
+   matching Oracle's fixed versions by name. Its 8 and 11 lines are still the August builds
+   (`8u504-b01`, `11.0.32.1+1`) — and those numbers **do not map onto Oracle's** `8u511` /
+   `11.0.33`, so read the vendor's release notes rather than translating. Verified 2026-10-23
+   via `api.adoptium.net`. If you run Corretto, Zulu or a distro package, the same rule holds:
+   **your fix arrives on your vendor's schedule, and the version number will not look like
+   Oracle's.**
 
    ```bash
    # Is my vendor's fixed build out yet? (JSON, no auth)

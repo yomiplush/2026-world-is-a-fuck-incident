@@ -12,7 +12,7 @@ window.registerLocale("es", {
     coverFoot: "Cada afirmación remite a una fuente primaria. Solo ConnectWise queda sin verificar.",
     drawerTitle: "FUENTES / SOURCES",
     drawerFoot: "14 de 15 verificados con fuentes primarias. ConnectWise figura como no verificado.",
-    asof: "a 2026-10-22 21:20 JST"
+    asof: "a 2026-10-23 07:25 JST"
   },
   scenes: {
     intro: { title: "Un mes, quince incidentes.",

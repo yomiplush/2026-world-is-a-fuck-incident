@@ -566,7 +566,16 @@ def collect_nvd_critical(days: int) -> dict:
         c = v["cve"]
         m = c.get("metrics", {})
         def first(kind):
-            for e in m.get(kind, []):
+            # NVD lists the CNA's metric ("Secondary") before its own ("Primary")
+            # on some records, and the two can disagree by whole severity bands:
+            # CVE-2026-95695 is Secondary 7.4 (IBM) and Primary 9.1 (NVD) at once.
+            # The severity filter that selected this row answered on the Primary
+            # score, so reading the first entry would record a CRITICAL row as HIGH.
+            entries_ = m.get(kind, [])
+            for e in entries_:
+                if e.get("type") == "Primary":
+                    return e["cvssData"]["baseScore"], e["cvssData"].get("vectorString")
+            for e in entries_:
                 return e["cvssData"]["baseScore"], e["cvssData"].get("vectorString")
             return None, None
         v31, vec31 = first("cvssMetricV31")
