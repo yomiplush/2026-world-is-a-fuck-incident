@@ -1,35 +1,66 @@
-# 2026 — PHP2Shell / Node.js October 2026 / CA compromise
+# 2026 — php2shell, Node.js October 2026, and a CA compromise
 
-2026年10月後半に重なった3件（**PHP の RCE 2件**、**Node.js の定期セキュリティリリース**、
-**公開CAの中間鍵侵害**）について、事実・一次ソース・再現手順・実行できる防御ツールを
-ひとまとめにした記録です。**読むため**と、**手を動かすため**の両方に使えます。
+[**English**](README.md) | [日本語](README_jp.md)
 
-> **English abstract** — A dated, source-cited dossier and a runnable defence toolkit for
-> (1) php2shell, two critical PHP core RCEs (CVE-2026-109618 / CVE-2026-109619) fixed on
-> 2026-10-21; (2) the Node.js October 2026 security releases; (3) the eMudhra intermediate-CA
-> key compromise. Contains detection, mitigation, patching and verification steps, plus the
-> scripts used to carry them out. No credentials, no owner-specific hosts.
+## 0. Busy? Read this
 
-**データ基準時点**: 2026-10-22 00:15 UTC（最終確認）。
-新しいパッチは出ていないことを Node.js のリリース索引と勧告一覧で確認済み。
+- **PHP** (CVE-2026-109618 / 109619, CVSS 9.2): every release from 5.4.0 on. Fixed in
+  **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**. Exploit is public and attempts were observed
+  **before** the fix shipped — if you serve PHP, patch today.
+- **Node.js**: **22.23.4 / 24.22.1 / 26.12.1** are current, and there is **no newer patch**.
+  20.x is EOL and will never be fixed.
+- **CA**: eMudhra intermediate keys were compromised. Runtimes that bundle their own CA store
+  (Node, Go, Python, Java) must be updated.
+- **Everything else here is context.** It only matters after one of the above fires.
+
+Check your own estate — two read-only commands, about a minute:
+
+```bash
+git clone https://github.com/yomiplush/2026-world-is-a-fuck-incident.git
+cd 2026-world-is-a-fuck-incident
+tools/php2shell/bin/p2s-audit --json      # exit 10 = a PHP runtime is exposed
+tools/node/nodefix-audit                  # Node runtimes below the fixed versions
+```
+
+**Handing this to an AI?** Copy the prompt, then paste it together with the repository URL:
+
+```bash
+bash tools/copy-prompt.sh        # English prompt -> clipboard
+bash tools/copy-prompt.sh ja     # Japanese prompt -> clipboard
+```
+
+The prompt keeps the agent read-only first, makes it branch on the table in §2-3, verify
+versions against the running binary, and never describe a partial mitigation as a fix.
 
 ---
 
-## 1. 30秒でわかる状況
+Three events landed in the same week of October 2026 — **two critical RCEs in PHP itself**,
+**the Node.js October security releases**, and **the compromise of a public CA's intermediate
+keys**. This repository is the record: what happened, the primary sources, the reproduction
+steps, and a defence toolkit you can actually run. It is meant to be **read** and **executed**.
 
-| 事案 | CVE | 深刻度 | 影響 | 修正版 | 悪用 | やること |
+**Data as of 2026-10-22 00:15 UTC** (last verified). No newer patch exists — confirmed against
+the Node.js release index and the advisory list.
+
+> The detailed docs under `docs/` and `runbooks/` are currently written in Japanese.
+> This README is the English entry point and carries every fact needed to act.
+
+---
+
+## 1. The three events at a glance
+
+| Event | CVE | Severity | Affects | Fixed in | Exploited | Do this |
 |---|---|---|---|---|---|---|
-| **php2shell**（PHP本体のRCE） | CVE-2026-109618<br>CVE-2026-109619 | CVSS 4.0 **9.2** Critical | PHP **5.4.0 以降の全リリース**。FPM / mod_php / php-cgi / FrankenPHP / LiteSpeed | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**（2026-10-21） | **公開済み**。リリース前の 07:43 UTC に攻撃試行を観測 | PHP を上げる。上げられない間は multipart 遮断＋部分緩和 |
-| **Node.js 10月分** | CVE-2026-111497 ほか計9件 | 最高 **high** | Node 22 / 24 / 26。**20 は EOL で修正なし** | **22.23.4 / 24.22.1 / 26.12.1**（2026-10-21） | 未観測（公開PoCの領域） | 同メジャー内で更新（ABI 維持） |
-| **eMudhra 中間CA 鍵侵害** | CVE-2026-111943（Go 側の追跡ID） | — | 当該中間CA を信頼している全トラストストア | 各ベンダの `ca-certificates` / Node 本体 | 前提は MITM 位置 | OS/ランタイムの CA バンドル更新 |
+| **php2shell** (RCE in PHP core) | CVE-2026-109618<br>CVE-2026-109619 | CVSS 4.0 **9.2** Critical | **Every PHP release from 5.4.0 on.** FPM / mod_php / php-cgi / FrankenPHP / LiteSpeed | **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** (2026-10-21) | **Yes — public.** Attempts seen at 07:43 UTC, before the fix shipped | Upgrade PHP. If you cannot, block multipart + apply partial mitigations |
+| **Node.js October** | CVE-2026-111497 and 8 more | highest **high** | Node 22 / 24 / 26. **20 is EOL with no fix** | **22.23.4 / 24.22.1 / 26.12.1** (2026-10-21) | Not observed (public PoC territory) | Update within the same major line (keeps ABI) |
+| **eMudhra intermediate CA compromise** | CVE-2026-111943 (Go's tracking ID) | — | Any trust store that trusts those intermediates | Vendor `ca-certificates` / runtime bundles | Requires a MITM position | Update the CA bundle |
 
-この3件は**独立**しています。PHP を直しても Node は直らず、CA はまた別です。
+The three are **independent**. Patching PHP does not fix Node; the CA is separate again.
 
-**php2shell だけが「今すぐ」の話**です。理由は (a) 攻撃コードが公開済み、(b) 修正が
-公開される前から試行が観測されている、(c) 脆弱性が PHP のリクエスト処理の中にあり、
-アプリ側の修正では消えないからです。
+**Only php2shell is urgent.** Attack code is public, exploitation was observed before the fix,
+and the bug sits in PHP's request handling — no application-level fix can remove it.
 
-### 機械可読サマリ
+### Machine-readable summary
 
 ```yaml
 as_of: 2026-10-22T00:15Z
@@ -54,224 +85,240 @@ ca:
 
 ---
 
-## 2. AI エージェント向け — ここから始める
+## 2. If you are an AI agent — start here
 
-このリポジトリの URL だけを渡された状態から、**被害を出さずに**防御をセットアップできる
-ように書いてあります。上から順に実行してください。
+This section is written so that an agent holding nothing but this URL can set up the defence
+**without causing damage**. Work top to bottom.
 
-### 2-0. 制約（先に読む）
+> The same instructions as a paste-ready prompt live in `prompts/agent-prompt.txt`
+> (Japanese: `prompts/agent-prompt.ja.txt`). Copy it with `bash tools/copy-prompt.sh`.
 
-- **読み取り専用から始める**。`p2s-audit` と `nodefix-audit` は何も変更しません。
-  変更系（`p2s-mitigate` / `p2s-patch`）は必ず `--dry-run` を先に実行する。
-- **自分が管理権限を持つホストにだけ実行する**。`--target` は ssh 先を指定する引数で、
-  このリポジトリには特定ホストの既定値は入っていない。
-- **この README に書かれていない CVE を推測で補わない**。バージョン判定と修正版の対応は
-  §1 の表と `docs/` が根拠。不明なら「不明」と報告する。
-- **認証情報はこのリポジトリに無い**。Cloudflare トークンが必要な操作は、実行環境の
-  `~/.config/cloudflare/token.env`（`CF_API_TOKEN=...`）か `--env-file` で渡す。
-  無ければエッジ操作は**スキップ**してよい（オリジン側の対策が本体）。
-- Docker は**グループ権限**で操作します（root 不要）。`docker` グループに入っていない
-  場合、コンテナ系の検査は実行できません。
+### 2-0. Constraints (read first)
 
-### 2-1. 取得と前提確認
+- **Start read-only.** `p2s-audit` and `nodefix-audit` change nothing. Every mutating tool
+  (`p2s-mitigate`, `p2s-patch`) must be run with `--dry-run` first.
+- **Only run against hosts you have authority over.** `--target` is an ssh destination; there is
+  no default host baked into this repository.
+- **Do not invent CVEs or version mappings.** §1 and `docs/` are the evidence. If something is
+  not covered, report it as unknown.
+- **No credentials live here.** Edge operations read a Cloudflare token from
+  `~/.config/cloudflare/token.env` (`CF_API_TOKEN=...`) or `--env-file`. If there is none,
+  **skip the edge** — the origin-side control is the real one.
+- Docker is used through **group permissions**, not root. Without `docker` group membership,
+  container checks cannot run.
+
+### 2-1. Fetch and preflight
 
 ```bash
 git clone https://github.com/yomiplush/2026-world-is-a-fuck-incident.git
 cd 2026-world-is-a-fuck-incident
-bash tools/php2shell/tests/selftest.sh     # ツール自体が壊れていないか（30秒）
+bash tools/php2shell/tests/selftest.sh     # is the toolkit itself healthy? (~30s)
 ```
 
-必要なもの: `bash` `curl` `jq` `docker`（グループ権限） `ssh`（リモート検査時）。
-PHP 本体は不要。`nodefix-audit` は `node` があれば動く。
+Requires: `bash`, `curl`, `jq`, `docker` (group), `ssh` (for remote checks). PHP is not needed.
+`nodefix-audit` only needs `node` to be present.
 
-### 2-2. 発見（読み取り専用・変更なし）
+### 2-2. Discover (read-only, changes nothing)
 
 ```bash
-tools/php2shell/bin/p2s-audit --json                 # ローカル
-tools/php2shell/bin/p2s-audit --target <ssh-host>    # リモート
-tools/node/nodefix-audit                             # Node ランタイム
+tools/php2shell/bin/p2s-audit --json                 # local
+tools/php2shell/bin/p2s-audit --target <ssh-host>    # remote
+tools/node/nodefix-audit                             # Node runtimes
 tools/node/nodefix-audit --target <ssh-host>
-p2s-audit の終了コード: 0 = 露出なし / 10 = 露出あり（要対応） / その他 = 実行失敗
 ```
 
-`p2s-audit` は「PHP が動いているか」ではなく「**PHP が動いていて、かつ危険な設定が
-有効か**」を見ます。PHP が1つも無いホストは、この脆弱性に対しては無条件で安全です。
+`p2s-audit` exit codes: `0` = nothing exposed, `10` = exposed (action required), anything else =
+the check itself failed.
 
-### 2-3. 判定（機械的に分岐する）
+`p2s-audit` asks "is PHP running **and** is the dangerous setting armed?", not merely "is PHP
+running?". A host with no PHP at all is unconditionally safe from this bug.
 
-| 観測結果 | 判定 | 次のアクション |
+### 2-3. Decide (mechanical)
+
+| Observation | Verdict | Go to |
 |---|---|---|
-| PHP が存在しない | 対象外 | 何もしない。Node の判定へ |
-| PHP のバージョン ≥ 修正版（8.5.12/8.4.27/8.3.36/8.2.35） | **修正済み** | 追加作業なし。既存の緩和設定は残してよい |
-| PHP < 修正版、イメージ更新で上げられる | **要修正** | §2-4-A |
-| PHP < 修正版、すぐ上げられない（ベンダ待ち・8.1以前） | **要緩和** | §2-4-B |
-| Node < 22.23.4 / 24.22.1 / 26.12.1、または 20.x | **要修正** | §2-4-C |
-| `ca-certificates` が eMudhra 中間CA を信頼したまま | 要更新 | §2-4-D |
+| No PHP present | Not affected | Nothing to do. Check Node next |
+| PHP ≥ fixed (8.5.12 / 8.4.27 / 8.3.36 / 8.2.35) | **Patched** | Nothing. Existing hardening may stay |
+| PHP < fixed, image can be bumped | **Needs patch** | §2-4-A |
+| PHP < fixed, cannot bump yet (vendor wait, ≤8.1) | **Needs mitigation** | §2-4-B |
+| Node < 22.23.4 / 24.22.1 / 26.12.1, or 20.x | **Needs patch** | §2-4-C |
+| `ca-certificates` still trusts the eMudhra intermediates | Needs update | §2-4-D |
 
-> バージョンは**タグではなく実行中のバイナリで確認**すること。
-> `docker exec <c> php -v` / `docker exec <c> node -v`。
-> タグが `latest` のまま中身が古い、という事故が実際に起きます（§6）。
+> Check the version **with the running binary, not the tag**:
+> `docker exec <c> php -v` / `docker exec <c> node -v`.
+> A `latest` tag whose content is months old is a real failure mode (see `docs/06-lessons-and-gotchas.md` §4).
 
-### 2-4-A. PHP を修正版に上げる（最優先）
+### 2-4-A. Patch PHP (first choice)
 
 ```bash
-tools/php2shell/bin/p2s-patch --container <name> --dry-run   # 何が変わるか確認
-tools/php2shell/bin/p2s-patch --container <name>             # pull → recreate → 検証
+tools/php2shell/bin/p2s-patch --container <name> --dry-run   # what would change
+tools/php2shell/bin/p2s-patch --container <name>             # pull → recreate → verify
 ```
 
-自前イメージなら、ベースを修正版に固定するのが確実です:
+If you build your own image, pin the fixed base:
 
 ```dockerfile
-FROM php:8.3.36-fpm-alpine     # 8.4.27 / 8.5.12 でも同じ
+FROM php:8.3.36-fpm-alpine     # or 8.2.35 / 8.4.27 / 8.5.12
 ```
 
-`p2s-patch` は「pull して再作成し、**イメージダイジェストと PHP バージョンが変わったこと**を
-示す」ところまでやります。終了コード 10 は「新しいイメージがまだ出ていない」の意味で、
-失敗ではありません。その場合は §2-4-B に切り替えます。
+`p2s-patch` pulls, recreates, and shows the image digest and PHP version before/after.
+Exit code `10` means "no new image published yet" — that is not a failure, switch to §2-4-B.
 
-### 2-4-B. すぐ上げられない場合の緩和（**部分対策**であることを理解して使う）
+### 2-4-B. Mitigate when you cannot patch (**partial** — say so out loud)
 
-PHP 公式が「これは完全な修正ではない」と明記している緩和です。**更新の代替にはなりません。**
+PHP's own advisory states these are not complete fixes. **They are not a substitute for updating.**
 
-| 対象 | 設定 | 効果 |
+| Target | Setting | Effect |
 |---|---|---|
-| CVE-2026-109618（OOM 経由） | `memory_limit = -1` を `php_admin_value` 等で上書き不能に。`post_max_size` を小さく（アップロード不要なら 8M、必要なら 32M）、`upload_max_filesize` はその下 | メモリ上限を跨ぐ失敗を消す。ただし確保失敗そのものは残る |
-| CVE-2026-109619（残留状態） | `session.upload_progress.enabled = 0`、PHP 8.5 は `fatal_error_backtraces = 0` | 確認済み経路のみ塞ぐ |
-| 両方 | `multipart/form-data` を Web サーバで 403（Sansec 推奨） | 既知のトリガーを全部落とす。**ファイルアップロードが壊れるので要検証** |
+| CVE-2026-109618 (OOM path) | `memory_limit = -1` where apps cannot override it (`php_admin_value`), plus a small `post_max_size` (8M without uploads, 32M with), `upload_max_filesize` below it | Removes the controllable memory-limit failure. Underlying allocation failure can still reach the vulnerable path |
+| CVE-2026-109619 (stale state) | `session.upload_progress.enabled = 0`; on PHP 8.5 also `fatal_error_backtraces = 0` | Blocks the confirmed paths only |
+| Both | Reject `multipart/form-data` at the web server (Sansec's recommendation) | Drops every known trigger. **Breaks file uploads — test first** |
 
 ```bash
 tools/php2shell/bin/p2s-mitigate --container <name> --dry-run
 tools/php2shell/bin/p2s-mitigate --container <name>
 ```
 
-同梱の `ini/zz-php2shell.ini` は **109619 側だけ**を塞ぎます。109618 側には上の
-`memory_limit` が必要で、**ツールは自動では入れません**（アプリのメモリ挙動を変えるため）。
-`conf.d` に置くこと。`.user.ini` や `ini_set()` は PHP 公式が「頼るな」と明記しています。
+The bundled `ini/zz-php2shell.ini` closes **only the 109619 side**. The 109618 side needs
+`memory_limit`, which the tool does **not** set for you (it changes application memory behaviour):
 
-nginx で multipart を落とす場合（**アプリのアップロード機能と両立するか必ず確認**）:
+```ini
+; conf.d/zz-php2shell-mem.ini  (or an FPM pool)
+memory_limit = -1
+post_max_size = 8M
+upload_max_filesize = 6M
+```
+
+Put these in `conf.d` or the FPM pool. **Never in `.user.ini`, and not via `ini_set()`** — PHP
+explicitly says not to rely on either for this.
+
+TLS-terminating proxy / nginx (only if the app tolerates it):
 
 ```nginx
 if ($http_content_type ~* "multipart/form-data") { return 403; }
 ```
 
-### 2-4-C. Node.js を修正版に上げる
+### 2-4-C. Patch Node.js
 
-**同じメジャーライン内で上げること**（ネイティブモジュールの ABI を維持するため）。
+**Stay inside the same major line** so native module ABIs keep working.
 
 ```bash
-# 1) コンテナ: アプリイメージを保ったまま node バイナリだけ差し替える
+# 1) Containers: keep the app image, swap the node binary
 #    FROM <your-app-image>
 #    COPY --from=node:22.23.4-bookworm-slim /usr/local/bin/node /usr/local/bin/node
-#    → ビルドして compose の image: 行を差し替え、--force-recreate で再作成
+#    → build, repoint image:, then:
+docker compose up -d --force-recreate --no-deps <service>
 
-# 2) ホスト（Debian/Ubuntu + NodeSource）
+# 2) Debian/Ubuntu hosts (NodeSource)
 sudo apt update && sudo apt install --only-upgrade nodejs
-node -v     # 22.23.4 以上か
+node -v     # must be >= 22.23.4 / 24.22.1 / 26.12.1
 
-# 3) ホスト（Arch）
+# 3) Arch hosts
 sudo pacman -Syu nodejs
 ```
 
-- `better-sqlite3` などのネイティブモジュールを持つアプリは、バイナリ差し替えでは
-  ABI が合わず落ちます。**その場合はソースから再ビルド**してください。
-- 20.x は EOL で修正が来ません。22 以上へ移す以外に道はありません。
-- 上げたあとは必ず `tools/node/nodefix-audit` で確認。
+- Apps with native modules (`better-sqlite3` and friends) **will not work** with a swapped binary.
+  Rebuild them from source against the new ABI.
+- 20.x gets no fix. Moving to 22 or later is the only option.
+- Verify afterwards with `tools/node/nodefix-audit`.
 
-### 2-4-D. CA バンドルを更新する
+### 2-4-D. Update the CA bundle
 
 ```bash
 sudo apt install --only-upgrade ca-certificates     # Debian/Ubuntu
 sudo pacman -Syu ca-certificates                    # Arch
-# Node/Go/Python など自前バンドルを持つランタイムは、ランタイム自体を更新する
+# Runtimes that ship their own bundle (Node, Go, Python, Java) need the runtime updated
 ```
 
-詳細と条件は [`docs/03-emudhra-ca.md`](docs/03-emudhra-ca.md)。
+Details and the three preconditions: `docs/03-emudhra-ca.md`.
 
-### 2-5. 検証（対策したつもりを排除する）
+### 2-5. Verify (remove "I think I fixed it")
 
 ```bash
-tools/php2shell/bin/p2s-audit --target <ssh-host>          # 10 が返らなくなったか
-docker exec <name> php -v                                  # 実際のバージョン
+tools/php2shell/bin/p2s-audit --target <ssh-host>          # no longer exits 10
+docker exec <name> php -v                                  # the actual version
 docker exec <name> php -i | grep -E 'session.upload_progress|memory_limit|post_max_size'
 tools/php2shell/bin/p2s-hunt --container <name> --target <ssh-host> --scan   # RESULT: clean
-bash tools/php2shell/tests/selftest.sh <ssh-host>          # 再起動を跨いで設定が残るか
+bash tools/php2shell/tests/selftest.sh <ssh-host>          # survives a restart
 ```
 
-**再起動を跨いだ確認を省かないこと。** `docker exec` で一時的に ini を置いても、
-次の `docker compose up -d` で静かに消えます（§6）。
+**Do not skip the restart check.** An ini dropped in with `docker exec` disappears silently on the
+next `docker compose up -d` (see `docs/06-lessons-and-gotchas.md` §2).
 
-### 2-6. 侵害を疑う場合
+### 2-6. If you suspect compromise
 
-`runbooks/php2shell.md` §4 の順序（**遮断 → 保全 → 調査 → 再構築 → 認証情報のローテート**）に
-従ってください。特に:
-- `docker stop` で止める（消さない）。`docker cp` で Web ルートを保全する。
-- Web ルートを「掃除」しない。変更されたファイルが唯一の証拠になり得る。
-- 5xx の急増は、外部から見た UAF の典型的な痕跡です（`--logs`）。
+Follow `runbooks/php2shell.md` §4 — **contain → preserve → investigate → rebuild → rotate**:
 
-### 2-7. やってはいけないこと
+- `docker stop` (do not delete), `docker cp` the web root.
+- Do not "clean" the web root. A modified file may be the only evidence.
+- A burst of 5xx is the outside view of the UAF firing (`--logs`).
 
-- 未検証の WAF ルールを「対策済み」として報告する（**対策したつもりが一番危険**）。
-- 8.1 以前を「サポート終了だから対象外」と判断する（**修正版が無い＝露出が続く**）。
-- このリポジトリのスクリプトを、所有者の同意なく第三者のホストに向ける。
+### 2-7. Do not
+
+- Report an unverified WAF rule as "mitigated". **Believing you are covered is the dangerous state.**
+- Treat PHP ≤ 8.1 as "out of scope". **No fix means continued exposure.**
+- Point these scripts at third-party hosts without authorisation.
 
 ---
 
-## 3. 人間向け — 3コマンド
+## 3. If you are a human — three commands
 
 ```bash
 git clone https://github.com/yomiplush/2026-world-is-a-fuck-incident.git && cd 2026-world-is-a-fuck-incident
-tools/php2shell/bin/p2s-audit --target <your-host>   # 露出の有無（読み取りのみ）
-tools/node/nodefix-audit --target <your-host>        # Node ランタイムの版
+tools/php2shell/bin/p2s-audit --target <your-host>   # exposure check (read-only)
+tools/node/nodefix-audit --target <your-host>        # Node runtime versions
 ```
 
-`p2s-audit` が終了コード 10 を返したら、[`runbooks/php2shell.md`](runbooks/php2shell.md) へ。
-0 なら PHP は安全です。Node が古ければ [`runbooks/nodejs.md`](runbooks/nodejs.md)。
+If `p2s-audit` exits `10`, go to `runbooks/php2shell.md`. If it exits `0`, PHP is fine.
+If Node is behind, go to `runbooks/nodejs.md`.
 
 ---
 
-## 4. 収録物
+## 4. What is in here
 
-| パス | 中身 |
+| Path | Contents |
 |---|---|
-| [`docs/00-timeline.md`](docs/00-timeline.md) | 何がいつ起きたか（UTC/JST） |
-| [`docs/01-php2shell.md`](docs/01-php2shell.md) | php2shell の技術解説・影響範囲・緩和の限界 |
-| [`docs/02-nodejs-oct2026.md`](docs/02-nodejs-oct2026.md) | Node.js 10月分の CVE 一覧と更新方法 |
-| [`docs/03-emudhra-ca.md`](docs/03-emudhra-ca.md) | 中間CA 鍵侵害と、どこを更新すれば足りるか |
-| [`docs/04-cisa-kev-oct2026.md`](docs/04-cisa-kev-oct2026.md) | 同時期に悪用が確認された他の製品（期限つき） |
-| [`docs/05-other-incidents.md`](docs/05-other-incidents.md) | その他の事案（Microsoft / Oracle / ランサムウェア動向） |
-| [`docs/06-lessons-and-gotchas.md`](docs/06-lessons-and-gotchas.md) | 実装中に踏んだ罠と、判断を間違えた箇所の記録 |
-| [`runbooks/php2shell.md`](runbooks/php2shell.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
-| [`runbooks/nodejs.md`](runbooks/nodejs.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
-| [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |
-| [`tools/node/nodefix-audit`](tools/node/nodefix-audit) | Node ランタイムの版監査（修正版未満を列挙） |
-| [`data/2026-10-22/`](data/2026-10-22/) | 取得した生データ（CISA KEV 差分、NVD、PHP リリース一覧） |
-| [`SOURCES.md`](SOURCES.md) | 全ソースと再取得コマンド |
+| `docs/00-timeline.md` | What happened when (UTC/JST) |
+| `docs/01-php2shell.md` | Technical detail, blast radius, why mitigation is partial |
+| `docs/02-nodejs-oct2026.md` | The nine CVEs, update methods, ABI constraints |
+| `docs/03-emudhra-ca.md` | The CA compromise and exactly what to update |
+| `docs/04-cisa-kev-oct2026.md` | Other known-exploited products from the same week |
+| `docs/05-other-incidents.md` | Microsoft, Oracle, ransomware/economic-sanctions news |
+| `docs/06-lessons-and-gotchas.md` | The mistakes made while responding, and what they cost |
+| `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
+| `runbooks/nodejs.md` | Audit → containers → hosts → rollback |
+| `tools/php2shell/` | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`, ini, systemd unit, selftest |
+| `tools/node/nodefix-audit` | Lists Node runtimes below the fixed versions |
+| `tools/copy-prompt.sh` | Puts the AI handoff prompt on the clipboard (`en` / `ja`) |
+| `prompts/` | Ready-to-paste agent prompts, English and Japanese |
+| `data/2026-10-22/` | Raw API responses the numbers come from |
+| `SOURCES.md` | Every source, with the command to re-fetch it |
 
-ツールは「見つける・止める・確かめる」の3点に絞ってあります。攻撃コードは含みません。
-
----
-
-## 5. このリポジトリが意図的に含まないもの
-
-- **認証情報・API トークン・秘密鍵**。Cloudflare トークン等は実行環境の外に置く前提です。
-- **特定の組織のドメイン・ホスト名・IP・デバイス構成**。防御手順の再現に必要ないため。
-  `docs/` は「ある構成でこうだった」という一般化した形で書いてあります。
-- **攻撃ツール / PoC**。防御に必要なのは「到達したか」「何が残ったか」の観測であって、
-  再現可能な Exploit ではありません。
-- **ダークネット・非公開フォーラム由来の情報**。来歴が検証できない情報で防御ルールを作ると、
-  対策したつもりで漏れます。全主張に一次ソースを付けています。
+The tools do three things only: **find it, stop it, prove it**. No exploit code.
 
 ---
 
-## 6. 鮮度について（重要）
+## 5. What this repository deliberately excludes
 
-このリポジトリは **2026-10-22 時点のスナップショット**です。脆弱性情報は数日で古くなります。
+- **Credentials, API tokens, private keys.** Tokens are expected to live outside the repo.
+- **Owner-specific domains, hostnames, IPs and device inventories.** Not needed to reproduce the
+  defence; `docs/` describes deployments in generalised form.
+- **Exploits / PoCs.** Defence needs observation — "did it reach us?", "what is left behind?" —
+  not a working payload.
+- **Darknet or closed-forum material.** Rules built on unverifiable claims create false
+  confidence. Every claim here traces to a source you can re-read.
 
-- バージョン判定は必ず**実行中のバイナリ**で行う。タグ・イメージ名は信用しない。
-- 数日以上経っているなら、まず `SOURCES.md` の一次ソースを叩き直す。
-  特に Node.js の `dist/index.json` と PHP のリリース一覧は、見るだけで最新が分かります。
-- 修正版が上がっていれば、この README の表より**上流を優先**してください。
+---
 
-## 7. ライセンス
+## 6. Freshness (important)
 
-MIT（[`LICENSE`](LICENSE)）。引用した一次ソースの権利は各提供元に帰属します。
+This is a **snapshot from 2026-10-22**. Vulnerability data decays in days.
+
+- Judge versions **by the running binary**. Never trust a tag or an image name.
+- If this is more than a few days old, re-fetch the primary sources in `SOURCES.md` first — the
+  Node.js `dist/index.json` and the PHP release listing tell you the current state by themselves.
+- If upstream has shipped newer fixed versions, **upstream wins over this README**.
+
+## 7. License
+
+MIT (`LICENSE`). Quoted primary sources remain the property of their publishers.
