@@ -1,7 +1,11 @@
-/* Controller: scene state, language, DOM text, canvas loop, input, audio cues. */
+/* Controller: scene state, languages (lazy-loaded), DOM text, canvas loop, input, audio. */
 (function () {
   const C = window.CONTENT || { ui: {}, scenes: [] };
   const scenes = C.scenes || [];
+  const LANGS = window.LANGUAGES || [
+    { code: "en", native: "English", html: "en", dir: "ltr" },
+    { code: "ja", native: "日本語", html: "ja", dir: "ltr" }
+  ];
   const V = window.VISUALS;
   const A = window.AUDIO;
 
@@ -10,36 +14,88 @@
     "scene", "panel", "kicker", "stamp", "title", "lede", "points", "metric", "metric-val",
     "metric-label", "chapter", "rail", "btn-next", "btn-prev", "btn-audio", "btn-info",
     "btn-close", "lang-select", "asof", "drawer", "source-list", "cover", "btn-start",
-    "hint", "more",
-    "cover-kicker", "cover-title-a", "cover-title-b", "cover-sub", "cover-foot",
-    "drawer-title", "drawer-foot"
+    "hint", "more", "cover-kicker", "cover-title-a", "cover-title-b", "cover-sub",
+    "cover-foot", "drawer-title", "drawer-foot"
   ].forEach((id) => {
-    const key = id.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-    el[key] = document.getElementById(id);
+    el[id.replace(/-([a-z])/g, (_, c) => c.toUpperCase())] = document.getElementById(id);
   });
 
   const ctx = el.scene.getContext("2d", { alpha: true });
   let w = 0, h = 0, dpr = 1;
   let index = 0, started = false, sceneStart = 0, last = 0;
-  let lang = "ja";
+  let lang = "en";
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const ui = (key) => (C.ui[lang] && C.ui[lang][key]) || key;
+  /* ---------- locales ---------- */
+  const LOCALES = {};          // code -> { ui, scenes } for lazily loaded languages
+  const loading = {};          // code -> Promise<boolean>
 
-  /* ---------- language ---------- */
-  function pickLang() {
-    const q = new URLSearchParams(location.search).get("lang");
-    if (q === "ja" || q === "en") return q;
-    try {
-      const saved = localStorage.getItem("briefing-lang");
-      if (saved === "ja" || saved === "en") return saved;
-    } catch (e) { /* private mode */ }
-    return (navigator.language || "en").toLowerCase().startsWith("ja") ? "ja" : "en";
+  window.registerLocale = function (code, data) {
+    LOCALES[code] = data;
+  };
+
+  function meta(code) {
+    return LANGS.find((l) => l.code === code) || LANGS[0];
   }
 
+  function hasLocale(code) {
+    return !!(C.ui[code] || LOCALES[code]);
+  }
+
+  function loadLocale(code) {
+    if (loading[code]) return loading[code];
+    loading[code] = new Promise((resolve) => {
+      const s = document.createElement("script");
+      s.src = "./i18n/" + code + ".js?v=7";
+      s.async = true;
+      s.onload = () => resolve(hasLocale(code));
+      s.onerror = () => resolve(false);
+      document.head.appendChild(s);
+    });
+    return loading[code];
+  }
+
+  const ui = (key) => {
+    const a = (C.ui[lang] || {})[key];
+    const b = ((LOCALES[lang] || {}).ui || {})[key];
+    return a != null ? a : (b != null ? b : (C.ui.en || {})[key] || key);
+  };
+
+  function copyFor(scene) {
+    // NB: a scene has its own `id` field, so a language code like "id" (Indonesian)
+    // would otherwise return the scene's id string instead of its copy.
+    const inline = scene[lang];
+    if (inline && typeof inline === "object" && inline.title) return inline;
+    const loc = (LOCALES[lang] || {}).scenes || {};
+    return loc[scene.id] || scene.en;
+  }
+
+  function metricLabel(scene) {
+    const inline = scene.metric.label[lang];
+    if (inline) return inline;
+    const loc = ((LOCALES[lang] || {}).scenes || {})[scene.id];
+    return (loc && loc.metric) || scene.metric.label.en;
+  }
+
+  function pickLang() {
+    const q = new URLSearchParams(location.search).get("lang");
+    if (q && LANGS.some((l) => l.code === q)) return q;
+    try {
+      const saved = localStorage.getItem("briefing-lang");
+      if (saved && LANGS.some((l) => l.code === saved)) return saved;
+    } catch (e) { /* private mode */ }
+    const base = (navigator.language || "en").split("-")[0].toLowerCase();
+    return LANGS.some((l) => l.code === base) ? base : "en";
+  }
+
+  /* ---------- chrome ---------- */
   function applyChrome() {
-    document.documentElement.lang = lang;
-    el.chapter.textContent = `${ui("chapter")} ${String(index + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")}`;
+    const m = meta(lang);
+    document.documentElement.lang = m.html;
+    document.documentElement.dir = m.dir;
+
+    el.chapter.textContent =
+      `${ui("chapter")} ${String(index + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")}`;
     if (el.langSelect && el.langSelect.value !== lang) el.langSelect.value = lang;
     if (el.asof) el.asof.textContent = ui("asof");
     el.btnAudio.textContent = `${ui("sound")} ${A.isOn && A.isOn() ? ui("on") : ui("off")}`;
@@ -51,24 +107,32 @@
     el.coverSub.innerHTML = ui("coverSub");
     el.btnStart.textContent = ui("coverStart");
     el.coverFoot.textContent = ui("coverFoot");
-    el.drawerTitle.textContent = lang === "ja" ? "出典 / SOURCES" : "SOURCES";
+    el.drawerTitle.textContent = lang === "ja" ? "出典 / SOURCES" : ui("sources");
     el.drawerFoot.innerHTML =
       `${ui("drawerFoot")}<br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a>`;
-    el.btnPrev.setAttribute("aria-label", lang === "ja" ? "前へ" : "previous");
+    el.btnAudio.title = `${ui("sound")} (M)`;
+    el.btnInfo.title = ui("sources");
+    el.langSelect.title = `${ui("sources")} · L`;
+    el.btnAudio.title = `${ui("sound")} (M)`;
+    el.btnInfo.title = `${ui("sources")} (S)`;
+    el.btnPrev.setAttribute("aria-label", ui("tap"));
     el.btnNext.querySelector(".next-label").textContent =
       index === scenes.length - 1 ? ui("replay") : ui("tap");
     el.hint.textContent = index === scenes.length - 1 ? ui("hintEnd") : ui("hint");
   }
 
-  function setLang(next, opts) {
-    lang = next;
+  async function setLang(code, opts) {
+    if (!LANGS.some((l) => l.code === code)) code = "en";
+    const ok = await (hasLocale(code) ? Promise.resolve(true) : loadLocale(code));
+    lang = ok ? code : "en";
+    if (el.langSelect) el.langSelect.value = lang;
     try { localStorage.setItem("briefing-lang", lang); } catch (e) { /* ignore */ }
-    applyChrome();
     try {
       const u = new URL(location.href);
       u.searchParams.set("lang", lang);
       history.replaceState(null, "", u);
-    } catch (e) { /* file:// or blocked history */ }
+    } catch (e) { /* file:// */ }
+    applyChrome();
     renderScene(index, 0, true);
     if (opts && opts.silent !== true) A.sfx("blip");
   }
@@ -87,10 +151,12 @@
 
   /* ---------- drawing ---------- */
   function drawFrame(now) {
-    // rAF timestamps can predate sceneStart by a frame; never pass a negative t
     const elapsed = started ? Math.max(0, (now - sceneStart) / 1000) : 0;
     const wide = w > 900;
-    const ox = wide ? w * 0.13 : 0;
+    const rtl = document.documentElement.dir === "rtl";
+    // the text panel sits bottom-left in LTR and bottom-right in RTL: move the
+    // diagram to the opposite side so the two never overlap
+    const ox = wide ? (rtl ? -w * 0.13 : w * 0.13) : 0;
     const oy = wide ? -h * 0.06 : -h * 0.13;
     try {
       V.draw(scenes[index].visual, ctx, w, h, elapsed, reduced, ox, oy);
@@ -107,14 +173,22 @@
     requestAnimationFrame(loop);
   }
 
-  /* ---------- DOM ---------- */
+  /* ---------- text ---------- */
+  function updateMore() {
+    const p = el.panel;
+    const over = p.scrollHeight - p.clientHeight > 2;
+    const atEnd = p.scrollTop + p.clientHeight >= p.scrollHeight - 2;
+    if (el.more) el.more.hidden = !(over && !atEnd);
+    p.classList.toggle("scrollable", over);
+  }
+
   function renderScene(i, dir, silent) {
     const s = scenes[i];
-    const copy = s[lang] || s.ja || s.en;
+    const copy = copyFor(s);
     el.panel.classList.remove("swap");
-    void el.panel.offsetWidth;               // restart CSS animation
+    void el.panel.offsetWidth;
 
-    el.kicker.textContent = copy.kicker;
+    el.kicker.textContent = copy.kicker || (s.en && s.en.kicker) || "";
     el.stamp.textContent = s.stamp;
     el.title.textContent = copy.title;
     el.lede.textContent = copy.lede || "";
@@ -122,7 +196,7 @@
     if (s.metric) {
       el.metric.hidden = false;
       el.metricVal.textContent = s.metric.val;
-      el.metricLabel.textContent = s.metric.label[lang] || s.metric.label.ja;
+      el.metricLabel.textContent = metricLabel(s);
     } else {
       el.metric.hidden = true;
     }
@@ -144,7 +218,7 @@
 
   function buildSources(s) {
     el.sourceList.innerHTML = (s.sources || []).map((src) => {
-      const note = src.note ? `<em>${escapeHtml(src.note[lang] || src.note.ja || "")}</em>` : "";
+      const note = src.note ? `<em>${escapeHtml(src.note[lang] || src.note.ja || src.note.en || "")}</em>` : "";
       return `<li><b>${escapeHtml(src.name)}</b>${note}
         <span><a href="${src.url}" target="_blank" rel="noopener">${escapeHtml(src.url)}</a></span></li>`;
     }).join("");
@@ -154,14 +228,6 @@
     return String(str).replace(/[&<>"']/g, (c) => (
       { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
     ));
-  }
-
-  function updateMore() {
-    const p = el.panel;
-    const over = p.scrollHeight - p.clientHeight > 2;
-    const atEnd = p.scrollTop + p.clientHeight >= p.scrollHeight - 2;
-    if (el.more) el.more.hidden = !(over && !atEnd);
-    p.classList.toggle("scrollable", over);
   }
 
   /* ---------- navigation ---------- */
@@ -177,17 +243,13 @@
   el.panel.addEventListener("scroll", updateMore, { passive: true });
   el.btnNext.addEventListener("click", (e) => { e.stopPropagation(); next(); });
   el.btnPrev.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
-  // pull-down: change fires on selection, and on phones the native picker is used
+
+  // pull-down: a native <select>, so phones get the native picker
   el.langSelect.addEventListener("change", (e) => {
     e.stopPropagation();
     const want = el.langSelect.value;
     if (want === lang) return;
-    setLang(want);
-    el.langSelect.blur();          // give the canvas/tap area back on mobile
-  });
-  // keyboard shortcut still flips, for people who never touch the mouse
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "l" || e.key === "L") setLang(lang === "ja" ? "en" : "ja");
+    setLang(want).then(() => el.langSelect.blur());
   });
 
   /* ---------- input ---------- */
@@ -217,6 +279,9 @@
       toggleAudio();
     } else if (e.key === "s" || e.key === "S") {
       toggleDrawer();
+    } else if (e.key === "l" || e.key === "L") {
+      const at = LANGS.findIndex((l) => l.code === lang);
+      setLang(LANGS[(at + 1) % LANGS.length].code);
     } else if (e.key === "Escape") {
       el.drawer.classList.remove("open");
     }
@@ -253,6 +318,13 @@
   el.btnStart.addEventListener("click", (e) => { e.stopPropagation(); start(); });
 
   /* ---------- boot ---------- */
+  function buildLanguageSelect() {
+    el.langSelect.innerHTML = LANGS.map(
+      (l) => `<option value="${l.code}"${l.code === lang ? " selected" : ""}>${escapeHtml(l.native)}</option>`
+    ).join("");
+    el.langSelect.value = lang;
+  }
+
   function buildRail() {
     el.rail.innerHTML = "";
     scenes.forEach((s, i) => {
@@ -260,7 +332,7 @@
       b.className = "tick";
       b.type = "button";
       b.setAttribute("role", "tab");
-      b.setAttribute("aria-label", `${i + 1}: ${(s[lang] || s.ja).title}`);
+      b.setAttribute("aria-label", `${i + 1}: ${copyFor(s).title}`);
       b.setAttribute("aria-current", i === 0 ? "true" : "false");
       b.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -271,8 +343,7 @@
     });
   }
 
-  if (!scenes.length || !C.ui.ja) {
-    // markup and scripts came from different deploys (stale cache)
+  if (!scenes.length || !C.ui.en) {
     const u = new URL(location.href);
     if (!u.searchParams.get("fresh")) {
       u.searchParams.set("fresh", "1");
@@ -289,9 +360,9 @@
   }
 
   resize();
+  buildLanguageSelect();
   buildRail();
 
-  // Deep link: #3 (or ?scene=3) opens that scene without the cover.
   const deep = (function () {
     const m = (location.hash || "").match(/(\d+)/);
     if (m) return parseInt(m[1], 10) - 1;
@@ -304,15 +375,25 @@
     el.cover.classList.add("hidden");
     index = deep;
     el.btnAudio.setAttribute("aria-pressed", "false");
-    A.on = false;                       // no audio until the user asks for it
+    A.on = false;
   } else {
     started = false;
   }
 
+  // first paint with whatever we already have (ja/en inline, others after load)
   renderScene(index, 0, true);
   if (deep >= 0) started = true;
   window.__booted = true;
   drawFrame(performance.now());
+
+  // if the chosen language is lazy, load it and re-render in place
+  if (!hasLocale(lang)) {
+    const wanted = lang;
+    loadLocale(wanted).then((ok) => {
+      if (ok && wanted === lang) { applyChrome(); renderScene(index, 0, true); }
+      else if (!ok) setLang("en", { silent: true });
+    });
+  }
 
   if (new URLSearchParams(location.search).get("debug") === "1") {
     setTimeout(function () {
@@ -327,14 +408,15 @@
         Math.round(el.scene.width * 0.65), Math.round(el.scene.height * 0.55)).data;
       let band = 0;
       for (let i = 0; i < b.length; i += 4) { if (b[i] + b[i + 1] + b[i + 2] > 120) band++; }
-      const pm = " panel=" + el.panel.scrollHeight + "/" + el.panel.clientHeight +
-        " more=" + (el.more && !el.more.hidden) + " points=" + el.points.children.length;
-      document.title = "DEBUG lang=" + lang + pm + " err=" + (window.__drawErr || "none") +
-        " stack=" + (window.__drawStack || "-") + " band=" + band + " lit=" + lit +
-        " max=" + max + " size=" + el.scene.width + "x" + el.scene.height +
-        " scene=" + index + " visual=" + (scenes[index].visual || {}).type +
-        " t=" + ((performance.now() - sceneStart) / 1000).toFixed(1);
-    }, 1400);
+      document.title = "DEBUG loaded=" + Object.keys(LOCALES).join(",") +
+        " lang=" + lang + " dir=" + document.documentElement.dir +
+        " locale=" + (hasLocale(lang) ? "loaded" : "missing") +
+        " panel=" + el.panel.scrollHeight + "/" + el.panel.clientHeight +
+        " more=" + (el.more && !el.more.hidden) + " points=" + el.points.children.length +
+        " err=" + (window.__drawErr || "none") +
+        " band=" + band + " lit=" + lit + " max=" + max +
+        " scene=" + index + " title=" + el.title.textContent.slice(0, 24);
+    }, 1500);
   }
 
   requestAnimationFrame((now) => { last = now; loop(now); });
