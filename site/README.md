@@ -48,6 +48,14 @@ Everything is synthesised in the browser; there are no audio files to license or
   reverb impulse. Scheduled with a 140 ms lookahead so it does not drift.
 - Audio only starts after a gesture (browser rule). `M` or the SOUND button toggles everything.
 
+## Phone layout
+
+The page is viewport-locked (`height:100dvh`, one screen, no page scroll) and the **text panel is
+its own scroller**: `@media (max-width:720px)` tightens type instead of hiding copy, and when a
+scene's copy does not fit — common on landscape phones — the panel scrolls and a `▾ 続き / more`
+chip appears until you reach the end. Animated assets are cached per deploy, so the scroll state
+and the language survive scene changes; each scene resets to the top of its own text.
+
 ## Bilingual (JA / EN)
 
 Every scene carries `ja` and `en` copy in `data.js`; numbers, visuals and audio cues are shared.

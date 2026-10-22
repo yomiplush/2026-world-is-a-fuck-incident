@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#05080d">
 <title>OCT 2026 — Incident Briefing</title>
 <meta name="description" content="2026年10月に重なったセキュリティ事案を、タップで進むブリーフィング形式のモーショングラフィックスで時系列に追う。">
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./style.css?v=5">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070b12'/><path d='M6 22 L16 8 L26 22' stroke='%23ffb545' stroke-width='2' fill='none'/><circle cx='16' cy='22' r='2.5' fill='%23ffb545'/></svg>">
 </head>
 <body>
@@ -26,9 +26,12 @@
       <span id="chapter" class="chapter">BRIEFING 00</span>
     </div>
     <div class="hud-right">
-      <button id="btn-lang" class="chip" title="言語 / Language (L)">EN</button>
-      <button id="btn-audio" class="chip" aria-pressed="true" title="サウンド (M)">SOUND ON</button>
-      <button id="btn-info" class="chip" title="出典">SOURCES</button>
+      <div class="lang" id="lang" role="group" aria-label="Language / 言語">
+        <button type="button" class="langbtn" data-lang="ja" aria-pressed="true">JA</button>
+        <button type="button" class="langbtn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" id="btn-audio" class="chip" aria-pressed="true" title="サウンド (M)">SOUND ON</button>
+      <button type="button" id="btn-info" class="chip" title="出典">SOURCES</button>
     </div>
   </header>
 
@@ -46,12 +49,13 @@
   <footer class="hud-bottom">
     <div class="rail" id="rail" role="tablist" aria-label="scene jump"></div>
     <div class="nav">
-      <button id="btn-prev" class="navbtn" aria-label="前へ">◀</button>
-      <button id="btn-next" class="navbtn primary" aria-label="次へ">
+      <button type="button" id="btn-prev" class="navbtn" aria-label="前へ">◀</button>
+      <button type="button" id="btn-next" class="navbtn primary" aria-label="次へ">
         <span class="next-label">TAP</span>
         <span class="next-arrow">▸</span>
       </button>
     </div>
+    <span class="more" id="more" hidden>▾ 続き / more</span>
     <p class="hint" id="hint">画面をタップ / クリック / スペース</p>
   </footer>
 
@@ -61,7 +65,7 @@
       <p class="cover-kicker" id="cover-kicker">INCIDENT BRIEFING · 2026-10</p>
       <h2 class="cover-title"><span id="cover-title-a">ONE MONTH,</span><br><em id="cover-title-b">15 INCIDENTS.</em></h2>
       <p class="cover-sub" id="cover-sub">October 2026, in the order it happened.<br>Tap to advance. Sound is on.</p>
-      <button id="btn-start" class="start">TAP TO BEGIN</button>
+      <button type="button" id="btn-start" class="start">TAP TO BEGIN</button>
       <p class="cover-foot" id="cover-foot">Every claim traces to a primary source.</p>
     </div>
   </div>
@@ -70,7 +74,7 @@
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-head">
       <h3 id="drawer-title">SOURCES</h3>
-      <button id="btn-close" class="chip" aria-label="閉じる">CLOSE</button>
+      <button type="button" id="btn-close" class="chip" aria-label="閉じる">CLOSE</button>
     </div>
     <ul id="source-list"></ul>
     <p class="drawer-foot" id="drawer-foot">
@@ -80,9 +84,9 @@
   </aside>
 </main>
 
-<script src="./data.js"></script>
-<script src="./audio.js"></script>
-<script src="./visuals.js"></script>
-<script src="./app.js"></script>
+<script src="./data.js?v=5"></script>
+<script src="./audio.js?v=5"></script>
+<script src="./visuals.js?v=5"></script>
+<script src="./app.js?v=5"></script>
 </body>
 </html>
