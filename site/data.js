@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache とカーネルの追補、10-23 の追記3件つき。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache とカーネルの追補、10-23 の追記7件つき。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出所はすべて一次ソース。1件だけ未確認（ConnectWise）。",
       drawerTitle: "出典 / SOURCES",
       drawerFoot: "14/15 は一次ソースで確認済み。ConnectWise は未確認として記載。",
-      asof: "2026-10-23 10:36 JST 時点",
+      asof: "2026-10-23 20:30 JST 時点",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus Apache and kernel addenda and three 10-23 postscript scenes. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus Apache and kernel addenda and seven 10-23 postscript scenes. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Every claim traces to a primary source. One row (ConnectWise) is unverified.",
       drawerTitle: "SOURCES",
       drawerFoot: "14 of 15 verified against primary sources. ConnectWise is carried as unverified.",
-      asof: "as of 2026-10-23 10:36 JST",
+      asof: "as of 2026-10-23 20:30 JST",
       lang: "EN"
     }
   },
@@ -729,6 +729,154 @@ window.CONTENT = {
       }
     },
     {
+      id: "node2shell", stamp: "10.22",
+      metric: { val: "24.22.0", label: { ja: "動いた版 : 拒否した版は 24.22.1", en: "exploited build : 24.22.1 rejects it" } },
+      visual: { type: "decode" }, cue: "crack",
+      sources: [
+        { name: "Imperva · Node2Shell", url: "https://www.imperva.com/blog/node2shell-from-brotli-data-to-remote-code-execution/",
+          note: { ja: "公式 24.22.0 arm64 イメージでの実証。両経路と固定したミドルウェア版", en: "the demonstration on the stock 24.22.0 arm64 image, both paths, pinned middleware" } },
+        { name: "The Hacker News on X", url: "https://x.com/TheHackersNews/status/2113538808126038500",
+          note: { ja: "この回の出発点になった投稿（07:51 UTC）", en: "the post that started this read (07:51 UTC)" } },
+        { name: "Node.js advisory", url: "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases",
+          note: { ja: "CVE-2026-111497 と修正版 22.23.4 / 24.22.1 / 26.12.1", en: "CVE-2026-111497 and the fixed 22.23.4 / 24.22.1 / 26.12.1" } },
+        { name: "docs/22 §2", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/22-snapshot-2015jst.md",
+          note: { ja: "到達経路の訂正と、検証していない範囲", en: "the reachability correction and what was not tested" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · NODE.JS",
+        title: "公式ビルドで、動いてしまった。",
+        lede: "Imperva が、配布されている Node.js 24.22.0 のイメージ上で、細工した Brotli データからコード実行に成功しました。デバッガも、計測ビルドも要りません。",
+        points: [
+          "入口は2つ。<code>fetch()</code> が信頼できない Brotli 応答を消費する経路と、Express 5 / body-parser 2 がリクエストボディを展開する経路。素の <code>http.createServer()</code> は自動では展開しない",
+          "検証は 24.22.0 Linux arm64 の1ビルド。22.x / 26.x と他のアーキテクチャは未検証で、成功まで複数回の試行を要した",
+          "同じ入力は <b>24.22.1</b> が拒否する。実環境の悪用報告はまだ無い",
+          "NVD のレコードは CVSS 4.0 の <b>9.2</b> だけで、3.1 が無い。深刻度で絞った CRITICAL 一覧には出てこない"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · NODE.JS",
+        title: "On an official build, it worked.",
+        lede: "Imperva ran code on the stock Node.js 24.22.0 image from crafted Brotli data — no debugger, no instrumented build.",
+        points: [
+          "Two entry paths: <code>fetch()</code> consuming an untrusted Brotli response, and Express 5 / body-parser 2 inflating a request body. A bare <code>http.createServer()</code> inflates neither",
+          "One build was tested (24.22.0, Linux arm64); 22.x, 26.x and other architectures were not, and it took several attempts",
+          "<b>24.22.1</b> rejects the same bytes. No in-the-wild exploitation is reported",
+          "The NVD record carries CVSS 4.0 <b>9.2</b> and no 3.1 score, so a severity-filtered CRITICAL list never shows it"
+        ]
+      }
+    },
+    {
+      id: "prepatch", stamp: "10.17",
+      metric: { val: "4 days", label: { ja: "最初の試行 → 勧告", en: "first attempt → advisory" } },
+      visual: { type: "before" }, cue: "alarm",
+      sources: [
+        { name: "AWS · MadPot telemetry", url: "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/",
+          note: { ja: "2026-10-17 の悪用試行、10-21 02:00 UTC の PoC、IOC", en: "the 2026-10-17 attempt, PoCs from 10-21 02:00 UTC, IOCs" } },
+        { name: "Imperva · first 24 hours", url: "https://www.imperva.com/blog/php2shell-early-attack-activity-through-impervas-lens/",
+          note: { ja: "482,342 リクエスト / 21,998 サイト / 103 か国。試行であって侵害ではない", en: "482,342 requests / 21,998 sites / 103 countries — attempts, not compromises" } },
+        { name: "docs/01", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/01-php2shell.md",
+          note: { ja: "修正版と検知の手順", en: "the fixed versions and the hunt" } },
+        { name: "docs/22 §3", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/22-snapshot-2015jst.md",
+          note: { ja: "「試行」と「侵害」を混ぜない整理", en: "why attempts and compromises are kept apart" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · PHP2SHELL",
+        title: "勧告の4日前に、試行は始まっていた。",
+        lede: "AWS のハニーポットには 2026-10-17 の悪用試行が残り、公開 PoC はエンバーゴ解除の12時間前から出ていました。開示日は、最初の攻撃日ではありません。",
+        points: [
+          "修正前の24時間で <b>482,342</b> リクエスト / 122,311 セッション / 21,998 サイト / 103 か国（Imperva の観測）",
+          "ただし<b>試行</b>であって侵害ではない。Sophos は Mirai 派生の設置に失敗したとし、Dataminr は既知の侵害ゼロ",
+          "KEV は依然として未収載。EPSS は 5.31% / 5.76%",
+          "調査の起点は <b>10-17</b>。開示日から始めると、最初の4日が抜ける"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · PHP2SHELL",
+        title: "The attempts began four days before the advisory.",
+        lede: "AWS honeypot telemetry holds an exploitation attempt dated 2026-10-17, and working PoCs were seen twelve hours before the embargo lifted. Disclosure day was not day one.",
+        points: [
+          "<b>482,342</b> requests / 122,311 sessions / 21,998 sites / 103 countries in the first 24 hours (Imperva)",
+          "Those are <b>attempts</b>, not compromises: Sophos saw the Mirai install fail, and Dataminr reports no known compromises",
+          "Still not in KEV. EPSS 5.31% / 5.76%",
+          "Hunt from <b>10-17</b>. Starting at the disclosure date loses the first four days"
+        ]
+      }
+    },
+    {
+      id: "filters", stamp: "10.23",
+      metric: { val: "0 rows", label: { ja: "CNA の 9.9 に対する返答", en: "the answer for a CNA 9.9" } },
+      visual: { type: "funnel" }, cue: "glitch",
+      sources: [
+        { name: "NVD API · filtered", url: "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-91637&cvssV3Severity=CRITICAL",
+          note: { ja: "9.9 があるのに totalResults は 0", en: "totalResults 0, despite a 9.9 on the record" } },
+        { name: "NVD · CVE-2026-111497", url: "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111497",
+          note: { ja: "CVSS 4.0 のみ。3.1 は無い", en: "CVSS 4.0 only; no 3.1 metric" } },
+        { name: "docs/22 §1.2", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/22-snapshot-2015jst.md",
+          note: { ja: "6件が出て0件が入った、104 → 98 の内訳", en: "the 104 → 98 accounting: six out, zero in" } },
+        { name: "docs/13 §5.4", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/13-recent-criticals.md",
+          note: { ja: "件数はリスクではなく開示のまとめ方を測る", en: "a count measures disclosure batching, not risk" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · THE FILTER",
+        title: "9.9 でも、一覧には出ない。",
+        lede: "NVD の深刻度フィルタは、自分（Primary）の CVSS 3.x だけを数えます。CNA が付けた 9.9 は、同じレコードに載っていても 0 件の答えになります。",
+        points: [
+          "<code>?cveId=CVE-2026-91637&amp;cvssV3Severity=CRITICAL</code> は <b>0件</b>。レコードには 9.9（Secondary）がある",
+          "同じ理由で、悪用中の <code>CVE-2026-111497</code>（CVSS 4.0 のみ 9.2）と <code>CVE-2026-114625</code>（CNA 9.9）も一覧に出ない",
+          "10時間で <b>104 → 98</b>。6件が出て0件が入り、直ったものは無い",
+          "全深刻度の公開スイープとベンダフィードは、両方を拾っている。絞った一覧は「何が悪用されているか」に答えない"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · THE FILTER",
+        title: "A 9.9 that the list cannot show.",
+        lede: "NVD's severity filter counts only its own (primary) CVSS 3.x score. A 9.9 attached by the CNA is a zero-row answer, even though the record carries it.",
+        points: [
+          "<code>?cveId=CVE-2026-91637&amp;cvssV3Severity=CRITICAL</code> returns <b>0 rows</b>; the record holds a 9.9, marked <code>Secondary</code>",
+          "Same for the exploited <code>CVE-2026-111497</code> (CVSS 4.0 only, 9.2) and <code>CVE-2026-114625</code> (CNA 9.9)",
+          "Ten hours: <b>104 → 98</b>. Six rows out, zero in, nothing fixed",
+          "The all-severity sweep and the vendor feeds caught both. A filtered list does not answer \'what is being exploited\'"
+        ]
+      }
+    },
+    {
+      id: "wide", stamp: "10.22–23",
+      metric: { val: "4", label: { ja: "CVE 一覧が名指ししない事案", en: "incidents no CVE list named" } },
+      visual: { type: "ledger" }, cue: "confirm",
+      sources: [
+        { name: "Arista advisory 0199", url: "https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199",
+          note: { ja: "CVE-2026-114625。取得時は 406 で、役割と IOC は報道経由（二次）", en: "CVE-2026-114625; the page 406s, so role and IOCs are via press (secondary)" } },
+        { name: "Capcom · 2026-10-22", url: "https://www.capcom.co.jp/ir/news/html/261022.html",
+          note: { ja: "11,774,247件の内訳と経緯", en: "the 11,774,247 breakdown and timeline" } },
+        { name: "Onamae.com · 2026-10-21", url: "https://www.onamae.com/news/article/11584",
+          note: { ja: "最大 26,739 台を停止、資格情報の変更依頼", en: "up to 26,739 servers suspended, credential rotation" } },
+        { name: "docs/22 §4", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/22-snapshot-2015jst.md",
+          note: { ja: "確認できたこと / できていないことの表", en: "the verified / not-verified table" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · THE WIDE SWEEP",
+        title: "CVE 一覧が名指ししない4件。",
+        lede: "この回はニュースと X も取りました。そこから先に見つかり、一次ソースで裏を取った4件。数字はベンダが公表したままです。",
+        points: [
+          "Arista VeloCloud Orchestrator <code>CVE-2026-114625</code>: 悪用中の 0-day、<b>9.9</b>。ログイン済みなら superuser。オンプレは 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
+          "Linux KSMBD: <code>ZDI-CAN-33774</code> は認証不要の 9.0。CVE も mainline 修正もまだ無い",
+          "カプコン CAPCOM ID <b>11,774,247</b> 件。お名前.com デスクトップクラウドは最大 <b>26,739</b> 台を停止",
+          "報道は導線、根拠はベンダのページ。Arista だけは取得時にページが開けず、役割と IOC を報道経由（二次）で補った"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · THE WIDE SWEEP",
+        title: "Four incidents no CVE list named.",
+        lede: "This read also collected the news and X. Four incidents were found there first, then checked against the vendor's own page. Figures are the vendors'.",
+        points: [
+          "Arista VeloCloud Orchestrator <code>CVE-2026-114625</code>: an exploited 0-day at <b>9.9</b>; any logged-in user becomes a superuser. On-prem fix 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
+          "Linux KSMBD: <code>ZDI-CAN-33774</code> needs no authentication, scores 9.0, and has neither a CVE nor a mainline fix",
+          "Capcom CAPCOM ID: <b>11,774,247</b> records. Onamae Desktop Cloud suspended up to <b>26,739</b> servers",
+          "The press is the lead, the vendor page is the evidence. Arista's page would not open, so role and IOCs come via press (secondary)"
+        ]
+      }
+    },
+    {
       id: "closing", stamp: "NOW",
       metric: null,
       visual: { type: "storm" }, cue: "whoosh",
@@ -745,10 +893,8 @@ window.CONTENT = {
           note: { ja: "カーネル中核の LPE 6件。5件で PoC、修正は既出", en: "six kernel core LPEs, five with PoCs, fix already shipped" } },
         { name: "docs/21 broad sweep 10:36 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/21-snapshot-1036jst.md",
           note: { ja: "全深刻度・パッケージ・開示チャネルまで", en: "every severity, the packages, and the disclosure channel" } },
-        { name: "docs/20 Infinity Core", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/20-infinity-core.md",
-          note: { ja: "カーネル中核の LPE 6件。5件で PoC、修正は既出", en: "six kernel core LPEs, five with PoCs, fix already shipped" } },
-        { name: "docs/21 broad sweep 10:36 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/21-snapshot-1036jst.md",
-          note: { ja: "全深刻度・パッケージ・開示チャネルまで", en: "every severity, the packages, and the disclosure channel" } },
+        { name: "docs/22 wide read 20:15 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/22-snapshot-2015jst.md",
+          note: { ja: "Node2Shell、開示前の試行、フィルタの盲点、ニュース経由の4件", en: "Node2Shell, pre-disclosure attempts, the filter blind spot, four news-led incidents" } },
         { name: "Repository", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident",
           note: { ja: "一次ソースと検証コマンド", en: "primary sources and re-fetch commands" } }
       ],

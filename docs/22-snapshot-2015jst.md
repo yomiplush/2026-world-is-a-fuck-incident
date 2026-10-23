@@ -239,6 +239,10 @@ Nothing in this table is a reason to skip the KEV deadline that lands today.
   mapping **0/342**, CVSS 3.1 present on 244, CVSS 4.0 on 179. Nothing here is broken; the queue
   is simply longer than the news cycle.
 
+**Deck.** The same four items are scenes 21–24 of the tap-through briefing in `site/`
+(`node2shell`, `prepatch`, `filters`, `wide`), each with its own motion graphic and sources
+drawer; the deck is 25 scenes now, and its cover copy and metadata say so.
+
 ## 7. Reproduce
 
 ```bash

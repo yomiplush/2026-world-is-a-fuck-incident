@@ -4,19 +4,23 @@ A single-page, tap-to-advance motion-graphic briefing of the October 2026 incide
 chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).
 Deployed to Cloudflare Pages.
 
-**Twenty-one scenes**: the fifteen checked incidents, two addenda (Apache, and six ZDI reports
-posted to the public LKML), and — appended on 2026-10-23 — **three postscript scenes**: *Infinity
+**Twenty-five scenes**: the fifteen checked incidents, two addenda (Apache, and six ZDI reports
+posted to the public LKML), and — appended on 2026-10-23 — **seven postscript scenes**: *Infinity
 Core* (six kernel core LPEs, five with public root PoCs), *the blind spot* (why no sweep found
-them), and *the ecosystem* (58 package advisories in 24 h, two criticals with no CVE). **Drag or
-press-and-hold the scene to tilt the 3D view** — release springs it back to the scene's own angle;
+them), *the ecosystem* (58 package advisories in 24 h, two criticals with no CVE), then a
+second set added with `docs/22`: *Node2Shell* (a working exploit on a stock Node.js build),
+*the pre-disclosure attempts* (php2shell from 10-17), *the filter* (a CNA 9.9 is a 0-row
+answer), and *the wide sweep* (four incidents no CVE list named). **Drag or press-and-hold the
+scene to tilt the 3D view** — release springs it back to the scene's own angle;
 `?tilt=yaw,pitch` presets it.
 
 ```
 site/
   index.html    markup + HUD (no build step, no framework)
   style.css     HUD/Briefing look, responsive, reduced-motion + ?still=1 static mode
-  data.js       the 21 scenes: copy, numbers, per-scene sources
-  visuals.js    17 canvas renderers (radar, chain, bars, clock, keys, leak, core, channels, stack, …)
+  data.js       the 25 scenes: copy, numbers, per-scene sources
+  visuals.js    22 canvas renderers (radar, chain, bars, clock, keys, leak, core, channels, stack,
+                decode, before, funnel, ledger, …)
   audio.js      Web Audio synthesis: 7 SFX + a generative lofi loop (no samples)
   app.js        scene controller, input, canvas loop, deep links, sources drawer
 ```
@@ -56,7 +60,7 @@ Everything is synthesised in the browser; there are no audio files to license or
   reverb impulse. Scheduled with a 140 ms lookahead so it does not drift.
 - Audio only starts after a gesture (browser rule). `M` or the SOUND button toggles everything.
 
-## The 10-23 postscript (three scenes, 18-20)
+## The 10-23 postscript (seven scenes, 18-24)
 
 Added after the broad sweep in `docs/21`: the deck keeps its chronological body and appends a
 postscript, because these are **not** new incidents — they are older CVEs whose meaning changed.
@@ -69,9 +73,21 @@ postscript, because these are **not** new incidents — they are older CVEs whos
 - **20 `ecosystem`** (`visual: stack`) — a drifting deck of GitHub advisories; `NO CVE` is stamped
   on the two Next.js criticals that have no CVE id.
 
-All three are `ja`/`en` inline in `data.js`. The other ten locales fall back to English for these
+Scenes 21-24 came with `docs/22` and are `ja`/`en` inline in `data.js`:
+
+- **21 `node2shell`** (`visual: decode`) — two entry paths into the decoder Node.js bundles, one
+  path that never reaches it, and a marker file that appears in the process only after the crafted
+  block lands. The fixed build sits on the same wire, labelled `FORMAT ERROR`.
+- **22 `prepatch`** (`visual: before`) — the axis is time, and the first attempt sits four days to
+  the left of `PATCH`; the numbers above it are the first 24 hours of attempts, not compromises.
+- **23 `filters`** (`visual: funnel`) — three cards (CVSS 4.0 only, CNA, CNA) hit the
+  `cvssV3Severity=CRITICAL` gate and bounce back as `0 ROWS`; one primary-scored card passes.
+- **24 `wide`** (`visual: ledger`) — four incidents the CVE lists did not name, each row marked
+  through the news channel on the left and verified against the vendor page on the right.
+
+All seven are `ja`/`en` inline in `data.js`. The other ten locales fall back to English for these
 scenes (field-by-field fallback, by design) until someone translates them; `i18n/<code>.js` gains
-three entries each when that happens.
+seven entries each when that happens.
 
 ## Camera tilt (drag / hold)
 
