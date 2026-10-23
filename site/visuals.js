@@ -9,7 +9,7 @@ window.VISUALS = (function () {
 
   /* ---------- user tilt (drag / long-press) ---------- */
   const TILT = { yaw: 0, pitch: 0 };
-  const SCREEN_SPACE = new Set(["radar", "clock", "matrix", "storm"]);
+  const SCREEN_SPACE = new Set(["radar", "clock", "matrix", "storm", "channels", "stack"]);
 
   /* ---------- camera ---------- */
   const VIEW = { zoom: 0.62 };
@@ -586,6 +586,192 @@ window.VISUALS = (function () {
     }
     ctx.restore();
   }
+
+
+  /* ---------- postscript: kernel core, disclosure gap, package deck ---------- */
+
+  /* Infinity Core: a hex "kernel core" with six satellite subsystems, each of
+     which periodically strikes the core (the UAF), and a marked exit to root.
+     Reproduced from docs/20 — six CVEs, five with public root PoCs. */
+  scenes.core = (ctx, w, h, t, o) => {
+    const c = cam(t, { pitch: -0.20, dist: 1080, spin: true, yaw: 0.22 });
+    const parts = o.parts || ["TIMER", "SIGNAL", "MM", "FUTEX", "SCHED", "SLAB"];
+    // a thin orbit instead of a floor: the horizon line competes with the core
+    ctx.save();
+    ctx.setLineDash([3, 7]);
+    for (let k = 0; k < 2; k++) {
+      const pts = [];
+      for (let i = 0; i <= 48; i++) {
+        const a = (i / 48) * TAU;
+        pts.push(project(c, Math.cos(a) * (300 + k * 120), Math.sin(a) * (170 + k * 70), k ? 90 : -90, w, h));
+      }
+      poly(ctx, pts, "rgba(88,224,255,.16)", 1.1, true);
+    }
+    ctx.restore();
+    const R = 152, zA = -72, zB = 72;
+
+    const hexAt = (r, z) => Array.from({ length: 6 }, (_, i) => {
+      const a = (i / 6) * TAU + Math.PI / 6;
+      return project(c, Math.cos(a) * r, Math.sin(a) * r * 0.62, z, w, h);
+    });
+    const inner = hexAt(R * 0.62, 0);
+    poly(ctx, hexAt(R, zA), "rgba(88,224,255,.20)", 1.3, true);
+    for (let i = 0; i < 6; i++) {
+      const a = hexAt(R, zA)[i], b = hexAt(R, zB)[i];
+      poly(ctx, [a, b], "rgba(88,224,255,.34)", 1.2, false);
+    }
+
+    let strikes = 0;
+    const centre = project(c, 0, 0, 0, w, h);
+    parts.forEach((name, i) => {
+      const ang = (i / 6) * TAU - Math.PI / 2;
+      const p3 = [Math.cos(ang) * 372, Math.sin(ang) * 196, i % 2 ? 46 : -46];
+      const q = project(c, p3[0], p3[1], p3[2], w, h);
+      // each satellite fires once per loop; the last one is the panic-only SLAB bug
+      const k = (((t * 0.30 + i * 0.145) % 1) + 1) % 1;
+      const s2 = k < 0.3 ? Math.sin((k / 0.3) * Math.PI) : 0;
+      if (s2 > 0.02) {
+        strikes += s2;
+        poly(ctx, [q, centre], `rgba(255,91,87,${0.62 * s2})`, 2.4, false);
+        glowDot(ctx, [q[0] + (centre[0] - q[0]) * 0.5, q[1] + (centre[1] - q[1]) * 0.5], 2.4, C.red, 0.55 * s2);
+      }
+      const panic = name === "SLAB";
+      ctx.beginPath(); ctx.arc(q[0], q[1], 10, 0, TAU);
+      ctx.strokeStyle = panic ? C.dim : C.cyan; ctx.lineWidth = 1.3; ctx.stroke();
+      glowDot(ctx, q, panic ? 2.6 : 3.4 + s2 * 2, panic ? C.dim : C.cyan, 0.35 + s2 * 0.5);
+      label(ctx, [q[0], q[1] + (p3[1] > 0 ? 24 : -18)], name, panic ? C.dim : C.cyan, 9.5);
+    });
+
+    const pulse = Math.min(1, strikes / 2);
+    poly(ctx, hexAt(R, zB), `rgba(255,91,87,${0.35 + pulse * 0.5})`, 2, true);
+    poly(ctx, inner, `rgba(255,181,69,${0.3 + pulse * 0.55})`, 1.6, true);
+    const gr = ctx.createRadialGradient(centre[0], centre[1], 0, centre[0], centre[1], 96);
+    gr.addColorStop(0, `rgba(255,91,87,${0.10 + pulse * 0.22})`);
+    gr.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = gr;
+    ctx.beginPath(); ctx.arc(centre[0], centre[1], 120, 0, TAU); ctx.fill();
+    label(ctx, [centre[0], centre[1] + 4], "KERNEL", C.ink, 11);
+
+    // exit to root: lights up once the strikes land
+    const exitA = project(c, -640, 300, 0, w, h), exitB = project(c, -240, 128, 0, w, h);
+    ctx.save();
+    ctx.setLineDash([6, 7]);
+    ctx.lineDashOffset = -((t * 34) % 13);
+    poly(ctx, [exitA, exitB], `rgba(255,181,69,${0.25 + pulse * 0.55})`, 1.6, false);
+    ctx.restore();
+    label(ctx, [exitA[0], exitA[1] + 20], "HOST ROOT", C.amber, 9.5);
+    label(ctx, [w / 2, h * 0.13], "5 OF 6 ESCAPE A CONTAINER", "rgba(255,181,69,.55)", 9.5);
+    if (o.fixed) label(ctx, [w / 2, h * 0.13 + 16], o.fixed, "rgba(110,242,176,.75)", 9.5);
+  };
+
+  /* The blind spot: three sweep columns (published / modified / feeds) with a
+     falling marker that passes between them, and a fourth column — the
+     disclosure channel — that catches it. See docs/21 §3. */
+  scenes.channels = (ctx, w, h, t, o) => {
+    const m = Math.max(18, Math.min(w, h) * 0.05);
+    const labels = o.labels || ["PUBLISHED", "MODIFIED", "FEEDS", "OSS-SEC"];
+    const top = h * 0.16, bot = h * 0.80;
+    const span = w - m * 2;
+    const cw = Math.min(118, span / 5.4);
+    const xs = labels.map((_, i) => m + span * (0.18 + i * 0.215));
+
+    labels.forEach((name, i) => {
+      const x = xs[i], isGap = i === labels.length - 1;
+      ctx.save();
+      ctx.globalAlpha = isGap ? 0.9 : 0.55;
+      ctx.strokeStyle = isGap ? C.green : C.cyan;
+      ctx.lineWidth = 1.2;
+      ctx.strokeRect(x - cw / 2, top, cw, bot - top);
+      ctx.restore();
+      label(ctx, [x, top - 12], name, isGap ? C.green : C.dim, 9);
+
+      // records drifting down inside the column
+      for (let k = 0; k < 6; k++) {
+        const y = top + ((k * 109 + t * 22) % (bot - top));
+        const wd = cw * (0.26 + ((k * 37) % 42) / 100);
+        ctx.globalAlpha = 0.11 + 0.07 * Math.sin((k + t) * 1.3);
+        ctx.fillStyle = isGap ? C.green : C.cyan;
+        ctx.fillRect(x - wd / 2, y, wd, 2.5);
+      }
+      ctx.globalAlpha = 1;
+      // the scan beam
+      const by = top + ((t * 0.42 + i * 0.21) % 1) * (bot - top);
+      ctx.globalAlpha = 0.35;
+      poly(ctx, [[x - cw / 2, by], [x + cw / 2, by]], isGap ? C.green : C.amber, 1.6, false);
+      ctx.globalAlpha = 1;
+    });
+
+    // the item that none of the three sweeps can see, caught by the fourth
+    const k = ((t * 0.16) % 1);
+    const y = top + 12 + k * (bot - top - 40);
+    const xa = xs[0] + (xs[1] - xs[0]) / 2, xb = xs[1] + (xs[2] - xs[1]) / 2;
+    const x = k < 0.62 ? xa + (xb - xa) * (k / 0.62) : xs[3] + (xb - xs[3]) * ((k - 0.62) / 0.38) * -1 + (xb - xs[3]) * ((k - 0.62) / 0.38);
+    const caught = k > 0.8;
+    ctx.beginPath();
+    ctx.moveTo(x, y - 9); ctx.lineTo(x + 9, y); ctx.lineTo(x, y + 9); ctx.lineTo(x - 9, y);
+    ctx.closePath();
+    ctx.strokeStyle = caught ? C.green : C.red;
+    ctx.lineWidth = 1.6; ctx.stroke();
+    glowDot(ctx, [x, y], 2.4, caught ? C.green : C.red, 0.7);
+    label(ctx, [x, y - 16], caught ? "CAUGHT" : "INFINITY CORE", caught ? C.green : C.red, 9);
+
+    label(ctx, [xs[1], bot + 18], "MISSED", "rgba(255,91,87,.7)", 9);
+    label(ctx, [xs[3], bot + 18], "CAUGHT", "rgba(110,242,176,.8)", 9);
+    label(ctx, [w / 2, h * 0.09], "A SWEEP SEES WHAT THE DATABASE DID", "rgba(88,224,255,.5)", 9.5);
+    label(ctx, [w / 2, h * 0.09 + 15], "NOT WHAT CHANGED MEANING", "rgba(150,175,195,.65)", 9.5);
+  };
+
+  /* The package deck: GitHub advisories published in 24 h, severity on the
+     spine, and the two criticals that carry no CVE at all (docs/21 §2.3). */
+  scenes.stack = (ctx, w, h, t, o) => {
+    const cards = o.cards || [
+      { name: "NEXT.JS use cache", sev: "crit", fix: "16.4.1", cve: null },
+      { name: "NEXT.JS /_next/image", sev: "crit", fix: "15.5.28", cve: null },
+      { name: "DOMPURIFY", sev: "crit", fix: "3.4.17", cve: "3.4.17" },
+      { name: "PILLOW", sev: "crit", fix: "13.0.0", cve: "CVE-2026-96639" },
+      { name: "GITPYTHON", sev: "high", fix: "3.2.1", cve: "CVE-2026-114145" },
+      { name: "STORYBOOK", sev: "high", fix: "8.6.19", cve: "CVE-2026-114126" }
+    ];
+    const n = cards.length;
+    const cw = Math.min(w * 0.42, 306), ch = Math.min(60, h * 0.085);
+    const cx = w * 0.54;
+    const drift = (t * 16) % (n * (ch + 18));
+    for (let pass = 0; pass < 2; pass++) {
+      cards.forEach((card, i) => {
+        const raw = i * (ch + 18) - drift + pass * n * (ch + 18);
+        const y = h * 0.22 + raw * 0.62;
+        if (y < -ch || y > h * 1.1) return;
+        const depth = 1 - i * 0.055;
+        const w2 = cw * depth, h2 = ch * depth;
+        const x = cx + i * 14 - (n * 7);
+        const alpha = 0.55 + 0.35 * depth;
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = "rgba(10,20,30,.92)";
+        ctx.fillRect(x - w2 / 2, y, w2, h2);
+        ctx.strokeStyle = card.sev === "crit" ? C.red : C.amber;
+        ctx.lineWidth = 1.2;
+        ctx.strokeRect(x - w2 / 2, y, w2, h2);
+        ctx.fillStyle = card.sev === "crit" ? C.red : C.amber;
+        ctx.fillRect(x - w2 / 2, y, 4, h2);
+        ctx.restore();
+        label(ctx, [x - w2 / 2 + 12, y + h2 * 0.44], card.name, C.ink, 9.5, "left");
+        label(ctx, [x - w2 / 2 + 12, y + h2 * 0.76], "-> " + card.fix, C.green, 9, "left");
+        if (!card.cve) {
+          const bw = 52;
+          ctx.save();
+          ctx.globalAlpha = 0.9;
+          ctx.strokeStyle = C.amber; ctx.lineWidth = 1;
+          ctx.strokeRect(x + w2 / 2 - bw - 8, y + h2 * 0.30, bw, 15);
+          ctx.restore();
+          label(ctx, [x + w2 / 2 - bw / 2 - 8, y + h2 * 0.30 + 11], "NO CVE", C.amber, 8.5);
+        } else {
+          label(ctx, [x + w2 / 2 - 10, y + h2 * 0.30 + 11], card.cve, "rgba(150,175,195,.6)", 7.5, "right");
+        }
+      });
+    }
+    label(ctx, [w * 0.5, h * 0.13], "58 ADVISORIES / 24 H", "rgba(88,224,255,.5)", 9.5);
+  };
 
   /* ---------- entry ---------- */
   return {

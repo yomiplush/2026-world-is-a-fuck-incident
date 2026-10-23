@@ -29,7 +29,7 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache の追補つき。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache とカーネルの追補、10-23 の追記3件つき。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出所はすべて一次ソース。1件だけ未確認（ConnectWise）。",
       drawerTitle: "出典 / SOURCES",
@@ -44,7 +44,7 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus an Apache addendum. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus Apache and kernel addenda and three 10-23 postscript scenes. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Every claim traces to a primary source. One row (ConnectWise) is unverified.",
       drawerTitle: "SOURCES",
@@ -578,9 +578,9 @@ window.CONTENT = {
       }
     },
     {
-      id: "sweep", stamp: "10.22",
-      metric: { val: "124 : 1", label: { ja: "critical CVEs : known exploited", en: "critical CVEs : known exploited" } },
-      visual: { type: "bars", values: [120, 1], labels: ["CRITICAL", "KEV"] }, cue: "confirm",
+      id: "sweep", stamp: "10.23",
+      metric: { val: "104 : 1", label: { ja: "critical CVEs : known exploited", en: "critical CVEs : known exploited" } },
+      visual: { type: "bars", values: [104, 1], labels: ["CRITICAL", "KEV"] }, cue: "confirm",
       sources: [
         { name: "NVD API 2.0", url: "https://services.nvd.nist.gov/rest/json/cves/2.0?cvssV3Severity=CRITICAL",
           note: { ja: "2026-10-08〜10-22", en: "2026-10-08 to 10-22" } },
@@ -591,24 +591,140 @@ window.CONTENT = {
       ],
       ja: {
         kicker: "THE SWEEP · NVD, 14 DAYS",
-        title: "2週間で CRITICAL 124件。悪用は1件。",
-        lede: "件数はリスクではなく、開示のまとめ方を測っている。CVSS の最大値も、他人の仮定を含む。",
+        title: "同じコマンドで 125 → 104。世界は変わっていない。",
+        lede: "窓は「今日」で終わる。だから数字は時計と一緒に動く。件数はリスクではなく、開示と解析のまとめ方を測っている。",
         points: [
-          "124件のうち <b>58%</b> は Oracle とコンシューマ IoT（今日4件増、うち3件は2021/2022のCVE）",
-          "NVD の CPE 紐付けは <b>26%</b> — ベンダ別集計は4分の1しか見えない",
-          "EPSS 最高は 3.0%。KEV 入りの Plex 96656 は <b>0.76%</b>（新しい CVE では使えない）",
+          "9時間前は125件、いまは104件。内訳は <b>−17（窓の端）−4（CRITICAL から離脱）＋0（新規）</b>",
+          "NVD の CPE 紐付けは <b>26%</b>。直近24時間に公開された381件は <b>0%</b>（解析がまだ）",
+          "EPSS 最高は <b>5.76%</b> — php2shell の 109619。ただし 8.1 に下がって CRITICAL の外",
           "CNA と NVD でスコアが割れる: MOVEit / TeamCity は 8.1（AC:H）と 9.8（AC:L）"
         ]
       },
       en: {
         kicker: "THE SWEEP · NVD, 14 DAYS",
-        title: "124 CRITICALs in two weeks. One is exploited.",
-        lede: "The count measures disclosure batching, not risk. A maximum CVSS also carries someone else's assumptions.",
+        title: "Same command: 125, then 104. Nothing was fixed.",
+        lede: "The window ends \'today\', so the number moves with the clock. A count measures disclosure and analysis batching, not risk.",
         points: [
-          "<b>58%</b> of the 124 are Oracle\'s quarterly batch and consumer IoT firmware (four added today, three of them 2021/2022 CVEs)",
-          "only <b>26%</b> have an NVD CPE mapping, so vendor-level counts see a quarter of it",
-          "highest EPSS: 3.0%; the KEV-listed Plex bug sits at <b>0.76%</b> — useless this early",
+          "125 nine hours ago, 104 now: <b>-17</b> at the window edge, <b>-4</b> left the CRITICAL band, <b>+0</b> new",
+          "only <b>26%</b> have an NVD CPE mapping — and of the 381 CVEs published in the last 24 h, <b>0%</b> do",
+          "highest EPSS: <b>5.76%</b> (php2shell 109619) — which has since dropped to 8.1, outside the band",
           "CNA and NVD disagree: MOVEit and TeamCity are 8.1 (AC:H) from the vendor, 9.8 (AC:L) from NVD"
+        ]
+      }
+    },
+    {
+      id: "infinity-core", stamp: "10.16",
+      metric: { val: "6 : 5", label: { ja: "CVE : root 取得 PoC", en: "CVEs : root PoCs" } },
+      visual: { type: "core", parts: ["TIMER", "SIGNAL", "MM", "FUTEX", "SCHED", "SLAB"],
+        fixed: "FIXED: 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8" }, cue: "crack",
+      sources: [
+        { name: "V4bel/InfinityCore", url: "https://github.com/V4bel/InfinityCore",
+          note: { ja: "研究者本人による一次文書。PoC と修正コミット", en: "the researcher's own document, PoCs and fix commits" } },
+        { name: "oss-security 2026-10-16", url: "https://openwall.com/lists/oss-security/2026/10/16/36",
+          note: { ja: "エンバーゴ終了後の公開", en: "published after the linux-distros embargo" } },
+        { name: "linux-cve-announce (98260)", url: "https://lists.openwall.net/linux-cve-announce/2026/10/06/118",
+          note: { ja: "Fixed in 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8 / 7.3-rc4", en: "the per-branch fixed-in lines" } },
+        { name: "docs/20", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/20-infinity-core.md",
+          note: { ja: "docs/17 の6件との違いもここ", en: "including why this is not the six in docs/17" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · LINUX KERNEL",
+        title: "カーネルの中核に、root への近道が6本。",
+        lede: "Hyunwoo Kim が oss-security に公開した「Infinity Core」。5件で非特権から root、同じ5件でコンテナからホストへ抜ける。",
+        points: [
+          "timer / signal / mm / futex / scheduler / SLAB。ネットワークも BPF も user namespace も使わない",
+          "NVD は4件に <b>7.8</b>、2件はスコア無し。6件とも解析前（<code>Received</code>）で KEV には無い",
+          "<b>修正は既に出ている</b>。6.6.158 / 6.12.112 / 6.18.54 / 7.2.8、スケジューラは 7.2.9。現行 stable はすべて超えている",
+          "効くのは<b>再起動</b>。入れただけで古いカーネルで動いていれば、開いたまま"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · LINUX KERNEL",
+        title: "Six shortcuts to root, in the kernel\'s own core.",
+        lede: "Hyunwoo Kim published \'Infinity Core\' on oss-security: five of the six take an unprivileged user to root, and the same five escape a container to the host.",
+        points: [
+          "timer, signal, mm, futex, scheduler, SLAB — no networking, no BPF, no user namespaces needed",
+          "NVD scores four at <b>7.8</b> and two not at all; all six sit at <code>Received</code> and none is in KEV",
+          "<b>The fix already shipped</b>: 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8, scheduler in 7.2.9 — every current stable line is above it",
+          "What works is the <b>reboot</b>. A patched package next to a running old kernel leaves it open"
+        ]
+      }
+    },
+    {
+      id: "blindspot", stamp: "10.23",
+      metric: { val: "0", label: { ja: "この6件を報じたフィード", en: "feeds that carried this" } },
+      visual: { type: "channels" }, cue: "glitch",
+      sources: [
+        { name: "seclists / oss-sec", url: "https://seclists.org/rss/oss-sec.rss",
+          note: { ja: "13本目として追加した開示チャネル", en: "the thirteenth feed, added for this" } },
+        { name: "NVD API 2.0 (pubStartDate)", url: "https://services.nvd.nist.gov/rest/json/cves/2.0",
+          note: { ja: "公開日で引くと 9/4〜10/12 の CVE は出ない", en: "a publication-date sweep cannot see 9/4-10/12 CVEs" } },
+        { name: "docs/21 §3", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/21-snapshot-1036jst.md",
+          note: { ja: "広域スイープで分かった盲点", en: "the blind spot the broad sweep found" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · THE BLIND SPOT",
+        title: "スイープは、データベースの仕事しか見ていない。",
+        lede: "公開日で引いても、更新日で引いても、12本のフィードを読んでも、Infinity Core は出てこなかった。",
+        points: [
+          "CVE の公開日は <b>9/4〜10/12</b>。PoC が出たのは <b>10/16</b> — 6週間のずれ",
+          "NVD レコードは6時間の更新スイープで動いていない。6件とも <code>Received</code>",
+          "フィード13本のタイトルに <code>infinity</code> は <b>0件</b>。RSS もまた窓で、記録はアーカイブ側",
+          "足した軸は<b>開示チャネル</b>。<code>oss-sec</code> を足した回で、他12本が落とした4件が拾えた"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · THE BLIND SPOT",
+        title: "A sweep only sees what the database did.",
+        lede: "Not by publication date, not by modification date, and not in any of twelve feeds — Infinity Core appeared in none of them.",
+        points: [
+          "the CVEs were published <b>9/4-10/12</b>; the PoCs landed <b>10/16</b> — a six-week gap",
+          "their NVD records did not move in the 6-hour modification sweep; all six sit at <code>Received</code>",
+          "<code>infinity</code> appears in <b>0</b> of the 13 feeds\' titles — an RSS head is a window too; the archive is the record",
+          "the missing axis is the <b>disclosure channel</b>: adding <code>oss-sec</code> picked up four items the other twelve missed"
+        ]
+      }
+    },
+    {
+      id: "ecosystem", stamp: "10.23",
+      metric: { val: "58", label: { ja: "24時間のパッケージ勧告", en: "package advisories in 24 h" } },
+      visual: { type: "stack",
+        cards: [
+          { name: "NEXT.JS use cache", sev: "crit", fix: "16.4.1", cve: null },
+          { name: "NEXT.JS /_next/image", sev: "crit", fix: "15.5.28", cve: null },
+          { name: "DOMPURIFY", sev: "crit", fix: "3.4.17", cve: null },
+          { name: "PILLOW", sev: "crit", fix: "13.0.0", cve: "CVE-2026-96639" },
+          { name: "GITPYTHON", sev: "high", fix: "3.2.1", cve: "CVE-2026-114145" },
+          { name: "STORYBOOK", sev: "high", fix: "8.6.19", cve: "CVE-2026-114126" }
+        ] }, cue: "blip",
+      sources: [
+        { name: "GitHub Advisory DB", url: "https://api.github.com/advisories",
+          note: { ja: "エコシステム側の見え方。修正版つき", en: "the ecosystem view, with patched versions" } },
+        { name: "certifi / pip / uv / sigstore", url: "https://pypi.org/pypi/certifi/json",
+          note: { ja: "CA バンドルの下限（2026-10-22 公表）", en: "the CA bundle floors published 2026-10-22" } },
+        { name: "docs/21 §2.3", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/21-snapshot-1036jst.md",
+          note: { ja: "24時間のエコシステム一覧", en: "the 24-hour ecosystem list" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · THE ECOSYSTEM",
+        title: "CVE になっていない critical が、2件あった。",
+        lede: "GitHub Advisory Database の24時間。Next.js の未認証 RCE 2件には、まだ CVE が付いていない。",
+        points: [
+          "Next.js の <code>use cache</code> と画像最適化（SVG）の未認証 RCE。修正は <b>16.4.1</b> / <b>15.5.28</b>",
+          "DOMPurify 3.4.17、Pillow 13.0.0、GitPython 3.2.1、<code>toml</code> 5.0.1、Storybook 8.6.19",
+          "CVE で絞るプロセスには、この2件は最後まで見えない。判断はパッケージ名と修正版で",
+          "同じ日に Python の CA バンドルも版番号が出た: <code>certifi</code> 2026.10.19 / <code>pip</code> 26.2.2"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · THE ECOSYSTEM",
+        title: "Two criticals that are not CVEs.",
+        lede: "24 hours of the GitHub Advisory Database. Both Next.js unauthenticated RCE advisories still have no CVE id.",
+        points: [
+          "Next.js <code>use cache</code> and image-optimisation (SVG) RCE: fixed in <b>16.4.1</b> / <b>15.5.28</b>",
+          "DOMPurify 3.4.17, Pillow 13.0.0, GitPython 3.2.1, <code>toml</code> 5.0.1, Storybook 8.6.19",
+          "a process that filters on CVE ids never sees these; decide on package name and patched version",
+          "the same day named the Python CA floors: <code>certifi</code> 2026.10.19, <code>pip</code> 26.2.2"
         ]
       }
     },
@@ -629,6 +745,10 @@ window.CONTENT = {
           note: { ja: "カーネル中核の LPE 6件。5件で PoC、修正は既出", en: "six kernel core LPEs, five with PoCs, fix already shipped" } },
         { name: "docs/21 broad sweep 10:36 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/21-snapshot-1036jst.md",
           note: { ja: "全深刻度・パッケージ・開示チャネルまで", en: "every severity, the packages, and the disclosure channel" } },
+        { name: "docs/20 Infinity Core", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/20-infinity-core.md",
+          note: { ja: "カーネル中核の LPE 6件。5件で PoC、修正は既出", en: "six kernel core LPEs, five with PoCs, fix already shipped" } },
+        { name: "docs/21 broad sweep 10:36 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/21-snapshot-1036jst.md",
+          note: { ja: "全深刻度・パッケージ・開示チャネルまで", en: "every severity, the packages, and the disclosure channel" } },
         { name: "Repository", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident",
           note: { ja: "一次ソースと検証コマンド", en: "primary sources and re-fetch commands" } }
       ],
@@ -640,7 +760,8 @@ window.CONTENT = {
           "リリースの不変性と、インストール時の署名検証",
           "ハッシュ付きの版固定。`latest` を使わない。git タグとの差分を見る",
           "平文・長期の管理者資格情報を置かない。管理系は公開しない",
-          "ベンダのDBは自分の鍵を保持していると考える（TeamUpdraft / Railway / Zeabur）"
+          "ベンダのDBは自分の鍵を保持していると考える（TeamUpdraft / Railway / Zeabur）",
+          "カーネルは「アプリごとに直せない境界」。コンテナ内のコード実行は、ホストでは root の入口"
         ]
       },
       en: {
@@ -651,7 +772,8 @@ window.CONTENT = {
           "release immutability, plus signature verification at install time",
           "pin versions with hashes; no `latest`; read the diff against the git tag",
           "no plaintext, long-lived admin credentials; keep the admin plane private",
-          "assume a vendor's database holds your keys (TeamUpdraft / Railway / Zeabur)"
+          "assume a vendor's database holds your keys (TeamUpdraft / Railway / Zeabur)",
+          "the kernel is the boundary you cannot patch per app: code in a container is a step to host root"
         ]
       }
     }
