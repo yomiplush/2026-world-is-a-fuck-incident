@@ -4,16 +4,19 @@ A single-page, tap-to-advance motion-graphic briefing of the October 2026 incide
 chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).
 Deployed to Cloudflare Pages.
 
-**Seventeen scenes**: the fifteen checked incidents, plus an Apache addendum and a Linux-kernel
-addendum (six ZDI reports posted to the public LKML). **Drag or press-and-hold the scene to tilt
-the 3D view** — release springs it back to the scene's own angle; `?tilt=yaw,pitch` presets it.
+**Twenty-one scenes**: the fifteen checked incidents, two addenda (Apache, and six ZDI reports
+posted to the public LKML), and — appended on 2026-10-23 — **three postscript scenes**: *Infinity
+Core* (six kernel core LPEs, five with public root PoCs), *the blind spot* (why no sweep found
+them), and *the ecosystem* (58 package advisories in 24 h, two criticals with no CVE). **Drag or
+press-and-hold the scene to tilt the 3D view** — release springs it back to the scene's own angle;
+`?tilt=yaw,pitch` presets it.
 
 ```
 site/
   index.html    markup + HUD (no build step, no framework)
   style.css     HUD/Briefing look, responsive, reduced-motion + ?still=1 static mode
-  data.js       the 15 scenes: copy, numbers, per-scene sources
-  visuals.js    14 pseudo-3D canvas renderers (radar, chain, bars, clock, keys, leak, …)
+  data.js       the 21 scenes: copy, numbers, per-scene sources
+  visuals.js    17 canvas renderers (radar, chain, bars, clock, keys, leak, core, channels, stack, …)
   audio.js      Web Audio synthesis: 7 SFX + a generative lofi loop (no samples)
   app.js        scene controller, input, canvas loop, deep links, sources drawer
 ```
@@ -52,6 +55,23 @@ Everything is synthesised in the browser; there are no audio files to license or
   boom-bap kick/snare with swung 8th hats, vinyl noise plus random crackle, and a generated
   reverb impulse. Scheduled with a 140 ms lookahead so it does not drift.
 - Audio only starts after a gesture (browser rule). `M` or the SOUND button toggles everything.
+
+## The 10-23 postscript (three scenes, 18-20)
+
+Added after the broad sweep in `docs/21`: the deck keeps its chronological body and appends a
+postscript, because these are **not** new incidents — they are older CVEs whose meaning changed.
+
+- **18 `infinity-core`** (`visual: core`) — six satellites firing into a hex kernel core, with an
+  exit to `HOST ROOT` that lights as the strikes land. The date chip says `10.16` (the disclosure)
+  while the deck reads it on 10-23; the lede says so explicitly.
+- **19 `blindspot`** (`visual: channels`) — four columns: published / modified / feeds, then the
+  disclosure channel. The marker falls between the first three and is caught by the fourth.
+- **20 `ecosystem`** (`visual: stack`) — a drifting deck of GitHub advisories; `NO CVE` is stamped
+  on the two Next.js criticals that have no CVE id.
+
+All three are `ja`/`en` inline in `data.js`. The other ten locales fall back to English for these
+scenes (field-by-field fallback, by design) until someone translates them; `i18n/<code>.js` gains
+three entries each when that happens.
 
 ## Camera tilt (drag / hold)
 
