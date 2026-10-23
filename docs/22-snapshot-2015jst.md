@@ -202,7 +202,7 @@ gives the *version numbers*, and the CVE record gives a score that is frequently
 
 | Item | State now | Action | Detail |
 |---|---|---|---|
-| **php2shell** | fixed; exploitation attempts since **10-17**, no confirmed compromise, not in KEV, EPSS 5.31 / 5.76% | patch 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35; hunt from 10-17 | [`01`](01-php2shell.md) |
+| **php2shell** | fixed; exploitation attempts since **10-17**, no confirmed compromise, not in KEV, EPSS 5.31 / 5.76% | patch 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35; hunt from 10-17. **Follow-on `CVE-2026-115560` (same mitigation) → [`23`](23-php-cve-2026-115560.md)** | [`01`](01-php2shell.md) |
 | **GitLab** | no new advisory; 19.5.1 stands | patch the 10.0 | [`09`](09-gitlab-19-5-1.md) |
 | **LiteLLM** | issue body unchanged | remove 1.107.0, rotate | [`10`](10-litellm-1-107-0.md) |
 | **Plex Media Server** | KEV deadline **today**; chain exploitation confirmed by CISA | ≥ 1.43.3.10861, rotate tokens | [`12`](12-plex-oct2026.md) |

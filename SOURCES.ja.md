@@ -78,6 +78,16 @@ NVD は24時間・全深刻度のクエリに約60秒かかり、1ページ最�
 **6時間スライス**で問い合わせるのはそのためで、`lastModified` の丸1日分（約7MB）は API キー
 無しでは不安定です。
 
+### PHP の後続アドバイザリ（`docs/23`）
+
+| 対象 | URL | 何が分かるか | 再取得 |
+|---|---|---|---|
+| PHP ニュースアーカイブ `2026-10-23-1` | <https://www.php.net/archive/2026.php#2026-10-23-1> | `CVE-2026-115560` の**公開されているアドバイザリの全文**。4条件・1行の緩和、影響版・スコア・修正版は無し | `tools/intel/fetch-intel --sources php` |
+| 各ラインのリリース状況 | <https://www.php.net/releases/index.php?json&version=8.5>（8.2 / 8.3 / 8.4） | 10-21 のセキュリティリリースより新しいものが出ているか | 同上 |
+| NVD `CVE-2026-115560` | <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-115560> | 2026-10-23 時点で **0件**。「無い」ことも保存する価値がある | `curl -s <URL> \| jq .totalResults` |
+| `GHSA-6wmf-4rv5-p3rp` | <https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp> | 今回の緩和策が参照している 10-21 のアドバイザリ（**115560 のものではない**） | ブラウザ / GitHub API |
+| CISA KEV | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | カタログ版 `2026.10.21` はこの CVE より前。載っていないことは根拠にならない | `--sources kev` |
+
 ### Node2Shell と、開示前の悪用（`docs/22`）
 
 | 対象 | URL | 何が分かるか | 再取得 |
@@ -177,8 +187,9 @@ NVD は24時間・全深刻度のクエリに約60秒かかり、1ページ最�
 
 ## このリポジトリのスナップショット
 
-`data/2026-10-22/` に取得時点の生データ、`data/2026-10-23-2015jst/` に最新の15ファイルを
-置いてある。再取得は `tools/intel/fetch-intel --date <名前>`（`docs/08`）。
+`data/2026-10-22/` に取得時点の生データ、`data/2026-10-23-2015jst/` に広域取得の15ファイル、
+`data/2026-10-23-2235jst/` に PHP 後続の5ファイルを置いてある。再取得は
+`tools/intel/fetch-intel --date <名前>`（`docs/08`）。
 
 | ファイル | 由来 | 改変 |
 |---|---|---|

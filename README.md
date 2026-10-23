@@ -11,7 +11,7 @@
 
 | If you... | What happened (plainly) | Do this today |
 |---|---|---|
-| **serve PHP to the internet** | a hole in PHP core: no login needed to take over the server. **Exploitation attempts date from 2026-10-17 — four days before the advisory** — and no compromise has been confirmed, but nothing on the network can tell you that for your host | patch to **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**; hunt from 10-17 → [`docs/01`](docs/01-php2shell.md), [`docs/22` §3](docs/22-snapshot-2015jst.md) |
+| **serve PHP to the internet** | a hole in PHP core: no login needed to take over the server. **Exploitation attempts date from 2026-10-17 — four days before the advisory** — and no compromise has been confirmed, but nothing on the network can tell you that for your host. A **separate** flaw, `CVE-2026-115560`, has no patch until the next routine release | patch to **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**; hunt from 10-17; keep `session.upload_progress.enabled=0` → [`docs/01`](docs/01-php2shell.md), [`docs/23`](docs/23-php-cve-2026-115560.md) |
 | **run GitLab yourself** | a perfect-10.0 hole: no login needed to run code. **Patching last week is not enough** | upgrade to **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** → [`docs/09`](docs/09-gitlab-19-5-1.md) |
 | **installed LiteLLM 1.107.0** | installing it *was* the compromise: every Python start ships credentials out | **do not run `pip` first**; remove, then rotate → [`docs/10`](docs/10-litellm-1-107-0.md) |
 | **deploy on Railway** | customer environment variables — i.e. your secrets — may have been decrypted | regenerate **every** env var → [`docs/11`](docs/11-week-of-oct-20.md) |
@@ -67,8 +67,9 @@ bash tools/copy-prompt.sh intel ja   # decision prompt, Japanese
 **Tap-through briefing (web)**: <https://2026-incident-briefing.pages.dev> — the fifteen items in order,
 then a **10-23 postscript** ([`docs/20`](docs/20-infinity-core.md), [`docs/21`](docs/21-snapshot-1036jst.md),
 [`docs/22`](docs/22-snapshot-2015jst.md)): Infinity Core, the blind spot, the ecosystem, then Node2Shell,
-the pre-disclosure attempts, the filter a CNA 9.9 cannot pass, and the four incidents no CVE list named.
-25 scenes, pseudo-3D motion, synthesised SFX and a generated lofi loop. Sound is on; toggle it top-right.
+the pre-disclosure attempts, the filter a CNA 9.9 cannot pass, the four incidents no CVE list named,
+and PHP's follow-on `CVE-2026-115560`. 26 scenes, pseudo-3D motion, synthesised SFX and a generated
+lofi loop. Sound is on; toggle it top-right.
 **Language pull-down, 12 languages** (English / 日本語 / 中文 / 한국어 / Español / Français / Deutsch /
 Português / Русский / العربية / हिन्दी / Bahasa Indonesia; `?lang=`, or press `L`).
 Phone: tap/swipe. Desktop: space / arrows.
@@ -99,7 +100,7 @@ against the Node.js, PHP, GitLab, Tomcat, httpd, BIND, Plex and Oracle release i
 
 ---
 
-## 1. The week at a glance (fourteen items)
+## 1. The week at a glance (fifteen items)
 
 | Event | What happened | Severity | Who cares | Fix | Detail |
 |---|---|---|---|---|---|
@@ -117,8 +118,9 @@ against the Node.js, PHP, GitLab, Tomcat, httpd, BIND, Plex and Oracle release i
 | **Node.js** | nine October CVEs, plus the CA-bundle update. **A working exploit for the Brotli flaw now runs on a stock 24.22.0 build** | high (9.2 in NVD's CVSS 4.0) | Node 22 / 24 / 26; **20 is EOL** | **22.23.4 / 24.22.1 / 26.12.1** (10-21) | [`02`](docs/02-nodejs-oct2026.md) |
 | **Linux kernel — "Infinity Core"** | six core LPEs (timer, signal, mm, futex, scheduler, SLAB); **public root PoCs for five**, container escape for the same five | 7.8 each (4 of 6 scored) | shared hosts, k8s nodes, CI runners | **fixed upstream** — 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8, scheduler in 7.2.9; **reboot** | [`20`](docs/20-infinity-core.md) |
 | **Arista VeloCloud Orchestrator** | SQL injection **exploited as a 0-day**: any logged-in user (minimum read-only) becomes a local superuser | **9.9** | anyone running on-prem VCO | **5.2.3.18 / 6.1.3.10 / 6.4.2.12** (hosted already patched) | [`22` §4](docs/22-snapshot-2015jst.md) |
+| **PHP follow-on** | `CVE-2026-115560`: another RCE path, **no emergency patch** — PHP calls it unlikely and waits for the next routine release | unscored, unlisted | PHP apps that switch `session.serialize_handler` at runtime **and** leave upload progress on | **`session.upload_progress.enabled=0`** (the 10-21 mitigation) | [`23`](docs/23-php-cve-2026-115560.md) |
 
-The fourteen are **independent**. Patching PHP does not fix GitLab; the CA, Java, Apache, the two kernel sets and BIND are separate again.
+The fifteen are **independent**. Patching PHP does not fix GitLab; the CA, Java, Apache, the two kernel sets and BIND are separate again.
 
 That table is only the named incidents. **The two-week CRITICAL sweep returned 120, then 125, then
 104, then 98** — same query, same product. The last two runs share the same date window, so the
@@ -146,7 +148,7 @@ that no application change can substitute for, and exposure that is enough on it
 ### Machine-readable summary
 
 ```yaml
-as_of: 2026-10-23T11:30Z          # 2026-10-23 20:30 JST
+as_of: 2026-10-23T13:25Z          # 2026-10-23 22:25 JST
 php:
   cves: [CVE-2026-109618, CVE-2026-109619]
   cvss_v4: 9.2
@@ -154,6 +156,13 @@ php:
   epss_2026-10-22: { CVE-2026-109618: 0.0531, CVE-2026-109619: 0.0576 }   # highest in the 14-day window
   affected: ">=5.4.0"
   fixed: { "8.5": "8.5.12", "8.4": "8.4.27", "8.3": "8.3.36", "8.2": "8.2.35" }
+  followon:
+    cve: CVE-2026-115560
+    affected: "not stated (runtime session.serialize_handler switch + session upload progress)"
+    fixed: "none — next routine release"
+    mitigation: "session.upload_progress.enabled=0"
+    nvd: "no record as of 2026-10-23T13:24Z"
+    in_kev: false
   no_official_fix: "<=8.1 (minimal source backports published for 7.4/8.0/8.1)"
   trigger: "multipart/form-data request body"
   verified_mitigations_partial:
@@ -607,6 +616,7 @@ bash tools/copy-prompt.sh intel
 | `docs/20-infinity-core.md` | **Infinity Core**: six kernel core LPEs with public root PoCs and container escape, the fix that already shipped, and why it is *not* the six in `docs/17` |
 | `docs/21-snapshot-1036jst.md` | The 10:36 JST broad sweep: 381 CVEs in 24 h with **zero** NVD analysis, 665 records modified, 58 package advisories, and the blind spot that hid Infinity Core |
 | `docs/22-snapshot-2015jst.md` | The 20:15 JST read, widest yet: **Node2Shell** (a working exploit on an official Node.js build), **php2shell attempted from 10-17**, Arista VCO, KSMBD, Capcom and Onamae, plus the two flaws a severity-filtered sweep cannot see |
+| `docs/23-php-cve-2026-115560.md` | `CVE-2026-115560`: the four conditions, the one-line mitigation, and everything PHP has not said (no versions, no score, no fix, no NVD record) |
 | `docs/17-lkml-oct2026.md` | Six kernel reports posted publicly: SMB Direct and ksmbd at 9.0, still unpatched, and what was verifiable |
 | `docs/18-bind-cve-2026-94300.md` | BIND 9 GSS-TSIG replay: CVSS 8.1, no workaround, affected/fixed versions, how to check your config |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
@@ -640,7 +650,7 @@ The tools do three things only: **find it, stop it, prove it**. No exploit code.
 
 ## 7. Freshness (important)
 
-This is a **snapshot from 2026-10-23 20:15 JST**. Vulnerability data decays in days.
+This is a **snapshot from 2026-10-23 22:25 JST**. Vulnerability data decays in days.
 
 - Judge versions **by the running binary**. Never trust a tag or an image name.
 - If this is more than a few days old, re-fetch the primary sources in `SOURCES.md` first — the

@@ -7,12 +7,12 @@ window.registerLocale("ko", {
     hintEnd: "마지막입니다. 탭하면 처음으로 돌아갑니다",
     coverKicker: "인시던트 브리핑 · 2026-10",
     coverTitleA: "한 달에 ", coverTitleB: "15건.",
-    coverSub: "2026년 10월의 15건을 시간 순서로.<br>Apache 부록과 10-23 추가 7장 포함. 탭해서 진행하며 소리가 납니다.",
+    coverSub: "2026년 10월의 15건을 시간 순서로.<br>Apache 부록과 10-23 추가 8장 포함. 탭해서 진행하며 소리가 납니다.",
     coverStart: "탭하여 시작",
     coverFoot: "모든 주장은 1차 출처로 추적됩니다. ConnectWise 한 건만 미확인입니다.",
     drawerTitle: "출처 / SOURCES",
     drawerFoot: "15건 중 14건을 1차 출처로 확인했습니다. ConnectWise는 미확인으로 표기합니다.",
-    asof: "2026-10-23 20:30 JST 기준"
+    asof: "2026-10-23 22:25 JST 기준"
   },
   scenes: {
     intro: {

@@ -7,12 +7,12 @@ window.registerLocale("id", {
     hintEnd: "akhir briefing — ketuk untuk mengulang",
     coverKicker: "BRIEFING INSIDEN · 2026-10",
     coverTitleA: "SATU BULAN,", coverTitleB: "15 INSIDEN.",
-    coverSub: "Lima belas insiden Oktober 2026, berurutan.<br>Plus lampiran Apache dan tujuh adegan 10-23. Ketuk untuk maju.",
+    coverSub: "Lima belas insiden Oktober 2026, berurutan.<br>Plus lampiran Apache dan delapan adegan 10-23. Ketuk untuk maju.",
     coverStart: "KETUK UNTUK MULAI",
     coverFoot: "Setiap klaim bisa ditelusuri ke sumber primer. Hanya ConnectWise yang belum terverifikasi.",
     drawerTitle: "SUMBER / SOURCES",
     drawerFoot: "14 dari 15 terverifikasi lewat sumber primer. ConnectWise dicatat sebagai belum terverifikasi.",
-    asof: "per 2026-10-23 20:30 JST"
+    asof: "per 2026-10-23 22:25 JST"
   },
   scenes: {
     intro: { title: "Satu bulan, lima belas insiden.",

@@ -56,7 +56,7 @@ PHP はリクエストメモリを指すグローバル状態をいくつか持�
 | 対象 | PHP 公式が示した緩和 | 効果の限界 |
 |---|---|---|
 | 109618 | `memory_limit = -1` を**アプリが上書きできない形**で設定（FPM プールの `php_admin_value`、Apache 設定）。加えて `post_max_size` を小さく（アップロード不要なら 8M、必要なら 32M）、`upload_max_filesize` はその下 | メモリ上限を跨ぐ失敗は消えるが、**確保失敗そのものは残る** |
-| 109619 | `session.upload_progress.enabled = 0` を `php.ini` / FPM プール / サーバ設定で。PHP 8.5 は `fatal_error_backtraces = 0` | **確認済みの経路のみ**。他の変種は塞げない |
+| 109619 | `session.upload_progress.enabled = 0` を `php.ini` / FPM プール / サーバ設定で。PHP 8.5 は `fatal_error_backtraces = 0` | **確認済みの経路のみ**。他の変種は塞げない。**PHP は、同じ1行が別件 `CVE-2026-115560` を完全に覆うとも述べています**（[`docs/23`](23-php-cve-2026-115560.ja.md)） |
 | 両方 | `multipart/form-data` を Web サーバで拒否（Sansec の推奨） | ファイルアップロードが壊れる。業務次第で使えない |
 
 設定は `conf.d` のドロップインか FPM プールに置く。**`.user.ini` と `ini_set()` は不可**——

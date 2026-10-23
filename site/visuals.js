@@ -10,7 +10,7 @@ window.VISUALS = (function () {
   /* ---------- user tilt (drag / long-press) ---------- */
   const TILT = { yaw: 0, pitch: 0 };
   const SCREEN_SPACE = new Set(["radar", "clock", "matrix", "storm", "channels", "stack",
-    "before", "funnel", "ledger"]);
+    "before", "funnel", "ledger", "checklist"]);
 
   /* ---------- camera ---------- */
   const VIEW = { zoom: 0.62 };
@@ -832,7 +832,8 @@ window.VISUALS = (function () {
 
     // the marker file: it is absent until the crafted block lands, then it stays
     const oe = P(out);
-    const landed = ((t * 0.30) % 1) > 0.45;
+    // `?still=1` freezes t at 1.2, so most of the cycle must read as "landed"
+    const landed = ((t * 0.30) % 1) > 0.22;
     ctx.save();
     ctx.globalAlpha = landed ? 0.95 : 0.25;
     ctx.strokeStyle = landed ? C.red : "rgba(150,175,195,.4)";
@@ -1037,7 +1038,7 @@ window.VISUALS = (function () {
     label(ctx, [right, h * 0.145], "PRIMARY SOURCE", "rgba(110,242,176,.65)", 9, "right");
 
     rows.forEach((row, i) => {
-      const ph = Math.min(1, Math.max(0, t * 0.55 - i * 0.22));
+      const ph = Math.min(1, Math.max(0, t * 1.5 - i * 0.18));
       const y = top + i * step;
       const x = left + (1 - ph) * 42;
       ctx.save();
@@ -1070,6 +1071,66 @@ window.VISUALS = (function () {
 
     label(ctx, [w * 0.5, h * 0.115], "FOUR INCIDENTS, NO CVE LIST", "rgba(88,224,255,.6)", 9.5);
     label(ctx, [w * 0.5, h * 0.82], "FIGURES AS THE VENDORS PUBLISHED THEM", "rgba(150,175,195,.55)", 8.5);
+  };
+
+
+  /* CVE-2026-115560: four conditions make the path; the same four with the
+     last one off close it. PHP calls the setup unlikely and still says turn
+     the feature off. docs/23. */
+  scenes.checklist = (ctx, w, h, t, o) => {
+    const conds = o.conditions || [
+      "handler = php_binary",
+      "ini_set -> php at runtime",
+      "before session_start()",
+      "upload_progress on"
+    ];
+    const top = h * 0.30, step = Math.min(72, h * 0.13);
+    const colW = Math.min(w * 0.30, 268);
+    const leftX = w * 0.25, rightX = w * 0.66;
+
+    const column = (cx, title, colour, mitigated) => {
+      label(ctx, [cx, h * 0.225], title, colour, 10);
+      conds.forEach((text, i) => {
+        const y = top + i * step;
+        const isLast = i === conds.length - 1;
+        const on = !(mitigated && isLast);
+        const reveal = Math.min(1, Math.max(0, t * 1.8 - i * 0.18 - (mitigated ? 0.5 : 0)));
+        ctx.save();
+        ctx.globalAlpha = 0.20 + reveal * 0.5;
+        ctx.fillStyle = "rgba(10,20,30,.9)";
+        ctx.fillRect(cx - colW / 2, y - 16, colW, 34);
+        ctx.strokeStyle = on ? colour : "rgba(110,242,176,.8)";
+        ctx.lineWidth = 1.2;
+        ctx.strokeRect(cx - colW / 2, y - 16, colW, 34);
+        ctx.restore();
+        label(ctx, [cx - colW / 2 + 30, y + 3], String(i + 1), "rgba(150,175,195,.55)", 8.5, "left");
+        label(ctx, [cx - colW / 2 + 44, y + 3], text, "rgba(230,238,246,.82)", 9, "left");
+        if (reveal > 0.55) {
+          const q = [cx + colW / 2 - 20, y];
+          if (on) {
+            ctx.beginPath();
+            ctx.moveTo(q[0] - 5, q[1]); ctx.lineTo(q[0] - 1, q[1] + 4); ctx.lineTo(q[0] + 6, q[1] - 6);
+            ctx.strokeStyle = colour; ctx.lineWidth = 1.8; ctx.stroke();
+          } else {
+            ctx.beginPath();
+            ctx.moveTo(q[0] - 4, q[1] - 4); ctx.lineTo(q[0] + 4, q[1] + 4);
+            ctx.moveTo(q[0] + 4, q[1] - 4); ctx.lineTo(q[0] - 4, q[1] + 4);
+            ctx.strokeStyle = C.green; ctx.lineWidth = 1.8; ctx.stroke();
+          }
+        }
+      });
+    };
+
+    column(leftX, "EXPOSED", "rgba(255,91,87,.85)", false);
+    column(rightX, "MITIGATED", "rgba(110,242,176,.85)", true);
+
+    // the mitigation line itself
+    const y4 = top + (conds.length - 1) * step;
+    label(ctx, [rightX, y4 + 34], "session.upload_progress.enabled = 0", "rgba(110,242,176,.9)", 9);
+    label(ctx, [rightX, y4 + 50], "nothing else changes", "rgba(150,175,195,.55)", 8);
+
+    label(ctx, [w / 2, h * 0.115], "FOUR CONDITIONS · ONE LINE", "rgba(88,224,255,.6)", 9.5);
+    label(ctx, [w / 2, h * 0.83], "PHP: UNLIKELY IS NOT IMPOSSIBLE", "rgba(255,181,69,.6)", 8.5);
   };
 
   /* ---------- entry ---------- */

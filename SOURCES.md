@@ -80,6 +80,16 @@ NVD answers a 24-hour all-severity query in ~60 s and returns up to 2,000 rows p
 collector asks in **6-hour slices** for that reason, and a whole-day `lastModified` window (~7 MB) is
 unreliable without an API key.
 
+### PHP's follow-on advisory (`docs/23`)
+
+| Subject | URL | What it tells you | Re-fetch |
+|---|---|---|---|
+| PHP news archive, entry `2026-10-23-1` | <https://www.php.net/archive/2026.php#2026-10-23-1> | **the whole public advisory** for `CVE-2026-115560`: four conditions, one mitigation, no versions, no score, no fix | `tools/intel/fetch-intel --sources php` |
+| PHP release state per line | <https://www.php.net/releases/index.php?json&version=8.5> (8.2 / 8.3 / 8.4) | whether anything newer than the 10-21 security release exists | same |
+| NVD, `CVE-2026-115560` | <https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-115560> | **0 results** on 2026-10-23 — an absence worth storing | `curl -s <URL> \| jq .totalResults` |
+| `GHSA-6wmf-4rv5-p3rp` | <https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp> | the 10-21 advisory whose mitigation this one reuses (it is **not** an advisory for 115560) | browser / GitHub API |
+| CISA KEV catalog | <https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json> | catalog version `2026.10.21`, which predates the CVE — absence proves nothing | `--sources kev` |
+
 ### Node2Shell, and exploitation before disclosure (`docs/22`)
 
 | Subject | URL | What it tells you | Re-fetch |
@@ -179,8 +189,9 @@ When a figure looks wrong, doubt it in this order:
 
 ## Snapshot in this repository
 
-`data/2026-10-22/` holds the raw responses as retrieved, and `data/2026-10-23-2015jst/` the most
-recent (15 files). Re-fetch everything with `tools/intel/fetch-intel --date <name>` (see `docs/08`).
+`data/2026-10-22/` holds the raw responses as retrieved, `data/2026-10-23-2015jst/` the broad read
+(15 files), and `data/2026-10-23-2235jst/` the PHP follow-on (5 files). Re-fetch with
+`tools/intel/fetch-intel --date <name>` (see `docs/08`).
 
 | File | Origin | Transformed? |
 |---|---|---|

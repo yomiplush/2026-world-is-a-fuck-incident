@@ -11,7 +11,7 @@
 
 | あなたが | 何が起きたか（かみ砕くと） | 今日やること |
 |---|---|---|
-| **PHP をインターネットに出している** | PHP 本体に穴。ログインなしでサーバを乗っ取れる。**悪用の試行は 2026-10-17 から（勧告の4日前）**。侵害は未確認だが、手元のホストがそうだとはネットワークからは分からない | PHP を **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** へ。10-17 から侵害を確認 → [`docs/01`](docs/01-php2shell.ja.md)、[`docs/22` §3](docs/22-snapshot-2015jst.ja.md) |
+| **PHP をインターネットに出している** | PHP 本体に穴。ログインなしでサーバを乗っ取れる。**悪用の試行は 2026-10-17 から（勧告の4日前）**。侵害は未確認だが、手元のホストがそうだとはネットワークからは分からない。**別件** `CVE-2026-115560` は次の定期リリースまで修正が無い | PHP を **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** へ。10-17 から侵害を確認し、`session.upload_progress.enabled=0` を維持 → [`docs/01`](docs/01-php2shell.ja.md)、[`docs/23`](docs/23-php-cve-2026-115560.ja.md) |
 | **自前の GitLab を運用している** | 満点（CVSS 10.0）。ログインなしでコード実行。**先週パッチを当てていても該当する** | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** へ → [`docs/09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM を 1.107.0 で入れた** | 入れた時点で侵害。Python を起動するたびに資格情報を外部へ送る | **先に `pip` を実行しない**。手順どおり除去とローテート → [`docs/10`](docs/10-litellm-1-107-0.ja.md) |
 | **Railway にデプロイしている** | 環境変数（＝APIキー、DBのパスワード）が復号された可能性 | 環境変数を**全部**作り直す → [`docs/11`](docs/11-week-of-oct-20.ja.md) |
@@ -68,7 +68,7 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 そのあと **10-23 の追記7件**（[`docs/20`](docs/20-infinity-core.ja.md) /
 [`docs/21`](docs/21-snapshot-1036jst.ja.md) / [`docs/22`](docs/22-snapshot-2015jst.ja.md): Infinity Core、
 開示の盲点、エコシステム、Node2Shell、開示前の試行、CNA の 9.9 が通らないフィルタ、CVE 一覧が
-名指ししない4件）。全25シーン、3D演出・効果音・自作Lofiで。音が出ます（右上の SOUND で消せます）。
+名指ししない4件、PHP の後続 CVE-2026-115560）。全26シーン、3D演出・効果音・自作Lofiで。音が出ます（右上の SOUND で消せます）。
 **言語はプルダウンで12言語**（English / 日本語 / 中文 / 한국어 /
 Español / Français / Deutsch / Português / Русский / العربية / हिन्दी / Bahasa Indonesia。`?lang=` / `L` キー）。
 スマホはタップ／スワイプ、PCはスペース／←→。
@@ -93,7 +93,7 @@ Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース�
 
 ---
 
-## 1. 今週の全体像（14件）
+## 1. 今週の全体像（15件）
 
 | 事案 | 何が起きたか | 深刻度 | 該当する人 | 修正・対処 | 詳細 |
 |---|---|---|---|---|---|
@@ -111,8 +111,9 @@ Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース�
 | **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱。**Brotli の脆弱性に、公式 24.22.0 ビルドで動く公開 Exploit が出た** | high（NVD の CVSS 4.0 は 9.2） | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21）。コンテナも含む | [`02`](docs/02-nodejs-oct2026.ja.md) |
 | **Linux カーネル「Infinity Core」** | 中核処理（timer / signal / mm / futex / scheduler / SLAB）の LPE 6件。**5件で root 取得 PoC が公開**、同じ5件でコンテナ脱出 | 各 7.8（6件中4件にスコア） | 共有ホスト、k8s ノード、CI ランナー | **上流で修正済み** — 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8、スケジューラは 7.2.9。**要再起動** | [`20`](docs/20-infinity-core.ja.md) |
 | **Arista VeloCloud Orchestrator** | SQL インジェクションが **0-day として悪用中**。ログイン済みなら（最小は読み取り専用）ローカル superuser になれる | **9.9** | オンプレの VCO を運用 | **5.2.3.18 / 6.1.3.10 / 6.4.2.12**（Hosted は修正済み） | [`22` §4](docs/22-snapshot-2015jst.ja.md) |
+| **PHP の後続** | `CVE-2026-115560`: 別の RCE 経路。**緊急修正は無し** — PHP は「可能性は低い」として次の定期リリースを待つ | 未採点・未収載 | 実行中に `session.serialize_handler` を切り替え、upload progress を有効にしている PHP アプリ | **`session.upload_progress.enabled=0`**（10-21 の緩和と同じ1行） | [`23`](docs/23-php-cve-2026-115560.ja.md) |
 
-14件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も、カーネルの2つの集合も別です。
+15件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も、カーネルの2つの集合も別です。
 
 この表は「名前が付いた事案」だけです。**2週間 CRITICAL スイープは 120 → 125 → 104 → 98 と
 動きました** — 同じクエリ・同じ製品です。直近2回は公開日の窓も同じ 10-09…10-23 なので、6件減は
@@ -139,7 +140,7 @@ Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース�
 ### 機械可読サマリ
 
 ```yaml
-as_of: 2026-10-23T11:30Z          # 2026-10-23 20:30 JST
+as_of: 2026-10-23T13:25Z          # 2026-10-23 22:25 JST
 php:
   cves: [CVE-2026-109618, CVE-2026-109619]
   cvss_v4: 9.2
@@ -147,6 +148,13 @@ php:
   epss_2026-10-22: { CVE-2026-109618: 0.0531, CVE-2026-109619: 0.0576 }   # 14日窓の最高値
   affected: ">=5.4.0"
   fixed: { "8.5": "8.5.12", "8.4": "8.4.27", "8.3": "8.3.36", "8.2": "8.2.35" }
+  followon:
+    cve: CVE-2026-115560
+    affected: "未公表（実行時の session.serialize_handler 切り替え＋session upload progress）"
+    fixed: "無し — 次の定期リリース"
+    mitigation: "session.upload_progress.enabled=0"
+    nvd: "2026-10-23T13:24Z 時点でレコード無し"
+    in_kev: false
   no_official_fix: "<=8.1 (minimal source backports published for 7.4/8.0/8.1)"
   trigger: "multipart/form-data request body"
   verified_mitigations_partial:
@@ -593,6 +601,7 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/20-infinity-core.ja.md`](docs/20-infinity-core.ja.md) | **Infinity Core**: カーネル中核の LPE 6件、root 取得 PoC とコンテナ脱出、既に出ている修正、そして `docs/17` の6件とは別物であること |
 | [`docs/21-snapshot-1036jst.ja.md`](docs/21-snapshot-1036jst.ja.md) | 2026-10-23 10:36 JST の広域スイープ。24時間で公開381件・NVD 解析ゼロ、更新665件、パッケージ勧告58件、そして Infinity Core を隠した盲点 |
 | [`docs/22-snapshot-2015jst.ja.md`](docs/22-snapshot-2015jst.ja.md) | 2026-10-23 20:15 JST、これまでで最も広い取得。**Node2Shell**（公式 Node.js ビルドで動く Exploit）、**10-17 から試行されていた php2shell**、Arista VCO、KSMBD、カプコンとお名前.com、そして深刻度フィルタに見えない2件 |
+| [`docs/23-php-cve-2026-115560.ja.md`](docs/23-php-cve-2026-115560.ja.md) | `CVE-2026-115560`: 4つの条件、1行の緩和、そして PHP が言っていないこと（影響版・スコア・修正版・NVD レコードのすべてが無い） |
 | [`docs/17-lkml-oct2026.ja.md`](docs/17-lkml-oct2026.ja.md) | Linux カーネルの6件が公開 LKML へ。SMB Direct / ksmbd の 9.0、未修正、露出削減、検証できたこと・できなかったこと |
 | [`docs/18-bind-cve-2026-94300.ja.md`](docs/18-bind-cve-2026-94300.ja.md) | BIND 9 の GSS-TSIG リプレイ（CVSS 8.1、回避策なし）、影響版と修正版、設定の確認方法 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
@@ -627,7 +636,7 @@ bash tools/copy-prompt.sh intel ja
 
 ## 7. 鮮度について（重要）
 
-このリポジトリは **2026-10-23 20:15 JST 時点のスナップショット**です。脆弱性情報は数日で古くなります。
+このリポジトリは **2026-10-23 22:25 JST 時点のスナップショット**です。脆弱性情報は数日で古くなります。
 
 - バージョン判定は必ず**実行中のバイナリ**で行う。タグ・イメージ名は信用しない。
 - 数日以上経っているなら、まず `SOURCES.ja.md` の一次ソースを叩き直す。まとめてやるなら
