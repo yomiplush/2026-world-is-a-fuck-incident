@@ -1,0 +1,36 @@
+{
+ "source": "https://cdn.syndication.twimg.com/tweet-result",
+ "note": "Undocumented syndication endpoint, no credentials. A post is a lead: cite the link in `links`, not the post.",
+ "tracked": [
+  "2113538808126038500"
+ ],
+ "posts": [
+  {
+   "id": "2113538808126038500",
+   "url": "https://x.com/TheHackersNews/status/2113538808126038500",
+   "created_at": "2026-10-23T07:51:34.000Z",
+   "lang": "en",
+   "author": {
+    "name": "The Hacker News",
+    "screen_name": "TheHackersNews",
+    "verification": "Business"
+   },
+   "text": "🛑 ALERT - Node2Shell RCE exploit works on an official Node.js build.\n\nResearchers demonstrated how crafted Brotli data can trigger code execution through vulnerable Node.js applications, without modifying the runtime.\n\nHere's how the exploit works: https://t.co/ffJvHDqRXj https://t.co/sLH83S7p9r",
+   "links": [
+    {
+     "display": "thehackernews.com/2026/10/resear…",
+     "expanded": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html"
+    }
+   ],
+   "media": [
+    {
+     "type": null,
+     "url": "https://x.com/TheHackersNews/status/2113538808126038500/photo/1"
+    }
+   ]
+  }
+ ],
+ "errors": {},
+ "fetched_at": "2026-10-23T11:18:46Z",
+ "tool": "tools/intel/fetch-intel"
+}

@@ -49,6 +49,9 @@ owns the claim, tier 2 reports on it, tier 3 is a catalog of other people's clai
 | MSRC CVRF | Microsoft | monthly Windows/Office/cloud CVE detail, exploit status | monthly | 1 |
 | JVN | JVN (IPA/JPCERT) | Japanese advisories, vendor coordination | daily | 3 |
 | NVD | NIST | CVE records, CVSS, cross-references | continuous | 3 |
+| `imperva` | Imperva Threat Research | red-team demonstrations against **stock builds**, and first-24-hours attack telemetry | weekly | 1 |
+| `news` (THN, BleepingComputer) | the outlets | names the incident, the product and the vendor — the **lead** channel | hourly | 3 |
+| `x` (tracked posts) | the account | the post text, its timestamp, and the link it pushed — archived, not cited | as needed | 3 |
 
 Notes that change how you read them:
 
@@ -60,6 +63,15 @@ Notes that change how you read them:
   build. "2,575 entries" is not "2,575 bugs".
 - **JVN ≠ JVN iPedia.** `jvn.jp` advisories are up; the `jvndb` search API was returning a
   maintenance page at collection time (§5).
+- **The lead channel is not a source.** A post or a headline tells you *where to look*; the link
+  it carries is what you cite. Both are collected with their URLs for exactly that reason
+  (`x-posts.json`, `news-feeds.json`), and `docs/22` §4 is the worked example: four incidents
+  named first by the news channel, each then checked against the vendor's own page.
+- **A filter is a source too.** The CRITICAL sweep selects on CVSS 3.x severity, and it counts
+  only NVD's own score: `?cveId=CVE-2026-91637&cvssV3Severity=CRITICAL` returns **0 rows** while
+  the record holds a CNA 9.9, and the same is true of `CVE-2026-111497` (CVSS 4.0 only, 9.2) and
+  `CVE-2026-114625` (CNA 9.9). A CNA-scored critical never appears in that list. Read the unfiltered published sweep when the question is "what is exploited",
+  and the filtered one only when the question is "what scored highly".
 
 ## 3. Snapshot — 2026-10-22
 

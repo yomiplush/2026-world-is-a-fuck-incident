@@ -11,7 +11,7 @@
 
 | あなたが | 何が起きたか（かみ砕くと） | 今日やること |
 |---|---|---|
-| **PHP をインターネットに出している** | PHP 本体に穴。ログインなしでサーバを乗っ取れる。攻撃コードは既に出回っている | PHP を **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** へ → [`docs/01`](docs/01-php2shell.ja.md) |
+| **PHP をインターネットに出している** | PHP 本体に穴。ログインなしでサーバを乗っ取れる。**悪用の試行は 2026-10-17 から（勧告の4日前）**。侵害は未確認だが、手元のホストがそうだとはネットワークからは分からない | PHP を **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** へ。10-17 から侵害を確認 → [`docs/01`](docs/01-php2shell.ja.md)、[`docs/22` §3](docs/22-snapshot-2015jst.ja.md) |
 | **自前の GitLab を運用している** | 満点（CVSS 10.0）。ログインなしでコード実行。**先週パッチを当てていても該当する** | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** へ → [`docs/09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM を 1.107.0 で入れた** | 入れた時点で侵害。Python を起動するたびに資格情報を外部へ送る | **先に `pip` を実行しない**。手順どおり除去とローテート → [`docs/10`](docs/10-litellm-1-107-0.ja.md) |
 | **Railway にデプロイしている** | 環境変数（＝APIキー、DBのパスワード）が復号された可能性 | 環境変数を**全部**作り直す → [`docs/11`](docs/11-week-of-oct-20.ja.md) |
@@ -91,7 +91,7 @@ Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース�
 
 ---
 
-## 1. 今週の全体像（13件）
+## 1. 今週の全体像（14件）
 
 | 事案 | 何が起きたか | 深刻度 | 該当する人 | 修正・対処 | 詳細 |
 |---|---|---|---|---|---|
@@ -106,14 +106,18 @@ Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース�
 | **OpenCode** | Console 事案でプロバイダキーが露出、利用者のキーが失効（利用者報告） | — | OpenCode を利用 | プロバイダキーを再発行し利用履歴を確認 | [`11`](docs/11-week-of-oct-20.ja.md) |
 | **Oracle Java SE** | 10月 CPU で55件。最大 7.5、KEV 未収載 | 7.5 | JVM を動かしている | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1**（10-20） | [`07`](docs/07-oracle-java-oct2026.ja.md) |
 | **eMudhra CA** | 中間CA **8本**の秘密鍵が **3〜8ビット**しかない（`4, 56, 66, 115, 155, 156, 230, 237`）。2025-04-30 の鍵生成で wrap/unwrap が誤り、24本の下位CAのうち8本に弱い鍵 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
-| **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱 | high | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21） | [`02`](docs/02-nodejs-oct2026.ja.md) |
+| **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱。**Brotli の脆弱性に、公式 24.22.0 ビルドで動く公開 Exploit が出た** | high（NVD の CVSS 4.0 は 9.2） | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21）。コンテナも含む | [`02`](docs/02-nodejs-oct2026.ja.md) |
 | **Linux カーネル「Infinity Core」** | 中核処理（timer / signal / mm / futex / scheduler / SLAB）の LPE 6件。**5件で root 取得 PoC が公開**、同じ5件でコンテナ脱出 | 各 7.8（6件中4件にスコア） | 共有ホスト、k8s ノード、CI ランナー | **上流で修正済み** — 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8、スケジューラは 7.2.9。**要再起動** | [`20`](docs/20-infinity-core.ja.md) |
+| **Arista VeloCloud Orchestrator** | SQL インジェクションが **0-day として悪用中**。ログイン済みなら（最小は読み取り専用）ローカル superuser になれる | **9.9** | オンプレの VCO を運用 | **5.2.3.18 / 6.1.3.10 / 6.4.2.12**（Hosted は修正済み） | [`22` §4](docs/22-snapshot-2015jst.ja.md) |
 
-13件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も、カーネルの2つの集合も別です。
+14件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も、カーネルの2つの集合も別です。
 
-この表は「名前が付いた事案」だけです。**2週間 CRITICAL スイープは 120 → 125 → 104 と9時間で
-動きました** — 同じクエリ・同じ製品で、窓と NVD の待ち行列が違うだけです（10:36 JST 時点の窓は
-10-09…10-23、10時間前は 10-08…10-22）。悪用確認済みは一貫して1件。絞り込みの手順と残った12件は
+この表は「名前が付いた事案」だけです。**2週間 CRITICAL スイープは 120 → 125 → 104 → 98 と
+動きました** — 同じクエリ・同じ製品です。直近2回は公開日の窓も同じ 10-09…10-23 なので、6件減は
+修正ではありません。NVD の深刻度フィルタは自分（Primary）の CVSS 3.x しか数えないため、CNA の
+スコアしか持たないレコードは落ちます。悪用確認済みは一貫して1件。そして今日もっとも重い2件は、
+この一覧に**出てきません**: 悪用された Node の Brotli は CVSS 4.0 のスコアしか持たず、Arista の
+9.9 は CNA の 3.1 スコアしか持ちません。絞り込みの手順と残った12件は
 [`docs/13`](docs/13-recent-criticals.ja.md)、数字が動いた理由（再評価、CNA のスコアしか持たない行を
 深刻度フィルタが数えないこと、修正済みの収集バグ）は同 §9 にあります。
 [`docs/21` §1.2](docs/21-snapshot-1036jst.ja.md) は、同じ教訓がこの README 自身の数字で起きた例です。
@@ -133,7 +137,7 @@ Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース�
 ### 機械可読サマリ
 
 ```yaml
-as_of: 2026-10-23T01:36Z          # 2026-10-23 10:36 JST
+as_of: 2026-10-23T11:30Z          # 2026-10-23 20:30 JST
 php:
   cves: [CVE-2026-109618, CVE-2026-109619]
   cvss_v4: 9.2
@@ -149,6 +153,8 @@ php:
 node:
   latest: { "26": "26.12.1", "24": "24.22.1", "22": "22.23.4" }
   eol_no_fix: "20.x"
+  exploited_build: "24.22.0 (Linux arm64) — Imperva の PoC、2026-10-22。24.22.1 は同じ入力を拒否"
+  in_the_wild: false              # CVE-2026-111497 の実環境での悪用報告は 2026-10-23 時点で無し
 java:
   cpu: "2026-10"
   cves: 55
@@ -584,6 +590,7 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/19-snapshot-0730jst.ja.md`](docs/19-snapshot-0730jst.ja.md) | 2026-10-23 07:25 JST の再取得。NVD が PHP の CVE 1件を 8.1 へ / MSRC +6（うち3件が 10.0）/ 収集ツールの CNA スコア誤読 / エージェントの許可ゲート 2件 |
 | [`docs/20-infinity-core.ja.md`](docs/20-infinity-core.ja.md) | **Infinity Core**: カーネル中核の LPE 6件、root 取得 PoC とコンテナ脱出、既に出ている修正、そして `docs/17` の6件とは別物であること |
 | [`docs/21-snapshot-1036jst.ja.md`](docs/21-snapshot-1036jst.ja.md) | 2026-10-23 10:36 JST の広域スイープ。24時間で公開381件・NVD 解析ゼロ、更新665件、パッケージ勧告58件、そして Infinity Core を隠した盲点 |
+| [`docs/22-snapshot-2015jst.ja.md`](docs/22-snapshot-2015jst.ja.md) | 2026-10-23 20:15 JST、これまでで最も広い取得。**Node2Shell**（公式 Node.js ビルドで動く Exploit）、**10-17 から試行されていた php2shell**、Arista VCO、KSMBD、カプコンとお名前.com、そして深刻度フィルタに見えない2件 |
 | [`docs/17-lkml-oct2026.ja.md`](docs/17-lkml-oct2026.ja.md) | Linux カーネルの6件が公開 LKML へ。SMB Direct / ksmbd の 9.0、未修正、露出削減、検証できたこと・できなかったこと |
 | [`docs/18-bind-cve-2026-94300.ja.md`](docs/18-bind-cve-2026-94300.ja.md) | BIND 9 の GSS-TSIG リプレイ（CVSS 8.1、回避策なし）、影響版と修正版、設定の確認方法 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
@@ -593,7 +600,7 @@ bash tools/copy-prompt.sh intel ja
 | [`tools/intel/fetch-intel`](tools/intel/fetch-intel) | 一次ソースの回収（Oracle CPU / KEV / JVN / MSRC / フィード13本 / NVD 広域スイープ / GHSA）→ JSON |
 | [`tools/copy-prompt.sh`](tools/copy-prompt.sh) | AI に渡すプロンプトをクリップボードへ（`en` / `ja` / `intel` / `intel ja`） |
 | [`prompts/`](prompts/) | コピペ用プロンプト（対応用・判断用、英語版・日本語版） |
-| [`data/2026-10-22/`](data/2026-10-22/) | 取得した生データ（Java 55件、KEV 差分、MSRC、JVN、フィード、NVD、PHP リリース一覧） |
+| [`data/2026-10-23-2015jst/`](data/2026-10-23-2015jst/) | この回の生データ15ファイル（Oracle、KEV、MSRC、JVN、フィード14本、ニュース2本、保存した X 投稿、NVD スイープ、GHSA） |
 | [`site/`](site/) | タップ進行のブリーフィングサイト（<https://2026-incident-briefing.pages.dev>）。擬似3D・自作SFX・生成Lofi |
 | [`SOURCES.ja.md`](SOURCES.ja.md) | 全ソースと再取得コマンド |
 
@@ -618,7 +625,7 @@ bash tools/copy-prompt.sh intel ja
 
 ## 7. 鮮度について（重要）
 
-このリポジトリは **2026-10-23 07:25 JST 時点のスナップショット**です。脆弱性情報は数日で古くなります。
+このリポジトリは **2026-10-23 20:15 JST 時点のスナップショット**です。脆弱性情報は数日で古くなります。
 
 - バージョン判定は必ず**実行中のバイナリ**で行う。タグ・イメージ名は信用しない。
 - 数日以上経っているなら、まず `SOURCES.ja.md` の一次ソースを叩き直す。まとめてやるなら

@@ -59,8 +59,12 @@ used at all.
 | The DFIR Report | <https://thedfirreport.com/feed/> | Full intrusion walkthroughs |
 | Citizen Lab | <https://citizenlab.ca/feed/> | Spyware, policy research |
 | **oss-security** | <https://seclists.org/rss/oss-sec.rss> | **Where a coordinated disclosure lands when the embargo ends** — added 2026-10-23 after it carried "Infinity Core" (`docs/20`) and four items no other feed had |
+| **Imperva Threat Research** | <https://www.imperva.com/blog/feed/> | Red-team demonstrations against stock builds, and first-24-hours attack telemetry (`docs/22`) |
+| **Trade press** (THN, BleepingComputer) | <https://feeds.feedburner.com/TheHackersNews>, <https://www.bleepingcomputer.com/feed/> | The lead channel: names the incident and the vendor. **Secondary** — follow the link it prints |
+| **X posts** (tracked) | `https://cdn.syndication.twimg.com/tweet-result?id=<id>&token=a` | The post text and the links it pushed, archived; the post is a lead, the link is the citation |
 
-All feeds at once: `tools/intel/fetch-intel --sources feeds`.
+All feeds at once: `tools/intel/fetch-intel --sources feeds`; news and the archived post are
+`--sources news` and `--sources x`.
 
 ### Broad sweeps (`docs/21`)
 
@@ -75,6 +79,21 @@ All feeds at once: `tools/intel/fetch-intel --sources feeds`.
 NVD answers a 24-hour all-severity query in ~60 s and returns up to 2,000 rows per page; the
 collector asks in **6-hour slices** for that reason, and a whole-day `lastModified` window (~7 MB) is
 unreliable without an API key.
+
+### Node2Shell, and exploitation before disclosure (`docs/22`)
+
+| Subject | URL | What it tells you | Re-fetch |
+|---|---|---|---|
+| Imperva, Node2Shell | <https://www.imperva.com/blog/node2shell-from-brotli-data-to-remote-code-execution/> | the PoC against the stock 24.22.0 arm64 image, both reachable paths, the pinned middleware versions, what was **not** tested | browser / `--sources feeds` |
+| The X post | <https://x.com/TheHackersNews/status/2113538808126038500> | timestamp of the lead and the article it pushed (2026-10-23 07:51 UTC) | `--sources x` (archives it) |
+| Node.js advisory | <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases> | `CVE-2026-111497`, severity, fixed versions | browser |
+| AWS, MadPot telemetry | <https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/> | **exploitation attempt dated 2026-10-17**, PoCs from 10-21 02:00 UTC, IOCs, "investigate from 10-17" | browser |
+| Imperva, php2shell first 24 h | <https://www.imperva.com/blog/php2shell-early-attack-activity-through-impervas-lens/> | 482,342 requests / 122,311 sessions / 21,998 sites / 103 countries; **attempts**, not compromises | browser / `--sources feeds` |
+| Sophos | <https://www.sophos.com/en-us/blog/proof-of-concept-exploit-released-for-php-vulnerabilities-109618-109619> | the Potassium Mirai variant, C2, and that the attempts were **unsuccessful** | browser |
+| Dataminr TRACE | <https://www.dataminr.com/resources/intel-brief/continued-analysis-of-core-php-vulnerabilities/> | "no known compromises" as of 10-22 | browser |
+| Arista advisory 0199 | <https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199> | `CVE-2026-114625`: 9.9, minimum role, fixed releases, IOCs | browser (the page 406s a plain curl) |
+| Capcom, CAPCOM ID | <https://www.capcom.co.jp/ir/news/html/261022.html> | 11,774,247 records, 43 / 196 subsets, the 10-19 → 10-21 timeline | browser |
+| Onamae.com Desktop Cloud | <https://www.onamae.com/news/article/11584> | up to 26,739 servers, suspension from 2026-10-21 04:00 JST, rotation advice | browser |
 
 ### GitLab, LiteLLM, Railway, OpenCode (`docs/09`-`docs/11`)
 
@@ -138,6 +157,9 @@ Primary sources go down. Measured on 2026-10-22:
 | MSRC blog `/feed` | returned `text/html` with HTTP 200 and zero items | `microsoft.com/security/blog/feed/`, CVRF API |
 | NVD analysis pending | Oracle's October CVEs are `Awaiting Analysis` | the vendor risk matrix |
 | Vendor build lag | Temurin still on August builds two days after Oracle — then shipped 17 / 21 / 25 the next day | that vendor's own release notes, checked on the day you act |
+| Arista advisory pages | returned **HTTP 406** to a plain fetch (2026-10-23) | NVD's record for `CVE-2026-114625` plus the press summary; see `docs/22` §4 |
+| Sophos blog | HTTP/2 stream reset, then a timeout (2026-10-23) | The Hacker News' quotation of it, marked as secondary in `docs/22` §3 |
+| Dataminr brief | **403** (2026-10-23) | BleepingComputer's summary, marked as secondary |
 
 `tools/intel/fetch-intel` writes the sources that worked and exits `10` on partial failure
 (`0` all, `2` nothing).
@@ -157,8 +179,8 @@ When a figure looks wrong, doubt it in this order:
 
 ## Snapshot in this repository
 
-`data/2026-10-22/` holds the raw responses as retrieved. Re-fetch everything with
-`tools/intel/fetch-intel --date 2026-10-22` (see `docs/08`).
+`data/2026-10-22/` holds the raw responses as retrieved, and `data/2026-10-23-2015jst/` the most
+recent (15 files). Re-fetch everything with `tools/intel/fetch-intel --date <name>` (see `docs/08`).
 
 | File | Origin | Transformed? |
 |---|---|---|

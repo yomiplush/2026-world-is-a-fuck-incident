@@ -9,6 +9,7 @@ bs4, no jq. Network is the only external dependency.
   tools/intel/fetch-intel --date 2026-10-22 --cpu Oct2026
   tools/intel/fetch-intel --sources oracle,kev  # subset
   tools/intel/fetch-intel --recent-hours 12     # broad NVD + GHSA window
+  tools/intel/fetch-intel --x-posts 2113538808126038500
   tools/intel/fetch-intel --out /tmp/intel      # somewhere else
 
 Exit codes: 0 = every source fetched, 10 = partial (some source failed, the rest
@@ -75,9 +76,26 @@ FEEDS = {
     # official advisories
     "cisa-advisories": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
     "jpcert": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+    # vendor red teams: a working exploit against an official build. Imperva is
+    # where the 2026-10-22 Node2Shell demonstration and the php2shell
+    # first-24-hours telemetry were published, neither of which reached NVD.
+    "imperva": "https://www.imperva.com/blog/feed/",
     # policy / spyware research
     "citizenlab": "https://citizenlab.ca/feed/",
 }
+
+# Trade press. Secondary by construction: every item links the advisory, the
+# research post or the filing it came from, and that link is the citation. Kept
+# apart from FEEDS so a headline never gets counted as a primary source.
+NEWS_FEEDS = {
+    "thehackernews": "https://feeds.feedburner.com/TheHackersNews",
+    "bleepingcomputer": "https://www.bleepingcomputer.com/feed/",
+}
+
+# The X posts this repository quotes. A post is a lead, not evidence: the value
+# is the link it pushes (and the timestamp of the push).
+TRACKED_X_POSTS = "2113538808126038500"
+X_TWEET = "https://cdn.syndication.twimg.com/tweet-result?id={id}&token=a"
 
 CVSS_KEYS = ("attack_vector", "attack_complexity", "privileges_required",
              "user_interaction", "scope", "confidentiality", "integrity",
@@ -344,9 +362,9 @@ def parse_when(s: str) -> dt.datetime | None:
         return None
 
 
-def collect_feeds(limit: int) -> dict:
+def collect_feeds(limit: int, feeds: dict[str, str] | None = None) -> dict:
     out = {}
-    for name, url in FEEDS.items():
+    for name, url in (feeds or FEEDS).items():
         try:
             raw = get(url).decode("utf-8", "replace")
         except (urllib.error.URLError, OSError) as exc:
@@ -367,6 +385,72 @@ def collect_feeds(limit: int) -> dict:
         items.sort(key=lambda x: x["date"], reverse=True)
         out[name] = {"url": url, "count": len(items), "recent": items[:limit]}
     return out
+
+
+def collect_news(limit: int) -> dict:
+    """The trade press, stored as a lead channel — not as evidence.
+
+    This is the channel that carried Node2Shell to the user before any CVE feed
+    did (2026-10-23). Each item keeps its URL so the claim can be followed to
+    the advisory or research post behind it; nothing here is citable on its own.
+    """
+    out = collect_feeds(limit, NEWS_FEEDS)
+    out["channel"] = "trade-press"
+    out["note"] = ("Secondary. Follow each item's URL to the primary source "
+                   "before citing it.")
+    return out
+
+
+def collect_x_posts(ids: str) -> dict:
+    """Archive the tracked X posts, one record each, with their outbound links.
+
+    X's API needs credentials and the public timeline needs a browser; the
+    syndication endpoint behind embedded posts answers without either, which is
+    enough to keep the claim and the link it pushed. It is undocumented, so the
+    saved JSON is the archive: a deleted post cannot be fetched again.
+    """
+    posts, errors = [], {}
+    for tid in (i.strip() for i in ids.split(",")):
+        if not tid:
+            continue
+        url = X_TWEET.format(id=tid)
+        try:
+            d = json.loads(get(url))
+        except (urllib.error.URLError, OSError, json.JSONDecodeError) as exc:
+            errors[tid] = str(exc)
+            print(f"  ! x/{tid}: {exc}", file=sys.stderr)
+            continue
+        if not d or d.get("__typename") != "Tweet":
+            errors[tid] = "empty result (deleted, protected, or rate-limited)"
+            print(f"  ! x/{tid}: {errors[tid]}", file=sys.stderr)
+            continue
+        user = d.get("user") or {}
+        links = [{"display": u.get("display_url"), "expanded": u.get("expanded_url")}
+                 for u in ((d.get("entities") or {}).get("urls") or [])]
+        media = [{"type": m.get("type"), "url": m.get("expanded_url")}
+                 for m in ((d.get("entities") or {}).get("media") or [])]
+        posts.append({
+            "id": d.get("id_str") or tid,
+            "url": f"https://x.com/{user.get('screen_name', 'i')}/status/{tid}",
+            "created_at": d.get("created_at"),
+            "lang": d.get("lang"),
+            "author": {"name": user.get("name"),
+                       "screen_name": user.get("screen_name"),
+                       "verification": user.get("verified_type")},
+            "text": d.get("text"),
+            "links": links,
+            "media": media,
+        })
+    if not posts:
+        raise ValueError(f"no X post could be read ({errors or 'no ids'})")
+    return {
+        "source": "https://cdn.syndication.twimg.com/tweet-result",
+        "note": ("Undocumented syndication endpoint, no credentials. A post is a "
+                 "lead: cite the link in `links`, not the post."),
+        "tracked": [p["id"] for p in posts],
+        "posts": posts,
+        "errors": errors,
+    }
 
 
 def collect_msrc(month: str) -> dict:
@@ -555,17 +639,25 @@ def collect_csaf(adv_id: str) -> dict:
     }
 
 
-def epss_scores(ids: list[str]) -> dict:
-    out = {}
+def epss_scores(ids: list[str]) -> tuple[dict, int]:
+    """Scores, plus how many batches the API refused.
+
+    FIRST rate-limits bursts — a broad sweep asks for four batches of 90 right
+    after four NVD queries — and a swallowed 429 looks exactly like "nothing in
+    this window has a score". Return the failure count so the snapshot can say
+    which of the two happened instead of publishing an empty column.
+    """
+    out, failed = {}, 0
     for i in range(0, len(ids), 90):
         url = EPSS.format(ids=",".join(ids[i:i + 90]))
         try:
             d = json.loads(get(url))
         except (urllib.error.URLError, OSError, json.JSONDecodeError):
+            failed += 1
             continue
         for e in d.get("data", []):
             out[e["cve"]] = float(e["epss"])
-    return out
+    return out, failed
 
 
 def kev_cve_ids() -> set[str]:
@@ -625,19 +717,24 @@ def nvd_entry(c: dict, kev: set[str]) -> dict:
 
 
 def summarise_nvd(entries: list, url: str, **window) -> dict:
-    scores = epss_scores([e["cve"] for e in entries])
+    scores, failed = epss_scores([e["cve"] for e in entries])
     for e in entries:
         e["epss"] = scores.get(e["cve"])
     entries.sort(key=lambda e: (-(e["cvss_v31"] or 0), e["published"]))
-    return {
+    out = {
         "source": url,
         **window,
         "total": len(entries),
         "in_kev": sum(1 for e in entries if e["kev"]),
         "with_cpe": sum(1 for e in entries if e["vendor"]),
         "with_epss": sum(1 for e in entries if e["epss"] is not None),
+        "epss_batches_failed": failed,
         "entries": entries,
     }
+    if failed and not scores:
+        out["epss_note"] = ("EPSS answered no batch — an empty column here means "
+                            "'not measured', not '0%'.")
+    return out
 
 
 def collect_nvd_critical(days: int) -> dict:
@@ -776,9 +873,9 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--kev-days", type=int, default=30, help="KEV look-back window")
     ap.add_argument("--limit", type=int, default=12, help="items per feed")
     ap.add_argument("--sources",
-                    default="oracle,kev,jvn,feeds,msrc,gitlab,litellm,csaf,"
+                    default="oracle,kev,jvn,feeds,news,x,msrc,gitlab,litellm,csaf,"
                             "nvd-critical,nvd-recent,nvd-modified,ghsa",
-                    help="comma list of: oracle,kev,jvn,feeds,msrc,gitlab,litellm,"
+                    help="comma list of: oracle,kev,jvn,feeds,news,x,msrc,gitlab,litellm,"
                          "csaf,nvd-critical,nvd-recent,nvd-modified,ghsa")
     ap.add_argument("--gitlab-slug", default="patch-release-gitlab-19-5-1-released",
                     help="GitLab patch-release page slug (docs.gitlab.com/releases/patches/<slug>/)")
@@ -792,6 +889,8 @@ def main(argv: list[str]) -> int:
                     help="window for the NVD CRITICAL sweep")
     ap.add_argument("--recent-hours", type=int, default=24,
                     help="window for the broad NVD (published / modified) and GHSA sweeps")
+    ap.add_argument("--x-posts", default=TRACKED_X_POSTS,
+                    help="comma list of X post ids to archive (default: the tracked leads)")
     ap.add_argument("--out", default=None, help="output directory (default data/<date>)")
     args = ap.parse_args(argv)
 
@@ -818,6 +917,8 @@ def main(argv: list[str]) -> int:
         "kev": kev_job,
         "jvn": lambda: [("jvn-recent.json", collect_jvn(args.limit))],
         "feeds": lambda: [("researcher-feeds.json", collect_feeds(args.limit))],
+        "news": lambda: [("news-feeds.json", collect_news(args.limit))],
+        "x": lambda: [("x-posts.json", collect_x_posts(args.x_posts))],
         "msrc": lambda: [("msrc-" + args.month.lower() + ".json",
                           collect_msrc(args.month))],
         "gitlab": lambda: [("gitlab-" + args.gitlab_slug + ".json",
@@ -879,6 +980,14 @@ def main(argv: list[str]) -> int:
             empty = [k for k in FEEDS if k in p and not p[k].get("recent")]
             note = f" (empty: {', '.join(empty)})" if empty else ""
             print(f"feeds: {ok}/{len(FEEDS)} readable{note} -> {rel}")
+        elif name == "news":
+            ok = sum(1 for k, v in p.items() if k in NEWS_FEEDS and "recent" in v)
+            print(f"news: {ok}/{len(NEWS_FEEDS)} readable, "
+                  f"{sum(len(v.get('recent', [])) for k, v in p.items() if k in NEWS_FEEDS)} "
+                  f"headlines -> {rel}")
+        elif name == "x":
+            print(f"x: {len(p['posts'])} post(s) archived "
+                  f"({', '.join(p['tracked'])}) -> {rel}")
         elif name == "gitlab":
             print(f"GitLab {p['slug']}: {p['cve_count']} CVEs, "
                   f"max CVSS {p['max_cvss']} -> {rel}")
@@ -887,7 +996,9 @@ def main(argv: list[str]) -> int:
                   f"fixed {', '.join(p['fixed_versions'])} -> {rel}")
         elif name == "nvd-critical":
             print(f"NVD CRITICAL {p['window_start']}..{p['window_end']}: "
-                  f"{p['total']} CVEs, {p['in_kev']} in KEV, {p['with_epss']} with EPSS -> {rel}")
+                  f"{p['total']} CVEs, {p['in_kev']} in KEV, {p['with_epss']} with EPSS"
+                  + (f" ({p['epss_batches_failed']} EPSS batches failed)" if p.get("epss_batches_failed") else "")
+                  + f" -> {rel}")
         elif name in ("nvd-recent", "nvd-modified"):
             print(f"NVD {p['mode']} last {p['window_hours']}h: {p['total']} CVEs, "
                   f"{sum(1 for e in p['entries'] if (e['cvss_v31'] or 0) >= 9.0)} at >=9.0, "
