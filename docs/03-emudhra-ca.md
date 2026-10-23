@@ -192,6 +192,25 @@ composer show composer/ca-bundle 2>/dev/null | head -2
 # Java keeps its own cacerts (keytool -list); rebuild images rather than editing it
 ```
 
+**Python published the floors on 2026-10-22** (Seth Michael Larson, via the Python security
+response): the **emSign root** was removed from bundles such as `certifi`'s, so the action is a root
+removal, not only an intermediate update. Minimum versions, checked on PyPI at the 2026-10-23
+10:36 JST snapshot:
+
+| Package | Floor | Note |
+|---|---|---|
+| `certifi` | **2026.10.19** | the advisory text says 2026.10.18; 10.19 is recommended for compatibility with the unaffected emSign roots |
+| `pip` | **26.2.2** | upgrade pip first, then use *that* pip for the rest |
+| `uv` | **0.13.4** | 0.13.5 is current |
+| `sigstore` | **4.5.1** | |
+| `conda` | **26.9.4** | distributed through conda channels — not visible on PyPI |
+| `pixi` | **0.82.1** | check `pixi --version`; the PyPI package named `pixi` is not this tool |
+
+And the instruction that is easy to skip: **rebuild container images with layer caching disabled**,
+or the "updated bundle" step is satisfied by a cached layer that still holds the old root. Expect
+pinning failures after the upgrade — a service that pinned the old root fails to verify now, which
+is the change working as intended.
+
 ### 7-3. Check for direct trust and pinning
 
 ```bash

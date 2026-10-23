@@ -2,6 +2,14 @@
 
 [English](17-lkml-oct2026.md) | [**日本語**](17-lkml-oct2026.ja.md)
 
+> **There are two "six Linux kernel vulnerabilities" in October 2026.** This document is the
+> **leaked ZDI set** (SMB Direct, ksmbd, …) that went to the public `linux-kernel@` list and has
+> **no fix in mainline** as of 2026-10-23. The other one is
+> [`Infinity Core`](20-infinity-core.md) — six *different* CVEs (timer, signal, mm, futex,
+> scheduler, SLAB), disclosed on `oss-security` on 2026-10-16, with **fixes already in the stable
+> lines** and public root PoCs. If you arrived from a headline about "six kernel vulnerabilities
+> with root escalation PoCs", you want [`docs/20`](20-infinity-core.md).
+
 Not a supply-chain incident and not a single CVE: **six kernel vulnerability reports were sent to
 the public LKML instead of the private security mailing list**, overnight on 21–22 October, and at
 least two of them are remote-reachable CVSS 9.0 issues. The fixes are not in mainline yet.

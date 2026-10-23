@@ -14,7 +14,7 @@ window.registerLocale("zh", {
     coverFoot: "所有结论均可追溯到一手来源。仅 ConnectWise 一项未核实。",
     drawerTitle: "来源 / SOURCES",
     drawerFoot: "14/15 已用一手来源核实。ConnectWise 标注为未核实。",
-    asof: "截至 2026-10-23 07:25 JST"
+    asof: "截至 2026-10-23 10:36 JST"
   },
   scenes: {
     intro: {

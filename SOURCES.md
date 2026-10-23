@@ -58,8 +58,23 @@ used at all.
 | SANS ISC | <https://isc.sans.edu/rssfeed.xml> | Practitioner triage |
 | The DFIR Report | <https://thedfirreport.com/feed/> | Full intrusion walkthroughs |
 | Citizen Lab | <https://citizenlab.ca/feed/> | Spyware, policy research |
+| **oss-security** | <https://seclists.org/rss/oss-sec.rss> | **Where a coordinated disclosure lands when the embargo ends** — added 2026-10-23 after it carried "Infinity Core" (`docs/20`) and four items no other feed had |
 
 All feeds at once: `tools/intel/fetch-intel --sources feeds`.
+
+### Broad sweeps (`docs/21`)
+
+| Subject | URL | What it tells you | Re-fetch |
+|---|---|---|---|
+| NVD, published in a window, **all severities** | `https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=…&pubEndDate=…` | what appeared, without a severity filter hiding the HIGH band | `tools/intel/fetch-intel --sources nvd-recent --recent-hours 24` |
+| NVD, `lastModified` window | `…?lastModStartDate=…&lastModEndDate=…` | **what NVD changed** — the sweep that catches a rescore (9.8 → 8.1) on its own | `--sources nvd-modified --recent-hours 6` |
+| GitHub Advisory Database | <https://api.github.com/advisories> | npm / pip / Go / Maven advisories with patched versions, **including ones with no CVE** | `--sources ghsa --recent-hours 24` |
+| Kernel CVE announcements | <https://lists.openwall.net/linux-cve-announce/> | per-CVE `Fixed in <stable> with commit <sha>` lines | browser / list archive |
+| kernel.org release index | <https://www.kernel.org/releases.json> | current mainline / stable / longterm versions | `curl -s <URL> \| jq -r '.releases[:5][]\|"\(.moniker) \(.version)"'` |
+
+NVD answers a 24-hour all-severity query in ~60 s and returns up to 2,000 rows per page; the
+collector asks in **6-hour slices** for that reason, and a whole-day `lastModified` window (~7 MB) is
+unreliable without an API key.
 
 ### GitLab, LiteLLM, Railway, OpenCode (`docs/09`-`docs/11`)
 
@@ -152,7 +167,7 @@ When a figure looks wrong, doubt it in this order:
 | `kev-catalog.json` | same feed | metadata only |
 | `msrc-2026-oct.json` | MSRC CVRF (XML) | summary plus every entry |
 | `jvn-recent.json` | JVN RDF | extracted |
-| `researcher-feeds.json` | the 12 feeds | extracted |
+| `researcher-feeds.json` | the 13 feeds | extracted |
 | `nvd-recent.json`, `php-all.json`, `node-latest-lines.txt`, `ncsc.md` | public APIs / distribution files | response as-is |
 
 `ncsc.md` is a verbatim copy of NCSC-NL's README, so its relative links point at that

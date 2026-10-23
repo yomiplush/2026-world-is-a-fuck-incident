@@ -25,6 +25,7 @@
 | **CA バンドルを自前で持つ**（Go / Python / Node / Java / コンテナ / VPN） | eMudhra の中間CA **8本**の鍵が弱すぎて、誰でも計算できる（**3〜8ビット**）。ブラウザは対応済み、長い尾は Docker・IoT・Python の同梱ルート | `ca-certificates` / `certifi` / Go / NSS を更新 → [`docs/03`](docs/03-emudhra-ca.ja.md) |
 | **AI ツールにプロバイダキーを渡している** | 今週の攻撃は**鍵**を狙っている（Railway / LiteLLM / OpenCode） | キーを棚卸しし、プロバイダ側の利用履歴を見る → [`docs/11` §5](docs/11-week-of-oct-20.ja.md) |
 | **AI エージェントにシェルを許可している** | 許可プロンプトが常に「はい」を返す実装が2件（**9.8**）。エージェントが読むテキストがホストのコマンドになり、LLM・クラウドの鍵ごと持ち出される | 更新（**EvoScientist 0.2.5**）またはヘッドレスでゲートを検証 → [`docs/19` §6](docs/19-snapshot-0730jst.ja.md) |
+| **コンテナや共有カーネルを動かしている** | **Infinity Core**: コンテナからホストへ抜ける root 取得 PoC が5件公開。timer / signal / mm / futex / scheduler のコード。先にローカルでのコード実行が必要 — それは侵害された依存パッケージが与える | カーネルを更新し**再起動** → [`docs/20`](docs/20-infinity-core.ja.md) |
 | **Node.js を 20.x で動かしている** | 20 は EOL。修正が来ない | **22.23.4 / 24.22.1 / 26.12.1** へ → [`docs/02`](docs/02-nodejs-oct2026.ja.md) |
 
 ### 0-3. 言葉の言い換え（このリポジトリでよく出る言葉）
@@ -79,15 +80,16 @@ Español / Français / Deutsch / Português / Русский / العربية / 
 **Oracle Java の四半期パッチ**、**eMudhra の CA 鍵8本**）について、事実・一次ソース・
 再現手順・実行できる防御ツールをひとまとめにした記録です。**読むため**と、**手を動かすため**の両方に使えます。
 
-**データ基準時点**: **2026-10-23 07:25 JST**（2026-10-22 22:25 UTC）— 同じ週の3回目の取得。
-夜間の差分は [`docs/19`](docs/19-snapshot-0730jst.ja.md)、前回までは
-[`docs/16`](docs/16-snapshot-2120jst.ja.md) と `data/2026-10-22/` にあります。新しいパッチが
-出ていないことは Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース索引で
-確認済み。
+**データ基準時点**: **2026-10-23 10:36 JST**（2026-10-23 01:36 UTC）— この週の4回目にして、
+はじめて**広く**取った取得です（全深刻度、パッケージエコシステム、開示チャネル）。結果は
+[`docs/21`](docs/21-snapshot-1036jst.ja.md)、夜間の差分は
+[`docs/19`](docs/19-snapshot-0730jst.ja.md)。下記の製品に新しいパッチが出ていないことは
+Node.js・PHP・GitLab・Tomcat・httpd・BIND・Plex・Oracle のリリース索引で確認済みですが、
+**カーネル**の状況は変わりました: [`docs/20`](docs/20-infinity-core.ja.md)。
 
 ---
 
-## 1. 今週の全体像（12件）
+## 1. 今週の全体像（13件）
 
 | 事案 | 何が起きたか | 深刻度 | 該当する人 | 修正・対処 | 詳細 |
 |---|---|---|---|---|---|
@@ -103,14 +105,16 @@ Español / Français / Deutsch / Português / Русский / العربية / 
 | **Oracle Java SE** | 10月 CPU で55件。最大 7.5、KEV 未収載 | 7.5 | JVM を動かしている | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1**（10-20） | [`07`](docs/07-oracle-java-oct2026.ja.md) |
 | **eMudhra CA** | 中間CA **8本**の秘密鍵が **3〜8ビット**しかない（`4, 56, 66, 115, 155, 156, 230, 237`）。2025-04-30 の鍵生成で wrap/unwrap が誤り、24本の下位CAのうち8本に弱い鍵 | PKI | CA バンドルを自前で持つ | `ca-certificates` / `certifi` / Go / NSS を更新 | [`03`](docs/03-emudhra-ca.ja.md) |
 | **Node.js** | 10月分の CVE 9件。CA バンドル更新も同梱 | high | Node 22 / 24 / 26。**20 は EOL** | **22.23.4 / 24.22.1 / 26.12.1**（10-21） | [`02`](docs/02-nodejs-oct2026.ja.md) |
+| **Linux カーネル「Infinity Core」** | 中核処理（timer / signal / mm / futex / scheduler / SLAB）の LPE 6件。**5件で root 取得 PoC が公開**、同じ5件でコンテナ脱出 | 各 7.8（6件中4件にスコア） | 共有ホスト、k8s ノード、CI ランナー | **上流で修正済み** — 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8、スケジューラは 7.2.9。**要再起動** | [`20`](docs/20-infinity-core.ja.md) |
 
-12件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も別です。
+13件は**独立**しています。PHP を直しても GitLab は直らず、CA も Java も、カーネルの2つの集合も別です。
 
-この表は「名前が付いた事案」だけです。**直近2週間の NVD CRITICAL は125件**（2026-10-23 時点。
-文書を書いた 10-22 時点は120件）、そのうち実際に悪用が確認されているのは1件です。絞り込みの
-手順と残った12件は [`docs/13`](docs/13-recent-criticals.ja.md)。**120→125 の理由は2つ**
-（NVD が PHP の CVE 1件を再評価した／深刻度フィルタは CNA のスコアしか持たない行を数えない）で、
-どちらも [`docs/13` §9](docs/13-recent-criticals.ja.md) に書きました。
+この表は「名前が付いた事案」だけです。**2週間 CRITICAL スイープは 120 → 125 → 104 と9時間で
+動きました** — 同じクエリ・同じ製品で、窓と NVD の待ち行列が違うだけです（10:36 JST 時点の窓は
+10-09…10-23、10時間前は 10-08…10-22）。悪用確認済みは一貫して1件。絞り込みの手順と残った12件は
+[`docs/13`](docs/13-recent-criticals.ja.md)、数字が動いた理由（再評価、CNA のスコアしか持たない行を
+深刻度フィルタが数えないこと、修正済みの収集バグ）は同 §9 にあります。
+[`docs/21` §1.2](docs/21-snapshot-1036jst.ja.md) は、同じ教訓がこの README 自身の数字で起きた例です。
 
 前回の取得に対して、このスナップショットが訂正するものが2つあります（[`docs/19`](docs/19-snapshot-0730jst.ja.md)）。
 **NVD は `CVE-2026-109619` を 9.8 → 8.1 に下げました**（攻撃の複雑さの判断で、影響度も修正内容も
@@ -127,7 +131,7 @@ Español / Français / Deutsch / Português / Русский / العربية / 
 ### 機械可読サマリ
 
 ```yaml
-as_of: 2026-10-22T22:25Z          # 2026-10-23 07:25 JST
+as_of: 2026-10-23T01:36Z          # 2026-10-23 10:36 JST
 php:
   cves: [CVE-2026-109618, CVE-2026-109619]
   cvss_v4: 9.2
@@ -182,19 +186,45 @@ opencode:
   event: "Console incident; provider keys exposed, user keys revoked"
   published_by_vendor: false
 recent_criticals:
-  window: "2026-10-08..2026-10-22"
-  total: 125                     # 10-22 の取得では120。11件入り、10件出た
-  ge_9_8: 72
-  exactly_10_0: 13
+  window: "2026-10-09..2026-10-23"   # 窓は時計とともに動く: 9時間で 120 -> 125 -> 104
+  total: 104
+  ge_9_8: 55
   in_kev: 1
-  oracle: 32
-  consumer_iot: 36
-  epss_max: 0.0576               # CVE-2026-109619（すでに CRITICAL の外）
+  epss_max_in_window: 0.0531     # CVE-2026-109618（109619 は 0.0576 だが CRITICAL の外）
   caveat: "cvssV3Severity は NVD が解析済みの行だけを数える。CNA のスコアしか無い行は見えない"
 msrc_2026_oct:
-  entries: 2584
-  cve_entries: 2583
-  exploited: [CVE-2026-96951]    # 3回の再公開を通じて1件のまま
+  entries: 2937                  # 2026-10-23 に +353。すべて Chromium のコンポーネント CVE
+  cve_entries: 2936
+  exploited: [CVE-2026-96951]    # 4回の再公開を通じて1件のまま
+  publicly_disclosed: [CVE-2026-108398, CVE-2026-92707]
+kernel_infinity_core:            # docs/20
+  cves: [CVE-2026-98260, CVE-2026-98256, CVE-2026-89754, CVE-2026-80775, CVE-2026-98385, CVE-2026-97941]
+  impact: "LPE とコンテナ脱出（5件）。CVE-2026-97941 はカーネルパニック"
+  nvd_cvss: { scored: 4, score: 7.8, unscored: 2, status: Received }
+  fixed_stable: ["6.6.158", "6.12.112", "6.18.54", "7.2.8"]      # CVE-2026-98260。スケジューラは 7.2.9
+  current_stable: ["7.2.12", "6.18.58", "6.12.114", "6.6.160", "6.1.190"]
+  in_kev: false
+  disclosure: "oss-security 2026-10-16T16:00Z（2026-10-17 01:00 JST）"
+```
+
+```yaml
+# 2026-10-23 10:36 JST 追加 — 広域スイープ（docs/21）
+broad_sweep:
+  nvd_published_24h: { total: 381, ge_9_0: 54, analysed_by_nvd: 0, with_cpe: 0, with_epss: 71 }
+  nvd_modified_6h: { total: 665, analysed: 144, deferred: 303 }
+  ghsa_24h: { advisories: 58, critical: 5, high: 26, npm_entries: 67, pip_entries: 28 }
+  feeds: 13
+  headlines_without_a_cve:
+    - "npm next: 未認証 RCE（use cache） -> 16.4.1"
+    - "npm next: 未認証 RCE（画像最適化 + SVG） -> 15.5.28 / 16.4.1"
+python_ca_floors:               # 2026-10-22、oss-sec。certifi/pip/uv/sigstore は PyPI で確認
+  certifi: "2026.10.19"
+  pip: "26.2.2"
+  uv: "0.13.4"
+  sigstore: "4.5.1"
+  conda: "26.9.4"
+  pixi: "0.82.1"
+  note: "削除されたのは emSign の『ルート』。中間CAだけではない。イメージはキャッシュ無効で再ビルド"
 agent_approval_gates:            # docs/19 §6
   cves: [CVE-2026-109444, CVE-2026-77930]   # 9.8, 9.8 — OpenSRE / EvoScientist
   fixed: { EvoScientist: "0.2.5", OpenSRE: "以降の日付版" }
@@ -499,7 +529,7 @@ tools/node/nodefix-audit --target <your-host>        # Node ランタイムの�
 ## 4. データと情報源（AI に渡す前提）
 
 **一覧は数日で古くなります。残るのは取得元と、その問い直し方です。**
-[`docs/08-intel-sources.ja.md`](docs/08-intel-sources.ja.md) に、研究者／業界フィード12本・
+[`docs/08-intel-sources.ja.md`](docs/08-intel-sources.ja.md) に、研究者／業界フィード13本・
 公式フィード4本のカタログと、2026-10-23 時点のスナップショット（KEV 直近33件、MSRC 2,584
 エントリ、JVN 20件）を置いてあります。手で写した数字は載せていません。
 
@@ -510,7 +540,7 @@ tools/intel/fetch-intel --out /tmp/intel      # 別の場所に
 ```
 
 - 取得結果は [`data/2026-10-22/`](data/2026-10-22/) にあります（Oracle Java 55件、GitLab 勧告を
-  CVE 単位に構造化したもの、LiteLLM 事案記録の逐語、KEV 差分、MSRC、JVN、12本のフィード）。
+  CVE 単位に構造化したもの、LiteLLM 事案記録の逐語、KEV 差分、MSRC、JVN、13本のフィード）。
 - 取得元に `gitlab` / `litellm` / `csaf` / `nvd-critical` を追加したので、`docs/09`・`docs/10`・
   `docs/12`・`docs/13` の表も他と同じ手順で作り直せます。
 - `nvd-critical` は NVD の CRITICAL を期間で抜き、KEV と EPSS を付けて出力します（`--critical-days`）。
@@ -550,13 +580,15 @@ bash tools/copy-prompt.sh intel ja
 | [`docs/15-apache-oct2026.ja.md`](docs/15-apache-oct2026.ja.md) | Apache の10月分: Tomcat 3件・httpd 2.4.69・Traffic Server、深刻度ラベルと CVSS の食い違い |
 | [`docs/16-snapshot-2120jst.ja.md`](docs/16-snapshot-2120jst.ja.md) | 2026-10-22 21:20 JST の再取得。KEV 据え置き / MSRC 2,575→2,578 / CRITICAL 120→124 / Plex 最新版 |
 | [`docs/19-snapshot-0730jst.ja.md`](docs/19-snapshot-0730jst.ja.md) | 2026-10-23 07:25 JST の再取得。NVD が PHP の CVE 1件を 8.1 へ / MSRC +6（うち3件が 10.0）/ 収集ツールの CNA スコア誤読 / エージェントの許可ゲート 2件 |
+| [`docs/20-infinity-core.ja.md`](docs/20-infinity-core.ja.md) | **Infinity Core**: カーネル中核の LPE 6件、root 取得 PoC とコンテナ脱出、既に出ている修正、そして `docs/17` の6件とは別物であること |
+| [`docs/21-snapshot-1036jst.ja.md`](docs/21-snapshot-1036jst.ja.md) | 2026-10-23 10:36 JST の広域スイープ。24時間で公開381件・NVD 解析ゼロ、更新665件、パッケージ勧告58件、そして Infinity Core を隠した盲点 |
 | [`docs/17-lkml-oct2026.ja.md`](docs/17-lkml-oct2026.ja.md) | Linux カーネルの6件が公開 LKML へ。SMB Direct / ksmbd の 9.0、未修正、露出削減、検証できたこと・できなかったこと |
 | [`docs/18-bind-cve-2026-94300.ja.md`](docs/18-bind-cve-2026-94300.ja.md) | BIND 9 の GSS-TSIG リプレイ（CVSS 8.1、回避策なし）、影響版と修正版、設定の確認方法 |
 | [`runbooks/php2shell.ja.md`](runbooks/php2shell.ja.md) | 検知 → 遮断 → 修正 → 検証 → 侵害時対応 |
 | [`runbooks/nodejs.ja.md`](runbooks/nodejs.ja.md) | 監査 → コンテナ修正 → ホスト修正 → ロールバック |
 | [`tools/php2shell/`](tools/php2shell/) | `p2s-audit` / `-mitigate` / `-hunt` / `-patch` / `-edge` / `-watch`、ini、systemd unit、selftest |
 | [`tools/node/nodefix-audit`](tools/node/nodefix-audit) | Node ランタイムの版監査（修正版未満を列挙） |
-| [`tools/intel/fetch-intel`](tools/intel/fetch-intel) | 一次ソースの回収（Oracle CPU / KEV / JVN / MSRC / フィード12本）→ JSON |
+| [`tools/intel/fetch-intel`](tools/intel/fetch-intel) | 一次ソースの回収（Oracle CPU / KEV / JVN / MSRC / フィード13本 / NVD 広域スイープ / GHSA）→ JSON |
 | [`tools/copy-prompt.sh`](tools/copy-prompt.sh) | AI に渡すプロンプトをクリップボードへ（`en` / `ja` / `intel` / `intel ja`） |
 | [`prompts/`](prompts/) | コピペ用プロンプト（対応用・判断用、英語版・日本語版） |
 | [`data/2026-10-22/`](data/2026-10-22/) | 取得した生データ（Java 55件、KEV 差分、MSRC、JVN、フィード、NVD、PHP リリース一覧） |
