@@ -57,8 +57,12 @@
 | SANS ISC | <https://isc.sans.edu/rssfeed.xml> | 実務のトリアージ |
 | The DFIR Report | <https://thedfirreport.com/feed/> | 侵入事案の全記録 |
 | Citizen Lab | <https://citizenlab.ca/feed/> | スパイウェア、政策 |
+| **Imperva Threat Research** | <https://www.imperva.com/blog/feed/> | 配布ビルドに対する Red Team の実証と、攻撃開始24時間の観測（`docs/22`） |
+| **業界紙**（THN、BleepingComputer） | <https://feeds.feedburner.com/TheHackersNews>、<https://www.bleepingcomputer.com/feed/> | 導線のチャネル。事案名とベンダ名を先に出す。**二次** — 記事中のリンクを辿る |
+| **X の投稿**（追跡分） | `https://cdn.syndication.twimg.com/tweet-result?id=<id>&token=a` | 投稿本文と、その投稿が押し出したリンクを保存。投稿は導線、リンクが引用元 |
 
-フィードはすべて `tools/intel/fetch-intel --sources feeds` で一括取得できます。
+フィードは `tools/intel/fetch-intel --sources feeds`、ニュースと保存した投稿は
+`--sources news` / `--sources x` で取得できます。
 
 ### 広域スイープ（`docs/21`）
 
@@ -73,6 +77,21 @@
 NVD は24時間・全深刻度のクエリに約60秒かかり、1ページ最大2,000件を返します。収集ツールが
 **6時間スライス**で問い合わせるのはそのためで、`lastModified` の丸1日分（約7MB）は API キー
 無しでは不安定です。
+
+### Node2Shell と、開示前の悪用（`docs/22`）
+
+| 対象 | URL | 何が分かるか | 再取得 |
+|---|---|---|---|
+| Imperva、Node2Shell | <https://www.imperva.com/blog/node2shell-from-brotli-data-to-remote-code-execution/> | 配布 24.22.0 arm64 イメージでの PoC、到達2経路、固定したミドルウェア版、**検証していない**範囲 | ブラウザ / `--sources feeds` |
+| X の投稿 | <https://x.com/TheHackersNews/status/2113538808126038500> | 導線の時刻（2026-10-23 07:51 UTC）と、押し出した記事 | `--sources x`（保存される） |
+| Node.js の勧告 | <https://nodejs.org/en/blog/vulnerability/october-2026-security-releases> | `CVE-2026-111497`、重大度、修正版 | ブラウザ |
+| AWS、MadPot の観測 | <https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/> | **2026-10-17 の悪用試行**、10-21 02:00 UTC からの PoC、IOC、「10-17 から調査せよ」 | ブラウザ |
+| Imperva、php2shell の最初の24時間 | <https://www.imperva.com/blog/php2shell-early-attack-activity-through-impervas-lens/> | 482,342 リクエスト / 122,311 セッション / 21,998 サイト / 103 か国。**試行**であって侵害ではない | ブラウザ / `--sources feeds` |
+| Sophos | <https://www.sophos.com/en-us/blog/proof-of-concept-exploit-released-for-php-vulnerabilities-109618-109619> | Potassium（Mirai 派生）、C2、そして試行が**不成功**だったこと | ブラウザ |
+| Dataminr TRACE | <https://www.dataminr.com/resources/intel-brief/continued-analysis-of-core-php-vulnerabilities/> | 10-22 時点で「既知の侵害なし」 | ブラウザ |
+| Arista アドバイザリ 0199 | <https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199> | `CVE-2026-114625`: 9.9、最小ロール、修正版、IOC | ブラウザ（素の curl は 406） |
+| カプコン、CAPCOM ID | <https://www.capcom.co.jp/ir/news/html/261022.html> | 11,774,247件、43件 / 196件の内訳、10-19 → 10-21 の経緯 | ブラウザ |
+| お名前.com デスクトップクラウド | <https://www.onamae.com/news/article/11584> | 最大 26,739 台、2026-10-21 4:00 JST からの停止、資格情報の変更依頼 | ブラウザ |
 
 ### GitLab / LiteLLM / Railway / OpenCode（`docs/09`〜`docs/11`）
 
@@ -136,6 +155,9 @@ NVD は24時間・全深刻度のクエリに約60秒かかり、1ページ最�
 | MSRC ブログの `/feed` | `text/html` を 200 で返し、項目 0 件 | `microsoft.com/security/blog/feed/`、CVRF API |
 | NVD の解析待ち | Oracle の10月分は `Awaiting Analysis` | ベンダの risk matrix |
 | ベンダビルドの遅れ | Oracle から2日後も Temurin は8月ビルド。ただし翌日には 17 / 21 / 25 を公開 | 各ベンダのリリースノート（行動する当日に確認する） |
+| Arista のアドバイザリ | 素の取得に **HTTP 406**（2026-10-23） | NVD の `CVE-2026-114625` と報道の要約。`docs/22` §4 |
+| Sophos のブログ | HTTP/2 のストリームリセット、のちタイムアウト（2026-10-23） | The Hacker News の引用（`docs/22` §3 で二次と明記） |
+| Dataminr のブリーフ | **403**（2026-10-23） | BleepingComputer の要約（二次と明記） |
 
 `tools/intel/fetch-intel` は1ソースが失敗しても残りを書き、終了コード `10` で「一部失敗」を
 返します（`0` 全部、`2` 何も取れず）。
@@ -155,8 +177,8 @@ NVD は24時間・全深刻度のクエリに約60秒かかり、1ページ最�
 
 ## このリポジトリのスナップショット
 
-`data/2026-10-22/` に取得時点の生データを置いてある。再取得は
-`tools/intel/fetch-intel --date 2026-10-22`（`docs/08`）。
+`data/2026-10-22/` に取得時点の生データ、`data/2026-10-23-2015jst/` に最新の15ファイルを
+置いてある。再取得は `tools/intel/fetch-intel --date <名前>`（`docs/08`）。
 
 | ファイル | 由来 | 改変 |
 |---|---|---|

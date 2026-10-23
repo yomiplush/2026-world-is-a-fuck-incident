@@ -20,10 +20,27 @@ nothing.**
 | CVE-2026-106070 | low | ZipFile returns attacker-controlled prefix bytes after failed header validation | — | — | ✓ |
 | CVE-2026-106071 / 106073 | low | Permission Model / ZipFile related | — | — | ✓ |
 
-**Practical priority**: CVE-2026-111497 is the heaviest. If an HTTP server honours
-`Accept-Encoding: br`, it is **reachable by an unauthenticated request**. The three TLS issues
-matter wherever certificate validation is trusted — mutual TLS between internal services, or
-validation behind a proxy.
+**Practical priority**: CVE-2026-111497 is the heaviest. It is reachable by an unauthenticated
+request on one of two paths: your code calls the built-in `fetch()` on a Brotli-compressed
+response, or a parser that **inflates** request bodies handles the request (Express 5's
+`express.json()` / `urlencoded()` / `text()` / `raw()`, or `body-parser` 2.x directly). A bare
+`http.createServer()` does not decode a Brotli body on its own. The three TLS issues matter
+wherever certificate validation is trusted — mutual TLS between internal services, or validation
+behind a proxy.
+
+### 1-1. Exploit status (2026-10-23): a working PoC on an official build
+
+**Imperva's "Node2Shell" runs code on the stock Node.js 24.22.0 Linux arm64 image** using crafted
+Brotli data, with no debugger or instrumented binary; the same input is rejected by 24.22.1. Their
+test covered both paths above (a consumed response through `fetch()`, and `raw()` / `json()` bodies
+under Express 5.0.0–5.3.0 / body-parser 2.0.0–2.3.0, pinned versions), needed several attempts,
+and did not test 22.x, 26.x or other architectures. The earlier public PoC only achieved code
+execution on a deliberately weakened build.
+
+No in-the-wild exploitation of CVE-2026-111497 has been reported. Treat the patch as **today's**
+work: nothing changes for a host already on 22.23.4 / 24.22.1 / 26.12.1, and nothing helps one
+that is not. Detail, including why NVD's CVSS 4.0-only 9.2 record never appears in a
+severity-filtered CRITICAL sweep: [`22-snapshot-2015jst.md` §2](22-snapshot-2015jst.md).
 
 ## 2. Dependency updates shipped alongside
 

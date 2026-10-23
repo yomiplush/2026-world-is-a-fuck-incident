@@ -51,7 +51,9 @@ arbitrary code execution at next start
 Each individual score is unremarkable — 4.3, 6.5, 7.2. The chain is a full compromise, and it
 starts from a token that every shared user, every client app and many third-party tools hold.
 This is the concrete argument against triaging on CVSS alone: no row in that table is above 7.2,
-and the KEV minimum for the whole set is already met.
+and the KEV minimum for the whole set is already met. On 2026-10-21 CISA said the chain is being
+**exploited** — the researcher's own name for it, **Plex2Shell**, is now the one in the advisories
+— and the first hits were Plex honeypots turned into cryptominers ([`docs/22` §4](22-snapshot-2015jst.md)).
 
 `CVE-2026-96651` is the one *not* in KEV, and it is arguably the most damaging single bug:
 reading `PlexOnlineToken` gives control of the Plex **account** and the server, i.e. persistence

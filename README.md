@@ -11,7 +11,7 @@
 
 | If you... | What happened (plainly) | Do this today |
 |---|---|---|
-| **serve PHP to the internet** | a hole in PHP core: no login needed to take over the server, and exploit code is already public | patch to **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35** → [`docs/01`](docs/01-php2shell.md) |
+| **serve PHP to the internet** | a hole in PHP core: no login needed to take over the server. **Exploitation attempts date from 2026-10-17 — four days before the advisory** — and no compromise has been confirmed, but nothing on the network can tell you that for your host | patch to **8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**; hunt from 10-17 → [`docs/01`](docs/01-php2shell.md), [`docs/22` §3](docs/22-snapshot-2015jst.md) |
 | **run GitLab yourself** | a perfect-10.0 hole: no login needed to run code. **Patching last week is not enough** | upgrade to **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** → [`docs/09`](docs/09-gitlab-19-5-1.md) |
 | **installed LiteLLM 1.107.0** | installing it *was* the compromise: every Python start ships credentials out | **do not run `pip` first**; remove, then rotate → [`docs/10`](docs/10-litellm-1-107-0.md) |
 | **deploy on Railway** | customer environment variables — i.e. your secrets — may have been decrypted | regenerate **every** env var → [`docs/11`](docs/11-week-of-oct-20.md) |
@@ -26,7 +26,7 @@
 | **gave provider keys to an AI tool** | this week's attacks target **keys** (Railway, LiteLLM, OpenCode) | inventory keys, read provider usage logs → [`docs/11` §5](docs/11-week-of-oct-20.md) |
 | **let an AI agent run shell commands** | two agent frameworks shipped approval gates that always say yes (**9.8**): text the agent reads becomes a host command, and the LLM / cloud keys leave with it | update (**EvoScientist 0.2.5**) or test the gate headlessly → [`docs/19` §6](docs/19-snapshot-0730jst.md) |
 | **run containers or a shared kernel** | **Infinity Core**: five public root PoCs that escape a container to the host, in timer / signal / mm / futex / scheduler code. Needs local code execution first — which a compromised dependency gives | update the kernel **and reboot** → [`docs/20`](docs/20-infinity-core.md) |
-| **run Node.js 20.x** | 20 is EOL and will never be patched | move to **22.23.4 / 24.22.1 / 26.12.1** → [`docs/02`](docs/02-nodejs-oct2026.md) |
+| **run Node.js** | the Brotli flaw (`CVE-2026-111497`) now has a **working exploit on an official 24.22.0 build**; 20.x is EOL and will never be patched | move to **22.23.4 / 24.22.1 / 26.12.1**, containers included → [`docs/02` §1-1](docs/02-nodejs-oct2026.md) |
 
 ### 0-3. Words, translated
 
@@ -98,7 +98,7 @@ against the Node.js, PHP, GitLab, Tomcat, httpd, BIND, Plex and Oracle release i
 
 ---
 
-## 1. The week at a glance (thirteen items)
+## 1. The week at a glance (fourteen items)
 
 | Event | What happened | Severity | Who cares | Fix | Detail |
 |---|---|---|---|---|---|
@@ -113,15 +113,18 @@ against the Node.js, PHP, GitLab, Tomcat, httpd, BIND, Plex and Oracle release i
 | **OpenCode** | Console incident: provider keys exposed, user keys revoked (user-reported) | — | OpenCode users | re-issue provider keys, check usage | [`11`](docs/11-week-of-oct-20.md) |
 | **Oracle Java SE** | 55 CVEs in the October CPU; highest 7.5, none in KEV | 7.5 | anyone running a JVM | **8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1** (10-20) | [`07`](docs/07-oracle-java-oct2026.md) |
 | **eMudhra CA** | **eight** intermediate private keys with **3–8 bits** of entropy (`4, 56, 66, 115, 155, 156, 230, 237`): a 2025-04-30 ceremony's wrap/unwrap step produced a second, weak key set for 8 of 24 subordinates | PKI | anyone shipping a trust store | update `ca-certificates` / `certifi` / Go / NSS | [`03`](docs/03-emudhra-ca.md) |
-| **Node.js** | nine October CVEs, plus the CA-bundle update | high | Node 22 / 24 / 26; **20 is EOL** | **22.23.4 / 24.22.1 / 26.12.1** (10-21) | [`02`](docs/02-nodejs-oct2026.md) |
+| **Node.js** | nine October CVEs, plus the CA-bundle update. **A working exploit for the Brotli flaw now runs on a stock 24.22.0 build** | high (9.2 in NVD's CVSS 4.0) | Node 22 / 24 / 26; **20 is EOL** | **22.23.4 / 24.22.1 / 26.12.1** (10-21) | [`02`](docs/02-nodejs-oct2026.md) |
 | **Linux kernel — "Infinity Core"** | six core LPEs (timer, signal, mm, futex, scheduler, SLAB); **public root PoCs for five**, container escape for the same five | 7.8 each (4 of 6 scored) | shared hosts, k8s nodes, CI runners | **fixed upstream** — 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8, scheduler in 7.2.9; **reboot** | [`20`](docs/20-infinity-core.md) |
+| **Arista VeloCloud Orchestrator** | SQL injection **exploited as a 0-day**: any logged-in user (minimum read-only) becomes a local superuser | **9.9** | anyone running on-prem VCO | **5.2.3.18 / 6.1.3.10 / 6.4.2.12** (hosted already patched) | [`22` §4](docs/22-snapshot-2015jst.md) |
 
-The thirteen are **independent**. Patching PHP does not fix GitLab; the CA, Java, Apache, the two kernel sets and BIND are separate again.
+The fourteen are **independent**. Patching PHP does not fix GitLab; the CA, Java, Apache, the two kernel sets and BIND are separate again.
 
 That table is only the named incidents. **The two-week CRITICAL sweep returned 120, then 125, then
-104 in nine hours** — same query, same product, different window and a different NVD queue: at
-10:36 JST the window is 10-09…10-23, and ten hours earlier it was 10-08…10-22. Exactly one row is
-known-exploited throughout. The filter, and the twelve rows that survived it, are in
+104, then 98** — same query, same product. The last two runs share the same date window, so the
+six-row drop is not a fix: NVD's severity filter counts only its own CVSS 3.x score, so records
+scored by the CNA alone fall out of it. Exactly one row is known-exploited throughout, and two of
+today's most consequential flaws are **absent** from the list: the exploited Node Brotli CVE
+carries only a CVSS 4.0 score, and Arista's 9.9 carries only the CNA's 3.1 score. The filter, and the twelve rows that survived it, are in
 [`docs/13`](docs/13-recent-criticals.md); its §9 explains what moved and why (a rescore, CNA-only
 scores that the severity filter does not count, and a bug in the collector that has since been
 fixed). [`docs/21` §1.2](docs/21-snapshot-1036jst.md) is the same lesson in this README's own
@@ -142,7 +145,7 @@ that no application change can substitute for, and exposure that is enough on it
 ### Machine-readable summary
 
 ```yaml
-as_of: 2026-10-23T01:36Z          # 2026-10-23 10:36 JST
+as_of: 2026-10-23T11:30Z          # 2026-10-23 20:30 JST
 php:
   cves: [CVE-2026-109618, CVE-2026-109619]
   cvss_v4: 9.2
@@ -158,6 +161,8 @@ php:
 node:
   latest: { "26": "26.12.1", "24": "24.22.1", "22": "22.23.4" }
   eol_no_fix: "20.x"
+  exploited_build: "24.22.0 (Linux arm64) — Imperva PoC, 2026-10-22; rejected by 24.22.1"
+  in_the_wild: false              # no exploitation of CVE-2026-111497 reported as of 2026-10-23
 java:
   cpu: "2026-10"
   cves: 55
@@ -197,7 +202,7 @@ opencode:
   event: "Console incident; provider keys exposed, user keys revoked"
   published_by_vendor: false
 recent_criticals:
-  window: "2026-10-09..2026-10-23"   # the window rolls with the clock: 120 -> 125 -> 104 in nine hours
+  window: "2026-10-09..2026-10-23"   # 120 -> 125 -> 104 -> 98 as rows changed status; one KEV row throughout
   total: 104
   ge_9_8: 55
   in_kev: 1
@@ -600,6 +605,7 @@ bash tools/copy-prompt.sh intel
 | `docs/19-snapshot-0730jst.md` | The 07:25 JST re-read: NVD rescored one PHP CVE to 8.1, MSRC +6 (three at 10.0), the collector's CNA-score bug, and the two agent approval-gate CVEs |
 | `docs/20-infinity-core.md` | **Infinity Core**: six kernel core LPEs with public root PoCs and container escape, the fix that already shipped, and why it is *not* the six in `docs/17` |
 | `docs/21-snapshot-1036jst.md` | The 10:36 JST broad sweep: 381 CVEs in 24 h with **zero** NVD analysis, 665 records modified, 58 package advisories, and the blind spot that hid Infinity Core |
+| `docs/22-snapshot-2015jst.md` | The 20:15 JST read, widest yet: **Node2Shell** (a working exploit on an official Node.js build), **php2shell attempted from 10-17**, Arista VCO, KSMBD, Capcom and Onamae, plus the two flaws a severity-filtered sweep cannot see |
 | `docs/17-lkml-oct2026.md` | Six kernel reports posted publicly: SMB Direct and ksmbd at 9.0, still unpatched, and what was verifiable |
 | `docs/18-bind-cve-2026-94300.md` | BIND 9 GSS-TSIG replay: CVSS 8.1, no workaround, affected/fixed versions, how to check your config |
 | `runbooks/php2shell.md` | Detect → contain → patch → verify → post-compromise |
@@ -609,7 +615,7 @@ bash tools/copy-prompt.sh intel
 | `tools/intel/fetch-intel` | Collects the primary sources (Oracle CPU / KEV / JVN / MSRC / 13 feeds / NVD broad sweeps / GHSA) into JSON |
 | `tools/copy-prompt.sh` | Puts an AI prompt on the clipboard (`en` / `ja` / `intel` / `intel ja`) |
 | `prompts/` | Ready-to-paste prompts: remediation and decision, English and Japanese |
-| `data/2026-10-22/` | Raw API responses the numbers come from (Java, KEV, MSRC, JVN, feeds, NVD) |
+| `data/2026-10-23-2015jst/` | Raw responses behind this read: 15 files — Oracle, KEV, MSRC, JVN, 14 feeds, 2 news feeds, the archived X post, NVD sweeps, GHSA |
 | `site/` | The tap-through briefing (<https://2026-incident-briefing.pages.dev>): pseudo-3D canvas, synthesised SFX, generative lofi |
 | `SOURCES.md` | Every source, with the command to re-fetch it |
 
@@ -633,7 +639,7 @@ The tools do three things only: **find it, stop it, prove it**. No exploit code.
 
 ## 7. Freshness (important)
 
-This is a **snapshot from 2026-10-23 07:25 JST**. Vulnerability data decays in days.
+This is a **snapshot from 2026-10-23 20:15 JST**. Vulnerability data decays in days.
 
 - Judge versions **by the running binary**. Never trust a tag or an image name.
 - If this is more than a few days old, re-fetch the primary sources in `SOURCES.md` first — the
