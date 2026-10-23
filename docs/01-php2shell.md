@@ -59,7 +59,7 @@ Pattern filtering does not help. **Every known trigger is a `multipart/form-data
 | Target | PHP's stated mitigation | Limit of the mitigation |
 |---|---|---|
 | 109618 | `memory_limit = -1` set where applications **cannot override it** (FPM pool `php_admin_value`, Apache config). Plus a small `post_max_size` (8M without uploads, 32M with), `upload_max_filesize` below it | Removes the controllable memory-limit failure. **An underlying allocation failure can still reach the vulnerable path** |
-| 109619 | `session.upload_progress.enabled = 0` via `php.ini` / FPM pool / server config. On PHP 8.5 also `fatal_error_backtraces = 0` | **Confirmed paths only.** Other variants remain |
+| 109619 | `session.upload_progress.enabled = 0` via `php.ini` / FPM pool / server config. On PHP 8.5 also `fatal_error_backtraces = 0` | **Confirmed paths only.** Other variants remain. **PHP now says the same line fully covers the unrelated `CVE-2026-115560`** ([`docs/23`](23-php-cve-2026-115560.md)) |
 | Both | Reject `multipart/form-data` at the web server (Sansec's recommendation) | Breaks file uploads. May be unusable depending on the app |
 
 Put the settings in a `conf.d` drop-in or the FPM pool. **`.user.ini` and `ini_set()` are not

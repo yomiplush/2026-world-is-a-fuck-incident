@@ -10,6 +10,7 @@ bs4, no jq. Network is the only external dependency.
   tools/intel/fetch-intel --sources oracle,kev  # subset
   tools/intel/fetch-intel --recent-hours 12     # broad NVD + GHSA window
   tools/intel/fetch-intel --x-posts 2113538808126038500
+  tools/intel/fetch-intel --sources php,kev            # PHP's own state
   tools/intel/fetch-intel --out /tmp/intel      # somewhere else
 
 Exit codes: 0 = every source fetched, 10 = partial (some source failed, the rest
@@ -48,6 +49,8 @@ GHSA = "https://api.github.com/advisories"
 JVN_RSS = "https://jvn.jp/rss/jvn.rdf"
 MSRC_CVRF = "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/{month}"
 GITLAB_PATCH = "https://docs.gitlab.com/releases/patches/{slug}/"
+PHP_ARCHIVE = "https://www.php.net/archive/{year}.php"
+PHP_RELEASE = "https://www.php.net/releases/index.php?json&version={line}"
 LITELLM_INCIDENT = "https://api.github.com/repos/{repo}/issues/{issue}"
 PLEX_CSAF = ("https://raw.githubusercontent.com/cisagov/CSAF/develop/"
              "csaf_files/IT/white/2026/{id}.json")
@@ -451,6 +454,45 @@ def collect_x_posts(ids: str) -> dict:
         "posts": posts,
         "errors": errors,
     }
+
+
+def collect_php(lines: str) -> dict:
+    """PHP's own news archive and the current release on each supported line.
+
+    The archive entry *is* the advisory for anything PHP has not given a
+    CVE page yet: 2026-10-23-1 is the whole public statement about
+    CVE-2026-115560, and it says the fix waits for the next routine release.
+    Keep its text verbatim — the wording ("unusual", "unlikely") is the claim.
+    """
+    year = dt.datetime.now(dt.timezone.utc).year
+    page = get(PHP_ARCHIVE.format(year=year)).decode("utf-8", "replace")
+    entries = []
+    for block in re.findall(r'<article class="newsItem">(.*?)</article>', page, re.S):
+        def grab(pat):
+            m = re.search(pat, block, re.S)
+            return norm(re.sub(r"<[^>]+>", " ", m.group(1))) if m else ""
+        title = grab(r'<h2[^>]*class="newstitle"[^>]*>(.*?)</h2>')
+        ident = grab(r'<a id="([^"]+)"')
+        when = grab(r'<time[^>]*datetime="([^"]+)"')
+        # the body starts with a nested <div class="newsImage">, so take the rest
+        # of the article block and let the tag-stripper drop the closers
+        rest = re.search(r'<div class="newscontent"[^>]*>(.*)', block, re.S)
+        body = norm(re.sub(r"<[^>]+>", " ", rest.group(1))) if rest else ""
+        if title:
+            entries.append({"id": ident, "datetime": when, "title": title,
+                            "date": when[:10], "text": body[:1200]})
+    out = {"source": PHP_ARCHIVE.format(year=year), "year": year,
+           "entries": entries[:15]}
+    releases = {}
+    for line in (i.strip() for i in lines.split(",")):
+        if not line:
+            continue
+        d = json.loads(get(PHP_RELEASE.format(line=line)))
+        if isinstance(d, dict) and not d.get("error"):
+            releases[line] = {"version": d.get("version"), "date": d.get("date"),
+                              "tags": d.get("tags")}
+    out["releases"] = releases
+    return out
 
 
 def collect_msrc(month: str) -> dict:
@@ -873,10 +915,10 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--kev-days", type=int, default=30, help="KEV look-back window")
     ap.add_argument("--limit", type=int, default=12, help="items per feed")
     ap.add_argument("--sources",
-                    default="oracle,kev,jvn,feeds,news,x,msrc,gitlab,litellm,csaf,"
+                    default="oracle,kev,jvn,php,feeds,news,x,msrc,gitlab,litellm,csaf,"
                             "nvd-critical,nvd-recent,nvd-modified,ghsa",
-                    help="comma list of: oracle,kev,jvn,feeds,news,x,msrc,gitlab,litellm,"
-                         "csaf,nvd-critical,nvd-recent,nvd-modified,ghsa")
+                    help="comma list of: oracle,kev,jvn,php,feeds,news,x,msrc,gitlab,"
+                         "litellm,csaf,nvd-critical,nvd-recent,nvd-modified,ghsa")
     ap.add_argument("--gitlab-slug", default="patch-release-gitlab-19-5-1-released",
                     help="GitLab patch-release page slug (docs.gitlab.com/releases/patches/<slug>/)")
     ap.add_argument("--litellm-repo", default="BerriAI/litellm",
@@ -887,6 +929,8 @@ def main(argv: list[str]) -> int:
                     help="CISA CSAF advisory id (csaf_files/IT/white/<year>/<id>.json)")
     ap.add_argument("--critical-days", type=int, default=14,
                     help="window for the NVD CRITICAL sweep")
+    ap.add_argument("--php-lines", default="8.2,8.3,8.4,8.5",
+                    help="PHP release lines whose current release is recorded")
     ap.add_argument("--recent-hours", type=int, default=24,
                     help="window for the broad NVD (published / modified) and GHSA sweeps")
     ap.add_argument("--x-posts", default=TRACKED_X_POSTS,
@@ -916,6 +960,7 @@ def main(argv: list[str]) -> int:
         "oracle": oracle_job,
         "kev": kev_job,
         "jvn": lambda: [("jvn-recent.json", collect_jvn(args.limit))],
+        "php": lambda: [("php-state.json", collect_php(args.php_lines))],
         "feeds": lambda: [("researcher-feeds.json", collect_feeds(args.limit))],
         "news": lambda: [("news-feeds.json", collect_news(args.limit))],
         "x": lambda: [("x-posts.json", collect_x_posts(args.x_posts))],
@@ -975,6 +1020,12 @@ def main(argv: list[str]) -> int:
             print(f"KEV: {len(p)} entries kept verbatim -> {rel}")
         elif name == "jvn":
             print(f"JVN: {p['count']} items in feed, {p['returned']} kept -> {rel}")
+        elif name == "php":
+            newest = p["entries"][0] if p["entries"] else {}
+            print(f"php: {len(p['entries'])} archive entries, newest {newest.get('id', '?')} "
+                  f"\"{newest.get('title', '')[:44]}\"; releases "
+                  + ", ".join(f"{k} {v['version']}" for k, v in p["releases"].items())
+                  + f" -> {rel}")
         elif name == "feeds":
             ok = sum(1 for k, v in p.items() if k in FEEDS and "recent" in v)
             empty = [k for k in FEEDS if k in p and not p[k].get("recent")]

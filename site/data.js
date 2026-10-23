@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache とカーネルの追補、10-23 の追記7件つき。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache とカーネルの追補、10-23 の追記8件つき。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出所はすべて一次ソース。1件だけ未確認（ConnectWise）。",
       drawerTitle: "出典 / SOURCES",
       drawerFoot: "14/15 は一次ソースで確認済み。ConnectWise は未確認として記載。",
-      asof: "2026-10-23 20:30 JST 時点",
+      asof: "2026-10-23 22:25 JST 時点",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus Apache and kernel addenda and seven 10-23 postscript scenes. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus Apache and kernel addenda and eight 10-23 postscript scenes. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Every claim traces to a primary source. One row (ConnectWise) is unverified.",
       drawerTitle: "SOURCES",
       drawerFoot: "14 of 15 verified against primary sources. ConnectWise is carried as unverified.",
-      asof: "as of 2026-10-23 20:30 JST",
+      asof: "as of 2026-10-23 22:25 JST",
       lang: "EN"
     }
   },
@@ -877,6 +877,43 @@ window.CONTENT = {
       }
     },
     {
+      id: "php-next", stamp: "10.23",
+      metric: { val: "1 line", label: { ja: "次の定期リリースまでの緩和", en: "the mitigation until the next release" } },
+      visual: { type: "checklist" }, cue: "confirm",
+      sources: [
+        { name: "PHP · 2026-10-23-1", url: "https://www.php.net/archive/2026.php#2026-10-23-1",
+          note: { ja: "情報提供アドバイザリの全文。4条件と1行の緩和", en: "the whole advisory: four conditions, one mitigation" } },
+        { name: "NVD · CVE-2026-115560", url: "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-115560",
+          note: { ja: "2026-10-23 時点で 0件（スコアも影響版も無い）", en: "0 results on 2026-10-23 — no score, no versions" } },
+        { name: "GHSA-6wmf-4rv5-p3rp", url: "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp",
+          note: { ja: "緩和策の参照先は 10-21 の php2shell 勧告（115560 のものではない）", en: "the mitigation reference: the 10-21 php2shell advisory, not one for 115560" } },
+        { name: "docs/23", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/23-php-cve-2026-115560.md",
+          note: { ja: "確認コマンドと、PHP が言っていないことの一覧", en: "the check commands, and what PHP has not said" } }
+      ],
+      ja: {
+        kicker: "POSTSCRIPT · PHP, TWO DAYS LATER",
+        title: "緊急修正は、出ていません。",
+        lede: "PHP が 10-23 に公表した CVE-2026-115560 は、別の RCE 経路。影響版もスコアも修正版も示さず、次の定期リリースで完全な勧告を出すとしています。",
+        points: [
+          "条件は4つすべて。設定で <code>php_binary</code> / <code>php_serialize</code>、実行中に <code>ini_set</code> で <code>php</code> へ、<code>session_start()</code> より前、そして upload progress が有効",
+          "実行中に handler を変えないアプリは、機能を有効のままで構わない — PHP 自身がそう書いています",
+          "対策は1行: <b><code>session.upload_progress.enabled=0</code></b>。10-21 の 109619 の緩和と同じで、適用済みなら追加作業は無い",
+          "NVD にレコードは無く、KEV のカタログはこの CVE より前。悪用報告も無し。攻撃は 10-21 の2件に向いている"
+        ]
+      },
+      en: {
+        kicker: "POSTSCRIPT · PHP, TWO DAYS LATER",
+        title: "No emergency patch this time.",
+        lede: "CVE-2026-115560, published on 10-23, is a different RCE path. PHP gives no affected versions, no score and no fix, and promises a full advisory with the next routine release.",
+        points: [
+          "All four conditions: set <code>php_binary</code> / <code>php_serialize</code>, switch to <code>php</code> at runtime with <code>ini_set</code>, before <code>session_start()</code>, with upload progress on",
+          "Applications that never change the handler at runtime can leave the feature enabled — PHP says so itself",
+          "The mitigation is one line: <b><code>session.upload_progress.enabled=0</code></b> — the same one from 10-21, so if it is already in place, nothing more to do",
+          "No NVD record, a KEV catalog older than the CVE, and no exploitation reports: the attacks target the two 10-21 flaws"
+        ]
+      }
+    },
+    {
       id: "closing", stamp: "NOW",
       metric: null,
       visual: { type: "storm" }, cue: "whoosh",
@@ -895,6 +932,8 @@ window.CONTENT = {
           note: { ja: "全深刻度・パッケージ・開示チャネルまで", en: "every severity, the packages, and the disclosure channel" } },
         { name: "docs/22 wide read 20:15 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/22-snapshot-2015jst.md",
           note: { ja: "Node2Shell、開示前の試行、フィルタの盲点、ニュース経由の4件", en: "Node2Shell, pre-disclosure attempts, the filter blind spot, four news-led incidents" } },
+        { name: "docs/23 PHP follow-on", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/23-php-cve-2026-115560.md",
+          note: { ja: "CVE-2026-115560: 4条件と1行の緩和、そして未公表のこと", en: "CVE-2026-115560: four conditions, one line, and what is unstated" } },
         { name: "Repository", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident",
           note: { ja: "一次ソースと検証コマンド", en: "primary sources and re-fetch commands" } }
       ],

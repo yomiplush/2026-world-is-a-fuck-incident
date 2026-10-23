@@ -1,0 +1,143 @@
+{
+ "source": "https://www.php.net/archive/2026.php",
+ "year": 2026,
+ "entries": [
+  {
+   "id": "2026-10-23-1",
+   "datetime": "2026-10-23T10:12:28+00:00",
+   "title": "Informational advisory: Session upload progress",
+   "date": "2026-10-23",
+   "text": "We suggest you set session.upload_progress.enabled=0 until the next regular bugfix release, to fully protect from an unlikely RCE vector. This setting was already listed as a mitigation in the GHSA-6wmf-4rv5-p3rp advisory for CVE-2026-109619 published on Oct 21st, 2026. If you applied it then, keep it in place and no further action is needed. The issue can only occur under an unusual combination of configuration and application code. An application must set session.serialize_handler to php_binary or php_serialize in its configuration and then switch it to php at runtime with ini_set() before calling session_start() . Session upload progress must also still be enabled. Applications that never change the serialize handler at runtime can keep the feature enabled. Since this setup is unlikely in practice, we are handling it in the regular release cycle and will publish a full advisory for CVE-2026-115560 with the next release."
+  },
+  {
+   "id": "2026-10-21-5",
+   "datetime": "2026-10-21T00:35:26+00:00",
+   "title": "Security advisory: Critical remote code execution vulnerabilities, update now",
+   "date": "2026-10-21",
+   "text": "PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users are strongly encouraged to update immediately. Who is at risk: all PHP installations serving web requests, including PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP and LiteSpeed. We consider the risk highest for mod_php, with a demonstrated exploit where an unauthenticated request can trigger the attack before any application code runs. The vulnerabilities: RCE via OOM corruption , CVE-2026-109618 ( GHSA-w8hw-w9fx-j79w ): out-of-memory handling can interrupt PHP while internal request data is only partially initialized. Request cleanup may then treat the invalid data as valid. RCE via stale global state , CVE-2026-109619 ( GHSA-6wmf-4rv5-p3rp ): request-owned internal state can survive after its backing memory has been freed. A later request handled by the same worker may use that stale state before normal initialization resets it. How to update: Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. Source downloads are on our downloads page . Windows source and binaries are on the same page . Linux distributions and LTS vendors received the patche"
+  },
+  {
+   "id": "2026-10-21-6",
+   "datetime": "2026-10-21T15:41:41+00:00",
+   "title": "PHP 8.6.0 RC4 available for testing",
+   "date": "2026-10-21",
+   "text": "The PHP team is pleased to announce the third release candidate of PHP 8.6.0, RC4. This continues the PHP 8.6 release cycle, whose rough outline is specified in the PHP Wiki . Source downloads of PHP 8.6.0 RC4 are available on the download page . Please carefully test this version and report any issues found in the GitHub Issues . This version also contains the fixes for two critical vulnerabilities that can allow unauthenticated remote code execution. Everyone running earlier builds of PHP 8.6.0 is strongly encouraged to update immediately. Please DO NOT use this version in production, it is an early test version. For more information on the new features and other changes, you can read the NEWS file, or the UPGRADING file for a complete list of upgrading notes. These files can also be found in the release archive. The next release will be the last release candidate (RC5), planned for 5 November 2026. The signatures for the release can be found in the manifest or on the pre-release builds page . Thank you for helping us make PHP better."
+  },
+  {
+   "id": "2026-10-21-4",
+   "datetime": "2026-10-21T00:24:52+00:00",
+   "title": "PHP 8.5.12 Released!",
+   "date": "2026-10-21",
+   "text": "The PHP development team announces the immediate availability of PHP 8.5.12. This is a security release fixing two critical vulnerabilities (CVE-2026-109618, CVE-2026-109619) that can allow unauthenticated remote code execution. All PHP 8.5 users are strongly encouraged to update immediately. There are no complete mitigations, updating is the only safe choice. See the security advisory for details. For source downloads of PHP 8.5.12 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-10-21-3",
+   "datetime": "2026-10-21T00:20:54+00:00",
+   "title": "PHP 8.4.27 Released!",
+   "date": "2026-10-21",
+   "text": "The PHP development team announces the immediate availability of PHP 8.4.27. This is a security release fixing two critical vulnerabilities (CVE-2026-109618, CVE-2026-109619) that can allow unauthenticated remote code execution. All PHP 8.4 users are strongly encouraged to update immediately. There are no complete mitigations, updating is the only safe choice. See the security advisory for details. For source downloads of PHP 8.4.27 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-10-21-2",
+   "datetime": "2026-10-21T00:14:54+00:00",
+   "title": "PHP 8.3.36 Released!",
+   "date": "2026-10-21",
+   "text": "The PHP development team announces the immediate availability of PHP 8.3.36. This is a security release fixing two critical vulnerabilities (CVE-2026-109618, CVE-2026-109619) that can allow unauthenticated remote code execution. All PHP 8.3 users are strongly encouraged to update immediately. There are no complete mitigations, updating is the only safe choice. See the security advisory for details. For source downloads of PHP 8.3.36 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-10-21-1",
+   "datetime": "2026-10-21T00:05:37+00:00",
+   "title": "PHP 8.2.35 Released!",
+   "date": "2026-10-21",
+   "text": "The PHP development team announces the immediate availability of PHP 8.2.35. This is a security release fixing two critical vulnerabilities (CVE-2026-109618, CVE-2026-109619) that can allow unauthenticated remote code execution. All PHP 8.2 users are strongly encouraged to update immediately. There are no complete mitigations, updating is the only safe choice. See the security advisory for details. PHP 8.2 reaches end of life on 31 December 2026 and will receive no further security fixes after that date. Please plan your upgrade to a supported version. For source downloads of PHP 8.2.35 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-10-20-1",
+   "datetime": "2026-10-20T20:32:00+00:00",
+   "title": "Upcoming Critical PHP Security Release",
+   "date": "2026-10-20",
+   "text": "The PHP security team would like to give advance notice of an upcoming security release . It is scheduled for Wednesday, 21 October 2026 at 14:00 UTC. It addresses two critical vulnerabilities, both rated CVSS v4.0 9.2. All PHP users are encouraged to prepare now so they can upgrade as soon as the release is available. We reserve the right to release earlier should details of either vulnerability become public, or should evidence of active exploitation appear in the wild. Full details, affected versions, and the fixed versions will be published with the release. Thank you for helping us keep PHP secure."
+  },
+  {
+   "id": "2026-10-08-1",
+   "datetime": "2026-10-08T15:12:35+00:00",
+   "title": "PHP 8.6.0 RC3 available for testing",
+   "date": "2026-10-08",
+   "text": "The PHP team is pleased to announce the first release candidate of PHP 8.6.0, RC3. This continues the PHP 8.6 release cycle, whose rough outline is specified in the PHP Wiki . Source downloads of PHP 8.6.0 RC3 are available on the download page . Please carefully test this version and report any issues found in the GitHub Issues . Please DO NOT use this version in production, it is an early test version. For more information on the new features and other changes, you can read the NEWS file, or the UPGRADING file for a complete list of upgrading notes. These files can also be found in the release archive. The next release will be RC4, planned for 22 October 2026. The signatures for the release can be found in the manifest or on the pre-release builds page . Thank you for helping us make PHP better."
+  },
+  {
+   "id": "2026-09-24-5",
+   "datetime": "2026-09-24T15:26:06+00:00",
+   "title": "PHP 8.4.26 Released!",
+   "date": "2026-09-24",
+   "text": "The PHP development team announces the immediate availability of PHP 8.4.26. This is a security release. All PHP 8.4 users are encouraged to upgrade to this version. For source downloads of PHP 8.4.26 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-09-24-4",
+   "datetime": "2026-09-24T13:53:04+00:00",
+   "title": "PHP 8.2.34 Released!",
+   "date": "2026-09-24",
+   "text": "The PHP development team announces the immediate availability of PHP 8.2.34. This is a security release. All PHP 8.2 users are encouraged to upgrade to this version. For source downloads of PHP 8.2.34 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-09-24-3",
+   "datetime": "2026-09-24T11:40:51+00:00",
+   "title": "PHP 8.5.11 Released!",
+   "date": "2026-09-24",
+   "text": "The PHP development team announces the immediate availability of PHP 8.5.11. This is a security release. All PHP 8.5 users are encouraged to upgrade to this version. For source downloads of PHP 8.5.11 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-09-24-2",
+   "datetime": "2026-09-24T09:51:44+00:00",
+   "title": "PHP 8.3.35 Released!",
+   "date": "2026-09-24",
+   "text": "The PHP development team announces the immediate availability of PHP 8.3.35. This is a security release. All PHP 8.3 users are encouraged to upgrade to this version. For source downloads of PHP 8.3.35 please visit our downloads page , Windows source and binaries can also be found there . The list of changes is recorded in the ChangeLog ."
+  },
+  {
+   "id": "2026-09-24-1",
+   "datetime": "2026-09-24T08:21:25+00:00",
+   "title": "PHP 8.6.0 RC2 available for testing",
+   "date": "2026-09-24",
+   "text": "The PHP team is pleased to announce the first release candidate of PHP 8.6.0, RC2. It is not a typo: a mistake was made while packaging RC1, so RC2 was released instead. For a full explanation, please see this blog post . This continues the PHP 8.6 release cycle, whose rough outline is specified in the PHP Wiki . Source downloads of PHP 8.6.0 RC2 are available on the download page . Please carefully test this version and report any issues found in the GitHub Issues . Please DO NOT use this version in production, it is an early test version. For more information on the new features and other changes, you can read the NEWS file, or the UPGRADING file for a complete list of upgrading notes. These files can also be found in the release archive. The next release will be RC3, planned for 8 October 2026. The signatures for the release can be found in the manifest or on the pre-release builds page . Thank you for helping us make PHP better."
+  },
+  {
+   "id": "2026-09-11-1",
+   "datetime": "2026-09-11T07:54:45+00:00",
+   "title": "Dutch PHP Conference 2027",
+   "date": "2026-09-11",
+   "text": "🚀 Dutch PHP Conference 2027 is coming! 🚀 We’re thrilled to announce that the 21st edition of the Dutch PHP Conference will take place from March 16 to March 19, 2027 in Amsterdam! 🗓️ 🎤 Call for Papers is now OPEN! 🎤 Got insights, skills, or experience to share? Submit your talk ideas before the deadline on December 18th! We’re looking for both technical and non-technical sessions that will inspire and engage our community. 🎟️ Early Bird Tickets Available Now! 🎟️ This year, we're excited to split our conference into an action-packed 2-day format! A standard DPC conference day ticket now also gives you full access to Webdevcon (your gateway to the latest in web technology 🌐🚀). Want the ultimate experience? Our 4-day Early Bird tickets are available now! This all-access pass grants you entry to our intensive workshop days PLUS all co-located conferences, including Appdevcon (where app development meets creativity 📱✨) and the Dutch AI Conference. Secure your spot for a fantastic lineup of workshops, sessions, and social activities. Get ready for an incredible edition of #DPC27! 🌟 👉 Submit your CFP => https://phpconference.nl/speakers/cfp/ 👉 Grab your early bird tickets => https://dawnt"
+  }
+ ],
+ "releases": {
+  "8.2": {
+   "version": "8.2.35",
+   "date": "21 Oct 2026",
+   "tags": [
+    "security"
+   ]
+  },
+  "8.3": {
+   "version": "8.3.36",
+   "date": "21 Oct 2026",
+   "tags": [
+    "security"
+   ]
+  },
+  "8.4": {
+   "version": "8.4.27",
+   "date": "21 Oct 2026",
+   "tags": [
+    "security"
+   ]
+  },
+  "8.5": {
+   "version": "8.5.12",
+   "date": "21 Oct 2026",
+   "tags": [
+    "security"
+   ]
+  }
+ },
+ "fetched_at": "2026-10-23T13:25:50Z",
+ "tool": "tools/intel/fetch-intel"
+}

@@ -34,7 +34,9 @@ JST is UTC+9.
 | 2026-10-22 | 10-22 | Capcom confirms a CAPCOM ID breach: 11,774,247 addresses; GMO suspends Onamae Desktop Cloud (up to 26,739 servers) | Capcom / GMO |
 | 2026-10-22 12:22 | 10-22 21:22 | **Imperva demonstrates code execution on an official Node.js 24.22.0 build** (Node2Shell, `CVE-2026-111497`) | Imperva |
 | 2026-10-23 07:51 | 10-23 16:51 | The Hacker News pushes the Node2Shell alert to X — the lead that started this read | X |
+| 2026-10-23 10:12 | 10-23 19:12 | **PHP publishes an informational advisory for `CVE-2026-115560`**: no patch until the next routine release, keep `session.upload_progress.enabled=0` | [`docs/23`](23-php-cve-2026-115560.md) |
 | 2026-10-23 11:18 | 10-23 20:18 | **Snapshot time for this repository (fifth read: 15 files, news + X channels added)** | [`docs/22`](22-snapshot-2015jst.md) |
+| 2026-10-23 13:25 | 10-23 22:25 | Snapshot for `docs/23` (PHP archive, KEV, NVD query, the referenced GHSA) | [`data/2026-10-23-2235jst`](../data/2026-10-23-2235jst) |
 | 2026-10-23 | 10-23 | KEV due dates fall due for Plex (`CVE-2026-96654`, `CVE-2026-96656`) and EG SiteGuard (`CVE-2026-106931`) | CISA KEV |
 
 ## What to take from this
