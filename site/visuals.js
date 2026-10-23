@@ -9,7 +9,8 @@ window.VISUALS = (function () {
 
   /* ---------- user tilt (drag / long-press) ---------- */
   const TILT = { yaw: 0, pitch: 0 };
-  const SCREEN_SPACE = new Set(["radar", "clock", "matrix", "storm", "channels", "stack"]);
+  const SCREEN_SPACE = new Set(["radar", "clock", "matrix", "storm", "channels", "stack",
+    "before", "funnel", "ledger"]);
 
   /* ---------- camera ---------- */
   const VIEW = { zoom: 0.62 };
@@ -771,6 +772,304 @@ window.VISUALS = (function () {
       });
     }
     label(ctx, [w * 0.5, h * 0.13], "58 ADVISORIES / 24 H", "rgba(88,224,255,.5)", 9.5);
+  };
+
+
+  /* ---------- 10-23 postscript, second set (docs/22) ---------- */
+
+  /* Node2Shell: two paths reach the decoder Node.js bundles, one path never
+     does, and the marker file appears inside the process. 24.22.0 ran it;
+     24.22.1 rejects the same bytes. See docs/22 §2. */
+  scenes.decode = (ctx, w, h, t, o) => {
+    const c = cam(t, { pitch: -0.20, dist: 1120, yaw: 0.14, spin: true });
+    const P = (p) => project(c, p[0], p[1], p[2], w, h);
+    const inA = [-560, -170, 0], inB = [-560, 60, 0], bare = [-560, 300, 0];
+    const join = [-300, -55, 0], core = [0, -55, 0], out = [400, -55, 0];
+
+    [[inA, "fetch()  ·  RESPONSE"], [inB, "express.json() / raw()"]].forEach(([p, name], i) => {
+      arrowPath(ctx, c, [p, join], w, h, C.cyan, t + i * 0.5, 52);
+      const q = P(p);
+      label(ctx, [q[0] - 10, q[1] - 10], name, "rgba(88,224,255,.8)", 9, "right");
+    });
+
+    // the bare server: nothing inflates the body, so nothing reaches the decoder
+    const qb = P(bare);
+    ctx.save();
+    ctx.setLineDash([4, 8]);
+    poly(ctx, [qb, [qb[0] + 118, qb[1] - 34]], "rgba(150,175,195,.30)", 1.2, false);
+    ctx.restore();
+    label(ctx, [qb[0] - 10, qb[1] + 4], "bare http.createServer()", "rgba(150,175,195,.55)", 9, "right");
+    label(ctx, [qb[0] + 128, qb[1] - 42], "no inflate → nothing reaches it", "rgba(110,242,176,.6)", 8.5, "left");
+
+    arrowPath(ctx, c, [join, core], w, h, C.amber, t, 70);
+    arrowPath(ctx, c, [core, out], w, h, C.red, t, 70);
+
+    const hex = (r, z) => Array.from({ length: 6 }, (_, i) => {
+      const a = (i / 6) * TAU + Math.PI / 6;
+      return project(c, core[0] + Math.cos(a) * r, core[1] + Math.sin(a) * r * 0.66, z, w, h);
+    });
+    const beat = 0.5 + 0.5 * Math.sin(t * 3.1);
+    poly(ctx, hex(146, -54), "rgba(88,224,255,.20)", 1.3, true);
+    for (let i = 0; i < 6; i++) {
+      poly(ctx, [hex(146, -54)[i], hex(146, 54)[i]], "rgba(88,224,255,.32)", 1.2, false);
+    }
+    poly(ctx, hex(146, 54), `rgba(255,91,87,${0.35 + beat * 0.45})`, 2, true);
+    const cc = P(core);
+    glowDot(ctx, cc, 3.2, C.red, 0.3 + beat * 0.4);
+    label(ctx, [cc[0], cc[1] - 2], "BROTLI", C.ink, 10);
+    label(ctx, [cc[0], cc[1] + 14], "DECODER", "rgba(230,238,246,.7)", 8.5);
+    label(ctx, [cc[0], cc[1] + 46], "c/dec/decode.c", "rgba(150,175,195,.55)", 8);
+
+    // bracket the untrusted side: where the bytes come from, and where they land
+    const bt = P([-620, -300, 0]), bb = P([-300, 210, 0]);
+    ctx.save();
+    ctx.setLineDash([3, 6]);
+    ctx.strokeStyle = "rgba(255,181,69,.30)";
+    ctx.lineWidth = 1.1;
+    ctx.strokeRect(bt[0] - 12, bt[1] - 8, Math.abs(bb[0] - bt[0]) + 24, Math.abs(bb[1] - bt[1]) + 16);
+    ctx.restore();
+    label(ctx, [bt[0], bt[1] - 16], "UNTRUSTED", "rgba(255,181,69,.55)", 8, "left");
+
+    // the marker file: it is absent until the crafted block lands, then it stays
+    const oe = P(out);
+    const landed = ((t * 0.30) % 1) > 0.45;
+    ctx.save();
+    ctx.globalAlpha = landed ? 0.95 : 0.25;
+    ctx.strokeStyle = landed ? C.red : "rgba(150,175,195,.4)";
+    ctx.lineWidth = 1.4;
+    ctx.strokeRect(oe[0] - 26, oe[1] - 18, 52, 36);
+    ctx.restore();
+    label(ctx, [oe[0], oe[1] + 2], "MARKER", landed ? C.red : "rgba(150,175,195,.45)", 8.5);
+    label(ctx, [oe[0], oe[1] + 34], landed ? "CODE RAN" : "NOTHING", landed ? C.red : C.dim, 8.5);
+
+    // byte packets: three per entry, so the arrows read as data, not as decoration
+    [[inA, join], [inB, join]].forEach(([a, b], j) => {
+      for (let i = 0; i < 3; i++) {
+        const k = (((t * 0.5 + i * 0.33 + j * 0.5) % 1) + 1) % 1;
+        const p = [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, 0];
+        const q = P(p);
+        ctx.save();
+        ctx.globalAlpha = 0.45 + 0.45 * Math.sin(k * Math.PI);
+        ctx.fillStyle = C.amber;
+        ctx.fillRect(q[0] - 2.5, q[1] - 2.5, 5, 5);
+        ctx.restore();
+      }
+    });
+
+    // the fixed build, at the end of the same path
+    const qf = P([out[0] + 150, out[1] + 250, 0]);
+    ctx.save();
+    ctx.setLineDash([4, 7]);
+    poly(ctx, [P([out[0], out[1] + 60, 0]), [qf[0], qf[1] - 22]], "rgba(110,242,176,.35)", 1.2, false);
+    ctx.restore();
+    ctx.strokeStyle = "rgba(110,242,176,.65)"; ctx.lineWidth = 1.3;
+    ctx.strokeRect(qf[0] - 54, qf[1] - 16, 108, 32);
+    label(ctx, [qf[0], qf[1] + 1], "24.22.1", "rgba(110,242,176,.9)", 9);
+    label(ctx, [qf[0], qf[1] + 30], "FORMAT ERROR", "rgba(110,242,176,.6)", 8);
+
+    label(ctx, [w / 2, h * 0.115], "OFFICIAL 24.22.0 · LINUX ARM64", "rgba(88,224,255,.55)", 9.5);
+    label(ctx, [w / 2, h * 0.115 + 15], "24.22.1 REJECTS THE SAME BYTES", "rgba(110,242,176,.75)", 9.5);
+  };
+
+  /* php2shell: the attempt that predates the advisory, and the 24 h that
+     followed it. The axis is time; the point is which side of PATCH the
+     first marker sits on. See docs/22 §3. */
+  scenes.before = (ctx, w, h, t, o) => {
+    const x0 = w * 0.13, x1 = w * 0.90, y = h * 0.58;
+    const patch = x0 + (x1 - x0) * 0.70;
+    const at = (f) => x0 + (x1 - x0) * f;
+
+    // patched region
+    ctx.save();
+    ctx.globalAlpha = 0.10;
+    ctx.fillStyle = C.green;
+    ctx.fillRect(patch, y - 96, x1 - patch, 192);
+    ctx.restore();
+    poly(ctx, [[x0, y], [x1, y]], "rgba(150,175,195,.38)", 1.4, false);
+
+    [["10.17", 0.02], ["10.21 02:00", 0.46], ["10.21 14:00", 0.70], ["10.22", 0.92]].forEach(([name, f], i) => {
+      const x = at(f);
+      poly(ctx, [[x, y - 7], [x, y + 7]], "rgba(230,238,246,.5)", 1.2, false);
+      label(ctx, [x, y + 24], name, i === 2 ? C.green : C.dim, 8.5);
+    });
+
+    // the patch line, and the fact that something happened to its left
+    ctx.save();
+    ctx.setLineDash([5, 6]);
+    poly(ctx, [[patch, y - 108], [patch, y + 74]], C.green, 1.5, false);
+    ctx.restore();
+    label(ctx, [patch + 9, y - 116], "PATCH", C.green, 9.5, "left");
+    label(ctx, [(x0 + patch) / 2, y - 120], "EMBARGO · ATTEMPTS", "rgba(255,181,69,.55)", 8.5);
+    label(ctx, [(patch + x1) / 2, y - 120], "PATCHED · BROAD ATTEMPTS", "rgba(110,242,176,.55)", 8.5);
+
+    // pre-disclosure attempt
+    const pre = at(0.055);
+    const ring = 16 + 4 * Math.sin(t * 2.4);
+    ctx.beginPath(); ctx.arc(pre, y, ring, 0, TAU);
+    ctx.strokeStyle = "rgba(255,181,69,.6)"; ctx.lineWidth = 1.4; ctx.stroke();
+    glowDot(ctx, [pre, y], 3.6, C.amber, 0.8);
+    label(ctx, [pre, y - 34], "ATTEMPT", C.amber, 9);
+
+    // PoC wave before the patch, then broad attempts after it
+    for (let i = 0; i < 9; i++) {
+      const f = 0.47 + (i / 9) * 0.21;
+      const ph = (t * 0.6 + i * 0.17) % 2.4;
+      const x = at(f) + ph * 26;
+      ctx.globalAlpha = Math.max(0, 1 - ph / 2.4);
+      dot(ctx, [x, y - 8 - (i % 3) * 11], 1.8, C.red);
+      ctx.globalAlpha = 1;
+    }
+    for (let i = 0; i < 12; i++) {
+      const f = 0.72 + ((i * 0.017) % 0.19);
+      const ph = (t * 0.5 + i * 0.21) % 2.0;
+      const x = at(f) + ph * 22;
+      ctx.globalAlpha = Math.max(0, 1 - ph / 2.0) * 0.8;
+      dot(ctx, [x, y + 8 + (i % 4) * 9], 1.6, C.red);
+      ctx.globalAlpha = 1;
+    }
+
+    // the numbers, above the axis
+    label(ctx, [at(0.02), h * 0.215], "482,342", C.amber, 20, "left");
+    label(ctx, [at(0.02), h * 0.215 + 18], "REQUESTS / FIRST 24 H", "rgba(150,175,195,.7)", 8.5, "left");
+    label(ctx, [at(0.02), h * 0.215 + 42], "21,998 sites · 103 countries", "rgba(150,175,195,.6)", 8.5, "left");
+    label(ctx, [at(0.02), h * 0.215 + 58], "122,311 attack sessions", "rgba(150,175,195,.6)", 8.5, "left");
+
+    label(ctx, [x1, h * 0.775], "0 CONFIRMED COMPROMISES", "rgba(110,242,176,.8)", 10, "right");
+    label(ctx, [x1, h * 0.775 + 16], "0 SUCCESSFUL MIRAIS", "rgba(110,242,176,.55)", 8.5, "right");
+    label(ctx, [at(0.055), y + 52], "4 DAYS BEFORE THE ADVISORY", C.amber, 9.5, "left");
+    label(ctx, [w * 0.5, h * 0.105], "ATTEMPTED BEFORE IT WAS DISCLOSED", "rgba(255,181,69,.6)", 9.5);
+  };
+
+  /* The severity filter: a CNA 9.9 is a 0-row answer, because the filter
+     counts only NVD's own CVSS 3.x score. Measured on the API itself;
+     docs/22 §1.2. */
+  scenes.funnel = (ctx, w, h, t, o) => {
+    const cards = o.cards || [
+      { id: "CVE-2026-111497", score: "9.2", kind: "CVSS 4.0" },
+      { id: "CVE-2026-114625", score: "9.9", kind: "CNA" },
+      { id: "CVE-2026-91637", score: "9.9", kind: "CNA" }
+    ];
+    const bar = w * 0.575, top = h * 0.30;
+    const rowH = Math.min(64, (h * 0.44) / cards.length);
+
+    // the gate
+    ctx.save();
+    ctx.setLineDash([6, 7]);
+    poly(ctx, [[bar, h * 0.20], [bar, h * 0.78]], "rgba(88,224,255,.45)", 1.6, false);
+    ctx.restore();
+    label(ctx, [bar, h * 0.185], "cvssV3Severity=CRITICAL", "rgba(88,224,255,.75)", 9);
+
+    // the unfiltered lane: 342 CVEs published in the day the filter was read
+    const laneY = h * 0.845, laneX0 = w * 0.16, laneX1 = w * 0.84;
+    ctx.save();
+    ctx.globalAlpha = 0.5;
+    for (let i = 0; i < 114; i++) {
+      const x = laneX0 + (laneX1 - laneX0) * (i / 113);
+      const hgt = 4 + ((i * 37) % 13);
+      ctx.fillStyle = i % 19 === 0 ? C.amber : "rgba(88,224,255,.45)";
+      ctx.fillRect(x, laneY - hgt, 1.4, hgt);
+    }
+    ctx.restore();
+    label(ctx, [laneX0, laneY + 16], "342 PUBLISHED / 24 H · ALL SEVERITIES", "rgba(150,175,195,.6)", 8.5, "left");
+
+    // one card that the filter does accept: NVD's own primary score
+    const passPh = (t * 0.30) % 1.6;
+    const passX = w * 0.235 + (bar - w * 0.235 + 118) * Math.min(1, passPh / 1.2);
+    const passY = top + cards.length * rowH + 14;
+    ctx.save();
+    ctx.globalAlpha = 0.75;
+    ctx.fillStyle = "rgba(10,20,30,.92)";
+    ctx.fillRect(passX - 168, passY - 15, 168, 30);
+    ctx.strokeStyle = C.green; ctx.lineWidth = 1.2;
+    ctx.strokeRect(passX - 168, passY - 15, 168, 30);
+    ctx.restore();
+    label(ctx, [passX - 158, passY + 3], "PRIMARY · 9.9", "rgba(110,242,176,.85)", 8.5, "left");
+    if (passPh > 0.9) label(ctx, [bar + 34, passY + 26], "PASS", "rgba(110,242,176,.8)", 9, "left");
+
+    cards.forEach((card, i) => {
+      const cyc = (t * 0.42 + i * 0.31) % 1.35;
+      const approach = Math.min(1, cyc / 0.7);
+      const recoil = cyc > 0.7 ? Math.min(1, (cyc - 0.7) / 0.65) : 0;
+      const x = w * 0.235 + (bar - w * 0.235 - 96) * approach - recoil * 74;
+      const y = top + i * rowH;
+      const hit = cyc > 0.7;
+      const cw = 168, ch = 34;
+
+      ctx.save();
+      ctx.globalAlpha = 0.35 + approach * 0.6;
+      ctx.fillStyle = "rgba(10,20,30,.92)";
+      ctx.fillRect(x - cw, y - ch / 2, cw, ch);
+      ctx.strokeStyle = hit ? C.red : "rgba(88,224,255,.55)";
+      ctx.lineWidth = 1.2;
+      ctx.strokeRect(x - cw, y - ch / 2, cw, ch);
+      ctx.restore();
+
+      label(ctx, [x - cw + 10, y - 3], card.id, C.ink, 8.5, "left");
+      label(ctx, [x - cw + 10, y + 10], card.kind + " · " + card.score, "rgba(150,175,195,.75)", 8, "left");
+      if (hit) label(ctx, [x + 12, y + 3], "0 ROWS", C.red, 10, "left");
+      if (hit) glowDot(ctx, [bar, y], 2.6, C.red, 0.5 * (1 - recoil));
+    });
+
+    // what does come out
+    label(ctx, [bar + 34, h * 0.45], "98", C.amber, 26, "left");
+    label(ctx, [bar + 34, h * 0.45 + 18], "ROWS · 104 → 98", "rgba(150,175,195,.7)", 8.5, "left");
+    label(ctx, [bar + 34, h * 0.45 + 34], "6 OUT · 0 IN · NOTHING FIXED", "rgba(150,175,195,.55)", 8, "left");
+    label(ctx, [bar + 34, h * 0.45 + 56], "PRIMARY SCORES ONLY", "rgba(88,224,255,.65)", 8.5, "left");
+
+    label(ctx, [w * 0.5, h * 0.105], "A CNA 9.9 IS A ZERO-ROW ANSWER", "rgba(255,91,87,.7)", 9.5);
+    label(ctx, [w * 0.5, h * 0.85], "THE UNFILTERED SWEEP RETURNED 342 / 24 H", "rgba(150,175,195,.6)", 8.5);
+  };
+
+  /* Four incidents the CVE lists did not name: each row arrived through the
+     news channel first, then was checked against the vendor's own page.
+     docs/22 §4. */
+  scenes.ledger = (ctx, w, h, t, o) => {
+    const rows = o.rows || [
+      { name: "ARISTA VELOCLOUD", figure: "9.9", tag: "EXPLOITED · NEEDS LOGIN", tone: "red" },
+      { name: "LINUX KSMBD", figure: "9.0", tag: "NO CVE · NO FIX", tone: "amber" },
+      { name: "CAPCOM CAPCOM ID", figure: "11,774,247", tag: "EMAILS · BREACH", tone: "amber" },
+      { name: "ONAMAE DESKTOP CLOUD", figure: "26,739", tag: "SERVERS SUSPENDED", tone: "amber" }
+    ];
+    const left = w * 0.16, right = w * 0.90;
+    const top = h * 0.24, step = Math.min(84, (h * 0.48) / rows.length);
+
+    label(ctx, [left, h * 0.145], "NEWS CHANNEL", "rgba(88,224,255,.6)", 9, "left");
+    label(ctx, [right, h * 0.145], "PRIMARY SOURCE", "rgba(110,242,176,.65)", 9, "right");
+
+    rows.forEach((row, i) => {
+      const ph = Math.min(1, Math.max(0, t * 0.55 - i * 0.22));
+      const y = top + i * step;
+      const x = left + (1 - ph) * 42;
+      ctx.save();
+      ctx.globalAlpha = 0.25 + ph * 0.75;
+      // connector: the channel on the left, the verification on the right
+      poly(ctx, [[left - 8, y], [right, y]], "rgba(150,175,195,.18)", 1, false);
+      ctx.restore();
+
+      const tone = row.tone === "red" ? "rgba(255,91,87,.8)"
+        : row.tone === "amber" ? "rgba(255,181,69,.75)" : "rgba(150,175,195,.66)";
+      // the channel marker: this row arrived as a headline first
+      ctx.save();
+      ctx.globalAlpha = 0.35 + ph * 0.5;
+      ctx.beginPath();
+      ctx.moveTo(left - 26, y - 4); ctx.lineTo(left - 21, y + 1);
+      ctx.lineTo(left - 26, y + 6); ctx.lineTo(left - 31, y + 1);
+      ctx.closePath(); ctx.strokeStyle = C.cyan; ctx.lineWidth = 1.2; ctx.stroke();
+      ctx.restore();
+      label(ctx, [x, y - 4], row.name, "rgba(230,238,246,.88)", 9.5, "left");
+      label(ctx, [x, y + 11], row.tag, tone, 8, "left");
+      label(ctx, [w * 0.60, y + 2], row.figure, C.amber, 15, "right");
+
+      if (ph > 0.65) {
+        const q = [right - 10, y - 4];
+        ctx.beginPath();
+        ctx.moveTo(q[0] - 6, q[1]); ctx.lineTo(q[0] - 1, q[1] + 5); ctx.lineTo(q[0] + 7, q[1] - 6);
+        ctx.strokeStyle = C.green; ctx.lineWidth = 1.8; ctx.stroke();
+      }
+    });
+
+    label(ctx, [w * 0.5, h * 0.115], "FOUR INCIDENTS, NO CVE LIST", "rgba(88,224,255,.6)", 9.5);
+    label(ctx, [w * 0.5, h * 0.82], "FIGURES AS THE VENDORS PUBLISHED THEM", "rgba(150,175,195,.55)", 8.5);
   };
 
   /* ---------- entry ---------- */

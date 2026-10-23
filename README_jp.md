@@ -65,9 +65,11 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 ```
 
 **タップで進むブリーフィング（Web）**: <https://2026-incident-briefing.pages.dev> — 15件を時系列に、
-そのあと **10-23 の追記3件**（[`docs/20`](docs/20-infinity-core.ja.md) /
-[`docs/21`](docs/21-snapshot-1036jst.ja.md): Infinity Core、開示の盲点、エコシステム）。全21シーン、
-3D演出・効果音・自作Lofiで。音が出ます（右上の SOUND で消せます）。**言語はプルダウンで12言語**（English / 日本語 / 中文 / 한국어 /
+そのあと **10-23 の追記7件**（[`docs/20`](docs/20-infinity-core.ja.md) /
+[`docs/21`](docs/21-snapshot-1036jst.ja.md) / [`docs/22`](docs/22-snapshot-2015jst.ja.md): Infinity Core、
+開示の盲点、エコシステム、Node2Shell、開示前の試行、CNA の 9.9 が通らないフィルタ、CVE 一覧が
+名指ししない4件）。全25シーン、3D演出・効果音・自作Lofiで。音が出ます（右上の SOUND で消せます）。
+**言語はプルダウンで12言語**（English / 日本語 / 中文 / 한국어 /
 Español / Français / Deutsch / Português / Русский / العربية / हिन्दी / Bahasa Indonesia。`?lang=` / `L` キー）。
 スマホはタップ／スワイプ、PCはスペース／←→。
 

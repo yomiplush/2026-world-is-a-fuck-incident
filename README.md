@@ -65,9 +65,10 @@ bash tools/copy-prompt.sh intel ja   # decision prompt, Japanese
 ```
 
 **Tap-through briefing (web)**: <https://2026-incident-briefing.pages.dev> — the fifteen items in order,
-then a **10-23 postscript** ([`docs/20`](docs/20-infinity-core.md), [`docs/21`](docs/21-snapshot-1036jst.md)):
-Infinity Core, the blind spot, and the ecosystem. 21 scenes, pseudo-3D motion, synthesised SFX and a
-generated lofi loop. Sound is on; toggle it top-right.
+then a **10-23 postscript** ([`docs/20`](docs/20-infinity-core.md), [`docs/21`](docs/21-snapshot-1036jst.md),
+[`docs/22`](docs/22-snapshot-2015jst.md)): Infinity Core, the blind spot, the ecosystem, then Node2Shell,
+the pre-disclosure attempts, the filter a CNA 9.9 cannot pass, and the four incidents no CVE list named.
+25 scenes, pseudo-3D motion, synthesised SFX and a generated lofi loop. Sound is on; toggle it top-right.
 **Language pull-down, 12 languages** (English / 日本語 / 中文 / 한국어 / Español / Français / Deutsch /
 Português / Русский / العربية / हिन्दी / Bahasa Indonesia; `?lang=`, or press `L`).
 Phone: tap/swipe. Desktop: space / arrows.
