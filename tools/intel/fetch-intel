@@ -8,6 +8,7 @@ bs4, no jq. Network is the only external dependency.
   tools/intel/fetch-intel                       # today's date, current quarter
   tools/intel/fetch-intel --date 2026-10-22 --cpu Oct2026
   tools/intel/fetch-intel --sources oracle,kev  # subset
+  tools/intel/fetch-intel --recent-hours 12     # broad NVD + GHSA window
   tools/intel/fetch-intel --out /tmp/intel      # somewhere else
 
 Exit codes: 0 = every source fetched, 10 = partial (some source failed, the rest
@@ -24,11 +25,13 @@ import argparse
 import datetime as dt
 import email.utils
 import html
+import http.client
 import json
 import os
 import re
 import ssl
 import sys
+import time
 import urllib.error
 import urllib.request
 from html.parser import HTMLParser
@@ -40,6 +43,7 @@ TIMEOUT = 60
 ORACLE_CPU = "https://www.oracle.com/security-alerts/cpu{cpu}.html"
 KEV = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
 NVD = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+GHSA = "https://api.github.com/advisories"
 JVN_RSS = "https://jvn.jp/rss/jvn.rdf"
 MSRC_CVRF = "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/{month}"
 GITLAB_PATCH = "https://docs.gitlab.com/releases/patches/{slug}/"
@@ -64,6 +68,10 @@ FEEDS = {
     # practitioner / DFIR
     "sans-isc": "https://isc.sans.edu/rssfeed.xml",
     "dfir-report": "https://thedfirreport.com/feed/",
+    # coordinated disclosure: the list where an embargo ends and a PoC lands.
+    # This is where "Infinity Core" (2026-10-16) appeared, days before any feed
+    # in this catalog carried it.
+    "oss-sec": "https://seclists.org/rss/oss-sec.rss",
     # official advisories
     "cisa-advisories": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
     "jpcert": "https://www.jpcert.or.jp/rss/jpcert.rdf",
@@ -84,12 +92,30 @@ CIA = {"High": "H", "Low": "L", "None": "N"}
 
 # --------------------------------------------------------------------------- io
 
-def get(url: str) -> bytes:
+def get(url: str, timeout: int | None = None) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": UA,
                                               "Accept": "*/*"})
     ctx = ssl.create_default_context()
-    with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
+    with urllib.request.urlopen(req, timeout=timeout or TIMEOUT, context=ctx) as r:
         return r.read()
+
+
+def get_nvd(url: str, attempts: int = 3) -> dict:
+    """NVD, with patience. A 24-hour all-severity query takes ~60 s server-side.
+
+    The default 60-second socket timeout is not enough for the wider windows,
+    and NVD answers 503 when two calls arrive too close together. Retry with a
+    backoff rather than recording a failed sweep as "nothing changed".
+    """
+    last = None
+    for i in range(attempts):
+        try:
+            return json.loads(get(url, timeout=180))
+        except (urllib.error.URLError, http.client.HTTPException, OSError,
+                json.JSONDecodeError) as exc:
+            last = exc
+            time.sleep(5 * (i + 1))
+    raise last
 
 
 def norm(s: str) -> str:
@@ -542,9 +568,80 @@ def epss_scores(ids: list[str]) -> dict:
     return out
 
 
+def kev_cve_ids() -> set[str]:
+    try:
+        return {x["cveID"] for x in json.loads(get(KEV))["vulnerabilities"]}
+    except (urllib.error.URLError, OSError, json.JSONDecodeError, KeyError):
+        return set()
+
+
+def cvss_primary(metrics: dict, kind: str) -> tuple:
+    """Score and vector for a metric kind, preferring NVD's own assessment.
+
+    NVD lists the CNA's metric ("Secondary") before its own ("Primary") on some
+    records, and the two can disagree by whole severity bands: CVE-2026-95695 is
+    Secondary 7.4 (IBM) and Primary 9.1 (NVD) at once. A severity-filtered query
+    selected that row, so reading the first entry records a CRITICAL as HIGH.
+    """
+    group = metrics.get(kind, [])
+    for e in group:
+        if e.get("type") == "Primary":
+            return e["cvssData"]["baseScore"], e["cvssData"].get("vectorString")
+    for e in group:
+        return e["cvssData"]["baseScore"], e["cvssData"].get("vectorString")
+    return None, None
+
+
+def nvd_entry(c: dict, kev: set[str]) -> dict:
+    """One NVD CVE record, reduced to the columns a triage decision needs."""
+    metrics = c.get("metrics", {})
+    v31, vec31 = cvss_primary(metrics, "cvssMetricV31")
+    v40, _ = cvss_primary(metrics, "cvssMetricV40")
+    vendor = product = ""
+    for conf in c.get("configurations", []) or []:
+        for node in conf.get("nodes", []):
+            for match in node.get("cpeMatch", []):
+                parts = match["criteria"].split(":")
+                if len(parts) > 4:
+                    vendor, product = parts[3], parts[4]
+                    break
+            if vendor:
+                break
+        if vendor:
+            break
+    return {
+        "cve": c["id"],
+        "published": c["published"][:10],
+        "last_modified": c.get("lastModified", "")[:19],
+        "status": c.get("vulnStatus", ""),
+        "cvss_v31": v31,
+        "cvss_v40": v40,
+        "vector_v31": vec31,
+        "vendor": vendor,
+        "product": product,
+        "kev": c["id"] in kev,
+        "description": (c.get("descriptions") or [{}])[0].get("value", ""),
+    }
+
+
+def summarise_nvd(entries: list, url: str, **window) -> dict:
+    scores = epss_scores([e["cve"] for e in entries])
+    for e in entries:
+        e["epss"] = scores.get(e["cve"])
+    entries.sort(key=lambda e: (-(e["cvss_v31"] or 0), e["published"]))
+    return {
+        "source": url,
+        **window,
+        "total": len(entries),
+        "in_kev": sum(1 for e in entries if e["kev"]),
+        "with_cpe": sum(1 for e in entries if e["vendor"]),
+        "with_epss": sum(1 for e in entries if e["epss"] is not None),
+        "entries": entries,
+    }
+
+
 def collect_nvd_critical(days: int) -> dict:
     """Every CRITICAL CVE NVD published in the window, with KEV and EPSS flags.
-
     The point is not the list; it is that the list is mostly noise and you need
     the three columns here (CVSS, KEV, EPSS) to see which rows are not.
     """
@@ -553,71 +650,115 @@ def collect_nvd_critical(days: int) -> dict:
     q = ("pubStartDate={s}T00:00:00.000&pubEndDate={e}T23:59:59.999"
          "&cvssV3Severity=CRITICAL&resultsPerPage=2000")
     url = NVD + "?" + q.format(s=start.isoformat(), e=end.isoformat())
+    d = get_nvd(url)
+    entries = [nvd_entry(v["cve"], kev_cve_ids())
+               for v in d.get("vulnerabilities", [])]
+    return summarise_nvd(entries, url, window_start=start.isoformat(),
+                         window_end=end.isoformat())
+
+
+def collect_nvd_window(hours: int, mode: str) -> dict:
+    """Everything NVD touched in the last H hours — every severity, no filter.
+
+    Two different questions, deliberately kept apart:
+
+    - `published`: what appeared. A CRITICAL-only sweep (the 14-day one in
+      docs/13) hides the HIGH band, where most of a day's real work sits.
+    - `modified`: what NVD *changed*. This is the sweep that would have caught
+      CVE-2026-109619 dropping 9.8 -> 8.1 without waiting for someone to notice
+      that a total had moved.
+
+    Neither is a quality filter. Both are cheap; run them before believing a
+    count from yesterday.
+    """
+    if mode not in ("published", "modified"):
+        raise ValueError(f"unknown NVD window mode: {mode}")
+    end = dt.datetime.now(dt.timezone.utc)
+    start = end - dt.timedelta(hours=hours)
+    fmt = "%Y-%m-%dT%H:%M:%S.000"
+    key = "pub" if mode == "published" else "lastMod"
+    kev = kev_cve_ids()
+
+    # Ask in 6-hour slices. One 24-hour all-severity query takes ~60 s at the
+    # server and returns up to 2,000 rows; slicing keeps each call quick, keeps
+    # every slice under the page cap, and turns one timeout into a smaller
+    # retryable unit. NVD allows 5 requests per 30 s without a key.
+    seen, entries, urls = set(), [], []
+    cursor = start
+    while cursor < end:
+        stop = min(cursor + dt.timedelta(hours=6), end)
+        q = (f"{key}StartDate={cursor.strftime(fmt)}&{key}EndDate={stop.strftime(fmt)}"
+             "&resultsPerPage=2000")
+        url = NVD + "?" + q
+        urls.append(url)
+        d = get_nvd(url)
+        for v in d.get("vulnerabilities", []):
+            c = v["cve"]
+            if c["id"] in seen:
+                continue
+            seen.add(c["id"])
+            entries.append(nvd_entry(c, kev))
+        cursor = stop
+        if cursor < end:
+            time.sleep(6)
+    out = summarise_nvd(entries, urls[0], mode=mode, window_hours=hours,
+                        window_start=start.strftime(fmt),
+                        window_end=end.strftime(fmt))
+    out["chunks"] = len(urls)
+    if len(urls) > 1:
+        out["source_queries"] = urls
+    return out
+
+
+def collect_ghsa(hours: int) -> dict:
+    """Recent advisories from the GitHub Advisory Database (GHSA).
+
+    One request: the unauthenticated rate limit is 60/hour, and this endpoint
+    returns the newest advisories sorted by publication. It is the ecosystem
+    view NVD does not give you — which npm / pip / Go / Maven package, which
+    patched version — so a supply-chain incident shows up here before it shows
+    up as a CVE record.
+    """
+    end = dt.datetime.now(dt.timezone.utc)
+    cut = end - dt.timedelta(hours=hours)
+    url = GHSA + "?per_page=100&sort=published&direction=desc"
     d = json.loads(get(url))
-
-    kev_ids = set()
-    try:
-        kev_ids = {x["cveID"] for x in json.loads(get(KEV))["vulnerabilities"]}
-    except (urllib.error.URLError, OSError, json.JSONDecodeError, KeyError):
-        pass
-
-    entries = []
-    for v in d.get("vulnerabilities", []):
-        c = v["cve"]
-        m = c.get("metrics", {})
-        def first(kind):
-            # NVD lists the CNA's metric ("Secondary") before its own ("Primary")
-            # on some records, and the two can disagree by whole severity bands:
-            # CVE-2026-95695 is Secondary 7.4 (IBM) and Primary 9.1 (NVD) at once.
-            # The severity filter that selected this row answered on the Primary
-            # score, so reading the first entry would record a CRITICAL row as HIGH.
-            entries_ = m.get(kind, [])
-            for e in entries_:
-                if e.get("type") == "Primary":
-                    return e["cvssData"]["baseScore"], e["cvssData"].get("vectorString")
-            for e in entries_:
-                return e["cvssData"]["baseScore"], e["cvssData"].get("vectorString")
-            return None, None
-        v31, vec31 = first("cvssMetricV31")
-        v40, _ = first("cvssMetricV40")
-        vendor = product = ""
-        for conf in c.get("configurations", []) or []:
-            for node in conf.get("nodes", []):
-                for match in node.get("cpeMatch", []):
-                    parts = match["criteria"].split(":")
-                    if len(parts) > 4:
-                        vendor, product = parts[3], parts[4]
-                        break
-                if vendor:
-                    break
-            if vendor:
-                break
-        entries.append({
-            "cve": c["id"],
-            "published": c["published"][:10],
-            "cvss_v31": v31,
-            "cvss_v40": v40,
-            "vector_v31": vec31,
-            "vendor": vendor,
-            "product": product,
-            "kev": c["id"] in kev_ids,
-            "description": c["descriptions"][0]["value"],
+    rows, skipped = [], 0
+    for a in d:
+        try:
+            when = dt.datetime.fromisoformat(
+                (a.get("published_at") or "").replace("Z", "+00:00"))
+        except ValueError:
+            skipped += 1
+            continue
+        if when < cut:
+            continue
+        rows.append({
+            "ghsa": a.get("ghsa_id"),
+            "cve": a.get("cve_id"),
+            "summary": a.get("summary"),
+            "severity": a.get("severity"),
+            "cvss": (a.get("cvss") or {}).get("score"),
+            "published": a.get("published_at", "")[:19],
+            "updated": a.get("updated_at", "")[:19],
+            "withdrawn": a.get("withdrawn_at"),
+            "packages": [
+                {"ecosystem": v.get("package", {}).get("ecosystem"),
+                 "name": v.get("package", {}).get("name"),
+                 "range": v.get("vulnerable_version_range"),
+                 "patched": v.get("first_patched_version")}
+                for v in a.get("vulnerabilities", []) or []
+            ],
         })
-
-    scores = epss_scores([e["cve"] for e in entries])
-    for e in entries:
-        e["epss"] = scores.get(e["cve"])
-
-    entries.sort(key=lambda e: (-(e["cvss_v31"] or 0), e["published"]))
+    rows.sort(key=lambda r: r["published"], reverse=True)
     return {
         "source": url,
-        "window_start": start.isoformat(),
-        "window_end": end.isoformat(),
-        "total": len(entries),
-        "in_kev": sum(1 for e in entries if e["kev"]),
-        "with_cpe": sum(1 for e in entries if e["vendor"]),
-        "with_epss": sum(1 for e in entries if e["epss"] is not None),
-        "entries": entries,
+        "window_hours": hours,
+        "window_start": cut.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "returned": len(d),
+        "in_window": len(rows),
+        "severities": sorted({r["severity"] for r in rows if r["severity"]}),
+        "advisories": rows,
     }
 
 
@@ -635,9 +776,10 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--kev-days", type=int, default=30, help="KEV look-back window")
     ap.add_argument("--limit", type=int, default=12, help="items per feed")
     ap.add_argument("--sources",
-                    default="oracle,kev,jvn,feeds,msrc,gitlab,litellm,csaf,nvd-critical",
+                    default="oracle,kev,jvn,feeds,msrc,gitlab,litellm,csaf,"
+                            "nvd-critical,nvd-recent,nvd-modified,ghsa",
                     help="comma list of: oracle,kev,jvn,feeds,msrc,gitlab,litellm,"
-                         "csaf,nvd-critical")
+                         "csaf,nvd-critical,nvd-recent,nvd-modified,ghsa")
     ap.add_argument("--gitlab-slug", default="patch-release-gitlab-19-5-1-released",
                     help="GitLab patch-release page slug (docs.gitlab.com/releases/patches/<slug>/)")
     ap.add_argument("--litellm-repo", default="BerriAI/litellm",
@@ -648,6 +790,8 @@ def main(argv: list[str]) -> int:
                     help="CISA CSAF advisory id (csaf_files/IT/white/<year>/<id>.json)")
     ap.add_argument("--critical-days", type=int, default=14,
                     help="window for the NVD CRITICAL sweep")
+    ap.add_argument("--recent-hours", type=int, default=24,
+                    help="window for the broad NVD (published / modified) and GHSA sweeps")
     ap.add_argument("--out", default=None, help="output directory (default data/<date>)")
     args = ap.parse_args(argv)
 
@@ -683,6 +827,11 @@ def main(argv: list[str]) -> int:
         "csaf": lambda: [("csaf-" + args.csaf_id.lower() + ".json", collect_csaf(args.csaf_id))],
         "nvd-critical": lambda: [("nvd-critical-" + str(args.critical_days) + "d.json",
                                   collect_nvd_critical(args.critical_days))],
+        "nvd-recent": lambda: [("nvd-recent-" + str(args.recent_hours) + "h.json",
+                                collect_nvd_window(args.recent_hours, "published"))],
+        "nvd-modified": lambda: [("nvd-modified-" + str(args.recent_hours) + "h.json",
+                                  collect_nvd_window(args.recent_hours, "modified"))],
+        "ghsa": lambda: [("ghsa-recent.json", collect_ghsa(args.recent_hours))],
     }
     unknown = [w for w in wanted if w not in jobs]
     if unknown:
@@ -694,8 +843,8 @@ def main(argv: list[str]) -> int:
         print(f"-> {name}", file=sys.stderr)
         try:
             produced = jobs[name]()
-        except (urllib.error.URLError, OSError, ValueError, ET.ParseError,
-                json.JSONDecodeError, KeyError) as exc:
+        except (urllib.error.URLError, http.client.HTTPException, OSError,
+                ValueError, ET.ParseError, json.JSONDecodeError, KeyError) as exc:
             failed += 1
             print(f"  ! {name} failed: {exc}", file=sys.stderr)
             continue
@@ -739,6 +888,13 @@ def main(argv: list[str]) -> int:
         elif name == "nvd-critical":
             print(f"NVD CRITICAL {p['window_start']}..{p['window_end']}: "
                   f"{p['total']} CVEs, {p['in_kev']} in KEV, {p['with_epss']} with EPSS -> {rel}")
+        elif name in ("nvd-recent", "nvd-modified"):
+            print(f"NVD {p['mode']} last {p['window_hours']}h: {p['total']} CVEs, "
+                  f"{sum(1 for e in p['entries'] if (e['cvss_v31'] or 0) >= 9.0)} at >=9.0, "
+                  f"{p['in_kev']} in KEV -> {rel}")
+        elif name == "ghsa":
+            print(f"GHSA last {p['window_hours']}h: {p['in_window']} advisories "
+                  f"({', '.join(p['severities']) or 'none'}) -> {rel}")
         elif name == "litellm":
             print(f"LiteLLM issue #{p['issue']}: {(p['title'] or '')[:50]}... -> {rel}")
         elif name == "msrc":

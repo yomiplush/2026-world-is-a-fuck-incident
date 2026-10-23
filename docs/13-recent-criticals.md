@@ -223,6 +223,14 @@ On **the same 125 rows**: ≥ 9.8 goes from 53 to **72**; exactly 10.0 stays at 
 That is a defect in the instrument, not a change in the world, and it is the reason this document
 now reads §2 as a dated measurement. The old `data/` snapshots are kept as they were collected.
 
+### 9.3b The window itself moved four hours later
+
+The command uses a window ending **today**, so at 10:36 JST on 2026-10-23 the same command returned
+**104** over 10-09…10-23: 17 CVEs from 10-08 fell outside the window, four more left the CRITICAL set
+(a rescore or a status change), and **nothing new arrived for 10-23**. 125 − 21 = 104 describes the
+same process, not a change in the world — the breakdown is in
+[`docs/21` §1.2](21-snapshot-1036jst.md).
+
 ### 9.4 The window's top EPSS is now php2shell
 
 `CVE-2026-109619` 5.76% (percentile 0.930) and `CVE-2026-109618` 5.31% (0.926), both dated

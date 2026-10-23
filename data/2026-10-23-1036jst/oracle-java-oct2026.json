@@ -1,0 +1,1994 @@
+{
+ "source": "https://www.oracle.com/security-alerts/cpuOct2026.html",
+ "cpu": "Oct2026",
+ "advisory_heading": "Oracle Java SE Risk Matrix",
+ "cve_count_reported": 55,
+ "remote_no_auth_reported": 49,
+ "cve_count_parsed": 55,
+ "unparsed_rows": [],
+ "max_cvss": 7.5,
+ "java_versions_listed_affected": [
+  "11.0.32.1",
+  "17.0.20.1",
+  "21.0.12.1",
+  "25.0.4.1",
+  "26.0.2",
+  "27",
+  "8u503",
+  "8u503-perf"
+ ],
+ "cves": [
+  {
+   "cve": "CVE-2026-91484",
+   "product": "Oracle Java SE",
+   "component": "Java plugin",
+   "protocol": "None",
+   "remote_no_auth": false,
+   "cvss_base": 7.5,
+   "cvss_components": {
+    "attack_vector": "Local",
+    "attack_complexity": "High",
+    "privileges_required": "Low",
+    "user_interaction": "None",
+    "scope": "Changed",
+    "confidentiality": "High",
+    "integrity": "High",
+    "availability": "None"
+   },
+   "cvss_vector_derived": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:N",
+   "affected": "Oracle Java SE: 8u503, 8u503-perf",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-43660",
+   "product": "Oracle Java SE, Oracle JavaFX",
+   "component": "JavaFX (WebKitGTK)",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 7.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "High",
+    "integrity": "High",
+    "availability": "High"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503; Oracle JavaFX: 21.0.12, 25.0.4, 27",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503"
+    ],
+    "javafx": [
+     "21.0.12",
+     "25.0.4",
+     "27"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91415",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "2D",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 7.0,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "High"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91398",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Networking",
+   "protocol": "SOCKS5",
+   "remote_no_auth": true,
+   "cvss_base": 6.8,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Changed",
+    "confidentiality": "None",
+    "integrity": "High",
+    "availability": "None"
+   },
+   "cvss_vector_derived": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N",
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91382",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "2D",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 6.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "High",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91411",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JGSS",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 6.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "High"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-101516",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Libraries",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 6.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-83395",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 6.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-87294",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Security",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 6.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91395",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Utility",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 6.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91396",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Utility",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 6.5,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-101737",
+   "product": "Oracle Java SE",
+   "component": "Compiler",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.9,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "High"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 26.0.2",
+   "affected_by_flavour": {
+    "java-se": [
+     "26.0.2"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91394",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.9,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "High",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-87290",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JAXP",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.9,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "High",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-83387",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JDBC",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.9,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "High",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91462",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JGSS",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.9,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "High",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-83374",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Security",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.9,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "High",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-6732",
+   "product": "Oracle Java SE, Oracle JavaFX, Oracle GraalVM Enterprise Edition",
+   "component": "JavaFX (WebKitGTK)",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.9,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "High"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503; Oracle JavaFX: 21.0.12, 25.0.4, 27;Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503"
+    ],
+    "javafx": [
+     "21.0.12",
+     "25.0.4",
+     "27"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-87293",
+   "product": "Oracle Java SE",
+   "component": "RMI",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.4,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:N",
+   "affected": "Oracle Java SE: 8u503, 8u503-perf; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91385",
+   "product": "Oracle Java SE, Oracle JavaFX, Oracle GraalVM Enterprise Edition",
+   "component": "JavaFX",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.4,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503; Oracle JavaFX: 21.0.12, 25.0.4, 27; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503"
+    ],
+    "javafx": [
+     "21.0.12",
+     "25.0.4",
+     "27"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91410",
+   "product": "Oracle Java SE",
+   "component": "Libraries",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-87291",
+   "product": "Oracle Java SE",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 21.0.12.1, 25.0.4.1, 27",
+   "affected_by_flavour": {
+    "java-se": [
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91332",
+   "product": "Oracle Java SE",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91451",
+   "product": "Oracle Java SE",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91373",
+   "product": "Oracle Java SE",
+   "component": "JSSE",
+   "protocol": "TLS",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91417",
+   "product": "Oracle Java SE, Oracle GraalVM Enterprise Edition",
+   "component": "CORBA",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-83380",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JAAS",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-83400",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JAXP",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91463",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JGSS",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "High",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91464",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JGSS",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "High",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91453",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Lightweight HTTP Server",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91452",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91418",
+   "product": "Oracle Java SE, Oracle JavaFX, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "ImageIO",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 5.3,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "Low",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle JavaFX: 21.0.12, 25.0.4, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "javafx": [
+     "21.0.12",
+     "25.0.4",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-83378",
+   "product": "Oracle Java SE",
+   "component": "Compiler",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 4.8,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 21.0.12.1, 25.0.4.1, 27",
+   "affected_by_flavour": {
+    "java-se": [
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91487",
+   "product": "Oracle Java SE",
+   "component": "Compiler",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 4.8,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-83381",
+   "product": "Oracle Java SE",
+   "component": "Security",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 4.8,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91374",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Serviceability",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 4.8,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91375",
+   "product": "Oracle Java SE",
+   "component": "Libraries",
+   "protocol": "None",
+   "remote_no_auth": false,
+   "cvss_base": 4.7,
+   "cvss_components": {
+    "attack_vector": "Local",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "High",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91379",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JDK tools",
+   "protocol": "None",
+   "remote_no_auth": false,
+   "cvss_base": 4.7,
+   "cvss_components": {
+    "attack_vector": "Local",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "High",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-46470",
+   "product": "Oracle Java SE, Oracle JavaFX",
+   "component": "JavaFX (gstreamer)",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 4.2,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503; Oracle JavaFX: 21.0.12, 25.0.4, 27",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503"
+    ],
+    "javafx": [
+     "21.0.12",
+     "25.0.4",
+     "27"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91380",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Utility",
+   "protocol": "None",
+   "remote_no_auth": false,
+   "cvss_base": 4.0,
+   "cvss_components": {
+    "attack_vector": "Local",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-87255",
+   "product": "Oracle Java SE",
+   "component": "Compiler",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 25.0.4.1, 27",
+   "affected_by_flavour": {
+    "java-se": [
+     "25.0.4.1",
+     "27"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91409",
+   "product": "Oracle Java SE",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 27",
+   "affected_by_flavour": {
+    "java-se": [
+     "27"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91333",
+   "product": "Oracle Java SE",
+   "component": "Security",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 21.0.12.1, 25.0.4.1, 27",
+   "affected_by_flavour": {
+    "java-se": [
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91381",
+   "product": "Oracle Java SE, Oracle GraalVM Enterprise Edition",
+   "component": "2D",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91334",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "ImageIO",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-87367",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JAXP",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-87292",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Networking",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-83376",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JSSE",
+   "protocol": "TLS",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91461",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "JSSE",
+   "protocol": "TLS",
+   "remote_no_auth": true,
+   "cvss_base": 3.7,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "None",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 3"
+  },
+  {
+   "cve": "CVE-2026-91397",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Serviceability",
+   "protocol": "None",
+   "remote_no_auth": false,
+   "cvss_base": 3.6,
+   "cvss_components": {
+    "attack_vector": "Local",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "Low",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 2"
+  },
+  {
+   "cve": "CVE-2026-91400",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "Sound",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.1,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "None",
+    "integrity": "None",
+    "availability": "Low"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91402",
+   "product": "Oracle Java SE, Oracle JavaFX, Oracle GraalVM Enterprise Edition",
+   "component": "JavaFX",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.1,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503; Oracle JavaFX: 21.0.12, 25.0.4, 27; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503"
+    ],
+    "javafx": [
+     "21.0.12",
+     "25.0.4",
+     "27"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91477",
+   "product": "Oracle JavaFX",
+   "component": "JavaFX",
+   "protocol": "Multiple",
+   "remote_no_auth": true,
+   "cvss_base": 3.1,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "None",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle JavaFX: 25.0.4, 27",
+   "affected_by_flavour": {
+    "javafx": [
+     "25.0.4",
+     "27"
+    ]
+   },
+   "note": "See Note 1"
+  },
+  {
+   "cve": "CVE-2026-91335",
+   "product": "Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition",
+   "component": "AWT",
+   "protocol": "Multiple",
+   "remote_no_auth": false,
+   "cvss_base": 2.6,
+   "cvss_components": {
+    "attack_vector": "Network",
+    "attack_complexity": "High",
+    "privileges_required": "Low",
+    "user_interaction": "Required",
+    "scope": "Un-changed",
+    "confidentiality": "Low",
+    "integrity": "None",
+    "availability": "None"
+   },
+   "cvss_vector_derived": null,
+   "affected": "Oracle Java SE: 8u503, 8u503-perf, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 27; Oracle GraalVM for JDK: 17.0.20.1, 21.0.12.1; Oracle GraalVM Enterprise Edition: 21.3.19.1.1",
+   "affected_by_flavour": {
+    "java-se": [
+     "8u503",
+     "8u503-perf",
+     "11.0.32.1",
+     "17.0.20.1",
+     "21.0.12.1",
+     "25.0.4.1",
+     "27"
+    ],
+    "graalvm-for-jdk": [
+     "17.0.20.1",
+     "21.0.12.1"
+    ],
+    "graalvm-enterprise-edition": [
+     "21.3.19.1.1"
+    ]
+   },
+   "note": "See Note 1"
+  }
+ ],
+ "fetched_at": "2026-10-23T01:46:40Z",
+ "tool": "tools/intel/fetch-intel"
+}

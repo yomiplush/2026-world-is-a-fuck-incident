@@ -225,8 +225,11 @@ file names, so `git diff` between two snapshots shows exactly what the world cha
 
 Every URL above is the source it cites; the machine-readable snapshot table below is
 [`data/2026-10-22/`](../data/2026-10-22/). **The newest read is
-[`data/2026-10-23-0730jst/`](../data/2026-10-23-0730jst/)** — same file names, same commands, which
-is the point: `git diff` between two snapshot directories shows what actually moved.
+[`data/2026-10-23-1036jst/`](../data/2026-10-23-1036jst/)** (and the 07:25 one beside it,
+`data/2026-10-23-0730jst/`) — same file names, same commands, which is the point: `git diff` between
+two snapshot directories shows what actually moved. The 10:36 read adds three broad sources
+(`nvd-recent-24h.json`, `nvd-modified-6h.json`, `ghsa-recent.json`) — see
+[`docs/21` §2](21-snapshot-1036jst.md).
 
 | File | Contents |
 |---|---|
@@ -235,7 +238,7 @@ is the point: `git diff` between two snapshot directories shows what actually mo
 | `kev-catalog.json` | KEV catalog version, total, window |
 | `msrc-2026-oct.json` | 2,575 entries with score, impact, exploit status |
 | `jvn-recent.json` | JVN feed items with issue times |
-| `researcher-feeds.json` | 12 feeds, latest items with dates |
+| `researcher-feeds.json` | 13 feeds, latest items with dates |
 
 Feed definitions live in `tools/intel/fetch-intel` (`FEEDS`); adding a source is one line plus
 the reason it deserves to be there.

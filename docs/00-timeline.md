@@ -24,7 +24,10 @@ JST is UTC+9.
 | 2026-10-22 00:15 | 10-22 09:15 | **Snapshot time for this repository** | — |
 | 2026-10-22 12:22 | 10-22 21:22 | Second read the same day (MSRC re-issued, +3 CVEs) | [`docs/16`](16-snapshot-2120jst.md) |
 | 2026-10-22 21:17 | 10-23 06:17 | **NVD rescored `CVE-2026-109619` from 9.8 to 8.1** (`AC:L` → `AC:H`); 109618 stays 9.8 | NVD |
+| 2026-10-16 16:00 | 10-17 01:00 | **"Infinity Core" disclosed on oss-security**: six kernel core LPEs, public PoCs for five, fixed upstream | [`docs/20`](20-infinity-core.md) |
+| 2026-10-22 20:45 | 10-23 05:45 | Python security response names the CA bundle floors (`certifi` 2026.10.19, `pip` 26.2.2, …) | oss-sec |
 | 2026-10-22 22:25 | 10-23 07:25 | **Snapshot time for this repository (third read)** | [`docs/19`](19-snapshot-0730jst.md) |
+| 2026-10-23 01:36 | 10-23 10:36 | **Snapshot time for this repository (fourth read, broad sweep)** | [`docs/21`](21-snapshot-1036jst.md) |
 | 2026-10-23 | 10-23 | KEV due dates fall due for Plex (`CVE-2026-96654`, `CVE-2026-96656`) and EG SiteGuard (`CVE-2026-106931`) | CISA KEV |
 
 ## What to take from this

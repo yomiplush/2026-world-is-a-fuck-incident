@@ -12,7 +12,7 @@ window.registerLocale("ar", {
     coverFoot: "كل عبارة تعود إلى مصدر أولي. ConnectWise وحدها غير مُتحقَّق منها.",
     drawerTitle: "المصادر",
     drawerFoot: "تم التحقق من 14 من 15 عبر مصادر أولية. ConnectWise مسجّلة كغير متحقق منها.",
-    asof: "حتى 2026-10-23 07:25 JST"
+    asof: "حتى 2026-10-23 10:36 JST"
   },
   scenes: {
     intro: { title: "شهر واحد، خمس عشرة حادثة.",

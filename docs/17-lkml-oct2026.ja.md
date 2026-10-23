@@ -2,6 +2,13 @@
 
 [English](17-lkml-oct2026.md) | [**日本語**](17-lkml-oct2026.ja.md)
 
+> **2026年10月には「Linux カーネルの6件」が2つあります。** この文書は**公開 LKML に流れた ZDI の
+> 6件**（SMB Direct、ksmbd など）で、2026-10-23 時点で **mainline に修正がありません**。もう1つは
+> [`Infinity Core`](20-infinity-core.ja.md) — **別の** CVE 6件（timer / signal / mm / futex /
+> scheduler / SLAB）で、2026-10-16 に `oss-security` へ公開され、**安定版には修正が入っており**、
+> root 取得 PoC も公開されています。「root 権限昇格 PoC 付きのカーネル6件」という見出しでここに
+> 来たなら、読むべきは [`docs/20`](20-infinity-core.ja.md) です。
+
 サプライチェーンの事案でも、単一の CVE でもありません。**6件のカーネル脆弱性報告が、非公開の
 security リストではなく公開の LKML に送られた**——10月21〜22日の夜の話で、うち少なくとも2件は
 リモート到達可能な CVSS 9.0 です。修正はまだ mainline に入っていません。

@@ -60,6 +60,20 @@
 
 フィードはすべて `tools/intel/fetch-intel --sources feeds` で一括取得できます。
 
+### 広域スイープ（`docs/21`）
+
+| 対象 | URL | 何が分かるか | 再取得 |
+|---|---|---|---|
+| NVD・指定期間に**公開**・全深刻度 | `https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=…&pubEndDate=…` | 何が出たか。深刻度フィルタで HIGH 帯が隠れない | `tools/intel/fetch-intel --sources nvd-recent --recent-hours 24` |
+| NVD・`lastModified` 期間 | `…?lastModStartDate=…&lastModEndDate=…` | **NVD が何を変えたか**。9.8 → 8.1 の再評価を自力で拾う走査 | `--sources nvd-modified --recent-hours 6` |
+| GitHub Advisory Database | <https://api.github.com/advisories> | npm / pip / Go / Maven の勧告と修正版。**CVE が無いものも含む** | `--sources ghsa --recent-hours 24` |
+| カーネル CVE 告知 | <https://lists.openwall.net/linux-cve-announce/> | CVE ごとの `Fixed in <stable> with commit <sha>` | ブラウザ / アーカイブ |
+| kernel.org リリース索引 | <https://www.kernel.org/releases.json> | mainline / stable / longterm の現行版 | `curl -s <URL> \| jq -r '.releases[:5][]\|"\(.moniker) \(.version)"'` |
+
+NVD は24時間・全深刻度のクエリに約60秒かかり、1ページ最大2,000件を返します。収集ツールが
+**6時間スライス**で問い合わせるのはそのためで、`lastModified` の丸1日分（約7MB）は API キー
+無しでは不安定です。
+
 ### GitLab / LiteLLM / Railway / OpenCode（`docs/09`〜`docs/11`）
 
 | 対象 | URL | 何が分かる | 再取得 |
@@ -151,7 +165,7 @@
 | `kev-catalog.json` | 同上（カタログ版・総数・対象期間） | メタのみ |
 | `msrc-2026-oct.json` | MSRC CVRF（XML） | 要約＋全エントリ |
 | `jvn-recent.json` | JVN RDF | 抽出のみ |
-| `researcher-feeds.json` | 12本のフィード | 抽出のみ |
+| `researcher-feeds.json` | 13本のフィード | 抽出のみ |
 | `nvd-recent.json` `php-all.json` `node-latest-lines.txt` `ncsc.md` | 公開 API / 配布物 | 応答そのまま |
 
 `ncsc.md` は NCSC-NL の README の逐語コピーなので、内部の相対リンクは

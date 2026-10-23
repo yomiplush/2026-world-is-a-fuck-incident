@@ -88,6 +88,14 @@ allocation failure.
   advisory unusually tells users to switch to distribution packages or build from source.
 - **8.1 and older** get no official fix. There is no "fixed version", so the choice is: mitigate,
   turn it off, or upgrade.
+- **Community backports appeared on 2026-10-22** for exactly that gap, and they change the choice
+  from "three bad options" to "four, one of which needs review". Oleksii Molchanov ported the
+  official minimal fix (php-src `712e60f9ed`, the 7.4 backport) to the vendor trees as
+  `php-5.4.16-48.el7.php2shell.1` and `php-5.3.3-50.el6_10.php2shell.1`
+  (<https://github.com/alvm/php2shell-eol-backport>), extending Leon Lai's backports for Amazon
+  Linux and PHP 7.3 on EL7. They are **not** vendor updates: nothing tracks them, and no CVE record
+  will ever call those builds fixed. Treat them as a reviewed stop-gap you rebuild yourself, and
+  keep the migration plan.
 - **PHP embedded in appliances and management interfaces** cannot be patched by the administrator.
   You wait for the vendor. NCSC-NL maintains a product list in SPDX.
 - Scale (VirusTotal, via The Record): ~5.1M IPs run PHP, ~758k on EOL versions, ~85k on the newest

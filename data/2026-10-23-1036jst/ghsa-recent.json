@@ -1,0 +1,1331 @@
+{
+ "source": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc",
+ "window_hours": 24,
+ "window_start": "2026-10-22T02:16:17Z",
+ "returned": 100,
+ "in_window": 58,
+ "severities": [
+  "critical",
+  "high",
+  "low",
+  "medium"
+ ],
+ "advisories": [
+  {
+   "ghsa": "GHSA-558c-9hv2-4prj",
+   "cve": "CVE-2026-113721",
+   "summary": "virtualenv: Generated files can follow existing destination links",
+   "severity": "medium",
+   "cvss": 4.5,
+   "published": "2026-10-22T17:03:12",
+   "updated": "2026-10-22T17:03:13",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-78g4-xqwv-q3g8",
+   "cve": null,
+   "summary": "Pillow: Bundled libopenjp2 2.5.4 in all wheels since 11.1.0 carries OSV-2025-219 heap-buffer-overflow write reachable from Image.open().load()",
+   "severity": "high",
+   "cvss": 8.1,
+   "published": "2026-10-22T17:01:08",
+   "updated": "2026-10-22T17:01:19",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pillow",
+     "range": ">= 11.1.0, < 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-vjh5-4x84-xrqp",
+   "cve": "CVE-2026-114132",
+   "summary": "Nuxt: Server-side route rules (`redirect`, `headers`, `proxy`, `ssr`) are skipped for case-variant paths when routing is case-insensitive",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-22T16:59:55",
+   "updated": "2026-10-22T16:59:57",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nuxt",
+     "range": ">= 4.0.0, < 4.6.2",
+     "patched": "4.6.2"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "nuxt",
+     "range": ">= 3.0.0, < 4.0.0",
+     "patched": null
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@nuxt/nitro-server",
+     "range": ">= 4.2.0, < 4.6.2",
+     "patched": "4.6.2"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@nuxt/nitro-server",
+     "range": ">= 3.20.0, < 4.0.0",
+     "patched": null
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xfq5-w38q-pc2x",
+   "cve": "CVE-2026-114133",
+   "summary": "Nuxt server islands render `useHeadSafe` input without sanitisation",
+   "severity": "medium",
+   "cvss": 5.4,
+   "published": "2026-10-22T16:58:00",
+   "updated": "2026-10-22T16:58:02",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nuxt",
+     "range": ">= 3.13.0, < 4.6.2",
+     "patched": "4.6.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-jjm6-p2m9-9w4x",
+   "cve": "CVE-2026-114130",
+   "summary": "Nuxt: Incomplete fix for GHSA-934w-87qh-qr26: a `javascript:` URL prefixed with an ASCII control character executes from `<NuxtLink>` when `pages` is disabled",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-22T16:51:37",
+   "updated": "2026-10-22T16:51:39",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nuxt",
+     "range": "< 4.6.0",
+     "patched": "4.6.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-6gq8-jgmh-3ffp",
+   "cve": "CVE-2026-114131",
+   "summary": "Nuxt: Route rules are matched against the raw request path, so a percent-encoded segment can bypass `appMiddleware` on dynamic and catch-all routes",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-22T16:50:53",
+   "updated": "2026-10-22T16:50:54",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nuxt",
+     "range": ">= 4.0.0, < 4.4.4",
+     "patched": "4.4.4"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "nuxt",
+     "range": ">= 3.11.0, < 3.21.4",
+     "patched": "3.21.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-6vvc-x485-93v7",
+   "cve": "CVE-2026-113789",
+   "summary": "pypdf: Possible long runtimes/large memory usage when retrieving form fields",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-22T16:49:56",
+   "updated": "2026-10-22T16:50:09",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pypdf",
+     "range": "< 6.21.0",
+     "patched": "6.21.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-f54x-cmq8-qg57",
+   "cve": "CVE-2026-113790",
+   "summary": "pypdf: Possible large memory usage when parsing arrays and dictionaries",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-22T16:49:40",
+   "updated": "2026-10-22T16:49:41",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pypdf",
+     "range": "< 6.21.0",
+     "patched": "6.21.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cgf9-327m-v77c",
+   "cve": "CVE-2026-113791",
+   "summary": "pypdf: Possible large memory usage when parsing content streams",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-22T16:49:22",
+   "updated": "2026-10-22T16:49:24",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pypdf",
+     "range": "< 6.21.0",
+     "patched": "6.21.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2p8c-gr87-2676",
+   "cve": "CVE-2026-113796",
+   "summary": "Electron: SameSite cookie restrictions are not applied to windows opened from links",
+   "severity": "medium",
+   "cvss": 4.2,
+   "published": "2026-10-22T16:47:54",
+   "updated": "2026-10-22T16:47:55",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 45.0.0-alpha.1, < 45.0.0-alpha.6",
+     "patched": "45.0.0-alpha.6"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 44.0.0-alpha.1, < 44.3.0",
+     "patched": "44.3.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 43.0.0-alpha.1, < 43.7.0",
+     "patched": "43.7.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": "< 42.11.3",
+     "patched": "42.11.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-x562-297c-g43g",
+   "cve": "CVE-2026-113798",
+   "summary": "Electron: Pointer lock permission requests can be attributed to the wrong frame",
+   "severity": "medium",
+   "cvss": 5.4,
+   "published": "2026-10-22T16:47:15",
+   "updated": "2026-10-22T16:47:18",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 45.0.0-alpha.1, < 45.0.0-alpha.13",
+     "patched": "45.0.0-alpha.13"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 44.0.0-alpha.1, < 44.5.0",
+     "patched": "44.5.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 43.0.0-alpha.1, < 43.7.6",
+     "patched": "43.7.6"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": "< 42.11.9",
+     "patched": "42.11.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-98mx-cjp9-gchm",
+   "cve": "CVE-2026-113797",
+   "summary": "Electron: Extension tabs.query returns tab URLs and titles without the tabs permission",
+   "severity": "low",
+   "cvss": 3.1,
+   "published": "2026-10-22T16:46:33",
+   "updated": "2026-10-22T16:46:35",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 45.0.0-alpha.1, < 45.0.0-alpha.4",
+     "patched": "45.0.0-alpha.4"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 44.0.0-alpha.1, < 44.1.1",
+     "patched": "44.1.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 43.0.0-alpha.1, < 43.5.1",
+     "patched": "43.5.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": "< 42.11.1",
+     "patched": "42.11.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-3qxv-5xgr-q7w9",
+   "cve": "CVE-2026-114122",
+   "summary": "Electron: Frame subscription trusts GPU-supplied frame geometry",
+   "severity": "low",
+   "cvss": 3.9,
+   "published": "2026-10-22T16:46:06",
+   "updated": "2026-10-22T16:46:07",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": "< 42.11.6",
+     "patched": "42.11.6"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 43.0.0-alpha.1, < 43.7.3",
+     "patched": "43.7.3"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 44.0.0-alpha.1, < 44.4.3",
+     "patched": "44.4.3"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 45.0.0-alpha.1, < 45.0.0-alpha.9",
+     "patched": "45.0.0-alpha.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h3v5-h239-pg29",
+   "cve": "CVE-2026-114124",
+   "summary": "Electron: Off-screen rendering on macOS trusts GPU-supplied frame geometry",
+   "severity": "low",
+   "cvss": 3.9,
+   "published": "2026-10-22T16:44:33",
+   "updated": "2026-10-22T16:44:34",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": "< 42.11.6",
+     "patched": "42.11.6"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 43.0.0-alpha.1, < 43.7.3",
+     "patched": "43.7.3"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 44.0.0-alpha.1, < 44.4.3",
+     "patched": "44.4.3"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 45.0.0-alpha.1, < 45.0.0-alpha.9",
+     "patched": "45.0.0-alpha.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-997q-gvvc-jwmx",
+   "cve": "CVE-2026-114121",
+   "summary": "Electron: openExternal permission requests can be attributed to the wrong origin",
+   "severity": "medium",
+   "cvss": 5.4,
+   "published": "2026-10-22T16:43:59",
+   "updated": "2026-10-22T16:44:01",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": "< 42.11.3",
+     "patched": "42.11.3"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 43.0.0-alpha.1, < 43.7.0",
+     "patched": "43.7.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 44.0.0-alpha.1, < 44.3.0",
+     "patched": "44.3.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 45.0.0-alpha.1, < 45.0.0-alpha.5",
+     "patched": "45.0.0-alpha.5"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-673q-mjm6-r5xr",
+   "cve": null,
+   "summary": "Next.js: Unauthenticated Remote Code Execution in `use cache` functions returning typed arrays",
+   "severity": "critical",
+   "cvss": null,
+   "published": "2026-10-22T16:42:31",
+   "updated": "2026-10-22T16:42:32",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "next",
+     "range": ">= 16.0.0, <= 16.4.0",
+     "patched": "16.4.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-83vg-56qc-22m7",
+   "cve": "CVE-2026-114145",
+   "summary": "GitPython validates a submodule's \".git\" path only after cloning into it (RCE)",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-22T16:41:14",
+   "updated": "2026-10-22T16:41:15",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Gitpython",
+     "range": "<= 3.2.0",
+     "patched": "3.2.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-389g-gv7q-r4x8",
+   "cve": "CVE-2026-107832",
+   "summary": "fastify is vulnerable to header validation bypass via case-sensitive propertyNames",
+   "severity": "low",
+   "cvss": 3.7,
+   "published": "2026-10-22T16:40:35",
+   "updated": "2026-10-22T16:40:37",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "fastify",
+     "range": ">= 5.12.2, < 5.12.6",
+     "patched": "5.12.6"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h895-cgqg-jf52",
+   "cve": "CVE-2026-114142",
+   "summary": "toml-node: Prototype pollution: parsing a TOML document can write to Object.prototype",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:39:55",
+   "updated": "2026-10-22T16:39:57",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "tome",
+     "range": "<= 5.0.0",
+     "patched": "5.0.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-4qx8-w7c3-pj3p",
+   "cve": "CVE-2026-114141",
+   "summary": "toml-node: Quadratic-complexity DoS via many array-of-tables headers in toml.parse()",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:38:44",
+   "updated": "2026-10-22T16:38:47",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "toml",
+     "range": "<= 5.0.0",
+     "patched": "5.0.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9j65-hcg3-gc64",
+   "cve": "CVE-2026-114143",
+   "summary": "toml-node: Quadratic-complexity DoS via long dotted keys or table paths in toml.parse()",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:38:06",
+   "updated": "2026-10-22T16:38:06",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "toml",
+     "range": "<= 5.0.0",
+     "patched": "5.0.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9qmh-m7c6-f92p",
+   "cve": "CVE-2026-114144",
+   "summary": "toml-node: Uncontrolled resource consumption (CPU DoS) via unbounded-length integer literals in toml.parse()",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-22T16:36:50",
+   "updated": "2026-10-22T16:36:51",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "toml",
+     "range": "<= 5.0.0",
+     "patched": "5.0.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-px85-f4q5-jh77",
+   "cve": "CVE-2026-114126",
+   "summary": "Storybook dev server vulnerable to code injection from the local network",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:31:40",
+   "updated": "2026-10-22T16:31:42",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "storybook",
+     "range": ">= 8.0.0, < 8.6.19",
+     "patched": "8.6.19"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "storybook",
+     "range": ">= 9.0.0, < 9.1.21",
+     "patched": "9.1.21"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "storybook",
+     "range": ">= 10.0.0, < 10.6.2",
+     "patched": "10.6.2"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "storybook",
+     "range": ">= 11.0.0-alpha.0, < 11.0.0-alpha.6",
+     "patched": "11.0.0-alpha.6"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/core",
+     "range": ">= 8.0.0, < 8.6.19",
+     "patched": "8.6.19"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/core-server",
+     "range": ">= 8.0.0, < 8.6.19",
+     "patched": "8.6.19"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/experimental-addon-test",
+     "range": ">= 8.0.0, < 8.6.19",
+     "patched": "8.6.19"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/addon-vitest",
+     "range": ">= 9.0.0, < 9.1.21",
+     "patched": "9.1.21"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/addon-vitest",
+     "range": ">= 10.0.0, < 10.6.2",
+     "patched": "10.6.2"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/addon-vitest",
+     "range": ">= 11.0.0-alpha.0, < 11.0.0-alpha.6",
+     "patched": "11.0.0-alpha.6"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/addon-mcp",
+     "range": ">= 10.6.0, < 10.6.2",
+     "patched": "10.6.2"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@storybook/addon-mcp",
+     "range": ">= 11.0.0-alpha.0, < 11.0.0-alpha.6",
+     "patched": "11.0.0-alpha.6"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-98hj-9722-w3j8",
+   "cve": "CVE-2026-114128",
+   "summary": "Astro: Reflected/Stored XSS via unescaped <script>/<style> tag content in JSX/MDX rendering",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-22T16:30:26",
+   "updated": "2026-10-22T16:30:27",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "astro",
+     "range": "< 7.3.2",
+     "patched": "7.3.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-mpr7-6m5w-76rw",
+   "cve": "CVE-2026-114127",
+   "summary": "Astro: Arbitrary CSS injection in Astro View Transitions",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-22T16:29:28",
+   "updated": "2026-10-22T16:29:29",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "astro",
+     "range": ">= 7.1.0, <= 7.3.2",
+     "patched": "7.3.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-c4qx-w738-7hr3",
+   "cve": "CVE-2026-114604",
+   "summary": "GraphQL Tools: Prototype pollution in mergeIncrementalResult via non-primitive path segments",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:28:31",
+   "updated": "2026-10-22T16:28:32",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "@graphql-tools/utils",
+     "range": ">= 10.10.1, <= 12.0.1",
+     "patched": "12.0.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-r77w-qph3-7vf8",
+   "cve": "CVE-2026-75508",
+   "summary": "GraphQL-core: Denial of service via comment tokens bypassing the parser's max_tokens limit",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-22T16:27:14",
+   "updated": "2026-10-22T16:27:14",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "graphql-core",
+     "range": ">= 3.2.3, < 3.2.12",
+     "patched": "3.2.12"
+    },
+    {
+     "ecosystem": "pip",
+     "name": "graphql-core",
+     "range": ">= 3.3.0a3, < 3.3.0rc1",
+     "patched": "3.3.0rc1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-vj8h-fx38-h3vc",
+   "cve": "CVE-2026-75507",
+   "summary": "GraphQL-core: Denial of service via quadratic complexity in the OverlappingFieldsCanBeMerged validation rule",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-22T16:26:40",
+   "updated": "2026-10-22T16:26:42",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "graphql-core",
+     "range": ">= 3.0.0, < 3.2.12",
+     "patched": "3.2.12"
+    },
+    {
+     "ecosystem": "pip",
+     "name": "graphql-core",
+     "range": ">= 3.3.0a1, < 3.3.0rc1",
+     "patched": "3.3.0rc1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cg2g-xh64-v4q7",
+   "cve": null,
+   "summary": "DOMPurify SAFE_FOR_TEMPLATES bypass: split template expressions survive in attached shadow root content on DOM output modes",
+   "severity": "critical",
+   "cvss": null,
+   "published": "2026-10-22T16:25:31",
+   "updated": "2026-10-22T16:25:32",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "dompurify",
+     "range": ">= 3.4.4, <= 3.4.16",
+     "patched": "3.4.17"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-mrv2-3pqr-j5jr",
+   "cve": null,
+   "summary": "DOMPurify IN_PLACE: hook that removes a parent or sibling leaves the detached subtree's event handlers armed (incomplete fix for GHSA-p98j-92pf-mc4p)",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:24:52",
+   "updated": "2026-10-22T16:24:53",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "dompurify",
+     "range": "<= 3.4.16",
+     "patched": "3.4.17"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-c6gr-qvv4-5v3f",
+   "cve": null,
+   "summary": "DOMPurify: SMIL attributeName=href guard is skipped when PARSER_MEDIA_TYPE is application/xhtml+xml",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-22T16:24:23",
+   "updated": "2026-10-22T16:24:24",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "dompurify",
+     "range": "<= 3.4.16",
+     "patched": "3.4.17"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-pjvx-prjx-h659",
+   "cve": "CVE-2026-114140",
+   "summary": "nbconvert: Arbitrary file write through path traversal in cell output filenames when exporting to md, latex, rst and asciidoc",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:23:28",
+   "updated": "2026-10-22T16:23:29",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "nbconvert",
+     "range": ">= 5.4.0, <= 7.17.1",
+     "patched": "7.17.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xcq7-p3pf-p88h",
+   "cve": "CVE-2026-114603",
+   "summary": "OpenTelemetry Python: Unbounded tracestate parsing in opentelemetry-api",
+   "severity": "medium",
+   "cvss": 5.3,
+   "published": "2026-10-22T16:22:07",
+   "updated": "2026-10-22T16:22:08",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "opentelemetry-api",
+     "range": "<= 1.45.0",
+     "patched": "1.45.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-rxp7-6hxx-x8q5",
+   "cve": "CVE-2026-111997",
+   "summary": "ip-address: Address6 matches a zone identifier in quadratic time ahead of its length limit, allowing a single long string to stall the process",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-22T16:19:39",
+   "updated": "2026-10-22T16:19:41",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "ip-address",
+     "range": "<= 10.7.3",
+     "patched": "10.7.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cg8m-r9f2-5wm2",
+   "cve": "CVE-2026-114134",
+   "summary": "Black: GitHub Action installs unvalidated required-version from pyproject.toml",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:18:57",
+   "updated": "2026-10-22T16:18:58",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "black",
+     "range": "< 26.10.1",
+     "patched": "26.10.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xw6w-gcfp-cf8m",
+   "cve": "CVE-2026-114137",
+   "summary": "Django REST framework: TokenProxy.delete() reports success and revokes nothing",
+   "severity": "high",
+   "cvss": 7.4,
+   "published": "2026-10-22T16:18:05",
+   "updated": "2026-10-22T16:18:06",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "djangorestframework",
+     "range": ">= 3.12.0, < 3.18.2",
+     "patched": "3.18.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-33wh-fxxf-88vv",
+   "cve": "CVE-2026-114138",
+   "summary": "Django REST framework: Accept header with many large quoted parameters burns ~19s of CPU per request in content negotiation",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-22T16:17:13",
+   "updated": "2026-10-22T16:17:15",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "djangorestframework",
+     "range": "< 3.18.2",
+     "patched": "3.18.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-3547-9m27-7rxg",
+   "cve": "CVE-2026-114136",
+   "summary": "Django REST framework: JSONParser applies an attacker-named codec to the request stream",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-22T16:16:09",
+   "updated": "2026-10-22T16:16:56",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "djangorestframework",
+     "range": ">= 3.6.4, < 3.18.2",
+     "patched": "3.18.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h694-7cp9-m8p3",
+   "cve": "CVE-2026-103004",
+   "summary": "next.js cache leak across root param values in nested 'use cache' functions",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-22T16:08:40",
+   "updated": "2026-10-22T16:08:41",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "next",
+     "range": ">= 16.3.0, < 16.3.8",
+     "patched": "16.3.8"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-39m8-27wv-hr27",
+   "cve": "CVE-2026-110871",
+   "summary": "Nodemailer: Quadratic (O(n^2)) DKIM header unfolding lets a large folded header cause remote denial of service during signing",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-22T16:07:04",
+   "updated": "2026-10-22T16:07:06",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nodemailer",
+     "range": ">= 3.0.0, <= 10.0.9",
+     "patched": "10.0.10"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-g7cr-3p24-7wf7",
+   "cve": "CVE-2026-96778",
+   "summary": "Pillow: Heap buffer overflow writing JPEG comment after ICC profile fills buffer",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:05:39",
+   "updated": "2026-10-22T16:05:41",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": ">= 9.4.0, < 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9v9v-9qvf-h2hj",
+   "cve": "CVE-2026-96644",
+   "summary": "Pillow: Heap over-read in WMF/EMF rendering via 16-bit dimension truncation (Windows builds)",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:03:14",
+   "updated": "2026-10-22T16:03:16",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": "< 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-g4qv-2jxx-769h",
+   "cve": "CVE-2026-96643",
+   "summary": "Pillow: PNG eXIf chunk makes EXIF parsing run in quadratic time",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:02:39",
+   "updated": "2026-10-22T16:02:41",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": ">= 11.0.0, < 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-3j72-p6qg-6xp7",
+   "cve": "CVE-2026-96642",
+   "summary": "Pillow: TarIO negative size field causes infinite CPU-spin loop",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:01:46",
+   "updated": "2026-10-22T16:01:48",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": "< 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-4rm8-3hmm-39fg",
+   "cve": "CVE-2026-96641",
+   "summary": "Pillow: Reachable undefined behavior in native integer operations, potentially leading to denial of service or logic integrity compromise",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-22T16:01:14",
+   "updated": "2026-10-22T16:01:15",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pillow",
+     "range": "< 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-mrfp-p49p-3hf2",
+   "cve": "CVE-2026-96640",
+   "summary": "Pillow PDF append accepts malformed shared page-tree DAG causing resource exhaustion",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T16:00:47",
+   "updated": "2026-10-22T16:00:47",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": ">= 5.1.0, < 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-v9pv-5gc8-w2m6",
+   "cve": "CVE-2026-96639",
+   "summary": "Pillow multi-frame loaders can reuse stale native image storage after mode transitions",
+   "severity": "critical",
+   "cvss": 9.8,
+   "published": "2026-10-22T16:00:15",
+   "updated": "2026-10-22T16:00:15",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": ">= 11.0.0, < 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-24rc-8hj2-v98c",
+   "cve": "CVE-2026-96638",
+   "summary": "Pillow: BMP RLE decoder memory-amplification DoS via unbounded delta escape / absolute mode",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-22T15:59:35",
+   "updated": "2026-10-22T15:59:36",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pillow",
+     "range": ">= 9.1.0, < 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-g842-9rc4-69pw",
+   "cve": "CVE-2026-96637",
+   "summary": "Pillow: Decompression bomb check bypass in SpiderImagePlugin.seek() leads to unbounded allocation DoS",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T15:57:17",
+   "updated": "2026-10-22T15:57:18",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pillow",
+     "range": "< 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-p8hx-v2p6-rp84",
+   "cve": "CVE-2026-96636",
+   "summary": "Pillow: Decompression-bomb protection bypass via multi-frame seek() in MPO and DCX (MpoImageFile.seek / DcxImageFile.seek)",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-22T15:56:37",
+   "updated": "2026-10-22T15:56:39",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": "< 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-mchm-gjx6-7h55",
+   "cve": "CVE-2026-114139",
+   "summary": "Sentry-Javascript: Middleware Bypass when using Tunnel route",
+   "severity": "critical",
+   "cvss": null,
+   "published": "2026-10-22T15:55:07",
+   "updated": "2026-10-22T15:55:08",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "@sentry/nextjs",
+     "range": ">= 9.36.0, < 9.47.2",
+     "patched": "9.47.2"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@sentry/nextjs",
+     "range": ">= 10.0.0-alpha.0, < 10.75.2",
+     "patched": "10.75.2"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@sentry/nextjs",
+     "range": ">= 11.0.0-alpha.0, < 11.0.0-rc.1",
+     "patched": "11.0.0-rc.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2464-fhr4-w9xw",
+   "cve": null,
+   "summary": "Next.js: Unauthenticated Remote Code Execution in Image Optimization API when SVG files are used",
+   "severity": "critical",
+   "cvss": null,
+   "published": "2026-10-22T15:52:53",
+   "updated": "2026-10-22T15:52:56",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "next",
+     "range": ">= 10.0.0, <= 15.5.27",
+     "patched": "15.5.28"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "next",
+     "range": ">= 16.0.0, <= 16.4.0",
+     "patched": "16.4.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cpvr-w4j5-2mpg",
+   "cve": "CVE-2026-96889",
+   "summary": "Librsvg: Use-after-free when XML includes have duplicated entities",
+   "severity": "high",
+   "cvss": 7.8,
+   "published": "2026-10-22T15:52:48",
+   "updated": "2026-10-22T15:52:50",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rust",
+     "name": "librsvg",
+     "range": "< 2.57.5",
+     "patched": "2.57.5"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "librsvg",
+     "range": ">= 2.60.0-beta.0, < 2.60.3",
+     "patched": "2.60.3"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "librsvg",
+     "range": ">= 2.61.0, < 2.61.5",
+     "patched": "2.61.5"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "librsvg",
+     "range": ">= 2.62.0-beta.0, < 2.62.4",
+     "patched": "2.62.4"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "librsvg",
+     "range": ">= 2.63.0-beta.0, < 2.63.2",
+     "patched": "2.63.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-p3m5-59mp-jv5r",
+   "cve": "CVE-2026-94482",
+   "summary": "Next.js: Denial of Service in App Router using Server Actions",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-22T15:50:34",
+   "updated": "2026-10-22T15:50:35",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "next",
+     "range": ">= 13.0.0, <= 15.5.27",
+     "patched": "15.5.28"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "next",
+     "range": ">= 16.0.0, <= 16.4.0",
+     "patched": "16.4.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-jj87-hc4r-jwfw",
+   "cve": "CVE-2026-114129",
+   "summary": "stream-json: FlexAssembler string/RegExp path filters join the full key stack per container start, giving O(depth^2) CPU denial of service",
+   "severity": "medium",
+   "cvss": 6.2,
+   "published": "2026-10-22T15:49:54",
+   "updated": "2026-10-22T15:49:55",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "stream-json",
+     "range": ">= 2.0.0, <= 3.6.0",
+     "patched": "3.7.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-pxh4-856f-4h89",
+   "cve": null,
+   "summary": "PyJWT: HS256/384/512 verify accepts empty HMAC key via oct JWK (PyJWK/PyJWKClient) enabling token forgery",
+   "severity": "high",
+   "cvss": 7.4,
+   "published": "2026-10-22T15:48:04",
+   "updated": "2026-10-22T15:48:05",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pyjwt",
+     "range": "<= 2.13.0",
+     "patched": "2.14.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-354v-3q48-cv69",
+   "cve": "CVE-2026-114135",
+   "summary": "Jupyter Server: Gateway WebSocket handler bypasses kernel execute authorization",
+   "severity": "high",
+   "cvss": 8.8,
+   "published": "2026-10-22T15:46:31",
+   "updated": "2026-10-22T15:46:32",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "jupyter-server",
+     "range": ">= 2.0.0, < 2.6.0",
+     "patched": "2.6.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9jh8-v38h-cvhr",
+   "cve": "CVE-2026-63430",
+   "summary": "ammonia: mXSS  via MathML `annotation-xml` encoding strip",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-22T14:06:10",
+   "updated": "2026-10-22T14:06:14",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rust",
+     "name": "ammonia",
+     "range": "< 3.3.2",
+     "patched": "3.3.2"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "ammonia",
+     "range": ">= 4.0.0, < 4.0.2",
+     "patched": "4.0.2"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "ammonia",
+     "range": ">= 4.1.0, < 4.1.3",
+     "patched": "4.1.3"
+    }
+   ]
+  }
+ ],
+ "fetched_at": "2026-10-23T02:16:19Z",
+ "tool": "tools/intel/fetch-intel"
+}
