@@ -23,10 +23,17 @@
   const ctx = el.scene.getContext("2d", { alpha: true });
   let w = 0, h = 0, dpr = 1;
   let index = 0, started = false, sceneStart = 0, last = 0;
-  // 3D tilt: drag steers it, long-press rotates it, release springs back
+  // 3D camera: a drag or swipe poses it and the angle STAYS. Inertia carries it
+  // a little after release; a double tap springs it back to the scene's angle.
   const tilt = { yaw: 0, pitch: 0 };
   const tiltTarget = { yaw: 0, pitch: 0 };
+  const vel = { yaw: 0, pitch: 0 };
   let drag = null, holdTimer = null, holding = false;
+  let lastTap = 0, pendingAdvance = 0;
+  const YAW_LIMIT = 1.15, PITCH_LIMIT = 0.62;
+  const isTilted = () => Math.abs(tiltTarget.yaw) + Math.abs(tiltTarget.pitch) > 0.02;
+  // test hook, alongside window.__in / window.__drawErr
+  window.__tilt = { tilt, tiltTarget, vel };
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   let lang = "en";
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -124,7 +131,7 @@
     el.btnNext.querySelector(".next-label").textContent =
       index === scenes.length - 1 ? ui("replay") : ui("tap");
     el.hint.textContent = (index === scenes.length - 1 ? ui("hintEnd") : ui("hint")) +
-      " · DRAG / HOLD = 3D";
+      " · DRAG / SWIPE = 3D · 2×TAP = RESET";
   }
 
   async function setLang(code, opts) {
@@ -163,7 +170,9 @@
     // the text panel sits bottom-left in LTR and bottom-right in RTL: move the
     // diagram to the opposite side so the two never overlap
     const ox = wide ? (rtl ? -w * 0.13 : w * 0.13) : 0;
-    const oy = wide ? -h * 0.06 : -h * 0.13;
+    // the text panel is bottom-anchored and tall on phones, so the diagram sits
+    // above it: on a 390x844 screen the panel can own the bottom 45%.
+    const oy = wide ? -h * 0.08 : -h * 0.22;
     try {
       V.draw(scenes[index].visual, ctx, w, h, elapsed, reduced, ox, oy);
       window.__drawErr = null;
@@ -180,9 +189,24 @@
       // hold: keep turning, with a slow pitch sway, so it reads as "grabbed"
       tilt.yaw += 0.55 * dt;
       tilt.pitch = Math.sin(now / 900) * 0.16;
+      tiltTarget.yaw = tilt.yaw;
+      tiltTarget.pitch = tilt.pitch;
+      vel.yaw = vel.pitch = 0;
+    } else if (drag && drag.moved) {
+      // the pointer owns the angle while it is down
+      tilt.yaw += (tiltTarget.yaw - tilt.yaw) * 0.35;
+      tilt.pitch += (tiltTarget.pitch - tilt.pitch) * 0.35;
+      vel.yaw = vel.pitch = 0;
     } else {
-      tilt.yaw += (tiltTarget.yaw - tilt.yaw) * 0.12;
-      tilt.pitch += (tiltTarget.pitch - tilt.pitch) * 0.12;
+      // released: the angle persists, and a flick coasts to a stop
+      if (Math.abs(vel.yaw) + Math.abs(vel.pitch) > 0.0006) {
+        tiltTarget.yaw = clamp(tiltTarget.yaw + vel.yaw, -YAW_LIMIT, YAW_LIMIT);
+        tiltTarget.pitch = clamp(tiltTarget.pitch + vel.pitch, -PITCH_LIMIT, PITCH_LIMIT);
+        vel.yaw *= 0.90;
+        vel.pitch *= 0.90;
+      }
+      tilt.yaw += (tiltTarget.yaw - tilt.yaw) * 0.16;
+      tilt.pitch += (tiltTarget.pitch - tilt.pitch) * 0.16;
     }
     V.setTilt(tilt.yaw, tilt.pitch);
     drawFrame(now);
@@ -225,8 +249,8 @@
     buildSources(s);
 
     sceneStart = performance.now();
-    tilt.yaw = tiltTarget.yaw = 0;
-    tilt.pitch = tiltTarget.pitch = 0;
+    // the camera angle carries over: the next scene is the same object, turned.
+    vel.yaw = vel.pitch = 0;
     requestAnimationFrame(updateMore);
     if (started && !silent) {
       A.sfx(s.cue || "blip");
@@ -286,23 +310,32 @@
     if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
     holding = false;
     drag = null;
-    tiltTarget.yaw = 0;                 // spring back to the scene's own angle
+    // NB: the angle is deliberately NOT reset — it stays where it was left.
+  }
+
+  function resetTilt() {
+    vel.yaw = vel.pitch = 0;
+    tiltTarget.yaw = 0;
     tiltTarget.pitch = 0;
+    applyTilt(false);
+    if (A.ready) A.sfx("blip");
   }
 
   document.addEventListener("pointerdown", (e) => {
     if (!started) return;
     if (e.target.closest("button, a, select, label, .drawer")) return;
     drag = { x: e.clientX, y: e.clientY, t: Date.now(), moved: false };
+    vel.yaw = vel.pitch = 0;
     window.__in = window.__in || { down: 0, move: 0, up: 0, hold: 0 };
     window.__in.down++;
     holdTimer = setTimeout(() => {
       if (drag && !drag.moved) {
         holding = true; window.__in.hold++;
         tilt.yaw += 0.16; tilt.pitch = 0.06;      // immediate feedback on hold
+        tiltTarget.yaw = tilt.yaw; tiltTarget.pitch = tilt.pitch;
         applyTilt(false);
       }
-    }, 280);
+    }, 300);
   }, { passive: true });
 
   document.addEventListener("pointermove", (e) => {
@@ -318,8 +351,12 @@
     }
     if (!drag.moved) return;
     drag.x = e.clientX; drag.y = e.clientY;
-    tiltTarget.yaw = clamp(tiltTarget.yaw + dx * 0.006, -1.1, 1.1);
-    tiltTarget.pitch = clamp(tiltTarget.pitch + dy * 0.004, -0.5, 0.5);
+    const dyaw = dx * 0.006, dpitch = dy * 0.004;
+    tiltTarget.yaw = clamp(tiltTarget.yaw + dyaw, -YAW_LIMIT, YAW_LIMIT);
+    tiltTarget.pitch = clamp(tiltTarget.pitch + dpitch, -PITCH_LIMIT, PITCH_LIMIT);
+    // a flick keeps coasting for a moment after the finger lifts
+    vel.yaw = clamp(dyaw * 0.25, -0.03, 0.03);
+    vel.pitch = clamp(dpitch * 0.25, -0.022, 0.022);
     applyTilt(true);
   }, { passive: true });
 
@@ -329,8 +366,25 @@
     const wasTap = !drag.moved && !holding && Date.now() - drag.t < 700;
     endDrag();
     applyTilt(false);
-    if (wasTap) next();
-    void e;
+    if (!wasTap) return;
+    window.__in.up = (window.__in ? window.__in.up : 0) + 1;
+
+    const now = Date.now();
+    if (now - lastTap < 280) {
+      // double tap = put the camera back to the scene's own angle
+      lastTap = 0;
+      if (pendingAdvance) { clearTimeout(pendingAdvance); pendingAdvance = 0; }
+      resetTilt();
+      return;
+    }
+    lastTap = now;
+    if (isTilted()) {
+      // hold the advance for one double-tap window; the angle is posed, so a
+      // second tap most likely means "reset", not "next"
+      pendingAdvance = setTimeout(() => { pendingAdvance = 0; next(); }, 240);
+    } else {
+      next();
+    }
   }, { passive: true });
 
   document.addEventListener("pointercancel", endDrag, { passive: true });
@@ -458,8 +512,8 @@
     if (!q) return;
     const [y, pch] = q.split(",").map(Number);
     if (!isFinite(y) || !isFinite(pch)) return;
-    tilt.yaw = tiltTarget.yaw = clamp(y, -1.1, 1.1);
-    tilt.pitch = tiltTarget.pitch = clamp(pch, -0.5, 0.5);
+    tilt.yaw = tiltTarget.yaw = clamp(y, -YAW_LIMIT, YAW_LIMIT);
+    tilt.pitch = tiltTarget.pitch = clamp(pch, -PITCH_LIMIT, PITCH_LIMIT);
     V.setTilt(tilt.yaw, tilt.pitch);
     drawFrame(performance.now());
   })();

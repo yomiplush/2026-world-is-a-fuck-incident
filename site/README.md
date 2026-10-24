@@ -11,17 +11,19 @@ them), *the ecosystem* (58 package advisories in 24 h, two criticals with no CVE
 second set added with `docs/22`: *Node2Shell* (a working exploit on a stock Node.js build),
 *the pre-disclosure attempts* (php2shell from 10-17), *the filter* (a CNA 9.9 is a 0-row
 answer), *the wide sweep* (four incidents no CVE list named), and *the follow-on* (PHP's
-`CVE-2026-115560`: four conditions, one line, no emergency patch). **Drag or press-and-hold the
-scene to tilt the 3D view** — release springs it back to the scene's own angle;
-`?tilt=yaw,pitch` presets it.
+`CVE-2026-115560`: four conditions, one line, no emergency patch). **Every scene is real 3D**:
+drag or swipe to turn the camera, and the angle stays where you leave it (inertia carries a flick
+a little further; double tap springs it back). `?tilt=yaw,pitch` presets the angle.
 
 ```
 site/
   index.html    markup + HUD (no build step, no framework)
   style.css     HUD/Briefing look, responsive, reduced-motion + ?still=1 static mode
   data.js       the 34 scenes: copy, numbers, per-scene sources
-  visuals.js    23 canvas renderers (radar, chain, bars, clock, keys, leak, core, channels, stack,
-                decode, before, funnel, ledger, checklist, …)
+  rig3d.js      the 3D engine: perspective camera, depth-sorted painter queue, shaded solids
+                (box / prism / octahedron / rod / ring / annulus band), billboarded labels
+  visuals.js    31 scene renderers (radar, chain, bars, clock, keys, leak, core, channels, stack,
+                decode, before, funnel, ledger, checklist, …), all drawn through rig3d.js
   audio.js      Web Audio synthesis: 7 SFX + a generative lofi loop (no samples)
   app.js        scene controller, input, canvas loop, deep links, sources drawer
 ```
@@ -51,15 +53,11 @@ Wrangler accepts `CLOUDFLARE_API_KEY` + `CLOUDFLARE_EMAIL` (legacy global key) o
 
 ## Audio
 
-Everything is synthesised in the browser; there are no audio files to license or ship.
-
-- **SFX** (`audio.js`): short oscillator/noise bursts — `blip`, `whoosh`, `alarm`, `crack`,
-  `confirm`, `glitch`, `boot`. Each scene declares a `cue`.
-- **BGM**: a 72 BPM generative lofi loop — four Am9 / Fmaj9 / Cmaj9 / G6-9 voicings, detuned
-  saw+triangle pads through a slow filter sweep and a 0.13 Hz tape-wobble LFO, sine bass,
-  boom-bap kick/snare with swung 8th hats, vinyl noise plus random crackle, and a generated
-  reverb impulse. Scheduled with a 140 ms lookahead so it does not drift.
-- Audio only starts after a gesture (browser rule). `M` or the SOUND button toggles everything.
+BGM is the user-supplied `infosec.mp3`, optimized as stereo Opus (80 kb/s VBR)
+and MP3 (VBR q5, 44.1 kHz) fallback in `audio/`. Embedded artwork and metadata
+are removed. The looping media element starts after a user gesture and streams
+through the existing music gain; SOUND/M pauses/resumes it and mutes SFX.
+SFX remain synthesized. No generative BGM scheduler runs.
 
 ## The 10-23 postscript (eight scenes, 18-25)
 
@@ -93,20 +91,28 @@ All eight are `ja`/`en` inline in `data.js`. The other ten locales fall back to 
 scenes (field-by-field fallback, by design) until someone translates them; `i18n/<code>.js` gains
 eight entries each when that happens.
 
-## Camera tilt (drag / hold)
+## Camera (drag / swipe / double tap)
 
-`app.js` keeps a `tilt`/`tiltTarget` pair and pushes it into `VISUALS.setTilt()`; `visuals.js`
-adds it to every camera's yaw/pitch, and applies a small skew/rotate/scale to the screen-space
-renderers (radar, clock, matrix, storm) so every scene answers a drag, not just the 3D ones.
+`app.js` keeps a `tilt`/`tiltTarget`/`vel` triple and pushes it into `VISUALS.setTilt()`; `rig3d.js`
+adds it to every scene camera and re-projects the geometry. There is no screen-space skew any
+more: turning the view moves real solids, changes the shading of each face, and re-sorts the
+depth queue.
 
 - **Tap** (no movement, < 700 ms) advances.
-- **Drag** steers yaw ±1.1 rad and pitch ±0.5 rad. The angle is applied synchronously on input, so
-  it responds even when `requestAnimationFrame` is throttled.
-- **Press and hold** (280 ms) switches to a continuous turn with a slow pitch sway until release.
-- Releasing springs back to the scene's default angle; changing scene resets it.
+- **Drag / swipe** steers yaw ±1.1 rad and pitch ±0.55 rad on top of the scene's own angle. The
+  angle is applied synchronously on input, so it responds even when `requestAnimationFrame` is
+  throttled.
+- **Release keeps the angle**, and a flick coasts on inertia (velocity decays at 0.90/frame). The
+  angle is deliberately carried across scenes: the next scene is the same object, turned.
+- **Double tap** springs the camera back to the scene's own angle. While the view is tilted, a tap
+  is latched for 240 ms so the second tap can mean "reset" instead of advancing twice.
+- **Press and hold** (300 ms) switches to a continuous turn with a slow pitch sway until release;
+  the angle it ends on is kept.
+- The camera never drops level with a scene's floor plane: each renderer passes `pitchMax` (and the
+  engine clamps the total) so a floor grid cannot collapse into a line at the end of a drag.
 
-Swipe no longer changes scenes (that gesture now belongs to the camera); the next/prev buttons,
-the rail and the keyboard still navigate.
+Swipe no longer changes scenes (that gesture belongs to the camera); the next/prev buttons, the
+rail and the keyboard still navigate.
 
 ## Phone layout
 
@@ -176,9 +182,10 @@ Canvas composition in `visuals.js`:
 
 Motion illustrates relationships, not live attack telemetry. The Japan outline
 is a locator, not an attribution of incidents to cities. Eight warning glyphs
-in the HPE scene count maximum-score CVEs, not compromised devices. All eight
-scale within a shared 720×440 drawing space, respond to drag tilt, and retain
-complete geometry when reduced motion fixes their timeline at 1.2 seconds.
+in the HPE scene count maximum-score CVEs, not compromised devices. All eight are
+built from 3D primitives in world space (nested boxes, barrier planes, slab
+stacks, a tilted map plane), respond to the camera, and retain complete geometry
+when reduced motion fixes their timeline at 1.2 seconds.
 
 The update summarizes `docs/24-snapshot-20261024` and its 24-group structured
 register. The 17 recent KEV additions and full collection windows remain in the

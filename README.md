@@ -70,11 +70,12 @@ bash tools/copy-prompt.sh intel ja   # decision prompt, Japanese
 then a **10-23 postscript** ([`docs/20`](docs/20-infinity-core.md), [`docs/21`](docs/21-snapshot-1036jst.md),
 [`docs/22`](docs/22-snapshot-2015jst.md)): Infinity Core, the blind spot, the ecosystem, then Node2Shell,
 the pre-disclosure attempts, the filter a CNA 9.9 cannot pass, the four incidents no CVE list named,
-and PHP's follow-on `CVE-2026-115560`. 26 scenes, pseudo-3D motion, synthesised SFX and a generated
-lofi loop. Sound is on; toggle it top-right.
+and PHP's follow-on `CVE-2026-115560`. 34 scenes, every diagram built in real 3D (drag or swipe to
+turn the camera, double tap to reset it), synthesised SFX and the streamed `infosec.mp3` BGM.
+Sound is on; toggle it top-right.
 **Language pull-down, 12 languages** (English / 日本語 / 中文 / 한국어 / Español / Français / Deutsch /
 Português / Русский / العربية / हिन्दी / Bahasa Indonesia; `?lang=`, or press `L`).
-Phone: tap/swipe. Desktop: space / arrows.
+Phone: tap to advance, drag to turn the view. Desktop: space / arrows, drag to turn the view.
 
 The remediation prompt keeps the agent read-only first, makes it branch on the table in §2-3,
 verify versions against the running binary, and never describe a partial mitigation as a fix.
@@ -629,7 +630,7 @@ bash tools/copy-prompt.sh intel
 | `tools/copy-prompt.sh` | Puts an AI prompt on the clipboard (`en` / `ja` / `intel` / `intel ja`) |
 | `prompts/` | Ready-to-paste prompts: remediation and decision, English and Japanese |
 | `data/2026-10-23-2015jst/` | Raw responses behind this read: 15 files — Oracle, KEV, MSRC, JVN, 14 feeds, 2 news feeds, the archived X post, NVD sweeps, GHSA |
-| `site/` | The tap-through briefing (<https://2026-incident-briefing.pages.dev>): pseudo-3D canvas, synthesised SFX, generative lofi |
+| `site/` | The tap-through briefing (<https://2026-incident-briefing.pages.dev>): 3D canvas (drag to turn the camera), synthesised SFX, streamed BGM |
 | `SOURCES.md` | Every source, with the command to re-fetch it |
 
 Each of the files above also exists as `NAME.ja.md` (Japanese).

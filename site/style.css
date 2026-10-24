@@ -170,7 +170,8 @@ h1#title{font-size:clamp(24px,4.6vw,44px);line-height:1.14;margin:.1em 0 .5em;
 
 /* ---------- responsive ---------- */
 @media (max-width:720px){
-  .panel{max-width:100%;align-self:end;margin-bottom:4px;padding-left:10px;padding-right:2px}
+  /* the diagram keeps the top half of a phone: the copy scrolls in the rest */
+  .panel{max-width:100%;max-height:52%;align-self:end;margin-bottom:4px;padding-left:10px;padding-right:2px}
   .hint{display:none}
   .rail{gap:4px}
   .tick{width:11px}
