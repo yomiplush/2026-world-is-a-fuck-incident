@@ -35,7 +35,7 @@
 <meta name="twitter:title" content="One month, 15 incidents — incident briefing">
 <meta name="twitter:description" content="October 2026's incidents in order, plus an October 24 update covering exploited Arista/Collabora, major packages, AI and industrial systems. 34 scenes, 12 languages, every claim traced to a primary source.">
 <meta name="twitter:image" content="https://2026-incident-briefing.pages.dev/og.png">
-<link rel="stylesheet" href="./style.css?v=19">
+<link rel="stylesheet" href="./style.css?v=20">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070b12'/><path d='M6 22 L16 8 L26 22' stroke='%23ffb545' stroke-width='2' fill='none'/><circle cx='16' cy='22' r='2.5' fill='%23ffb545'/></svg>">
 </head>
 <body class="entry-locked">
@@ -110,6 +110,10 @@
 
 <!-- The entry remains meaningful before any briefing engine is downloaded. -->
 <div class="cover" id="cover">
+  <picture class="entry-backdrop" aria-hidden="true">
+    <source media="(max-width: 600px)" srcset="./images/entry-map-768.webp">
+    <img src="./images/entry-map-1440.webp" width="1440" height="810" alt="" decoding="async" fetchpriority="low" draggable="false">
+  </picture>
   <button type="button" id="btn-start" class="entry-control" aria-label="Unlock" disabled>
     <svg viewBox="0 0 360 360" class="entry-art" aria-hidden="true" focusable="false">
       <defs>
