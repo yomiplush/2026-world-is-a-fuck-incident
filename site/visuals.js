@@ -10,7 +10,9 @@ window.VISUALS = (function () {
   /* ---------- user tilt (drag / long-press) ---------- */
   const TILT = { yaw: 0, pitch: 0 };
   const SCREEN_SPACE = new Set(["radar", "clock", "matrix", "storm", "channels", "stack",
-    "before", "funnel", "ledger", "checklist"]);
+    "before", "funnel", "ledger", "checklist",
+    "intelConfluence", "exploitIsolation", "packageBoundaries", "bundledLayers",
+    "agentPermissions", "domesticRoutes", "firmwareFleet", "trustRenewal"]);
 
   /* ---------- camera ---------- */
   const VIEW = { zoom: 0.62 };
@@ -1133,6 +1135,321 @@ window.VISUALS = (function () {
     label(ctx, [w / 2, h * 0.83], "PHP: UNLIKELY IS NOT IMPOSSIBLE", "rgba(255,181,69,.6)", 8.5);
   };
 
+  /* October 24: eight distinct explanatory diagrams, drawn in a shared 720x440
+     space. Positions are schematic; particles illustrate flow, not live telemetry. */
+  function briefingStage(ctx, w, h) {
+    const wide = w > 900;
+    const rtl = document.documentElement.dir === "rtl";
+    const scale = Math.min((wide ? w * 0.49 : w - 40) / 720,
+      h * (wide ? 0.62 : 0.29) / 440);
+    ctx.translate(wide ? w * (rtl ? 0.43 : 0.57) : w / 2,
+      h * (wide ? 0.43 : 0.38));
+    ctx.scale(scale, scale);
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+  }
+
+  function briefingBox(ctx, x, y, w, h, colour, title, sub) {
+    ctx.fillStyle = "rgba(7,16,25,.94)";
+    ctx.fillRect(x - w / 2, y - h / 2, w, h);
+    ctx.strokeStyle = colour; ctx.lineWidth = 1.5;
+    ctx.strokeRect(x - w / 2, y - h / 2, w, h);
+    // Offset bevel gives each module a shallow physical depth.
+    poly(ctx, [[x-w/2,y-h/2],[x-w/2+8,y-h/2-8],[x+w/2+8,y-h/2-8],
+      [x+w/2+8,y+h/2-8],[x+w/2,y+h/2]], colour, 0.7);
+    if (title) label(ctx, [x, y - (sub ? 3 : -4)], title, colour, 13);
+    if (sub) label(ctx, [x, y + 17], sub, C.dim, 10);
+  }
+
+  function briefingPath(ctx, points, colour, t, speed) {
+    poly(ctx, points, colour, 1.4);
+    const lengths = points.slice(1).map((p, i) => Math.hypot(p[0]-points[i][0], p[1]-points[i][1]));
+    const total = lengths.reduce((a, b) => a + b, 0);
+    if (!total) return;
+    for (let n = 0; n < 3; n++) {
+      let dist = (((t * (speed || 0.24) + n / 3) % 1 + 1) % 1) * total;
+      for (let i = 0; i < lengths.length; i++) {
+        if (dist <= lengths[i]) {
+          const k = lengths[i] ? dist / lengths[i] : 0;
+          glowDot(ctx, [points[i][0]+(points[i+1][0]-points[i][0])*k,
+            points[i][1]+(points[i+1][1]-points[i][1])*k], 2.5, colour, 0.55);
+          break;
+        }
+        dist -= lengths[i];
+      }
+    }
+  }
+
+  function briefingLock(ctx, x, y, colour, size) {
+    const s = size || 1;
+    ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+    ctx.strokeStyle = colour; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(0, -8, 9, Math.PI, TAU); ctx.stroke();
+    ctx.fillStyle = "#0b1821"; ctx.fillRect(-14, -8, 28, 24);
+    ctx.strokeRect(-14, -8, 28, 24);
+    dot(ctx, [0, 1], 2.4, colour);
+    poly(ctx, [[0,2],[0,8]], colour, 2);
+    ctx.restore();
+  }
+
+  scenes.intelConfluence = (ctx, w, h, t) => {
+    ctx.save(); briefingStage(ctx, w, h);
+    const names = ["NVD", "GHSA", "KEV", "JVN", "FEEDS"];
+    const colours = [C.cyan, C.cyan, C.red, C.green, C.amber];
+    ctx.save(); ctx.scale(1, 0.61);
+    for (const r of [170, 245, 300]) {
+      ctx.beginPath(); ctx.ellipse(0, 0, r, r, 0, 0, TAU);
+      ctx.strokeStyle = C.faint; ctx.lineWidth = 1; ctx.stroke();
+    }
+    ctx.setLineDash([6, 13]); ctx.lineDashOffset = -t * 13;
+    ctx.beginPath(); ctx.arc(0, 0, 216, 0, TAU); ctx.strokeStyle = C.cyan; ctx.stroke();
+    ctx.restore();
+    names.forEach((name, i) => {
+      const a = -Math.PI/2 + i * TAU/5;
+      const x = Math.cos(a)*285, y = Math.sin(a)*165;
+      briefingPath(ctx, [[x,y],[x*0.57,y*0.57],[0,0]], colours[i], t+i*0.41, 0.17);
+      briefingBox(ctx, x, y, 112, 44, colours[i], name);
+    });
+    for (let layer = 3; layer >= 0; layer--) {
+      const pts = Array.from({length:6}, (_, i) => {
+        const a = i*TAU/6-Math.PI/6;
+        return [Math.cos(a)*82, Math.sin(a)*63 + layer*9-12];
+      });
+      ctx.fillStyle = "#0b1924"; ctx.beginPath();
+      pts.forEach((p,i)=>i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.closePath(); ctx.fill();
+      poly(ctx, pts, layer ? C.dim : C.amber, 1.4, true);
+    }
+    label(ctx, [0,0], "24", C.amber, 38);
+    label(ctx, [0,23], "REVIEWED GROUPS", C.ink, 10);
+    label(ctx, [0,217], "COLLECT  /  CROSS-CHECK  /  PRIORITIZE", C.dim, 11);
+    ctx.restore();
+  };
+
+  scenes.exploitIsolation = (ctx, w, h, t) => {
+    ctx.save(); briefingStage(ctx, w, h);
+    label(ctx, [0,-202], "TWO ENTRY PATHS / PATCH + TRIAGE", C.amber, 12);
+    [[-95,"VCO","VALID SESSION"],[92,"BUILT-IN CODE","NO AUTH / CODE STOPPED"]].forEach(([y,name,condition], i) => {
+      label(ctx, [-311,y-61], name, C.ink, 13, "left");
+      briefingBox(ctx, -243, y, 128, 60, C.red, "REQUEST");
+      label(ctx, [-243,y+57], condition, C.dim, 10);
+      briefingPath(ctx, [[-178,y],[-38,y]], C.red, t+i*0.7, 0.38);
+      // The attack terminates at the patch barrier; no particle crosses it.
+      const pulse = (Math.sin(t*3+i)+1)/2;
+      ctx.fillStyle = `rgba(110,242,176,${0.07+pulse*0.07})`;
+      ctx.fillRect(-30,y-58,30,116);
+      poly(ctx, [[-29,y-58],[-29,y+58]], C.green, 3);
+      for (let j=0;j<5;j++) poly(ctx,[[-26,y-49+j*23],[-3,y-32+j*23]],C.green,0.8);
+      for (let j=0;j<4;j++) {
+        const a = t*2+j*TAU/4;
+        const r = 10+((t*26+j*7)%28);
+        dot(ctx, [-38-Math.abs(Math.cos(a))*r,y+Math.sin(a)*r], 1.8, C.red);
+      }
+      briefingPath(ctx, [[8,y],[183,y]], C.green, t+i*0.4, 0.21);
+      briefingBox(ctx, 246,y,120,82,C.green,"SERVER","PATCHED");
+      briefingLock(ctx, 85,y-32,C.green,0.75);
+      label(ctx, [24,y+83], "UPDATE / INVESTIGATE", C.green, 11);
+    });
+    poly(ctx, [[-333,0],[332,0]], C.faint, 1);
+    ctx.restore();
+  };
+
+  scenes.packageBoundaries = (ctx, w, h, t) => {
+    ctx.save(); briefingStage(ctx,w,h);
+    const names=["PILLOW","WASMTIME","LARAVEL","ECHO"];
+    const tags=["IMAGE","WASM","TOKEN","PROXY"];
+    const colours=[C.amber,C.cyan,C.green,C.amber];
+    names.forEach((name,i)=>{
+      const x=-270+i*180, y=Math.sin(t*0.8+i)*5;
+      briefingBox(ctx,x,y,140,202,colours[i]);
+      label(ctx,[x,-145],name,colours[i],13);
+      label(ctx,[x,143],tags[i],C.dim,11);
+      const r=34;
+      if(i===0){
+        ctx.strokeStyle=C.amber;ctx.strokeRect(x-r,y-r,68,68);
+        poly(ctx,[[x-r+5,y+23],[x-9,y-4],[x+6,y+11],[x+19,y-14],[x+r-4,y+23]],C.amber,2);
+        dot(ctx,[x-16,y-17],5,C.cyan);
+      }else if(i===1){
+        [[-17,-20],[17,-20],[0,15]].forEach(([dx,dy])=>{
+          const p=[[x+dx,y+dy-14],[x+dx+18,y+dy-4],[x+dx,y+dy+7],[x+dx-18,y+dy-4]];
+          poly(ctx,p,C.cyan,1.8,true);poly(ctx,[[x+dx-18,y+dy-4],[x+dx-18,y+dy+17],[x+dx,y+dy+27],[x+dx+18,y+dy+17],[x+dx+18,y+dy-4]],C.cyan,1);
+        });
+      }else if(i===2){
+        ctx.beginPath();ctx.arc(x-14,y,18,0,TAU);ctx.strokeStyle=C.green;ctx.lineWidth=2;ctx.stroke();
+        poly(ctx,[[x+4,y],[x+38,y],[x+38,y+12],[x+27,y+12],[x+27,y+5]],C.green,3);
+      }else{
+        for(const dy of [-18,18]){
+          poly(ctx,[[x-44,y+dy],[x-10,y+dy],[x+8,y-dy],[x+42,y-dy]],C.amber,2);
+        }
+        poly(ctx,[[x,y-47],[x,y+47]],C.green,3);
+      }
+      // Each payload meets its own sandbox / auth / decoder boundary.
+      const p=(t*0.3+i*0.21)%1;
+      glowDot(ctx,[x-63,y-85+p*48],3,C.red,0.8);
+      poly(ctx,[[x-65,y-33],[x+65,y-33]],C.faint,1);
+      briefingLock(ctx,x,y+71,C.green,0.65);
+      label(ctx,[x,193],"PATCH",C.green,10);
+    });
+    label(ctx,[0,-205],"FOUR PACKAGES / FOUR DIFFERENT BOUNDARIES",C.dim,11);
+    ctx.restore();
+  };
+
+  scenes.bundledLayers = (ctx,w,h,t) => {
+    ctx.save();briefingStage(ctx,w,h);
+    const names=["RUBY","PERL","NGINX"];
+    const layers=[["APP INPUT","REGEXP","ONIGMO"],["MODULE","BUNDLED","BROTLI"],["REQUEST","DIRECTIVES","WORKER"]];
+    names.forEach((name,i)=>{
+      const x=-235+i*235;
+      label(ctx,[x,-191],name,C.ink,14);
+      for(let j=2;j>=0;j--){
+        const y=-58+j*54;
+        const color=j===1?C.amber:C.cyan;
+        const pts=[[x-79,y-26],[x+42,y-26],[x+79,y-7],[x-42,y-7]];
+        ctx.fillStyle=j===1?"#2b2418":"#0c1e2a";
+        ctx.beginPath();pts.forEach((p,k)=>k?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.fill();poly(ctx,pts,color,1.3,true);
+        poly(ctx,[[x-79,y-26],[x-79,y+11],[x-42,y+30],[x+79,y+30],[x+79,y-7]],color,1.3);
+        poly(ctx,[[x-42,y-7],[x-42,y+30]],color,1);
+        label(ctx,[x+13,y+13],layers[i][j],color,11);
+      }
+      const sweep=-125+((t*34+i*36)%252);
+      poly(ctx,[[x-90,sweep],[x+90,sweep]],C.green,1.2);
+      glowDot(ctx,[x-90,sweep],3,C.green,0.5);
+      briefingPath(ctx,[[x,-150],[x,-108]],C.red,t+i,0.4);
+    });
+    poly(ctx,[[-329,153],[328,153]],C.dim,1);
+    label(ctx,[0,178],"PATCH THE COPY THAT ACTUALLY RUNS",C.green,13);
+    label(ctx,[0,205],"APP  >  RUNTIME  >  EMBEDDED LIBRARY",C.dim,11);
+    ctx.restore();
+  };
+
+  scenes.agentPermissions = (ctx,w,h,t) => {
+    ctx.save();briefingStage(ctx,w,h);
+    const targets=[[-262,-128,"AUTH","REQUEST"],[262,-128,"TLS","PROVIDER"],[-262,128,"VAULT","NOTES"],[262,128,"MODEL","LOADER"]];
+    targets.forEach(([x,y,gate,name],i)=>{
+      const gx=x*0.52,gy=y*0.52;
+      briefingPath(ctx,[[0,0],[gx,gy]],C.amber,t+i*0.3,0.2);
+      briefingPath(ctx,[[gx,gy],[x,y]],C.green,t+i*0.3,0.2);
+      ctx.beginPath();ctx.arc(gx,gy,28,0,TAU);ctx.strokeStyle=C.green;ctx.lineWidth=1.5;ctx.stroke();
+      briefingLock(ctx,gx,gy,C.green,0.8);
+      label(ctx,[gx,gy+(y<0?-41:49)],gate,C.green,11);
+      briefingBox(ctx,x,y,116,54,C.cyan,name);
+    });
+    ctx.beginPath();ctx.arc(0,0,65,0,TAU);ctx.fillStyle="#0c1a25";ctx.fill();ctx.strokeStyle=C.amber;ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.rotate(t*0.18);ctx.setLineDash([9,8]);ctx.beginPath();ctx.arc(0,0,76,0,TAU);ctx.strokeStyle=C.amber;ctx.lineWidth=1;ctx.stroke();ctx.restore();
+    briefingBox(ctx,0,-6,70,45,C.amber);
+    dot(ctx,[-16,-10],4,C.cyan);dot(ctx,[16,-10],4,C.cyan);
+    poly(ctx,[[-12,9],[12,9]],C.amber,2);
+    label(ctx,[0,46],"AGENT",C.amber,11);
+    label(ctx,[0,-207],"AUTHORITY MUST PASS EVERY GATE",C.dim,12);
+    label(ctx,[0,212],"IDENTITY / TRANSPORT / SCOPE / INPUT",C.green,11);
+    ctx.restore();
+  };
+
+  scenes.domesticRoutes = (ctx,w,h,t) => {
+    ctx.save();briefingStage(ctx,w,h);
+    // Stylized archipelago is a locator, not incident geography.
+    const islands=[[[50,-177],[74,-190],[110,-164],[101,-140],[73,-143],[57,-125],[38,-140]],
+      [[58,-127],[74,-106],[60,-77],[42,-54],[33,-19],[8,4],[-17,15],[-30,43],[-65,57],[-85,83],[-125,92],[-158,114],[-195,114],[-211,99],[-184,79],[-143,73],[-108,57],[-89,28],[-47,12],[-26,-13],[4,-25],[17,-58],[43,-84]],
+      [[-149,115],[-116,112],[-101,126],[-136,142],[-160,133]],
+      [[-207,117],[-177,131],[-181,160],[-207,184],[-230,168],[-227,139]]];
+    islands.forEach(pts=>{
+      ctx.fillStyle="rgba(88,224,255,.055)";ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.fill();poly(ctx,pts,C.cyan,1.3,true);
+    });
+    [[24,-41],[-88,64],[-198,144]].forEach(([x,y],i)=>{
+      ctx.beginPath();ctx.arc(x,y,12+(t*16+i*13)%35,0,TAU);ctx.strokeStyle="rgba(88,224,255,.2)";ctx.stroke();
+      glowDot(ctx,[x,y],4,C.amber,0.8);
+      briefingPath(ctx,[[x,y],[128,y],[175,-12]],C.cyan,t+i,0.2);
+    });
+    briefingBox(ctx,231,-12,106,72,C.green,"API","ACCESS GATE");
+    briefingLock(ctx,231,-71,C.green,0.8);
+    briefingPath(ctx,[[231,31],[231,110]],C.green,t,0.25);
+    briefingBox(ctx,231,144,132,50,C.cyan,"RECORDS");
+    [-124,-75].forEach((y,i)=>{
+      briefingPath(ctx,[[338,y],[231,y],[231,-101]],C.red,t+i*0.6,0.35);
+      poly(ctx,[[223,-105],[239,-89]],C.red,2);poly(ctx,[[239,-105],[223,-89]],C.red,2);
+    });
+    label(ctx,[-225,-187],"DOMESTIC SYSTEMS",C.ink,12,"left");
+    label(ctx,[-225,-163],"LDAP / LIFF / WEB APIs",C.dim,10,"left");
+    label(ctx,[0,213],"PER-ENDPOINT AUTHORIZATION / TOKEN SCOPE",C.green,11);
+    ctx.restore();
+  };
+
+  scenes.firmwareFleet = (ctx,w,h,t) => {
+    ctx.save();briefingStage(ctx,w,h);
+    const trains=["10.8","10.7","10.4","8.13","8.10"];
+    const fixes=["10.8.1.2","10.7.2.7","10.4.1.14","8.13.3.1","8.10.0.24"];
+    // Eight warning marks refer to the eight CVSS-10.0 CVEs, not devices.
+    for(let j=0;j<8;j++){
+      const x=-77+j*22;
+      poly(ctx,[[x,-197],[x+7,-185],[x-7,-185]],C.red,1.4,true);
+    }
+    label(ctx,[0,-165],"8 MAX-SCORE CVEs / MATCH THE RELEASE LINE",C.dim,11);
+    poly(ctx,[[-278,-123],[278,-123]],C.cyan,1.5);
+    trains.forEach((name,i)=>{
+      const x=-274+i*137;
+      briefingPath(ctx,[[x,-123],[x,-70]],C.cyan,t+i*0.3,0.25);
+      label(ctx,[x,-92],name,C.cyan,12);
+      briefingBox(ctx,x,30,101,170,C.cyan);
+      for(let slot=0;slot<4;slot++){
+        const y=-28+slot*38;
+        ctx.fillStyle="#102432";ctx.fillRect(x-39,y-9,78,22);
+        ctx.strokeStyle=C.dim;ctx.lineWidth=0.7;ctx.strokeRect(x-39,y-9,78,22);
+        for(let port=0;port<5;port++){
+          ctx.fillStyle=port===Math.floor((t*1.3+i+slot)%5)?C.green:"rgba(88,224,255,.3)";
+          ctx.fillRect(x-29+port*12,y-2,6,6);
+        }
+        glowDot(ctx,[x+32,y+1],2,C.green,0.45);
+      }
+      const scan=-51+(t*24+i*13)%161;
+      poly(ctx,[[x-43,scan],[x+43,scan]],C.green,1);
+      label(ctx,[x,144],fixes[i],C.green,11);
+    });
+    label(ctx,[0,196],"72 CVEs IN THE HPE BULLETIN",C.amber,14);
+    label(ctx,[0,218],"PRODUCT + VERSION  >  APPLICABLE FIX",C.dim,10);
+    ctx.restore();
+  };
+
+  scenes.trustRenewal = (ctx,w,h,t) => {
+    ctx.save();briefingStage(ctx,w,h);
+    const names=["CA BLOCK LIST","SECURE BOOT","CREDENTIALS"];
+    names.forEach((name,i)=>{
+      const x=-248+i*248;
+      const bob=Math.sin(t*0.7+i)*4;
+      const y=-7+bob;
+      // Three hanging certificates form a trust chain; a separate rejected
+      // branch below never rejoins the trusted path.
+      briefingBox(ctx,x,y,157,173,C.cyan);
+      poly(ctx,[[x-57,y-63],[x+33,y-63],[x+56,y-40],[x+56,y+49],[x-57,y+49]],C.cyan,1.4,true);
+      poly(ctx,[[x+33,y-63],[x+33,y-40],[x+56,y-40]],C.cyan,1);
+      for(let j=0;j<3;j++)poly(ctx,[[x-38,y-34+j*13],[x+13,y-34+j*13]],C.dim,1);
+      if(i===0){
+        ctx.beginPath();ctx.arc(x,y+22,18,0,TAU);ctx.strokeStyle=C.green;ctx.lineWidth=1.5;ctx.stroke();
+        poly(ctx,[[x-8,y+22],[x-2,y+28],[x+10,y+14]],C.green,2);
+      }else if(i===1){
+        ctx.strokeStyle=C.green;ctx.strokeRect(x-20,y+2,40,36);
+        for(let j=0;j<4;j++){
+          poly(ctx,[[x-28,y+7+j*8],[x-20,y+7+j*8]],C.green,1);
+          poly(ctx,[[x+20,y+7+j*8],[x+28,y+7+j*8]],C.green,1);
+        }
+        briefingLock(ctx,x,y+18,C.green,0.65);
+      }else{
+        ctx.beginPath();ctx.arc(x-12,y+18,12,0,TAU);ctx.strokeStyle=C.green;ctx.lineWidth=2;ctx.stroke();
+        poly(ctx,[[x,y+18],[x+26,y+18],[x+26,y+27],[x+17,y+27]],C.green,2);
+      }
+      label(ctx,[x,-128],name,C.ink,12);
+      label(ctx,[x,111],["REVOKE","VERIFY DBX","ROTATE"][i],C.green,12);
+      if(i<2)briefingPath(ctx,[[x+85,y],[x+155,y]],C.green,t+i*0.4,0.27);
+      poly(ctx,[[x,84],[x,151]],C.faint,1);
+      const oldY=172;
+      ctx.save();ctx.translate(x,oldY);ctx.rotate(-0.12);
+      ctx.strokeStyle=C.dim;ctx.strokeRect(-37,-16,74,34);
+      poly(ctx,[[-44,21],[43,-23]],C.red,2);
+      ctx.restore();
+    });
+    label(ctx,[0,-198],"REPAIR THE CHAIN OF TRUST",C.amber,14);
+    label(ctx,[0,219],"REVOKED CERT / OLD BOOT BINARY / EXPOSED KEY",C.dim,10);
+    ctx.restore();
+  };
+
   /* ---------- entry ---------- */
   return {
     setTilt(yaw, pitch) { TILT.yaw = yaw; TILT.pitch = pitch; },
@@ -1161,7 +1478,7 @@ window.VISUALS = (function () {
       }
       fn(ctx, w, h, reduced ? 1.2 : t, visual || {});
       ctx.restore();
-      frame(ctx, w, h, t);
+      frame(ctx, w, h, reduced ? 1.2 : t);
     }
   };
 })();

@@ -923,9 +923,7 @@ window.CONTENT = {
           "en": "reviewed groups"
         }
       },
-      "visual": {
-        "type": "radar"
-      },
+      "visual": { "type": "intelConfluence" },
       "cue": "blip",
       "sources": [
         {
@@ -970,11 +968,7 @@ window.CONTENT = {
           "en": "KEV additions · 10.23"
         }
       },
-      "visual": {
-        "type": "matrix",
-        "cols": 2,
-        "rows": 1
-      },
+      "visual": { "type": "exploitIsolation" },
       "cue": "blip",
       "sources": [
         {
@@ -1035,11 +1029,7 @@ window.CONTENT = {
           "en": "package boundaries"
         }
       },
-      "visual": {
-        "type": "matrix",
-        "cols": 4,
-        "rows": 1
-      },
+      "visual": { "type": "packageBoundaries" },
       "cue": "blip",
       "sources": [
         {
@@ -1124,11 +1114,7 @@ window.CONTENT = {
           "en": "runtime checks"
         }
       },
-      "visual": {
-        "type": "matrix",
-        "cols": 3,
-        "rows": 1
-      },
+      "visual": { "type": "bundledLayers" },
       "cue": "blip",
       "sources": [
         {
@@ -1205,9 +1191,7 @@ window.CONTENT = {
           "en": "agent boundaries"
         }
       },
-      "visual": {
-        "type": "radar"
-      },
+      "visual": { "type": "agentPermissions" },
       "cue": "blip",
       "sources": [
         {
@@ -1324,9 +1308,7 @@ window.CONTENT = {
           "en": "domestic checks"
         }
       },
-      "visual": {
-        "type": "radar"
-      },
+      "visual": { "type": "domesticRoutes" },
       "cue": "blip",
       "sources": [
         {
@@ -1395,11 +1377,7 @@ window.CONTENT = {
           "en": "HPE AOS CVEs"
         }
       },
-      "visual": {
-        "type": "matrix",
-        "cols": 9,
-        "rows": 8
-      },
+      "visual": { "type": "firmwareFleet" },
       "cue": "blip",
       "sources": [
         {
@@ -1468,9 +1446,7 @@ window.CONTENT = {
           "en": "trust checks"
         }
       },
-      "visual": {
-        "type": "radar"
-      },
+      "visual": { "type": "trustRenewal" },
       "cue": "blip",
       "sources": [
         {
