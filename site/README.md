@@ -12,8 +12,8 @@ second set added with `docs/22`: *Node2Shell* (a working exploit on a stock Node
 *the pre-disclosure attempts* (php2shell from 10-17), *the filter* (a CNA 9.9 is a 0-row
 answer), *the wide sweep* (four incidents no CVE list named), and *the follow-on* (PHP's
 `CVE-2026-115560`: four conditions, one line, no emergency patch). **Every scene is real 3D**:
-drag or swipe to turn the camera, and the angle stays where you leave it (inertia carries a flick
-a little further; double tap springs it back). `?tilt=yaw,pitch` presets the angle.
+drag or swipe to turn the camera (a flick coasts briefly). Idle scenes orbit slowly; manual
+input pauses the orbit for 2.5 seconds, and double tap springs back to the base angle. `?tilt=yaw,pitch` presets the angle.
 
 ```
 site/
@@ -24,7 +24,9 @@ site/
                 (box / prism / octahedron / rod / ring / annulus band), billboarded labels
   visuals.js    31 scene renderers (radar, chain, bars, clock, keys, leak, core, channels, stack,
                 decode, before, funnel, ledger, checklist, …), all drawn through rig3d.js
-  audio.js      Web Audio synthesis: 7 SFX + a generative lofi loop (no samples)
+  entry.js      symbolic unlock and deferred, ordered loading with retry
+  render.js     frame scheduling, bounded Canvas surface and adaptive quality
+  audio.js      bounded Web Audio SFX + gesture-activated streaming BGM
   app.js        scene controller, input, canvas loop, deep links, sources drawer
 ```
 
@@ -41,7 +43,8 @@ their existing contracts.
 - `VISUALS.draw` still accepts its original arguments. An optional final
   `{ x, y, width, height }` viewport lets the controller reserve space between
   the actual header, text panel and footer. Portrait screens place the drawing
-  above the independently scrolling text; desktop and landscape use two columns.
+  above and behind the translucent, independently scrolling text; desktop and
+  suitable tablet landscape screens use two columns.
 - Perspective scaling fits both dimensions. Projected labels retain a readable
   minimum size, stay inside the viewport and seek nearby free positions with
   leader lines when the camera would otherwise stack them.
@@ -65,6 +68,31 @@ projected-label overlap at three camera poses; all 34 scenes in Japanese,
 English and Arabic plus landscape; the source drawer, camera persistence and
 all twelve locale selections. Screenshots and the verification report go to
 `/tmp/infosec-motion-rebuild-artifacts` (override with `MOTION_ARTIFACTS`).
+
+## Resource ownership and symbolic entry
+
+The root entrance is an inline SVG key and lock, with an accessible native button.
+Only `audio.js` and `entry.js` load initially: no scene data, engine, Canvas raster
+allocation or media request until intent. Tap/Enter/Space turns the key, lifts the
+shackle and reveals the briefing after a finite 1.25-second sequence. Reduced
+motion skips the decorative delay. Asset failures expose a retry control. Scene
+deep links and `?still=1` bypass the entry and keep audio off until interaction.
+The fixed top-right GitHub SVG links to the source repository in all layouts.
+
+`render.js` owns the only Canvas RAF chain. Normal playback targets 30 fps (24
+with Save-Data or at most four logical cores); manual motion targets 60 fps.
+Sustained draw cost can reduce quality. The Canvas covers only the diagram area,
+with at most 1.5 million backing pixels (6 MB RGBA). Static/settled reduced motion,
+locked entry, open source drawers and hidden pages perform no recurring draws.
+Hidden pages suspend audio while preserving the sound preference and animation
+time. BFCache restores resume; a discarded document releases its Canvas and audio.
+Color, text measurement, circle geometry, noise buffers and SFX voices are bounded.
+
+Run `node tests/entry.mjs` and `node tests/resources.mjs` against the same local
+server/Chrome setup for deferred loading, unlock/retry, native keyboard links,
+frame budgets, visibility/audio suspension, BFCache and resource disposal.
+`tests/browser.mjs` also checks ten phone/tablet/desktop layouts, translucent
+phone layering, top-right GitHub placement and slow idle orbit.
 
 ## Run it locally
 
@@ -137,17 +165,17 @@ more: turning the view moves real solids, changes the shading of each face, and 
 depth queue.
 
 - **Tap** (no movement, < 700 ms) advances.
-- **Drag / swipe** steers yaw ±1.1 rad and pitch ±0.55 rad on top of the scene's own angle. The
+- **Drag / swipe** steers yaw ±4π rad and pitch ±0.62 rad on top of the scene's own angle. The
   angle is applied synchronously on input, so it responds even when `requestAnimationFrame` is
   throttled.
-- **Release keeps the angle**, and a flick coasts on inertia (velocity decays at 0.90/frame). The
-  angle is deliberately carried across scenes: the next scene is the same object, turned.
+- **Release keeps the manual offset**, and a flick coasts on time-corrected inertia. The
+  offset carries across scenes. Slow automatic orbit resumes after 2.5 seconds without input.
 - **Double tap** springs the camera back to the scene's own angle. While the view is tilted, a tap
   is latched for 240 ms so the second tap can mean "reset" instead of advancing twice.
 - **Press and hold** (300 ms) switches to a continuous turn with a slow pitch sway until release;
   the angle it ends on is kept.
-- The camera never drops level with a scene's floor plane: each renderer passes `pitchMax` (and the
-  engine clamps the total) so a floor grid cannot collapse into a line at the end of a drag.
+- The camera never drops level with a scene's floor plane: renderers use positive pitch in the engine’s y-down coordinates, with
+  `pitchMin` / `pitchMax` bounds on the total so a floor grid cannot collapse into a line at the end of a drag.
 
 Swipe no longer changes scenes (that gesture belongs to the camera); the next/prev buttons, the
 rail and the keyboard still navigate.
@@ -157,8 +185,9 @@ rail and the keyboard still navigate.
 The page is viewport-locked (`height:100dvh`, one screen, no page scroll) and the **text panel is
 its own scroller**: `@media (max-width:720px)` tightens type instead of hiding copy, and when a
 scene's copy does not fit — common on landscape phones — the panel scrolls and a `▾ 続き / more`
-chip appears until you reach the end. Animated assets are cached per deploy, so the scroll state
-and the language survive scene changes; each scene resets to the top of its own text.
+chip appears until you reach the end. The phone/tablet portrait panel uses translucent backgrounds with fully opaque text,
+so the diagram remains visible underneath. Text scroll does not rotate the camera; each scene
+resets to the top of its own text. The language preference survives scene changes.
 
 ## Languages (12)
 

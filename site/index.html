@@ -35,17 +35,20 @@
 <meta name="twitter:title" content="One month, 15 incidents — incident briefing">
 <meta name="twitter:description" content="October 2026's incidents in order, plus an October 24 update covering exploited Arista/Collabora, major packages, AI and industrial systems. 34 scenes, 12 languages, every claim traced to a primary source.">
 <meta name="twitter:image" content="https://2026-incident-briefing.pages.dev/og.png">
-<link rel="stylesheet" href="./style.css?v=18">
+<link rel="stylesheet" href="./style.css?v=19">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070b12'/><path d='M6 22 L16 8 L26 22' stroke='%23ffb545' stroke-width='2' fill='none'/><circle cx='16' cy='22' r='2.5' fill='%23ffb545'/></svg>">
 </head>
-<body>
+<body class="entry-locked">
 <div id="stage" aria-hidden="true">
-  <canvas id="scene"></canvas>
+  <canvas id="scene" width="1" height="1"></canvas>
   <div class="vignette"></div>
   <div class="scan"></div>
   <div class="grain"></div>
 </div>
 
+<a id="repo-link" class="repo-link" href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297C5.37.297 0 5.67 0 12.3c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.043-1.61-4.043-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.323 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.042.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.22 0 4.61-2.807 5.627-5.479 5.924.43.372.823 1.103.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .322.216.694.825.576C20.565 22.096 24 17.6 24 12.3c0-6.63-5.373-12.003-12-12.003z"/></svg>
+</a>
 <main id="app">
   <!-- briefing chrome -->
   <header class="hud-top">
@@ -91,17 +94,6 @@
     <p class="hint" id="hint">画面をタップ / クリック / スペース</p>
   </footer>
 
-  <!-- start overlay -->
-  <div class="cover" id="cover">
-    <div class="cover-inner">
-      <p class="cover-kicker" id="cover-kicker">INCIDENT BRIEFING · 2026-10</p>
-      <h2 class="cover-title"><span id="cover-title-a">ONE MONTH,</span><br><em id="cover-title-b">15 INCIDENTS.</em></h2>
-      <p class="cover-sub" id="cover-sub">October 2026, in the order it happened.<br>Tap to advance. Sound is on.</p>
-      <button type="button" id="btn-start" class="start">TAP TO BEGIN</button>
-      <p class="cover-foot" id="cover-foot">Every claim traces to a primary source.</p>
-    </div>
-  </div>
-
   <!-- sources drawer -->
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-head">
@@ -116,10 +108,49 @@
   </aside>
 </main>
 
-<script src="./data.js?v=16"></script>
-<script src="./audio.js?v=17"></script>
-<script src="./rig3d.js?v=18"></script>
-<script src="./visuals.js?v=18"></script>
-<script src="./app.js?v=18"></script>
+<!-- The entry remains meaningful before any briefing engine is downloaded. -->
+<div class="cover" id="cover">
+  <button type="button" id="btn-start" class="entry-control" aria-label="Unlock" disabled>
+    <svg viewBox="0 0 360 360" class="entry-art" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="lock-metal" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#243c4a"/><stop offset=".55" stop-color="#0d1b29"/><stop offset="1" stop-color="#09121c"/>
+        </linearGradient>
+        <linearGradient id="key-metal" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffe2a3"/><stop offset=".5" stop-color="#ffb545"/><stop offset="1" stop-color="#a76d21"/>
+        </linearGradient>
+      </defs>
+      <g class="entry-orbit" fill="none" stroke="#58e0ff">
+        <circle cx="180" cy="180" r="143" opacity=".13"/>
+        <path d="M180 29v12 M180 319v12 M29 180h12 M319 180h12" opacity=".5"/>
+        <circle class="entry-trace" cx="180" cy="180" r="132" stroke-dasharray="830" stroke-dashoffset="700" opacity=".5"/>
+      </g>
+      <g class="entry-lock">
+        <g class="entry-shackle" fill="none" stroke="#8ca9bb" stroke-width="13" stroke-linecap="round">
+          <path d="M148 143v-37a32 32 0 0 1 64 0v37"/>
+          <path d="M148 143v-37a32 32 0 0 1 64 0v37" stroke="#d5e5ed" stroke-width="2" opacity=".5"/>
+        </g>
+        <rect x="128" y="136" width="104" height="100" rx="18" fill="url(#lock-metal)" stroke="#58e0ff" stroke-opacity=".6"/>
+        <path d="M141 152h78" stroke="#b2ddec" stroke-opacity=".25"/>
+        <path d="M180 168a9 9 0 0 0-5 16l-3 17h16l-3-17a9 9 0 0 0-5-16" fill="#05080d" stroke="#ffb545" stroke-opacity=".65"/>
+        <path d="M143 219h13 M204 219h13" stroke="#58e0ff" stroke-opacity=".35"/>
+      </g>
+      <g class="entry-key">
+        <g class="entry-turn" fill="url(#key-metal)" stroke="#f9d28d" stroke-width="1.3" stroke-linejoin="round">
+          <path fill-rule="evenodd" d="M-18 0a18 18 0 1 0 36 0a18 18 0 1 0-36 0 M-10 0a10 10 0 1 1 20 0a10 10 0 1 1-20 0"/>
+          <path d="M17-4h56v8h-7v10h-8V4h-9v8h-8V4H17z"/>
+        </g>
+      </g>
+      <g class="entry-retry" fill="none" stroke="#ffb545" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217 149a48 48 0 1 0 7 48 M217 123v28h-28"/>
+      </g>
+      <g class="entry-signal" fill="none" stroke="#6ef2b0" stroke-width="3" stroke-linecap="round">
+        <path d="M161 185l13 13 27-32"/>
+      </g>
+    </svg>
+  </button>
+</div>
+<script src="./audio.js?v=19" defer></script>
+<script src="./entry.js?v=19" defer></script>
 </body>
 </html>
