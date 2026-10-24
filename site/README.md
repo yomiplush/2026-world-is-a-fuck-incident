@@ -78,6 +78,10 @@ shackle and reveals the briefing after a finite 1.25-second sequence. Reduced
 motion skips the decorative delay. Asset failures expose a retry control. Scene
 deep links and `?still=1` bypass the entry and keep audio off until interaction.
 The fixed top-right GitHub SVG links to the source repository in all layouts.
+The decorative entry backdrop is derived from the supplied `img-map/map.png`:
+`images/entry-map-{768,1440}.webp` provides phone/large-screen variants (about
+53/139 KB). A noninteractive picture layer and gradient veil keep the key clear;
+portrait phones use a centered regional crop. No new animation loop is added.
 
 `render.js` owns the only Canvas RAF chain. Normal playback targets 30 fps (24
 with Save-Data or at most four logical cores); manual motion targets 60 fps.
