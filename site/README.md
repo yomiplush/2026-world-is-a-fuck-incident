@@ -160,8 +160,25 @@ October items are verified; ConnectWise is carried as **unverified** and the sit
 
 Eight JA/EN scenes precede the closing scene: scope, exploited Arista/Collabora,
 Pillow/Wasmtime/Laravel/Echo, Ruby/Perl/NGINX, AI/MCP, Japanese business systems,
-HPE/industrial devices, and trust/credential checks. Existing radar and matrix
-renderers are reused; the 72-cell HPE visual counts CVEs, not attacks.
+HPE/industrial devices, and trust/credential checks. Each update has a dedicated
+Canvas composition in `visuals.js`:
+
+| Scene | Renderer | Motion |
+|---|---|---|
+| 26 scope | `intelConfluence` | Five source channels converge on a layered hexagonal register |
+| 27 exploitation | `exploitIsolation` | Two request streams terminate at patch barriers |
+| 28 packages | `packageBoundaries` | Image, Wasm, token and proxy chambers animate independently |
+| 29 runtime | `bundledLayers` | Isometric application/runtime/library stacks receive patch sweeps |
+| 30 agents | `agentPermissions` | Agent requests pass identity, TLS, vault and model gates |
+| 31 Japan | `domesticRoutes` | Schematic archipelago routes traffic through an API access gate |
+| 32 devices | `firmwareFleet` | Five release-line racks receive firmware streams and scan sweeps |
+| 33 trust | `trustRenewal` | Certificate, boot and credential checks separate revoked artifacts |
+
+Motion illustrates relationships, not live attack telemetry. The Japan outline
+is a locator, not an attribution of incidents to cities. Eight warning glyphs
+in the HPE scene count maximum-score CVEs, not compromised devices. All eight
+scale within a shared 720×440 drawing space, respond to drag tilt, and retain
+complete geometry when reduced motion fixes their timeline at 1.2 seconds.
 
 The update summarizes `docs/24-snapshot-20261024` and its 24-group structured
 register. The 17 recent KEV additions and full collection windows remain in the
