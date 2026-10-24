@@ -13,6 +13,7 @@ window.RIG3D = (function () {
 
   /* user tilt: yaw/pitch are radians, added on top of each scene's own camera */
   const TILT = { yaw: 0, pitch: 0 };
+  let orbit = 0;
   /* zoom shrinks the whole world on narrow screens so a 1000-unit diagram fits */
   const VIEW = { zoom: 0.6, s0: 0.6, w: 0, h: 0 };
   const LIGHT = (function () {
@@ -22,9 +23,16 @@ window.RIG3D = (function () {
   })();
 
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  const hexCache = Object.create(null);
+  const hexCache = new Map();
+  const textCache = new Map();
+  const circleCache = new Map();
+  function remember(cache, key, value, limit) {
+    if (cache.size >= limit) cache.delete(cache.keys().next().value);
+    cache.set(key, value);
+    return value;
+  }
   function rgb(hex) {
-    let c = hexCache[hex];
+    let c = hexCache.get(hex);
     if (!c) {
       if (hex[0] === "#") {
         let s = hex.slice(1);
@@ -34,7 +42,7 @@ window.RIG3D = (function () {
         c = hex.match(/[\d.]+/g).map(Number);
         if (c.length === 3) c.push(1);
       }
-      hexCache[hex] = c;
+      remember(hexCache, hex, c, 128);
     }
     return c;
   }
@@ -50,8 +58,8 @@ window.RIG3D = (function () {
   }
 
   /* ---------- camera ---------- */
-  function setView(w, h) {
-    VIEW.w = w; VIEW.h = h;
+  function setView(w, h, anchorX = .5, anchorY = .5) {
+    VIEW.w = w; VIEW.h = h; VIEW.anchorX = anchorX; VIEW.anchorY = anchorY;
     VIEW.s0 = Math.max(0.08, Math.min((w - 24) / 1320, (h - 24) / 920, 0.86));
     // dist = f/s0 - f, and cam() multiplies its base distance by VIEW.zoom
     VIEW.zoom = (900 / VIEW.s0 - 900) / 1000;
@@ -60,34 +68,48 @@ window.RIG3D = (function () {
   function cam(t, o) {
     o = o || {};
     // The user's tilt is added to the scene's own angle, then clamped: the camera
-    // may swing far around a scene, but it never drops level with or below the
+    // orbits freely around a scene, but never drops level with or below the
     // floor plane, where a whole diagram would collapse into a line.
     return {
-      yaw: clamp((o.yaw || 0) + (o.spin ? Math.sin(t * 0.12) * 0.18 : 0) + TILT.yaw, -1.32, 1.32),
-      pitch: clamp((o.pitch == null ? -0.30 : o.pitch) + TILT.pitch,
-        o.pitchMin == null ? -1.25 : o.pitchMin,
-        o.pitchMax == null ? 0.22 : o.pitchMax),
+      yaw: (o.yaw || 0) + (o.spin ? Math.sin(t * 0.12) * 0.18 : 0) + TILT.yaw + orbit,
+      pitch: clamp((o.pitch == null ? .56 : o.pitch) + TILT.pitch,
+        o.pitchMin == null ? .28 : o.pitchMin,
+        o.pitchMax == null ? 1.16 : o.pitchMax),
       dist: (o.dist || 1000) * VIEW.zoom,
+      centerX: VIEW.anchorX == null ? .5 : VIEW.anchorX,
+      centerY: VIEW.anchorY == null ? .5 : VIEW.anchorY,
       f: 900
     };
   }
+  /* Cache a camera's basis once, including transformed light coefficients.
+     Revalidate against angles so callers can still edit a returned camera. */
+  function basis(c) {
+    if (c._yaw !== c.yaw || c._pitch !== c.pitch) {
+      c._yaw = c.yaw; c._pitch = c.pitch;
+      c.cy = Math.cos(c.yaw); c.sy = Math.sin(c.yaw);
+      c.cp = Math.cos(c.pitch); c.sp = Math.sin(c.pitch);
+      c.lx = c.cy * LIGHT[0] - c.sy * c.sp * LIGHT[1] + c.sy * c.cp * LIGHT[2];
+      c.ly = c.cp * LIGHT[1] + c.sp * LIGHT[2];
+      c.lz = -c.sy * LIGHT[0] - c.cy * c.sp * LIGHT[1] + c.cy * c.cp * LIGHT[2];
+    }
+    return c;
+  }
   /* world → camera space (y points down: -y is up the screen) */
   function rot(c, x, y, z) {
-    const cy = Math.cos(c.yaw), sy = Math.sin(c.yaw);
-    const x1 = x * cy - z * sy, z1 = x * sy + z * cy;
-    const cp = Math.cos(c.pitch), sp = Math.sin(c.pitch);
-    return [x1, y * cp - z1 * sp, y * sp + z1 * cp];
+    basis(c);
+    const x1 = x * c.cy - z * c.sy, z1 = x * c.sy + z * c.cy;
+    return [x1, y * c.cp - z1 * c.sp, y * c.sp + z1 * c.cp];
   }
   function project(c, x, y, z, w, h) {
     const p = rot(c, x, y, z);
     const s = c.f / (c.f + p[2] + c.dist);
-    return [w / 2 + p[0] * s, h / 2 + p[1] * s, s];
+    return [w * (c.centerX == null ? .5 : c.centerX) + p[0] * s, h * (c.centerY == null ? .5 : c.centerY) + p[1] * s, s];
   }
   function depth(c, x, y, z) { return rot(c, x, y, z)[2]; }
   /* camera-space normal → diffuse brightness for one face */
   function brightness(c, n) {
-    const r = rot(c, n[0], n[1], n[2]);
-    const d = r[0] * LIGHT[0] + r[1] * LIGHT[1] + r[2] * LIGHT[2];
+    basis(c);
+    const d = n[0] * c.lx + n[1] * c.ly + n[2] * c.lz;
     return 0.42 + 0.74 * Math.max(0, d);
   }
   /* fog: far geometry fades into the backdrop */
@@ -151,9 +173,18 @@ window.RIG3D = (function () {
   function loopPoints(centre, r, plane, seg, a0, a1) {
     const pts = [];
     const from = a0 == null ? 0 : a0, to = a1 == null ? TAU : a1;
+    let unit;
+    if (from === 0 && to === TAU) {
+      unit = circleCache.get(seg);
+      if (!unit) unit = remember(circleCache, seg, Array.from({ length: seg + 1 }, (_, i) => {
+        const angle = TAU * i / seg;
+        return [Math.cos(angle), Math.sin(angle)];
+      }), 12);
+    }
     for (let i = 0; i <= seg; i++) {
-      const ang = from + (to - from) * (i / seg);
-      const u = Math.cos(ang) * r, v = Math.sin(ang) * r;
+      const angle = from + (to - from) * (i / seg);
+      const u = (unit ? unit[i][0] : Math.cos(angle)) * r;
+      const v = (unit ? unit[i][1] : Math.sin(angle)) * r;
       if (plane === "xy") pts.push([centre[0] + u, centre[1] + v, centre[2]]);
       else if (plane === "yz") pts.push([centre[0], centre[1] + u, centre[2] + v]);
       else pts.push([centre[0] + u, centre[1], centre[2] + v]);
@@ -356,7 +387,9 @@ window.RIG3D = (function () {
           const px = Math.max(9, l.size * (w < 500 ? 0.88 : 1));
           ctx.font = (o.bold ? "600 " : "400 ") + px.toFixed(1) + "px ui-monospace, Menlo, monospace";
           const lines = l.text.split("\n");
-          const tw = Math.max(...lines.map(line => ctx.measureText(line).width));
+          const textKey = ctx.font + "\n" + l.text;
+          let tw = textCache.get(textKey);
+          if (tw == null) tw = remember(textCache, textKey, Math.max(...lines.map(line => ctx.measureText(line).width)), 256);
           const bw = Math.min(w - 16, tw + 12), bh = lines.length * (px + 4) + 6;
           let x = q[0] + (o.dx || 0), y = q[1] + (o.dy || 0);
           if (o.align === "left") x += bw / 2 - 6;
@@ -423,6 +456,7 @@ window.RIG3D = (function () {
   return {
     TAU, C, VIEW, clamp, a, shade, rgb,
     setView, cam, project, depth, rig, loopPoints,
+    setOrbit(angle) { orbit = angle; },
     setTilt(yaw, pitch) { TILT.yaw = yaw; TILT.pitch = pitch; },
     getTilt() { return { yaw: TILT.yaw, pitch: TILT.pitch }; }
   };

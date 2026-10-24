@@ -27,7 +27,7 @@ async function open(lang, width, height, args = 'still=1#1') {
   await cdp('Page.navigate', { url: `http://127.0.0.1:8096/?qa=${Date.now()}&lang=${lang}&${args}` });
   for (let i = 0; i < 60; i++) {
     await pause(60);
-    if (await run('window.__booted === true && document.documentElement.lang === (window.LANGUAGES || []).find(l => l.code === ' + JSON.stringify(lang) + ')?.html')) return;
+    if (args === '' ? await run("window.ENTRY && ENTRY.state === 'locked'") : await run('window.__booted === true && document.documentElement.lang === (window.LANGUAGES || []).find(l => l.code === ' + JSON.stringify(lang) + ')?.html')) return;
   }
   throw Error('Boot timeout: ' + lang);
 }
@@ -82,8 +82,12 @@ try {
       return report;
     })()`);
     console.log(`${renderReport.length} render combinations: unique scenes, animation, tilt, reduced motion passed`);
-    for (const [lang, width, height] of [['ja',390,844],['en',1440,900],['ar',390,844],['ja',844,390],['ja',320,568],['en',375,667]]) {
+    for (const [lang, width, height] of [['ja',390,844],['en',1440,900],['ar',390,844],['ja',844,390],['ja',320,568],['en',375,667],['ja',768,1024],['en',1024,768],['ja',1280,800],['en',1920,1080]]) {
       await open(lang,width,height);
+      const layout=await run(`(() => {const c=document.getElementById('scene').getBoundingClientRect(),p=document.getElementById('panel'),b=p.getBoundingClientRect(),a=document.getElementById('repo-link'),r=a.getBoundingClientRect();return {canvasBottom:c.bottom,panelTop:b.top,bg:getComputedStyle(p).backgroundImage,opacity:getComputedStyle(p).opacity,href:a.href,svg:!!a.querySelector('svg'),right:r.right,top:r.top}})()`);
+      assert.equal(layout.href,'https://github.com/yomiplush/2026-world-is-a-fuck-incident');
+      assert.ok(layout.svg && layout.right<=width && layout.right>width-60 && layout.top<=44,'GitHub must remain at top right');
+      if(width<500){assert.ok(layout.canvasBottom>layout.panelTop+64,'phone diagram must extend behind copy');assert.match(layout.bg,/rgba/);assert.equal(layout.opacity,'1','copy must remain opaque');}
       for (let i=0;i<34;i++) {
         const state=await run(`(() => {
           const panel=document.getElementById('panel'), box=panel.getBoundingClientRect();
@@ -108,6 +112,9 @@ try {
     }
     // Actual pointer input must rotate and retain the camera across navigation.
     await open('en',1440,900,'scene=18');
+    const idleYaw=await run('RIG3D.cam(0,{yaw:0}).yaw');await pause(650);
+    const orbitDelta=(await run('RIG3D.cam(0,{yaw:0}).yaw'))-idleYaw;
+    assert.ok(orbitDelta>.015 && orbitDelta<.08,'idle orbit must be slow and continuous');
     await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:1050,y:320,button:'left',clickCount:1});
     await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:1150,y:345,button:'left',buttons:1});
     await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:1150,y:345,button:'left',clickCount:1});
@@ -135,7 +142,8 @@ try {
       await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:k});
       await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:k});
     };
-    await key('Enter');await pause(250);
+    await key('Enter');
+    for(let i=0;i<80;i++){await pause(50);if(await run("window.__booted === true && ENTRY.state === 'ready'"))break;}
     assert.equal(await run("document.getElementById('cover').classList.contains('hidden')"),true);
     await key('m');assert.equal(await run("document.getElementById('btn-audio').getAttribute('aria-pressed')"),'false');
     await key('m');assert.equal(await run("document.getElementById('btn-audio').getAttribute('aria-pressed')"),'true');
@@ -157,6 +165,6 @@ try {
     }
     assert.deepEqual(errors,[],'browser exceptions');
     console.log('Pointer input, camera retention/reset, keyboard, audio, OS motion preference, 12 locales: passed; no browser exceptions');
-    fs.writeFileSync(`${artifactDir}/verification.json`,JSON.stringify({renderCombinations:renderReport.length,uiSceneChecks:204,locales:12,errors},null,2));
+    fs.writeFileSync(`${artifactDir}/verification.json`,JSON.stringify({renderCombinations:renderReport.length,uiSceneChecks:340,locales:12,errors},null,2));
   }
 } finally { ws.close(); }

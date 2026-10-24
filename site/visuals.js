@@ -13,7 +13,7 @@ window.VISUALS = (function () {
 
   function stage(ctx, w, h, t, options = {}) {
     const e = enter(t);
-    const camera = R.cam(t, { pitch: -.32, yaw: .22, pitchMax: -.10,
+    const camera = R.cam(t, { pitch: 0.52, yaw: .22, pitchMin: 0.3,
       ...options, dist: (options.dist || 1000) + (1 - e) * 180 });
     const g = R.rig(ctx, camera, w, h);
     // A restrained instrument deck gives solids scale and grounded shadows.
@@ -77,7 +77,7 @@ window.VISUALS = (function () {
   }
 
   scenes.radar = (ctx,w,h,t) => {
-    const g = stage(ctx,w,h,t,{pitch:-.56,yaw:.16,pitchMax:-.28});
+    const g = stage(ctx,w,h,t,{pitch: 0.56,yaw:.16,pitchMin: 0.3});
     const y = 80, r = 425;
     g.prism(0,180,0,150,55,8,C.steel,{alpha:.65,edge:.35});
     g.prism(0,110,0,r+20,12,64,C.cyan,{alpha:.3,edge:.5});
@@ -101,7 +101,7 @@ window.VISUALS = (function () {
   };
 
   scenes.timeline = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{yaw:.08,pitch:-.28});
+    const g=stage(ctx,w,h,t,{yaw:.08,pitch: 0.52});
     const marks=o.marks||[], n=marks.length;
     wire(g,[-500,200,0],[500,200,0],C.amber,3);
     marks.forEach((name,i)=>{
@@ -117,7 +117,7 @@ window.VISUALS = (function () {
   };
 
   scenes.grid = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.62,yaw:-.12,pitchMax:-.34});
+    const g=stage(ctx,w,h,t,{pitch: 0.62,yaw:-.12,pitchMin: 0.34});
     const cols=o.cols||9, rows=o.rows||5, gap=86, hot=new Set(o.hot||[]);
     for(let row=0;row<rows;row++)for(let col=0;col<cols;col++) {
       const i=row*cols+col, hit=hot.has(i), x=(col-(cols-1)/2)*gap, z=(row-(rows-1)/2)*gap;
@@ -134,7 +134,7 @@ window.VISUALS = (function () {
   };
 
   scenes.fanout = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.46,yaw:.18});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.18});
     const hub=[0,-90,0], n=o.nodes||14;
     node(g,hub,'CUSTOMER DB',C.amber,t,0,{hx:95,hy:58,hz:66});
     ring(g,[0,145,0],410,C.cyan);
@@ -148,7 +148,7 @@ window.VISUALS = (function () {
   };
 
   scenes.keys = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.24,yaw:.12});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.12});
     const n=o.count||8, weak=o.weakIndex==null?3:o.weakIndex;
     for(let i=0;i<n;i++) {
       const x=(i-(n-1)/2)*128, y=i===weak?30:0, tone=i===weak?C.red:C.cyan;
@@ -165,7 +165,7 @@ window.VISUALS = (function () {
   };
 
   scenes.ladder = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.35,yaw:-.18});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:-.18});
     const steps=o.steps||[], n=steps.length, gap=Math.min(240,920/Math.max(1,n-1));
     steps.forEach((name,i)=>{
       const x=(i-(n-1)/2)*gap, y=190-i*52, z=(i-(n-1)/2)*24, tone=i===o.hot?C.amber:C.cyan;
@@ -179,7 +179,7 @@ window.VISUALS = (function () {
   };
 
   scenes.matrix = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.62,yaw:-.25,pitchMax:-.34});
+    const g=stage(ctx,w,h,t,{pitch: 0.62,yaw:-.25,pitchMin: 0.34});
     const cols=o.cols||11, rows=o.rows||5, n=cols*rows;
     for(let i=0;i<n;i++) {
       const x=(i%cols-(cols-1)/2)*75,z=(Math.floor(i/cols)-(rows-1)/2)*80;
@@ -195,7 +195,7 @@ window.VISUALS = (function () {
   };
 
   scenes.chain = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.27,yaw:.08});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.08});
     const nodes=o.nodes||[], n=nodes.length;
     const pts=nodes.map((_,i)=>[(i-(n-1)/2)*230,(i%2?70:-40),0]);
     pts.forEach((p,i)=>{
@@ -209,7 +209,7 @@ window.VISUALS = (function () {
   };
 
   scenes.clock = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.32,yaw:.15});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.15});
     const r=270, centre=[-120,-10,0];
     g.prism(...centre,r+30,24,64,C.cyan,{alpha:.5,edge:.5,axis:'z'});
     ring(g,[-120,-10,-28],r,C.cyan,'xy');
@@ -232,7 +232,7 @@ window.VISUALS = (function () {
   };
 
   scenes.packages = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.42,yaw:.12});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.12});
     const hub=[0,-80,0], items=o.items||[];
     node(g,hub,'CREDENTIALS',C.amber,t,0,{hx:85,hy:50,hz:60});
     ring(g,[0,160,0],410,C.red);
@@ -246,7 +246,7 @@ window.VISUALS = (function () {
   };
 
   scenes.pillars = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.38,yaw:.14});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.14});
     ['RAILWAY','ZEABUR','OPENCODE'].forEach((name,i)=>{
       const x=(i-1)*330;
       node(g,[x,95,0],name,C.cyan,t,i,{hx:90,hy:125,hz:65});
@@ -258,7 +258,7 @@ window.VISUALS = (function () {
   };
 
   scenes.dns = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.4,yaw:.18});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.18});
     const core=[0,-10,0];
     node(g,core,'named / GSS-TSIG',C.amber,t,0,{hx:95,hy:68,hz:68});
     const n=o.clients||7;
@@ -272,7 +272,7 @@ window.VISUALS = (function () {
   };
 
   scenes.leak = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.16,yaw:.12});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.12});
     const ids=o.ids||[];
     g.box(-420,0,0,12,270,65,C.cyan,{alpha:.5});
     g.box(420,0,0,12,270,65,C.red,{alpha:.5});
@@ -287,7 +287,7 @@ window.VISUALS = (function () {
   };
 
   scenes.bars = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.32,yaw:-.18});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:-.18});
     const values=o.values||[104,1], names=o.labels||[], max=Math.max(...values);
     values.forEach((v,i)=>{
       const x=(i-.5)*440, height=(v/max)*420*enter(t,i*.15), tone=i?C.red:C.amber;
@@ -300,7 +300,7 @@ window.VISUALS = (function () {
   };
 
   scenes.core = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.26,yaw:.18});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.18});
     g.prism(0,0,0,170,85,6,C.cyan,{alpha:.7,edge:.8,rot:Math.PI/6});
     g.prism(0,-12,0,110,86,6,C.amber,{alpha:.6,edge:.8,rot:Math.PI/6});
     const parts=o.parts||[];
@@ -318,7 +318,7 @@ window.VISUALS = (function () {
   };
 
   scenes.channels = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.24,yaw:.10});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.10});
     const names=o.labels||['PUBLISHED','MODIFIED','FEEDS','OSS-SEC'];
     names.forEach((name,i)=>{
       const x=-420+i*280, tone=i===3?C.green:C.cyan;
@@ -336,7 +336,7 @@ window.VISUALS = (function () {
   };
 
   scenes.stack = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.18,yaw:.18});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.18});
     const cards=o.cards||[];
     cards.forEach((card,i)=>{
       const y=-220+i*84, x=(i%2?20:-20)+Math.sin(t*.65+i)*5, z=i*12;
@@ -348,7 +348,7 @@ window.VISUALS = (function () {
   };
 
   scenes.decode = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.23,yaw:.08});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.08});
     const core=[80,-40,0], out=[470,-40,0];
     [[-440,-200,0],[-440,45,0]].forEach((p,i)=>{
       node(g,p,i?'express / raw':'fetch RESPONSE',C.cyan,t,i,{hx:70,hy:35,hz:35,font:10});
@@ -365,7 +365,7 @@ window.VISUALS = (function () {
   };
 
   scenes.before = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.25,yaw:.08});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.08});
     const y=150, patch=240;
     wire(g,[-490,y,0],[510,y,0],C.steel,2);
     gate(g,[patch,y,0],C.green,'PATCH');
@@ -381,7 +381,7 @@ window.VISUALS = (function () {
   };
 
   scenes.funnel = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.2,yaw:.12});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.12});
     const cards=o.cards||[
       {id:'CVE-2026-111497',score:'9.2',kind:'CVSS 4.0'},
       {id:'CVE-2026-114625',score:'9.9',kind:'CNA'},
@@ -401,7 +401,7 @@ window.VISUALS = (function () {
   };
 
   scenes.ledger = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.13,yaw:.12});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.12});
     const rows=o.rows||[
       {name:'ARISTA VELOCLOUD',figure:'9.9',tone:'red'}, {name:'LINUX KSMBD',figure:'9.0',tone:'amber'},
       {name:'CAPCOM ID',figure:'11,774,247',tone:'amber'}, {name:'ONAMAE DESKTOP CLOUD',figure:'26,739',tone:'amber'}];
@@ -418,7 +418,7 @@ window.VISUALS = (function () {
   };
 
   scenes.checklist = (ctx,w,h,t,o) => {
-    const g=stage(ctx,w,h,t,{pitch:-.15,yaw:.08});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.08});
     const conditions=o.conditions||['handler = php_binary','ini_set → php','before session_start','upload_progress on'];
     [-285,285].forEach((x,col)=>{
       const tone=col?C.green:C.red;
@@ -436,7 +436,7 @@ window.VISUALS = (function () {
   };
 
   scenes.intelConfluence = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.30,yaw:.1});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.1});
     const names=['NVD','GHSA','KEV','JVN','FEEDS'];
     names.forEach((name,i)=>{
       const x=-450+i*225, p=[x,-170,(i%2)*80];
@@ -450,7 +450,7 @@ window.VISUALS = (function () {
   };
 
   scenes.exploitIsolation = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.20,yaw:.10});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.10});
     [['ARISTA VCO','VALID SESSION'],['COLLABORA','BUILT-IN CODE / NO AUTH']].forEach(([name,condition],i)=>{
       const y=-120+i*280;
       node(g,[-390,y,0],name,C.red,t,i,{hx:75,hy:40,hz:40});
@@ -465,7 +465,7 @@ window.VISUALS = (function () {
   };
 
   scenes.packageBoundaries = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.3,yaw:.15});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.15});
     ['PILLOW','WASMTIME','LARAVEL','ECHO'].forEach((name,i)=>{
       const x=-420+i*280, tone=[C.amber,C.cyan,C.green,C.amber][i];
       g.box(x,20,0,100,135,75,tone,{alpha:.58,edge:.6});
@@ -480,7 +480,7 @@ window.VISUALS = (function () {
   };
 
   scenes.bundledLayers = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.38,yaw:.26});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.26});
     const layers=[['APP INPUT','REGEXP','ONIGMO'],['MODULE','BUNDLED','BROTLI'],['REQUEST','DIRECTIVES','WORKER']];
     ['RUBY','PERL','NGINX'].forEach((name,i)=>{
       const x=(i-1)*340;
@@ -497,7 +497,7 @@ window.VISUALS = (function () {
   };
 
   scenes.agentPermissions = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.27,yaw:.14});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.14});
     node(g,[0,0,0],'AGENT',C.amber,t,0,{hx:60,hy:60,hz:60});
     const targets=[[-425,-170,'AUTH','IDENTITY'],[425,-170,'TLS','TRANSPORT'],[-425,170,'VAULT','SCOPE'],[425,170,'MODEL','INPUT']];
     targets.forEach(([x,y,name,tag],i)=>{
@@ -512,7 +512,7 @@ window.VISUALS = (function () {
   };
 
   scenes.domesticRoutes = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.60,yaw:.10,pitchMax:-.28});
+    const g=stage(ctx,w,h,t,{pitch: 0.6,yaw:.10,pitchMin: 0.3});
     // A locator only: the cards are product groups, never incident cities.
     const islands=[
       [[50,-177],[74,-190],[110,-164],[101,-140],[73,-143],[57,-125],[38,-140]],
@@ -537,7 +537,7 @@ window.VISUALS = (function () {
   };
 
   scenes.firmwareFleet = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.30,yaw:.06});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.06});
     const lines=['10.8','10.7','10.4','8.13','8.10'];
     const fixes=['10.8.1.2','10.7.2.7','10.4.1.14','8.13.3.1','8.10.0.24'];
     lines.forEach((name,i)=>{
@@ -556,7 +556,7 @@ window.VISUALS = (function () {
   };
 
   scenes.trustRenewal = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.24,yaw:.14});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.14});
     ['CERTIFICATE','SECURE BOOT','CREDENTIALS'].forEach((name,i)=>{
       const x=(i-1)*350;
       node(g,[x,-40,0],name,C.cyan,t,i,{hx:112,hy:100,hz:30,font:11});
@@ -569,7 +569,7 @@ window.VISUALS = (function () {
   };
 
   scenes.storm = (ctx,w,h,t) => {
-    const g=stage(ctx,w,h,t,{pitch:-.25,yaw:.16});
+    const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];
     for(let i=0;i<80;i++) {
       const a=i*2.399+t*.025, r=210+(i*43)%330;
@@ -598,13 +598,14 @@ window.VISUALS = (function () {
     ctx.restore();
   }
   return {
+    setOrbit(angle) { R.setOrbit(angle); },
     setTilt(yaw,pitch) { R.setTilt(yaw,pitch); },
     getTilt() { return R.getTilt(); },
     draw(visual,ctx,w,h,t,reduced,ox,oy,viewport) {
       const type=visual&&visual.type||'radar', fn=scenes[type]||scenes.radar;
       const v=viewport||{x:ox||0,y:oy||0,width:w,height:h};
       const time=reduced?4:Math.max(0,t);
-      R.setView(v.width,v.height);
+      R.setView(v.width,v.height,v.anchorX == null ? .5 : v.anchorX,v.anchorY == null ? .5 : v.anchorY);
       ctx.clearRect(0,0,w,h);
       if(window.__labelSink)window.__labelSink.length=0;
       window.__viewOffset={x:v.x,y:v.y};

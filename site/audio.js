@@ -2,8 +2,32 @@
 window.AUDIO = (function () {
   const A = {
     ctx: null, master: null, music: null, sfxBus: null, verb: null,
-    on: true, ready: false, track: null
+    on: true, ready: false, track: null, visible: !document.hidden
   };
+
+  const noiseCache = new Map();
+  const voices = new Set();
+  function retain(source) {
+    if (voices.size >= 48) {
+      const oldest = voices.values().next().value;
+      try { oldest.stop(); } catch (_) { /* already ended */ }
+      voices.delete(oldest);
+    }
+    voices.add(source);
+  }
+  function playback() {
+    if (!A.ready) return;
+    if (A.on && A.visible) {
+      A.ctx.resume().catch(() => {});
+      if (A.track.paused) A.track.play().catch(() => {});
+    } else {
+      for (const source of voices) { try { source.stop(); } catch (_) { /* already ended */ } }
+      voices.clear();
+      A.track.pause();
+      A.ctx.suspend().catch(() => {});
+    }
+  }
+  A.setVisible = function (visible) { A.visible = visible; playback(); };
 
   /* ---------------- setup ---------------- */
   function makeIR(ctx, seconds, decay) {
@@ -21,16 +45,19 @@ window.AUDIO = (function () {
 
   function noiseBuffer(ctx, seconds) {
     const rate = ctx.sampleRate, len = Math.floor(rate * seconds);
+    const key = rate + ":" + len;
+    if (noiseCache.has(key)) return noiseCache.get(key);
     const buf = ctx.createBuffer(1, len, rate);
     const d = buf.getChannelData(0);
     for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    if (noiseCache.size >= 8) noiseCache.delete(noiseCache.keys().next().value);
+    noiseCache.set(key, buf);
     return buf;
   }
 
   A.init = function () {
     if (A.ready) {
-      A.ctx.resume && A.ctx.resume();
-      if (A.on && A.track.paused) A.track.play().catch(() => {});
+      playback();
       return;
     }
     const AC = window.AudioContext || window.webkitAudioContext;
@@ -65,7 +92,7 @@ window.AUDIO = (function () {
     track.src = track.canPlayType('audio/ogg; codecs="opus"')
       ? "./audio/infosec.opus" : "./audio/infosec.mp3";
     ctx.createMediaElementSource(track).connect(A.music);
-    track.play().catch(() => { /* A subsequent user gesture can retry playback. */ });
+    playback();
     A.music.gain.setTargetAtTime(0.42, ctx.currentTime, 1.2);
   };
 
@@ -83,7 +110,8 @@ window.AUDIO = (function () {
     if (detune) o.detune.value = detune;
     env(g, t, 0.005, dur, peak);
     o.connect(g); g.connect(dest || A.sfxBus);
-    o.start(t); o.stop(t + dur + 0.05);
+    o.onended = () => { voices.delete(o); o.disconnect(); g.disconnect(); };
+    o.start(t); o.stop(t + dur + 0.05); retain(o);
     return o;
   }
 
@@ -101,7 +129,8 @@ window.AUDIO = (function () {
     g.gain.exponentialRampToValueAtTime(peak, t + 0.008);
     g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
     src.connect(f); f.connect(g); g.connect(dest || A.sfxBus);
-    src.start(t); src.stop(t + dur + 0.05);
+    src.onended = () => { voices.delete(src); src.disconnect(); f.disconnect(); g.disconnect(); };
+    src.start(t); src.stop(t + dur + 0.05); retain(src);
   }
 
   /* ---------------- SFX ---------------- */
@@ -146,7 +175,7 @@ window.AUDIO = (function () {
   };
 
   A.sfx = function (name) {
-    if (!A.ready || !A.on) return;
+    if (!A.ready || !A.on || !A.visible) return;
     const t = A.ctx.currentTime + 0.01;
     (SFX[name] || SFX.blip)(t);
   };
@@ -154,18 +183,22 @@ window.AUDIO = (function () {
   A.toggle = function () {
     if (!A.ready) return A.on;
     A.on = !A.on;
-    if (A.on) {
-      A.ctx.resume && A.ctx.resume();
-      A.track.play().catch(() => {});
-    } else {
-      A.track.pause();
-    }
+    playback();
     const now = A.ctx.currentTime;
     A.master.gain.cancelScheduledValues(now);
     A.master.gain.setTargetAtTime(A.on ? 0.9 : 0.0, now, 0.08);
     return A.on;
   };
 
+  A.dispose = function () {
+    if (!A.ready) return;
+    A.setVisible(false);
+    A.track.removeAttribute("src"); A.track.load();
+    A.ctx.close().catch(() => {});
+    noiseCache.clear(); voices.clear();
+    A.ready = false;
+    A.ctx = A.master = A.music = A.sfxBus = A.verb = A.track = null;
+  };
   A.isOn = () => A.on;
 
   return A;
