@@ -28,6 +28,44 @@ site/
   app.js        scene controller, input, canvas loop, deep links, sources drawer
 ```
 
+## Motion rebuild (2026-10-25)
+
+All 31 renderers (34 scenes, including parameterized variants) were rebuilt on
+`RIG3D`. The site stays framework-free and buildless. Scene IDs, order, data,
+source citations, locale fallback, audio, deep links and camera gestures retain
+their existing contracts.
+
+- Dark shaded solids, lit insets, grounded instrument decks and deliberate
+  entrance easing replace the previous compositions. Each scene keeps a
+  distinct topology and motion that explains the relationship it illustrates.
+- `VISUALS.draw` still accepts its original arguments. An optional final
+  `{ x, y, width, height }` viewport lets the controller reserve space between
+  the actual header, text panel and footer. Portrait screens place the drawing
+  above the independently scrolling text; desktop and landscape use two columns.
+- Perspective scaling fits both dimensions. Projected labels retain a readable
+  minimum size, stay inside the viewport and seek nearby free positions with
+  leader lines when the camera would otherwise stack them.
+- Color shading accepts hexadecimal, RGB and RGBA tones. Nested alpha composition
+  retains transparency instead of producing invalid color channels.
+- `?still=1` now freezes Canvas as well as CSS. Both static and reduced-motion
+  rendering use a deterministic, fully revealed frame at four seconds; camera
+  gestures remain available. Changes to the OS motion preference apply immediately.
+
+### Verification
+
+From the repository root, run `node tests/rig3d.test.cjs` for color composition
+and short-viewport projection regressions.
+
+For integration checks, serve `site/` on `127.0.0.1:8096`, launch a dedicated
+Chrome with `--headless=new --remote-debugging-port=9236` and a temporary user-data
+directory, then run `node tests/browser.mjs`. The test uses native Node WebSocket
+and Chrome DevTools Protocol, with no npm dependencies. It checks real Canvas
+pixels for distinct scenes, motion, camera response and static determinism;
+projected-label overlap at three camera poses; all 34 scenes in Japanese,
+English and Arabic plus landscape; the source drawer, camera persistence and
+all twelve locale selections. Screenshots and the verification report go to
+`/tmp/infosec-motion-rebuild-artifacts` (override with `MOTION_ARTIFACTS`).
+
 ## Run it locally
 
 ```bash
@@ -185,7 +223,7 @@ is a locator, not an attribution of incidents to cities. Eight warning glyphs
 in the HPE scene count maximum-score CVEs, not compromised devices. All eight are
 built from 3D primitives in world space (nested boxes, barrier planes, slab
 stacks, a tilted map plane), respond to the camera, and retain complete geometry
-when reduced motion fixes their timeline at 1.2 seconds.
+when reduced motion fixes their timeline at four seconds.
 
 The update summarizes `docs/24-snapshot-20261024` and its 24-group structured
 register. The 17 recent KEV additions and full collection windows remain in the

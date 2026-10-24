@@ -22,19 +22,25 @@ window.RIG3D = (function () {
   })();
 
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  const hexCache = {};
+  const hexCache = Object.create(null);
   function rgb(hex) {
     let c = hexCache[hex];
     if (!c) {
-      const s = hex.replace("#", "");
-      c = [parseInt(s.slice(0, 2), 16), parseInt(s.slice(2, 4), 16), parseInt(s.slice(4, 6), 16)];
+      if (hex[0] === "#") {
+        let s = hex.slice(1);
+        if (s.length === 3) s = s.split("").map(v => v + v).join("");
+        c = [parseInt(s.slice(0, 2), 16), parseInt(s.slice(2, 4), 16), parseInt(s.slice(4, 6), 16), 1];
+      } else {
+        c = hex.match(/[\d.]+/g).map(Number);
+        if (c.length === 3) c.push(1);
+      }
       hexCache[hex] = c;
     }
     return c;
   }
   function a(hex, alpha) {
     const c = rgb(hex);
-    return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + alpha + ")";
+    return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + alpha * c[3] + ")";
   }
   /* multiply a colour toward black (k<1) or white (k>1) — per-face lighting */
   function shade(hex, k) {
@@ -46,7 +52,7 @@ window.RIG3D = (function () {
   /* ---------- camera ---------- */
   function setView(w, h) {
     VIEW.w = w; VIEW.h = h;
-    VIEW.s0 = w < 640 ? (w * 0.95) / 1000 : 0.60;
+    VIEW.s0 = Math.max(0.08, Math.min((w - 24) / 1320, (h - 24) / 920, 0.86));
     // dist = f/s0 - f, and cam() multiplies its base distance by VIEW.zoom
     VIEW.zoom = (900 / VIEW.s0 - 900) / 1000;
     return VIEW;
@@ -167,7 +173,7 @@ window.RIG3D = (function () {
 
     function faces(list, tone, o) {
       o = o || {};
-      const alpha = o.alpha == null ? 0.94 : o.alpha;
+      const alpha = (o.alpha == null ? 0.94 : o.alpha) * rgb(tone)[3];
       for (const f of list) {
         let z = 0;
         for (const p of f.p) z += D(p);
@@ -181,7 +187,9 @@ window.RIG3D = (function () {
           ctx.closePath();
           if (!o.wire) {
             ctx.globalAlpha = alpha * fog;
-            ctx.fillStyle = o.fill || shade(tone, b);
+            const base = rgb(C.deep), tint = rgb(tone);
+            const mix = 0.13 + b * 0.30;
+            ctx.fillStyle = o.fill || "rgb(" + base.slice(0, 3).map((v, i) => Math.round(v + (tint[i] - v) * mix)).join(",") + ")";
             ctx.fill();
           }
           ctx.globalAlpha = (o.edge == null ? 0.5 : o.edge) * fog;
@@ -332,43 +340,79 @@ window.RIG3D = (function () {
           });
         }
       },
-      /* billboarded text: position follows the 3D point, glyphs stay upright */
+      /* Labels remain upright. Placement happens after projection, so a drag
+         cannot stack labels on top of one another or push them off the stage. */
       label(p, text, tone, size, o) {
-        o = o || {};
-        const z = D(p);
-        labels.push({
-          z, fn(fog) {
-            const q = P(p);
-            const px = Math.max(6, (size || 10) * kOf(q[2]));
-            ctx.font = (o.bold ? "700 " : "") + px.toFixed(1) + "px ui-monospace, Menlo, monospace";
-            ctx.textAlign = o.align || "center";
-            ctx.textBaseline = "middle";
-            ctx.globalAlpha = (o.alpha == null ? 1 : o.alpha) * (0.55 + 0.45 * fog);
-            const x = q[0] + (o.dx || 0), y = q[1] + (o.dy || 0);
-            const tw = ctx.measureText(text).width;
-            // test hook: collects label boxes so collisions can be measured
-            if (window.__labelSink) {
-              window.__labelSink.push({ text, x, y, w: tw, h: px });
-            }
-            if (o.plate) {
-              const pw = tw + px * 0.9, ph = px * 1.8;
-              const ax = o.align === "left" ? x - px * 0.45 : o.align === "right" ? x - pw + px * 0.45 : x - pw / 2;
-              ctx.globalAlpha *= 0.82;
-              ctx.fillStyle = "rgba(6,12,19,.82)";
-              ctx.fillRect(ax, y - ph / 2, pw, ph);
-              ctx.globalAlpha /= 0.82;
-            }
-            ctx.fillStyle = tone;
-            ctx.fillText(text, x, y);
-            ctx.globalAlpha = 1;
-          }
-        });
+        labels.push({ p, text: String(text), tone, size: size || 10, o: o || {}, z: D(p) });
       },
       flush() {
+        ctx.save();
         items.sort((p, q) => q.z - p.z);
         for (const it of items) it.fn(fogFor(it.z));
-        labels.sort((p, q) => q.z - p.z);
-        for (const l of labels) l.fn(fogFor(l.z));
+        const occupied = [];
+        labels.sort((a, b) => (b.o.priority || 0) - (a.o.priority || 0) || b.text.length - a.text.length || a.z - b.z);
+        for (const l of labels) {
+          const q = P(l.p), o = l.o;
+          const px = Math.max(9, l.size * (w < 500 ? 0.88 : 1));
+          ctx.font = (o.bold ? "600 " : "400 ") + px.toFixed(1) + "px ui-monospace, Menlo, monospace";
+          const lines = l.text.split("\n");
+          const tw = Math.max(...lines.map(line => ctx.measureText(line).width));
+          const bw = Math.min(w - 16, tw + 12), bh = lines.length * (px + 4) + 6;
+          let x = q[0] + (o.dx || 0), y = q[1] + (o.dy || 0);
+          if (o.align === "left") x += bw / 2 - 6;
+          if (o.align === "right") x -= bw / 2 - 6;
+          x = clamp(x, bw / 2 + 8, w - bw / 2 - 8);
+          y = clamp(y, bh / 2 + 8, h - bh / 2 - 8);
+          const origin = [x, y];
+          const overlaps = (box) => occupied.some(b => box.x < b.x + b.w + 3 && box.x + box.w + 3 > b.x && box.y < b.y + b.h + 3 && box.y + box.h + 3 > b.y);
+          let box;
+          // Find the closest free location; all labels keep their world anchor.
+          const candidates = [[0, 0]];
+          for (let r = 1; r <= 10; r++) {
+            candidates.push([0, -r * (bh + 5)], [0, r * (bh + 5)]);
+            if (r <= 3) candidates.push([-r * (bw + 8), 0], [r * (bw + 8), 0]);
+            for (const dx of [-bw / 2 - 8, bw / 2 + 8]) {
+              candidates.push([dx, -r * (bh + 5)], [dx, r * (bh + 5)]);
+            }
+          }
+          for (const [dx, dy] of candidates) {
+            const nx = clamp(origin[0] + dx, bw / 2 + 8, w - bw / 2 - 8);
+            const ny = clamp(origin[1] + dy, bh / 2 + 8, h - bh / 2 - 8);
+            const candidate = { x: nx - bw / 2, y: ny - bh / 2, w: bw, h: bh };
+            if (!overlaps(candidate)) { x = nx; y = ny; box = candidate; break; }
+          }
+          if (!box) {
+            const positions = [];
+            for (let ny = bh / 2 + 8; ny <= h - bh / 2 - 8; ny += 4) {
+              for (const nx of [origin[0], bw / 2 + 8, w / 2, w - bw / 2 - 8]) {
+                positions.push({ x: nx, y: ny, distance: Math.hypot(nx - origin[0], ny - origin[1]) });
+              }
+            }
+            positions.sort((a, b) => a.distance - b.distance);
+            for (const p of positions) {
+              const candidate = { x: p.x - bw / 2, y: p.y - bh / 2, w: bw, h: bh };
+              if (!overlaps(candidate)) { x = p.x; y = p.y; box = candidate; break; }
+            }
+          }
+          box = box || { x: x - bw / 2, y: y - bh / 2, w: bw, h: bh };
+          occupied.push(box);
+          ctx.globalAlpha = o.alpha == null ? 1 : o.alpha;
+          ctx.setLineDash([]);
+          if (Math.hypot(x - q[0], y - q[1]) > bh + 12) {
+            ctx.strokeStyle = a(l.tone, 0.25); ctx.lineWidth = 0.7;
+            ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.lineTo(x, y); ctx.stroke();
+          }
+          if (o.plate !== false) {
+            ctx.fillStyle = "rgba(5,11,18,.92)";
+            ctx.fillRect(box.x, box.y, box.w, box.h);
+            ctx.fillStyle = a(l.tone, 0.45);
+            ctx.fillRect(box.x, box.y + box.h - 1, box.w, 1);
+          }
+          ctx.fillStyle = l.tone; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          lines.forEach((line, i) => ctx.fillText(line, x, y + (i - (lines.length - 1) / 2) * (px + 4), w - 28));
+          if (window.__labelSink) window.__labelSink.push({ text: l.text, x, y, w: box.w, h: box.h });
+        }
+        ctx.restore();
         items.length = 0; labels.length = 0;
       },
       get count() { return budget; }

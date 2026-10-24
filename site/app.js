@@ -36,7 +36,14 @@
   window.__tilt = { tilt, tiltTarget, vel };
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   let lang = "en";
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const still = new URLSearchParams(location.search).get("still") === "1";
+  let reduced = motionPreference.matches || still;
+  let visualViewport = null;
+  motionPreference.addEventListener("change", (event) => {
+    reduced = event.matches || still;
+    drawFrame(performance.now());
+  });
 
   /* ---------- locales ---------- */
   const LOCALES = {};          // code -> { ui, scenes } for lazily loaded languages
@@ -158,23 +165,15 @@
     el.scene.width = Math.floor(w * dpr);
     el.scene.height = Math.floor(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (window.__booted) { drawFrame(performance.now()); updateMore(); }
+    if (window.__booted) { updateMore(); drawFrame(performance.now()); }
   }
   window.addEventListener("resize", resize, { passive: true });
 
   /* ---------- drawing ---------- */
   function drawFrame(now) {
     const elapsed = started ? Math.max(0, (now - sceneStart) / 1000) : 0;
-    const wide = w > 900;
-    const rtl = document.documentElement.dir === "rtl";
-    // the text panel sits bottom-left in LTR and bottom-right in RTL: move the
-    // diagram to the opposite side so the two never overlap
-    const ox = wide ? (rtl ? -w * 0.13 : w * 0.13) : 0;
-    // the text panel is bottom-anchored and tall on phones, so the diagram sits
-    // above it: on a 390x844 screen the panel can own the bottom 45%.
-    const oy = wide ? -h * 0.08 : -h * 0.22;
     try {
-      V.draw(scenes[index].visual, ctx, w, h, elapsed, reduced, ox, oy);
+      V.draw(scenes[index].visual, ctx, w, h, elapsed, reduced, 0, 0, visualViewport);
       window.__drawErr = null;
     } catch (err) {
       window.__drawErr = err && err.message;
@@ -216,6 +215,16 @@
   /* ---------- text ---------- */
   function updateMore() {
     const p = el.panel;
+    const box = p.getBoundingClientRect();
+    const header = document.querySelector(".hud-top").getBoundingClientRect();
+    const footer = document.querySelector(".hud-bottom").getBoundingClientRect();
+    const split = window.matchMedia("(min-width: 901px), (min-width: 641px) and (max-height: 560px)").matches;
+    const rtl = document.documentElement.dir === "rtl";
+    const top = header.bottom + 14;
+    const left = split ? (rtl ? 16 : box.right + 28) : 12;
+    const right = split ? (rtl ? box.left - 28 : w - 16) : w - 12;
+    const bottom = split ? footer.top - 18 : Math.min(box.top - 14, h * .48);
+    visualViewport = { x: left, y: top, width: Math.max(80, right - left), height: Math.max(80, bottom - top) };
     const over = p.scrollHeight - p.clientHeight > 2;
     const atEnd = p.scrollTop + p.clientHeight >= p.scrollHeight - 2;
     if (el.more) el.more.hidden = !(over && !atEnd);
@@ -251,6 +260,7 @@
     sceneStart = performance.now();
     // the camera angle carries over: the next scene is the same object, turned.
     vel.yaw = vel.pitch = 0;
+    updateMore();
     requestAnimationFrame(updateMore);
     if (started && !silent) {
       A.sfx(s.cue || "blip");
