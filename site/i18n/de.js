@@ -7,12 +7,12 @@ window.registerLocale("de", {
     hintEnd: "Ende des Briefings — tippen zum Neustart",
     coverKicker: "INCIDENT BRIEFING · 2026-10",
     coverTitleA: "EIN MONAT,", coverTitleB: "15 VORFÄLLE.",
-    coverSub: "Die fünfzehn Vorfälle im Oktober 2026, in zeitlicher Reihenfolge.<br>Plus Apache-Nachtrag und acht Nachträge vom 10-23. Tippen zum Weitergehen.",
+    coverSub: "Die fünfzehn Vorfälle im Oktober 2026, in zeitlicher Reihenfolge.<br>Plus Apache-Nachtrag und acht Nachträge vom 10-23. Tippen zum Weitergehen.<br>Acht neue Szenen vom 10-24 (Englisch).",
     coverStart: "TIPPE ZUM START",
     coverFoot: "Jede Aussage führt auf eine Primärquelle zurück. Nur ConnectWise ist unbestätigt.",
     drawerTitle: "QUELLEN / SOURCES",
     drawerFoot: "14 von 15 an Primärquellen geprüft. ConnectWise ist als unbestätigt markiert.",
-    asof: "Stand 2026-10-23 22:25 JST"
+    asof: "Stand 2026-10-24 19:13 JST"
   },
   scenes: {
     intro: { title: "Ein Monat, fünfzehn Vorfälle.",

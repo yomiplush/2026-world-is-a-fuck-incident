@@ -4,7 +4,7 @@ A single-page, tap-to-advance motion-graphic briefing of the October 2026 incide
 chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).
 Deployed to Cloudflare Pages.
 
-**Twenty-six scenes**: the fifteen checked incidents, two addenda (Apache, and six ZDI reports
+**Thirty-four scenes**: the fifteen checked incidents, two addenda (Apache, and six ZDI reports
 posted to the public LKML), and — appended on 2026-10-23 — **seven postscript scenes**: *Infinity
 Core* (six kernel core LPEs, five with public root PoCs), *the blind spot* (why no sweep found
 them), *the ecosystem* (58 package advisories in 24 h, two criticals with no CVE), then a
@@ -19,7 +19,7 @@ scene to tilt the 3D view** — release springs it back to the scene's own angle
 site/
   index.html    markup + HUD (no build step, no framework)
   style.css     HUD/Briefing look, responsive, reduced-motion + ?still=1 static mode
-  data.js       the 26 scenes: copy, numbers, per-scene sources
+  data.js       the 34 scenes: copy, numbers, per-scene sources
   visuals.js    23 canvas renderers (radar, chain, bars, clock, keys, leak, core, channels, stack,
                 decode, before, funnel, ledger, checklist, …)
   audio.js      Web Audio synthesis: 7 SFX + a generative lofi loop (no samples)
@@ -155,3 +155,16 @@ with the text, and the rail's aria-labels follow too.
 The copy in `data.js` is a summary of `docs/` in the parent repository, which cites primary
 sources. Every scene lists its own sources in the SOURCES drawer. Fourteen of the fifteen
 October items are verified; ConnectWise is carried as **unverified** and the site says so.
+
+## October 24 broad update (eight scenes, 26–33)
+
+Eight JA/EN scenes precede the closing scene: scope, exploited Arista/Collabora,
+Pillow/Wasmtime/Laravel/Echo, Ruby/Perl/NGINX, AI/MCP, Japanese business systems,
+HPE/industrial devices, and trust/credential checks. Existing radar and matrix
+renderers are reused; the 72-cell HPE visual counts CVEs, not attacks.
+
+The update summarizes `docs/24-snapshot-20261024` and its 24-group structured
+register. The 17 recent KEV additions and full collection windows remain in the
+detailed snapshot. New scenes fall back to English in the other ten locales;
+those locales explicitly label the eight new scenes as English. Existing scene
+numbers are preserved through #25; the closing scene moves to #34.

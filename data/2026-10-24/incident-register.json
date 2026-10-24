@@ -1,0 +1,424 @@
+{
+  "as_of": "2026-10-24T19:13:00+09:00",
+  "scope": "Current security incident review; curated groups, not a complete vulnerability inventory",
+  "exploitation_legend": {
+    "confirmed": "一次ソースまたはKEVで実悪用を確認",
+    "poc_reported": "研究/PoC報告。実悪用とは区別",
+    "not_confirmed_in_review": "今回参照した資料では実悪用を確定できない。不存在の証明ではない"
+  },
+  "entries": [
+    {
+      "id": "arista-vco",
+      "area": "edge",
+      "product": "Arista VeloCloud Orchestrator",
+      "identifiers": [
+        "CVE-2026-114625"
+      ],
+      "condition_ja": "管理UIに接続可能な有効アカウント。最小ロールEnterprise Read Onlyでも昇格可能",
+      "action_ja": "オンプレ5.2.3.18 / 6.1.3.10 / 6.4.2.12以降。修復前に証拠保全と侵害調査",
+      "exploitation": "confirmed",
+      "evidence": "primary",
+      "sources": [
+        "https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199"
+      ],
+      "note_ja": "KEV 10/23追加、期限10/26。Hosted/Dedicatedはベンダー修正済み"
+    },
+    {
+      "id": "collabora-code",
+      "area": "collaboration",
+      "product": "Nextcloud Built-in CODE Server",
+      "identifiers": [
+        "CVE-2026-110447",
+        "GHSA-g3vx-3m76-fghh"
+      ],
+      "condition_ja": "richdocumentscode <26.4.303、CODE停止中にproxy.php経由の未認証コード実行",
+      "action_ja": "26.4.303以降へ更新、またはアプリを削除。無効化だけでは不足。侵害調査も実施",
+      "exploitation": "confirmed",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/CollaboraOnline/online/security/advisories/GHSA-g3vx-3m76-fghh"
+      ],
+      "note_ja": "Standalone Collaboraは対象外。KEV 10/23追加、期限10/26"
+    },
+    {
+      "id": "pillow-fpx",
+      "area": "images",
+      "product": "Pillow",
+      "identifiers": [
+        "CVE-2026-112398",
+        "GHSA-5x8w-8jj5-q52h"
+      ],
+      "condition_ja": "Pillow <=12.3.0 + olefile、非信頼のFlashPix画像を開くサービス。拡張子では識別できない",
+      "action_ja": "13.0.0へ更新。Python 3.10対応終了も確認",
+      "exploitation": "poc_reported",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/python-pillow/Pillow/security/advisories/GHSA-5x8w-8jj5-q52h",
+        "https://pillow.readthedocs.io/en/stable/releasenotes/13.0.0.html"
+      ],
+      "note_ja": "公開PoCは固定構成・ASLR無効化等の条件あり。実悪用確認とは別"
+    },
+    {
+      "id": "wasmtime",
+      "area": "runtime",
+      "product": "Wasmtime / Cranelift",
+      "identifiers": [
+        "CVE-2026-115889",
+        "GHSA-897f-g5gm-fmxm"
+      ],
+      "condition_ja": "非信頼Wasmを既定のCraneliftでコンパイルするホスト。大きな関数でsandbox escapeの恐れ",
+      "action_ja": "36系列は36.0.19以降、37〜42系列は43.0.0以降へ",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-897f-g5gm-fmxm"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "laravel-token",
+      "area": "framework",
+      "product": "Laravel TokenGuard",
+      "identifiers": [
+        "CVE-2026-114509",
+        "GHSA-f9x3-7vq9-cph6"
+      ],
+      "condition_ja": "標準token API guardと特定MySQL/MariaDB構成。非文字列credentialで他ユーザーになりすまし",
+      "action_ja": "12.68.0 / 13.29.0以降へ更新",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/laravel/framework/security/advisories/GHSA-f9x3-7vq9-cph6"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "echo-proxy",
+      "area": "framework",
+      "product": "Echo Proxy middleware",
+      "identifiers": [
+        "GHSA-cxf3-9h37-7rr8"
+      ],
+      "condition_ja": "公開proxy route、upgradeを拒否して接続を維持するupstream、独立認可のない対象リソース",
+      "action_ja": "4.16.1 / 5.4.1へ更新。暫定はWebSocket upgrade拒否、またはupstreamでも認可",
+      "exploitation": "poc_reported",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/labstack/echo/security/advisories/GHSA-cxf3-9h37-7rr8"
+      ],
+      "note_ja": "CVE未付与。任意ホストへのproxy化やupstream自身の認証回避を意味しない"
+    },
+    {
+      "id": "ruby-regexp",
+      "area": "runtime",
+      "product": "Ruby Onigmo",
+      "identifiers": [
+        "CVE-2026-89078",
+        "CVE-2026-93577",
+        "CVE-2026-97229",
+        "CVE-2026-110264"
+      ],
+      "condition_ja": "攻撃者のパターンをRegexp.new / union / compile / 補間でコンパイルするアプリ",
+      "action_ja": "Ruby 4.0.9 / 3.4.12 / 3.3.13へ。timeoutや長さ制限では不十分",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://www.ruby-lang.org/en/news/2026/10/23/regexp-fixes-for-gitlab-cves/"
+      ],
+      "note_ja": "GitLab CVEで追跡するがRuby利用者全般の棚卸し対象。4.0.8は全修正ではない"
+    },
+    {
+      "id": "perl-brotli",
+      "area": "runtime",
+      "product": "IO::Compress::Brotli",
+      "identifiers": [
+        "CVE-2026-115936",
+        "CVE-2026-111497"
+      ],
+      "condition_ja": "0.004001以上0.023未満に同梱されたBrotli。非信頼データの解凍",
+      "action_ja": "モジュールを0.023以降へ更新。OSのBrotli更新だけでは不足",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://seclists.org/oss-sec/2026/q4/367"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "nginx-config",
+      "area": "web",
+      "product": "NGINX Open Source / Plus",
+      "identifiers": [
+        "CVE-2026-15176",
+        "CVE-2026-93479",
+        "CVE-2026-95101",
+        "CVE-2026-97629",
+        "CVE-2026-97205"
+      ],
+      "condition_ja": "alias/rewrite、map regex、HTTP/3、session ticket、AIO等の構成依存。各CVEで条件は異なる",
+      "action_ja": "Open Source 1.30.6 / 1.31.7以降へ、PlusはF5勧告に従う",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://nginx.org/en/security_advisories.html",
+        "https://seclists.org/oss-sec/2026/q4/362"
+      ],
+      "note_ja": "一部のコード実行にはASLR無効化/回避も必要。全公開NGINXが未認証RCEという意味ではない"
+    },
+    {
+      "id": "praisonai-agentos",
+      "area": "ai",
+      "product": "PraisonAI AgentOS",
+      "identifiers": [
+        "CVE-2026-57116",
+        "GHSA-892r-p3jq-jp24"
+      ],
+      "condition_ja": "AgentOSの/api/chat到達者が認証なしでagentを実行。ツール・機密・課金への影響はagent権限次第",
+      "action_ja": "praisonai 4.6.59へ更新、公開面で認証を強制",
+      "exploitation": "poc_reported",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-892r-p3jq-jp24"
+      ],
+      "note_ja": "GHSA既知影響範囲4.2.1〜4.6.57。旧修正版4.5.128では不十分"
+    },
+    {
+      "id": "req-llm-ws",
+      "area": "ai",
+      "product": "ReqLLM WebSocket",
+      "identifiers": [
+        "CVE-2026-107685",
+        "GHSA-6vww-5m28-f26v"
+      ],
+      "condition_ja": "req_llm >=1.9.0,<1.29.0のWebSocket経路でTLS証明書検証なし。経路上攻撃者が鍵・トークンを盗聴可能",
+      "action_ja": "1.29.0へ更新、露出状況に応じ鍵/トークンを調査・交換",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/agentjido/req_llm/security/advisories/GHSA-6vww-5m28-f26v"
+      ],
+      "note_ja": "Finch HTTP streaming / Mint HTTP2 duplexは対象外。上流OpenAIサービス自体の欠陥を示さない"
+    },
+    {
+      "id": "obsidian-tc",
+      "area": "ai",
+      "product": "obsidian-tc MCP HTTP transport",
+      "identifiers": [
+        "CVE-2026-77363",
+        "CVE-2026-77366"
+      ],
+      "condition_ja": "loopback auth:noneのOrigin/DNS rebinding防御欠如、および正規tokenのvault境界検証欠如",
+      "action_ja": "1.3.1以降へ。JWT認証、Origin検証、vault分離を確認",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://github.com/The-40-Thieves/obsidian-tc/security/advisories/GHSA-pqh8-4pj7-32xx",
+        "https://github.com/The-40-Thieves/obsidian-tc/security/advisories/GHSA-84c9-qqpq-2pq5"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "aws-mms",
+      "area": "ai",
+      "product": "AWS Multi Model Server",
+      "identifiers": [
+        "CVE-2026-115812",
+        "CVE-2026-115813"
+      ],
+      "condition_ja": "1.1.11以前、非信頼モデルアーカイブ等の処理",
+      "action_ja": "EOLで修正版なし。使用を停止しサポート中のモデル配信基盤へ移行",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://aws.amazon.com/security/security-bulletins/2026-148-aws/"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "pleasanter-ldap",
+      "area": "japan",
+      "product": "プリザンター LDAP",
+      "identifiers": [
+        "CVE-2026-113438"
+      ],
+      "condition_ja": "1.1.0.0〜1.5.9.0、Linux/DockerまたはWindows DsProvider:Novell + AD/匿名bind許可LDAP",
+      "action_ja": "1.5.9.1へ更新。対象構成では有効IDのみでパスワードなしログインの恐れ",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://jvn.jp/jp/JVN82312317/"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "liff-sdk",
+      "area": "japan",
+      "product": "LINE LIFF SDK",
+      "identifiers": [
+        "CVE-2026-112148"
+      ],
+      "condition_ja": "2.20.0〜2.31.0のDOM XSS",
+      "action_ja": "2.31.1へ更新",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://jvn.jp/vu/JVNVU91023667/"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "mitsubishi-ot",
+      "area": "industrial",
+      "product": "三菱電機 GENESIS / ICONICS等",
+      "identifiers": [
+        "CVE-2023-4863",
+        "CVE-2026-16436",
+        "CVE-2026-16437",
+        "CVE-2026-16438"
+      ],
+      "condition_ja": "libwebp、固定challenge response、管理ファイル/DCOM権限の問題。対象製品と条件はCVE別",
+      "action_ja": "製品別修正または回避策。一部製品・版には修正版なし",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://jvn.jp/vu/JVNVU93251594/"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "lenovo-avb",
+      "area": "device",
+      "product": "Lenovo Tablet AVB",
+      "identifiers": [
+        "CVE-2026-92777"
+      ],
+      "condition_ja": "複数機種に公開テスト鍵。物理アクセスにより改変システムimage導入の恐れ",
+      "action_ja": "機種別ファームウェア更新。EOL機種は後継製品への移行検討",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://jvn.jp/jp/JVN33436631/"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "jpcert-api",
+      "area": "japan",
+      "product": "国内Web/API連続不正アクセス",
+      "identifiers": [],
+      "condition_ja": "公開API・管理システム等への攻撃。10/23にAIペネトレーション基盤悪用のcase E追加",
+      "action_ja": "APIごとの認可、token最小権限/期限、rate limit、不要な管理公開停止、ログ調査",
+      "exploitation": "confirmed",
+      "evidence": "primary",
+      "sources": [
+        "https://www.jpcert.or.jp/at/2026/at260030.html"
+      ],
+      "note_ja": "同一の脆弱性や攻撃者と断定しない。IP/JA4単独で侵害判定しない"
+    },
+    {
+      "id": "jxrlib",
+      "area": "images",
+      "product": "jxrlib JPEG XR",
+      "identifiers": [],
+      "condition_ja": "旧jxrlibで破損JPEG XR処理時にメモリ不具合。研究者はDebianとTom94 forkで再現",
+      "action_ja": "ディストリの修正状況を確認。維持fork mircomir/jxrlib 1.4.4を推奨する研究報告",
+      "exploitation": "poc_reported",
+      "evidence": "primary",
+      "sources": [
+        "https://seclists.org/oss-sec/2026/q4/368"
+      ],
+      "note_ja": "コード実行の証拠なし。ほかのディストリ影響は報告者の版からの推定。CVE未確認"
+    },
+    {
+      "id": "mozilla-trust",
+      "area": "trust",
+      "product": "Firefox / Thunderbird",
+      "identifiers": [
+        "CVE-2026-113470",
+        "CVE-2026-113866",
+        "CVE-2026-113867",
+        "CVE-2026-113868"
+      ],
+      "condition_ja": "eMudhra中間CAブロックの組込、Thunderbird Exchange AutoDiscover等の修正",
+      "action_ja": "Firefox 158.0.1、Android 158.0.2、Thunderbird 153.5.1等の対応ラインへ",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://www.mozilla.org/en-US/security/advisories/mfsa2026-111/",
+        "https://www.mozilla.org/en-US/security/advisories/mfsa2026-116/",
+        "https://www.mozilla.org/en-US/security/advisories/mfsa2026-115/"
+      ],
+      "note_ja": ""
+    },
+    {
+      "id": "blackx",
+      "area": "trust",
+      "product": "BlackX UEFI bootkit",
+      "identifiers": [
+        "CVE-2022-21894"
+      ],
+      "condition_ja": "管理者権限取得後、古い署名済みブート部品を使いSecure Boot回避。研究者が攻撃活動を報告",
+      "action_ja": "Microsoft手順でDBX失効とブート媒体互換性を確認、侵害時は起動領域も調査",
+      "exploitation": "confirmed",
+      "evidence": "primary",
+      "sources": [
+        "https://securelist.com/uefi-bootkit-blackx/121539/"
+      ],
+      "note_ja": "OSパッチや証明書期限切れだけでは失効リスト反映の代替にならない"
+    },
+    {
+      "id": "x402",
+      "area": "ai",
+      "product": "x402 SDK",
+      "identifiers": [],
+      "condition_ja": "支出上限、Solana承認と送金の識別、SIWx originの3問題を研究者がローカル実証",
+      "action_ja": "関連修正PRを含むパッケージ版を確認。支出/宛先/token/署名originを制限",
+      "exploitation": "poc_reported",
+      "evidence": "primary",
+      "sources": [
+        "https://v12.sh/blog/x402",
+        "https://github.com/x402-foundation/x402/pull/3124",
+        "https://github.com/x402-foundation/x402/pull/3132",
+        "https://github.com/x402-foundation/x402/pull/3133"
+      ],
+      "note_ja": "修正最低版はパッケージ別に未確定。実被害額を示す数字ではない"
+    },
+    {
+      "id": "k0t-edge",
+      "area": "edge",
+      "product": "k0t network-edge intrusion",
+      "identifiers": [],
+      "condition_ja": "VPN/Firewallの既知脆弱性と総当たり等。Group-IB/NyxLabの調査",
+      "action_ja": "境界機器更新、流出資格情報の失効、残存アクセスと流出を調査",
+      "exploitation": "confirmed",
+      "evidence": "primary",
+      "sources": [
+        "https://www.group-ib.com/blog/stray-cat-network-edge/"
+      ],
+      "note_ja": "70,000超は資格情報等の件数。被害企業数や新規CVE数ではない"
+    },
+    {
+      "id": "hpe-aos",
+      "area": "industrial",
+      "product": "HPE Aruba AOS",
+      "identifiers": [
+        "CVE-2026-79844",
+        "CVE-2026-79845",
+        "CVE-2026-79846",
+        "CVE-2026-79847",
+        "CVE-2026-79848",
+        "CVE-2026-79849",
+        "CVE-2026-79850",
+        "CVE-2026-79851"
+      ],
+      "condition_ja": "AOSの複数の認証不要コード実行・認証回避。8 CVEがCVSS 10.0",
+      "action_ja": "該当系列10.8.1.2 / 10.7.2.7 / 10.4.1.14 / 8.13.3.1 / 8.10.0.24以降へ。機種別の対象は公式CSAFを参照",
+      "exploitation": "not_confirmed_in_review",
+      "evidence": "primary",
+      "sources": [
+        "https://csaf.arubanetworking.hpe.com/2026/hpe_networking_-_hpesbnw05162.json"
+      ],
+      "note_ja": "公表10/22。満点であることと実悪用確認は別"
+    }
+  ]
+}

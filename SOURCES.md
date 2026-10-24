@@ -207,3 +207,10 @@ When a figure looks wrong, doubt it in this order:
 repository, not at this one. Counts are as of retrieval: an MSRC CVRF that is re-issued moves
 them (`docs/05` recorded 2,578; the 2026-10-21 re-issue yielded 2,575; 2026-10-22, 2,584). The
 same applies to NVD scores — `CVE-2026-109619` moved 9.8 → 8.1 the day after publication.
+
+
+## 2026-10-24 — Broad update
+
+[24 reviewed groups, collection windows and 17 KEV rows](docs/24-snapshot-20261024.md) · [Primary-source research](docs/research-2026-10-24.md) · [Structured register](data/2026-10-24/incident-register.json)
+
+Primary evidence: [Collabora](https://github.com/CollaboraOnline/online/security/advisories/GHSA-g3vx-3m76-fghh), [Arista](https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199), [Ruby](https://www.ruby-lang.org/en/news/2026/10/23/regexp-fixes-for-gitlab-cves/), [HPE CSAF](https://csaf.arubanetworking.hpe.com/2026/hpe_networking_-_hpesbnw05162.json), [JPCERT](https://www.jpcert.or.jp/at/2026/at260030.html). Per-incident URLs and evidence are archived in [data/2026-10-24](data/2026-10-24/).
