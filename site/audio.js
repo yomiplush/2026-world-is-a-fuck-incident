@@ -1,11 +1,8 @@
-/* Audio: everything is synthesised at runtime with Web Audio.
-   No samples, no external files — the SFX are oscillator/noise bursts and the BGM is a
-   generative lofi loop (detuned pads, tape wobble, vinyl noise, swung drums). */
+/* Synthesized SFX with a streamed, optimized infosec BGM track. */
 window.AUDIO = (function () {
   const A = {
     ctx: null, master: null, music: null, sfxBus: null, verb: null,
-    on: true, ready: false, _timer: null, _next: 0, _step: 0,
-    bpm: 72, lookahead: 0.14
+    on: true, ready: false, track: null
   };
 
   /* ---------------- setup ---------------- */
@@ -31,7 +28,11 @@ window.AUDIO = (function () {
   }
 
   A.init = function () {
-    if (A.ready) { A.ctx.resume && A.ctx.resume(); return; }
+    if (A.ready) {
+      A.ctx.resume && A.ctx.resume();
+      if (A.on && A.track.paused) A.track.play().catch(() => {});
+      return;
+    }
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return;
     const ctx = A.ctx = new AC();
@@ -50,7 +51,7 @@ window.AUDIO = (function () {
 
     A.music = ctx.createGain(); A.music.gain.value = 0.0;   // faded in below
     A.music.connect(A.master);
-    A.music.connect(A.verb);
+    // Keep the mastered recording dry; reverb remains on synthesized SFX.
 
     A.sfxBus = ctx.createGain(); A.sfxBus.gain.value = 0.55;
     A.sfxBus.connect(A.master);
@@ -58,9 +59,13 @@ window.AUDIO = (function () {
     A.sfxBus.connect(sfxVerb); sfxVerb.connect(A.verb);
 
     A.ready = true;
-    A._next = ctx.currentTime + 0.15;
-    A._step = 0;
-    A._timer = setInterval(scheduleAhead, 25);
+    const track = A.track = new Audio();
+    track.preload = "none";
+    track.loop = true;
+    track.src = track.canPlayType('audio/ogg; codecs="opus"')
+      ? "./audio/infosec.opus" : "./audio/infosec.mp3";
+    ctx.createMediaElementSource(track).connect(A.music);
+    track.play().catch(() => { /* A subsequent user gesture can retry playback. */ });
     A.music.gain.setTargetAtTime(0.42, ctx.currentTime, 1.2);
   };
 
@@ -146,140 +151,15 @@ window.AUDIO = (function () {
     (SFX[name] || SFX.blip)(t);
   };
 
-  /* ---------------- generative lofi ---------------- */
-  // A3-based voicings: Am9, Fmaj9, Cmaj9, G6/9 — 4 bars, one chord per bar.
-  const CHORDS = [
-    [57, 60, 64, 67, 71],
-    [53, 57, 60, 64, 67],
-    [48, 52, 55, 59, 62],
-    [55, 59, 62, 64, 69]
-  ];
-  const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
-  const stepDur = () => 60 / A.bpm / 4;      // 16th note
-
-  function pad(t, chord, barLen) {
-    const ctx = A.ctx;
-    const filt = ctx.createBiquadFilter();
-    filt.type = "lowpass";
-    filt.frequency.setValueAtTime(680, t);
-    filt.frequency.linearRampToValueAtTime(1250, t + barLen * 0.5);
-    filt.frequency.linearRampToValueAtTime(720, t + barLen);
-    filt.Q.value = 0.6;
-
-    const g = ctx.createGain();
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.linearRampToValueAtTime(0.055, t + barLen * 0.28);
-    g.gain.linearRampToValueAtTime(0.0001, t + barLen * 0.98);
-    filt.connect(g); g.connect(A.music);
-
-    // top three voices only — keeps it airy
-    chord.slice(-3).forEach((note, i) => {
-      [-7, 6].forEach((cents, j) => {
-        const o = ctx.createOscillator();
-        o.type = j ? "triangle" : "sawtooth";
-        o.frequency.value = mtof(note);
-        o.detune.value = cents + (i - 1) * 1.5;
-        // tape wobble
-        const lfo = ctx.createOscillator(), lg = ctx.createGain();
-        lfo.frequency.value = 0.13 + i * 0.03; lg.gain.value = 5;
-        lfo.connect(lg); lg.connect(o.detune);
-        o.connect(filt);
-        o.start(t); lfo.start(t);
-        o.stop(t + barLen + 0.2); lfo.stop(t + barLen + 0.2);
-      });
-    });
-  }
-
-  function bass(t, rootMidi, barLen) {
-    const f = mtof(rootMidi - 24);
-    const ctx = A.ctx;
-    const g = ctx.createGain();
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.14, t + 0.04);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + barLen * 0.55);
-    const o = ctx.createOscillator();
-    o.type = "sine"; o.frequency.value = f;
-    o.connect(g); g.connect(A.music);
-    o.start(t); o.stop(t + barLen);
-    // sub hit on the second half
-    const g2 = ctx.createGain();
-    g2.gain.setValueAtTime(0.0001, t + barLen * 0.52);
-    g2.gain.exponentialRampToValueAtTime(0.10, t + barLen * 0.56);
-    g2.gain.exponentialRampToValueAtTime(0.0001, t + barLen * 0.9);
-    const o2 = ctx.createOscillator();
-    o2.type = "sine"; o2.frequency.value = f;
-    o2.connect(g2); g2.connect(A.music);
-    o2.start(t + barLen * 0.5); o2.stop(t + barLen);
-  }
-
-  function kick(t, peak) {
-    const ctx = A.ctx;
-    const o = ctx.createOscillator(), g = ctx.createGain();
-    o.type = "sine";
-    o.frequency.setValueAtTime(112, t);
-    o.frequency.exponentialRampToValueAtTime(44, t + 0.11);
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(peak || 0.28, t + 0.008);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.34);
-    o.connect(g); g.connect(A.music);
-    o.start(t); o.stop(t + 0.4);
-  }
-
-  function snare(t) {
-    noise(t, 0.16, 0.12, "bandpass", 1700, 900, A.music);
-    tone("triangle", 186, t, 0.09, 0.07, A.music);
-  }
-
-  function hat(t, peak) {
-    noise(t, 0.035, peak || 0.045, "highpass", 7200, null, A.music);
-  }
-
-  function vinyl(t, dur) {
-    const ctx = A.ctx;
-    const src = ctx.createBufferSource();
-    src.buffer = noiseBuffer(ctx, dur);
-    src.loop = true;
-    const f = ctx.createBiquadFilter();
-    f.type = "lowpass"; f.frequency.value = 2600;
-    const g = ctx.createGain(); g.gain.value = 0.012;
-    src.connect(f); f.connect(g); g.connect(A.music);
-    src.start(t); src.stop(t + dur);
-    // a few pops
-    for (let i = 0; i < 4; i++) {
-      noise(t + Math.random() * dur, 0.012, 0.05, "highpass", 2500, null, A.music);
-    }
-  }
-
-  function scheduleAhead() {
-    const ctx = A.ctx;
-    if (!ctx) return;
-    while (A._next < ctx.currentTime + A.lookahead) {
-      const bar = Math.floor(A._step / 16) % 4;
-      const step = A._step % 16;
-      const t = A._next;
-      const sd = stepDur();
-
-      if (step === 0) {
-        pad(t, CHORDS[bar], sd * 16);
-        bass(t, CHORDS[bar][0], sd * 16);
-        vinyl(t, sd * 16);
-      }
-      // boom-bap: kick 1 and a late 3, snare on 2 and 4
-      if (step === 0 || step === 10) kick(t);
-      if (step === 7 && bar % 2 === 1) kick(t, 0.18);
-      if (step === 4 || step === 12) snare(t);
-      // swung 8th hats
-      if (step % 4 === 0) hat(t, 0.05);
-      if (step % 4 === 2) hat(t + sd * 0.18, 0.03);
-
-      A._next += sd;
-      A._step++;
-    }
-  }
-
   A.toggle = function () {
     if (!A.ready) return A.on;
     A.on = !A.on;
+    if (A.on) {
+      A.ctx.resume && A.ctx.resume();
+      A.track.play().catch(() => {});
+    } else {
+      A.track.pause();
+    }
     const now = A.ctx.currentTime;
     A.master.gain.cancelScheduledValues(now);
     A.master.gain.setTargetAtTime(A.on ? 0.9 : 0.0, now, 0.08);
