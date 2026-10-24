@@ -2,6 +2,8 @@
 
 [**English**](README.md) | [日本語](README_jp.md)
 
+> **Latest update — 2026-10-24 19:13 JST:** [Broad review of 24 priority groups](docs/24-snapshot-20261024.md): exploited Arista/Collabora, Pillow, Wasmtime, Ruby, AI/MCP, Japanese products, HPE and industrial devices. Archived 526 newly published / 3,531 modified NVD records, 82 GitHub advisories and 17 recent KEV additions. [Structured register](data/2026-10-24/incident-register.json) / [primary-source notes](docs/research-2026-10-24.md). The [live briefing](https://2026-incident-briefing.pages.dev/?lang=en#26) gains eight scenes, **34 total**. Earlier sections retain their historical context; use the latest snapshot for current priorities.
+
 ## 0. Busy? Read this — three minutes to "is this mine?"
 
 **Eight things landed in two weeks.** You do not need to read all of them. Find your row.

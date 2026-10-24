@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache とカーネルの追補、10-23 の追記8件つき。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出所はすべて一次ソース。1件だけ未確認（ConnectWise）。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "14/15 は一次ソースで確認済み。ConnectWise は未確認として記載。",
-      asof: "2026-10-23 22:25 JST 時点",
+      drawerFoot: "当初15件中14件を一次確認。10/24追補は個別出典を掲載。ConnectWiseは未確認。",
+      asof: "2026-10-24 19:13 JST 時点",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus Apache and kernel addenda and eight 10-23 postscript scenes. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus earlier addenda and eight October 24 update scenes covering 24 reviewed groups. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Every claim traces to a primary source. One row (ConnectWise) is unverified.",
       drawerTitle: "SOURCES",
-      drawerFoot: "14 of 15 verified against primary sources. ConnectWise is carried as unverified.",
-      asof: "as of 2026-10-23 22:25 JST",
+      drawerFoot: "14 of the original 15 verified; October 24 updates carry individual sources. ConnectWise remains unverified.",
+      asof: "as of 2026-10-24 19:13 JST",
       lang: "EN"
     }
   },
@@ -845,7 +845,7 @@ window.CONTENT = {
       visual: { type: "ledger" }, cue: "confirm",
       sources: [
         { name: "Arista advisory 0199", url: "https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199",
-          note: { ja: "CVE-2026-114625。取得時は 406 で、役割と IOC は報道経由（二次）", en: "CVE-2026-114625; the page 406s, so role and IOCs are via press (secondary)" } },
+          note: { ja: "CVE-2026-114625。10/24は一次告知を直接取得、KEV追加も確認", en: "CVE-2026-114625; primary page retrieved and KEV addition confirmed on October 24" } },
         { name: "Capcom · 2026-10-22", url: "https://www.capcom.co.jp/ir/news/html/261022.html",
           note: { ja: "11,774,247件の内訳と経緯", en: "the 11,774,247 breakdown and timeline" } },
         { name: "Onamae.com · 2026-10-21", url: "https://www.onamae.com/news/article/11584",
@@ -861,7 +861,7 @@ window.CONTENT = {
           "Arista VeloCloud Orchestrator <code>CVE-2026-114625</code>: 悪用中の 0-day、<b>9.9</b>。ログイン済みなら superuser。オンプレは 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
           "Linux KSMBD: <code>ZDI-CAN-33774</code> は認証不要の 9.0。CVE も mainline 修正もまだ無い",
           "カプコン CAPCOM ID <b>11,774,247</b> 件。お名前.com デスクトップクラウドは最大 <b>26,739</b> 台を停止",
-          "報道は導線、根拠はベンダのページ。Arista だけは取得時にページが開けず、役割と IOC を報道経由（二次）で補った"
+          "報道は導線、根拠はベンダのページ。Arista は10/24に一次告知を直接取得。実悪用・認証条件・修正版を再確認した"
         ]
       },
       en: {
@@ -872,7 +872,7 @@ window.CONTENT = {
           "Arista VeloCloud Orchestrator <code>CVE-2026-114625</code>: an exploited 0-day at <b>9.9</b>; any logged-in user becomes a superuser. On-prem fix 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
           "Linux KSMBD: <code>ZDI-CAN-33774</code> needs no authentication, scores 9.0, and has neither a CVE nor a mainline fix",
           "Capcom CAPCOM ID: <b>11,774,247</b> records. Onamae Desktop Cloud suspended up to <b>26,739</b> servers",
-          "The press is the lead, the vendor page is the evidence. Arista's page would not open, so role and IOCs come via press (secondary)"
+          "The press is the lead, the vendor page is the evidence. Arista’s primary page was retrieved on October 24; exploitation, authentication requirements and fixes were rechecked"
         ]
       }
     },
@@ -898,7 +898,7 @@ window.CONTENT = {
           "条件は4つすべて。設定で <code>php_binary</code> / <code>php_serialize</code>、実行中に <code>ini_set</code> で <code>php</code> へ、<code>session_start()</code> より前、そして upload progress が有効",
           "実行中に handler を変えないアプリは、機能を有効のままで構わない — PHP 自身がそう書いています",
           "対策は1行: <b><code>session.upload_progress.enabled=0</code></b>。10-21 の 109619 の緩和と同じで、適用済みなら追加作業は無い",
-          "NVD にレコードは無く、KEV のカタログはこの CVE より前。悪用報告も無し。攻撃は 10-21 の2件に向いている"
+          "前回10/23取得ではNVDレコード無し。今回のPHP告知は変わらず、KEV追加17件にも115560は無し。未掲載は安全の証明ではない"
         ]
       },
       en: {
@@ -909,7 +909,647 @@ window.CONTENT = {
           "All four conditions: set <code>php_binary</code> / <code>php_serialize</code>, switch to <code>php</code> at runtime with <code>ini_set</code>, before <code>session_start()</code>, with upload progress on",
           "Applications that never change the handler at runtime can leave the feature enabled — PHP says so itself",
           "The mitigation is one line: <b><code>session.upload_progress.enabled=0</code></b> — the same one from 10-21, so if it is already in place, nothing more to do",
-          "No NVD record, a KEV catalog older than the CVE, and no exploitation reports: the attacks target the two 10-21 flaws"
+          "No NVD record at the October 23 check. PHP’s advisory is unchanged; the 17 recent KEV additions do not include 115560. Absence is not proof of safety"
+        ]
+      }
+    },
+    {
+      "id": "update-scope",
+      "stamp": "10.24",
+      "metric": {
+        "val": "24",
+        "label": {
+          "ja": "reviewed groups",
+          "en": "reviewed groups"
+        }
+      },
+      "visual": {
+        "type": "radar"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-SCOPE",
+        "title": "CVEの外まで、もう一度。",
+        "lede": "10-24の広域調査。新着と更新、開示チャネルと国内製品まで見直し、重点24事案群を出典付きで整理しました。",
+        "points": [
+          "直近30時間のNVDは<b>新規526 / 更新3,531</b>。重複するため合算しません",
+          "GitHubは窓内<b>82勧告</b>、うちCritical 6。CVE未付与も対象",
+          "KEVは10/10以降の追加<b>17件</b>。研究者・公式14フィードとJVNも取得",
+          "24は製品・事案をまとめた群の数。新規侵害24件という意味ではありません"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-SCOPE",
+        "title": "Beyond the CVE list, again.",
+        "lede": "The October 24 sweep checks new and modified records, disclosure channels and domestic products. Twenty-four priority groups now have conditions, actions and sources.",
+        "points": [
+          "NVD, last 30 hours: <b>526 published / 3,531 modified</b>. The sets overlap; do not add them",
+          "<b>82 GitHub advisories</b> in-window, six critical. Items without CVEs count too",
+          "All <b>17 KEV additions</b> since October 10, plus 14 research/official feeds and JVN",
+          "24 counts reviewed product/incident groups, not 24 newly confirmed breaches"
+        ]
+      }
+    },
+    {
+      "id": "update-exploited",
+      "stamp": "10.24",
+      "metric": {
+        "val": "2",
+        "label": {
+          "ja": "KEV additions · 10.23",
+          "en": "KEV additions · 10.23"
+        }
+      },
+      "visual": {
+        "type": "matrix",
+        "cols": 2,
+        "rows": 1
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Arista VeloCloud Orchestrator",
+          "url": "https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Nextcloud Built-in CODE Server",
+          "url": "https://github.com/CollaboraOnline/online/security/advisories/GHSA-g3vx-3m76-fghh",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-EXPLOITED",
+        "title": "まず、悪用されている2件。",
+        "lede": "Arista VCOとNextcloud Built-in CODEが10-23にKEV追加。CISAは両方にフォレンジック調査を要求しています。",
+        "points": [
+          "VCOは<b>低権限の有効アカウント</b>でも昇格。オンプレ5.2.3.18 / 6.1.3.10 / 6.4.2.12以降へ",
+          "Built-in CODEは<b>26.4.303以降へ更新、または削除</b>。アプリ無効化だけでは防げない",
+          "CODE停止中のproxy.phpが条件。Standalone Collabora Onlineは対象外",
+          "CISA期限は<b>10/26</b>（米連邦向け）。修正前の証拠保全、修正後も侵害調査"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-EXPLOITED",
+        "title": "Start with the two being exploited.",
+        "lede": "Arista VCO and Nextcloud Built-in CODE entered KEV on October 23. Both entries require forensic triage.",
+        "points": [
+          "VCO: a <b>valid low-privilege account</b> can escalate. On-prem fixes: 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
+          "Built-in CODE: <b>update to 26.4.303 or remove it</b>. Disabling the app is insufficient",
+          "The vulnerable proxy.php path requires the CODE process to be stopped. Standalone Collabora is unaffected",
+          "CISA federal due date: <b>October 26</b>. Preserve evidence and investigate compromise alongside patching"
+        ]
+      }
+    },
+    {
+      "id": "update-packages",
+      "stamp": "10.24",
+      "metric": {
+        "val": "4",
+        "label": {
+          "ja": "package boundaries",
+          "en": "package boundaries"
+        }
+      },
+      "visual": {
+        "type": "matrix",
+        "cols": 4,
+        "rows": 1
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Pillow",
+          "url": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-5x8w-8jj5-q52h",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Pillow",
+          "url": "https://pillow.readthedocs.io/en/stable/releasenotes/13.0.0.html",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Wasmtime / Cranelift",
+          "url": "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-897f-g5gm-fmxm",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Laravel TokenGuard",
+          "url": "https://github.com/laravel/framework/security/advisories/GHSA-f9x3-7vq9-cph6",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Echo Proxy middleware",
+          "url": "https://github.com/labstack/echo/security/advisories/GHSA-cxf3-9h37-7rr8",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-PACKAGES",
+        "title": "画像、Wasm、認証、プロキシ。",
+        "lede": "名前の違う4つの境界を、別々の条件で確認します。どれも点数だけでは自分の露出が分かりません。",
+        "points": [
+          "<b>Pillow 13.0.0</b>へ。FPXはolefile導入時、拡張子に関係なく画像処理へ届く。公開PoCは固定構成での実証",
+          "<b>Wasmtime -115889</b>: 36系列は36.0.19、37〜42は43.0.0以降。Craneliftで非信頼Wasmを処理する境界",
+          "<b>Laravel 12.68.0 / 13.29.0</b>へ。TokenGuard + 特定MySQL/MariaDB構成で認証回避",
+          "<b>Echo 4.16.1 / 5.4.1</b>へ。WebSocket拒否後の接続がroute認可を迂回。upstream側の独立認可は別"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-PACKAGES",
+        "title": "Images, Wasm, auth, proxies.",
+        "lede": "Four boundaries, four sets of conditions. A severity label alone cannot establish whether your deployment is exposed.",
+        "points": [
+          "<b>Pillow 13.0.0</b>: FPX reaches image processing when olefile is installed, regardless of extension. The PoC uses a pinned setup",
+          "<b>Wasmtime -115889</b>: 36.0.19 on the 36 line; 43.0.0+ for lines 37–42. Check untrusted Wasm compiled by Cranelift",
+          "<b>Laravel 12.68.0 / 13.29.0</b>: TokenGuard bypass with particular MySQL/MariaDB configurations",
+          "<b>Echo 4.16.1 / 5.4.1</b>: rejected WebSocket upgrades can bypass route-level checks, not independent upstream authorization"
+        ]
+      }
+    },
+    {
+      "id": "update-runtime",
+      "stamp": "10.24",
+      "metric": {
+        "val": "3",
+        "label": {
+          "ja": "runtime checks",
+          "en": "runtime checks"
+        }
+      },
+      "visual": {
+        "type": "matrix",
+        "cols": 3,
+        "rows": 1
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Ruby Onigmo",
+          "url": "https://www.ruby-lang.org/en/news/2026/10/23/regexp-fixes-for-gitlab-cves/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "IO::Compress::Brotli",
+          "url": "https://seclists.org/oss-sec/2026/q4/367",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "NGINX Open Source / Plus",
+          "url": "https://nginx.org/en/security_advisories.html",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "NGINX Open Source / Plus",
+          "url": "https://seclists.org/oss-sec/2026/q4/362",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-RUNTIME",
+        "title": "アプリの下も、同梱物も。",
+        "lede": "GitLab名義のCVEでもRuby利用者に関係し、OSのBrotliを更新してもPerlの同梱コピーは残ります。",
+        "points": [
+          "<b>Ruby 4.0.9 / 3.4.12 / 3.3.13</b>へ。攻撃者の正規表現をコンパイルするアプリが対象",
+          "<code>Regexp.timeout</code>や長さ制限では不十分。4.0.8は全修正ではない",
+          "<b>IO::Compress::Brotli 0.023</b>へ。対象は0.004001以上0.023未満。OSライブラリ更新だけでは直らない",
+          "<b>NGINX 1.30.6 / 1.31.7</b>へ。5件は構成依存で、一部のRCEにはASLR回避等も必要"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-RUNTIME",
+        "title": "Below the app, inside the bundle.",
+        "lede": "GitLab-named CVEs can affect Ruby users, and an OS Brotli update leaves Perl’s bundled copy unchanged.",
+        "points": [
+          "<b>Ruby 4.0.9 / 3.4.12 / 3.3.13</b>: applications compiling attacker-controlled regexp patterns are affected",
+          "<code>Regexp.timeout</code> and length limits are insufficient. 4.0.8 lacks the complete fix",
+          "<b>IO::Compress::Brotli 0.023</b>: affected range starts at 0.004001. Updating system Brotli alone does not fix it",
+          "<b>NGINX 1.30.6 / 1.31.7</b>: five configuration-dependent issues; some execution paths also need ASLR bypass"
+        ]
+      }
+    },
+    {
+      "id": "update-agents",
+      "stamp": "10.24",
+      "metric": {
+        "val": "4",
+        "label": {
+          "ja": "agent boundaries",
+          "en": "agent boundaries"
+        }
+      },
+      "visual": {
+        "type": "radar"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "PraisonAI AgentOS",
+          "url": "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-892r-p3jq-jp24",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "ReqLLM WebSocket",
+          "url": "https://github.com/agentjido/req_llm/security/advisories/GHSA-6vww-5m28-f26v",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "obsidian-tc MCP HTTP transport",
+          "url": "https://github.com/The-40-Thieves/obsidian-tc/security/advisories/GHSA-pqh8-4pj7-32xx",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "obsidian-tc MCP HTTP transport",
+          "url": "https://github.com/The-40-Thieves/obsidian-tc/security/advisories/GHSA-84c9-qqpq-2pq5",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "AWS Multi Model Server",
+          "url": "https://aws.amazon.com/security/security-bulletins/2026-148-aws/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "x402 SDK",
+          "url": "https://v12.sh/blog/x402",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "x402 SDK",
+          "url": "https://github.com/x402-foundation/x402/pull/3124",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "x402 SDK",
+          "url": "https://github.com/x402-foundation/x402/pull/3132",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "x402 SDK",
+          "url": "https://github.com/x402-foundation/x402/pull/3133",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-AGENTS",
+        "title": "エージェントの権限を、誰が使えるか。",
+        "lede": "認証、TLS、ノートの分離、モデル読込。AIの名前がつく前からある境界が、秘密とツールを守っています。",
+        "points": [
+          "<b>PraisonAI 4.6.59</b>へ。AgentOSは旧修正版4.5.128でも無認証chatが残った",
+          "<b>req_llm 1.29.0</b>へ。1.9.0以降のWebSocket経路でTLS検証欠如。HTTP経路は別",
+          "<b>obsidian-tc 1.3.1</b>へ。loopbackでもOrigin/DNS rebindingとvault分離を確認",
+          "<b>AWS Multi Model ServerはEOL</b>。修正版なし、移行が必要。x402は支出上限と署名originを別途確認"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-AGENTS",
+        "title": "Who can use the agent’s authority?",
+        "lede": "Authentication, TLS, vault isolation and model loading guard the tools and secrets an agent can reach.",
+        "points": [
+          "<b>PraisonAI 4.6.59</b>: AgentOS chat remained unauthenticated even after the older 4.5.128 fix claim",
+          "<b>req_llm 1.29.0</b>: WebSocket TLS verification missing since 1.9.0. HTTP paths differ",
+          "<b>obsidian-tc 1.3.1</b>: loopback still needs Origin/DNS-rebinding checks and vault isolation",
+          "<b>AWS Multi Model Server is EOL</b>: no fixed release; migrate. Separately review x402 spending limits and signing origins"
+        ]
+      }
+    },
+    {
+      "id": "update-japan",
+      "stamp": "10.24",
+      "metric": {
+        "val": "3",
+        "label": {
+          "ja": "domestic checks",
+          "en": "domestic checks"
+        }
+      },
+      "visual": {
+        "type": "radar"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "プリザンター LDAP",
+          "url": "https://jvn.jp/jp/JVN82312317/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "LINE LIFF SDK",
+          "url": "https://jvn.jp/vu/JVNVU91023667/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "国内Web/API連続不正アクセス",
+          "url": "https://www.jpcert.or.jp/at/2026/at260030.html",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-JAPAN",
+        "title": "国内の業務システムも。",
+        "lede": "外部公開する開発基盤だけではありません。業務アプリ、LINE連携、管理APIの境界を確認します。",
+        "points": [
+          "<b>プリザンター1.5.9.1</b>へ。Linux/Docker等 + LDAPの特定構成で、有効IDだけのログインが可能",
+          "<b>LIFF SDK 2.31.1</b>へ。2.20.0〜2.31.0にDOM XSS",
+          "<b>JPCERT 10/23更新</b>: AIペネトレーション基盤の悪用試行をcase Eとして追加",
+          "API単位の認可、token最小権限/期限、rate limit、不要な管理公開停止。IPやJA4だけで侵害を断定しない"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-JAPAN",
+        "title": "Include domestic business systems.",
+        "lede": "The review also covers business apps, LINE integrations and management APIs.",
+        "points": [
+          "<b>Pleasanter 1.5.9.1</b>: particular LDAP deployments on Linux/Docker and other affected configurations allow passwordless login with a valid ID",
+          "<b>LIFF SDK 2.31.1</b>: DOM XSS affects 2.20.0 through 2.31.0",
+          "<b>JPCERT October 23 update</b>: case E adds abuse of AI penetration-testing platforms",
+          "Check authorization per API, token scope/expiry, rate limits and exposed admin services. IP or JA4 alone is not proof of compromise"
+        ]
+      }
+    },
+    {
+      "id": "update-devices",
+      "stamp": "10.24",
+      "metric": {
+        "val": "72",
+        "label": {
+          "ja": "HPE AOS CVEs",
+          "en": "HPE AOS CVEs"
+        }
+      },
+      "visual": {
+        "type": "matrix",
+        "cols": 9,
+        "rows": 8
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "HPE Aruba AOS",
+          "url": "https://csaf.arubanetworking.hpe.com/2026/hpe_networking_-_hpesbnw05162.json",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "三菱電機 GENESIS / ICONICS等",
+          "url": "https://jvn.jp/vu/JVNVU93251594/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Lenovo Tablet AVB",
+          "url": "https://jvn.jp/jp/JVN33436631/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-DEVICES",
+        "title": "機器は、製品系列まで。",
+        "lede": "HPEの公式CSAFは72件、うち8件がCVSS10.0。産業製品や端末では、修正版が出ない機種もあります。",
+        "points": [
+          "<b>HPE AOS</b>: 10.8.1.2 / 10.7.2.7 / 10.4.1.14 / 8.13.3.1 / 8.10.0.24。CVEと製品系列を照合",
+          "<b>三菱電機 GENESIS / ICONICS等</b>: 固定challenge response、DCOM、libwebpなど。製品別修正/回避策へ",
+          "<b>Lenovo AVB</b>: 公開テスト鍵を使用した複数端末。物理アクセスが条件。EOLは修正なし",
+          "満点や機種数を、実悪用確認と混同しない。対応不能の製品は移行も判断"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-DEVICES",
+        "title": "Match devices to their release line.",
+        "lede": "HPE’s official CSAF contains 72 CVEs, eight at 10.0. Industrial products and devices can also lack a fixed release.",
+        "points": [
+          "<b>HPE AOS</b>: 10.8.1.2 / 10.7.2.7 / 10.4.1.14 / 8.13.3.1 / 8.10.0.24. Match each CVE to its product line",
+          "<b>Mitsubishi GENESIS / ICONICS and others</b>: fixed challenge responses, DCOM and libwebp. Follow product-specific fixes or mitigations",
+          "<b>Lenovo AVB</b>: public test keys in multiple tablets; physical access required. EOL models receive no fix",
+          "Maximum severity is not confirmed exploitation. Consider migration where a product cannot be repaired"
+        ]
+      }
+    },
+    {
+      "id": "update-trust",
+      "stamp": "10.24",
+      "metric": {
+        "val": "3",
+        "label": {
+          "ja": "trust checks",
+          "en": "trust checks"
+        }
+      },
+      "visual": {
+        "type": "radar"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Firefox / Thunderbird",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-111/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Firefox / Thunderbird",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-116/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "Firefox / Thunderbird",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-115/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "BlackX UEFI bootkit",
+          "url": "https://securelist.com/uefi-bootkit-blackx/121539/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "k0t network-edge intrusion",
+          "url": "https://www.group-ib.com/blog/stray-cat-network-edge/",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "jxrlib JPEG XR",
+          "url": "https://seclists.org/oss-sec/2026/q4/368",
+          "note": {
+            "ja": "影響条件・対応の一次根拠",
+            "en": "Primary evidence for conditions and response"
+          }
+        },
+        {
+          "name": "10-24 detailed snapshot / register",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/24-snapshot-20261024.ja.md",
+          "note": {
+            "ja": "取得窓・全24事案群・KEV17件・保存データ",
+            "en": "Collection windows, 24 reviewed groups, 17 KEV rows and evidence"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-24 UPDATE · UPDATE-TRUST",
+        "title": "更新した、その先の確認。",
+        "lede": "ブロックリスト、起動の信頼、流出した資格情報。パッチの適用だけでは終わらない部分も記録しました。",
+        "points": [
+          "<b>Firefox 158.0.1 / Android 158.0.2</b>等はeMudhra中間CA遮断を組込。Thunderbird 153.5.1はメール認証関連も修正",
+          "<b>BlackX</b>は管理者権限取得後のbootkit。OSパッチとSecure BootのDBX失効反映は別",
+          "<b>k0t調査の70,000超</b>は資格情報等。被害企業数ではない。更新と並行して鍵・残存アクセスを調査",
+          "JPEG XRの<b>jxrlib</b>も研究報告あり。CVE未確認、コード実行の証拠なし。配布元の修正状態を確認"
+        ]
+      },
+      "en": {
+        "kicker": "10-24 UPDATE · UPDATE-TRUST",
+        "title": "Verify what follows the update.",
+        "lede": "Block lists, boot trust and stolen credentials need checks beyond installing a patch.",
+        "points": [
+          "<b>Firefox 158.0.1 / Android 158.0.2</b> and other patched lines embed eMudhra blocks. Thunderbird 153.5.1 also fixes mail-auth issues",
+          "<b>BlackX</b> follows administrator access. OS patching and Secure Boot DBX revocations are separate checks",
+          "<b>70,000+ in the k0t report</b> counts credentials and related data, not companies. Investigate keys and persistent access",
+          "<b>jxrlib</b> JPEG XR memory bugs were reported without known CVEs or evidence of code execution. Check distributor fixes"
         ]
       }
     },

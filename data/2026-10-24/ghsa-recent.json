@@ -1,0 +1,1709 @@
+{
+ "source": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc",
+ "window_hours": 30,
+ "window_start": "2026-10-23T04:11:23Z",
+ "returned": 100,
+ "in_window": 82,
+ "severities": [
+  "critical",
+  "high",
+  "low",
+  "medium"
+ ],
+ "advisories": [
+  {
+   "ghsa": "GHSA-jqc4-5cvw-7w85",
+   "cve": "CVE-2026-112937",
+   "summary": "filelock: ReadWriteLock on the hard-link route deletes any directory another user renames onto its .filelock-* link directory name",
+   "severity": "medium",
+   "cvss": 6.1,
+   "published": "2026-10-23T22:28:41",
+   "updated": "2026-10-23T22:28:42",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "filelock",
+     "range": ">= 4.1.0, <= 4.2.0",
+     "patched": "4.2.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9vhv-jxww-xfm5",
+   "cve": "CVE-2026-112913",
+   "summary": "filelock: ReadWriteLock on Windows acts on SQLite side files another local user places beside its database",
+   "severity": "low",
+   "cvss": 3.3,
+   "published": "2026-10-23T22:28:19",
+   "updated": "2026-10-23T22:28:20",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "filelock",
+     "range": ">= 3.20.4, <= 4.2.0",
+     "patched": "4.2.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-567q-5qvw-pf92",
+   "cve": "CVE-2026-112907",
+   "summary": "filelock: On Windows an oplock on a soft lock's marker holds SoftFileLock.acquire() past its timeout and blocks the stale break",
+   "severity": "low",
+   "cvss": 2.5,
+   "published": "2026-10-23T22:27:32",
+   "updated": "2026-10-23T22:27:34",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "filelock",
+     "range": ">= 3.22.0, <= 4.2.0",
+     "patched": "4.2.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-4f8h-vr72-p32c",
+   "cve": "CVE-2026-113713",
+   "summary": "virtualenv: Temporary app-data can leave dangling seed package links",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-23T22:26:57",
+   "updated": "2026-10-23T22:26:58",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": ">= 21.14.8, < 21.14.10",
+     "patched": "21.14.10"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cx28-75q4-x26q",
+   "cve": "CVE-2026-113717",
+   "summary": "virtualenv: Pip seeding with download omits wheel digest verification",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-23T22:26:04",
+   "updated": "2026-10-23T22:26:05",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-494p-63j8-28p3",
+   "cve": "CVE-2026-113714",
+   "summary": "virtualenv: Downloaded wheel selection and caching precede verification",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-23T22:25:22",
+   "updated": "2026-10-23T22:25:23",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-394h-qwmc-48pf",
+   "cve": "CVE-2026-113718",
+   "summary": "virtualenv: Xonsh activation literals depend on the script decoding codec",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T22:24:43",
+   "updated": "2026-10-23T22:24:44",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-fc2g-4w5p-6whm",
+   "cve": "CVE-2026-113720",
+   "summary": "virtualenv: Seeded files retain permissions from an older cache",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-23T22:23:11",
+   "updated": "2026-10-23T22:23:12",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-6w3r-xr62-4xcp",
+   "cve": "CVE-2026-113723",
+   "summary": "virtualenv: Bash prompt values can change meaning under older compatibility modes",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T22:21:57",
+   "updated": "2026-10-23T22:21:58",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-qmx5-4p3x-wvqf",
+   "cve": "CVE-2026-113715",
+   "summary": "virtualenv: Venv configuration readback can reinterpret path boundaries",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-23T22:20:43",
+   "updated": "2026-10-23T22:20:43",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-hhxq-47xx-j5xx",
+   "cve": "CVE-2026-113719",
+   "summary": "virtualenv: Seed replacement does not contain metadata deletion paths",
+   "severity": "medium",
+   "cvss": 4.5,
+   "published": "2026-10-23T22:19:15",
+   "updated": "2026-10-23T22:19:16",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": "< 21.14.9",
+     "patched": "21.14.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xcx6-jx8p-x3h5",
+   "cve": "CVE-2026-109461",
+   "summary": "MSAL Node authorization code flow may disclose parameters to an attacker-controlled endpoint",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T22:16:44",
+   "updated": "2026-10-23T22:16:45",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "@azure/msal-node",
+     "range": ">= 5.0.0-beta.0, < 7.1.0",
+     "patched": "7.1.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xjj6-f33q-929c",
+   "cve": "CVE-2026-109869",
+   "summary": "undici vulnerable to Denial of Service via unhandled error on excessive content-encodings",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T22:14:31",
+   "updated": "2026-10-23T22:14:32",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 6.23.0, < 6.29.1",
+     "patched": "6.29.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 7.18.0, < 7.30.1",
+     "patched": "7.30.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 8.0.0, < 8.12.2",
+     "patched": "8.12.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-4qv8-2p9j-2685",
+   "cve": "CVE-2026-109924",
+   "summary": "undici vulnerable to Denial of Service via unbounded memory in the EventSource parser",
+   "severity": "medium",
+   "cvss": 5.9,
+   "published": "2026-10-23T22:13:29",
+   "updated": "2026-10-23T22:13:31",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 6.5.0, < 6.29.1",
+     "patched": "6.29.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 7.0.0, < 7.30.1",
+     "patched": "7.30.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 8.0.0, < 8.12.2",
+     "patched": "8.12.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-f72v-6w45-q472",
+   "cve": "CVE-2026-109841",
+   "summary": "undici vulnerable to Subresource Integrity bypass via non-lowercase algorithm tokens",
+   "severity": "medium",
+   "cvss": 5.9,
+   "published": "2026-10-23T22:12:57",
+   "updated": "2026-10-23T22:13:18",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 7.15.0, < 7.30.1",
+     "patched": "7.30.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "undici",
+     "range": ">= 8.0.0, < 8.12.2",
+     "patched": "8.12.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-m5mm-p8h7-m29v",
+   "cve": "CVE-2026-115897",
+   "summary": "Serialize JavaScript: Cross-site scripting (XSS) via unescaped </script at the end of a serialized function body",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-23T22:09:52",
+   "updated": "2026-10-23T22:09:53",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "serialize-javascript",
+     "range": "< 7.1.3",
+     "patched": "7.1.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-q7qp-rjg7-q26m",
+   "cve": "CVE-2026-113872",
+   "summary": "multer vulnerable to Denial of Service via a pending asynchronous fileFilter after request teardown",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T22:08:22",
+   "updated": "2026-10-23T22:08:22",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "multer",
+     "range": ">= 2.0.0, < 2.5.0",
+     "patched": "2.5.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2wqp-q3c6-ccj5",
+   "cve": "CVE-2026-115886",
+   "summary": "MLflow: SSRF on unauthenticated MLflow servers via third-party scorer kwargs in the scorer invoke, register, and GenAI evaluate endpoints",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T22:07:26",
+   "updated": "2026-10-23T22:07:27",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "mlflow",
+     "range": ">= 3.12.0rc0, < 3.17.0",
+     "patched": "3.17.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-6hmw-9432-67qq",
+   "cve": "CVE-2026-115883",
+   "summary": "LangGraph: Namespace labels containing `.` reach other namespaces in Postgres and SQLite stores",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-23T22:06:44",
+   "updated": "2026-10-23T22:06:45",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "langgraph-checkpoint-postgres",
+     "range": "< 3.1.3",
+     "patched": "3.1.3"
+    },
+    {
+     "ecosystem": "pip",
+     "name": "langgraph-checkpoint-sqlite",
+     "range": "< 3.1.2",
+     "patched": "3.1.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-834v-8h66-3h79",
+   "cve": "CVE-2026-115895",
+   "summary": "Happy DOM: Incomplete fix for CVE-2026-33943: unsanitized import alias leads to host code execution",
+   "severity": "high",
+   "cvss": 8.8,
+   "published": "2026-10-23T22:06:13",
+   "updated": "2026-10-23T22:06:14",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "happy-dom",
+     "range": ">= 17.0.0, <= 21.0.3",
+     "patched": "21.0.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9pvw-hwfg-92h5",
+   "cve": "CVE-2026-115892",
+   "summary": "Wasmtime: Panic lowering a host-created component model stream into a guest that expects a different payload type",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-23T22:04:45",
+   "updated": "2026-10-23T22:04:47",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rust",
+     "name": "wasmtime",
+     "range": ">= 46.0.0, < 48.0.7",
+     "patched": "48.0.7"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "wasmtime",
+     "range": ">= 49.0.0, < 49.0.4",
+     "patched": "49.0.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-897f-g5gm-fmxm",
+   "cve": "CVE-2026-115889",
+   "summary": "Wasmtime: Bit-packing in Cranelift compiler causes silent overflow and miscompilation",
+   "severity": "critical",
+   "cvss": 9.9,
+   "published": "2026-10-23T22:02:20",
+   "updated": "2026-10-23T22:02:21",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rust",
+     "name": "wasmtime",
+     "range": "< 36.0.19",
+     "patched": "36.0.19"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "wasmtime",
+     "range": ">= 37.0.0, < 43.0.0",
+     "patched": "43.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2g95-wg33-c5x2",
+   "cve": "CVE-2026-112906",
+   "summary": "filelock: SoftFileLock evicts a fresh lock file whose watched age another local user's pre-dated file passed on through inode reuse",
+   "severity": "medium",
+   "cvss": 4.7,
+   "published": "2026-10-23T22:00:33",
+   "updated": "2026-10-23T22:00:36",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "filelock",
+     "range": ">= 4.1.0, <= 4.2.0",
+     "patched": "4.2.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-crv4-6mhj-j5jh",
+   "cve": "CVE-2026-112914",
+   "summary": "filelock: SoftFileLock stale-break restore follows a swapped-in symbolic link and hard-links a file of the user running the lock into the lock directory",
+   "severity": "medium",
+   "cvss": 5.3,
+   "published": "2026-10-23T22:00:11",
+   "updated": "2026-10-23T22:00:12",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "filelock",
+     "range": ">= 4.1.0, <= 4.2.0",
+     "patched": "4.2.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-v4x8-3wr5-3wq8",
+   "cve": "CVE-2026-112940",
+   "summary": "filelock ReadWriteLock: SQLite reopens the lock database by name, so a planted symlink or journal file makes the lock user's process overwrite or unlink its own files",
+   "severity": "high",
+   "cvss": 7.1,
+   "published": "2026-10-23T21:59:08",
+   "updated": "2026-10-23T21:59:11",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "filelock",
+     "range": ">= 3.20.4, <= 4.2.0",
+     "patched": "4.2.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h4fr-cmh5-qr62",
+   "cve": null,
+   "summary": "Fallow: A `.*` glob segment let an analyzed repository make Fallow test paths in the parent of the project root",
+   "severity": "low",
+   "cvss": 3.3,
+   "published": "2026-10-23T21:58:16",
+   "updated": "2026-10-23T21:58:17",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "fallow",
+     "range": "< 3.34.0",
+     "patched": "3.34.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@fallow-cli/fallow-node",
+     "range": "< 3.34.0",
+     "patched": "3.34.0"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "fallow-cli",
+     "range": "< 3.34.0",
+     "patched": "3.34.0"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "fallow-config",
+     "range": "< 3.34.0",
+     "patched": "3.34.0"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "fallow-core",
+     "range": "< 3.34.0",
+     "patched": "3.34.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-jfwm-3p3c-6hx5",
+   "cve": "CVE-2026-115569",
+   "summary": "Fallow: Jest and Vitest `projects` entries let an analyzed repository make Fallow read files outside the project root",
+   "severity": "low",
+   "cvss": 3.3,
+   "published": "2026-10-23T21:57:37",
+   "updated": "2026-10-23T21:57:38",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "fallow",
+     "range": ">= 2.68.0, < 3.34.0",
+     "patched": "3.34.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@fallow-cli/fallow-node",
+     "range": ">= 2.68.0, < 3.34.0",
+     "patched": "3.34.0"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "fallow-cli",
+     "range": ">= 2.68.0, < 3.34.0",
+     "patched": "3.34.0"
+    },
+    {
+     "ecosystem": "rust",
+     "name": "fallow-core",
+     "range": ">= 2.68.0, < 3.34.0",
+     "patched": "3.34.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-5x8w-8jj5-q52h",
+   "cve": "CVE-2026-112398",
+   "summary": "Pillow: Heap buffer overflow in FlashPix (FPX) JPEG decoding leads to code execution",
+   "severity": "critical",
+   "cvss": null,
+   "published": "2026-10-23T21:55:21",
+   "updated": "2026-10-23T21:55:22",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pillow",
+     "range": "<= 12.3.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-f2hq-32vh-53cc",
+   "cve": null,
+   "summary": "postal-mime: Quadratic CPU consumption when decoding a header of many joinable RFC 2047 base64 encoded words",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T21:54:36",
+   "updated": "2026-10-23T21:54:37",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "postal-mime",
+     "range": ">= 3.0.0, < 4.0.8",
+     "patched": "4.0.8"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-654x-cwwv-5j9c",
+   "cve": "CVE-2026-114501",
+   "summary": "Pillow: Arrow export leaks stale heap memory when PILLOW_ALIGNMENT > 1",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-23T21:53:21",
+   "updated": "2026-10-23T21:53:25",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Pillow",
+     "range": ">= 11.2.1, < 13.0.0",
+     "patched": "13.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-8c8m-p3m8-cjg8",
+   "cve": null,
+   "summary": "Nodemailer: A nested comment ends early in addressparser, releasing the rest of the comment as a recipient",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T21:53:04",
+   "updated": "2026-10-23T21:53:05",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nodemailer",
+     "range": ">= 3.0.0, < 10.1.4",
+     "patched": "10.1.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-m943-m63m-w62w",
+   "cve": null,
+   "summary": "Nodemailer: A \";\" inside a quoted string or comment ends an address group early in addressparser, turning display text into a recipient",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T21:51:52",
+   "updated": "2026-10-23T21:51:54",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nodemailer",
+     "range": ">= 3.0.0, < 10.1.4",
+     "patched": "10.1.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-85x2-q946-cp5h",
+   "cve": null,
+   "summary": "Nodemailer: A \">\" inside a quoted local part ends an angle-addr early in addressparser, delivering to a domain the header does not name",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T21:51:18",
+   "updated": "2026-10-23T21:51:19",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "nodemailer",
+     "range": ">= 3.0.0, < 10.1.4",
+     "patched": "10.1.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-f9x3-7vq9-cph6",
+   "cve": "CVE-2026-114509",
+   "summary": "Laravel TokenGuard authentication bypass through non-string API credentials",
+   "severity": "critical",
+   "cvss": null,
+   "published": "2026-10-23T21:50:27",
+   "updated": "2026-10-23T21:50:28",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "laravel/framework",
+     "range": ">= 13.0.0, < 13.29.0",
+     "patched": "13.29.0"
+    },
+    {
+     "ecosystem": "composer",
+     "name": "laravel/framework",
+     "range": "< 12.68.0",
+     "patched": "12.68.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-5wcm-3v2w-8362",
+   "cve": "CVE-2026-114508",
+   "summary": "Laravel relationship inclusion can trigger unauthorized data destruction",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T21:47:48",
+   "updated": "2026-10-23T21:47:49",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "laravel/framework",
+     "range": ">= 12.45.0, < 12.68.0",
+     "patched": "12.68.0"
+    },
+    {
+     "ecosystem": "composer",
+     "name": "laravel/framework",
+     "range": ">= 13.0.0, < 13.27.0",
+     "patched": "13.27.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xmj3-9gf7-h52w",
+   "cve": null,
+   "summary": "setuptools: Windows path escape via namespace_packages.txt during legacy wheel installation  Description",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-23T21:44:11",
+   "updated": "2026-10-23T21:44:13",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "setuptools",
+     "range": ">= 38.2.2, < 84.1.0",
+     "patched": "84.1.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-w74x-v6f9-j3xg",
+   "cve": "CVE-2026-110306",
+   "summary": "fast-uri vulnerable to URI scheme spoofing via percent-encoded scheme decoding",
+   "severity": "medium",
+   "cvss": 6.1,
+   "published": "2026-10-23T21:41:36",
+   "updated": "2026-10-23T21:41:38",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": "< 2.4.8",
+     "patched": "2.4.8"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 3.0.0, < 3.1.9",
+     "patched": "3.1.9"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 4.0.0, < 4.2.3",
+     "patched": "4.2.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xhq7-xmqj-769h",
+   "cve": "CVE-2026-110095",
+   "summary": "fast-uri vulnerable to improper path equivalence in relative reference normalization",
+   "severity": "low",
+   "cvss": 3.7,
+   "published": "2026-10-23T21:39:34",
+   "updated": "2026-10-23T21:39:38",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": "< 2.4.8",
+     "patched": "2.4.8"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 3.0.0, < 3.1.9",
+     "patched": "3.1.9"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 4.0.0, < 4.2.3",
+     "patched": "4.2.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-wjr9-j795-jxcr",
+   "cve": "CVE-2026-110180",
+   "summary": "fast-uri vulnerable to host confusion via unchecked WHATWG host canonicalization",
+   "severity": "medium",
+   "cvss": 4.8,
+   "published": "2026-10-23T21:37:59",
+   "updated": "2026-10-23T21:38:02",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 2.4.2, < 2.4.8",
+     "patched": "2.4.8"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 3.1.3, < 3.1.9",
+     "patched": "3.1.9"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 4.0.1, < 4.2.3",
+     "patched": "4.2.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-333x-w4r6-6crp",
+   "cve": "CVE-2026-110725",
+   "summary": "fast-uri vulnerable to scheme injection via an unescaped first-segment colon in suffix references",
+   "severity": "low",
+   "cvss": 3.7,
+   "published": "2026-10-23T21:36:40",
+   "updated": "2026-10-23T21:36:41",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": "< 2.4.8",
+     "patched": "2.4.8"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 3.0.0, < 3.1.9",
+     "patched": "3.1.9"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "fast-uri",
+     "range": ">= 4.0.0, < 4.2.3",
+     "patched": "4.2.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-7xgj-8392-5q4r",
+   "cve": null,
+   "summary": "FastMCP: Post-transform component authorization is skipped on direct calls",
+   "severity": "medium",
+   "cvss": 6.8,
+   "published": "2026-10-23T21:32:06",
+   "updated": "2026-10-23T21:32:07",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "fastmcp",
+     "range": ">= 3.0.0, < 3.4.10",
+     "patched": "3.4.10"
+    },
+    {
+     "ecosystem": "pip",
+     "name": "fastmcp",
+     "range": ">= 4.0.0, < 4.1.2",
+     "patched": "4.1.2"
+    },
+    {
+     "ecosystem": "pip",
+     "name": "fastmcp-slim",
+     "range": ">= 3.0.0, < 3.4.10",
+     "patched": "3.4.10"
+    },
+    {
+     "ecosystem": "pip",
+     "name": "fastmcp-slim",
+     "range": ">= 4.0.0, < 4.1.2",
+     "patched": "4.1.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-vqqp-x5qm-5qp4",
+   "cve": null,
+   "summary": "FastMCP MCP client wrappers construct M2M OAuth providers without issuer binding — client secret redirectable to attacker-advertised authorization server",
+   "severity": "medium",
+   "cvss": 5.9,
+   "published": "2026-10-23T21:31:30",
+   "updated": "2026-10-23T21:31:31",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "fastmcp",
+     "range": ">= 4.0.0a1, < 4.1.2",
+     "patched": "4.1.2"
+    },
+    {
+     "ecosystem": "pip",
+     "name": "fastmcp-slim",
+     "range": ">= 4.0.0a1, < 4.1.2",
+     "patched": "4.1.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-gx7p-2j49-hfq4",
+   "cve": "CVE-2026-114055",
+   "summary": "vLLM : DoS via unvalidated mm_processor_kwargs in multimodal image processors (Isaac, InternVL, H2OVL, etc.)",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T20:58:36",
+   "updated": "2026-10-23T20:58:38",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "vllm",
+     "range": ">= 0.7.3, < 0.31.0",
+     "patched": "0.31.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-pfhg-q3qv-9q6r",
+   "cve": "CVE-2026-114060",
+   "summary": "SvelteKit: URL redirection to untrusted site via enhanced form submission",
+   "severity": "low",
+   "cvss": 4.7,
+   "published": "2026-10-23T20:58:24",
+   "updated": "2026-10-23T20:58:25",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "@sveltejs/kit",
+     "range": "< 3.0.0",
+     "patched": "3.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-j6qf-3m9c-vwj3",
+   "cve": "CVE-2026-114437",
+   "summary": "chi: Client IP spoofing in ClientIPFromXFF via X-Forwarded-For",
+   "severity": "medium",
+   "cvss": 4.8,
+   "published": "2026-10-23T20:56:46",
+   "updated": "2026-10-23T20:56:47",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/go-chi/chi/v5",
+     "range": "<= 5.3.2",
+     "patched": "5.4.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2rqm-h6hv-g79v",
+   "cve": null,
+   "summary": "odf-kit has HTML injection leading to XSS in odsToHtml() via unescaped style attribute values",
+   "severity": "medium",
+   "cvss": 6.1,
+   "published": "2026-10-23T20:55:31",
+   "updated": "2026-10-23T20:55:33",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "odf-kit",
+     "range": ">= 0.9.8, < 0.14.2",
+     "patched": "0.14.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-6c7f-9265-g8fw",
+   "cve": "CVE-2026-115572",
+   "summary": "pypdf: Possible long runtimes for repeated references to the same missing object",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:55:15",
+   "updated": "2026-10-23T20:55:16",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pypdf",
+     "range": "< 6.21.2",
+     "patched": "6.21.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-jr96-gvgh-j3r4",
+   "cve": "CVE-2026-115585",
+   "summary": "pypdf: Possible long runtimes for repeated malformed cross-reference entries (Follow-up)",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:54:27",
+   "updated": "2026-10-23T20:54:28",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pypdf",
+     "range": "< 6.21.2",
+     "patched": "6.21.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-gmh7-3g9r-mjh5",
+   "cve": "CVE-2026-115580",
+   "summary": "pypdf: Possible long runtimes for large xref table header limits",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:54:12",
+   "updated": "2026-10-23T20:54:14",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "pypdf",
+     "range": "< 6.21.2",
+     "patched": "6.21.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-5wjr-9356-4wc8",
+   "cve": "CVE-2026-115567",
+   "summary": "Tokio: Race condition in `tokio::time::Interval`",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-23T20:54:00",
+   "updated": "2026-10-23T20:54:01",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rust",
+     "name": "tokio",
+     "range": "= 1.54.0",
+     "patched": "1.54.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-jr5w-w6x2-84p9",
+   "cve": "CVE-2026-115570",
+   "summary": "Electron: Mitigation for compromised eMudhra intermediate certificates",
+   "severity": "high",
+   "cvss": 7.4,
+   "published": "2026-10-23T20:53:41",
+   "updated": "2026-10-23T20:53:43",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 45.0.0-alpha.1, < 45.0.0-beta.6",
+     "patched": "45.0.0-beta.6"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 44.0.0-alpha.1, < 44.9.1",
+     "patched": "44.9.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": ">= 43.0.0-alpha.1, < 43.8.1",
+     "patched": "43.8.1"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "electron",
+     "range": "< 42.11.16",
+     "patched": "42.11.16"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-27r3-jxmh-p828",
+   "cve": "CVE-2026-111181",
+   "summary": "body-parser vulnerable to Denial of Service via trailing bytes after a compressed request body",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T20:53:11",
+   "updated": "2026-10-23T20:53:12",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "body-parser",
+     "range": ">= 2.0.0, < 2.4.0",
+     "patched": "2.4.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "body-parser",
+     "range": "< 1.20.9",
+     "patched": "1.20.9"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-q54r-jf2p-rfr2",
+   "cve": null,
+   "summary": "gitoxide gix: untrusted .git/config disables filesystem .git-protection path checks via unfiltered protect_options()",
+   "severity": "high",
+   "cvss": 7.3,
+   "published": "2026-10-23T20:52:28",
+   "updated": "2026-10-23T20:52:29",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rust",
+     "name": "gix",
+     "range": ">= 0.88.0, <= 0.89.0",
+     "patched": "0.90.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-mhf7-xp6r-6qrc",
+   "cve": null,
+   "summary": "Livewire: Authorization bypass in #[Authorize] via reordered parameter keys and #[Json] execution order",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T20:51:30",
+   "updated": "2026-10-23T20:51:30",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "livewire/livewire",
+     "range": ">= 4.3.0, < 4.4.8",
+     "patched": "4.4.8"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h53f-rm2w-w7rg",
+   "cve": null,
+   "summary": "Echo: X-Real-IP extractor trusts the header value instead of the sending peer",
+   "severity": "medium",
+   "cvss": 5.3,
+   "published": "2026-10-23T20:50:25",
+   "updated": "2026-10-23T20:50:27",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v5",
+     "range": ">= 5.0.0, < 5.4.1",
+     "patched": "5.4.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9969-6676-49h5",
+   "cve": null,
+   "summary": "Echo: WebSocket proxy can retain connections and handlers after client disconnect",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:50:17",
+   "updated": "2026-10-23T20:50:18",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v4",
+     "range": ">= 4.15.0, < 4.16.1",
+     "patched": "4.16.1"
+    },
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v5",
+     "range": ">= 5.0.0, < 5.4.1",
+     "patched": "5.4.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h7wr-284f-5qvc",
+   "cve": null,
+   "summary": "Echo: Decompress permits unbounded gzip expansion in v4",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:49:49",
+   "updated": "2026-10-23T20:49:50",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v4",
+     "range": ">= 4.0.0, < 4.16.1",
+     "patched": "4.16.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cxf3-9h37-7rr8",
+   "cve": null,
+   "summary": "Echo: Rejected WebSocket upgrades can bypass Echo route-level access controls",
+   "severity": "critical",
+   "cvss": null,
+   "published": "2026-10-23T20:49:37",
+   "updated": "2026-10-23T20:49:38",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v4",
+     "range": ">= 4.0.0, < 4.16.1",
+     "patched": "4.16.1"
+    },
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v5",
+     "range": ">= 5.0.0, < 5.4.1",
+     "patched": "5.4.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-x9ff-22gv-65f4",
+   "cve": null,
+   "summary": "Echo: BodyDump can discard BodyLimit overflow errors for unknown-length requests",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-10-23T20:49:11",
+   "updated": "2026-10-23T20:49:12",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v5",
+     "range": ">= 5.0.0, < 5.4.1",
+     "patched": "5.4.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-f48p-c9v4-h7xv",
+   "cve": null,
+   "summary": "Echo: BodyDump captures request and response bodies without size limits in v4",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:48:44",
+   "updated": "2026-10-23T20:48:45",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/labstack/echo/v4",
+     "range": ">= 4.0.0, < 4.16.1",
+     "patched": "4.16.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-4v6f-7vjh-6x4m",
+   "cve": "CVE-2026-115419",
+   "summary": "Strands Agents SDK: Exposure of data element to wrong session in the A2A Server",
+   "severity": "high",
+   "cvss": 8.1,
+   "published": "2026-10-23T20:48:29",
+   "updated": "2026-10-23T20:48:30",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "strands-agents",
+     "range": "< 1.43.0",
+     "patched": "1.43.0"
+    },
+    {
+     "ecosystem": "npm",
+     "name": "@strands-agents/sdk",
+     "range": "< 1.5.0",
+     "patched": "1.5.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cx6f-vjhg-g3cc",
+   "cve": "CVE-2026-115586",
+   "summary": "virtualenv: Bash activator leaves the --prompt value unescaped in PS1 when promptvars is off, so prompt expansion later executes it (regression in 21.14.9)",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:47:16",
+   "updated": "2026-10-23T20:47:17",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "virtualenv",
+     "range": ">= 21.14.9, < 21.14.13",
+     "patched": "21.14.13"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h7ww-273w-6cm8",
+   "cve": "CVE-2026-115355",
+   "summary": "Mistune: Path Traversal and XSS in Include directive",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:46:47",
+   "updated": "2026-10-23T20:46:48",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "mistune",
+     "range": "<= 3.2.0",
+     "patched": "3.3.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2qrf-pqgx-qh9v",
+   "cve": "CVE-2026-115774",
+   "summary": "Twisted: Denial of Service in the Twisted IMAP4 Server via a Negative Literal Size in SEARCH",
+   "severity": "medium",
+   "cvss": 4.9,
+   "published": "2026-10-23T20:46:12",
+   "updated": "2026-10-23T20:46:13",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Twisted",
+     "range": "<= 26.4.0",
+     "patched": "26.10.0rc1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-53xc-49m8-p798",
+   "cve": "CVE-2026-115776",
+   "summary": "Twisted: Unauthenticated Remote Denial of Service in the Twisted IRC Server via an Unbounded Line Buffer",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T20:45:35",
+   "updated": "2026-10-23T20:45:36",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Twisted",
+     "range": "<= 26.4.0",
+     "patched": "26.10.0rc1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cwm5-jh59-mwxr",
+   "cve": "CVE-2026-115778",
+   "summary": "Twisted: Unauthenticated Remote Denial of Service in the Twisted conch Telnet Transport via an Unbounded Subnegotiation Buffer",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T20:45:26",
+   "updated": "2026-10-23T20:45:27",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Twisted",
+     "range": "<= 26.4.0",
+     "patched": "26.10.0rc1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-3476-c5c2-fr73",
+   "cve": "CVE-2026-115775",
+   "summary": "Twisted: Unauthenticated Remote Denial of Service in the Twisted words domish XML Element Stream via an Unbounded Element Tree",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T20:45:04",
+   "updated": "2026-10-23T20:45:05",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Twisted",
+     "range": "<= 26.4.0",
+     "patched": "26.10.0rc1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-q7qq-6mhp-9rc4",
+   "cve": "CVE-2026-115877",
+   "summary": "Twisted: HTTP Request Smuggling in twisted.web via a Bare CR or LF in a Header Value",
+   "severity": "medium",
+   "cvss": 5.4,
+   "published": "2026-10-23T20:44:43",
+   "updated": "2026-10-23T20:44:44",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "Twisted",
+     "range": "<= 26.4.0",
+     "patched": "26.10.0rc1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-p92p-rxj5-7p2x",
+   "cve": "CVE-2026-114050",
+   "summary": "vLLM: Forged multimodal UUID + P0/P1 processor-cache eviction drift: unauthenticated remote crash of the whole vLLM engine",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T20:43:44",
+   "updated": "2026-10-23T20:43:45",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "vllm",
+     "range": "< 0.31.0",
+     "patched": "0.31.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-27mw-82g8-phjj",
+   "cve": "CVE-2026-114061",
+   "summary": "SvelteKit : XSS via untrusted cache-control header in prerendered page",
+   "severity": "low",
+   "cvss": null,
+   "published": "2026-10-23T20:43:30",
+   "updated": "2026-10-23T20:43:31",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "@sveltejs/kit",
+     "range": "< 3.0.0",
+     "patched": "3.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-r3g7-r4hr-m258",
+   "cve": "CVE-2026-115478",
+   "summary": "obsidian-tc: Memory-lifecycle tools overwrite unowned notes or partially commit lifecycle changes",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T18:47:25",
+   "updated": "2026-10-23T18:47:40",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "obsidian-tc",
+     "range": ">= 1.0.1, <= 1.31.3",
+     "patched": "1.31.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-rpx2-p6hp-x5gj",
+   "cve": "CVE-2026-62204",
+   "summary": "SiYuan: Missing consistency check between packageName and repoURL/repoHash in bazaar package install allows overwriting an existing, trusted plugin",
+   "severity": "medium",
+   "cvss": 6.6,
+   "published": "2026-10-23T18:38:25",
+   "updated": "2026-10-23T18:38:27",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/siyuan-note/siyuan/kernel",
+     "range": "< 0.0.0-20260808010544-26ccb40d390e",
+     "patched": "0.0.0-20260808010544-26ccb40d390e"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-c8w8-3pqp-wr83",
+   "cve": "CVE-2026-73054",
+   "summary": "SiYuan: A parser differential between the WebSocket keepalive exemption and the session quarantine allows unauthenticated access to the broadcast event stream",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-10-23T18:34:09",
+   "updated": "2026-10-23T18:34:11",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/siyuan-note/siyuan/kernel",
+     "range": "< 0.0.0-20260731131820-67bc300b6ea6",
+     "patched": "0.0.0-20260731131820-67bc300b6ea6"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-4pjg-x8qj-33j5",
+   "cve": "CVE-2026-73630",
+   "summary": "SiYuan: authFilePublishAccess distinguishes hidden and forbidden documents from public and nonexistent ones, and issues a publish-auth cookie for documents it reports as forbidden",
+   "severity": "medium",
+   "cvss": 5.8,
+   "published": "2026-10-23T18:31:42",
+   "updated": "2026-10-23T18:31:45",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/siyuan-note/siyuan/kernel",
+     "range": "< 0.0.0-20260731093152-c7522b8db586",
+     "patched": "0.0.0-20260731093152-c7522b8db586"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-p4qw-vx5p-g984",
+   "cve": "CVE-2026-73049",
+   "summary": "SiYuan: The publish filter for database backlinks consults the forbidden list instead of the visibility list, disclosing hidden-tier documents to anonymous readers",
+   "severity": "medium",
+   "cvss": 5.8,
+   "published": "2026-10-23T18:30:42",
+   "updated": "2026-10-23T18:30:45",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/siyuan-note/siyuan/kernel",
+     "range": "< 0.0.0-20260730150429-5b42614311b0",
+     "patched": "0.0.0-20260730150429-5b42614311b0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-xp3q-r38w-vgqm",
+   "cve": null,
+   "summary": "SiYuan: The publish filter for local storage returns the administrator's entire storage map with only three keys sanitized",
+   "severity": "medium",
+   "cvss": 5.8,
+   "published": "2026-10-23T18:29:45",
+   "updated": "2026-10-23T18:29:47",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/siyuan-note/siyuan/kernel",
+     "range": "< 0.0.0-20260729005258-4daee87d4152",
+     "patched": "0.0.0-20260729005258-4daee87d4152"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-pqh8-4pj7-32xx",
+   "cve": "CVE-2026-77363",
+   "summary": "obsidian-tc HTTP transport lacks Origin/DNS-rebinding protection, enabling drive-by vault access on loopback",
+   "severity": "critical",
+   "cvss": 9.6,
+   "published": "2026-10-23T18:29:02",
+   "updated": "2026-10-23T18:29:05",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "obsidian-tc",
+     "range": "< 1.3.1",
+     "patched": "1.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-43r2-c7g8-prc8",
+   "cve": "CVE-2026-77362",
+   "summary": "obsidian-tc Bridge tools leak denied-note data via unfiltered sibling fields",
+   "severity": "medium",
+   "cvss": 4.3,
+   "published": "2026-10-23T18:28:14",
+   "updated": "2026-10-23T18:28:14",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "obsidian-tc",
+     "range": "< 1.3.1",
+     "patched": "1.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-737x-cwfr-5vvc",
+   "cve": "CVE-2026-115477",
+   "summary": "obsidian-tc: Declined human-in-the-loop confirmations can permit destructive calls over HTTP",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-10-23T17:30:10",
+   "updated": "2026-10-23T17:30:11",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "obsidian-tc",
+     "range": ">= 1.13.0, <= 1.31.3",
+     "patched": "1.31.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-84c9-qqpq-2pq5",
+   "cve": "CVE-2026-77366",
+   "summary": "obsidian-tc tokens can access arbitrary configured vaults",
+   "severity": "critical",
+   "cvss": 9.9,
+   "published": "2026-10-23T17:29:17",
+   "updated": "2026-10-23T17:29:18",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "obsidian-tc",
+     "range": "< 1.3.1",
+     "patched": "1.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-cvp8-vvgf-69q4",
+   "cve": "CVE-2026-77364",
+   "summary": "obsidian-tc: Default folder ACL is fail-open; .obsidian plugin secrets are readable by default",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-10-23T17:28:40",
+   "updated": "2026-10-23T17:28:42",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "obsidian-tc",
+     "range": "< 1.3.1",
+     "patched": "1.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-c5xx-h28h-f682",
+   "cve": "CVE-2026-77361",
+   "summary": "obsidian-tc : Symlink read-ACL scope bypass via lexical path checks",
+   "severity": "medium",
+   "cvss": 4.7,
+   "published": "2026-10-23T17:28:19",
+   "updated": "2026-10-23T17:28:20",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "obsidian-tc",
+     "range": "< 1.3.1",
+     "patched": "1.3.1"
+    }
+   ]
+  }
+ ],
+ "fetched_at": "2026-10-24T10:11:24Z",
+ "tool": "tools/intel/fetch-intel"
+}

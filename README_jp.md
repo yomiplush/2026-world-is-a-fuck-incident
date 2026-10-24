@@ -2,6 +2,8 @@
 
 [English](README.md) | [**日本語**](README_jp.md)
 
+> **最新更新 — 2026-10-24 19:13 JST:** [広域調査と24事案群](docs/24-snapshot-20261024.ja.md)。Arista/Collaboraの実悪用、Pillow・Wasmtime・Ruby、AI/MCP、国内製品・HPE・産業機器を追加。NVD新規526件/更新3,531件、GHSA82件、KEV直近17件を保存。[構造化索引](data/2026-10-24/incident-register.json) / [一次調査メモ](docs/research-2026-10-24.md)。[公開ブリーフィング](https://2026-incident-briefing.pages.dev/?lang=ja#26)は8画面追加して**34画面**。以下は過去時点の記録を含み、現在の優先事項は最新調査を参照してください。
+
 ## 0. 忙しい人向け — 3分で「自分に関係あるか」まで
 
 この2週間に**8件**が重なりました。全部を読む必要はありません。自分に該当する行だけ追ってください。

@@ -205,3 +205,10 @@ NVD は24時間・全深刻度のクエリに約60秒かかり、1ページ最�
 このリポジトリではなく配布元を指す。件数は取得時点のもので、MSRC の CVRF のように
 再公開で動く（`docs/05` の 2,578 → 2026-10-21 再公開の 2,575 → 2026-10-22 は 2,584）。
 NVD のスコアも同じで、`CVE-2026-109619` は公開の翌日に 9.8 → 8.1 と動いた。
+
+
+## 2026-10-24 — 広域更新
+
+[24事案群・観測窓・KEV17件](docs/24-snapshot-20261024.ja.md) · [Primary-source research](docs/research-2026-10-24.md) · [Structured register](data/2026-10-24/incident-register.json)
+
+Primary evidence: [Collabora](https://github.com/CollaboraOnline/online/security/advisories/GHSA-g3vx-3m76-fghh), [Arista](https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199), [Ruby](https://www.ruby-lang.org/en/news/2026/10/23/regexp-fixes-for-gitlab-cves/), [HPE CSAF](https://csaf.arubanetworking.hpe.com/2026/hpe_networking_-_hpesbnw05162.json), [JPCERT](https://www.jpcert.or.jp/at/2026/at260030.html). Per-incident URLs and evidence are archived in [data/2026-10-24](data/2026-10-24/).
