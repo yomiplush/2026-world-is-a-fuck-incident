@@ -7,18 +7,18 @@ window.registerLocale("id", {
     hintEnd: "akhir briefing — ketuk untuk mengulang",
     coverKicker: "BRIEFING INSIDEN · 2026-10",
     coverTitleA: "SATU BULAN,", coverTitleB: "15 INSIDEN.",
-    coverSub: "Lima belas insiden Oktober 2026, berurutan.<br>Plus lampiran Apache dan delapan adegan 10-23. Ketuk untuk maju.<br>Delapan adegan baru 10-24 (bahasa Inggris).",
+    coverSub: "Lima belas insiden Oktober 2026, berurutan.<br>Plus lampiran Apache dan delapan adegan 10-23. Ketuk untuk maju.<br>Delapan adegan baru 10-24 (bahasa Inggris).<br>10/25: +6 scenes (English).",
     coverStart: "KETUK UNTUK MULAI",
-    coverFoot: "Setiap klaim bisa ditelusuri ke sumber primer. Hanya ConnectWise yang belum terverifikasi.",
+    coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "SUMBER / SOURCES",
-    drawerFoot: "14 dari 15 terverifikasi lewat sumber primer. ConnectWise dicatat sebagai belum terverifikasi.",
-    asof: "per 2026-10-24 19:13 JST"
+    drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
+    asof: "2026-10-25 16:34 JST"
   },
   scenes: {
     intro: { title: "Satu bulan, lima belas insiden.",
       lede: "Kegagalan yang tampak tak berhubungan, tetapi terus jatuh pada jenis kelemahan yang sama. Telusuri berurutan.",
       points: ["<b>8 dari 15</b> adalah masalah npm / pip / plugin / artefak rilis — <em>distribusinya</em>, bukan kodenya",
-        "14 terverifikasi lewat <b>sumber primer</b>; satu (ConnectWise) tidak",
+        "ConnectWise now has primary confirmation; see the 10/25 addendum (English).",
         "Suara aktif; matikan di kanan atas"],
       metric: "insiden · satu bulan" },
     "php-silence": { title: "Tujuh puluh hari yang sunyi.",

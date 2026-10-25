@@ -7,18 +7,18 @@ window.registerLocale("ru", {
     hintEnd: "конец брифинга — тап, чтобы начать заново",
     coverKicker: "БРИФИНГ ПО ИНЦИДЕНТАМ · 2026-10",
     coverTitleA: "ОДИН МЕСЯЦ,", coverTitleB: "15 ИНЦИДЕНТОВ.",
-    coverSub: "Пятнадцать инцидентов октября 2026 года по порядку.<br>Плюс приложение про Apache и восемь сцен от 10-23. Тап — далее.<br>Восемь новых сцен от 10-24 (на английском).",
+    coverSub: "Пятнадцать инцидентов октября 2026 года по порядку.<br>Плюс приложение про Apache и восемь сцен от 10-23. Тап — далее.<br>Восемь новых сцен от 10-24 (на английском).<br>10/25: +6 scenes (English).",
     coverStart: "ТАП, ЧТОБЫ НАЧАТЬ",
-    coverFoot: "Каждое утверждение опирается на первоисточник. Не проверен только ConnectWise.",
+    coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "ИСТОЧНИКИ / SOURCES",
-    drawerFoot: "14 из 15 проверены по первоисточникам. ConnectWise помечен как непроверенный.",
-    asof: "на 2026-10-24 19:13 JST"
+    drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
+    asof: "2026-10-25 16:34 JST"
   },
   scenes: {
     intro: { title: "Один месяц, пятнадцать инцидентов.",
       lede: "Несвязанные сбои, которые раз за разом попадали в один и тот же тип слабости. Листайте по порядку.",
       points: ["<b>8 из 15</b> — проблемы npm / pip / плагинов / артефактов релиза: <em>доставка</em>, а не код",
-        "14 проверены по <b>первоисточникам</b>; один (ConnectWise) — нет",
+        "ConnectWise now has primary confirmation; see the 10/25 addendum (English).",
         "Звук включён; отключается справа вверху"],
       metric: "инцидентов · месяц" },
     "php-silence": { title: "Семьдесят тихих дней.",

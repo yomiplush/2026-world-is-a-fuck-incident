@@ -1,5 +1,7 @@
 # ソースと再取得コマンド
 
+最新の固定窓照会・取得時刻・出典: [10/25詳細](docs/25-snapshot-20261025.ja.md)、[調査ノート](docs/research-2026-10-25.md)、[パッケージ](docs/research-packages-2026-10-25.md)、[照会URL](data/2026-10-25/collection-summary.json)。
+
 [English](SOURCES.md) | [**日本語**](SOURCES.ja.md)
 
 **原則**: 一次ソース（ベンダの勧告・API・リポジトリ）のみを根拠にする。二次報道を使う場合は

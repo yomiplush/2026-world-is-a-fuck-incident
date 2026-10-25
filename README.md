@@ -1,5 +1,9 @@
 # 2026 — php2shell, Node.js October 2026, Oracle Java, and a CA compromise
 
+> **Recommendation: support open-source vulnerability remediation through [Patch the Planet](https://patchtheplanet.org/).**
+
+> **Latest review — cutoff 2026-10-25 16:34 JST:** [Priorities and 16 supplemental/revised groups](docs/25-snapshot-20261025.md): Fortinet, Java/Python trust, DNS, Brotli, Postiz, ATS, OT clients; primary confirmation of ConnectWise and final LiteLLM findings. Fixed-window NVD: 99 published / 5,432 modified. [Register](data/2026-10-25/incident-register.json) / [research](docs/research-2026-10-25.md) / [readable update](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [40-scene briefing, new addendum](https://infosec-briefing.yomiplush.dev/?lang=en#34). Retrieved after the cutoff. Older sections below retain their historical context; this review supersedes outdated status claims.
+
 [**English**](README.md) | [日本語](README_jp.md)
 
 > **Latest update — 2026-10-24 19:13 JST:** [Broad review of 24 priority groups](docs/24-snapshot-20261024.md): exploited Arista/Collabora, Pillow, Wasmtime, Ruby, AI/MCP, Japanese products, HPE and industrial devices. Archived 526 newly published / 3,531 modified NVD records, 82 GitHub advisories and 17 recent KEV additions. [Structured register](data/2026-10-24/incident-register.json) / [primary-source notes](docs/research-2026-10-24.md). The [live briefing](https://2026-incident-briefing.pages.dev/?lang=en#26) gains eight scenes, **34 total**. Earlier sections retain their historical context; use the latest snapshot for current priorities.
@@ -17,7 +21,7 @@
 | **run GitLab yourself** | a perfect-10.0 hole: no login needed to run code. **Patching last week is not enough** | upgrade to **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** → [`docs/09`](docs/09-gitlab-19-5-1.md) |
 | **installed LiteLLM 1.107.0** | installing it *was* the compromise: every Python start ships credentials out | **do not run `pip` first**; remove, then rotate → [`docs/10`](docs/10-litellm-1-107-0.md) |
 | **deploy on Railway** | customer environment variables — i.e. your secrets — may have been decrypted | regenerate **every** env var → [`docs/11`](docs/11-week-of-oct-20.md) |
-| **expose Plex Media Server** | **in KEV** (real exploitation): 4.3–7.2 individually, but chainable to code execution. **The deadline is today (2026-10-23)** | update to ≥ 1.43.3.10861 — Plex ships **1.43.5.11029** — and rotate account tokens → [`docs/12`](docs/12-plex-oct2026.md) |
+| **expose Plex Media Server** | **in KEV** (real exploitation): 4.3–7.2 individually, but chainable to code execution. **The federal deadline was 2026-10-23** | update to ≥ 1.43.3.10861 — Plex ships **1.43.5.11029** — and rotate account tokens → [`docs/12`](docs/12-plex-oct2026.md) |
 
 ### 0-2. This week (real, but conditional)
 
@@ -271,7 +275,7 @@ agent_approval_gates:            # docs/19 §6
 | 5 | OVHcloud CLI | official release assets replaced for 94 minutes (v0.11.0–v0.15.0) | vendor (GHSA) |
 | 6 | Rank Math PRO | malware in some 3.0.123 downloads; fixed 3.0.124 (CVE-2026-111862, 9.8) | research + vendor |
 | 7 | TeamUpdraft | customer DB read, then connection keys pushed malicious plugins into WordPress sites | vendor + research |
-| 8 | ConnectWise | cloud backup identities compromised — **no primary source found** | **unverified** |
+| 8 | ConnectWise | cloud backup identities compromised — **primary sources confirmed in the October 25 review** | [current investigation and response](docs/25-snapshot-20261025.md) |
 | 9 | Tensorlake (npm) | `tensorlake@0.5.144`: stealer + worm + a trap that wipes `$HOME` if you revoke the stolen token | research |
 | 10 | SubQuery (npm) | `@subql/common@5.8.3`: credential collection at install and on import | research |
 | 11 | GhostAction | fake `security-audit.yml` swept secrets and git history out of 345 repos | research |

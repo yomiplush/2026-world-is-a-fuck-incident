@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面と10-25追補6画面。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
-      coverFoot: "出所はすべて一次ソース。1件だけ未確認（ConnectWise）。",
+      coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "当初15件中14件を一次確認。10/24追補は個別出典を掲載。ConnectWiseは未確認。",
-      asof: "2026-10-24 19:13 JST 時点",
+      drawerFoot: "10/25追補は個別出典付き。ConnectWiseの旧「未確認」は今回更新。実取得は基準時刻後です。",
+      asof: "2026-10-25 16:34 JST 時点",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus earlier addenda and eight October 24 update scenes covering 24 reviewed groups. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus eight October 24 scenes and six October 25 scenes. 40 scenes total. Tap to advance.",
       coverStart: "TAP TO BEGIN",
-      coverFoot: "Every claim traces to a primary source. One row (ConnectWise) is unverified.",
+      coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
-      drawerFoot: "14 of the original 15 verified; October 24 updates carry individual sources. ConnectWise remains unverified.",
-      asof: "as of 2026-10-24 19:13 JST",
+      drawerFoot: "October 25 sources supersede the old ConnectWise uncertainty. Sources were retrieved after the cutoff.",
+      asof: "as of 2026-10-25 16:34 JST",
       lang: "EN"
     }
   },
@@ -67,7 +67,7 @@ window.CONTENT = {
         lede: "互いに無関係に見える事案が、同じ種類の弱点に集まった月。タップで時系列に進みます。",
         points: [
           "15件のうち <b>8件</b>が npm / pip / プラグイン / リリース資産 — コードではなく<em>配布</em>",
-          "14件は<b>一次ソース</b>で確認済み。1件（ConnectWise）は未確認",
+          "当初の14件に加え、<b>ConnectWiseも一次確認</b>。10/25追補に現在の対応を掲載",
           "音が出ます。右上の SOUND で消せます"
         ]
       },
@@ -77,7 +77,7 @@ window.CONTENT = {
         lede: "Unrelated failures that kept landing on the same kind of weakness. Tap through them in order.",
         points: [
           "<b>8 of 15</b> are npm / pip / plugin / release-asset problems — the <em>distribution</em>, not the code",
-          "14 are verified against <b>primary sources</b>; one (ConnectWise) is not",
+          "ConnectWise now also has <b>primary confirmation</b>; see the October 25 addendum",
           "Sound is on — toggle it top-right"
         ]
       }
@@ -1530,12 +1530,454 @@ window.CONTENT = {
       }
     },
     {
+      "id": "oct25-priorities",
+      "stamp": "10.25",
+      "metric": null,
+      "visual": {
+        "type": "ledger",
+        "rows": [{"name":"PUBLISHED CVEs","figure":"99","tone":"cyan"},{"name":"MODIFIED CVEs","figure":"5,432","tone":"amber"},{"name":"KEV VERSION","figure":"10.23","tone":"green"},{"name":"CUTOFF / JST","figure":"16:34","tone":"cyan"}]
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Patch the Planet",
+          "url": "https://patchtheplanet.org/",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "CISA KEV",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "10-25 snapshot",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/25-snapshot-20261025.ja.md",
+          "note": {
+            "ja": "基準時刻・取得時刻・留保事項",
+            "en": "Cutoff, retrieval and limitations"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "更新を、届くところまで。",
+        "lede": "10月25日16:34 JSTを基準に、前日の調査を補完。取得は基準時刻後で、すべてが今日の新規発生ではありません。",
+        "points": [
+          "<b>Patch the Planet</b> を推奨。オープンソースの脆弱性修正を支える取り組みです",
+          "実悪用済みの公開資産 → 緊急更新 → 鍵と権限の調査 → 同梱コピーまで検証",
+          "NVD固定窓は新規<b>99</b>件・更新<b>5,432</b>件。重複するため足さない",
+          "KEVは10/23版のまま。新規掲載なしを安全宣言にしない"
+        ]
+      },
+      "en": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "Take the update all the way through.",
+        "lede": "Review cutoff: October 25, 16:34 JST. Retrieved afterward; newly covered information is not necessarily a new incident.",
+        "points": [
+          "Support open-source remediation through <b>Patch the Planet</b>",
+          "Exploited exposure → urgent releases → keys and permissions → bundled copies",
+          "Fixed-window NVD: <b>99</b> published / <b>5,432</b> modified. The sets overlap",
+          "KEV remains October 23. No new catalog entries does not establish safety"
+        ]
+      }
+    },
+    {
+      "id": "oct25-fortinet",
+      "stamp": "10.25",
+      "metric": null,
+      "visual": {
+        "type": "ladder",
+        "steps": [
+          "FortiOS",
+          "Manager",
+          "Analyzer",
+          "Mail",
+          "Authenticator"
+        ]
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Fortinet",
+          "url": "https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "10-25 snapshot",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/25-snapshot-20261025.ja.md",
+          "note": {
+            "ja": "基準時刻・取得時刻・留保事項",
+            "en": "Cutoff, retrieval and limitations"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "CVEの公開を、待たない。",
+        "lede": "Fortinetは5製品の緊急hardening更新を案内。詳細PSIRTは11月10日予定です。",
+        "points": [
+          "<b>FortiOS</b>: 8.0.2 / 7.6.8 / 7.4.13 / 7.2.14",
+          "<b>Manager / Analyzer</b>: 8.0.2 / 7.6.8 / 7.4.12 / 7.2.13",
+          "<b>Mail</b>: 8.0.2 / 7.6.7 / 7.4.9。<b>Authenticator</b>: 8.0.4 / 6.6.11",
+          "機種・系列・更新経路を照合。管理公開制限は暫定策。告知から実悪用を推定しない"
+        ]
+      },
+      "en": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "Do not wait for the CVE list.",
+        "lede": "Fortinet urges priority hardening updates across five products. Detailed PSIRT notices are planned for November 10.",
+        "points": [
+          "<b>FortiOS</b>: 8.0.2 / 7.6.8 / 7.4.13 / 7.2.14",
+          "<b>Manager / Analyzer</b>: 8.0.2 / 7.6.8 / 7.4.12 / 7.2.13",
+          "<b>Mail</b>: 8.0.2 / 7.6.7 / 7.4.9. <b>Authenticator</b>: 8.0.4 / 6.6.11",
+          "Match model, branch and upgrade path. Exposure controls are interim; this notice alone does not confirm exploitation"
+        ]
+      }
+    },
+    {
+      "id": "oct25-runtime-trust",
+      "stamp": "10.25",
+      "metric": null,
+      "visual": {
+        "type": "chain",
+        "nodes": ["CA KEY", "JAVA", "PYTHON", "TLS"]
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Oracle",
+          "url": "https://www.oracle.com/security-alerts/alert-cve-2026-114820.html",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "Oracle operations",
+          "url": "https://ops.java/emudhra",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "Python",
+          "url": "https://mail.python.org/archives/list/security-announce%40python.org/message/FNAJMZV6XQYLVPABNINDMF3VF66AYLW4/",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "10-25 snapshot",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/25-snapshot-20261025.ja.md",
+          "note": {
+            "ja": "基準時刻・取得時刻・留保事項",
+            "en": "Cutoff, retrieval and limitations"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "ブラウザーの外に残る、信頼。",
+        "lede": "Javaには10/24の緊急更新、Python sslには侵害済み鍵のdenylist。定例更新だけで完了とは言えません。",
+        "points": [
+          "<b>Java CVE-2026-114820</b>: 緊急更新または公式keystore/失効確認手順。各JREを再起動",
+          "Oracle表の8u511-b32等は<b>影響版</b>。修正版として転記しない",
+          "<b>Python CVE-2026-115557</b>: mainマージと配布版への反映は別。配布元で確認",
+          "OS、certifi、同梱JRE、コンテナ、独自ストアを棚卸し"
+        ]
+      },
+      "en": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "Trust remains outside the browser.",
+        "lede": "Java has an October 24 emergency alert; Python ssl adds a compromised-key denylist. Routine updates alone do not prove completion.",
+        "points": [
+          "<b>Java CVE-2026-114820</b>: emergency update or official keystore/revocation mitigation; restart each runtime",
+          "Oracle’s table lists <b>affected</b> versions, not the builds to install",
+          "<b>Python CVE-2026-115557</b>: main merged; confirm delivery in each installed distribution",
+          "Inventory OS stores, certifi, bundled JREs, containers and custom trust stores"
+        ]
+      }
+    },
+    {
+      "id": "oct25-dns",
+      "stamp": "10.25",
+      "metric": null,
+      "visual": {
+        "type": "ladder",
+        "steps": [
+          "BIND",
+          "Unbound",
+          "Recursor",
+          "Auth DNS",
+          "Knot DNS"
+        ]
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "ISC",
+          "url": "https://kb.isc.org/docs/cve-2026-94300",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "NLnet Labs",
+          "url": "https://nlnetlabs.nl/projects/unbound/security-advisories/",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "PowerDNS Recursor",
+          "url": "https://docs.powerdns.com/recursor/security-advisories/powerdns-advisory-2026-12.html",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "PowerDNS Authoritative",
+          "url": "https://doc.powerdns.com/authoritative/security-advisories/powerdns-advisory-2026-13.html",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "Knot",
+          "url": "https://www.knot-dns.cz/2026-10-21-version-362.html",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "10-25 snapshot",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/25-snapshot-20261025.ja.md",
+          "note": {
+            "ja": "基準時刻・取得時刻・留保事項",
+            "en": "Cutoff, retrieval and limitations"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "DNSは、製品を分けて。",
+        "lede": "BINDだけでなく、resolverと権威DNSにも更新。似た名前の製品でも更新先は異なります。",
+        "points": [
+          "<b>BIND</b>: 9.20.30 / 9.21.27。GSS-TSIG再送と構成依存の条件を照合",
+          "<b>Unbound</b>: 1.26.2。DoQ・検証・負荷の5件",
+          "<b>PowerDNS Recursor</b>: 5.3.12 / 5.4.8。<b>Authoritative</b>: 4.9.18 / 5.0.8 / 5.1.5",
+          "<b>Knot DNS</b>: 3.6.2。Knot Resolverとは別。CVE数と実悪用数を混同しない"
+        ]
+      },
+      "en": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "Separate the DNS products.",
+        "lede": "Resolvers and authoritative servers also need review. Similar product names do not share update versions.",
+        "points": [
+          "<b>BIND</b>: 9.20.30 / 9.21.27; check GSS-TSIG replay and configuration prerequisites",
+          "<b>Unbound</b>: 1.26.2 covers five DoQ, validation and load issues",
+          "<b>PowerDNS Recursor</b>: 5.3.12 / 5.4.8. <b>Authoritative</b>: 4.9.18 / 5.0.8 / 5.1.5",
+          "<b>Knot DNS</b>: 3.6.2; distinct from Knot Resolver. CVE counts do not count observed attacks"
+        ]
+      }
+    },
+    {
+      "id": "oct25-cloud-access",
+      "stamp": "10.25",
+      "metric": null,
+      "visual": {
+        "type": "chain",
+        "nodes": [
+          "OAUTH",
+          "GRAPH",
+          "KEYS",
+          "ROLES"
+        ]
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "ConnectWise",
+          "url": "https://www.connectwise.com/company/trust/advisories",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "Microsoft",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "LiteLLM",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "10-25 snapshot",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/25-snapshot-20261025.ja.md",
+          "note": {
+            "ja": "基準時刻・取得時刻・留保事項",
+            "en": "Cutoff, retrieval and limitations"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "直した後に、権限が残る。",
+        "lede": "ConnectWiseの一次確認とLiteLLMの確定原因を反映。ベンダーの復旧だけで、顧客側の残存アクセスは消えません。",
+        "points": [
+          "<b>ConnectWise</b>: 正式な復旧指示まで無効維持。10/26は段階再開の目標",
+          "削除を急がず証拠を保存。service principal認証、Graph操作、追加鍵・所有者・権限を調査",
+          "<b>LiteLLM</b>: 未失効master key → GitHub OAuth token → CI秘密。初期推測を更新",
+          "影響環境で先にpipを起動しない。隔離・再構築と到達可能な鍵の失効"
+        ]
+      },
+      "en": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "Permissions can survive the repair.",
+        "lede": "Primary ConnectWise evidence and final LiteLLM findings supersede earlier uncertainty. Provider recovery does not clear customer-side persistence.",
+        "points": [
+          "<b>ConnectWise</b>: keep connections disabled pending formal instructions; October 26 is a target",
+          "Preserve evidence before deletion. Review service-principal sign-ins, Graph activity, new keys, owners and grants",
+          "<b>LiteLLM</b>: unrevoked master key → GitHub OAuth token → CI secrets; replace early speculation",
+          "Do not launch pip on suspect hosts first. Isolate, rebuild cleanly and revoke reachable credentials"
+        ]
+      }
+    },
+    {
+      "id": "oct25-bundles",
+      "stamp": "10.25",
+      "metric": null,
+      "visual": {
+        "type": "ledger",
+        "rows": [
+          {
+            "name": "BUN / BROTLI",
+            "figure": "REBUILD",
+            "tone": "cyan"
+          },
+          {
+            "name": "POSTIZ",
+            "figure": "2.25.3",
+            "tone": "green"
+          },
+          {
+            "name": "ATS 9.2.16",
+            "figure": "EXCEPTION",
+            "tone": "amber"
+          },
+          {
+            "name": "OPC UA CLIENT",
+            "figure": "1.5.7",
+            "tone": "green"
+          }
+        ]
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Bun",
+          "url": "https://github.com/oven-sh/bun/security/advisories/GHSA-663w-cv8g-jj2p",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "Python packages",
+          "url": "https://github.com/advisories/GHSA-9v8h-qqgm-4m35",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "Postiz release",
+          "url": "https://github.com/gitroomhq/postiz-app/releases/tag/v2.25.3",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "Apache",
+          "url": "https://seclists.org/oss-sec/2026/q4/374",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "open62541",
+          "url": "https://github.com/open62541/open62541/releases/tag/v1.5.7",
+          "note": {
+            "ja": "一次資料・影響条件と対応",
+            "en": "Primary evidence, conditions and response"
+          }
+        },
+        {
+          "name": "10-25 snapshot",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/25-snapshot-20261025.ja.md",
+          "note": {
+            "ja": "基準時刻・取得時刻・留保事項",
+            "en": "Cutoff, retrieval and limitations"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "同梱先と、例外を確認。",
+        "lede": "圧縮処理、プロキシ、SNS連携、産業クライアント。同じ更新作業でも完了条件が違います。",
+        "points": [
+          "<b>Brotli</b>: Bun 1.4.4、brotli 1.2.1 / brotlicffi 1.2.1.0。コンパイル済みBun実行物も再ビルド",
+          "<b>Postiz</b>: 2.25.3。登録ユーザーと連携機能の条件を確認",
+          "<b>ATS</b>: 9.2.16 / 10.1.5 / 10.2.1。ただしCVE-2026-111817は<b>9.2.16で未修正</b>",
+          "<b>open62541</b>: 1.5.7。悪性OPC UAサーバーから型定義を受けるクライアントも対象"
+        ]
+      },
+      "en": {
+        "kicker": "10-25 UPDATE · 16:34 JST",
+        "title": "Check bundled copies and exceptions.",
+        "lede": "Compression, proxies, social integrations and industrial clients have different completion criteria.",
+        "points": [
+          "<b>Brotli</b>: Bun 1.4.4, brotli 1.2.1 / brotlicffi 1.2.1.0; rebuild compiled Bun executables",
+          "<b>Postiz</b>: 2.25.3; registered users and integration prerequisites matter",
+          "<b>ATS</b>: 9.2.16 / 10.1.5 / 10.2.1, but CVE-2026-111817 is <b>not fixed in 9.2.16</b>",
+          "<b>open62541</b>: 1.5.7; clients importing remote OPC UA type definitions also need review"
+        ]
+      }
+    },
+    {
       id: "closing", stamp: "NOW",
       metric: null,
       visual: { type: "storm" }, cue: "whoosh",
       sources: [
         { name: "docs/14 supply chain", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/14-supply-chain-oct2026.md",
-          note: { ja: "14件確認 / 1件未確認", en: "14 verified, one not" } },
+          note: { ja: "10/22当時の記録。ConnectWiseは10/25に一次確認", en: "Historical October 22 assessment; ConnectWise confirmed in October 25 review" } },
         { name: "docs/15 Apache", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/15-apache-oct2026.md",
           note: { ja: "深刻度ラベルの食い違い", en: "labels versus CVSS" } },
         { name: "docs/16 snapshot 21:20 JST", url: "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/16-snapshot-2120jst.md",

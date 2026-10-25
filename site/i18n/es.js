@@ -7,18 +7,18 @@ window.registerLocale("es", {
     hintEnd: "fin del informe — toca para reiniciar",
     coverKicker: "INFORME DE INCIDENTES · 2026-10",
     coverTitleA: "UN MES,", coverTitleB: "15 INCIDENTES.",
-    coverSub: "Los quince incidentes de octubre de 2026, en orden.<br>Más un apéndice de Apache y ocho escenas del 10-23. Toca para avanzar.<br>Ocho escenas nuevas del 10-24 (en inglés).",
+    coverSub: "Los quince incidentes de octubre de 2026, en orden.<br>Más un apéndice de Apache y ocho escenas del 10-23. Toca para avanzar.<br>Ocho escenas nuevas del 10-24 (en inglés).<br>10/25: +6 scenes (English).",
     coverStart: "TOCA PARA EMPEZAR",
-    coverFoot: "Cada afirmación remite a una fuente primaria. Solo ConnectWise queda sin verificar.",
+    coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "FUENTES / SOURCES",
-    drawerFoot: "14 de 15 verificados con fuentes primarias. ConnectWise figura como no verificado.",
-    asof: "a 2026-10-24 19:13 JST"
+    drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
+    asof: "2026-10-25 16:34 JST"
   },
   scenes: {
     intro: { title: "Un mes, quince incidentes.",
       lede: "Fallos sin relación aparente que aterrizaron una y otra vez en el mismo tipo de debilidad. Avanza en orden.",
       points: ["<b>8 de 15</b> son problemas de npm / pip / plugins / artefactos de release: la <em>distribución</em>, no el código",
-        "14 están verificados con <b>fuentes primarias</b>; uno (ConnectWise) no",
+        "ConnectWise now has primary confirmation; see the 10/25 addendum (English).",
         "Hay sonido; se apaga arriba a la derecha"],
       metric: "incidentes · un mes" },
     "php-silence": { title: "Setenta días de silencio.",

@@ -1,5 +1,9 @@
 # 2026 — php2shell / Node.js 2026年10月 / Oracle Java / CA 侵害
 
+> **提言：[Patch the Planet](https://patchtheplanet.org/) を推奨します。オープンソースの脆弱性修正を支える取り組みです。**
+
+> **最新調査 — 2026-10-25 16:34 JST基準:** [対応優先順位・16群の追加/訂正](docs/25-snapshot-20261025.ja.md)。Fortinet緊急更新、Java/Python証明書対策、DNS、Brotli、Postiz、ATSとOTクライアントを補完。ConnectWiseの一次確認とLiteLLM確定原因を反映。固定窓NVD新規99件/更新5,432件を保存。[構造化索引](data/2026-10-25/incident-register.json) / [一次調査](docs/research-2026-10-25.md) / [読み物版](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [40画面のブリーフィング・今回追補へ](https://infosec-briefing.yomiplush.dev/?lang=ja#34)。実取得は基準時刻後。以下の古い時点の記述は最新調査で上書きします。
+
 [English](README.md) | [**日本語**](README_jp.md)
 
 > **最新更新 — 2026-10-24 19:13 JST:** [広域調査と24事案群](docs/24-snapshot-20261024.ja.md)。Arista/Collaboraの実悪用、Pillow・Wasmtime・Ruby、AI/MCP、国内製品・HPE・産業機器を追加。NVD新規526件/更新3,531件、GHSA82件、KEV直近17件を保存。[構造化索引](data/2026-10-24/incident-register.json) / [一次調査メモ](docs/research-2026-10-24.md)。[公開ブリーフィング](https://2026-incident-briefing.pages.dev/?lang=ja#26)は8画面追加して**34画面**。以下は過去時点の記録を含み、現在の優先事項は最新調査を参照してください。
@@ -17,7 +21,7 @@
 | **自前の GitLab を運用している** | 満点（CVSS 10.0）。ログインなしでコード実行。**先週パッチを当てていても該当する** | **19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13** へ → [`docs/09`](docs/09-gitlab-19-5-1.ja.md) |
 | **LiteLLM を 1.107.0 で入れた** | 入れた時点で侵害。Python を起動するたびに資格情報を外部へ送る | **先に `pip` を実行しない**。手順どおり除去とローテート → [`docs/10`](docs/10-litellm-1-107-0.ja.md) |
 | **Railway にデプロイしている** | 環境変数（＝APIキー、DBのパスワード）が復号された可能性 | 環境変数を**全部**作り直す → [`docs/11`](docs/11-week-of-oct-20.ja.md) |
-| **Plex Media Server を外部公開している** | **KEV 収載**（実悪用）。個々は 4.3〜7.2 だが連鎖でコード実行。**期限は本日 2026-10-23** | 1.43.3.10861 以上へ（現行は **1.43.5.11029**）＋アカウントトークンをローテート → [`docs/12`](docs/12-plex-oct2026.ja.md) |
+| **Plex Media Server を外部公開している** | **KEV 収載**（実悪用）。個々は 4.3〜7.2 だが連鎖でコード実行。**米連邦向け期限は2026-10-23（経過）** | 1.43.3.10861 以上へ（現行は **1.43.5.11029**）＋アカウントトークンをローテート → [`docs/12`](docs/12-plex-oct2026.ja.md) |
 
 ### 0-2. 今週中（条件が揃えば効くもの）
 
@@ -262,7 +266,7 @@ agent_approval_gates:            # docs/19 §6
 | 5 | OVHcloud CLI | 公式リリース資産が94分間だけ差し替え（v0.11.0〜v0.15.0） | ベンダ（GHSA） |
 | 6 | Rank Math PRO | 3.0.123 の一部にマルウェア。修正 3.0.124（CVE-2026-111862、9.8） | 研究＋ベンダ |
 | 7 | TeamUpdraft | 顧客DBを読まれ、接続キーで WordPress へ悪性プラグインを投入 | ベンダ＋研究 |
-| 8 | ConnectWise | クラウドバックアップの身元侵害——**一次ソースが見つからない** | **未確認** |
+| 8 | ConnectWise | クラウドバックアップの身元侵害——**10/25調査で一次確認** | [最新の調査・対策](docs/25-snapshot-20261025.ja.md) |
 | 9 | Tensorlake (npm) | `tensorlake@0.5.144`。窃取＋ワーム＋失効させると `$HOME` を消す罠 | 研究 |
 | 10 | SubQuery (npm) | `@subql/common@5.8.3`。インストール時と import 時に資格情報を収集 | 研究 |
 | 11 | GhostAction | 偽 `security-audit.yml` が345リポジトリの秘密と履歴を外部送信 | 研究 |

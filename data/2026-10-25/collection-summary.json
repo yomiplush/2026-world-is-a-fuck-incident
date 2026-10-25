@@ -1,0 +1,48 @@
+{
+  "requested_as_of": "2026-10-25T16:34:00+09:00",
+  "cutoff_query_stats": {
+    "published": {
+      "count": 99,
+      "unique_cves": 99,
+      "cvss_v3_any_source_ge9": 10,
+      "cvss_v4_only_ge9": 2,
+      "union_ge9": 12,
+      "queries": [
+        {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-24T01%3A34%3A00.000&pubEndDate=2026-10-25T07%3A34%3A00.000&resultsPerPage=2000&startIndex=0",
+          "totalResults": 99,
+          "returned": 99,
+          "retrieved_at": "2026-10-25T07:41:21.890336+00:00"
+        }
+      ]
+    },
+    "modified": {
+      "count": 5432,
+      "unique_cves": 5432,
+      "cvss_v3_any_source_ge9": 901,
+      "cvss_v4_only_ge9": 108,
+      "union_ge9": 1009,
+      "queries": [
+        {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-24T01%3A34%3A00.000&lastModEndDate=2026-10-25T07%3A34%3A00.000&resultsPerPage=2000&startIndex=0",
+          "totalResults": 5432,
+          "returned": 2000,
+          "retrieved_at": "2026-10-25T07:41:31.081516+00:00"
+        },
+        {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-24T01%3A34%3A00.000&lastModEndDate=2026-10-25T07%3A34%3A00.000&resultsPerPage=2000&startIndex=2000",
+          "totalResults": 5432,
+          "returned": 2000,
+          "retrieved_at": "2026-10-25T07:41:40.539988+00:00"
+        },
+        {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-24T01%3A34%3A00.000&lastModEndDate=2026-10-25T07%3A34%3A00.000&resultsPerPage=2000&startIndex=4000",
+          "totalResults": 5432,
+          "returned": 1432,
+          "retrieved_at": "2026-10-25T07:41:49.521381+00:00"
+        }
+      ]
+    }
+  },
+  "note": "Current NVD revisions retrieved after the cutoff; unfiltered paginated queries. Severity counts take any supplying source, not only NVD Primary scores. Rolling collection is a separate later window and must not be used as a fixed-cutoff total."
+}

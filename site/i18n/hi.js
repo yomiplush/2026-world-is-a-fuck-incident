@@ -7,18 +7,18 @@ window.registerLocale("hi", {
     hintEnd: "ब्ऱीफिंग समाप्त — फिर से शुरू करने के लिए टैप करें",
     coverKicker: "घटना ब्ऱीफिंग · 2026-10",
     coverTitleA: "एक महीना,", coverTitleB: "15 घटनाएँ।",
-    coverSub: "अक्टूबर 2026 की पंद्रह घटनाएँ, क्रम में।<br>साथ में Apache परिशिष्ट और 10-23 के आठ अतिरिक्त दृश्य। आगे बढ़ने के लिए टैप करें।<br>10-24 के आठ नए दृश्य (अंग्रेज़ी में)।",
+    coverSub: "अक्टूबर 2026 की पंद्रह घटनाएँ, क्रम में।<br>साथ में Apache परिशिष्ट और 10-23 के आठ अतिरिक्त दृश्य। आगे बढ़ने के लिए टैप करें।<br>10-24 के आठ नए दृश्य (अंग्रेज़ी में)।<br>10/25: +6 scenes (English).",
     coverStart: "शुरू करने के लिए टैप करें",
-    coverFoot: "हर दावा किसी प्राथमिक स्रोत तक जाता है। केवल ConnectWise असत्यापित है।",
+    coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "स्रोत / SOURCES",
-    drawerFoot: "15 में से 14 प्राथमिक स्रोतों से सत्यापित। ConnectWise असत्यापित के रूप में दर्ज है।",
-    asof: "2026-10-24 19:13 JST तक"
+    drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
+    asof: "2026-10-25 16:34 JST"
   },
   scenes: {
     intro: { title: "एक महीना, पंद्रह घटनाएँ।",
       lede: "असंबंधित दिखने वाली विफलताएँ, जो बार-बार एक ही तरह की कमज़ोरी पर आ गिरीं। क्रम से टैप करें।",
       points: ["15 में से <b>8</b> npm / pip / प्लगइन / रिलीज़ आर्टिफ़ैक्ट की समस्याएँ हैं — कोड नहीं, <em>वितरण</em>",
-        "14 <b>प्राथमिक स्रोतों</b> से सत्यापित; एक (ConnectWise) नहीं",
+        "ConnectWise now has primary confirmation; see the 10/25 addendum (English).",
         "ध्वनि चालू है; ऊपर दाएँ से बंद कर सकते हैं"],
       metric: "घटनाएँ · एक महीना" },
     "php-silence": { title: "सत्तर शांत दिन।",

@@ -1,5 +1,7 @@
 # Sources and re-fetch commands
 
+Latest fixed-window queries, retrieval times and sources: [October 25 review](docs/25-snapshot-20261025.md), [research](docs/research-2026-10-25.md), [packages](docs/research-packages-2026-10-25.md), [query URLs](data/2026-10-25/collection-summary.json).
+
 [**English**](SOURCES.md) | [日本語](SOURCES.ja.md)
 
 **Rule**: primary sources only (vendor advisories, APIs, repositories). When secondary reporting is

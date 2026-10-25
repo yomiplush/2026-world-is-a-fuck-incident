@@ -114,11 +114,13 @@ exist so a single panel can be shared or screenshotted.
 ## Deploy
 
 ```bash
-set -a; . ~/.config/cf-briefing/env; set +a
-npx wrangler@latest pages deploy site --project-name 2026-incident-briefing
+npx wrangler pages deploy site --project-name 2026-incident-briefing --branch main
 ```
 
-Wrangler accepts `CLOUDFLARE_API_KEY` + `CLOUDFLARE_EMAIL` (legacy global key) or a scoped
+Use the existing Wrangler OAuth login where available. An obsolete API-key environment
+file can override that valid login; on 2026-10-25 the stored cf-briefing key was rejected
+and the existing OAuth login succeeded. Unset invalid API-key/email/token overrides
+when using OAuth. Wrangler also accepts `CLOUDFLARE_API_KEY` + `CLOUDFLARE_EMAIL` (legacy global key) or a scoped
 `CLOUDFLARE_API_TOKEN`. **Do not commit the credentials** — they live outside the repository.
 
 ## Audio
@@ -263,3 +265,21 @@ register. The 17 recent KEV additions and full collection windows remain in the
 detailed snapshot. New scenes fall back to English in the other ten locales;
 those locales explicitly label the eight new scenes as English. Existing scene
 numbers are preserved through #25; the closing scene moves to #34.
+
+## October 25 content update (six scenes, 34–39)
+
+The 16:34 JST cutoff review adds six JA/EN scenes before closing: priorities,
+Fortinet hardening, Java/Python trust, DNS, cloud permissions and bundled copies.
+There are now **40 scenes**. Existing parameterized 3D compositions illustrate
+the relationships; motion does not show live attack telemetry. Earlier scene
+IDs remain stable; closing moves from #34 to #40. Ten other locales label the
+new addendum as English and use the existing fallback.
+
+`update-20261025.html` provides a readable static Japanese response table, linked
+from the locked entrance, without unlocking, JavaScript or audio. The primary
+canonical host is now `infosec-briefing.yomiplush.dev`. Older factual snapshots
+remain historical; October 25 sources supersede the old ConnectWise uncertainty.
+
+Source: `docs/25-snapshot-20261025{,.ja}.md`, two research notes and
+`data/2026-10-25/`. The 99/5,432 NVD counts use fully paginated, fixed-window
+queries; rolling collector output is kept separately with its limitations.

@@ -7,12 +7,12 @@ window.registerLocale("ko", {
     hintEnd: "마지막입니다. 탭하면 처음으로 돌아갑니다",
     coverKicker: "인시던트 브리핑 · 2026-10",
     coverTitleA: "한 달에 ", coverTitleB: "15건.",
-    coverSub: "2026년 10월의 15건을 시간 순서로.<br>Apache 부록과 10-23 추가 8장 포함. 탭해서 진행하며 소리가 납니다.<br>10-24에 8장 추가(영어).",
+    coverSub: "2026년 10월의 15건을 시간 순서로.<br>Apache 부록과 10-23 추가 8장 포함. 탭해서 진행하며 소리가 납니다.<br>10-24에 8장 추가(영어).<br>10/25: +6 scenes (English).",
     coverStart: "탭하여 시작",
-    coverFoot: "모든 주장은 1차 출처로 추적됩니다. ConnectWise 한 건만 미확인입니다.",
+    coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "출처 / SOURCES",
-    drawerFoot: "15건 중 14건을 1차 출처로 확인했습니다. ConnectWise는 미확인으로 표기합니다.",
-    asof: "2026-10-24 19:13 JST 기준"
+    drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
+    asof: "2026-10-25 16:34 JST"
   },
   scenes: {
     intro: {
@@ -20,7 +20,7 @@ window.registerLocale("ko", {
       lede: "서로 무관해 보이는 사고가 같은 종류의 약점에 반복해서 떨어졌습니다. 순서대로 탭하세요.",
       points: [
         "15건 중 <b>8건</b>이 npm / pip / 플러그인 / 릴리스 산출물 문제 — 코드가 아니라 <em>배포</em>",
-        "14건은 <b>1차 출처</b>로 확인, 1건(ConnectWise)은 미확인",
+        "ConnectWise now has primary confirmation; see the 10/25 addendum (English).",
         "소리가 납니다. 오른쪽 위에서 끌 수 있습니다"
       ],
       metric: "사건 · 한 달"
