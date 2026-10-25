@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#05080d">
 <title>OCT 2026 — Incident Briefing</title>
-<meta name="description" content="2026年10月に重なったセキュリティ事案を、タップで進むブリーフィング形式のモーショングラフィックスで時系列に追う。10-25追補はFortinet、Java/Python証明書、DNS、ConnectWise、Brotliと同梱先まで。出典付き40画面。">
+<meta name="description" content="2026年10月に重なったセキュリティ事案を、タップで進むブリーフィング形式のモーショングラフィックスで時系列に追う。10-25追補はFortinet、Java/Python証明書、DNS、ConnectWise、Brotliと同梱先まで。出典付き41画面。">
 <link rel="canonical" href="https://infosec-briefing.yomiplush.dev/">
 <link rel="alternate" hreflang="en" href="https://infosec-briefing.yomiplush.dev/?lang=en">
 <link rel="alternate" hreflang="ja" href="https://infosec-briefing.yomiplush.dev/?lang=ja">
@@ -24,7 +24,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="2026 Incident Briefing">
 <meta property="og:title" content="One month, 15 incidents — incident briefing">
-<meta property="og:description" content="The October 2026 security incidents in order: npm, PyPI, plugin and release-asset compromises, a CA key disaster, two kernel sets, BIND, plus the October 24 broad update: exploited Arista/Collabora, packages, AI/MCP and domestic/industrial systems. 40 scenes, 12 languages.">
+<meta property="og:description" content="The October 2026 security incidents in order: npm, PyPI, plugin and release-asset compromises, a CA key disaster, two kernel sets, BIND, plus the October 24 broad update: exploited Arista/Collabora, packages, AI/MCP and domestic/industrial systems. 41 scenes, 12 languages.">
 <meta property="og:url" content="https://infosec-briefing.yomiplush.dev/">
 <meta property="og:image" content="https://infosec-briefing.yomiplush.dev/og.png">
 <meta property="og:image:width" content="1200">
@@ -33,9 +33,9 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="One month, 15 incidents — incident briefing">
-<meta name="twitter:description" content="October 2026's incidents in order, plus an October 24 update covering exploited Arista/Collabora, major packages, AI and industrial systems. 40 scenes, 12 languages, every claim traced to a primary source.">
+<meta name="twitter:description" content="October 2026's incidents in order, plus an October 24 update covering exploited Arista/Collabora, major packages, AI and industrial systems. 41 scenes, 12 languages, every claim traced to a primary source.">
 <meta name="twitter:image" content="https://infosec-briefing.yomiplush.dev/og.png">
-<link rel="stylesheet" href="./style.css?v=20261025">
+<link rel="stylesheet" href="./style.css?v=20261025patch">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070b12'/><path d='M6 22 L16 8 L26 22' stroke='%23ffb545' stroke-width='2' fill='none'/><circle cx='16' cy='22' r='2.5' fill='%23ffb545'/></svg>">
 </head>
 <body class="entry-locked">
@@ -46,6 +46,14 @@
   <div class="grain"></div>
 </div>
 
+<a id="patch-link" class="patch-link" href="https://patchtheplanet.org/" target="_blank" rel="noopener noreferrer" aria-label="パッチを当てる / Patch the Planet" title="パッチを当てる · Patch the Planet">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <rect x="3" y="6.5" width="18" height="11" rx="3" transform="rotate(-40 12 12)"/>
+    <path d="m9 8.5 4.5 5.4m-6-4.1 4.5 5.4" opacity=".45"/>
+    <path d="m10.2 12.2 1.4 1.4 2.9-3.3" stroke-width="1.9"/>
+    <path d="m5.6 13 .01.01m1.8 2.2 .01.01m9.2-6.4 .01.01m1.8 2.2 .01.01" stroke-width="2.2"/>
+  </svg>
+</a>
 <a id="repo-link" class="repo-link" href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297C5.37.297 0 5.67 0 12.3c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.043-1.61-4.043-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.323 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.042.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.22 0 4.61-2.807 5.627-5.479 5.924.43.372.823 1.103.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .322.216.694.825.576C20.565 22.096 24 17.6 24 12.3c0-6.63-5.373-12.003-12-12.003z"/></svg>
 </a>
@@ -156,6 +164,6 @@
 </div>
 <a class="latest-update" href="./update-20261025.html">10/25 · 最新の対応 / Latest actions →</a>
 <script src="./audio.js?v=19" defer></script>
-<script src="./entry.js?v=20261025" defer></script>
+<script src="./entry.js?v=20261025patch" defer></script>
 </body>
 </html>

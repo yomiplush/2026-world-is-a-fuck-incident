@@ -7,7 +7,7 @@ window.registerLocale("ru", {
     hintEnd: "конец брифинга — тап, чтобы начать заново",
     coverKicker: "БРИФИНГ ПО ИНЦИДЕНТАМ · 2026-10",
     coverTitleA: "ОДИН МЕСЯЦ,", coverTitleB: "15 ИНЦИДЕНТОВ.",
-    coverSub: "Пятнадцать инцидентов октября 2026 года по порядку.<br>Плюс приложение про Apache и восемь сцен от 10-23. Тап — далее.<br>Восемь новых сцен от 10-24 (на английском).<br>10/25: +6 scenes (English).",
+    coverSub: "Пятнадцать инцидентов октября 2026 года по порядку.<br>Плюс приложение про Apache и восемь сцен от 10-23. Тап — далее.<br>Восемь новых сцен от 10-24 (на английском).<br>10/25: +7 scenes (English).",
     coverStart: "ТАП, ЧТОБЫ НАЧАТЬ",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "ИСТОЧНИКИ / SOURCES",

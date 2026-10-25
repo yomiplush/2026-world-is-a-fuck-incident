@@ -1,0 +1,56 @@
+{
+  "retrieved_at": "2026-10-25T08:05:49+00:00",
+  "post": {
+    "url": "https://x.com/EdwardTWinz/status/2113965463931666585",
+    "author": "EdwardTWinz",
+    "created_at": "2026-10-24T12:06:56Z",
+    "created_at_jst": "2026-10-24T21:06:56+09:00",
+    "official_syndication_source": "https://cdn.syndication.twimg.com/tweet-result?id=2113965463931666585&token=a",
+    "official_body_truncated": true,
+    "full_body_secondary_viewer": "https://api.fxtwitter.com/status/2113965463931666585",
+    "classification": "Discovery lead; technical facts verified separately",
+    "summary_ja": "Brotli CVE-2026-111497をHTTP2Shellと呼び、Node/Python/Bun/Envoy/Istio/curl等の同梱先確認を訴える投稿。HTTP全般の欠陥や一律侵害とは扱わない。"
+  },
+  "cve": "CVE-2026-111497",
+  "aliases": [
+    "Node2Shell",
+    "HTTP2Shell"
+  ],
+  "not_http2_specific": true,
+  "exploitation": "PoC on specified official Node.js build; not a confirmation of in-the-wild exploitation across products",
+  "sources": [
+    "https://patchtheplanet.org/brotli",
+    "https://github.com/envoyproxy/envoy/security/advisories/GHSA-3wvj-j6qm-62mr",
+    "https://istio.io/latest/news/security/istio-security-2026-007/",
+    "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/111xxx/CVE-2026-111497.json",
+    "https://curl.se/docs/manpage.html#--compressed",
+    "https://docs.python-requests.org/en/latest/user/quickstart/#binary-response-content",
+    "https://www.python-httpx.org/quickstart/#binary-response-content"
+  ],
+  "response_hashes": [
+    {
+      "url": "https://cdn.syndication.twimg.com/tweet-result?id=2113965463931666585&token=a",
+      "sha256": "a4e2c233e145b5d76edfb6a9d30a56ae9a9d33c2c7c19246fd4492d30b696add",
+      "bytes": 3724,
+      "note": "Response not redistributed; original post paraphrased in report."
+    },
+    {
+      "url": "https://api.fxtwitter.com/status/2113965463931666585",
+      "sha256": "0099cf6fe2a80a582f52adb16a272990f6b78fbb2862103b9a4b4356f09356e9",
+      "bytes": 7428,
+      "note": "Response not redistributed; original post paraphrased in report."
+    },
+    {
+      "url": "https://patchtheplanet.org/brotli",
+      "sha256": "39fc95fa2e9cd8036bc29cfbca08c7b92592258d1381f2e3a609d5ba27e160d1",
+      "bytes": 2409,
+      "note": "Response not redistributed; original post paraphrased in report."
+    },
+    {
+      "url": "https://patchtheplanet.org/assets/index-CM57Z_-A.js",
+      "sha256": "5e4cab4d38f854bda06d8a16e55de46837cb480ba1499e43505f38b5f0fc390a",
+      "bytes": 305943,
+      "note": "Response not redistributed; original post paraphrased in report."
+    }
+  ]
+}

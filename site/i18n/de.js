@@ -7,7 +7,7 @@ window.registerLocale("de", {
     hintEnd: "Ende des Briefings — tippen zum Neustart",
     coverKicker: "INCIDENT BRIEFING · 2026-10",
     coverTitleA: "EIN MONAT,", coverTitleB: "15 VORFÄLLE.",
-    coverSub: "Die fünfzehn Vorfälle im Oktober 2026, in zeitlicher Reihenfolge.<br>Plus Apache-Nachtrag und acht Nachträge vom 10-23. Tippen zum Weitergehen.<br>Acht neue Szenen vom 10-24 (Englisch).<br>10/25: +6 scenes (English).",
+    coverSub: "Die fünfzehn Vorfälle im Oktober 2026, in zeitlicher Reihenfolge.<br>Plus Apache-Nachtrag und acht Nachträge vom 10-23. Tippen zum Weitergehen.<br>Acht neue Szenen vom 10-24 (Englisch).<br>10/25: +7 scenes (English).",
     coverStart: "TIPPE ZUM START",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "QUELLEN / SOURCES",

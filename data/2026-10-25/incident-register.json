@@ -240,18 +240,27 @@
         "CVE-2026-111497"
       ],
       "condition_ja": "非信頼Brotliのデコード。Bun >=1.0.21,<1.4.4等、同梱コピーを含む",
-      "action_ja": "Bun 1.4.4、Python brotli 1.2.1 / brotlicffi 1.2.1.0。Bun compile実行物も再ビルド。OSバックポートは別確認",
+      "action_ja": "Bun 1.4.4、Python brotli 1.2.1 / brotlicffi 1.2.1.0。Bun compile実行物も再ビルド。OSバックポートは別確認。Envoyは1.40.0 / 1.39.3 / 1.38.6 / 1.37.8、Istioは1.31.2 / 1.30.6 / 1.29.9（1.29はEOL）。Brotli展開を有効にした構成を確認",
       "exploitation": "poc_reported",
       "evidence": "primary",
       "sources": [
         "https://github.com/oven-sh/bun/security/advisories/GHSA-663w-cv8g-jj2p",
         "https://github.com/advisories/GHSA-9v8h-qqgm-4m35",
-        "https://github.com/google/brotli/releases/tag/v1.2.1"
+        "https://github.com/google/brotli/releases/tag/v1.2.1",
+        "https://patchtheplanet.org/brotli",
+        "https://github.com/envoyproxy/envoy/security/advisories/GHSA-3wvj-j6qm-62mr",
+        "https://istio.io/latest/news/security/istio-security-2026-007/"
       ],
-      "note_ja": "Node公式ビルドのPoCをBun固有の実証や実攻撃確認へ一般化しない",
+      "note_ja": "Node公式ビルドのPoCをBun固有の実証や実攻撃確認へ一般化しない。HTTP/2限定ではない。curl/requests/httpxは依存デコーダと実際の展開経路を確認",
       "verification": "reviewed_this_update",
       "requested_as_of": "2026-10-25T16:34:00+09:00",
-      "source_retrieval": "After cutoff; see source-verification and research notes"
+      "source_retrieval": "After cutoff; see source-verification and research notes",
+      "aliases": [
+        "Node2Shell",
+        "HTTP2Shell"
+      ],
+      "followup": "docs/26-brotli-http2shell.ja.md",
+      "followup_verified_at": "2026-10-25T08:05:49+00:00"
     },
     {
       "id": "postiz",

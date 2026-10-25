@@ -7,7 +7,7 @@ window.registerLocale("hi", {
     hintEnd: "ब्ऱीफिंग समाप्त — फिर से शुरू करने के लिए टैप करें",
     coverKicker: "घटना ब्ऱीफिंग · 2026-10",
     coverTitleA: "एक महीना,", coverTitleB: "15 घटनाएँ।",
-    coverSub: "अक्टूबर 2026 की पंद्रह घटनाएँ, क्रम में।<br>साथ में Apache परिशिष्ट और 10-23 के आठ अतिरिक्त दृश्य। आगे बढ़ने के लिए टैप करें।<br>10-24 के आठ नए दृश्य (अंग्रेज़ी में)।<br>10/25: +6 scenes (English).",
+    coverSub: "अक्टूबर 2026 की पंद्रह घटनाएँ, क्रम में।<br>साथ में Apache परिशिष्ट और 10-23 के आठ अतिरिक्त दृश्य। आगे बढ़ने के लिए टैप करें।<br>10-24 के आठ नए दृश्य (अंग्रेज़ी में)।<br>10/25: +7 scenes (English).",
     coverStart: "शुरू करने के लिए टैप करें",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "स्रोत / SOURCES",

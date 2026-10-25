@@ -14,6 +14,15 @@ try {
  assert.equal(heavy,0,'locked entrance must defer the briefing engine and data');
  assert.equal(await run("document.querySelectorAll('#cover .cover-title,#cover .cover-sub').length"),0,'entrance must use symbols instead of visible copy');
  assert.equal(await run("!!document.querySelector('#btn-start svg')"),true);
+ const patch=await run(`(() => {const a=document.getElementById('patch-link');if(!a)return null;const r=a.getBoundingClientRect(),g=document.getElementById('repo-link').getBoundingClientRect();return {href:a.href,label:a.getAttribute('aria-label'),svg:!!a.querySelector('svg'),width:r.width,height:r.height,right:r.right,githubLeft:g.left}})()`);
+ assert.ok(patch,'Patch the Planet must be accessible before unlocking');
+ assert.equal(patch.href,'https://patchtheplanet.org/');
+ assert.ok(patch.label && patch.svg && patch.width>=44 && patch.height>=44);
+ assert.ok(patch.right<=patch.githubLeft-4,'patch and GitHub links must not overlap');
+ await run("window.__patchClicked=false;document.getElementById('patch-link').addEventListener('click',e=>{e.preventDefault();__patchClicked=true});document.getElementById('patch-link').focus();true");
+ await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter'});await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter'});
+ assert.equal(await run('__patchClicked'),true,'Enter must activate the patch link');
+ assert.equal(await run('ENTRY.state'),'locked','patch link must not unlock the briefing');
  await run("window.__repoClicked=false;document.getElementById('repo-link').addEventListener('click',e=>{e.preventDefault();__repoClicked=true});document.getElementById('repo-link').focus();true");
  await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter'});await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter'});
  assert.equal(await run('__repoClicked'),true,'Enter on GitHub must follow the focused link');
@@ -26,6 +35,8 @@ try {
  assert.equal(await run("document.getElementById('drawer').classList.contains('open')"),false,'unlock shortcuts must not open a hidden drawer');
  assert.equal(await run("document.body.classList.contains('entry-locked')"),false);
  const title=await run("document.getElementById('title').textContent");
+ await run("document.getElementById('patch-link').focus();true");await key('Enter');
+ assert.equal(await run("document.getElementById('title').textContent"),title,'patch link must not advance scenes');
  await run("document.getElementById('repo-link').focus();true");await key('Enter');
  assert.equal(await run("document.getElementById('title').textContent"),title,'GitHub activation must not advance scenes');
  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});

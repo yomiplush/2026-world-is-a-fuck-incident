@@ -7,7 +7,7 @@ window.registerLocale("ko", {
     hintEnd: "마지막입니다. 탭하면 처음으로 돌아갑니다",
     coverKicker: "인시던트 브리핑 · 2026-10",
     coverTitleA: "한 달에 ", coverTitleB: "15건.",
-    coverSub: "2026년 10월의 15건을 시간 순서로.<br>Apache 부록과 10-23 추가 8장 포함. 탭해서 진행하며 소리가 납니다.<br>10-24에 8장 추가(영어).<br>10/25: +6 scenes (English).",
+    coverSub: "2026년 10월의 15건을 시간 순서로.<br>Apache 부록과 10-23 추가 8장 포함. 탭해서 진행하며 소리가 납니다.<br>10-24에 8장 추가(영어).<br>10/25: +7 scenes (English).",
     coverStart: "탭하여 시작",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "출처 / SOURCES",

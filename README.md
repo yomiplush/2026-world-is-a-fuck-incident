@@ -2,7 +2,9 @@
 
 > **Recommendation: support open-source vulnerability remediation through [Patch the Planet](https://patchtheplanet.org/).**
 
-> **Latest review — cutoff 2026-10-25 16:34 JST:** [Priorities and 16 supplemental/revised groups](docs/25-snapshot-20261025.md): Fortinet, Java/Python trust, DNS, Brotli, Postiz, ATS, OT clients; primary confirmation of ConnectWise and final LiteLLM findings. Fixed-window NVD: 99 published / 5,432 modified. [Register](data/2026-10-25/incident-register.json) / [research](docs/research-2026-10-25.md) / [readable update](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [40-scene briefing, new addendum](https://infosec-briefing.yomiplush.dev/?lang=en#34). Retrieved after the cutoff. Older sections below retain their historical context; this review supersedes outdated status claims.
+> **Latest review — cutoff 2026-10-25 16:34 JST:** [Priorities and 16 supplemental/revised groups](docs/25-snapshot-20261025.md): Fortinet, Java/Python trust, DNS, Brotli, Postiz, ATS, OT clients; primary confirmation of ConnectWise and final LiteLLM findings. Fixed-window NVD: 99 published / 5,432 modified. [Register](data/2026-10-25/incident-register.json) / [research](docs/research-2026-10-25.md) / [readable update](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [41-scene briefing, new addendum](https://infosec-briefing.yomiplush.dev/?lang=en#34). Retrieved after the cutoff. Older sections below retain their historical context; this review supersedes outdated status claims.
+
+> **Post follow-up: [HTTP2Shell / Brotli](docs/26-brotli-http2shell.md)** — the requested post checked against primary evidence; Envoy/Istio and client decoding paths added. [Dedicated scene #40](https://infosec-briefing.yomiplush.dev/?lang=en#40).
 
 [**English**](README.md) | [日本語](README_jp.md)
 
