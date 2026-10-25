@@ -568,6 +568,116 @@ window.VISUALS = (function () {
     heading(g,'REPAIR THE CHAIN OF TRUST',C.amber);g.flush();
   };
 
+  // Tailworm: explanatory lab threat models, never live attack telemetry.
+  scenes.tailwormMesh = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.3,pitch:.55});
+    const hub=[0,-40,0], peers=[[-350,-160,-170],[320,-150,-170],[-350,120,170],[320,120,170]];
+    node(g,hub,'POLICY',C.cyan,t,0,{hx:70,hy:64,hz:60});
+    peers.forEach((p,i)=>{
+      const tone=i===0?C.amber:i===3?C.steel:C.cyan;
+      node(g,p,['SOURCE','SSH HOST','SERVE','NO GRANT'][i],tone,t,i+1,{hx:75,hy:48,hz:50,font:10});
+      wire(g,hub,p,C.steel);
+      if(i<3)flow(g,hub,p,t,tone,i*.2,.16);
+      else {const q=lerp(hub,p,.6);gate(g,q,C.steel,'DENIED');}
+    });
+    ring(g,hub,142,C.amber,'xy');
+    heading(g,'TAILWORM / CHECK THE ALLOWED PATHS',C.amber);
+    label(g,[0,270,0],'LAB FINDINGS / SCOPE UNDER REVIEW',C.steel,10);g.flush();
+  };
+  scenes.tailwormPrivilege = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.22,pitch:.5});
+    const a=[-360,40,0],b=[-30,40,0],c=[330,-70,0];
+    node(g,a,'APPROVED PEER',C.cyan,t,0,{hx:90,hy:55});
+    gate(g,[-200,40,0],C.green,'SSH RULE');
+    node(g,b,'SESSION USER',C.cyan,t,1,{hx:90,hy:55});
+    node(g,c,'ROOT SOCKET',C.amber,t,2,{hx:92,hy:100,hz:50});
+    flow(g,a,b,t,C.green,0,.2);flow(g,b,c,t,C.amber,.45,.2);
+    g.box(160,60,0,8,150,110,C.amber,{wire:true,edge:.6});
+    label(g,[160,-150,0],'PRIVILEGE BOUNDARY',C.amber,10);
+    label(g,[0,245,160],'CHECK MODE GATES ENTRY / NOT SOCKET PRIVILEGE',C.steel,10);
+    heading(g,'SSH FORWARDING / AUTHORIZED ENTRY REQUIRED',C.cyan);g.flush();
+  };
+  scenes.tailwormControl = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.3,pitch:.5});
+    for(let i=0;i<5;i++){
+      const x=-410+i*72;
+      g.box(x,80,40,22,34,32,C.cyan,{alpha:.7,edge:.4});
+      flow(g,[x,30,40],[-100,-10,0],t,C.amber,i*.16,.12);
+    }
+    gate(g,[-80,20,0],C.cyan,'RATE / EXPOSURE');
+    node(g,[200,20,0],'HEADSCALE',C.amber,t,0,{hx:130,hy:145,hz:80});
+    for(let i=0;i<6;i++){
+      const k=phase(t,.08,i*.13);
+      g.box(200,140-i*42,0,102,10+8*k,60,i<4?C.cyan:C.amber,{alpha:.5,edge:.35});
+    }
+    label(g,[200,235,90],'MEMORY / REGISTRATION',C.amber,10);
+    heading(g,'SELF-HOSTED CONTROL PLANE / LIMIT + MONITOR',C.cyan);g.flush();
+  };
+  scenes.tailwormConnector = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.25,pitch:.58});
+    const client=[-390,80,0],relay=[-90,30,0];
+    node(g,client,'ENTITLED CLIENT',C.cyan,t,0,{hx:85,hy:55});
+    node(g,relay,'CONN25',C.amber,t,1,{hx:70,hy:75,hz:65});
+    flow(g,client,relay,t,C.cyan,0,.17);
+    [[310,-170,-150],[330,20,0],[310,200,150]].forEach((p,i)=>{
+      node(g,p,['APP','METADATA','CLUSTER'][i],i===0?C.green:C.amber,t,i+2,{hx:75,hy:40,hz:42,font:10});
+      const barrier=lerp(relay,p,.55);gate(g,barrier,i===0?C.green:C.amber,i===0?'ALLOW':'RESTRICT');
+      flow(g,relay,lerp(relay,p,i===0?1:.5),t,i===0?C.green:C.amber,i*.23,.15);
+    });
+    heading(g,'EXPERIMENTAL CONNECTOR / VALIDATE REAL DESTINATIONS',C.amber);g.flush();
+  };
+  scenes.tailwormServe = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.28,pitch:.52});
+    const front=[-300,20,0];node(g,front,'SERVE CONFIG',C.cyan,t,0,{hx:120,hy:80,hz:55});
+    const paths=[[200,-170,-160],[250,10,0],[200,185,150]];
+    paths.forEach((p,i)=>{
+      node(g,p,['APP AUTH','LOCAL API','EXTERNAL BIND'][i],i===0?C.green:C.amber,t,i+1,{hx:100,hy:40,hz:42,font:10});
+      curve(g,front,p,t,i===0?C.green:C.amber,i*.25,35);
+    });
+    ring(g,[250,10,0],120,C.amber,'xy');
+    heading(g,'CONFIGURATION + MOUNTS + BACKEND AUTHORIZATION',C.cyan);
+    label(g,[-240,240,100],'AUDIT UNIX SOCKET FORWARDS',C.amber,11);g.flush();
+  };
+  scenes.tailwormResponse = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.55});
+    const names=['INVENTORY','RESTRICT','REVOKE','TRACK FIX'];
+    names.forEach((name,i)=>{
+      const x=-390+i*260, y=80-i*35, tone=i===2?C.amber:C.cyan;
+      node(g,[x,y,0],name,tone,t,i,{hx:96,hy:60,hz:55,font:10});
+      g.box(x,y+90,0,110,5,68,C.steel,{alpha:.4,edge:.3});
+      tick(g,[x,y,-60],i===3?C.steel:C.green,i===2);
+      if(i<3)flow(g,[x+100,y,0],[x+160,y-35,0],t,C.cyan,i*.2,.18);
+    });
+    heading(g,'REBUILD + IDENTITY REVOCATION',C.amber);
+    label(g,[0,275,80],'1.104.2 CERTIFICATE FIX ≠ TAILWORM FIX',C.steel,10);g.flush();
+  };
+  scenes.nightDelta = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.25,pitch:.58});
+    for(let i=0;i<2;i++){
+      const x=i===0?-270:270;
+      g.prism(x,110,0,155,45,6,i?C.amber:C.cyan,{alpha:.7,edge:.6,rot:Math.PI/6});
+      label(g,[x,-100,0],i?'MODIFIED 87':'PUBLISHED 87',i?C.amber:C.cyan,12);
+      for(let j=0;j<8;j++){
+        const a=j*TAU/8+t*.1,p=[x+Math.cos(a)*130,20,Math.sin(a)*100];
+        g.octa(...p,5,C.cyan,{alpha:.7});
+      }
+    }
+    flow(g,[-160,40,0],[160,40,0],t,C.green,0,.2);
+    label(g,[0,220,140],'SAME IDENTIFIERS / DO NOT SUM',C.green,12);
+    heading(g,'FIXED WINDOW / 07:34 → 14:18 UTC',C.cyan);g.flush();
+  };
+  scenes.nightRestoration = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.24,pitch:.55});
+    const a=[-330,20,0],b=[20,20,0],c=[350,20,0];
+    node(g,a,'ARCHIVES',C.cyan,t,0,{hx:100,hy:110,hz:70});
+    node(g,b,'RESTORE FIRST',C.green,t,1,{hx:90,hy:55,hz:55});
+    node(g,c,'RE-ENROLL',C.steel,t,2,{hx:85,hy:55,hz:55});
+    flow(g,a,b,t,C.green,0,.12);wire(g,b,c,C.steel);gate(g,[190,20,0],C.amber,'AWAIT GUIDANCE');
+    for(let i=0;i<4;i++)g.box(-330,-55+i*48,-75,75,4,1,C.cyan,{alpha:.6});
+    heading(g,'CONNECTWISE / OCT 25 14:00 UTC',C.amber);
+    label(g,[0,260,80],'RESTORATION TARGET ≠ RECONNECT PERMISSION',C.steel,10);g.flush();
+  };
+
   scenes.storm = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];

@@ -1,5 +1,7 @@
 # ソースと再取得コマンド
 
+最新の夜間差分：[23:18広域調査](docs/28-snapshot-20261025-2318.ja.md)、[Tailworm特集](docs/27-tailworm.ja.md)、[URL・取得時刻・ハッシュ](data/2026-10-25-2318/collection-summary.json)、[全87件](data/2026-10-25-2318/nvd-index.json)。再取得：`python3 tools/intel/snapshot-2318.py`。
+
 最新の固定窓照会・取得時刻・出典: [10/25詳細](docs/25-snapshot-20261025.ja.md)、[調査ノート](docs/research-2026-10-25.md)、[パッケージ](docs/research-packages-2026-10-25.md)、[照会URL](data/2026-10-25/collection-summary.json)。
 
 [English](SOURCES.md) | [**日本語**](SOURCES.ja.md)

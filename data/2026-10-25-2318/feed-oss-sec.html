@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Sat, 24 Oct 2026 22:30:03 GMT</pubDate>
+    <lastBuildDate>Sat, 24 Oct 2026 22:30:03 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>CVE-2025-60493: GPAC/MP4Box: NULL Pointer Dereference in check_media_profile via Crafted MP4 Input</title>
+    <link>https://seclists.org/oss-sec/2026/q4/377</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Oct 24&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  2.5-DEV-rev1699-g31becc9e0-master&lt;br&gt;
+           Commit 31becc9e08b88e525a4a62013a4000de1c0f8fd9&lt;br&gt;
+Fixed:     9afeea23f5c6584c02aefe1e1560c2844dfb8f7e&lt;br&gt;
+CVE:       CVE-2025-60493&lt;br&gt;
+CWE:       CWE-476 (NULL Pointer Dereference)&lt;br&gt;
+CVSS 3.1:  4.3 MEDIUM (AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L; third-party assessment)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  MP4Box dereferences a near-NULL pointer in...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:29:50 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/377</guid>
+  </item>
+  <item>
+    <title>PHP 5.4.23 (custom 5.4-5.6) backported patch for PHP2Shell OOM vulnerability (CVE-2026-109618)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/376</link>
+    <description>&lt;p&gt;Posted by Roman Kuligin on Oct 24&lt;/p&gt;Hello, I have developed a backported .patch for EOL versions of PHP (specifically PHP 5.4, 5.5, and 5.6) to mitigate &lt;br&gt;
+the critical PHP2Shell Out-of-Memory (OOM) vulnerability (CVE-2026-109618 / CVE-2026-109619). Since these legacy &lt;br&gt;
+versions are no longer supported by the upstream PHP team, this patch updates the internal memory allocation model to &lt;br&gt;
+prevent memory exhaustion and crashes during file upload progress tracking. The patch and...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:27:47 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/376</guid>
+  </item>
+  <item>
+    <title>Re: openjpeg 2.4.0 through 2.5.4 and git master: heap buffer overflow in opj_dwt_encode_and_deinterleave_v() (reversible 5/3 forward DWT, encoder)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/375</link>
+    <description>&lt;p&gt;Posted by Security @ Red Eagle Tech on Oct 24&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+CVE-2026-107080 has been assigned to the issue reported here on&lt;br&gt;
+5 October 2026. MITRE&amp;apos;s description:&lt;br&gt;
+&lt;br&gt;
+  OpenJPEG 2.4.0 through 2.5.4, and git master through commit 8314119b,&lt;br&gt;
+  contains an out-of-bounds read and write in&lt;br&gt;
+  opj_dwt_encode_and_deinterleave_v() in src/lib/openjp2/dwt.c. This&lt;br&gt;
+  allows an attacker to cause a denial of service.&lt;br&gt;
+&lt;br&gt;
+Nothing else has changed since the original post. The fix proposed&lt;br&gt;
+upstream has not been merged,...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:25:46 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/375</guid>
+  </item>
+  <item>
+    <title>CVE-2026-111813 etc: Multiple vulnerabilities in Apache Traffic Server prior to 9.2.16/10.1.5/10.2.1</title>
+    <link>https://seclists.org/oss-sec/2026/q4/374</link>
+    <description>&lt;p&gt;Posted by Valtteri Vuorikoski on Oct 24&lt;/p&gt;Announcement below was posted to the Apache Traffic Server mailing lists a few&lt;br&gt;
+days ago.&lt;br&gt;
+&lt;br&gt;
+----- Forwarded message from Masakazu Kitajo &amp;lt;maskit () apache org&amp;gt; -----&lt;br&gt;
+&lt;br&gt;
+Date: Tue, 20 Oct 2026 20:07:34 -0600&lt;br&gt;
+From: Masakazu Kitajo &amp;lt;maskit () apache org&amp;gt;&lt;br&gt;
+To: announce () trafficserver apache org,  users &amp;lt;users () trafficserver apache org&amp;gt;&lt;br&gt;
+Subject: [SECURITY] Multiple vulnerabilities fixed in Apache Traffic Server&lt;br&gt;
+ 9.2.16, 10.1.5 and...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:23:33 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/374</guid>
+  </item>
+  <item>
+    <title>Re: Brotli CVE-2026-111497</title>
+    <link>https://seclists.org/oss-sec/2026/q4/373</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 24&lt;/p&gt;Yes, &lt;a  rel=&quot;nofollow&quot; href=&quot;https://patchtheplanet.org/brotli&quot;&gt;https://patchtheplanet.org/brotli&lt;/a&gt; reports this as well.&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/google/brotli/releases/tag/v1.2.1&quot;&gt;https://github.com/google/brotli/releases/tag/v1.2.1&lt;/a&gt; has been published for&lt;br&gt;
+the library itself.&lt;br&gt;
+&lt;br&gt;
+The patchtheplanet page lists releases from Node.js, Bun, Envoy Proxy, &amp;amp; Istio&lt;br&gt;
+incorporating it and gives suggestions on what other software to check.&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497&quot;&gt;https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497&lt;/a&gt;&lt;br&gt;
+adds the PyPi brotli packages to the list as...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 16:36:32 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/373</guid>
+  </item>
+  <item>
+    <title>[oss-security][CVE-2026-115557] Distrust compromised intermediate certificates in Python ssl module</title>
+    <link>https://seclists.org/oss-sec/2026/q4/372</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 24&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [Security-announce][CVE-2026-115557] Distrust compromised intermediate &lt;br&gt;
+certificates in ssl module&lt;br&gt;
+Date:   Sat, 24 Oct 2026 14:20:01 +0000&lt;br&gt;
+From:   Seth Larson &amp;lt;seth () python org&amp;gt;&lt;br&gt;
+Reply-To:       security-sig () python org&lt;br&gt;
+To:     security-announce () python org&lt;br&gt;
+&lt;br&gt;
+Python has added a denylist for known compromised certificates to the &amp;quot;ssl&amp;quot; &lt;br&gt;
+module to ensure user safety even without...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 16:15:20 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/372</guid>
+  </item>
+  <item>
+    <title>CVE-2026-114629: Web::Simple versions before 0.035 for Perl allocate a buffer sized by the Content-Length header for urlencoded body parameters</title>
+    <link>https://seclists.org/oss-sec/2026/q4/371</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 24&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-114629                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-114629&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Web-Simple&lt;br&gt;
+       Versions:  before 0.035&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Web-Simple&quot;&gt;https://metacpan.org/dist/Web-Simple&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 13:56:30 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/371</guid>
+  </item>
+  <item>
+    <title>Re: Upcoming Node.js security release 2026/10/21</title>
+    <link>https://seclists.org/oss-sec/2026/q4/370</link>
+    <description>&lt;p&gt;Posted by Michael Orlitzky on Oct 24&lt;/p&gt;Only those dumb enough to bundle or statically link their&lt;br&gt;
+dependencies. The bare minimum in terms of software engineering would&lt;br&gt;
+prevent these 1990-ass vulnerabilities.&lt;br&gt;
+&lt;br&gt;
+(NodeJS has a --shared-brotli option, so NodeJS should not be an issue&lt;br&gt;
+for distros that are paying attention.)&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 12:19:53 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/370</guid>
+  </item>
+  <item>
+    <title>Re: eMudhra Intermediates Compromise</title>
+    <link>https://seclists.org/oss-sec/2026/q4/369</link>
+    <description>&lt;p&gt;Posted by Jeffrey Walton on Oct 24&lt;/p&gt;Yes, you&amp;apos;re correct.  My bad.  Ugh...&lt;br&gt;
+&lt;br&gt;
+Comodo AAA Services Root had the TLS trust bit removed in April 2025,&lt;br&gt;
+and that meant it was dropped from Browser trust stores and some&lt;br&gt;
+tooling.  However, the certificate could still be used for S/MIME.&lt;br&gt;
+Confer, &amp;lt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://www.openwall.com/lists/oss-security/2026/10/22/12&quot;&gt;https://www.openwall.com/lists/oss-security/2026/10/22/12&lt;/a&gt;&amp;gt;.&lt;br&gt;
+&lt;br&gt;
+My bad again.  The notAfter is specified in the CA/B BR Section&lt;br&gt;
+7.1.2.1.1, Root CA Validity.  And it is 25 years.&lt;br&gt;
+&lt;br&gt;
+The reason...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 11:54:54 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/369</guid>
+  </item>
+  <item>
+    <title>jxrlib: memory bugs on damaged JPEG XR files, fixed in mircomir/jxrlib 1.4.4, still in most distributions</title>
+    <link>https://seclists.org/oss-sec/2026/q4/368</link>
+    <description>&lt;p&gt;Posted by Joachim Rütter on Oct 24&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+jxrlib, Microsoft&amp;apos;s JPEG XR library (abandoned upstream), has memory bugs that a damaged&lt;br&gt;
+JPEG XR file of a few hundred bytes triggers, including a heap buffer overflow write. All of&lt;br&gt;
+them are fixed in public in the maintained fork github.com/mircomir/jxrlib (1.4.4, released&lt;br&gt;
+2026-10-09), but most distributions still ship older code. I found them while fuzzing the&lt;br&gt;
+decoders in my image viewer, Featherview.&lt;br&gt;
+&lt;br&gt;
+Bugs (line numbers from...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 09:22:02 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/368</guid>
+  </item>
+
+
+  <item>
+    <title>CVE-2026-115936: IO::Compress::Brotli versions from 0.004001 before 0.023 for Perl bundle a brotli library with an out-of-bounds write in the decoder</title>
+    <link>https://seclists.org/oss-sec/2026/q4/367</link>
+    <description>&lt;p&gt;Posted by Timothy Legge on Oct 23&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-115936                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-115936&lt;br&gt;
+&lt;br&gt;
+   Distribution:  IO-Compress-Brotli&lt;br&gt;
+       Versions:  from 0.004001 before 0.023&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/IO-Compress-Brotli&quot;&gt;https://metacpan.org/dist/IO-Compress-Brotli&lt;/a&gt;&lt;br&gt;
+       VCS Repo:...&lt;br&gt;</description>
+    <pubDate>Fri, 23 Oct 2026 22:29:11 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/367</guid>
+  </item>
+  <item>
+    <title>Re: Godot 4.x: heap out-of-bounds read in OptimizedTranslation message lookup</title>
+    <link>https://seclists.org/oss-sec/2026/q4/366</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Oct 23&lt;/p&gt;Follow-up: the fix for this issue has been merged upstream.&lt;br&gt;
+&lt;br&gt;
+PR #124701, &amp;quot;Fix out-of-bounds reads with corrupt OptimizedTranslation&lt;br&gt;
+data&amp;quot;, merged to master on 2026-10-20 (merge commit 9e0d5af850):&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/godotengine/godot/pull/124701&quot;&gt;https://github.com/godotengine/godot/pull/124701&lt;/a&gt;&lt;br&gt;
+The patch validates bucket and string offsets in new _get_bucket and&lt;br&gt;
+_get_string helpers, used by both get_message and&lt;br&gt;
+get_translated_message_list, and adds input bounds checks to the&lt;br&gt;
+bundled...&lt;br&gt;</description>
+    <pubDate>Fri, 23 Oct 2026 22:22:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/366</guid>
+  </item>
+  <item>
+    <title>Re: Godot 4.x: heap out-of-bounds write via negative string length in binary resource loader</title>
+    <link>https://seclists.org/oss-sec/2026/q4/365</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Oct 23&lt;/p&gt;Follow-up: the fix for this issue has been merged upstream.&lt;br&gt;
+&lt;br&gt;
+PR #124699, &amp;quot;Fix heap overflow with invalid string length in binary&lt;br&gt;
+resources&amp;quot;, merged to master on 2026-10-20 (merge commit d9f4c99f0a):&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/godotengine/godot/pull/124699&quot;&gt;https://github.com/godotengine/godot/pull/124699&lt;/a&gt;&lt;br&gt;
+The patch rejects negative lengths, and lengths beyond the remaining&lt;br&gt;
+file size, in ResourceLoaderBinary::get_unicode_string and&lt;br&gt;
+get_ustring, and returns early on a zero length in get_ustring....&lt;br&gt;</description>
+    <pubDate>Fri, 23 Oct 2026 22:20:11 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/365</guid>
+  </item>
+  <item>
+    <title>Re: Godot 4.x: heap out-of-bounds write in Radiance HDR image loader</title>
+    <link>https://seclists.org/oss-sec/2026/q4/364</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Oct 23&lt;/p&gt;Follow-up: the fix for this issue has been merged upstream.&lt;br&gt;
+&lt;br&gt;
+PR #124697, &amp;quot;Fix out-of-bounds write when loading corrupt HDR images&amp;quot;,&lt;br&gt;
+merged to master on 2026-10-20 (merge commit aef8e1f55a):&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/godotengine/godot/pull/124697&quot;&gt;https://github.com/godotengine/godot/pull/124697&lt;/a&gt;&lt;br&gt;
+The patch rejects non-positive and oversized image dimensions and&lt;br&gt;
+bounds each RLE run and dump against the remaining scanline width.&lt;br&gt;
+&lt;br&gt;
+The PR body cites CVE-2026-110734 and states the vendor&amp;apos;s...&lt;br&gt;</description>
+    <pubDate>Fri, 23 Oct 2026 22:18:16 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/364</guid>
+  </item>
+  <item>
+    <title>CVE-2026-113877: HTTP::Headers::ActionPack versions before 0.10 for Perl allow CPU exhaustion via Accept-Language ranges matched as regular expressions</title>
+    <link>https://seclists.org/oss-sec/2026/q4/363</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 23&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-113877                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-113877&lt;br&gt;
+&lt;br&gt;
+   Distribution:  HTTP-Headers-ActionPack&lt;br&gt;
+       Versions:  before 0.10&lt;br&gt;
+       MetaCPAN: &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/HTTP-Headers-ActionPack&quot;&gt;https://metacpan.org/dist/HTTP-Headers-ActionPack&lt;/a&gt;&lt;br&gt;
+       VCS Repo:...&lt;br&gt;</description>
+    <pubDate>Fri, 23 Oct 2026 22:16:18 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/363</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

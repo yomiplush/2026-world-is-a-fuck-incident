@@ -1,4 +1,13 @@
-# 2026 — php2shell, Node.js October 2026, Oracle Java, and a CA compromise
+# 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
+
+## Tailworm special — for Tailscale / headscale users
+
+**October 25, 23:18 JST cutoff.** Review enabled SSH and forwarding, headscale, experimental conn25 and Serve/Funnel. Researcher lab claims and the vendor response are distinguished. **1.104.2 is not a confirmed Tailworm fix.**
+
+**[Read the special](https://infosec-briefing.yomiplush.dev/tailworm.html) · [Six motion scenes](https://infosec-briefing.yomiplush.dev/?lang=en#41) · [English report](docs/27-tailworm.md)**
+
+> **Latest review — 2026-10-25 23:18 JST:** [Nightly broad review](docs/28-snapshot-20261025-2318.md). ConnectWise’s 23:00 update plus Snipe-IT, Parse Server, YesWiki, rclone, vLLM and more. Fixed-window NVD: 87 published / 87 modified, the same identifiers, not 174 incidents; 16 GHSA records and 17 feeds. [Provenance](data/2026-10-25-2318/collection-summary.json) / [Register](data/2026-10-25-2318/incident-register.json) / [Readable response page](https://infosec-briefing.yomiplush.dev/update-20261025-2318.html). **49 scenes**. Retrieved after cutoff; undated edits cannot be reconstructed. Earlier snapshots below are historical.
+
 
 > **Recommendation: support open-source vulnerability remediation through [Patch the Planet](https://patchtheplanet.org/).**
 

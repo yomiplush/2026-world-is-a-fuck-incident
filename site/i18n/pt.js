@@ -7,12 +7,12 @@ window.registerLocale("pt", {
     hintEnd: "fim do briefing — toque para recomeçar",
     coverKicker: "BRIEFING DE INCIDENTES · 2026-10",
     coverTitleA: "UM MÊS,", coverTitleB: "15 INCIDENTES.",
-    coverSub: "Os quinze incidentes de outubro de 2026, em ordem.<br>Mais um adendo sobre Apache e oito cenas de 10-23. Toque para avançar.<br>Oito cenas novas de 10-24 (em inglês).<br>10/25: +7 scenes (English).",
+    coverSub: "Os quinze incidentes de outubro de 2026, em ordem.<br>Mais um adendo sobre Apache e oito cenas de 10-23. Toque para avançar.<br>Oito cenas novas de 10-24 (em inglês).<br>10/25: +15 scenes (English), including the Tailworm special.",
     coverStart: "TOQUE PARA COMEÇAR",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "FONTES / SOURCES",
     drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
-    asof: "2026-10-25 16:34 JST"
+    asof: "2026-10-25 23:18 JST"
   },
   scenes: {
     intro: { title: "Um mês, quinze incidentes.",
