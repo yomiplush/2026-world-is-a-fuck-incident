@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面と10-25追補7画面。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面と10-25追補とTailworm大特集6画面。全49画面。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
       drawerFoot: "10/25追補は個別出典付き。ConnectWiseの旧「未確認」は今回更新。実取得は基準時刻後です。",
-      asof: "2026-10-25 16:34 JST 時点",
+      asof: "2026-10-25 23:18 JST 基準",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus eight October 24 scenes and seven October 25 scenes. 41 scenes total. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates and a six-scene Tailworm special. 49 scenes total. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
       drawerFoot: "October 25 sources supersede the old ConnectWise uncertainty. Sources were retrieved after the cutoff.",
-      asof: "as of 2026-10-25 16:34 JST",
+      asof: "cutoff 2026-10-25 23:18 JST",
       lang: "EN"
     }
   },
@@ -2069,6 +2069,454 @@ window.CONTENT = {
           "<b>Envoy</b>: 1.40.0 / 1.39.3 / 1.38.6 / 1.37.8, when Brotli decompression is configured",
           "<b>Istio</b>: 1.31.2 / 1.30.6 / 1.29.9; 1.29 is EOL. Check gateways and sidecars",
           "<b>curl, requests, httpx</b>: inspect the loaded decoder and automatic responses. Changing Accept-Encoding alone is insufficient"
+        ]
+      }
+    },
+    {
+      "id": "tailworm-overview",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "tailwormMesh"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Tailworm · researcher report",
+          "url": "https://tailworm.com/",
+          "note": {
+            "ja": "研究者の実験室報告。独立再現・実悪用確認ではない",
+            "en": "Researcher lab claims; not our reproduction or field exploitation"
+          }
+        },
+        {
+          "name": "Tailscale engineering response",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/",
+          "note": {
+            "ja": "10/25当事者応答。影響構成は調査中、全員一律停止の勧告なし",
+            "en": "October 25 first-party response; scope under review, no blanket shutdown recommendation"
+          }
+        },
+        {
+          "name": "Tailworm special report",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/27-tailworm.ja.md",
+          "note": {
+            "ja": "基準23:18 JST、実取得は基準後",
+            "en": "23:18 JST cutoff; retrieved afterwards"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "Tailworm。内側の境界を、見直す。",
+        "lede": "Tailscale / headscaleの研究報告。許可済みの端末から先へ進める範囲と、接続後の権限が焦点です。",
+        "points": [
+          "研究対象は<b>Tailscale 1.104.2 / headscale 0.29.5</b>。この版を修正版とは呼ばない",
+          "研究者の<b>11項目</b>には設定上の注意も含む。11件のCVE・実被害ではない",
+          "ベンダーは調査・修正中。<b>全利用者にSSH停止を勧めてはいない</b>",
+          "最初に確認：<b>Tailscale SSH有効端末と接続許可</b>。通常のOpenSSHとは分ける"
+        ]
+      },
+      "en": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "Tailworm. Recheck the internal boundary.",
+        "lede": "A report on Tailscale and headscale: which peers may connect, and which privileges a permitted session receives.",
+        "points": [
+          "Tested: <b>Tailscale 1.104.2 / headscale 0.29.5</b>. These are not confirmed fixed versions",
+          "The researcher’s <b>11 headings</b> include configuration observations; not 11 CVEs or confirmed breaches",
+          "Tailscale is investigating and fixing issues; <b>no blanket SSH shutdown recommendation</b>",
+          "Start with <b>enabled Tailscale SSH hosts and access rules</b>; distinguish ordinary OpenSSH"
+        ]
+      }
+    },
+    {
+      "id": "tailworm-ssh",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "tailwormPrivilege"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Tailworm · researcher report",
+          "url": "https://tailworm.com/",
+          "note": {
+            "ja": "研究者の実験室報告。独立再現・実悪用確認ではない",
+            "en": "Researcher lab claims; not our reproduction or field exploitation"
+          }
+        },
+        {
+          "name": "Tailscale engineering response",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/",
+          "note": {
+            "ja": "10/25当事者応答。影響構成は調査中、全員一律停止の勧告なし",
+            "en": "October 25 first-party response; scope under review, no blanket shutdown recommendation"
+          }
+        },
+        {
+          "name": "Tailworm special report",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/27-tailworm.ja.md",
+          "note": {
+            "ja": "基準23:18 JST、実取得は基準後",
+            "en": "23:18 JST cutoff; retrieved afterwards"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "接続できる。その先で、rootになる。",
+        "lede": "研究者はSSH転送のUnix socket操作がrootで行われる問題と、パス検査の競合を報告。ベンダーも接続後の権限を調査中です。",
+        "points": [
+          "前提は<b>SSH接続の許可と該当する転送許可</b>。全端末への無認証侵入とはしない",
+          "socket接続・置換の先にDockerや管理API。研究者は実験室で権限昇格を報告",
+          "<b>必要な送信元→必要な宛先へ限定</b>し、不要な転送を削減",
+          "<b>check modeは入口の追加認証</b>。接続後の権限昇格の修正にはならない"
+        ]
+      },
+      "en": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "Allowed in. More privilege than intended.",
+        "lede": "The researcher reports root-level Unix-socket forwarding and path races; the vendor is investigating post-authorization privilege handling.",
+        "points": [
+          "Requires <b>SSH access and the relevant forwarding permission</b>; not anonymous access to every node",
+          "Privileged sockets can lead to Docker or management APIs; escalation is reported in the lab",
+          "<b>Limit sources and destinations</b>, and remove unnecessary forwarding",
+          "<b>Check mode adds entry authentication</b>; it does not fix escalation inside an allowed session"
+        ]
+      }
+    },
+    {
+      "id": "tailworm-headscale",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "tailwormControl"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Tailworm · researcher report",
+          "url": "https://tailworm.com/",
+          "note": {
+            "ja": "研究者の実験室報告。独立再現・実悪用確認ではない",
+            "en": "Researcher lab claims; not our reproduction or field exploitation"
+          }
+        },
+        {
+          "name": "Tailscale engineering response",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/",
+          "note": {
+            "ja": "10/25当事者応答。影響構成は調査中、全員一律停止の勧告なし",
+            "en": "October 25 first-party response; scope under review, no blanket shutdown recommendation"
+          }
+        },
+        {
+          "name": "Tailworm special report",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/27-tailworm.ja.md",
+          "note": {
+            "ja": "基準23:18 JST、実取得は基準後",
+            "en": "23:18 JST cutoff; retrieved afterwards"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "headscaleは、別の対策が要る。",
+        "lede": "自己ホストの制御面とTailscale SaaSを分けます。研究者は公開登録経路のメモリ枯渇やキャッシュ排出を報告しています。",
+        "points": [
+          "<b>headscale 0.29.5</b>の検証。登録経路の一部DoSはアカウント不要との報告",
+          "研究者は<b>SSH転送を抑止できない</b>と指摘。SaaSの設定を流用せず、許可削減・停止を検討",
+          "公開範囲・rate limit・メモリ上限・再起動監視を確認。<b>緩和は修正ではない</b>",
+          "悪性DERP応答のclient DoSは、<b>悪性relayへ接続させられる</b>という別の前提"
+        ]
+      },
+      "en": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "Headscale needs its own response.",
+        "lede": "Separate a self-hosted control plane from Tailscale SaaS. The report describes registration-path resource exhaustion and cache eviction.",
+        "points": [
+          "Tested: <b>headscale 0.29.5</b>; some registration DoS paths reportedly need no account",
+          "The researcher reports <b>forwarding cannot be denied</b> there; reassess SSH grants separately from SaaS",
+          "Review exposure, rate limits, memory limits and restart monitoring; <b>mitigation is not a patch</b>",
+          "DERP client exhaustion separately requires <b>directing a client to a hostile relay</b>"
+        ]
+      }
+    },
+    {
+      "id": "tailworm-connector",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "tailwormConnector"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Tailworm · researcher report",
+          "url": "https://tailworm.com/",
+          "note": {
+            "ja": "研究者の実験室報告。独立再現・実悪用確認ではない",
+            "en": "Researcher lab claims; not our reproduction or field exploitation"
+          }
+        },
+        {
+          "name": "Tailscale engineering response",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/",
+          "note": {
+            "ja": "10/25当事者応答。影響構成は調査中、全員一律停止の勧告なし",
+            "en": "October 25 first-party response; scope under review, no blanket shutdown recommendation"
+          }
+        },
+        {
+          "name": "Tailworm special report",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/27-tailworm.ja.md",
+          "note": {
+            "ja": "基準23:18 JST、実取得は基準後",
+            "en": "23:18 JST cutoff; retrieved afterwards"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "アプリの許可が、別の宛先へ。",
+        "lede": "対象は実験的conn25。研究者は利用権限を持つ端末が、コネクタに任意の実宛先を選ばせられると報告しています。",
+        "points": [
+          "<b>conn25と利用capability</b>が前提。全コネクタ構成へ一般化しない",
+          "コネクタの先のLAN・クラウドmetadata・clusterサービスを、実宛先で確認",
+          "不要な利用権限を外し、<b>出口側で宛先を制限</b>。IPv4/IPv6も確認",
+          "Kubernetesのegress制限は<b>CNI・hostNetwork・転送経路</b>を実測。設定投入だけで完了にしない"
+        ]
+      },
+      "en": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "One app entitlement. Other destinations.",
+        "lede": "The experimental conn25 path reportedly lets an entitled client select destinations through its connector.",
+        "points": [
+          "Requires <b>conn25 and its client capability</b>; not every app-connector deployment",
+          "Inspect real destinations: connector-side LAN, cloud metadata and cluster services",
+          "Remove unneeded entitlement and <b>restrict destination egress</b>, including IPv4 and IPv6",
+          "Verify Kubernetes controls against <b>CNI, host networking and forwarding paths</b>"
+        ]
+      }
+    },
+    {
+      "id": "tailworm-serve",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "tailwormServe"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Tailworm · researcher report",
+          "url": "https://tailworm.com/",
+          "note": {
+            "ja": "研究者の実験室報告。独立再現・実悪用確認ではない",
+            "en": "Researcher lab claims; not our reproduction or field exploitation"
+          }
+        },
+        {
+          "name": "Tailscale engineering response",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/",
+          "note": {
+            "ja": "10/25当事者応答。影響構成は調査中、全員一律停止の勧告なし",
+            "en": "October 25 first-party response; scope under review, no blanket shutdown recommendation"
+          }
+        },
+        {
+          "name": "Tailworm special report",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/27-tailworm.ja.md",
+          "note": {
+            "ja": "基準23:18 JST、実取得は基準後",
+            "en": "23:18 JST cutoff; retrieved afterwards"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "Serveの設定から、管理口を確認。",
+        "lede": "Unix socket宛のTCP転送、全interfaceへのbind、HTTP/2のmount間認可。設定と経路を分けて棚卸しします。",
+        "points": [
+          "<b>Serveの特権socket宛TCP転送</b>を探す。operatorの該当設定が必要な問題",
+          "<b>TS_SERVE_ALLOW_ALL_INTERFACES</b>は設定上の注意。全Serveの既定動作ではない",
+          "header依存のbackend認可・複数mountを確認。Funnelの指摘も脅威モデルを区別",
+          "IP firewallは<b>ローカルUnix socket操作を検査しない</b>。不要な設定を除去する"
+        ]
+      },
+      "en": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "Inspect what Serve exposes.",
+        "lede": "Review Unix-socket TCP forwards, external interface binding and HTTP/2 cross-mount authorization separately.",
+        "points": [
+          "Find <b>TCP forwards to privileged Unix sockets</b>; the operator’s configuration is a prerequisite",
+          "<b>TS_SERVE_ALLOW_ALL_INTERFACES</b> is a configuration note, not every Serve default",
+          "Inspect header-based backend authorization and mounts; distinguish Funnel threat-model observations",
+          "IP firewalls <b>do not inspect local Unix-socket operations</b>; remove unnecessary exposure"
+        ]
+      }
+    },
+    {
+      "id": "tailworm-response",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "tailwormResponse"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Tailworm · researcher report",
+          "url": "https://tailworm.com/",
+          "note": {
+            "ja": "研究者の実験室報告。独立再現・実悪用確認ではない",
+            "en": "Researcher lab claims; not our reproduction or field exploitation"
+          }
+        },
+        {
+          "name": "Tailscale engineering response",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/",
+          "note": {
+            "ja": "10/25当事者応答。影響構成は調査中、全員一律停止の勧告なし",
+            "en": "October 25 first-party response; scope under review, no blanket shutdown recommendation"
+          }
+        },
+        {
+          "name": "Tailworm special report",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/27-tailworm.ja.md",
+          "note": {
+            "ja": "基準23:18 JST、実取得は基準後",
+            "en": "23:18 JST cutoff; retrieved afterwards"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "確認して、狭めて、修正を追う。",
+        "lede": "研究者の実験室での自動伝播と、現実のワーム流行を分けます。今回の一次資料では実環境のTailworm侵害は未確認です。",
+        "points": [
+          "SSH・headscale・conn25・Serveを棚卸し。<b>機能ごとの成立条件</b>に沿って許可を縮小",
+          "<b>修正版・専用CVE/CVSSは未確定</b>。1.104.2の証明書修正と混ぜない",
+          "侵害を疑えば証跡保全・隔離後、<b>制御面で端末を失効</b>し到達可能な鍵を更新",
+          "再インストールだけではコピーされたidentityは失効しない。公式勧告と更新を継続確認"
+        ]
+      },
+      "en": {
+        "kicker": "TAILWORM · SPECIAL REPORT",
+        "title": "Inventory. Restrict. Track the fix.",
+        "lede": "Lab propagation is not evidence of a worm outbreak. Real-world Tailworm exploitation is not established by the sources reviewed.",
+        "points": [
+          "Inventory SSH, headscale, conn25 and Serve; <b>reduce grants by feature prerequisites</b>",
+          "<b>Confirmed fixes and dedicated CVEs/CVSS remain unresolved</b>; 1.104.2 fixes a separate certificate issue",
+          "If compromise is suspected, preserve evidence, isolate, <b>revoke the device identity</b> and rotate exposed keys",
+          "Reimaging alone does not revoke copied identity; keep tracking official advisories"
+        ]
+      }
+    },
+    {
+      "id": "night-delta",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "nightDelta"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "23:18 fixed-window collection",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-10-25-2318/collection-summary.json",
+          "note": {
+            "ja": "07:34–14:18 UTC、取得は基準後",
+            "en": "07:34–14:18 UTC; retrieved afterwards"
+          }
+        },
+        {
+          "name": "Nightly review",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/28-snapshot-20261025-2318.ja.md",
+          "note": {
+            "ja": "優先度・一次資料・未確定事項",
+            "en": "Priorities, primary sources and unresolved points"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "NIGHT UPDATE · 23:18 JST",
+        "title": "広域調査。件数より、成立条件。",
+        "lede": "16:34→23:18 JSTの固定窓を追加取得。前回分に重複する更新を、被害件数として合算しません。",
+        "points": [
+          "<b>NVD新規87 / 更新87</b>。今回の両集合は同じ87件。全深刻度で収集",
+          "<b>GitHub勧告16件</b>はunreviewed。package欄が空でも無影響とはしない",
+          "<b>KEVは10/23版・1,756件</b>。新規追加なしは、攻撃なしの証明ではない",
+          "Firecrawl・Dokploy・rotki等を一次資料で照合。<b>未確定の修正版を補完しない</b>"
+        ]
+      },
+      "en": {
+        "kicker": "NIGHT UPDATE · 23:18 JST",
+        "title": "Broad review. Conditions before counts.",
+        "lede": "A fixed 16:34–23:18 JST delta complements the earlier review. Database updates are not breach counts.",
+        "points": [
+          "<b>NVD: 87 published / 87 modified</b>; the same 87 identifiers in both sets, across all severities",
+          "<b>16 GitHub advisories</b>, unreviewed; empty package metadata does not mean unaffected",
+          "<b>KEV: October 23, 1,756 entries</b>; no new listing does not prove no attacks",
+          "Trace Firecrawl, Dokploy and rotki to primary evidence; <b>do not invent a fixed version</b>"
+        ]
+      }
+    },
+    {
+      "id": "night-restoration",
+      "stamp": "10.25 · 23:18 JST",
+      "metric": null,
+      "visual": {
+        "type": "nightRestoration"
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "ConnectWise · Oct 25 14:00 UTC",
+          "url": "https://www.connectwise.com/company/trust/advisories",
+          "note": {
+            "ja": "基準時刻前18分の公式更新",
+            "en": "Official update 18 minutes before cutoff"
+          }
+        },
+        {
+          "name": "23:18 fixed-window collection",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-10-25-2318/collection-summary.json",
+          "note": {
+            "ja": "07:34–14:18 UTC、取得は基準後",
+            "en": "07:34–14:18 UTC; retrieved afterwards"
+          }
+        },
+        {
+          "name": "Nightly review",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/28-snapshot-20261025-2318.ja.md",
+          "note": {
+            "ja": "優先度・一次資料・未確定事項",
+            "en": "Priorities, primary sources and unresolved points"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "NIGHT UPDATE · 23:18 JST",
+        "title": "復旧の目標は、再接続の許可ではない。",
+        "lede": "ConnectWiseは本日23:00 JSTに更新。Cloud Backupは10/26の段階的onboardingを目標にしています。",
+        "points": [
+          "<b>まず既存バックアップの復元アクセス</b>、その後の再登録を案内する計画",
+          "<b>個別の正式手順まで接続を無効維持</b>。基盤復旧は全機能復旧を意味しない",
+          "バックアップの保全と、顧客M365側の認証・権限・メール操作の調査は別",
+          "PHP・GitLab・Brotli、実悪用済みKEV、Fortinet hardeningも継続。<b>詳細レポートで役割別に確認</b>"
+        ]
+      },
+      "en": {
+        "kicker": "NIGHT UPDATE · 23:18 JST",
+        "title": "A restoration target is not reconnect permission.",
+        "lede": "ConnectWise updated at 23:00 JST. Phased Cloud Backup onboarding remains targeted for October 26.",
+        "points": [
+          "<b>Existing backup restoration access first</b>, followed by re-enrollment guidance",
+          "<b>Keep connections disabled until individual instructions</b>; infrastructure recovery is not full service recovery",
+          "Stored backup assurance and investigation of live M365 access remain separate",
+          "Continue PHP, GitLab, Brotli, exploited KEV and Fortinet work; <b>use the role-based report</b>"
         ]
       }
     },

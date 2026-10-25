@@ -7,12 +7,12 @@ window.registerLocale("ar", {
     hintEnd: "نهاية الإحاطة — اضغط للبدء من جديد",
     coverKicker: "إحاطة الحوادث · 2026-10",
     coverTitleA: "شهر واحد،", coverTitleB: "15 حادثة.",
-    coverSub: "حوادث أكتوبر 2026 الخمسة عشر بالترتيب.<br>مع ملحق Apache وثمانية مشاهد لاحقة من 10-23. اضغط للمتابعة.<br>ثمانية مشاهد جديدة بتاريخ 10-24 (بالإنجليزية).<br>10/25: +7 scenes (English).",
+    coverSub: "حوادث أكتوبر 2026 الخمسة عشر بالترتيب.<br>مع ملحق Apache وثمانية مشاهد لاحقة من 10-23. اضغط للمتابعة.<br>ثمانية مشاهد جديدة بتاريخ 10-24 (بالإنجليزية).<br>10/25: +15 scenes (English), including the Tailworm special.",
     coverStart: "اضغط للبدء",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "المصادر",
     drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
-    asof: "2026-10-25 16:34 JST"
+    asof: "2026-10-25 23:18 JST"
   },
   scenes: {
     intro: { title: "شهر واحد، خمس عشرة حادثة.",

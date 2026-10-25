@@ -1,0 +1,332 @@
+{
+  "cutoff": "2026-10-25T14:18:00Z",
+  "delta_start": "2026-10-25T07:34:00Z",
+  "started_at": "2026-10-25T14:23:30+00:00",
+  "note": "Responses are retrieved after cutoff. Pages without precise publication time cannot establish cutoff availability. No severity filter. Published and modified overlap; do not sum.",
+  "tailscale-bulletins": {
+    "name": "tailscale-bulletins",
+    "url": "https://tailscale.com/security-bulletins",
+    "retrieved_at": "2026-10-25T14:23:30+00:00",
+    "file": "tailscale-bulletins.html.gz",
+    "sha256": "61420ea5107dc3b1c0a75550123df0c1df98be6907a897733ef2c946318078db",
+    "bytes": 390129,
+    "status": "ok",
+    "last_modified": null,
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes"
+  },
+  "connectwise": {
+    "name": "connectwise",
+    "url": "https://www.connectwise.com/company/trust/advisories",
+    "retrieved_at": "2026-10-25T14:23:30+00:00",
+    "file": "connectwise.html.gz",
+    "sha256": "8502237b20bd829e8788dfd676d8575d0a1ad331d30e90f399ccc5bc392600a5",
+    "bytes": 297574,
+    "status": "ok",
+    "last_modified": null,
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes"
+  },
+  "tailworm": {
+    "name": "tailworm",
+    "url": "https://tailworm.com/",
+    "retrieved_at": "2026-10-25T14:23:30+00:00",
+    "file": "tailworm.html",
+    "sha256": "b52ab5d33d383610001ee28d6af3093970e8b52db2238f0638f8c9d6f6ec7bdc",
+    "bytes": 68047,
+    "status": "ok",
+    "last_modified": "Sat, 24 Oct 2026 17:38:43 GMT"
+  },
+  "tailscale-ssh-docs": {
+    "name": "tailscale-ssh-docs",
+    "url": "https://tailscale.com/docs/features/tailscale-ssh",
+    "retrieved_at": "2026-10-25T14:23:30+00:00",
+    "file": "tailscale-ssh-docs.html.gz",
+    "sha256": "a7d06809f85736e94caa9c643fb96ca65db10ba77fd7acbdaad72025ec101f00",
+    "bytes": 453641,
+    "status": "ok",
+    "last_modified": null,
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes"
+  },
+  "tailscale-changelog": {
+    "name": "tailscale-changelog",
+    "url": "https://tailscale.com/changelog",
+    "retrieved_at": "2026-10-25T14:23:30+00:00",
+    "file": "tailscale-changelog.html.gz",
+    "sha256": "807f4eb916f9572cd6636efdbb015a3b72d1c59dfff2bd7c87f8fc1e1b770bfa",
+    "bytes": 1740069,
+    "status": "ok",
+    "last_modified": null,
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes"
+  },
+  "reddit-response": {
+    "name": "reddit-response",
+    "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/.json?raw_json=1",
+    "retrieved_at": "2026-10-25T14:23:31+00:00",
+    "status": "error",
+    "error": "HTTP Error 403: Blocked"
+  },
+  "fortinet": {
+    "name": "fortinet",
+    "url": "https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products",
+    "retrieved_at": "2026-10-25T14:23:31+00:00",
+    "file": "fortinet.html",
+    "sha256": "0dffe5ead83d265bd05f7e454b41fd31f3444baffd4f579cb5aff6b2b3a85e16",
+    "bytes": 54704,
+    "status": "ok",
+    "last_modified": "Fri, 23 Oct 2026 17:13:33 GMT"
+  },
+  "ghsa": {
+    "complete": true,
+    "returned": 16,
+    "pages": [
+      {
+        "url": "https://api.github.com/advisories?per_page=100&page=1&sort=published&direction=desc&published=2026-10-25T07%3A34%3A00Z..2026-10-25T14%3A18%3A00Z",
+        "retrieved_at": "2026-10-25T14:23:32+00:00",
+        "file": "ghsa-1.json",
+        "returned": 16,
+        "sha256": "a7d8da95a088a692da80627e3f6e7223200ae60a29270c8a8fb78487fc860dc4"
+      }
+    ]
+  },
+  "kev": {
+    "name": "kev",
+    "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+    "retrieved_at": "2026-10-25T14:23:31+00:00",
+    "file": "kev.json.gz",
+    "sha256": "97a6e54bc74c651ab3c55657191db9adec6c63b05ca54e4205327cfd97a8fb70",
+    "bytes": 1807090,
+    "status": "ok",
+    "last_modified": null,
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes"
+  },
+  "nvd-modified": {
+    "mode": "modified",
+    "complete": true,
+    "totalResults": 87,
+    "returned": 87,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-25T07%3A34%3A00.000&lastModEndDate=2026-10-25T14%3A18%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-10-25T14:23:31+00:00",
+        "file": "nvd-modified-0.json.gz",
+        "totalResults": 87,
+        "returned": 87,
+        "sha256": "bf1b68b3e14a24a2393533d00ceab7cf07f39e137d994c1e9e05e479e210e656"
+      }
+    ]
+  },
+  "nvd-published": {
+    "mode": "published",
+    "complete": true,
+    "totalResults": 87,
+    "returned": 87,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-25T07%3A34%3A00.000&pubEndDate=2026-10-25T14%3A18%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-10-25T14:23:31+00:00",
+        "file": "nvd-published-0.json.gz",
+        "totalResults": 87,
+        "returned": 87,
+        "sha256": "8a2398f6c457bafd381ee180a15716bf44a9647d016d2877b752388116471aea"
+      }
+    ]
+  },
+  "feeds": [
+    {
+      "name": "feed-project-zero",
+      "url": "https://googleprojectzero.blogspot.com/feeds/posts/default?alt=rss&max-results=20",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-project-zero.html.gz",
+      "sha256": "a2e7a3498f86e034ff786137cf9bd80f6e389d90a2482ac90838291a4b4a7e0b",
+      "bytes": 11309698,
+      "status": "ok",
+      "last_modified": "Tue, 20 Oct 2026 22:20:46 GMT",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "feed-portswigger-research",
+      "url": "https://portswigger.net/research/rss",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-portswigger-research.html",
+      "sha256": "0d9accfd05ae89c3ddc28b1d6cdda66ece3cfdbb0e565836d2ae02e24e5a39c3",
+      "bytes": 28588,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-trail-of-bits",
+      "url": "https://blog.trailofbits.com/feed/",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-trail-of-bits.html.gz",
+      "sha256": "73744dbec1d2e608208e6b1749ae7158270352f701da8216d7a902945b26af8b",
+      "bytes": 969238,
+      "status": "ok",
+      "last_modified": null,
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "feed-github-security",
+      "url": "https://github.blog/security/feed/",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-github-security.html.gz",
+      "sha256": "33b83eb29c4dbedb9ccf7f98a8edd4540b43aabf621820df60d6f57ca6ea8acf",
+      "bytes": 1012077,
+      "status": "ok",
+      "last_modified": "Sat, 24 Oct 2026 00:58:28 GMT",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "feed-unit42",
+      "url": "https://unit42.paloaltonetworks.com/feed/",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-unit42.html",
+      "sha256": "0a4b521255a0d4463a482d555fd5b6879c5a66918262d087c8b3161e48b54c45",
+      "bytes": 24518,
+      "status": "ok",
+      "last_modified": "Fri, 23 Oct 2026 19:34:56 GMT"
+    },
+    {
+      "name": "feed-talos",
+      "url": "https://blog.talosintelligence.com/rss/",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-talos.html.gz",
+      "sha256": "006eb1a66cb5e892a95a5d506f064e98d491445777e097b17f666d214f5f4e4e",
+      "bytes": 278772,
+      "status": "ok",
+      "last_modified": null,
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "feed-microsoft-security",
+      "url": "https://www.microsoft.com/security/blog/feed/",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-microsoft-security.html.gz",
+      "sha256": "1c9a1b8f50d6291eb1240992d911ffeb1f43c9f3d9f1f742663e1d34def7f984",
+      "bytes": 286330,
+      "status": "ok",
+      "last_modified": "Sat, 24 Oct 2026 01:03:11 GMT",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "feed-sans-isc",
+      "url": "https://isc.sans.edu/rssfeed.xml",
+      "retrieved_at": "2026-10-25T14:23:32+00:00",
+      "file": "feed-sans-isc.html",
+      "sha256": "3c4ebce3845ddd1335a5e0dda050b1acbaf325807df37836cd42d9374d8f416a",
+      "bytes": 6460,
+      "status": "ok",
+      "last_modified": "Sun, 25 Oct 2026 14:19:02 GMT"
+    },
+    {
+      "name": "feed-dfir-report",
+      "url": "https://thedfirreport.com/feed/",
+      "retrieved_at": "2026-10-25T14:23:33+00:00",
+      "file": "feed-dfir-report.html",
+      "sha256": "aae918b1adbf638e11e081f6a26685a69f581fc4478ac0c00f2ac15e74823f0f",
+      "bytes": 13933,
+      "status": "ok",
+      "last_modified": "Mon, 28 Sep 2026 20:27:35 GMT"
+    },
+    {
+      "name": "feed-oss-sec",
+      "url": "https://seclists.org/rss/oss-sec.rss",
+      "retrieved_at": "2026-10-25T14:23:33+00:00",
+      "file": "feed-oss-sec.html",
+      "sha256": "edfb94d9e69b2f0014784d6c935f6c91887b630c8b95f3f4cc83815ee08a544c",
+      "bytes": 15905,
+      "status": "ok",
+      "last_modified": "Sat, 24 Oct 2026 22:30:03 GMT"
+    },
+    {
+      "name": "feed-cisa-advisories",
+      "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+      "retrieved_at": "2026-10-25T14:23:33+00:00",
+      "file": "feed-cisa-advisories.html.gz",
+      "sha256": "dbee0b938081fe0dfbb204f24484ab277240652c75da1e6c8d62342990aa42c0",
+      "bytes": 5696987,
+      "status": "ok",
+      "last_modified": null,
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "feed-jpcert",
+      "url": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+      "retrieved_at": "2026-10-25T14:23:33+00:00",
+      "file": "feed-jpcert.html",
+      "sha256": "f37736427e5f60322d81f8ac229fd8ff40cc15b1b5a9da1d186fdb37a36ababe",
+      "bytes": 20535,
+      "status": "ok",
+      "last_modified": "Fri, 23 Oct 2026 08:38:47 GMT"
+    },
+    {
+      "name": "feed-imperva",
+      "url": "https://www.imperva.com/blog/feed/",
+      "retrieved_at": "2026-10-25T14:23:33+00:00",
+      "file": "feed-imperva.html.gz",
+      "sha256": "c9be60c9619216eb8a33aeee9562d212f1c669851249722c47aa0b4f0212dc72",
+      "bytes": 264151,
+      "status": "ok",
+      "last_modified": "Thu, 22 Oct 2026 16:56:12 GMT",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "feed-citizenlab",
+      "url": "https://citizenlab.ca/feed/",
+      "retrieved_at": "2026-10-25T14:23:33+00:00",
+      "file": "feed-citizenlab.html",
+      "sha256": "f4f24b428e7c6699d100a1baedefacabe4b6cec97756ed35a2d8cd556ad29a26",
+      "bytes": 26614,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-thehackernews",
+      "url": "https://feeds.feedburner.com/TheHackersNews",
+      "retrieved_at": "2026-10-25T14:23:33+00:00",
+      "file": "feed-thehackernews.html",
+      "sha256": "904e75d52adc6ca843999b5b0676cc1cf4c3514e716eee18b4bd1dcbc6d9a7bf",
+      "bytes": 59723,
+      "status": "ok",
+      "last_modified": "Sun, 25 Oct 2026 13:15:27 GMT"
+    },
+    {
+      "name": "feed-bleepingcomputer",
+      "url": "https://www.bleepingcomputer.com/feed/",
+      "retrieved_at": "2026-10-25T14:23:34+00:00",
+      "file": "feed-bleepingcomputer.html",
+      "sha256": "2e8d862364e2e2c955e9407b5ebbed5242809acc23bd3abaa4429de784d63095",
+      "bytes": 12970,
+      "status": "ok",
+      "last_modified": "Sun, 25 Oct 2026 14:14:26 GMT"
+    },
+    {
+      "name": "feed-jvn",
+      "url": "https://jvn.jp/rss/jvn.rdf",
+      "retrieved_at": "2026-10-25T14:23:34+00:00",
+      "file": "feed-jvn.html",
+      "sha256": "1790c5f4b1c433dae6f5269d9e41fec9ab115cd2cd3a8e5b64c352a56e1d45e8",
+      "bytes": 16531,
+      "status": "ok",
+      "last_modified": "Fri, 23 Oct 2026 08:10:06 GMT"
+    },
+    {
+      "name": "feed-ipa",
+      "url": "https://www.ipa.go.jp/security/alert/index.html",
+      "retrieved_at": "2026-10-25T14:23:35+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "finished_at": "2026-10-25T14:23:36+00:00"
+}

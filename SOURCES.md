@@ -1,5 +1,7 @@
 # Sources and re-fetch commands
 
+Latest nightly delta: [23:18 review](docs/28-snapshot-20261025-2318.md), [Tailworm](docs/27-tailworm.md), [URLs/times/hashes](data/2026-10-25-2318/collection-summary.json), [87-record index](data/2026-10-25-2318/nvd-index.json). Re-fetch: `python3 tools/intel/snapshot-2318.py`.
+
 Latest fixed-window queries, retrieval times and sources: [October 25 review](docs/25-snapshot-20261025.md), [research](docs/research-2026-10-25.md), [packages](docs/research-packages-2026-10-25.md), [query URLs](data/2026-10-25/collection-summary.json).
 
 [**English**](SOURCES.md) | [日本語](SOURCES.ja.md)

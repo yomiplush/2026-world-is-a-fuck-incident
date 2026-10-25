@@ -1,8 +1,17 @@
-# 2026 — php2shell / Node.js 2026年10月 / Oracle Java / CA 侵害
+# 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA インシデント
+
+## 大特集：Tailworm — Tailscale / headscale 利用者へ
+
+**10月25日 23:18 JST基準。** 接続を許可した後のSSH転送・Unix権限、headscale、conn25、Serve/Funnelを機能別に確認。研究者の実験室報告とベンダー応答を分け、今日の暫定対策を整理しました。**1.104.2はTailworm修正版とは確認できません。**
+
+**[特集を読む](https://infosec-briefing.yomiplush.dev/tailworm.html) · [6画面のモーション特集](https://infosec-briefing.yomiplush.dev/?lang=ja#41) · [リポジトリの詳細・出典](docs/27-tailworm.ja.md)**
+
+> **最新調査 — 2026-10-25 23:18 JST基準:** [夜間の広域調査](docs/28-snapshot-20261025-2318.ja.md)。ConnectWiseの23:00更新、Snipe-IT・Parse Server・YesWiki・rclone・vLLM等を補完。固定窓NVD新規87件/更新87件は同じCVE集合（合算不可）、GHSA16件、17フィードを収集。[取得記録](data/2026-10-25-2318/collection-summary.json) / [構造化索引](data/2026-10-25-2318/incident-register.json) / [読むレポート](https://infosec-briefing.yomiplush.dev/update-20261025-2318.html)。サイトは**49画面**。実取得は基準後で、未記載の編集時刻は未確定。以下の過去時点の記述は最新調査で上書きします。
+
 
 > **提言：[Patch the Planet](https://patchtheplanet.org/) を推奨します。オープンソースの脆弱性修正を支える取り組みです。**
 
-> **最新調査 — 2026-10-25 16:34 JST基準:** [対応優先順位・16群の追加/訂正](docs/25-snapshot-20261025.ja.md)。Fortinet緊急更新、Java/Python証明書対策、DNS、Brotli、Postiz、ATSとOTクライアントを補完。ConnectWiseの一次確認とLiteLLM確定原因を反映。固定窓NVD新規99件/更新5,432件を保存。[構造化索引](data/2026-10-25/incident-register.json) / [一次調査](docs/research-2026-10-25.md) / [読み物版](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [41画面のブリーフィング・今回追補へ](https://infosec-briefing.yomiplush.dev/?lang=ja#34)。実取得は基準時刻後。以下の古い時点の記述は最新調査で上書きします。
+> **前回調査 — 2026-10-25 16:34 JST基準:** [対応優先順位・16群の追加/訂正](docs/25-snapshot-20261025.ja.md)。Fortinet緊急更新、Java/Python証明書対策、DNS、Brotli、Postiz、ATSとOTクライアントを補完。ConnectWiseの一次確認とLiteLLM確定原因を反映。固定窓NVD新規99件/更新5,432件を保存。[構造化索引](data/2026-10-25/incident-register.json) / [一次調査](docs/research-2026-10-25.md) / [読み物版](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [41画面のブリーフィング・今回追補へ](https://infosec-briefing.yomiplush.dev/?lang=ja#34)。実取得は基準時刻後。以下の古い時点の記述は最新調査で上書きします。
 
 > **投稿追補：[HTTP2Shell / Brotli](docs/26-brotli-http2shell.ja.md)** — 指定投稿を一次確認し、Envoy/IstioとHTTPクライアントの展開経路を追加。[専用画面 #40](https://infosec-briefing.yomiplush.dev/?lang=ja#40)。
 

@@ -1,0 +1,266 @@
+{
+  "requested_as_of": "2026-10-25T23:18:00+09:00",
+  "note": "Supplement to 16:34 review. Overlapping rows are not distinct incidents. Tailworm claims are attributed, unconfirmed fixes remain unresolved. Entries are not a complete global inventory.",
+  "previous_register": "../2026-10-25/incident-register.json",
+  "entries": [
+    {
+      "id": "tailworm",
+      "product": "Tailworm / Tailscale / headscale",
+      "condition_ja": "SSH access and relevant forwarding; feature-specific headscale, conn25, Serve prerequisites",
+      "action_ja": "棚卸し・許可削減・修正版追跡。1.104.2をTailworm修正版としない",
+      "evidence": "researcher_lab_report_and_vendor_investigation",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://tailworm.com/",
+        "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/"
+      ],
+      "fixed_version": null
+    },
+    {
+      "id": "connectwise-2300",
+      "product": "ConnectWise Cloud Backup",
+      "condition_ja": "対象Microsoft365連携と保存・live tenant双方の調査",
+      "action_ja": "10/26段階onboardingは目標、個別手順まで接続無効維持",
+      "evidence": "vendor_incident_update",
+      "exploitation": "vendor_confirmed_unauthorized_credential_access",
+      "sources": [
+        "https://www.connectwise.com/company/trust/advisories"
+      ],
+      "source_updated_at": "2026-10-25T14:00:00Z"
+    },
+    {
+      "id": "vendor-1",
+      "product": "Snipe-IT CVE-2026-116199",
+      "identifiers": [
+        "CVE-2026-116199"
+      ],
+      "condition_ja": "8.6.2以前。Google SSO、メール形式username、無効化済みローカルユーザーに有効Google identityが残る条件",
+      "action_ja": "**8.6.3**。offboardingをIdP側でも完了し、旧権限での再ログインを確認",
+      "notes_ja": "[開発元](https://github.com/grokability/snipe-it/security/advisories/GHSA-xf36-wx48-5rqp)。既定username形式は同じ条件ではない。開発元Moderate、NVDには9.2の採点",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/grokability/snipe-it/security/advisories/GHSA-xf36-wx48-5rqp"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-2",
+      "product": "Snipe-IT CVE-2026-116200",
+      "identifiers": [
+        "CVE-2026-116200"
+      ],
+      "condition_ja": "8.6.2以前、LDAP StartTLS利用、経路上の攻撃者",
+      "action_ja": "**8.6.3**。暗号化失敗時にbindを続けない。疑わしい場合はservice/user資格情報を調査・更新",
+      "notes_ja": "[開発元](https://github.com/grokability/snipe-it/security/advisories/GHSA-wx48-r3qh-jvh5)。単にGoogle SSOだけの問題ではない",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/grokability/snipe-it/security/advisories/GHSA-wx48-r3qh-jvh5"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-3",
+      "product": "Parse Server CVE-2026-116163",
+      "identifiers": [
+        "CVE-2026-116163"
+      ],
+      "condition_ja": "`AuthAdapter`を継承した独自adapterの検証methodが呼ばれない。built-inやplain objectは別",
+      "action_ja": "**8.6.102 / 9.10.5-alpha.2**。系列を照合し独自認証・追加factorの動作を確認",
+      "notes_ja": "[開発元](https://github.com/parse-community/parse-server/security/advisories/GHSA-rq3w-5c6f-p7wr)。全アプリへの無条件認証回避ではない",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/parse-community/parse-server/security/advisories/GHSA-rq3w-5c6f-p7wr"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-4",
+      "product": "Parse Server CVE-2026-116165",
+      "identifiers": [
+        "CVE-2026-116165"
+      ],
+      "condition_ja": "MongoDB配置。master keyなしでclass schema削除、CLP/protected fields喪失。PostgreSQLは対象外",
+      "action_ja": "**8.6.101 / 9.10.4-alpha.4**以降。上のadapter問題もあればそちらの修正先を満たす。消えたschema/権限は更新だけでは復元されない",
+      "notes_ja": "[開発元](https://github.com/parse-community/parse-server/security/advisories/GHSA-qmg9-m772-5rm7)。object ACLは引き続き適用",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/parse-community/parse-server/security/advisories/GHSA-qmg9-m772-5rm7"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-5",
+      "product": "YesWiki CVE-2026-116207",
+      "identifiers": [
+        "CVE-2026-116207"
+      ],
+      "condition_ja": "未認証のBazar検索APIのSQL injection。開発元対象欄は4.6.7–4.7.0未満 / 5alpha1–alpha4未満",
+      "action_ja": "**4.7.0 / 5.0.0-alpha4**。認証情報への影響と公開APIを確認",
+      "notes_ja": "[開発元](https://github.com/YesWiki/yeswiki/security/advisories/GHSA-ccp2-6q93-hggh)。NVD本文は4.6.0からと記載し開始版が不一致。4.6.0–6を安全と断定しない",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-ccp2-6q93-hggh"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-6",
+      "product": "rclone CVE-2026-116191",
+      "identifiers": [
+        "CVE-2026-116191"
+      ],
+      "condition_ja": "1.75.1以前、`serve webdav`のroot外書込み経路",
+      "action_ja": "**1.75.2**。公開範囲とバックエンド権限を制限し、root外の書込みを調査",
+      "notes_ja": "[開発元](https://github.com/rclone/rclone/security/advisories/GHSA-44pm-2q5p-fm63)。全`serve`形式の同じ問題とはしない",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-44pm-2q5p-fm63"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-7",
+      "product": "rclone CVE-2026-116192",
+      "identifiers": [
+        "CVE-2026-116192"
+      ],
+      "condition_ja": "`rcd --rc-serve` と既存http/netstorage remote。宛先置換、header・一時署名等の漏えい",
+      "action_ja": "不要な公開を止め、remote/backendと出口を制限。**確実な最低修正版は保留**",
+      "notes_ja": "[開発元](https://github.com/rclone/rclone/security/advisories/GHSA-xqmq-v4wj-rw5m)。構造化欄は1.74.2修正、本文は1.75.1でも再現と不整合。1.74.2だけで完了としない",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/rclone/rclone/security/advisories/GHSA-xqmq-v4wj-rw5m"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-8",
+      "product": "vLLM CVE-2026-116176",
+      "identifiers": [
+        "CVE-2026-116176"
+      ],
+      "condition_ja": "**0.9.2以上0.24.0未満**、P2pNcclConnectorを利用するprefill workerとAPI呼出し。SSRF・KV-cache送信",
+      "action_ja": "当該修正は **0.24.0**。connector経路・送信先・API権限を制限",
+      "notes_ja": "[開発元](https://github.com/vllm-project/vllm/security/advisories/GHSA-vfp2-c8pq-v6h6)。全LLMサーバーで無条件漏えいとはしない",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-vfp2-c8pq-v6h6"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-9",
+      "product": "vLLM CVE-2026-116172",
+      "identifiers": [
+        "CVE-2026-116172"
+      ],
+      "condition_ja": "**0.22.0以上0.24.0未満**、Rust gRPC frontendの候補数検証回避でEngineCore停止",
+      "action_ja": "当該修正は **0.24.0**。RESTの検証だけでgRPCも保護されるとしない",
+      "notes_ja": "[開発元](https://github.com/vllm-project/vllm/security/advisories/GHSA-rwfw-xvg3-3937)",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-rwfw-xvg3-3937"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-10",
+      "product": "vLLM CVE-2026-116179 / -116180",
+      "identifiers": [
+        "CVE-2026-116179",
+        "CVE-2026-116180"
+      ],
+      "condition_ja": "動画frame数のrequest override（0.18.0以降）や、connector cache済みprefixのlogprobsで共有engine DoS",
+      "action_ja": "**0.31.0以降**。動画API・KV connector・共有tenantの条件を確認",
+      "notes_ja": "[動画](https://github.com/vllm-project/vllm/security/advisories/GHSA-4m6g-h9mv-wqjc) / [logprobs](https://github.com/vllm-project/vllm/security/advisories/GHSA-rhcx-5729-88vg)。0.24.0への更新だけでvLLMの全件対処としない",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-4m6g-h9mv-wqjc",
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-rhcx-5729-88vg"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-11",
+      "product": "Firecrawl / CVE-2026-116066",
+      "identifiers": [
+        "CVE-2026-116066"
+      ],
+      "condition_ja": "PlaywrightサービスのSSRF proxy。検査時と実接続時でDNSを別々に解決するため、スクレイプ先のDNSを制御する者が内部アドレスへ切替可能。全スクレイプエンジンが同じ実装ではない",
+      "action_ja": "CNA記載は **2.11.586未満**。一次Issueは脆弱なcommitと独立DNS解決を説明。使用イメージ・Playwrightサービスが修正commitを含むことを確認し、内部・metadata宛egressを制限する。版境界はCNA記載で、今回リリースノートまで独立確定していない。",
+      "notes_ja": "[開発元Issue #5256](https://github.com/firecrawl/firecrawl/issues/5256)、[修正commit](https://github.com/firecrawl/firecrawl/commit/5e74ff37b41ac650d6bccff170a9be0a6decb946)、[GHSA](https://github.com/advisories/GHSA-xmmq-vp8j-m5qf) NVD掲載：10/25 12:16:27.370 UTC。",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/firecrawl/firecrawl/issues/5256",
+        "https://github.com/firecrawl/firecrawl/commit/5e74ff37b41ac650d6bccff170a9be0a6decb946",
+        "https://github.com/advisories/GHSA-xmmq-vp8j-m5qf"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-12",
+      "product": "Paisa / CVE-2026-116067",
+      "identifiers": [
+        "CVE-2026-116067"
+      ],
+      "condition_ja": "ledger / sheet APIのパス逸脱、サーバー可読ファイルの取得とバックアップ削除。**既定の `user_accounts` 未設定では認証不要**。設定済みの場合は認証ユーザーに影響する",
+      "action_ja": "**0.7.8**。開発元リリースはディレクトリー外の読み取り・バックアップ削除修正を明示。API公開を制限し、アクセス証跡と削除されたバックアップを確認する。",
+      "notes_ja": "[公式リリース](https://github.com/ananthakumaran/paisa/releases/tag/v0.7.8)、[開発元Issue #420](https://github.com/ananthakumaran/paisa/issues/420)、[GHSA](https://github.com/advisories/GHSA-c69r-vcvw-qgm3) NVD掲載：10/25 12:16:28.997 UTC。",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/ananthakumaran/paisa/releases/tag/v0.7.8",
+        "https://github.com/ananthakumaran/paisa/issues/420",
+        "https://github.com/advisories/GHSA-c69r-vcvw-qgm3"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-13",
+      "product": "Dokploy / CVE-2026-116068",
+      "identifiers": [
+        "CVE-2026-116068"
+      ],
+      "condition_ja": "自組織のowner/adminが他組織のapplicationIdを指定すると、環境変数・deploy・停止等の操作へ到達。**owner/adminは対象インスタンス全体の管理者権限を意味しない**",
+      "action_ja": "CNA記載は **0.30.10まで**。10/22の公式PR #5752は組織境界検証修正をcanaryへマージ。安定版の最低番号は今回確定していない。利用する配布物にcommitが入ることを確認し、他組織IDへの操作・環境変数やビルド設定変更を調査する。",
+      "notes_ja": "[公式PR](https://github.com/Dokploy/dokploy/pull/5752)、[開発元Issue](https://github.com/Dokploy/dokploy/issues/5635)、[GHSA](https://github.com/advisories/GHSA-w9rf-wg9h-jgwf) NVD掲載：10/25 12:16:29.153 UTC。",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/Dokploy/dokploy/pull/5752",
+        "https://github.com/Dokploy/dokploy/issues/5635",
+        "https://github.com/advisories/GHSA-w9rf-wg9h-jgwf"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    },
+    {
+      "id": "vendor-14",
+      "product": "rotki / CVE-2026-116071",
+      "identifiers": [
+        "CVE-2026-116071"
+      ],
+      "condition_ja": "premium同期バックアップが取得された場合、旧形式の弱い鍵導出でオフライン推測され得る。バックアップ内の取引所APIキー等に影響。全利用者の鍵流出確認という意味ではない",
+      "action_ja": "CNA記載は **1.44.2未満**。開発元PR #13401はArgon2idと認証付きチャンク暗号化への移行、旧形式復元互換と旧端末の新形式非対応を説明。同期する全端末を更新し、新形式バックアップを生成。既に取得された旧バックアップは更新で消せないため、取得の疑いがあれば内包した資格情報を失効する。",
+      "notes_ja": "[公式PR](https://github.com/rotki/rotki/pull/13401)、[公式1.44.2](https://github.com/rotki/rotki/releases/tag/v1.44.2)、[GHSA](https://github.com/advisories/GHSA-qgg8-6p8q-vrp7) NVD掲載：10/25 12:16:29.623 UTC。",
+      "evidence": "primary_vendor_advisory",
+      "exploitation": "not_confirmed_in_review",
+      "sources": [
+        "https://github.com/rotki/rotki/pull/13401",
+        "https://github.com/rotki/rotki/releases/tag/v1.44.2",
+        "https://github.com/advisories/GHSA-qgg8-6p8q-vrp7"
+      ],
+      "timing": "NVD record newly published in fixed window; original vendor publication can be earlier; see source JSON"
+    }
+  ]
+}

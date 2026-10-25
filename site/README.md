@@ -1,5 +1,7 @@
 # Briefing site — `site/`
 
+**Current: 49 scenes, 23:18 JST cutoff on October 25.** Tailworm special: `tailworm.html`, scenes #41–46. Latest report: `update-20261025-2318.html`. Earlier dated sections below record the site history.
+
 A single-page, tap-to-advance motion-graphic briefing of the October 2026 incidents, in
 chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).
 Deployed to Cloudflare Pages.
@@ -334,3 +336,26 @@ For a separate Brave CDP profile listening on 9237, run
 `CDP_PORT=9237 node tests/privacy.mjs`. The regression applies the two exact generic
 selectors above, checks visible choices and reopening, and retains storage and
 responsive checks. Browser, entry and resource checks also accept `CDP_PORT`.
+
+## October 25, 23:18 JST — Tailworm special and nightly review
+
+The briefing now has **49 scenes**. Stable scenes #1–40 are retained; #41–46
+cover Tailworm scope, SSH privilege boundaries, headscale, experimental conn25,
+Serve/Funnel and response; #47–48 cover the fixed-window delta and ConnectWise’s
+14:00 UTC restoration update. Closing moves to #49. Eight dedicated 3D renderers
+illustrate prerequisites and controls, not live attack activity. All support
+camera gestures and deterministic reduced motion. New copy is JA/EN; the other
+ten locales use English fallback with the current cutoff shown.
+
+The large native Tailworm entry links to `tailworm.html` before unlocking or
+loading scene code/music. The static special and `update-20261025-2318.html`
+work without the briefing runtime. Researcher findings, vendor confirmation,
+unresolved fixes and observed exploitation remain separate. In particular,
+Tailscale 1.104.2 is not labeled a Tailworm fix.
+
+Run `node tests/tailworm.mjs` against the existing local server/CDP setup for
+entry visibility, four widths, static action access, deferred audio and six
+bilingual deep links. `tests/browser.mjs` covers all49 scenes, 196 renderer-size
+combinations,10 layouts and12 locales. Sources and captured response hashes
+live under `data/2026-10-25-2318/`; reproduce the fixed cutoff collection with
+`python3 tools/intel/snapshot-2318.py` (network required, later content revisions).
