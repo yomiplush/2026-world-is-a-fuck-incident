@@ -216,7 +216,7 @@ English, 日本語, 中文（简体）, 한국어, Español, Français, Deutsch,
 
 Every scene carries `ja` and `en` copy in `data.js`; numbers, visuals and audio cues are shared.
 The HUD switch (or `L`) flips language without restarting the scene, remembers the choice in
-`localStorage`, and honours `?lang=en` / `?lang=ja`. The default follows `navigator.language`,
+`localStorage` only after optional-preference consent, and honours `?lang=en` / `?lang=ja`. The default follows `navigator.language`,
 so a Japanese browser opens in Japanese and everything else in English. `<html lang>` is updated
 with the text, and the rail's aria-labels follow too.
 
@@ -296,3 +296,24 @@ moves to #41. The static response page gains a `#brotli-post` section. There are
 **41 scenes**. `docs/26-brotli-http2shell{,.ja}.md` and the follow-up metadata
 distinguish the same Brotli CVE from HTTP/2 protocol flaws and record Envoy/Istio
 versions, client-decode conditions, support status and source uncertainty.
+
+## Privacy and browser storage
+
+`/privacypolicy` is a dedicated Japanese/English notice. `privacy.js` and
+`privacy.css` run on the briefing, report and policy pages without third-party
+CMP scripts or network calls. The persistent footer links to the notice and
+reopens equal-prominence accept/reject choices. Continued browsing is not consent.
+
+Only language persistence is optional; no analytics or advertising was added.
+The existing `briefing-lang` value is now accessed through `PRIVACY`, which keeps
+it off before consent and removes legacy/withdrawn/expired values. The necessary
+`briefing-consent` record stores version, boolean choice and timestamps for 180
+days, including rejection. Expiry is enforced on loading/access rather than
+assuming localStorage expires automatically. Denial of browser storage keeps
+choices in memory. Provider security processing is disclosed separately and is
+not claimed to stop when optional preferences are rejected.
+
+Run `node tests/privacy.mjs` against the local :8096 / Chrome CDP :9236 setup.
+It covers prior blocking, actual preference persistence, rejection, withdrawal,
+expiry, malformed data, unavailable/quota-limited storage, cross-page state and
+responsive choices. Primary reference notes are in `docs/privacy-source-notes.md`.

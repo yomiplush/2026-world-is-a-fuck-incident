@@ -109,7 +109,7 @@
     const q = new URLSearchParams(location.search).get("lang");
     if (q && LANGS.some((l) => l.code === q)) return q;
     try {
-      const saved = localStorage.getItem("briefing-lang");
+      const saved = window.PRIVACY && window.PRIVACY.getLanguage();
       if (saved && LANGS.some((l) => l.code === saved)) return saved;
     } catch (e) { /* private mode */ }
     const base = (navigator.language || "en").split("-")[0].toLowerCase();
@@ -149,7 +149,7 @@
     const ok = await (hasLocale(code) ? Promise.resolve(true) : loadLocale(code));
     lang = ok ? code : "en";
     if (el.langSelect) el.langSelect.value = lang;
-    try { localStorage.setItem("briefing-lang", lang); } catch (e) { /* ignore */ }
+    if (window.PRIVACY) window.PRIVACY.setLanguage(lang);
     try {
       const u = new URL(location.href);
       u.searchParams.set("lang", lang);
@@ -346,7 +346,7 @@
 
   document.addEventListener("pointerdown", (e) => {
     if (!started) return;
-    if (e.target.closest("button, a, select, label, .drawer, .panel")) return;
+    if (e.target.closest("button, a, select, label, .drawer, .panel, .privacy-banner, .privacy-dock")) return;
     lastInteraction = performance.now();
     drag = { x: e.clientX, y: e.clientY, t: Date.now(), moved: false };
     vel.yaw = vel.pitch = 0;
