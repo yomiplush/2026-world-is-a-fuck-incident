@@ -346,7 +346,7 @@
 
   document.addEventListener("pointerdown", (e) => {
     if (!started) return;
-    if (e.target.closest("button, a, select, label, .drawer, .panel, .privacy-banner, .privacy-dock")) return;
+    if (e.target.closest("button, a, select, label, .drawer, .panel, .briefing-preferences, .privacy-dock")) return;
     lastInteraction = performance.now();
     drag = { x: e.clientX, y: e.clientY, t: Date.now(), moved: false };
     vel.yaw = vel.pitch = 0;

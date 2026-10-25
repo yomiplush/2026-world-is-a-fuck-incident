@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-const tabs=await(await fetch('http://127.0.0.1:9236/json')).json();
+const tabs=await(await fetch(`http://127.0.0.1:${process.env.CDP_PORT || 9236}/json`)).json();
 const ws=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
 await new Promise(r=>ws.addEventListener('open',r,{once:true}));
 let id=0;const pending=new Map();

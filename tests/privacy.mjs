@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-const tabs=await(await fetch('http://127.0.0.1:9236/json')).json();
+const tabs=await(await fetch(`http://127.0.0.1:${process.env.CDP_PORT || 9236}/json`)).json();
 const ws=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
 await new Promise(resolve=>ws.addEventListener('open',resolve,{once:true}));
 let sequence=0;const pending=new Map();
@@ -22,14 +22,18 @@ try{
  await cdp('Page.navigate',{url:'http://127.0.0.1:8096/'});await pause(150);
  await run('localStorage.clear();localStorage.setItem("briefing-lang","de");true');
  await cdp('Page.reload',{ignoreCache:true});await pause(250);
- assert.equal(await run('!!document.getElementById("privacy-banner")'),true,'first visit needs an explicit accept/reject choice');
+ assert.equal(await run('!!document.getElementById("briefing-preferences")'),true,'first visit needs an explicit accept/reject choice');
  await open();
  assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'legacy preference must be removed before consent');
  assert.equal(await run('PRIVACY.getChoice()'),null);
+ // Actual EasyList Cookie generic selectors used by Brave. No browser security changes.
+ await run(`(()=>{const style=document.createElement('style');style.textContent='#privacy-banner,.privacy-banner{display:none!important}';document.head.append(style);return true})()`);
+ assert.equal(await run(`(()=>{const b=document.querySelector('[aria-labelledby="privacy-title"]');return getComputedStyle(b).display!=='none'&&b.getBoundingClientRect().height>0})()`),true,'preference choices must remain visible with Brave EasyList Cookie selectors');
+
  const buttons=await run(`['privacy-reject','privacy-accept'].map(id=>{const b=document.getElementById(id),r=b.getBoundingClientRect(),s=getComputedStyle(b);return {width:r.width,height:r.height,bg:s.backgroundColor,color:s.color}})`);
  assert.deepEqual(buttons[0],buttons[1],'accept and reject must have equal prominence and target sizes');
  const title=await run('document.getElementById("title").textContent');
- const point=await run(`(()=>{const r=document.querySelector('#privacy-banner p').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
+ const point=await run(`(()=>{const r=document.querySelector('#briefing-preferences p').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',...point,button:'left',clickCount:1});
  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',...point,button:'left',clickCount:1});await pause(80);
  assert.equal(await run('document.getElementById("title").textContent'),title,'tapping consent prose must not advance the underlying briefing');
@@ -45,8 +49,11 @@ try{
  assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'reject must allow language changes without persistent preferences');
  await open('/?still=1#1');
  assert.equal(await run('PRIVACY.getChoice()'),false,'rejection must survive reload');
- assert.equal(await run('document.getElementById("privacy-banner").hidden'),true);
- await run('document.getElementById("privacy-settings").click();document.getElementById("privacy-accept").click();true');
+ assert.equal(await run('document.getElementById("briefing-preferences").hidden'),true);
+ await run(`(()=>{const style=document.createElement('style');style.textContent='#privacy-banner,.privacy-banner{display:none!important}';document.head.append(style);return true})()`);
+ await run('document.getElementById("privacy-settings").click();true');
+ assert.equal(await run('getComputedStyle(document.getElementById("briefing-preferences")).display!=="none"'),true,'saved choices must be reopenable from settings');
+ await run('document.getElementById("privacy-accept").click();true');
  assert.equal(await run('PRIVACY.getChoice()'),true);
  await run('document.getElementById("lang-select").value="de";document.getElementById("lang-select").dispatchEvent(new Event("change"));true');await pause(180);
  assert.equal(await run('localStorage.getItem("briefing-lang")'),'de','consent must gate real preference storage');
@@ -71,7 +78,7 @@ try{
  for(const [width,height] of [[320,568],[390,844],[844,390],[1440,900]]){
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<500});await open('/privacypolicy/');
   await run('document.getElementById("privacy-settings").click();true');
-  const size=await run(`({width:document.documentElement.scrollWidth,bottom:document.getElementById('privacy-banner').getBoundingClientRect().bottom})`);
+  const size=await run(`({width:document.documentElement.scrollWidth,bottom:document.getElementById('briefing-preferences').getBoundingClientRect().bottom})`);
   assert.ok(size.width<=width+1,'privacy UI must not cause horizontal overflow');assert.ok(size.bottom<=height+1);
  }
  console.log('Privacy consent: prior blocking, rejection, acceptance, real language persistence, withdrawal, expiry, invalid/blocked storage, shared policy state and responsive choices passed');
