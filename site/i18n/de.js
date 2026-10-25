@@ -7,18 +7,18 @@ window.registerLocale("de", {
     hintEnd: "Ende des Briefings — tippen zum Neustart",
     coverKicker: "INCIDENT BRIEFING · 2026-10",
     coverTitleA: "EIN MONAT,", coverTitleB: "15 VORFÄLLE.",
-    coverSub: "Die fünfzehn Vorfälle im Oktober 2026, in zeitlicher Reihenfolge.<br>Plus Apache-Nachtrag und acht Nachträge vom 10-23. Tippen zum Weitergehen.<br>Acht neue Szenen vom 10-24 (Englisch).",
+    coverSub: "Die fünfzehn Vorfälle im Oktober 2026, in zeitlicher Reihenfolge.<br>Plus Apache-Nachtrag und acht Nachträge vom 10-23. Tippen zum Weitergehen.<br>Acht neue Szenen vom 10-24 (Englisch).<br>10/25: +6 scenes (English).",
     coverStart: "TIPPE ZUM START",
-    coverFoot: "Jede Aussage führt auf eine Primärquelle zurück. Nur ConnectWise ist unbestätigt.",
+    coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "QUELLEN / SOURCES",
-    drawerFoot: "14 von 15 an Primärquellen geprüft. ConnectWise ist als unbestätigt markiert.",
-    asof: "Stand 2026-10-24 19:13 JST"
+    drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
+    asof: "2026-10-25 16:34 JST"
   },
   scenes: {
     intro: { title: "Ein Monat, fünfzehn Vorfälle.",
       lede: "Unabhängige Fehler, die immer wieder auf dieselbe Art von Schwäche trafen. Der Reihe nach durchtippen.",
       points: ["<b>8 von 15</b> sind npm-/pip-/Plugin-/Release-Artefakt-Probleme — die <em>Verteilung</em>, nicht der Code",
-        "14 sind an <b>Primärquellen</b> geprüft, eines (ConnectWise) nicht",
+        "ConnectWise now has primary confirmation; see the 10/25 addendum (English).",
         "Ton ist an, oben rechts abschaltbar"],
       metric: "Vorfälle · ein Monat" },
     "php-silence": { title: "Siebzig stille Tage.",

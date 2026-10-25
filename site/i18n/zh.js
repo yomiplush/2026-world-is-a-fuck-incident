@@ -9,12 +9,12 @@ window.registerLocale("zh", {
     hintEnd: "已到最后。点按回到开头",
     coverKicker: "事件简报 · 2026-10",
     coverTitleA: "一个月，", coverTitleB: "15 起事件。",
-    coverSub: "2026 年 10 月的 15 起事件，按时间顺序。<br>补充 Apache，以及 10-23 的八段后记。点按前进，有声音。<br>10-24 新增八页（英语）。",
+    coverSub: "2026 年 10 月的 15 起事件，按时间顺序。<br>补充 Apache，以及 10-23 的八段后记。点按前进，有声音。<br>10-24 新增八页（英语）。<br>10/25: +6 scenes (English).",
     coverStart: "点按开始",
-    coverFoot: "所有结论均可追溯到一手来源。仅 ConnectWise 一项未核实。",
+    coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "来源 / SOURCES",
-    drawerFoot: "14/15 已用一手来源核实。ConnectWise 标注为未核实。",
-    asof: "截至 2026-10-24 19:13 JST"
+    drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
+    asof: "2026-10-25 16:34 JST"
   },
   scenes: {
     intro: {
@@ -22,7 +22,7 @@ window.registerLocale("zh", {
       lede: "看似无关的事故，却反复落在同一类弱点上。按时间顺序点按前进。",
       points: [
         "15 起中有 <b>8 起</b>是 npm / pip / 插件 / 发布产物的问题——问题在<em>分发</em>，不在代码",
-        "14 起已用<b>一手来源</b>核实；1 起（ConnectWise）未核实",
+        "ConnectWise now has primary confirmation; see the 10/25 addendum (English).",
         "有声音，可在右上角关闭"
       ],
       metric: "事件 · 一个月"

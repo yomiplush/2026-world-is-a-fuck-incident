@@ -222,3 +222,8 @@ body.still .cover { display:none }
   .panel { width:38vw; align-self:center; max-height:100%; padding:4px 14px 12px 0; border:0; border-radius:0; background:none; text-shadow:none }
 }
 @media (max-width:1099px) and (min-height:561px) { html[dir="rtl"] .panel { padding:16px 18px } }
+
+/* Persistent text alternative to the motion briefing. */
+.latest-update{position:fixed;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:80;color:#b6d5df;background:#08111fee;padding:7px 12px;border:1px solid #29414e;border-radius:4px;font:11px/1.4 system-ui,sans-serif;text-decoration:none;white-space:nowrap}
+body:not(.entry-locked) .latest-update{display:none}
+.latest-update:focus-visible{outline:2px solid #ffb545;outline-offset:3px}

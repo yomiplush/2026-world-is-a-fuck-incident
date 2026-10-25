@@ -1,5 +1,7 @@
 # October 2026, as a supply-chain wave — 14 verified incidents and one unverified
 
+> **October 25 update:** ConnectWise is now supported by vendor and Microsoft primary reports. See the [current verification and response](25-snapshot-20261025.md). The original October 22 assessment below is historical.
+
 [English](14-supply-chain-oct2026.md) | [**日本語**](14-supply-chain-oct2026.ja.md)
 
 On 2026-10-22 a widely shared post listed fifteen things that broke in October and closed with
