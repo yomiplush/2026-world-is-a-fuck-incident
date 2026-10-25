@@ -317,3 +317,20 @@ Run `node tests/privacy.mjs` against the local :8096 / Chrome CDP :9236 setup.
 It covers prior blocking, actual preference persistence, rejection, withdrawal,
 expiry, malformed data, unavailable/quota-limited storage, cross-page state and
 responsive choices. Primary reference notes are in `docs/privacy-source-notes.md`.
+
+### Brave preference panel regression
+
+Brave 155.1.97.59 reproduced a visible script-created consent panel being hidden
+on production (`hidden=false`, computed `display:none`, empty rectangle).
+EasyList Cookie includes both `###privacy-banner` and `##.privacy-banner`:
+https://secure.fanboy.co.nz/fanboy-cookiemonster_ubo.txt . Brave documents default
+Cookie notice filtering at https://brave.com/privacy-updates/21-blocking-cookie-notices/ .
+The site-specific component is now named `briefing-preferences`, including the
+briefing gesture exclusion. It does not override injected filter styles or change
+Shields settings. Optional storage remains off until explicit acceptance; saved
+choices can be reopened through the persistent Cookie settings control.
+
+For a separate Brave CDP profile listening on 9237, run
+`CDP_PORT=9237 node tests/privacy.mjs`. The regression applies the two exact generic
+selectors above, checks visible choices and reopening, and retains storage and
+responsive checks. Browser, entry and resource checks also accept `CDP_PORT`.

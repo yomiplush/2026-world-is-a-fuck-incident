@@ -1,7 +1,7 @@
 // Real browser integration checks. Start site on :8096 and Chrome CDP on :9236.
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-const targets = await (await fetch('http://127.0.0.1:9236/json')).json();
+const targets = await (await fetch(`http://127.0.0.1:${process.env.CDP_PORT || 9236}/json`)).json();
 const ws = new WebSocket(targets.find(t => t.type === 'page').webSocketDebuggerUrl);
 await new Promise(resolve => ws.addEventListener('open', resolve, { once: true }));
 let seq = 0;

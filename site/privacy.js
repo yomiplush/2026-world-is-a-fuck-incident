@@ -43,8 +43,9 @@
   if (!choice || !choice.preferences) remove(LANGUAGE);
 
   const banner = document.createElement('section');
-  banner.id = 'privacy-banner'; banner.className = 'privacy-banner';
+  banner.id = 'briefing-preferences'; banner.className = 'briefing-preferences';
   banner.setAttribute('role', 'region'); banner.setAttribute('aria-labelledby', 'privacy-title');
+  const label = document.createElement('span'); label.className = 'preferences-label'; label.textContent = 'BRIEFING / PREFERENCES';
   const heading = document.createElement('h2'); heading.id = 'privacy-title'; heading.textContent = copy.title;
   const description = document.createElement('p'); description.textContent = copy.body;
   const detail = document.createElement('p'); detail.className = 'privacy-detail'; detail.textContent = copy.required;
@@ -52,7 +53,7 @@
   const actions = document.createElement('div'); actions.className = 'privacy-actions';
   const reject = document.createElement('button'); reject.type = 'button'; reject.id = 'privacy-reject'; reject.textContent = copy.reject;
   const accept = document.createElement('button'); accept.type = 'button'; accept.id = 'privacy-accept'; accept.textContent = copy.accept;
-  actions.append(reject, accept); banner.append(heading, description, detail, policy, actions);
+  actions.append(reject, accept); banner.append(label, heading, description, detail, policy, actions);
   const dock = document.createElement('nav'); dock.className = 'privacy-dock'; dock.setAttribute('aria-label', copy.policy);
   const policyLink = policy.cloneNode(true);
   const settings = document.createElement('button'); settings.type = 'button'; settings.id = 'privacy-settings'; settings.textContent = copy.settings;
