@@ -283,3 +283,16 @@ remain historical; October 25 sources supersede the old ConnectWise uncertainty.
 Source: `docs/25-snapshot-20261025{,.ja}.md`, two research notes and
 `data/2026-10-25/`. The 99/5,432 NVD counts use fully paginated, fixed-window
 queries; rolling collector output is kept separately with its limitations.
+
+## Patch link and Brotli post follow-up
+
+The top-right amber bandage icon links to Patch the Planet, beside GitHub. Both
+are native 44px links available before unlocking, with accessible names and
+keyboard behavior that does not unlock or advance the briefing. Mobile headers
+reserve the first row for the two links.
+
+The requested HTTP2Shell post now has a verified, bilingual scene #40; closing
+moves to #41. The static response page gains a `#brotli-post` section. There are
+**41 scenes**. `docs/26-brotli-http2shell{,.ja}.md` and the follow-up metadata
+distinguish the same Brotli CVE from HTTP/2 protocol flaws and record Envoy/Istio
+versions, client-decode conditions, support status and source uncertainty.

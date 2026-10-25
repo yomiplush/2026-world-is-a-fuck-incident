@@ -83,7 +83,7 @@ try {
     })()`);
     console.log(`${renderReport.length} render combinations: unique scenes, animation, tilt, reduced motion passed`);
     const sceneCount = await run('CONTENT.scenes.length');
-    assert.equal(sceneCount,40,'October 25 addendum must be present');
+    assert.equal(sceneCount,41,'October 25 addendum must be present');
     for (const [lang, width, height] of [['ja',390,844],['en',1440,900],['ar',390,844],['ja',844,390],['ja',320,568],['en',375,667],['ja',768,1024],['en',1024,768],['ja',1280,800],['en',1920,1080]]) {
       await open(lang,width,height);
       const layout=await run(`(() => {const c=document.getElementById('scene').getBoundingClientRect(),p=document.getElementById('panel'),b=p.getBoundingClientRect(),a=document.getElementById('repo-link'),r=a.getBoundingClientRect();return {canvasBottom:c.bottom,panelTop:b.top,bg:getComputedStyle(p).backgroundImage,opacity:getComputedStyle(p).opacity,href:a.href,svg:!!a.querySelector('svg'),right:r.right,top:r.top}})()`);

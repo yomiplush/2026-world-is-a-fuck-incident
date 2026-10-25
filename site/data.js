@@ -29,7 +29,7 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面と10-25追補6画面。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面と10-25追補7画面。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
@@ -44,7 +44,7 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus eight October 24 scenes and six October 25 scenes. 40 scenes total. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus eight October 24 scenes and seven October 25 scenes. 41 scenes total. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
@@ -1968,6 +1968,107 @@ window.CONTENT = {
           "<b>Postiz</b>: 2.25.3; registered users and integration prerequisites matter",
           "<b>ATS</b>: 9.2.16 / 10.1.5 / 10.2.1, but CVE-2026-111817 is <b>not fixed in 9.2.16</b>",
           "<b>open62541</b>: 1.5.7; clients importing remote OPC UA type definitions also need review"
+        ]
+      }
+    },
+    {
+      "id": "http2shell",
+      "stamp": "10.24",
+      "metric": {
+        "val": "9.2",
+        "label": {
+          "ja": "Google CNA · CVSS v4.0",
+          "en": "Google CNA · CVSS v4.0"
+        }
+      },
+      "visual": {
+        "type": "ledger",
+        "rows": [
+          {
+            "name": "SHARED BROTLI DECODER",
+            "figure": "1 CVE",
+            "tone": "amber"
+          },
+          {
+            "name": "ENVOY DECOMPRESSION",
+            "figure": "PATCH",
+            "tone": "green"
+          },
+          {
+            "name": "ISTIO DECOMPRESSION",
+            "figure": "PATCH",
+            "tone": "green"
+          },
+          {
+            "name": "FETCHED RESPONSES",
+            "figure": "CHECK",
+            "tone": "cyan"
+          }
+        ]
+      },
+      "cue": "blip",
+      "sources": [
+        {
+          "name": "Requested post",
+          "url": "https://x.com/EdwardTWinz/status/2113965463931666585",
+          "note": {
+            "ja": "発見の入口。技術的根拠は下記一次資料",
+            "en": "Discovery lead; primary technical evidence follows"
+          }
+        },
+        {
+          "name": "Patch the Planet · Brotli",
+          "url": "https://patchtheplanet.org/brotli",
+          "note": {
+            "ja": "同梱先・系列別修正・展開前の緩和",
+            "en": "Bundled consumers, fixes and pre-decode mitigation"
+          }
+        },
+        {
+          "name": "Envoy",
+          "url": "https://github.com/envoyproxy/envoy/security/advisories/GHSA-3wvj-j6qm-62mr",
+          "note": {
+            "ja": "Brotli decompressorを設定した配置",
+            "en": "Deployments configured for Brotli decompression"
+          }
+        },
+        {
+          "name": "Istio",
+          "url": "https://istio.io/latest/news/security/istio-security-2026-007/",
+          "note": {
+            "ja": "系列別修正。1.29はEOL",
+            "en": "Branch fixes; 1.29 is EOL"
+          }
+        },
+        {
+          "name": "Verified follow-up",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/26-brotli-http2shell.ja.md",
+          "note": {
+            "ja": "投稿時刻・確認したこと・留保事項",
+            "en": "Post time, verification and limits"
+          }
+        }
+      ],
+      "ja": {
+        "kicker": "POST FOLLOW-UP · CVE-2026-111497",
+        "title": "HTTP2Shell。同じ欠陥、同梱先まで。",
+        "lede": "指定投稿を一次資料と照合。Node.js以外にもBrotliの展開経路を確認します。HTTP/2限定の新しい脆弱性ではありません。",
+        "points": [
+          "Google CNAは<b>CVSS v4.0 9.2</b>。Node2Shellと同じCVE。実悪用の確認とは別",
+          "<b>Envoy</b>: 1.40.0 / 1.39.3 / 1.38.6 / 1.37.8。Brotli展開の設定が条件",
+          "<b>Istio</b>: 1.31.2 / 1.30.6 / 1.29.9。1.29はEOL。gatewayとsidecarも確認",
+          "<b>curl・requests・httpx</b>: 実際の依存デコーダと自動展開を確認。Accept-Encodingの変更だけでは不足"
+        ]
+      },
+      "en": {
+        "kicker": "POST FOLLOW-UP · CVE-2026-111497",
+        "title": "HTTP2Shell. Check the bundled decoder.",
+        "lede": "The requested post is checked against primary evidence. This is the same Brotli CVE beyond Node.js, not a new HTTP/2-specific vulnerability.",
+        "points": [
+          "Google CNA: <b>CVSS v4.0 9.2</b>; same CVE as Node2Shell. Severity does not confirm real-world exploitation",
+          "<b>Envoy</b>: 1.40.0 / 1.39.3 / 1.38.6 / 1.37.8, when Brotli decompression is configured",
+          "<b>Istio</b>: 1.31.2 / 1.30.6 / 1.29.9; 1.29 is EOL. Check gateways and sidecars",
+          "<b>curl, requests, httpx</b>: inspect the loaded decoder and automatic responses. Changing Accept-Encoding alone is insufficient"
         ]
       }
     },

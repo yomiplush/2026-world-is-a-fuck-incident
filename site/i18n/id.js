@@ -7,7 +7,7 @@ window.registerLocale("id", {
     hintEnd: "akhir briefing — ketuk untuk mengulang",
     coverKicker: "BRIEFING INSIDEN · 2026-10",
     coverTitleA: "SATU BULAN,", coverTitleB: "15 INSIDEN.",
-    coverSub: "Lima belas insiden Oktober 2026, berurutan.<br>Plus lampiran Apache dan delapan adegan 10-23. Ketuk untuk maju.<br>Delapan adegan baru 10-24 (bahasa Inggris).<br>10/25: +6 scenes (English).",
+    coverSub: "Lima belas insiden Oktober 2026, berurutan.<br>Plus lampiran Apache dan delapan adegan 10-23. Ketuk untuk maju.<br>Delapan adegan baru 10-24 (bahasa Inggris).<br>10/25: +7 scenes (English).",
     coverStart: "KETUK UNTUK MULAI",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "SUMBER / SOURCES",

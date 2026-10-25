@@ -23,7 +23,7 @@ button:focus-visible,a:focus-visible,select:focus-visible { outline:2px solid va
 #app { pointer-events:none; position:relative; z-index:2; height:100dvh; display:grid; gap:24px;
   grid-template-rows:auto minmax(0,1fr) auto;
   padding:calc(var(--pad) + env(safe-area-inset-top)) calc(var(--pad) + env(safe-area-inset-right)) calc(20px + env(safe-area-inset-bottom)) calc(var(--pad) + env(safe-area-inset-left)) }
-.hud-top { pointer-events:auto; padding-right:52px; display:flex; justify-content:space-between; align-items:center; gap:18px; padding-bottom:18px; border-bottom:1px solid var(--line); min-width:0 }
+.hud-top { pointer-events:auto; padding-right:108px; display:flex; justify-content:space-between; align-items:center; gap:18px; padding-bottom:18px; border-bottom:1px solid var(--line); min-width:0 }
 .hud-left,.hud-right { display:flex; gap:12px; align-items:center; min-width:0 }
 .hud-left { flex-shrink:1 }
 .hud-right { flex-shrink:0 }
@@ -214,10 +214,17 @@ body.still .cover { display:none }
 
 @media (prefers-reduced-motion:reduce) { .unlocking .entry-key { opacity:0 } .unlocking .entry-shackle { transform:translateY(-20px) rotate(-24deg) } }
 
-.repo-link { position:fixed; z-index:25; top:calc(var(--pad) + env(safe-area-inset-top)); right:calc(var(--pad) + env(safe-area-inset-right));
-  display:grid; place-items:center; width:38px; height:36px; border:1px solid var(--line); border-radius:4px; color:var(--dim); background:rgba(6,13,21,.6); transition:color .2s,border-color .2s }
-.repo-link svg { width:20px; height:20px }
+.repo-link,.patch-link { position:fixed; z-index:25; top:calc(var(--pad) + env(safe-area-inset-top)); right:calc(var(--pad) + env(safe-area-inset-right));
+  display:grid; place-items:center; width:44px; height:44px; border:1px solid var(--line); border-radius:4px; color:var(--dim); background:rgba(6,13,21,.8); transition:color .2s,border-color .2s }
+.repo-link svg,.patch-link svg { width:22px; height:22px }
+.patch-link { right:calc(var(--pad) + 52px + env(safe-area-inset-right)); color:var(--amber); border-color:rgba(255,181,69,.42) }
+.patch-link:hover { color:var(--green); border-color:var(--green) }
 .repo-link:hover { color:var(--ink); border-color:var(--cyan) }
+@media (max-width:560px) {
+  .hud-top { padding-right:0 }
+  .hud-left { padding-right:108px; min-height:44px; gap:8px }
+  .hud-left .sep { display:none }
+}
 @media (min-width:900px) and (max-width:1099px) and (min-height:561px) and (min-aspect-ratio:6/5) {
   .panel { width:38vw; align-self:center; max-height:100%; padding:4px 14px 12px 0; border:0; border-radius:0; background:none; text-shadow:none }
 }

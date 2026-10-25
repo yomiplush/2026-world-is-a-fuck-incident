@@ -2,7 +2,9 @@
 
 > **提言：[Patch the Planet](https://patchtheplanet.org/) を推奨します。オープンソースの脆弱性修正を支える取り組みです。**
 
-> **最新調査 — 2026-10-25 16:34 JST基準:** [対応優先順位・16群の追加/訂正](docs/25-snapshot-20261025.ja.md)。Fortinet緊急更新、Java/Python証明書対策、DNS、Brotli、Postiz、ATSとOTクライアントを補完。ConnectWiseの一次確認とLiteLLM確定原因を反映。固定窓NVD新規99件/更新5,432件を保存。[構造化索引](data/2026-10-25/incident-register.json) / [一次調査](docs/research-2026-10-25.md) / [読み物版](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [40画面のブリーフィング・今回追補へ](https://infosec-briefing.yomiplush.dev/?lang=ja#34)。実取得は基準時刻後。以下の古い時点の記述は最新調査で上書きします。
+> **最新調査 — 2026-10-25 16:34 JST基準:** [対応優先順位・16群の追加/訂正](docs/25-snapshot-20261025.ja.md)。Fortinet緊急更新、Java/Python証明書対策、DNS、Brotli、Postiz、ATSとOTクライアントを補完。ConnectWiseの一次確認とLiteLLM確定原因を反映。固定窓NVD新規99件/更新5,432件を保存。[構造化索引](data/2026-10-25/incident-register.json) / [一次調査](docs/research-2026-10-25.md) / [読み物版](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [41画面のブリーフィング・今回追補へ](https://infosec-briefing.yomiplush.dev/?lang=ja#34)。実取得は基準時刻後。以下の古い時点の記述は最新調査で上書きします。
+
+> **投稿追補：[HTTP2Shell / Brotli](docs/26-brotli-http2shell.ja.md)** — 指定投稿を一次確認し、Envoy/IstioとHTTPクライアントの展開経路を追加。[専用画面 #40](https://infosec-briefing.yomiplush.dev/?lang=ja#40)。
 
 [English](README.md) | [**日本語**](README_jp.md)
 

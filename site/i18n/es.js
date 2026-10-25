@@ -7,7 +7,7 @@ window.registerLocale("es", {
     hintEnd: "fin del informe — toca para reiniciar",
     coverKicker: "INFORME DE INCIDENTES · 2026-10",
     coverTitleA: "UN MES,", coverTitleB: "15 INCIDENTES.",
-    coverSub: "Los quince incidentes de octubre de 2026, en orden.<br>Más un apéndice de Apache y ocho escenas del 10-23. Toca para avanzar.<br>Ocho escenas nuevas del 10-24 (en inglés).<br>10/25: +6 scenes (English).",
+    coverSub: "Los quince incidentes de octubre de 2026, en orden.<br>Más un apéndice de Apache y ocho escenas del 10-23. Toca para avanzar.<br>Ocho escenas nuevas del 10-24 (en inglés).<br>10/25: +7 scenes (English).",
     coverStart: "TOCA PARA EMPEZAR",
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "FUENTES / SOURCES",
