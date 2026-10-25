@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070b12">
+<title>プライバシーポリシー / Privacy policy — Incident Briefing</title>
+<meta name="description" content="Incident BriefingのCookie、ブラウザー保存、Cloudflare配信、同意・拒否・撤回と問い合わせ先。">
+<link rel="canonical" href="https://infosec-briefing.yomiplush.dev/privacypolicy">
+<link rel="stylesheet" href="/update.css">
+<link rel="stylesheet" href="/privacy.css?v=20261025">
+<script src="/privacy.js?v=20261025" defer></script>
+</head>
+<body><main>
+<nav><a href="/">ブリーフィングへ / Briefing</a> · <a href="#english" lang="en">English</a> · <a href="/update-20261025">最新レポート</a></nav>
+<p class="kicker">INCIDENT BRIEFING / PRIVACY</p>
+<h1>プライバシーポリシー</h1>
+<p class="date">施行・最終更新：2026年10月25日 · このサイト専用の記載</p>
+<div class="privacy-policy-actions"><button type="button" data-privacy-open>Cookie設定を開く / Cookie settings</button><span data-privacy-status>任意の保存：未選択（無効）</span></div>
+<p>対象は <strong>infosec-briefing.yomiplush.dev</strong> のブリーフィングと関連ページです。任意の保存を拒否しても、レポート・出典・モーショングラフィックスを閲覧できます。運営者は <strong>YomiPlush（yomiplush）</strong>、問い合わせ先は <a href="mailto:contact@yomiplush.dev">contact@yomiplush.dev</a> です。</p>
+
+<section><h2>1. このサイトで扱う情報と目的</h2>
+<ul>
+<li><strong>同意・拒否の選択：</strong>選択内容、選択日時、有効期限、同意の説明の版を、このブラウザー内に保存します。同じ選択を繰り返し尋ねず、任意の保存を制御するために必要な保存です。アプリからサーバーへ送信しません。</li>
+<li><strong>表示言語：</strong>同意した場合だけ、次回も同じ言語を表示するために記憶します。拒否した場合もその場で言語を変更できます。URLで指定した言語や閲覧履歴はブラウザーの通常の管理対象です。</li>
+<li><strong>配信・安全確保：</strong>Cloudflareを使ってページや画像、同一サイトの音声を配信します。その際、IPアドレス、アクセス日時、要求URL、HTTPヘッダー、接続・端末に関する情報などがCloudflareに処理されることがあります。不正アクセス対策・接続の維持・コンテンツ配信が目的です。</li>
+<li><strong>表示と操作：</strong>ブラウザーの言語、動きを減らす設定、データ節約設定、利用可能な描画性能等をブラウザー内で参照し、表示負荷や動作を調整します。これらをアプリから独自の解析サービスへ送信しません。音声は操作後に再生します。</li>
+<li><strong>お問い合わせ：</strong>メールで提供されたアドレス・本文等は、返信と依頼への対応に使います。問い合わせに不要な機微情報は送信しないでください。</li>
+</ul>
+<p>本サイトのアプリには、アクセス解析タグ、広告ピクセル、広告用Cookie、アカウント登録、個人向け広告、プロファイリングや自動的な法的判断を導入していません。「同意」により将来の解析・広告を包括的に許可することにはなりません。</p>
+</section>
+
+<section><h2>2. Cookieとブラウザー保存の内訳</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="保存する情報の一覧"><table>
+<caption>このアプリはHTTP Cookieを自ら発行せず、以下のブラウザー保存と配信側の処理を区別します。</caption>
+<thead><tr><th scope="col">名前・種類</th><th scope="col">目的</th><th scope="col">保持・削除</th><th scope="col">選択</th></tr></thead>
+<tbody>
+<tr><th scope="row"><code>briefing-consent</code><br>localStorage</th><td>説明の版、任意の言語保存への同意・拒否、日時、有効期限を保存</td><td>選択から180日。ページ読込や設定利用時に期限を確認。期限切れ・不正な形式は無効にして再確認</td><td>選択を記憶するために必要。拒否の場合も保存。ブラウザーから削除可能</td></tr>
+<tr><th scope="row"><code>briefing-lang</code><br>localStorage</th><td>表示言語の記憶</td><td>同意の有効期間内のみ。拒否への変更、撤回、期限切れで削除。従来の未同意の保存値も削除</td><td>同意後のみ。初期状態は無効</td></tr>
+<tr><th scope="row">CloudflareのセキュリティCookie</th><td>必要なボット・不正アクセス対策。設定により <code>cf_clearance</code>、<code>__cf_bm</code> 等が使われる場合があります</td><td>種類と配信設定による。Cloudflareによると <code>__cf_bm</code> は操作のない状態が30分続くと失効。clearanceの期間は設定による。Cookieの期限とサーバーログの保持は別</td><td>本サイトの任意の言語保存への同意・拒否の対象外。すべてのCookieが常に設定される意味ではありません</td></tr>
+</tbody></table></div>
+<p><a href="https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/" rel="noopener noreferrer">CloudflareのCookie説明</a>を参照できます。この画面の拒否ボタンは、配信側のセキュリティ処理や必須Cookieを停止するものではありません。Cookieを全面的に拒否するブラウザー設定では、防御機能により表示が制限される場合があります。</p>
+</section>
+
+<section><h2>3. 同意・拒否・撤回の方法</h2>
+<p>最初に表示される選択欄で「任意の保存を拒否」または「設定の保存に同意」を選べます。同意前、未選択、期限切れでは任意の言語保存を行いません。閲覧の継続、スクロール、解錠ボタンや音声の操作だけを同意とは扱いません。</p>
+<p>どのページでも画面下の「Cookie設定」、またはこのページの設定ボタンから変更できます。同意を拒否へ変更すると、保存済みの言語を削除します。撤回前の適法な処理まで遡って取り消すものではありません。ブラウザーが保存を禁止している場合は、そのページを開いている間だけ選択を適用します。選択はブラウザー・端末・サイトのオリジンごとに管理されます。</p>
+</section>
+
+<section><h2>4. 処理の根拠、受領者、国外での処理</h2>
+<p>GDPRが適用される場合、任意の言語保存は同意を根拠とします。必要な配信・安全確保と問い合わせ対応は、安全で利用可能な情報サイトの提供および依頼への対応という正当な利益を目的とします。法令による保存・開示義務がある場合はその義務に従います。端末の保存に関する規則は、適用される地域の法令も考慮されます。</p>
+<p>Cloudflareは配信と防御に関わる情報を取り扱います。同社のサービスでは米国を含む国外で処理される場合があります。すべての処理がEU内に限定されるとは約束しません。同社の役割、移転に関する説明・保護措置、保持の基準は <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">Cloudflareのプライバシーポリシー</a>をご確認ください。</p>
+<p>配信・防御側のログの保持期間は、サービス、設定、目的、法的義務に依存し、一律の日数はここでは定めていません。このアプリに独自の訪問履歴データベースはありません。問い合わせ情報は対応に必要な間保持し、その後も紛争対応・法令上必要な場合には必要な範囲で保持します。個別の処理や保持については運営者へお問い合わせください。</p>
+</section>
+
+<section><h2>5. 外部リンクとあなたの権利</h2>
+<p>GitHub、Patch the Planet、出典、GDPR参照先は外部リンクです。サイト内に第三者のSNS投稿・広告を埋め込まず、リンク先へ移動するとその事業者の方針が適用されます。問い合わせメールの送信には、ご利用のメールサービスも関わります。</p>
+<p>適用法に応じて、情報へのアクセス、訂正、削除、処理の制限、データポータビリティ、正当な利益に基づく処理への異議、同意の撤回、監督機関への苦情申立て等を行えます。ブラウザー内の選択と表示言語はブラウザーから直接削除できます。サーバー側の処理に関するご依頼は <a href="mailto:contact@yomiplush.dev">contact@yomiplush.dev</a> へお送りください。必要な範囲で依頼内容と本人確認を行います。</p>
+</section>
+
+<section><h2>6. 参照と変更</h2>
+<p>この記載は実際のサイト構成に合わせて作成しました。ご指定の <a href="https://gdpr-info.eu/" rel="noopener noreferrer">gdpr-info.eu</a> はGDPR条文の参照先です。同サイトのCookie同意や処理をこのサイトに読み込むものではありません。</p>
+<p><a href="https://gdpr-info.eu/art-7-gdpr/">GDPR第7条（同意）</a> · <a href="https://gdpr-info.eu/art-13-gdpr/">第13条（情報提供）</a> · <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng">EU公式規則</a> · <a href="https://www.edpb.europa.eu/documents/guideline/guidelines-052020-on-consent-under-regulation-2016679_en">EDPBの同意ガイドライン</a></p>
+<p>保存目的や任意のサービスを追加する場合は、この説明と選択の仕組みを更新し、必要な同意を得るまで有効にしません。</p>
+</section>
+
+<section id="english" lang="en"><h2>Privacy policy — English</h2>
+<p>Effective October 25, 2026. This notice covers <strong>infosec-briefing.yomiplush.dev</strong> and its briefing/report pages. Operator: <strong>YomiPlush (yomiplush)</strong>. Contact: <a href="mailto:contact@yomiplush.dev">contact@yomiplush.dev</a>.</p>
+<p><strong>Your choice:</strong> optional storage only remembers your display language. No application analytics, advertising cookies, accounts or profiling are implemented. Rejecting optional storage does not prevent reading the site. Continuing, scrolling, unlocking or playing audio is not consent. Use “Cookie settings” at any time to withdraw or change your choice.</p>
+<p><strong>Browser storage:</strong> <code>briefing-consent</code> stores the notice version, allow/reject choice and timestamps for 180 days. It is necessary to remember either choice. <code>briefing-lang</code> is stored only with valid preference consent and removed on rejection, withdrawal or expiry. Expiry is checked when the page or settings are used. Legacy preferences without consent are removed. These values are not sent by the application to a server. If storage is blocked, the choice lasts only for the open page. Choices are specific to a browser and origin. A language in a URL may remain in ordinary browser history.</p>
+<p><strong>Delivery and security:</strong> Cloudflare delivers this static site and may process IP addresses, request URLs/times, headers and connection information. Depending on configuration it may use security cookies such as <code>cf_clearance</code> and <code>__cf_bm</code>; their presence is not guaranteed. Cloudflare describes the latter as expiring after 30 minutes of inactivity. Cookie expiry is separate from server-log retention. Rejecting optional language storage does not disable necessary delivery/security processing. Browser-wide cookie blocking can affect access.</p>
+<p><strong>Purposes and legal bases:</strong> where GDPR applies, optional preference storage relies on consent; necessary secure delivery and correspondence serve legitimate interests in providing this information site and responding to requests. Applicable legal obligations may require retention/disclosure. Browser language, reduced-motion/data-saving settings and performance information are consulted locally to adjust presentation. No application analytics recipient receives them.</p>
+<p><strong>Recipients, transfers and retention:</strong> Cloudflare may process information globally, including in the United States. Its roles, safeguards and retention criteria are described in its <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a> and <a href="https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/">cookie documentation</a>. Infrastructure-log retention depends on service settings, purposes and legal requirements; no universal deletion period is asserted. The application has no independent visitor-history database. Email enquiries are retained as needed to respond and for applicable dispute/legal obligations. Contact the operator for individual requests.</p>
+<p><strong>Your rights:</strong> subject to applicable law, you may request access, correction, erasure, restriction or portability, object to legitimate-interest processing, withdraw consent and complain to a supervisory authority. You can erase browser values directly. Email the contact above for other requests. External links and email providers have their own policies; no third-party social posts or advertising are embedded here. New optional purposes require an updated notice and any required fresh consent.</p>
+</section>
+<noscript><p>JavaScript is disabled. Optional language storage does not run. Browser settings can remove saved site data; the policy remains readable.</p></noscript>
+<footer><a href="/">ブリーフィングへ / Back to briefing</a> · <a href="mailto:contact@yomiplush.dev">Contact</a> · <a href="https://gdpr-info.eu/">GDPR reference</a></footer>
+</main></body></html>

@@ -1,0 +1,21 @@
+.privacy-banner,.privacy-dock,.privacy-status{box-sizing:border-box;font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;direction:ltr;text-align:left}
+.privacy-banner[hidden]{display:none!important}
+.privacy-banner{position:fixed;z-index:100;inset:auto max(12px,env(safe-area-inset-right)) max(52px,calc(env(safe-area-inset-bottom) + 44px)) auto;width:min(540px,calc(100vw - 24px));max-height:calc(100dvh - 80px);overflow:auto;padding:22px;background:#0d1722;color:#e4edf5;border:1px solid #53697a;border-top:2px solid #ffb545;border-radius:10px;box-shadow:0 14px 70px #0009;overscroll-behavior:contain}
+.privacy-banner h2{font-size:18px;line-height:1.45;margin:0 0 10px}
+.privacy-banner p{font-size:13px;line-height:1.7;margin:0 0 10px}
+.privacy-banner .privacy-detail{color:#b6c5d1;font-size:12px}
+.privacy-banner a,.privacy-dock a{color:#9ddfe9;text-underline-offset:3px;font-size:12px}
+.privacy-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.privacy-actions button{box-sizing:border-box;display:block;width:100%;min-width:0;min-height:48px;padding:10px 8px;border:1px solid #9fb3c2;border-radius:5px;background:#192b3a;color:#f0f5f9;font:600 12px/1.5 system-ui,sans-serif;cursor:pointer;white-space:normal}
+.privacy-actions button:hover{background:#294356;border-color:#d5e6ef}
+.privacy-dock{position:fixed;z-index:90;bottom:max(6px,env(safe-area-inset-bottom));left:max(12px,env(safe-area-inset-left));display:flex;gap:14px;align-items:center;padding:0 8px;background:#070d16ed;border:1px solid #344958;border-radius:5px}
+.privacy-dock button{min-height:32px;border:0;background:none;padding:5px 0;color:#d2dfe8;font:12px/1.5 system-ui,sans-serif;cursor:pointer}
+.privacy-banner :focus-visible,.privacy-dock :focus-visible,[data-privacy-open]:focus-visible{outline:2px solid #ffcf86;outline-offset:4px}
+.privacy-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.privacy-noscript{position:fixed;bottom:12px;left:12px;right:12px;z-index:100;padding:12px;background:#0d1722;color:#e4edf5;font:13px/1.6 system-ui,sans-serif}
+body #app{padding-bottom:calc(50px + env(safe-area-inset-bottom))}
+body.entry-locked .latest-update{bottom:calc(52px + env(safe-area-inset-bottom))}
+.privacy-policy-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:18px;border:1px solid #53697a;border-radius:6px;background:#14212d}
+.privacy-policy-actions button{border:1px solid #9fb3c2;border-radius:5px;min-height:44px;padding:10px 16px;background:#192b3a;color:#f0f5f9;font:600 14px system-ui,sans-serif;cursor:pointer}
+@media(max-width:400px){.privacy-banner{padding:16px}.privacy-actions{gap:8px}.privacy-actions button{font-size:11px}}
+@media print{.privacy-banner,.privacy-dock,.privacy-policy-actions{display:none!important}}
