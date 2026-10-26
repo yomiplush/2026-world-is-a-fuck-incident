@@ -1,0 +1,63 @@
+/* Keep primary navigation above the privacy dock and inside the safe area. */
+@media (max-width:600px), (max-height:560px) and (max-width:950px) {
+  body #app { padding-bottom:calc(72px + env(safe-area-inset-bottom)) }
+  .chip,.langselect,.navbtn { min-height:44px; min-width:44px }
+  .hud-right { gap:8px }
+  .navbtn { padding:12px 16px; font-size:12px }
+  .navbtn.primary { justify-content:center }
+  .drawer { padding:20px 18px calc(76px + env(safe-area-inset-bottom)) }
+  .drawer-head { position:sticky; top:-20px; z-index:1; padding:10px 0; background:#070e17 }
+  .drawer-head .chip { min-width:72px }
+  .more { position:static; text-align:start; font-size:10px }
+  .privacy-dock a,.privacy-dock button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:6px 8px }
+}
+
+@media (max-width:600px) {
+  #app { gap:10px }
+  .hud-top { flex-wrap:wrap; gap:8px; padding-right:0 }
+  .hud-left,.hud-right { width:100% }
+  .hud-left { padding-inline-end:108px }
+  .hud-right .langwrap { min-width:0 }
+  .langselect { font-size:12px }
+  .hud-right .chip { font-size:11px; padding-inline:12px }
+  .hud-bottom { grid-template-columns:minmax(0,1fr); gap:8px }
+  .rail { grid-column:1; grid-row:1 }
+  .nav { grid-column:1; grid-row:2; display:grid; grid-template-columns:1fr 2fr; gap:12px; width:100% }
+  .navbtn { width:100%; min-height:48px }
+  .more { grid-column:1; grid-row:3; text-align:center }
+  .privacy-dock { left:max(12px,env(safe-area-inset-left)); right:max(12px,env(safe-area-inset-right)); padding:0; gap:0 }
+  .privacy-dock a,.privacy-dock button { display:flex; flex:1; align-items:center; justify-content:center; min-height:44px; padding:8px; text-align:center; font-size:11px }
+  .privacy-dock button { border-inline-start:1px solid #34414d }
+  .briefing-preferences { bottom:calc(64px + env(safe-area-inset-bottom)) }
+  .latest-update { left:max(16px,env(safe-area-inset-left)); right:max(16px,env(safe-area-inset-right)); transform:none; min-height:48px; display:flex; align-items:center; justify-content:center; padding:10px 12px; white-space:normal; text-align:center; font-size:12px }
+  body.entry-locked .latest-update { bottom:calc(68px + env(safe-area-inset-bottom)) }
+  .entry-locked .cover { padding:220px 16px calc(150px + env(safe-area-inset-bottom)) }
+  .entry-control { width:min(70vw,36dvh,300px) }
+  .tailworm-feature { top:calc(78px + env(safe-area-inset-top)); bottom:auto; left:16px; right:16px; width:auto; padding:12px 16px }
+  .tailworm-feature strong { font-size:30px }
+}
+
+@media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
+  .hud-top { gap:8px }
+  .hud-right .chip { padding-inline:10px }
+  .hud-bottom { grid-template-columns:minmax(0,1fr) auto }
+  .rail { grid-column:1/-1 }
+  .hud-bottom .nav { grid-column:2; grid-row:2; width:min(320px,45vw); display:grid; grid-template-columns:1fr 2fr; gap:12px }
+  .more { grid-column:1; grid-row:2; align-self:center; max-width:40vw }
+  .hint { display:none }
+  .entry-locked .cover { justify-items:end; padding:60px clamp(24px,8vw,70px) 80px 16px }
+  .entry-control { width:min(32vw,54dvh,260px) }
+  .tailworm-feature { top:calc(76px + env(safe-area-inset-top)); bottom:auto; left:16px; right:auto; width:min(44vw,360px); padding:10px 14px }
+  .tailworm-feature strong { font-size:28px }
+  .tailworm-feature b { font-size:11px }
+  .latest-update { left:16px; right:auto; transform:none; width:min(44vw,360px); min-height:44px; display:flex; align-items:center; justify-content:center; padding:8px 12px; white-space:normal; text-align:center }
+  body.entry-locked .latest-update { bottom:calc(66px + env(safe-area-inset-bottom)) }
+}
+
+@media (max-width:600px) and (max-height:560px) and (orientation:landscape) {
+  .hud-top { flex-wrap:nowrap; padding-right:108px }
+  .hud-left { display:none }
+  .hud-right .langwrap { flex:1 }
+  .langselect { width:100%; max-width:none }
+  .panel { min-height:0; max-height:100% }
+}
