@@ -7,7 +7,7 @@
 
   function targetURL(code) {
     const target = new URL(location.href);
-    target.pathname = target.pathname.replace(/tailworm(?:\.[a-z]{2})?(?:\.html)?\/?$/, code === 'ja' ? 'tailworm.html' : 'tailworm.' + code + '.html');
+    target.pathname = target.pathname.replace(/tailworm(?:\.[a-z]{2})?(?:\.html)?\/?$/, code === 'ja' ? 'tailworm' : 'tailworm.' + code);
     target.searchParams.set('lang', code);
     return target;
   }

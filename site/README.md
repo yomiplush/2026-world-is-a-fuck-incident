@@ -1,3 +1,24 @@
+# Infosec Briefing — publishing and domain migration
+
+Canonical origin: **https://www.infosec-briefing.net/**. Current review: October 26, 21:35 JST; 37 curated groups. The motion application has 57 stable scene IDs; 56/57 explain account and package response. Closing remains original #53 and plays last.
+
+Rebuild all static reports, Tailworm translations, discovery metadata and public curated JSON:
+
+```sh
+python3 tools/build-site.py
+python3 tests/seo_test.py
+node tests/redirects.test.cjs
+python3 tools/serve.py 8096
+```
+
+`content/site.json` owns site identity. `tools/publish-site.py` writes final extensionless canonicals, matching social metadata, reciprocal static-language alternates, truthful JSON-LD, sitemap and RSS. It does not invent publish dates from review cutoffs. The root has native reading details; `/database` and `/about` work without JavaScript. `/data/latest.json` exposes the curated current register, while full raw archives remain in the repository.
+
+`site/_worker.js` permanently redirects the oldhost, oldwww, newapex and productionPageshost to www, preserving path/query. Canonical and preview hosts pass straight through to `env.ASSETS.fetch`, preserving static headers and 404 behavior. `404.html` prevents Pages' default unknown-path 200 fallback. Native scene fragments are retained by the browser.
+
+Search Console account handoff and tested access limitation: [Japanese setup guide](../docs/search-console-setup.ja.md). Prior findings: [SEO audit](../docs/seo-audit-2026-10-26.md). Runtime/performance evidence: [adaptive rendering](../docs/performance-2026-10-26.md). Physical X app behavior remains outside the emulated browser verification.
+
+The sections below retain earlier implementation history.
+
 Adaptive rendering and verification: [performance notes](../docs/performance-2026-10-26.md).
 
 ## October 26, 14:56 JST update

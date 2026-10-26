@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rel="canonical" href="https://pleasanter.org/news/vulnerability-update-20261023/">
+    <title>【重要】プリザンターのLDAP認証における認証回避の脆弱性</title>
+    
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGB4DNR');</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="description" content="プリザンターのLDAP認証機能に、特定の条件下で、パスワードを正しく検証しないままログインを許可してしまう認証回避の脆弱性が見つかりました。">
+    <meta property="og:title" content="【重要】プリザンターのLDAP認証における認証回避の脆弱性">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pleasanter.org/news/vulnerability-update-20261023/">
+    <meta property="og:image" content="https://pleasanter.org/assets/images/site/ogp.legacy.jpg">
+    <meta property="og:site_name" content="プリザンター">
+    <meta property="og:description" content="プリザンターのLDAP認証機能に、特定の条件下で、パスワードを正しく検証しないままログインを許可してしまう認証回避の脆弱性が見つかりました。">
+    <meta name="keywords" content="プリザンター,ノーコード,ローコード,データベース,アプリケーション">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="shortcut icon" href="/assets/images/site/favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/images/site/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/site/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/images/site/android-chrome.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.legacy-style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/manual.legacy-style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/contact-style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/lightbox.min.css">
+    <link rel="stylesheet" href="/assets/css/main.67e4035ea9.css" />
+    <link rel="stylesheet" href="/assets/css/style.legacy.css">
+</head>
+<body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGB4DNR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+            
+<header class="l-header">
+        <a href="/" class="l-header__logo" data-cta="header-logo">
+                <img src="/assets/images/site/site-logo.svg" alt="プリザンター">
+        </a>
+        <div class="l-header-menu js-menu">
+                <ul class="l-header-nav">
+                        <li class="l-header-nav__item">
+                                <a href="/overview/" class="l-header-nav__link" data-cta="header-overview">プリザンターとは</a>
+                        </li>
+                        <li class="l-header-nav__item">
+                                <button class="l-header-nav__link js-megamenu-trigger"
+                                        aria-expanded="false">プリザンターを知る</button>
+                                <div class="l-header-nav__box js-megamenu-container" aria-hidden="true">
+                                        <a href="/purpose/" class="l-header-nav__text" data-cta="header-purpose"><span
+                                                        class="c-button-text">プリザンターでできること</span></a>
+                                        <a href="/details/" class="l-header-nav__text" data-cta="header-details"><span
+                                                        class="c-button-text">プリザンターの特徴</span></a>
+                                        <a href="/scenarios/" class="l-header-nav__text" data-cta="header-scenarios"><span
+                                                        class="c-button-text">活用シーン</span></a>
+                                        <a href="/getting-started/" class="l-header-nav__text" data-cta="header-getting-started"><span
+                                                        class="c-button-text">プリザンターのはじめ方</span></a>
+                                        <a href="/specifications/" class="l-header-nav__text" data-cta="header-specifications"><span
+                                                        class="c-button-text">システム要件</span></a>
+                                        <a href="/introduction_faq/" class="l-header-nav__text" data-cta="header-faq"><span
+                                                        class="c-button-text">導入前のよくある質問</span></a>
+                                        <a href="/pleanama/" class="l-header-nav__text" data-cta="header-pleanama"><span
+                                                        class="c-button-text">お悩み解決動画</span></a>
+                                </div>
+                        </li>
+                        <li class="l-header-nav__item">
+                                <button class="l-header-nav__link js-megamenu-trigger"
+                                        aria-expanded="false">サポート＆サービス</button>
+                                <div class="l-header-nav__box js-megamenu-container" aria-hidden="true">
+                                        <a href="/support/" class="l-header-nav__text" data-cta="header-support"><span
+                                                        class="c-button-text">年間サポートサービス</span></a>
+                                        <a href="/enterprise-edition" class="l-header-nav__text" data-cta="header-enterprise-edition"><span
+                                                        class="c-button-text">Enterprise Edition</span></a>
+                                        <a href="/tec-service/" class="l-header-nav__text" data-cta="header-tec-service"><span
+                                                        class="c-button-text">技術支援サービス</span></a>
+                                        <a href="/version-up-migration/" class="l-header-nav__text" data-cta="header-version-up-migration"><span
+                                                        class="c-button-text">バージョンアップ・環境移行</span></a>
+                                        <a href="/training/" class="l-header-nav__text" data-cta="header-training"><span
+                                                        class="c-button-text">公式トレーニング</span></a>
+                                </div>
+                        </li>
+                        <li class="l-header-nav__item">
+                                <button class="l-header-nav__link js-megamenu-trigger"
+                                        aria-expanded="false">パートナー</button>
+                                <div class="l-header-nav__box js-megamenu-container" aria-hidden="true">
+                                        <a href="/partner-list/" class="l-header-nav__text" data-cta="header-partner-list"><span
+                                                        class="c-button-text">認定パートナーを探す</span></a>
+                                        <a href="/partners_solution/" class="l-header-nav__text" data-cta="header-partners-solution"><span
+                                                        class="c-button-text">パートナーソリューション</span></a>
+                                        <a href="/partner/" class="l-header-nav__text" data-cta="header-partner"><span
+                                                        class="c-button-text">認定パートナー制度</span></a>
+                                </div>
+                        </li>
+                        <li class="l-header-nav__item">
+                                <a href="/success/" class="l-header-nav__link" data-cta="header-success">導入事例</a>
+                        </li>
+                        <li class="l-header-nav__item">
+                                <a href="/blog-list/" class="l-header-nav__link" data-cta="header-blog-list">ニュース＆ブログ</a>
+                        </li>
+                </ul>
+                <div class="l-header__box">
+                        <a href="/demo/" class="l-header__link is-trial" data-cta="header-demo">60日間無料デモ</a>
+                        <a href="/dlcenter/" class="l-header__link is-contact" data-cta="header-download">ダウンロード</a>
+                        <a href="/contact/" class="l-header__link is-contact" data-cta="header-contact">お問い合わせ</a>
+                        <a href="/ja/manual/" class="l-header__link is-contact" data-cta="header-manual">マニュアル</a>
+                </div>
+        </div>
+        <button class="l-header-menu__button js-menu__trigger">MENU</button>
+</header>
+            <main class="l-main blog-show-main">
+                <header class="main_header">
+                    <div class="c-pagetitle__container">
+                        <div class="c-wrap-inner">
+                            <div class="c-pagetitle">
+                                <p class="c-pagetitle__english">NEWS&BLOG</p>
+                                <p class="c-pagetitle__text">ニュース＆ブログ</p>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="main_body has_column is_article">
+                    <div class="wrap">
+                        <div class="main_col">
+                            
+                            <article class="s-blog_detail m-article">
+                                <header class="blog_detail_header appScrollEffectTarget appTweenFadeUp">
+                                    <div class="header_meta">
+                                        <p>2026/10/23</p>
+                                        <p class="category is_020">
+                                            お知らせ
+                                        </p>
+                                    </div>
+                                    <h1 class="header_hdg">
+                                        【重要】プリザンターのLDAP認証における認証回避の脆弱性
+                                    </h1>
+                                </header>
+                                
+                                公開日：2026年10月23日<br /><br />■概要<br />プリザンターのLDAP認証機能に、特定の条件下で、パスワードを正しく検証しないままログインを許可してしまう認証回避の脆弱性が見つかりました。<br />悪用されると、有効なログインIDを知っている第三者が正しいパスワードを知らなくても、そのユーザーとしてログインし、情報を閲覧・改ざん・削除するおそれがあります。<br /><br />■影響を受ける環境<br />1. 影響を受けない認証方式<br />  次の認証方式をご利用の場合は、本脆弱性の影響を受けません。<br />  ・ローカル認証（プリザンター標準の認証）<br />  ・SAML認証<br />  ・パスキー認証<br />  ・二段階認証（メール、TOTP）<br />  ・統合Windows認証<br /><br />  ※認証方式は、Authentication.jsonの「Provider」をご確認ください。"LDAP"または"LDAP+Local"と設定されている場合は、LDAP認証ご利用の環境となりますので「2. 影響を受ける組み合わせ」をご確認ください。<br />  ※LDAP認証とローカル認証を併用（Provider: "LDAP+Local"）している場合、影響を受けるのはLDAP認証でログインするユーザーのみです。<br /><br />2. 影響を受ける組み合わせ<br />  LDAP認証をご利用の場合は、プリザンターの構成と接続先のLDAPサーバーの組み合わせで、次のとおり該当するかが決まります。<div class="article-table-wrap"><table class="article-table"><thead><tr><th scope="col">プリザンターの構成</th><th scope="col">Active Directory</th><th scope="col">OpenLDAP等（匿名バインドを許可）</th><th scope="col">OpenLDAP等（匿名バインドを拒否）</th></tr></thead><tbody><tr><th scope="row">(1) Linux環境（Docker版を含む）</th><td><strong>該当</strong></td><td><strong>該当</strong></td><td>対象外</td></tr><tr><th scope="row">(2) Windows環境で「DsProvider」に「Novell」を指定</th><td><strong>該当</strong></td><td><strong>該当</strong></td><td>対象外</td></tr><tr><th scope="row">(3) Windows環境で「DsProvider」が既定値（null）</th><td>対象外</td><td>対象外</td><td>対象外</td></tr></tbody></table></div>まとめると、次の2つを<strong>両方</strong>満たす場合に該当します。<br />    ・プリザンターを、Linux環境（Docker版を含む）、またはWindows環境で「DsProvider」※に「Novell」を指定して動かしている<br />    ・接続先のLDAPサーバーが、Active Directory、または匿名バインドを許可しているOpenLDAP、389 Directory Serverなどである<br /><br />3. 対象バージョン<br />  バージョン1.1.0.0以降が対象です。Community Edition、Enterprise Editionの両方が該当します。<br /><br />※DsProvider<br />  Authentication.jsonの設定項目で、1.3.41.0以降で追加されました。指定していない場合は既定値（null）です。<br />  設定内容は以下のマニュアルをご参照ください。<br />  <a href="/ja/manual/setup/parameters/authentication-json/" target="_blank" rel="noopener noreferrer">https://pleasanter.org/ja/manual/setup/parameters/authentication-json/</a><br /><br />■脆弱性の説明<br />通常のログイン画面の操作では発生しません。<br />しかし、通常の操作では送信されない形に細工したリクエストを認証処理へ送信された場合、サーバー側でのリクエストの検証が不十分なため、接続先LDAPサーバーの設定によってはパスワードを正しく検証しないまま認証成功と判定される問題がありました。<br />ログイン画面にアクセスできる第三者であれば、特別な権限や準備がなくても悪用できます。<br /><br />■脆弱性がもたらす脅威<br />悪意のある第三者が細工したリクエストを送信することで、正しいパスワードを知らなくてもそのユーザーとしてログインできます。<br />その結果、そのユーザーの権限でプリザンターに登録された情報を閲覧・改ざん・削除されるおそれがあります。<br /><br />■対策方法<br />1. 「影響を受ける環境」の条件を満たす環境のお客様<br />  【対策：バージョンアップ】<br />    ・本脆弱性の修正版<strong>1.5.9.1</strong>（2026年10月23日リリース）以降へバージョンアップしてください。<br />    ・1.5.9.0（2026年10月13日リリース）には本脆弱性の修正が含まれていません。1.5.9.0をご利用の場合は、1.5.9.1以降へバージョンアップしてください。<br />    ・バージョンアップ手順は以下のマニュアルをご参照ください。バージョンアップに関するご相談は、サポートユーザの皆様は専用のWeb問い合わせ窓口にて承ります。<br />      <a href="/ja/manual/setup/version-up-migration/version-up-manually/" target="_blank" rel="noopener noreferrer">https://pleasanter.org/ja/manual/setup/version-up-migration/version-up-manually/</a><br />      <a href="/ja/manual/setup/version-up-migration/migration/" target="_blank" rel="noopener noreferrer">https://pleasanter.org/ja/manual/setup/version-up-migration/migration/</a><br /><br />  【バージョンアップが困難な場合】<br />    ・システムの運用上の事情などにより、バージョンアップが難しいお客様は、下記の連絡先までご相談ください。ご利用環境やご事情をお伺いしたうえで、対応方法をご案内いたします。<br /><br />2. プライベートクラウドご利用のお客様<br />  ・LDAP認証は未設定のため、対象外です。弊社にて確認済みのため、お客様での対応は不要です。<br /><br />3. Pleasanter.netご利用のお客様<br />  ・LDAP認証は未設定のため、対象外です。弊社にて確認済みのため、お客様での対応は不要です。<br /><br />■更新履歴<br />2026.10.23　この脆弱性情報を公開しました。<br /><br />■連絡先<br />本件につきまして、ご不明な点がございましたら以下よりお問い合わせください。<br />お問い合わせフォーム：<a href="/contact/" target="_blank" rel="noopener noreferrer">https://pleasanter.org/contact/</a>
+                            </article>
+                            
+<style>
+    .newsletter-note {
+        margin: 40px 0 0;
+        padding: 16px 20px;
+        border: 1px solid #d9e1e8;
+        border-radius: 6px;
+        background-color: #fff;
+    }
+
+    /* 記事のページのスマホ幅は列に左右の余白が無く、枠が画面の端に付くので余白を足す */
+    @media (max-width: 767px) {
+        .is_article .newsletter-note {
+            margin-right: 16px;
+            margin-left: 16px;
+        }
+    }
+
+    .newsletter-note__text {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #333;
+    }
+
+    .newsletter-note__link {
+        display: inline-block;
+        margin-top: 4px;
+        font-weight: bold;
+    }
+</style>
+<aside class="newsletter-note">
+    <p class="newsletter-note__text">プリザンターの最新情報やイベント情報などを、メールマガジンでお届けしています（登録は無料です）。<br>
+        <a href="/forms/subscribe-newsletter/" class="newsletter-note__link" data-cta="article-newsletter">メールマガジンに登録する</a></p>
+</aside>
+
+                            
+<style>
+    .article-share {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: max-content;
+        margin: 40px auto 0;
+        padding: 16px 0;
+    }
+
+    .article-share__label {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .article-share__icons {
+        display: flex;
+        gap: 12px;
+    }
+
+    .article-share__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        background-color: #000;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: opacity 0.3s;
+    }
+
+    .article-share__btn:hover {
+        opacity: 0.7;
+    }
+
+    .article-share__btn svg {
+        width: 15px;
+        height: 15px;
+        /* currentColor にしない。ブログの列のリンク色（a:link）のほうが強く、アイコンが紺色になる */
+        fill: #fff;
+    }
+</style>
+<div class="article-share">
+    <p class="article-share__label">このページをシェアする</p>
+    <div class="article-share__icons">
+        <a id="share-x" class="article-share__btn" href="" target="_blank" rel="nofollow noopener" aria-label="Xでシェア">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+        </a>
+        <a id="share-fb" class="article-share__btn" href="" target="_blank" rel="nofollow noopener" aria-label="Facebookでシェア">
+            <svg viewBox="0 0 50 50">
+                <path
+                    d="M32,11h5c0.552,0 1,-0.448 1,-1v-6.737c0,-0.524 -0.403,-0.96 -0.925,-0.997c-1.591,-0.113 -4.699,-0.266 -6.934,-0.266c-6.141,0 -10.141,3.68 -10.141,10.368v6.632h-7c-0.552,0 -1,0.448 -1,1v7c0,0.552 0.448,1 1,1h7v19c0,0.552 0.448,1 1,1h7c0.552,0 1,-0.448 1,-1v-19h7.222c0.51,0 0.938,-0.383 0.994,-0.89l0.778,-7c0.066,-0.592 -0.398,-1.11 -0.994,-1.11h-8v-5c0,-1.657 1.343,-3 3,-3z" />
+            </svg>
+        </a>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const currentUrl = encodeURIComponent(window.location.href);
+        const currentTitle = encodeURIComponent(document.title);
+
+        // X (Twitter)
+        const xBtn = document.getElementById('share-x');
+        if (xBtn) {
+            xBtn.href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${currentTitle}`;
+        }
+
+        // Facebook
+        const fbBtn = document.getElementById('share-fb');
+        if (fbBtn) {
+            fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        }
+    });
+</script>
+
+                            
+
+                        </div>
+                        <div class="side_col">
+                            <section class="side_sct">
+                                <h2 class="side_sct_hdg">新着NEWS</h2>
+
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/10/23</p>
+                                    <h3 class="hdg"><a href="/news/vulnerability-update-20261023/" target=""
+                                            rel="">【重要】プリザンターのLDAP認証における認証回避の脆弱性</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/10/22</p>
+                                    <h3 class="hdg"><a href="/blogs/php-nodejs-vulnerability-20261021/" target=""
+                                            rel="">PHPおよびNode.jsの脆弱性に関するプリザンターへの影響について</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/10/07</p>
+                                    <h3 class="hdg"><a href="/blogs/ui-themes-preflight/" target=""
+                                            rel="">【重要】テーマ改善の動作確認モジュールを公開しました ― カスタマイズの事前確認のお願い</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/10/05</p>
+                                    <h3 class="hdg"><a href="/blogs/implem-seminar20261022/" target=""
+                                            rel="">【終了】【10/22(木)開催 無料セミナー】EUCで作成したAccess、Excelをプリザンターに移行する手法と移行後の生成AIとの連携について</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/09/18</p>
+                                    <h3 class="hdg"><a href="/blogs/manual-renewal-2026/" target=""
+                                            rel="">プリザンター ユーザマニュアルをリニューアルしました</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/07/22</p>
+                                    <h3 class="hdg"><a href="/archives/user-meetup11/" target=""
+                                            rel="">9/16(水)プリザンターファンの集い「Pleasanter User Meetup」を東京都中野区で開催します！</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/07/15</p>
+                                    <h3 class="hdg"><a href="/archives/implem-seminar20260724/" target=""
+                                            rel="">【終了】7/24(金)プリザンターハンズオンセミナー＠中野を開催します！</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/04/30</p>
+                                    <h3 class="hdg"><a href="/blogs/202607planrevision/" target=""
+                                            rel="">【重要】2026年7月より年間サポートサービスは新プランへ移行します</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/03/31</p>
+                                    <h3 class="hdg"><a href="/archives/implem-seminar20260421/" target=""
+                                            rel="">【終了】【4/21(火)@中野】プリザンター連携＆活用術セミナー〜Pleasanter MCPによる「生成AI連携」と「奉行クラウド連携」〜</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/03/24</p>
+                                    <h3 class="hdg"><a href="/archives/implem-seminar20260417/" target=""
+                                            rel="">【終了】【4/17(金)@高松】プリザンターセミナーを開催します！</a></h3>
+                                </article>
+                                
+
+                            </section>
+
+                            <section class="side_sct">
+                                <h2 class="side_sct_hdg">新着BLOG</h2>
+
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/07/10</p>
+                                    <h3 class="hdg"><a href="/blogs/slack-pleasanter-ch/" target=""
+                                            rel="">情シスSlackにプリザンターチャンネルを開設しました</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2026/03/19</p>
+                                    <h3 class="hdg"><a href="/archives/10thanniversary/" target=""
+                                            rel="">【イベントレポート】プリザンター公開10周年記念イベントを開催！OSSコミュニティと共に歩んだ軌跡と未来</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2025/12/24</p>
+                                    <h3 class="hdg"><a href="/archives/festa/" target=""
+                                            rel="">最小コストで最大効果を出すDXとは？3つの現場が語るリアルな業務改革事例</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2025/09/17</p>
+                                    <h3 class="hdg"><a href="/blogs/pleasanter-extensions-trial/" target=""
+                                            rel="">新ツール登場！年間サポートサービスご契約者様向け拡張コンテンツ(Pleasanter Extensions)トライアルのご案内</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2025/01/10</p>
+                                    <h3 class="hdg"><a href="https://www.ctcs.co.jp/special/detail/114/" target="_blank"
+                                            rel="noopener noreferrer">CTCS様ブログ「プリザンターの通知機能でチームの生産性を向上しよう！」(外部サイトへ)</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2025/01/01</p>
+                                    <h3 class="hdg"><a href="/blogs/new-year-2025/" target=""
+                                            rel="">明けましておめでとうございます。本年もどうぞよろしくお願いいたします。</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2024/12/01</p>
+                                    <h3 class="hdg"><a href="https://qiita.com/advent-calendar/2024/pleasanter" target="_blank"
+                                            rel="noopener noreferrer">Qiita Advent Calendar 2024、今年も参加しています！プリザンターの情報満載！</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2024/10/28</p>
+                                    <h3 class="hdg"><a href="/blogs/houmonki2023/" target=""
+                                            rel="">パートナー様訪問記を更新しました！</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2024/06/26</p>
+                                    <h3 class="hdg"><a href="/blogs/interview-ccs-3/" target=""
+                                            rel="">特別連載記事③：プログラミング未経験からプリザンターエンジニアに【CCS編】「プリザンターと出会った人の助けになりたい」</a></h3>
+                                </article>
+                                
+                                <article class="s-blog_side_nav">
+                                    <p class="date">2024/06/19</p>
+                                    <h3 class="hdg"><a href="/blogs/interview-ccs-2/" target=""
+                                            rel="">特別連載記事②：プログラミング未経験からプリザンターエンジニアに【CCS編】「&quot;ローコードツール&quot;としてのプリザンターを活用するまで」</a></h3>
+                                </article>
+                                
+
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <footer class="main_footer">
+                    <nav class="s-blog_footer_nav wrap">
+                        
+                        <div class="unit">
+                            <a href="/news/vulnerability-update-20261023/" target="" rel=""
+                                class="unit_inner">
+                                <div class="unit_fig"><img src="/assets/images/blog/thumb/hayato-thumb.jpg" alt=""></div>
+                                <div class="unit_notes">
+                                    <header class="header">
+                                        <p>2026/10/23</p>
+                                        <p>NEWS</p>
+                                    </header>
+                                    <p>【重要】プリザンターのLDAP認証における認証回避の脆弱性</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="unit">
+                            <a href="/blogs/php-nodejs-vulnerability-20261021/" target="" rel=""
+                                class="unit_inner">
+                                <div class="unit_fig"><img src="/assets/images/blog/thumb/hayato-thumb.jpg" alt=""></div>
+                                <div class="unit_notes">
+                                    <header class="header">
+                                        <p>2026/10/22</p>
+                                        <p>NEWS</p>
+                                    </header>
+                                    <p>PHPおよびNode.jsの脆弱性に関するプリザンターへの影響について</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="unit">
+                            <a href="/blogs/ui-themes-preflight/" target="" rel=""
+                                class="unit_inner">
+                                <div class="unit_fig"><img src="/assets/images/blog/thumb/hayato-thumb.jpg" alt=""></div>
+                                <div class="unit_notes">
+                                    <header class="header">
+                                        <p>2026/10/07</p>
+                                        <p>NEWS</p>
+                                    </header>
+                                    <p>【重要】テーマ改善の動作確認モジュールを公開しました ― カスタマイズの事前確認のお願い</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="unit">
+                            <a href="/blogs/implem-seminar20261022/" target="" rel=""
+                                class="unit_inner">
+                                <div class="unit_fig"><img src="/assets/images/blog/thumb/hayato-thumb.jpg" alt=""></div>
+                                <div class="unit_notes">
+                                    <header class="header">
+                                        <p>2026/10/05</p>
+                                        <p>NEWS</p>
+                                    </header>
+                                    <p>【終了】【10/22(木)開催 無料セミナー】EUCで作成したAccess、Excelをプリザンターに移行する手法と移行後の生成AIとの連携について</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    </nav>
+                </footer>
+            </main>
+    
+
+<footer class="l-footer">
+    <div class="l-footer__inner">
+        <a href="/" class="l-footer__logo">
+            <img src="/assets/images/site/site-logo.svg" alt="Pleasanter">
+        </a>
+        <div class="l-footer__container">
+            <div class="l-footer__box">
+                <h3 class="l-footer__subtitle">プリザンターについて</h3>
+                <ul class="l-footer__list">
+                    <li class="l-footer__item">
+                        <a href="/dlcenter/" class="l-footer__link" data-cta="footer-download"><span class="c-button-text">ダウンロード</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/demo/" class="l-footer__link" data-cta="footer-demo"><span class="c-button-text">60日間無料デモ</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/overview/" class="l-footer__link" data-cta="footer-overview"><span class="c-button-text">プリザンターとは</span></a>
+                    </li><li class="l-footer__item">
+                        <a href="/facts/" class="l-footer__link" data-cta="footer-facts"><span class="c-button-text">基本情報（価格・動作環境・ライセンス）</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/purpose/" class="l-footer__link" data-cta="footer-purpose"><span class="c-button-text">プリザンターでできること</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/success/" class="l-footer__link" data-cta="footer-success"><span class="c-button-text">導入事例</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/getting-started/" class="l-footer__link" data-cta="footer-getting-started"><span class="c-button-text">はじめ方</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/specifications/" class="l-footer__link" data-cta="footer-specifications"><span class="c-button-text">システム要件</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="https://pleasanter.net/" class="l-footer__link" data-cta="footer-pleasanter-net" target="_blank" rel="noopener noreferrer"><span class="c-button-text">クラウド版（Pleasanter.net）</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/introduction_faq/" class="l-footer__link" data-cta="footer-faq"><span class="c-button-text">導入前のよくある質問</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/contact/" class="l-footer__link" data-cta="footer-contact"><span class="c-button-text">お問い合わせ</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="l-footer__box">
+                <h3 class="l-footer__subtitle">サービス・支援</h3>
+                <ul class="l-footer__list">
+                    <li class="l-footer__item">
+                        <a href="/support/" class="l-footer__link" data-cta="footer-support"><span class="c-button-text">年間サポートサービス</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/enterprise-edition" class="l-footer__link" data-cta="footer-enterprise-edition"><span class="c-button-text">Enterprise Edition</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/training/" class="l-footer__link" data-cta="footer-training"><span class="c-button-text">公式トレーニング</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/tec-service/" class="l-footer__link" data-cta="footer-tec-service"><span class="c-button-text">技術支援サービス</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/version-up-migration/" class="l-footer__link" data-cta="footer-version-up-migration"><span class="c-button-text">バージョンアップ・環境移行</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="l-footer__box">
+                <h3 class="l-footer__subtitle">パートナー</h3>
+                <ul class="l-footer__list">
+                    <li class="l-footer__item">
+                        <a href="/partner-list/" class="l-footer__link" data-cta="footer-partner-list"><span class="c-button-text">認定パートナーを探す</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/partner/" class="l-footer__link" data-cta="footer-partner"><span class="c-button-text">認定パートナー制度</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/partners_solution/" class="l-footer__link" data-cta="footer-partners-solution"><span class="c-button-text">パートナーソリューション</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="l-footer__box">
+                <h3 class="l-footer__subtitle">コンテンツ</h3>
+                <ul class="l-footer__list">
+                    <li class="l-footer__item">
+                        <a href="/ja/manual/" class="l-footer__link" data-cta="footer-manual"><span class="c-button-text">ユーザマニュアル</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/materials/" class="l-footer__link" data-cta="footer-materials"><span class="c-button-text">お役立ちコンテンツ</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/knowledge-blogs/" class="l-footer__link" data-cta="footer-knowledge-blogs"><span class="c-button-text">関連ブログの紹介</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="https://www.itreview.jp/products/pleasanter/reviews" class="l-footer__link" data-cta="footer-itreview" target="_blank" rel="noopener noreferrer"><span class="c-button-text">利用者のレビュー（ITreview）</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/pleanama/" class="l-footer__link" data-cta="footer-pleanama"><span class="c-button-text">お悩み解決動画</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="https://www.youtube.com/@Pleasanter" class="l-footer__link" data-cta="footer-youtube" target="_blank" rel="noopener noreferrer"><span class="c-button-text">YouTubeチャンネル</span></a>
+                    </li><li class="l-footer__item">
+                        <a href="/forms/subscribe-newsletter/" class="l-footer__link" data-cta="footer-newsletter"><span class="c-button-text">メールマガジン登録</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="l-footer__box">
+                <h3 class="l-footer__subtitle">運営会社・ポリシー</h3>
+                <ul class="l-footer__list">
+                    <li class="l-footer__item">
+                        <a href="https://implem.co.jp/" class="l-footer__link" data-cta="footer-implem" target="_blank" rel="noopener noreferrer"><span class="c-button-text">株式会社インプリム</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="https://implem.co.jp/privacy/" class="l-footer__link" data-cta="footer-privacy" target="_blank" rel="noopener noreferrer"><span class="c-button-text">プライバシーポリシー</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="https://implem.co.jp/userdata-external-transmission/index.html" class="l-footer__link" data-cta="footer-external-transmission" target="_blank" rel="noopener noreferrer"><span class="c-button-text">利用者情報の外部送信について</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="https://implem.co.jp/trademark/" class="l-footer__link" data-cta="footer-trademark" target="_blank" rel="noopener noreferrer"><span class="c-button-text">商標使用ガイドライン</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="/manual-reuse-guidelines/" class="l-footer__link" data-cta="footer-manual-reuse"><span class="c-button-text">マニュアル二次利用ガイドライン</span></a>
+                    </li>
+                    <li class="l-footer__item">
+                        <a href="https://www.wantedly.com/companies/implem" class="l-footer__link" data-cta="footer-recruit" target="_blank" rel="noopener noreferrer"><span class="c-button-text">リクルート（Wantedly）</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <p class="l-footer__copyright">
+            <small>© 2026 Implem. All rights reserved.</small>
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" id="_-s-js-_" src="//satori.segs.jp/s.js?c=fa94ec18"></script>
+      <script src="/assets/js/bundle.js?v=c39d63e0a4"></script>
+      <script src="/assets/js/scroll-effect.js"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://pleasanter.org/news/vulnerability-update-20261023/#article",
+  "headline": "【重要】プリザンターのLDAP認証における認証回避の脆弱性",
+  "url": "https://pleasanter.org/news/vulnerability-update-20261023/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pleasanter.org/news/vulnerability-update-20261023/#webpage",
+    "url": "https://pleasanter.org/news/vulnerability-update-20261023/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://pleasanter.org/#website",
+      "name": "プリザンター",
+      "url": "https://pleasanter.org/"
+    }
+  },
+  "inLanguage": "ja",
+  "author": {
+    "@type": "Organization",
+    "@id": "https://implem.co.jp/#organization",
+    "name": "株式会社インプリム",
+    "url": "https://implem.co.jp/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://implem.co.jp/#organization",
+    "name": "株式会社インプリム",
+    "url": "https://implem.co.jp/"
+  },
+  "description": "プリザンターのLDAP認証機能に、特定の条件下で、パスワードを正しく検証しないままログインを許可してしまう認証回避の脆弱性が見つかりました。",
+  "datePublished": "2026-10-23",
+  "image": "https://pleasanter.org/assets/images/blog/thumb/hayato-thumb.jpg"
+}
+</script>
+
+
+</body>
+</html>

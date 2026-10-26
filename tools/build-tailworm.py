@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = 'https://infosec-briefing.yomiplush.dev/'
+BASE = json.loads((ROOT / 'content/site.json').read_text())['base_url']
 LANGUAGES = [
     ('en', 'English', 'en'), ('ja', '日本語', 'ja'), ('zh', '中文（简体）', 'zh-Hans'),
     ('ko', '한국어', 'ko'), ('es', 'Español', 'es'), ('fr', 'Français', 'fr'),

@@ -16,7 +16,7 @@ try{
   assert.equal(await run('typeof CONTENT'),'undefined','entry must retain deferred loading');
   await run('document.getElementById("privacy-reject")?.click();true');
   const link=await run(`(()=>{const a=document.querySelector('.tailworm-feature');if(!a)return null;const r=a.getBoundingClientRect();return {href:a.getAttribute('href'),h:r.height,left:r.left,right:r.right,visible:getComputedStyle(a).display!=='none'}})()`);
-  assert.ok(link,'Tailworm needs a prominent native entry link');assert.equal(link.href,'./tailworm.html');
+  assert.ok(link,'Tailworm needs a prominent native entry link');assert.equal(link.href,'./tailworm');
   assert.ok(link.visible&&link.h>=44&&link.left>=0&&link.right<=width,'feature link clipped');
   assert.equal(await run(`(()=>{const a=document.querySelector('.tailworm-feature'),r=a.getBoundingClientRect(),b=document.querySelector('.latest-update').getBoundingClientRect();return r.bottom<=b.top && document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)?.closest('a')===a})()`),true,'feature must remain clickable and not overlap latest link');
   await run("document.querySelector('.tailworm-feature').click()");

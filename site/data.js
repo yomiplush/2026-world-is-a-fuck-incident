@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全55画面を日付順に再整列。14:56の最新調査は読むレポートへ。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全57画面を日付順に。夜のアカウント確認・パッケージ対応を2画面追加。21:35の広域調査は読むレポートへ。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "最新レポートは10/26 14:56基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
-      asof: "2026-10-26 14:56 JST 基準",
+      drawerFoot: "最新レポートは10/26 21:35基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
+      asof: "2026-10-26 21:35 JST 基準",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 55 scenes, reordered by date. See the reading report for the 14:56 update. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 57 chronological scenes, including two evening account/package response diagrams. See the reading report for the 21:35 update. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
-      drawerFoot: "Latest reading report: October 26, 14:56 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
-      asof: "cutoff 2026-10-26 14:56 JST",
+      drawerFoot: "Latest reading report: October 26, 21:35 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
+      asof: "cutoff 2026-10-26 21:35 JST",
       lang: "EN"
     }
   },
@@ -67,7 +67,7 @@ window.CONTENT = {
         lede: "互いに無関係に見える事案が、同じ種類の弱点に集まった月。タップで時系列に進みます。",
         points: [
           "初期調査15件と、その後の広域追補。件数は全世界の被害総数ではありません",
-          '<a href="./update-20261026-1456.html">10/26 14:56 最新調査 →</a> · <a href="./timeline.html">日付から読む →</a>',
+          '<a href="./update-20261026-2135.html">10/26 21:35 最新調査 →</a> · <a href="./timeline.html">日付から読む →</a>',
           "音が出ます。右上の SOUND で消せます"
         ]
       },
@@ -77,7 +77,7 @@ window.CONTENT = {
         lede: "Unrelated failures that kept landing on the same kind of weakness. Tap through them in order.",
         points: [
           "The initial 15 cases plus later broad reviews; these are not a worldwide victim count",
-          "<a href=\"./update-20261026-1456.html\">14:56 JST report (Japanese) →</a> · <a href=\"./timeline.html\">Read by date →</a>",
+          "<a href=\"./update-20261026-2135.html\">21:35 JST report (Japanese) →</a> · <a href=\"./timeline.html\">Read by date →</a>",
           "Sound is on — toggle it top-right"
         ]
       }
@@ -2819,3 +2819,89 @@ window.CONTENT.scenes.push({
     ]
   }
 });
+
+/* Evening review: stable scene links56–57. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "night-account-controls",
+    "stamp": "10.26 · 21:35 JST",
+    "metric": null,
+    "visual": {
+      "type": "accountControls"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GMO：不正アクセスに関する第6報（21:00 JST）",
+        "url": "https://group.gmo/info/alert/20261026/"
+      },
+      {
+        "name": "21:35 JST 一次資料と条件",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/research-2026-10-26-2135.md"
+      }
+    ],
+    "ja": {
+      "kicker": "21:35 UPDATE · アカウントの確認",
+      "title": "パスワードの変更と、残った接続の確認。",
+      "lede": "GMOの21時続報は、FX口座に加え、証券・メール・Googleアカウントなどの保護を案内しています。図は確認する範囲の模式図です。",
+      "points": [
+        "別の信頼できる端末から、パスワード変更・<b>全端末のログアウト</b>・多要素認証を確認",
+        "見覚えのない連携アプリ、メール転送、拡張機能、接続端末を点検。ブラウザー同期は確認が済むまで停止",
+        "予防的な点検の案内であり、利用者全員の端末が感染したと確定したものではありません",
+        "<a href=\"./update-20261026-2135.html#gmo-sixth\">公式案内と対応範囲を読む →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "21:35 UPDATE · ACCOUNT CHECKS",
+      "title": "Change credentials. Review the connections that remain.",
+      "lede": "GMO’s 21:00 notice extends protective checks beyond FX to securities, mail and Google accounts. This is a schematic of the checks, not live telemetry.",
+      "points": [
+        "Use a separate trusted device to change passwords, <b>log out all devices</b> and check MFA",
+        "Review linked apps, mail forwarding, extensions and devices. Keep browser sync paused until checked",
+        "Preventive guidance does not establish that every customer device is infected",
+        "<a href=\"./update-20261026-2135.html#gmo-sixth\">Official guidance and conditions (Japanese) →</a>"
+      ]
+    }
+  },
+  {
+    "id": "night-package-response",
+    "stamp": "10.26 · 21:35 JST",
+    "metric": null,
+    "visual": {
+      "type": "packageResponse"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GitHub malware勧告：@worca/app",
+        "url": "https://github.com/advisories/GHSA-rmc5-cxrx-5fh9"
+      },
+      {
+        "name": "21:35 JST 保存原本・対象パッケージと版",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/research-collection-2026-10-26-2135.md"
+      }
+    ],
+    "ja": {
+      "kicker": "21:35 UPDATE · 配布物と実行環境",
+      "title": "悪意ある版を入れたとき、どこまで確認するか。",
+      "lede": "npm・PyPIのmalware勧告を追加収集しました。既存の脆弱性とは分け、インストール時やimport時に何が実行されたかを確認します。図は対応経路の模式図です。",
+      "points": [
+        "@worca/appの対象RC版、npmの採掘・永続化処理、PyPI netweavexの外部コード取得など、<b>名前と対象版を照合</b>",
+        "該当版が実行された場合は環境を隔離し、到達できた認証情報を安全な端末から失効。勧告に沿って再構築を検討",
+        "分析上のPROBABLY_PENTEST分類を含む別の2件を、同じ被害が確認されたものとして扱いません",
+        "<a href=\"./update-20261026-2135.html#npm-worca\">パッケージ別の条件と対策 →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "21:35 UPDATE · PACKAGE RESPONSE",
+      "title": "A malicious release requires checking the execution environment.",
+      "lede": "New npm and PyPI malware records identify install-time or import-time execution. This response schematic is separate from a count of exploited vulnerabilities.",
+      "points": [
+        "Match <b>package names and affected versions</b>: @worca/app RCs, npm mining/persistence and the PyPI netweavex loader",
+        "If an affected release ran, isolate the environment and revoke reachable credentials from a safe device; assess rebuilding under the advisory",
+        "Two separate PROBABLY_PENTEST classifications do not establish the same observed harm",
+        "<a href=\"./update-20261026-2135.html#npm-worca\">Package conditions and response (Japanese) →</a>"
+      ]
+    }
+  }
+]);

@@ -1,0 +1,77 @@
+{
+  "cutoff": "2026-10-26T12:35:00Z",
+  "delta_start": "2026-10-26T05:56:00Z",
+  "http_url_attempts": 64,
+  "saved_http_responses": 63,
+  "raw_response_hashes_verified": 63,
+  "failed_attempts": [
+    {
+      "name": "tailscale-vendor-reddit-json",
+      "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/.json?raw_json=1",
+      "retrieved_at": "2026-10-26T12:38:41.027050+00:00",
+      "status": "error",
+      "error": "HTTP Error 403: Blocked"
+    }
+  ],
+  "retrieval_started_at": "2026-10-26T12:37:41.123750+00:00",
+  "retrieval_finished_at": "2026-10-26T12:43:21.452452+00:00",
+  "normalized_text_unchanged_from_1456": [
+    "pan",
+    "connectwise",
+    "neat",
+    "emudhra-mea",
+    "php",
+    "tailworm",
+    "tailscale-security",
+    "tailscale-changelog",
+    "fortinet",
+    "unit42",
+    "litellm",
+    "railway",
+    "gmo-fifth",
+    "valtec-third",
+    "rakus-blastmail",
+    "digital-studio",
+    "jpcert-alert",
+    "douzone-1026",
+    "ahsay-announcements",
+    "ahsay-hardening",
+    "softbank-alerts",
+    "minato-php",
+    "ahsay-recovery",
+    "ahsay-patch-incomplete"
+  ],
+  "normalized_text_changed_from_1456": [
+    "douzone-1018",
+    "douzone-1023",
+    "douzone-press",
+    "blastmail-latest",
+    "neat-security-full",
+    "emudhra-incident"
+  ],
+  "diff_file": "normalized-text-diff.json",
+  "rendered_supplements": [
+    {
+      "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/",
+      "capture_file": "tailscale-vendor-web-rendered.json",
+      "capture_sha256": "3224a25b7c076c443e8564a1d17142fc7f840ed9d2b016060e04e56d8c91db06",
+      "saved_at": "2026-10-26T12:43:45.750223+00:00",
+      "artifact_type": "browser-rendered-tool-response; not an HTTP body",
+      "note": "Reddit direct HTTP200 was an unreadable JavaScript challenge, JSON403. Browser tool rendering contains vendor text but not independently confirmed edit timestamps."
+    }
+  ],
+  "timing_notes": {
+    "blastmail": "explicit17:00 JST update;345contracts,345notifications",
+    "gmo_sixth": "explicit21:00 JST status",
+    "jpcert": "16:25 JST officialfeed; JVN18:00 JST",
+    "neat": "article:modified_time2026-10-26T09:10:22Z; summaryedit, not rollout completion",
+    "tavinos": "article:modified_time2026-10-26T06:37:47Z; reservation conditions, not intrusion start",
+    "icewarp": "API edited_at12:39:58Z,updated_at12:40:23Z AFTER12:35Z cutoff; reference only",
+    "kawanishi": "date-only publication/restoration;HTTP Last-Modified07:00:20Z is server resource metadata, not exact restoration/publication confirmation",
+    "php_rce_report": "observation10/24;firstcommit20:25:39Z10/24;lastlinkaddition02:28:31Z10/26, before previous cutoff",
+    "tailscale_21942": "merged03:08:59Z10/26,before previous cutoff;latestreleasev1.104.2published02:55:49Z10/21",
+    "huntress": "primarypublication13:00Z10/22;July14–September22observations",
+    "wiz": "primarypublication17:55:33Z10/25;September15–October24observations",
+    "ucreator": "primarypublication14:57:50Z10/21;technicalcapability analysis, no reliable victim count"
+  }
+}

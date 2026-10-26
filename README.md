@@ -1,21 +1,23 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
-**忙しい人向け（日本語・10/26 14:56 JST）：** 公開システムの更新・侵害調査と、漏れた鍵の失効を継続。PAN-OSは追加hotfixの提供状況、.NETはBrotli解凍とNativeAOTの再配置、国内サービスは停止範囲と個別通知を確認してください。**[日本語の1分要約と対応一覧](README_jp.md)**
+**忙しい人向け（日本語・10/26 21:35 JST）：** 公開システムの更新・侵害調査と鍵の失効を継続し、GMOの21:00案内、対象パッケージ、国内サービスの個別通知を確認してください。**[日本語の1分要約](README_jp.md)**
 
-## For busy readers — one minute (2026-10-26 14:56 JST cutoff)
+## For busy readers — one minute (2026-10-26 21:35 JST cutoff)
 
-**Patch exposed systems, investigate compromise, and revoke affected credentials.** This review adds conditional application flaws, checks downstream fixes, and separates service restoration from a restoration target.
+**Start with the products and services you use.** Continue patching exposed systems, checking for compromise, and revoking affected credentials. This review separates new notices, database registrations and follow-ups to earlier reports.
 
-- **PHP / GitLab / PAN-OS and edge systems:** keep patching and investigating. PAN-OS lists four more 11.1 hotfixes as released; match your release line. Its official JSON and CSAF histories disagree on the timestamp. [Vendor status](https://security.paloaltonetworks.com/CVE-2026-109618)
-- **Brotli in .NET:** exposure requires enabled or explicit decompression of untrusted data. Check 8.0.33 / 9.0.22 / 10.0.14; **NativeAOT needs republishing and redeployment**, beyond updating the shared runtime. [Microsoft advisory](https://github.com/dotnet/announcements/issues/494)
-- **GouGuOA / NocoDB / Halo / Zcode / Yoosee:** check authentication, reset tokens, templates, command approval and camera networking against the actual conditions. NocoDB has mitigation code in an October 15 commit; the minimum shipped fixed release remains unconfirmed. [Findings and limits](docs/research-collection-2026-10-26-1456.md)
-- **Japanese services / backups / devices:** SoftBank earthquake/tsunami alerts resumed; disaster/evacuation alerts remain paused. Blastmail remains stopped. Check Ahsay patch completeness and Neat’s staged certificate update. [Primary-source review](docs/research-2026-10-26-1456.md)
-- **LiteLLM / Railway / ConnectWise / GMO FX:** continue credential, permission and log checks. ConnectWise restoration goals do not authorize reconnection; GMO users must **disconnect remaining trading sessions** after changing passwords. [Continuing actions](docs/29-snapshot-20261026-1027.md) / [GMO notice](https://group.gmo/info/alert/2026102402/)
-- **Tailscale / headscale:** review SSH, connection grants and Serve/Funnel separately. A **minimum Tailworm-fixed version remains unconfirmed here**; do not infer one from 1.104.2 / 0.29.6. [12-language feature](https://infosec-briefing.yomiplush.dev/tailworm.html)
+- **GMO Desktop Cloud:** the notice as of 21:00 JST expands account checks beyond FX. From a separate trusted device, end all sessions, review connected apps and forwarding rules, and **keep browser sync off until checks are complete**. This does not confirm infection of every connected device. [Sixth notice](https://group.gmo/info/alert/20261026/)
+- **npm / PyPI packages:** check exact package names and versions against the malware notices, including `dsh-plugin-blender-3d`, `@walknpm/todo-cli`, `@worca/app` and `netweavex`. Investigate environments where affected versions ran; the notices describe different behavior and evidence. [Package findings](docs/research-collection-2026-10-26-2135.md)
+- **Frappe Builder / Apache Camel:** Builder 1.36.1 requires Frappe v16.36.1 or later. Camel’s Docling routes with externally influenced output paths need **outputBaseDirectory set after upgrading**. Match the affected features and release lines. [Conditions and fixes](docs/research-collection-2026-10-26-2135.md)
+- **Blastmail / Hotel Tavinos:** Blastmail’s recipient-data follow-up covers **345 contracts**, with restart time still unknown. Tavinos describes suspicious payment messages affecting some reservations; verify requests through official channels, even when the sender knows booking details. [Domestic notices](docs/research-2026-10-26-2135.md)
+- **PHP / Brotli / edge systems:** continue updates and compromise checks. JPCERT/CC updated its guidance; check bundled decoders and the running version. For .NET NativeAOT, updating the shared runtime alone does not replace the decoder. [JPCERT/CC PHP](https://www.jpcert.or.jp/at/2026/at260033.html) / [Brotli](https://www.jpcert.or.jp/at/2026/at260034.html)
+- **LiteLLM / Railway / ConnectWise / Tailscale:** continue credential, permission and log reviews. A restoration target does not authorize ConnectWise reconnection, and source changes do not establish a shipped Tailworm fix. [Continuing findings](docs/research-2026-10-26-2135.md) / [12-language Tailworm feature](https://www.infosec-briefing.net/tailworm)
 
-**[日本語の1分要約](README_jp.md) · [Latest reading report (Japanese)](https://infosec-briefing.yomiplush.dev/update-20261026-1456.html) · [Oldest-to-newest archive](https://infosec-briefing.yomiplush.dev/timeline.html) · [Structured register](data/2026-10-26-1456/incident-register.json) · [Sources and retrieval](SOURCES.md)**
+**[日本語の1分要約](README_jp.md) · [Latest reading report (Japanese)](https://www.infosec-briefing.net/update-20261026-2135) · [Chronological archive](https://www.infosec-briefing.net/timeline) · [Structured register](data/2026-10-26-2135/incident-register.json) · [Dataset pointer](data/latest.json) · [About this project](https://www.infosec-briefing.net/about)**
 
-**Collection:** 13:01–14:56 JST: NVD **8 published / 11 modified, with all 8 overlapping**; GHSA **0 newly published** in the window. The register contains **7 delta / 8 earlier-scope / 3 timestamp-unconfirmed reference groups**, not 18 new incidents. **82 archived response records, including 15 references to unchanged earlier originals**, were hash-verified. Retrieval occurred after cutoff. PAN-OS timestamp disagreement is explicit; date-only eMudhra, Douzone and VALTEC follow-ups stay reference-only. Publication, DB registration, exploitation, fixes and restoration are distinct; absence from KEV does not establish safety.
+**Collection:** 14:56–21:35 JST: NVD **99 published / 1,434 modified, overlapping in all 99**; the 99 include **one Rejected record**. GHSA **111 published / 151 modified, overlapping in all 111**; published entries are **103 unreviewed + 8 malware**. This collection explicitly expands advisory-type and modification queries; the counts are not an increase in incidents. The register has **37 topic groups: 23 delta / 12 earlier-scope / 2 timestamp-unconfirmed references**, not 37 new attacks. **169 HTTP response records were hash-verified, including 27 references to unchanged earlier originals; one rendered supplement is recorded separately.** Retrieved after cutoff; publication, DB registration, exploitation, fixes and restoration remain distinct. [Sources and limitations](SOURCES.md)
+
+> **Previous review — 2026-10-26 14:56 JST:** [Technical collection](docs/research-collection-2026-10-26-1456.md) / [vendor review](docs/research-2026-10-26-1456.md) / [register](data/2026-10-26-1456/incident-register.json). PAN-OS hotfix availability, .NET Brotli and NativeAOT, authentication/local API conditions, domestic service status and staged device updates. Window 13:01–14:56 JST: NVD 8 published / 11 modified (8 overlap), GHSA 0 newly published under that collection’s query. Seven delta, eight earlier-scope and three reference groups; 82 response records including 15 earlier-original references. Retrieved after cutoff.
 
 > **Previous review — 2026-10-26 13:01 JST:** [18-topic primary research](docs/research-2026-10-26-1301.md) / [register](data/2026-10-26-1301/incident-register.json) / [reading report](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html). V-SFT, MLIT installation permissions, Brotli downstream copies, Continue/OpenBB and domestic incidents. Window 10:27–13:01 JST: NVD 8 published / 20 modified, GHSA 13, all unreviewed and overlapping. Retrieved after cutoff; VALTEC’s date-only follow-up remained reference-only.
 
@@ -45,7 +47,7 @@
 
 ## 0. Historical quick reference — initial review (latest summary above)
 
-The following tables preserve the initial review. Use the 14:56 JST summary and current reading report above for present priorities.
+The following tables preserve the initial review. Use the 21:35 JST summary and current reading report above for present priorities.
 (For a wider "what else is critical right now", see [`docs/13`](docs/13-recent-criticals.md).)
 
 ### 0-1. Today (this is already happening)

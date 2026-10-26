@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html class="client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-sticky-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-0 vector-feature-appearance-pinned-clientpref-0 vector-feature-night-mode-disabled skin-theme-clientpref-day vector-toc-available" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>List of known vulnerabilities in Qt products - Qt Wiki</title>
+<script>(function(){var className="client-js vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-sticky-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-enabled vector-feature-custom-font-size-clientpref-0 vector-feature-appearance-pinned-clientpref-0 vector-feature-night-mode-disabled skin-theme-clientpref-day vector-toc-available";var cookie=document.cookie.match(/(?:^|; )heroku_app_dbmwclientpreferences=([^;]+)/);if(cookie){cookie[1].split('%2C').forEach(function(pref){className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});}document.documentElement.className=className;}());RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"bd5e4647d610f79411a6750f","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"List_of_known_vulnerabilities_in_Qt_products","wgTitle":"List of known vulnerabilities in Qt products","wgCurRevisionId":46827,"wgRevisionId":46827,"wgArticleId":10902,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"List_of_known_vulnerabilities_in_Qt_products","wgRelevantArticleId":10902,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":["sysop"],"wgRestrictionMove":["sysop"],"wgCiteReferencePreviewsActive":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgEditSubmitButtonLabelPublish":false};
+RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","skins.vector.search.codex.styles":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready","ext.QtStyles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.js","ext.moderation.notify","ext.moderation.ve","ext.moderation.ajaxhook","ext.moderation.notify.desktop","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="/load.php?lang=en&amp;modules=ext.QtStyles%7Cext.visualEditor.desktopArticleTarget.noscript%7Cskins.vector.icons%2Cstyles%7Cskins.vector.search.codex.styles&amp;only=styles&amp;skin=vector-2022">
+<script async="" src="/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector-2022"></script>
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector-2022">
+<meta name="generator" content="MediaWiki 1.43.3">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=1120">
+<link rel="icon" href="/favicon.ico?t=2016041300">
+<link rel="search" type="application/opensearchdescription+xml" href="/rest.php/v1/search" title="Qt Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="//wiki.qt.io/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Qt Wiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NL528XF');</script>
+<!-- End Google Tag Manager -->
+<link rel="stylesheet" href="https://www.qt.io/hubfs/qt-web-components/2.0.0/themes/default.css" />
+<script type="module" src="https://www.qt.io/hubfs/qt-web-components/2.0.0/main.js"></script>
+</head>
+<body class="skin--responsive skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-List_of_known_vulnerabilities_in_Qt_products rootpage-List_of_known_vulnerabilities_in_Qt_products skin-vector-2022 action-view"><a class="mw-jump-link" href="#bodyContent">Jump to content</a>
+<div class="vector-header-container">
+	<header class="vector-header mw-header">
+		<div class="vector-header-start">
+			<nav class="vector-main-menu-landmark" aria-label="Site">
+				
+<div id="vector-main-menu-dropdown" class="vector-dropdown vector-main-menu-dropdown vector-button-flush-left vector-button-flush-right"  >
+	<input type="checkbox" id="vector-main-menu-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-main-menu-dropdown" class="vector-dropdown-checkbox "  aria-label="Main menu"  >
+	<label id="vector-main-menu-dropdown-label" for="vector-main-menu-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-menu mw-ui-icon-wikimedia-menu"></span>
+
+<span class="vector-dropdown-label-text">Main menu</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+				<div id="vector-main-menu-unpinned-container" class="vector-unpinned-container">
+		
+<div id="vector-main-menu" class="vector-main-menu vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-main-menu-pinnable-header vector-pinnable-header-unpinned"
+	data-feature-name="main-menu-pinned"
+	data-pinnable-element-id="vector-main-menu"
+	data-pinned-container-id="vector-main-menu-pinned-container"
+	data-unpinned-container-id="vector-main-menu-unpinned-container"
+>
+	<div class="vector-pinnable-header-label">Main menu</div>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-main-menu.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-main-menu.unpin">hide</button>
+</div>
+
+	
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation"  >
+	<div class="vector-menu-heading">
+		Navigation
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-mainpage-description" class="mw-list-item"><a href="/Main" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li><li id="n-help-mediawiki" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents"><span>Help about MediaWiki</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+	
+	
+</div>
+
+				</div>
+
+	</div>
+</div>
+
+		</nav>
+			
+<a href="/Main" class="mw-logo">
+	<span class="mw-logo-container skin-invert">
+		<strong class="mw-logo-wordmark">Qt Wiki</strong>
+	</span>
+</a>
+
+		</div>
+		<div class="vector-header-end">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="/Special:Search" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only search-toggle" title="Search Qt Wiki [f]" accesskey="f"><span class="vector-icon mw-ui-icon-search mw-ui-icon-wikimedia-search"></span>
+
+<span>Search</span>
+	</a>
+	<div class="vector-typeahead-search-container">
+		<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width">
+			<form action="/index.php" id="searchform" class="cdx-search-input cdx-search-input--has-end-button">
+				<div id="simpleSearch" class="cdx-search-input__input-wrapper"  data-search-loc="header-moved">
+					<div class="cdx-text-input cdx-text-input--has-start-icon">
+						<input
+							class="cdx-text-input__input"
+							 type="search" name="search" placeholder="Search Qt Wiki" aria-label="Search Qt Wiki" autocapitalize="sentences" title="Search Qt Wiki [f]" accesskey="f" id="searchInput"
+							>
+						<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+					</div>
+					<input type="hidden" name="title" value="Special:Search">
+				</div>
+				<button class="cdx-button cdx-search-input__end-button">Search</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+			<nav class="vector-user-links vector-user-links-wide" aria-label="Personal tools">
+	<div class="vector-user-links-main">
+	
+<div id="p-vector-user-menu-preferences" class="vector-menu mw-portlet emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+	
+<div id="p-vector-user-menu-userpage" class="vector-menu mw-portlet emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+	<nav class="vector-appearance-landmark" aria-label="Appearance">
+		
+<div id="vector-appearance-dropdown" class="vector-dropdown "  title="Change the appearance of the page&#039;s font size, width, and color" >
+	<input type="checkbox" id="vector-appearance-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-appearance-dropdown" class="vector-dropdown-checkbox "  aria-label="Appearance"  >
+	<label id="vector-appearance-dropdown-label" for="vector-appearance-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-appearance mw-ui-icon-wikimedia-appearance"></span>
+
+<span class="vector-dropdown-label-text">Appearance</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+			<div id="vector-appearance-unpinned-container" class="vector-unpinned-container">
+				<div id="vector-appearance" class="vector-appearance vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-appearance-pinnable-header vector-pinnable-header-unpinned"
+	data-feature-name="appearance-pinned"
+	data-pinnable-element-id="vector-appearance"
+	data-pinned-container-id="vector-appearance-pinned-container"
+	data-unpinned-container-id="vector-appearance-unpinned-container"
+>
+	<div class="vector-pinnable-header-label">Appearance</div>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-appearance.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-appearance.unpin">hide</button>
+</div>
+
+
+</div>
+
+			</div>
+		
+	</div>
+</div>
+
+	</nav>
+	
+<div id="p-vector-user-menu-notifications" class="vector-menu mw-portlet emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+	
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			<li id="pt-login-2" class="user-links-collapsible-item mw-list-item user-links-collapsible-item"><a data-mw="interface" href="/index.php?title=Special:UserLogin&amp;returnto=List+of+known+vulnerabilities+in+Qt+products" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o" class=""><span>Sign in</span></a>
+</li>
+
+			
+		</ul>
+		
+	</div>
+</div>
+
+	</div>
+	
+<div id="vector-user-links-dropdown" class="vector-dropdown vector-user-menu vector-button-flush-right vector-user-menu-logged-out user-links-collapsible-item"  title="More options" >
+	<input type="checkbox" id="vector-user-links-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-user-links-dropdown" class="vector-dropdown-checkbox "  aria-label="Personal tools"  >
+	<label id="vector-user-links-dropdown-label" for="vector-user-links-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis"></span>
+
+<span class="vector-dropdown-label-text">Personal tools</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+		
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal user-links-collapsible-item"  title="User menu" >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="pt-login" class="user-links-collapsible-item mw-list-item"><a href="/index.php?title=Special:UserLogin&amp;returnto=List+of+known+vulnerabilities+in+Qt+products" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span class="vector-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Sign in</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+</nav>
+
+		</div>
+	</header>
+</div>
+<div class="mw-page-container">
+	<div class="mw-page-container-inner">
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<div class="vector-column-start">
+			<div class="vector-main-menu-container">
+		<div id="mw-navigation">
+			<nav id="mw-panel" class="vector-main-menu-landmark" aria-label="Site">
+				<div id="vector-main-menu-pinned-container" class="vector-pinned-container">
+				
+				</div>
+		</nav>
+		</div>
+	</div>
+	<div class="vector-sticky-pinned-container">
+				<nav id="mw-panel-toc" aria-label="Contents" data-event-name="ui.sidebar-toc" class="mw-table-of-contents-container vector-toc-landmark">
+					<div id="vector-toc-pinned-container" class="vector-pinned-container">
+					<div id="vector-toc" class="vector-toc vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned"
+	data-feature-name="toc-pinned"
+	data-pinnable-element-id="vector-toc"
+	
+	
+>
+	<h2 class="vector-pinnable-header-label">Contents</h2>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-toc.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-toc.unpin">hide</button>
+</div>
+
+
+	<ul class="vector-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text"
+			class="vector-toc-list-item vector-toc-level-1">
+			<a href="#" class="vector-toc-link">
+				<div class="vector-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-Security_advisories_in_Qt_products"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#Security_advisories_in_Qt_products">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">1</span>
+				<span>Security advisories in Qt products</span>
+			</div>
+		</a>
+		
+			<button aria-controls="toc-Security_advisories_in_Qt_products-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle">
+				<span class="vector-icon mw-ui-icon-wikimedia-expand"></span>
+				<span>Toggle Security advisories in Qt products subsection</span>
+			</button>
+		
+		<ul id="toc-Security_advisories_in_Qt_products-sublist" class="vector-toc-list">
+			<li id="toc-Axivion"
+			class="vector-toc-list-item vector-toc-level-2">
+			<a class="vector-toc-link" href="#Axivion">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.1</span>
+					<span>Axivion</span>
+				</div>
+			</a>
+			
+			<ul id="toc-Axivion-sublist" class="vector-toc-list">
+				<li id="toc-CVE-2026-86350"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-86350">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.1.1</span>
+					<span>CVE-2026-86350</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-86350-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-12593"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-12593">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.1.2</span>
+					<span>CVE-2026-12593</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-12593-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-12379"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-12379">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.1.3</span>
+					<span>CVE-2026-12379</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-12379-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Qt_Framework"
+			class="vector-toc-list-item vector-toc-level-2">
+			<a class="vector-toc-link" href="#Qt_Framework">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2</span>
+					<span>Qt Framework</span>
+				</div>
+			</a>
+			
+			<ul id="toc-Qt_Framework-sublist" class="vector-toc-list">
+				<li id="toc-CVE-2026-107157:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-107157:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.1</span>
+					<span>CVE-2026-107157:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-107157:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-95620:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-95620:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.2</span>
+					<span>CVE-2026-95620:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-95620:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-16762:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-16762:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.3</span>
+					<span>CVE-2026-16762:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-16762:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-96432:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-96432:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.4</span>
+					<span>CVE-2026-96432:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-96432:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-105923:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-105923:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.5</span>
+					<span>CVE-2026-105923:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-105923:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-101201:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-101201:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.6</span>
+					<span>CVE-2026-101201:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-101201:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-8168:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-8168:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.7</span>
+					<span>CVE-2026-8168:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-8168:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-79680:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-79680:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.8</span>
+					<span>CVE-2026-79680:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-79680:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-78253:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-78253:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.9</span>
+					<span>CVE-2026-78253:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-78253:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-79616:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-79616:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.10</span>
+					<span>CVE-2026-79616:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-79616:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-76151:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-76151:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.11</span>
+					<span>CVE-2026-76151:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-76151:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-19248:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-19248:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.12</span>
+					<span>CVE-2026-19248:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-19248:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-13326"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-13326">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.13</span>
+					<span>CVE-2026-13326</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-13326-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-11573"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-11573">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.14</span>
+					<span>CVE-2026-11573</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-11573-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-15037"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-15037">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.15</span>
+					<span>CVE-2026-15037</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-15037-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-9499"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-9499">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.16</span>
+					<span>CVE-2026-9499</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-9499-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-6210"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-6210">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.17</span>
+					<span>CVE-2026-6210</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-6210-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-14576"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-14576">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.18</span>
+					<span>CVE-2025-14576</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-14576-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-14575"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-14575">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.19</span>
+					<span>CVE-2025-14575</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-14575-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-12385"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-12385">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.20</span>
+					<span>CVE-2025-12385</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-12385-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-10729"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-10729">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.21</span>
+					<span>CVE-2025-10729</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-10729-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-10728"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-10728">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.22</span>
+					<span>CVE-2025-10728</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-10728-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-6338"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-6338">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.23</span>
+					<span>CVE-2025-6338</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-6338-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-5992"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-5992">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.24</span>
+					<span>CVE-2025-5992</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-5992-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-5991"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-5991">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.25</span>
+					<span>CVE-2025-5991</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-5991-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-5683"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-5683">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.26</span>
+					<span>CVE-2025-5683</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-5683-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-5455"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-5455">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.27</span>
+					<span>CVE-2025-5455</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-5455-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-4211"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-4211">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.28</span>
+					<span>CVE-2025-4211</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-4211-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-3512"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-3512">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.29</span>
+					<span>CVE-2025-3512</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-3512-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-30348"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-30348">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.30</span>
+					<span>CVE-2025-30348</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-30348-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2025-23050"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2025-23050">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.31</span>
+					<span>CVE-2025-23050</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2025-23050-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2024-39936"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2024-39936">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.32</span>
+					<span>CVE-2024-39936</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2024-39936-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2024-36048"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2024-36048">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.33</span>
+					<span>CVE-2024-36048</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2024-36048-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2024-33861"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2024-33861">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.34</span>
+					<span>CVE-2024-33861</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2024-33861-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2024-30161"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2024-30161">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.35</span>
+					<span>CVE-2024-30161</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2024-30161-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2024-25580"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2024-25580">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.36</span>
+					<span>CVE-2024-25580</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2024-25580-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-51714"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-51714">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.37</span>
+					<span>CVE-2023-51714</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-51714-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-38197"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-38197">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.38</span>
+					<span>CVE-2023-38197</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-38197-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-45872"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-45872">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.39</span>
+					<span>CVE-2023-45872</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-45872-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-43114"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-43114">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.40</span>
+					<span>CVE-2023-43114</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-43114-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-32763"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-32763">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.41</span>
+					<span>CVE-2023-32763</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-32763-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-37369"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-37369">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.42</span>
+					<span>CVE-2023-37369</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-37369-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-34410"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-34410">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.43</span>
+					<span>CVE-2023-34410</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-34410-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-33285"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-33285">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.44</span>
+					<span>CVE-2023-33285</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-33285-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2023-32762"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2023-32762">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.2.45</span>
+					<span>CVE-2023-32762</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2023-32762-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Qt_for_MCUs"
+			class="vector-toc-list-item vector-toc-level-2">
+			<a class="vector-toc-link" href="#Qt_for_MCUs">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.3</span>
+					<span>Qt for MCUs</span>
+				</div>
+			</a>
+			
+			<ul id="toc-Qt_for_MCUs-sublist" class="vector-toc-list">
+				<li id="toc-CVE-2026-94370:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-94370:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.3.1</span>
+					<span>CVE-2026-94370:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-94370:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-95509:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-95509:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.3.2</span>
+					<span>CVE-2026-95509:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-95509:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CVE-2026-19395:"
+			class="vector-toc-list-item vector-toc-level-3">
+			<a class="vector-toc-link" href="#CVE-2026-19395:">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">1.3.3</span>
+					<span>CVE-2026-19395:</span>
+				</div>
+			</a>
+			
+			<ul id="toc-CVE-2026-19395:-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div>
+
+					</div>
+		</nav>
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body">
+				<header class="mw-body-header vector-page-titlebar">
+					<nav aria-label="Contents" class="vector-toc-landmark">
+						
+<div id="vector-page-titlebar-toc" class="vector-dropdown vector-page-titlebar-toc vector-button-flush-left"  >
+	<input type="checkbox" id="vector-page-titlebar-toc-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-page-titlebar-toc" class="vector-dropdown-checkbox "  aria-label="Toggle the table of contents"  >
+	<label id="vector-page-titlebar-toc-label" for="vector-page-titlebar-toc-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-listBullet mw-ui-icon-wikimedia-listBullet"></span>
+
+<span class="vector-dropdown-label-text">Toggle the table of contents</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+							<div id="vector-page-titlebar-toc-unpinned-container" class="vector-unpinned-container">
+			</div>
+		
+	</div>
+</div>
+
+					</nav>
+					<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">List of known vulnerabilities in Qt products</span></h1>
+				</header>
+				<div class="vector-page-toolbar">
+					<div class="vector-page-toolbar-container">
+						<div id="left-navigation">
+							<nav aria-label="Namespaces">
+								
+<div id="p-associated-pages" class="vector-menu vector-menu-tabs mw-portlet mw-portlet-associated-pages"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-nstab-main" class="selected vector-tab-noicon mw-list-item"><a href="/List_of_known_vulnerabilities_in_Qt_products" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new vector-tab-noicon mw-list-item"><a href="/index.php?title=Talk:List_of_known_vulnerabilities_in_Qt_products&amp;action=edit&amp;redlink=1" rel="discussion" class="new" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+								
+<div id="vector-variants-dropdown" class="vector-dropdown emptyPortlet"  >
+	<input type="checkbox" id="vector-variants-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-variants-dropdown" class="vector-dropdown-checkbox " aria-label="Change language variant"   >
+	<label id="vector-variants-dropdown-label" for="vector-variants-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet" aria-hidden="true"  ><span class="vector-dropdown-label-text">English</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+					
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+				
+	</div>
+</div>
+
+							</nav>
+						</div>
+						<div id="right-navigation" class="vector-collapsible">
+							<nav aria-label="Views">
+								
+<div id="p-views" class="vector-menu vector-menu-tabs mw-portlet mw-portlet-views"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-view" class="selected vector-tab-noicon mw-list-item"><a href="/List_of_known_vulnerabilities_in_Qt_products"><span>Read</span></a></li><li id="ca-viewsource" class="vector-tab-noicon mw-list-item"><a href="/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="vector-tab-noicon mw-list-item"><a href="/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+							</nav>
+				
+							<nav class="vector-page-tools-landmark" aria-label="Page tools">
+								
+<div id="vector-page-tools-dropdown" class="vector-dropdown vector-page-tools-dropdown"  >
+	<input type="checkbox" id="vector-page-tools-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-page-tools-dropdown" class="vector-dropdown-checkbox "  aria-label="Tools"  >
+	<label id="vector-page-tools-dropdown-label" for="vector-page-tools-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet" aria-hidden="true"  ><span class="vector-dropdown-label-text">Tools</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+									<div id="vector-page-tools-unpinned-container" class="vector-unpinned-container">
+						
+<div id="vector-page-tools" class="vector-page-tools vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-page-tools-pinnable-header vector-pinnable-header-unpinned"
+	data-feature-name="page-tools-pinned"
+	data-pinnable-element-id="vector-page-tools"
+	data-pinned-container-id="vector-page-tools-pinned-container"
+	data-unpinned-container-id="vector-page-tools-unpinned-container"
+>
+	<div class="vector-pinnable-header-label">Tools</div>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-page-tools.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-page-tools.unpin">hide</button>
+</div>
+
+	
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-has-collapsible-items"  title="More options" >
+	<div class="vector-menu-heading">
+		Actions
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-more-view" class="selected vector-more-collapsible-item mw-list-item"><a href="/List_of_known_vulnerabilities_in_Qt_products"><span>Read</span></a></li><li id="ca-more-viewsource" class="vector-more-collapsible-item mw-list-item"><a href="/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;action=edit"><span>View source</span></a></li><li id="ca-more-history" class="vector-more-collapsible-item mw-list-item"><a href="/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;action=history"><span>View history</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb"  >
+	<div class="vector-menu-heading">
+		General
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="t-whatlinkshere" class="mw-list-item"><a href="/Special:WhatLinksHere/List_of_known_vulnerabilities_in_Qt_products" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/Special:RecentChangesLinked/List_of_known_vulnerabilities_in_Qt_products" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;oldid=46827" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;action=info" title="More information about this page"><span>Page information</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+</div>
+
+									</div>
+				
+	</div>
+</div>
+
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div class="vector-column-end">
+					<div class="vector-sticky-pinned-container">
+						<nav class="vector-page-tools-landmark" aria-label="Page tools">
+							<div id="vector-page-tools-pinned-container" class="vector-pinned-container">
+				
+							</div>
+		</nav>
+						<nav class="vector-appearance-landmark" aria-label="Appearance">
+							<div id="vector-appearance-pinned-container" class="vector-pinned-container">
+				
+							</div>
+		</nav>
+					</div>
+				</div>
+				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
+					<div class="vector-body-before-content">
+							<div class="mw-indicators">
+		</div>
+
+						<div id="siteSub" class="noprint">From Qt Wiki</div>
+					</div>
+					<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+					
+					
+					<div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr"><p>See vulnerability disclosure process from <a rel="nofollow" class="external text" href="https://www.qt.io/terms-conditions/responsible-vulnerability-disclosure-process">here</a>
+</p>
+<meta property="mw:PageProp/toc" />
+<h1><span class="mw-headline" id="Security_advisories_in_Qt_products">Security advisories in Qt products</span></h1>
+<h2><span class="mw-headline" id="Axivion">Axivion</span></h2>
+<h3><span class="mw-headline" id="CVE-2026-86350">CVE-2026-86350</span></h3>
+<p><b>Because our Dashboard redistributes Apache Tomcat, we inherit CVE-2026-86350 (fixed in 11.0.26) and its criticality, since we can't rule out that the Dashboard is affected.</b>
+</p><p><b>Impact:</b> Remote Privilege Escalation. A completely unauthorized user could become able to execute requests on behalf of a Dashboard Administrator.
+</p><p><b>Affected versions:</b> Axivion Dashboard: from 7.12.1 to 7.12.5 and from 7.11.7 to 7.11.8
+</p><p><b>Fixed:</b> Axivion 7.11.9, 7.12.6 and 7.13.0 or later
+</p>
+<h3><span class="mw-headline" id="CVE-2026-12593">CVE-2026-12593</span></h3>
+<p><b>CWE-862 Missing Authorization vulnerability in the Dashboard OAuth/OIDC implementation</b>
+</p><p><b>Impact:</b> Authenticated Remote Privilege escalation. Any OIDC/OAuth authenticated user can become a Dashboard Administrator. By exploiting another weakness this can also lead to arbitrary code execution on the host-system running the Dashboard in the context of the OS-User used to run the Dashboard.
+</p><p><b>Affected versions:</b> From Axivion 7.8.5 to 7.8.12, from 7.9.0 to 7.9.12, from 7.10.0 to 7.10.10, from 7.11.0 to 7.11.6, from 7.12.0 to 7.12.1
+</p><p><b>Fixed:</b> Axivion 7.9.13 and 7.10.11, 7.11.7, 7.12.2 or later
+</p>
+<h3><span class="mw-headline" id="CVE-2026-12379">CVE-2026-12379</span></h3>
+<p><b>CWE-601 URL Redirection to Untrusted Site ('Open Redirect') vulnerability in the Dashboard OAuth/OIDC implementation</b>
+</p><p><b>Impact:</b> Redirection of unsuspecting users to an untrusted external site. The Dashboard's OAuth/OIDC login flow did not properly restrict the post-authentication redirect to the application's own origin, so a user who follows a crafted login link can be sent to an attacker-controlled site after authenticating against the genuine Dashboard. Because the link points at the legitimate Dashboard, this can be abused for phishing, e.g. credential or second-factor theft via a convincing look-alike page.
+</p><p><b>Affected versions:</b> From Axivion 7.8.0 to 7.8.12, from 7.9.0 to 7.9.12, from 7.10.0 to 7.10.10, from 7.11.0 to 7.11.6, from 7.12.0 to 7.12.1
+</p><p><b>Fixed:</b> Axivion 7.9.13 and 7.10.11, 7.11.7, 7.12.2 or later
+</p>
+<h2><span class="mw-headline" id="Qt_Framework">Qt Framework</span></h2>
+<h3><span class="mw-headline" id="CVE-2026-107157:">CVE-2026-107157:</span></h3>
+<p><b>Out-of-bounds read vulnerability in QCborValue::fromCbor() impacts Qt Framework</b>
+</p><p><b>Impact:</b> Processing specially crafted input through the affected API may cause the application to crash and could potentially lead to information disclosure.
+</p><p><b>Affected versions:</b> from Qt 5.12.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2 (64-bit platforms only)
+</p><p><b>Fixed:</b> Qt 6.8.9, Qt 6.11.3, Qt 6.12.0
+</p>
+<h3><span class="mw-headline" id="CVE-2026-95620:">CVE-2026-95620:</span></h3>
+<p><b>Use-after-free vulnerability in QNetworkAccessManager HTTP/2 support impacts Qt</b>
+</p><p><b>Impact:</b> A malicious or compromised HTTP/2 server may cause the client application to crash, affecting availability.
+</p><p><b>Affected versions:</b> From Qt 6.9.0 to Qt 6.11.2
+</p><p><b>Fixed:</b> Qt 6.11.3 and Qt 6.12.0
+</p>
+<h3><span class="mw-headline" id="CVE-2026-16762:">CVE-2026-16762:</span></h3>
+<p><b>Denial-of-service vulnerability in the Qt Core QXmlStream parser (QXmlStreamReader) impacts Qt</b>
+</p><p><b>Impact:</b> An attacker able to supply a crafted XML document to an application using QXmlStreamReader can cause disproportionate CPU consumption during parsing, making the application unresponsive (denial of service). Exploitation requires only that the application parse attacker-influenced XML; no authentication, privileges, or user interaction beyond ingesting the input are needed. There is no loss of confidentiality or integrity — no data disclosure, data modification, or code execution — and the impact is contained to the affected process.
+</p><p><b>Affected versions:</b> From Qt 4.3.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1. Affected status unknown before Qt 4.3.0
+</p><p><b>Fixed:</b> Qt 6.8.9, Qt 6.11.2, Qt 6.12.0
+</p>
+<h3><span class="mw-headline" id="CVE-2026-96432:">CVE-2026-96432:</span></h3>
+<p><b>Null pointer dereference vulnerability in QNetworkAccessManager impacts Qt</b>
+</p><p><b>Impact:</b> A null pointer dereference in QNetworkAccessManager lets a malicious or compromised server crash the application over HTTP/2.
+</p><p><b>Affected versions:</b> From 6.8.0 to 6.8.9, from 6.9.0 to 6.11.2
+</p><p><b>Fixed:</b> Qt 6.8.10, Qt 6.11.3
+</p>
+<h3><span class="mw-headline" id="CVE-2026-105923:">CVE-2026-105923:</span></h3>
+<p><b>Null-pointer dereference in QTriangulator reachable through VectorImage</b>
+</p><p><b>Impact:</b> Processing specially crafted SVG content with the VectorImage QML type can cause the application to crash, resulting in loss of availability. 
+</p><p><b>Affected versions:</b> From Qt 6.8.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2 
+</p><p><b>Fixed:</b> Qt 6.8.9, Qt 6.11.3 and Qt 6.12.0
+</p>
+<h3><span class="mw-headline" id="CVE-2026-101201:">CVE-2026-101201:</span></h3>
+<p><b>Out-of-bounds read vulnerability in JSON document parsing functionality impacts Qt Core and Qt 5 Core Compatibility APIs</b>
+</p><p><b>Impact:</b> Availability (crash due to out-of-bounds read when processing specially crafted JSON document data) 
+</p><p><b>Affected versions:</b> From Qt 5.0 to Qt 6.8.8, and from Qt 6.9.0 to Qt 6.11.2 
+</p><p><b>Fixed:</b> Qt 6.8.9 and Qt 6.11.3
+</p>
+<h3><span class="mw-headline" id="CVE-2026-8168:">CVE-2026-8168:</span></h3>
+<p><b>Denial-of-service vulnerability in the SVG parser and renderer impacts Qt</b>
+</p><p><b>Impact:</b> When a Qt application loads an SVG file containing excessively deep element nesting, the Qt SVG module traverses the document tree recursively — while resolving paint servers, detecting cycles, rendering, and destroying the internal tree — without enforcing any recursion depth limit. This exhausts the process call stack and crashes the application (denial of service). 
+</p><p><b>Affected versions:</b> From Qt 4.1.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1 
+</p><p><b>Fixed:</b> Qt 6.8.9, Qt 6.11.2 or Qt 6.12.0
+</p>
+<h3><span class="mw-headline" id="CVE-2026-79680:">CVE-2026-79680:</span></h3>
+<p><b>Authentication bypass vulnerability in the password authentication mechanism of the Qt VNC Server module.</b>
+</p><p><b>Impact:</b> An attacker using a specially modified VNC client that violates the RFB protocol can bypass Qt VNC Server's password authentication and gain unauthorized remote access to the shared application, compromising the confidentiality and integrity of the session. 
+</p><p><b>Affected versions:</b> From Qt 6.4.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2 
+</p><p><b>Fixed:</b> Qt 6.8.9 and Qt 6.11.3
+</p>
+<h3><span class="mw-headline" id="CVE-2026-78253:">CVE-2026-78253:</span></h3>
+<p><b>Denial-of-service (stack-exhaustion) vulnerability in QXmlStreamReader::readElementText() impacts Qt</b>
+</p><p><b>Impact:</b> Uncontrolled recursion in <code>QXmlStreamReader::readElementText()</code> in Qt Group Qt allows attackers to cause a denial of service (application crash via stack exhaustion) via a crafted XML document. 
+</p><p><b>Affected versions:</b> From Qt 5.10 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1 
+</p><p><b>Fixed:</b> Qt 6.8.9 and Qt 6.11.2
+</p>
+<h3><span class="mw-headline" id="CVE-2026-79616:">CVE-2026-79616:</span></h3>
+<p><b>Out-of-bounds read vulnerability in Context2D.path and PathSvg.path properties impacts Qt Quick</b>
+</p><p><b>Impact:</b> Out-of-bounds read while parsing untrusted SVG path strings in Qt Quick's Context2D.path / PathSvg.path 
+</p><p><b>Affected versions:</b> From Qt 5.10 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1 
+</p><p><b>Fixed:</b> Qt 6.8.9 and Qt 6.11.2
+</p>
+<h3><span class="mw-headline" id="CVE-2026-76151:">CVE-2026-76151:</span></h3>
+<p><b>Out-of-bounds read (buffer over-read) vulnerability in HTTP Cache-Control response header parsing impacts Qt Framework (QtNetwork module)</b>
+</p><p><b>Impact:</b> QNetworkAccessManager crashes on excessively large Cache-Control header values returned by an untrusted HTTP server, causing denial of service on 64-bit builds. 
+</p><p><b>Affected versions:</b> From Qt 6.0.0 to 6.8.9, From 6.9.0 to 6.11.1 
+</p><p><b>Fixed:</b> Qt 6.8.9 and Qt 6.11.2
+</p>
+<h3><span class="mw-headline" id="CVE-2026-19248:">CVE-2026-19248:</span></h3>
+<p><b>Unbounded recursion vulnerability in the QDomNode destructor of Qt XML impacts Qt</b>
+</p><p><b>Impact:</b> QDomDocument XML parsing is vulnerable to a remotely-triggerable denial-of-service crash when processing untrusted input. 
+</p><p><b>Affected versions:</b> from Qt 2.2.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1 
+</p><p><b>Fixed:</b> Qt 6.8.9 and Qt 6.11.2
+</p>
+<h3><span class="mw-headline" id="CVE-2026-13326">CVE-2026-13326</span></h3>
+<p><b>Out-of-bounds read and integer underflow vulnerability in QNdefNfcTextRecord impacts Qt NFC module</b>
+</p><p><b>Impact:</b> An out-of-bounds read in Qt NFC's language code length parsing allows a physically proximate attacker to cause a denial of service or limited memory disclosure via a crafted NFC tag. 
+</p><p><b>Affected versions:</b> from Qt 5.2.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.10.3, from Qt 6.11.0 to Qt 6.11.1
+</p><p><b>Fixed:</b> Qt 6.8.9 and Qt 6.11.2
+</p>
+<h3><span class="mw-headline" id="CVE-2026-11573">CVE-2026-11573</span></h3>
+<p><b>Uncontrolled recursion in QDomDocument/QDomNode serialization causes stack exhaustion (QtXml)</b>
+</p><p><b>Impact:</b> Uncontrolled recursion in Qt's QDomDocument serialization (QtXml) lets deeply nested untrusted XML crash the app via stack exhaustion (DoS only). 
+</p><p><b>Affected versions:</b> from 2.2.0 to 6.8.1
+</p><p><b>Fixed:</b> Qt 6.8.2 and Qt 6.9.0
+</p>
+<h3><span class="mw-headline" id="CVE-2026-15037">CVE-2026-15037</span></h3>
+<p><b>XML injection vulnerability in QDom comment, CDATA and processing-instruction serialization</b>
+</p><p><b>Impact:</b> Improper output neutralization (XML injection) in QDom comment, CDATA, and processing-instruction serialization in Qt XML from 4.0.0 through 6.11 allows untrusted text serialized by an application into those nodes to inject arbitrary XML markup, because the node terminators are not escaped under the default InvalidDataPolicy (AcceptInvalidChars). 
+</p><p><b>Affected versions:</b> From Qt 4.0.0 before Qt 6.12.0
+</p><p><b>Fixed:</b> Qt 6.12.0
+</p>
+<h3><span class="mw-headline" id="CVE-2026-9499">CVE-2026-9499</span></h3>
+<p><b>Buffer read overflow in QTextCodec::codecForName()</b>
+</p><p><b>Impact:</b> Passing a non-NUL-terminated QByteArray (for example, one created with QByteArray::fromRawData()) to QTextCodec::codecForName() can cause the codec-name matching routine to read past the end of the buffer, resulting in an incorrect codec match or, in the worst case, an application crash (denial of service).
+</p><p><b>Affected versions:</b> From Qt 4.0.0 to 6.8.7, from 6.9.0 to 6.11.0.
+</p><p><b>Fixed:</b> Qt 6.8.8 and 6.11.1
+</p>
+<h3><span class="mw-headline" id="CVE-2026-6210">CVE-2026-6210</span></h3>
+<p><b>Type confusion and heap-buffer-overflow vulnerability in Qt SVG marker handling</b>
+</p><p><b>Impact:</b> A type confusion vulnerability in Qt SVG allows an attacker to cause an application crash via a crafted SVG image.
+</p><p><b>Affected versions:</b> From Qt 6.7.0 before 6.8.8, from 6.9.0 before 6.11.1.
+</p><p><b>Fixed:</b> Qt 6.8.8 and 6.11.1
+</p>
+<h3><span class="mw-headline" id="CVE-2025-14576">CVE-2025-14576</span></h3>
+<p><b>QML Code Injection in VectorImage Component in Qt declarative module</b>
+</p><p><b>Impact:</b> Insufficient validation of node IDs in Qt SVG module allows arbitrary QML/JavaScript code injection when loading malicious SVG files through the VectorImage component in Qt Quick. While QML execution is typically more restricted than native code execution, this could still lead to denial of service, information disclosure, or other impacts depending on the application's privilege level and data access.
+</p><p><b>Affected versions:</b> From Qt 6.8.0 to 6.8.6 and from 6.10.0 to 6.10.1
+</p><p><b>Fixed:</b> Qt 6.8.7 and 6.10.2
+</p>
+<h3><span class="mw-headline" id="CVE-2025-14575">CVE-2025-14575</span></h3>
+<p><b>Untrusted Search Path vulnerability in OpenSSL backend certificate loading mechanism</b>
+</p><p><b>Impact:</b> An Uncontrolled Search Path Element vulnerability in the OpenSSL TLS backend of Qt Network (qtbase) in Qt Qt Framework (Unix) allows a local attacker to load a rogue CA certificate as a trusted system authority via a crafted certificate file placed in the application's working directory.
+</p><p><b>Affected versions:</b> From Qt 5.0.0 to 6.5.9 and from 6.6.0 to 6.8.3 and from 6.9.0 to 6.9.1
+</p><p><b>Fixed:</b> Qt 6.5.10 and 6.8.4 and 6.9.2
+</p>
+<h3><span class="mw-headline" id="CVE-2025-12385">CVE-2025-12385</span></h3>
+<p><b>Improper validation of &lt;img&gt; tag size in Text component parser in Qt declarative module</b> 
+</p><p><b>Impact:</b> This issue affects users of the Text component in Qt Quick. Missing validation of the width and height in the &lt;img&gt; tag could cause an application to become unresponsive.
+</p><p><b>Affected versions:</b> From Qt 5.0.0 to 6.5.10 and from 6.6.0 to 6.8.5 and from 6.9.0 to 6.10.0
+</p><p><b>Fixed:</b>  Qt 6.5.11 and 6.8.6 and 6.10.1
+</p>
+<h3><span class="mw-headline" id="CVE-2025-10729">CVE-2025-10729</span></h3>
+<p><b>Use-After-Free vulnerability in Qt SVG</b> 
+</p><p><b>Impact:</b> When the module parses a &lt;pattern&gt; node which is not a child of a structural node, the node gets deleted after creation but might be accessed later leading to a use after free.
+</p><p><b>Affected versions:</b> From Qt 6.7.0 to 6.8.4 and from 6.9.0 to 6.9.2.
+</p><p><b>Fixed:</b> Qt 6.8.5 and 6.9.3.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-10728">CVE-2025-10728</span></h3>
+<p><b>Uncontrolled recursion vulnerability in Qt SVG</b>
+</p><p><b>Impact:</b> When the module renders a Svg file that contains a &lt;pattern&gt; element, it might end up rendering it recursively leading to stack overflow DoS.
+</p><p><b>Affected versions:</b> From Qt 6.7.0 to 6.8.4 and from 6.9.0 to 6.9.2.
+</p><p><b>Fixed:</b> Qt 6.8.5 and 6.9.3.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-6338">CVE-2025-6338</span></h3>
+<p><b>"Incomplete Cleanup" problem in Qt’s Schannel handling when it is used to provide a server handling incoming TLS connections.</b>
+</p><p><b>Impact:</b> For every connection made a 4KB file is created that is not cleaned up by the application or Qt. As a result this can cause a situation where all the available disk space is consumed. It is assumed that rebooting the computer also cleans up these files as Windows does its own cleanup, but this is not confirmed.
+</p><p><b>Affected versions:</b> This issue affects only the Schannel functionality on Windows if it is turned on in Qt 5.15 and from Qt 6.2 when it is the default.
+</p><p><b>Fixed:</b> Qt 6.5.10, 6.8.4 or 6.9.2.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-5992">CVE-2025-5992</span></h3>
+<p><b>Passing values outside of expected range to QColorTransferGenericFunction can cause a denial of service</b>
+</p><p><b>Impact:</b> When passing values outside of the expected range to QColorTransferGenericFunction it can cause a denial of service, for example, this can happen when passing a specifically crafted ICC profile to QColorSpace::fromICCProfile.
+</p><p><b>Affected versions:</b> Qt from 6.8.0 through 6.8.3, from 6.9.0 through 6.9.1.
+</p><p><b>Fixed:</b> Qt 6.8.4 and 6.9.2.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-5991">CVE-2025-5991</span></h3>
+<p><b>Use after free in QHttp2ProtocolHandler</b>
+</p><p><b>Impact:</b> This only affects HTTP/2 handling, HTTP handling is not affected by this at all. This happens due to a race condition between how QHttp2Stream uploads the body of a POST request and the simultaneous handling of HTTP error responses.
+</p><p><b>Affected versions:</b> Qt 6.9.0
+</p><p><b>Fixed:</b> Qt 6.9.1.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-5683">CVE-2025-5683</span></h3>
+<p><b>When loading a specifically crafted ICNS format image file then it will trigger a crash.</b>&#160;
+</p><p><b>Impact:</b> If QImage is passed a specifically crafted ICNS format image file, then it will trigger a crash. This can happen directly via one of the load functions, or via another class which is using QImage for rendering elsewhere, such as QTextDocument.
+</p><p><b>Affected versions:</b> All versions of Qt from versions 6.3.0 through 6.5.9, from 6.6.0 through 6.8.4, 6.9.0.
+</p><p><b>Fixed:</b> Qt 6.5.10, 6.8.5 and 6.9.1.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-5455">CVE-2025-5455</span></h3>
+<p><b>Remotely triggerable assertion in data: URL handling</b>
+</p><p><b>Impact:</b> An issue was found in the private API function qDecodeDataUrl() in QtCore, which is used in QTextDocument and QNetworkReply, and, potentially, in user code. If the function was called with malformed data, for example, an URL that contained a "charset" parameter that lacked a value (such as "data:charset,"), and Qt was built with assertions enabled, then it would hit an assertion, resulting in a denial of service.
+</p><p><b>Affected versions:</b> All version of Qt up to and including 5.15.18, from 6.0.0 through 6.5.8, from 6.6.0 through 6.8.3 and 6.9.0.
+</p><p><b>Fixed:</b> Qt 5.15.19, Qt 6.5.9, Qt 6.8.4, Qt 6.9.1.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-4211">CVE-2025-4211</span></h3>
+<p><b>Improper Link Resolution Before File Access in QFileSystemEngine in the Qt corelib module on Windows</b>
+</p><p><b>Impact:</b> The vulnerability allows attackers to influence the temporary file path resolution, which can lead to elevation of privilege. This can be particularly dangerous if exploited by unprivileged users to gain higher-level access or execute arbitrary code with elevated permissions.
+</p><p><b>Affected versions:</b> All version of Qt up to and including 5.15.18, from 6.0.0 through 6.5.8, from 6.6.0 through 6.8.1
+</p><p><b>Fixed:</b> Qt 5.15.19, Qt 6.5.9, Qt 6.8.2 and Qt 6.9.0
+</p>
+<h3><span class="mw-headline" id="CVE-2025-3512">CVE-2025-3512</span></h3>
+<p><b>A Heap-buffer-overflow issue in QTextMarkdownImporter</b>
+</p><p><b>Impact:</b> Passing an incorrectly formatted markdown file to QTextMarkdownImporter can trigger a heap-buffer-overflow.
+</p><p><b>Affected versions:</b> From 6.8.0 up to 6.8.3. Versions before 6.6.0 are known to be unaffected.
+</p><p><b>Fixed:</b> 6.8.4 and 6.9.0
+</p>
+<h3><span class="mw-headline" id="CVE-2025-30348">CVE-2025-30348</span></h3>
+<p><b>A Denial-of-Service type of security issue in Qt XML module</b>
+</p><p><b>Impact:</b> When QDom classes are used to write XML with long text segments, QDomNode::save() could hit a quadratic-complexity code path, potentially leading to a DoS if an attacker can control the rate and contents of XML serializations performed by the application, e.g. if the application packages attacker-supplied text in XML, including reading XML, changing it, and writing it back.
+</p><p><b>Affected versions:</b> <b>:</b> Up to 5.15.18, 6.0.0 to 6.5.8, and 6.6.0 to 6.7.3.
+</p><p><b>Fixed:</b> 5.15.19, 6.5.9, 6.8.0 and 6.9.0.
+</p>
+<h3><span class="mw-headline" id="CVE-2025-23050">CVE-2025-23050</span></h3>
+<p><b>Read past the end of the buffer and division by zero security issue in QLowEnergyController on Linux</b>
+</p><p><b>Impact:</b> QLowEnergyController on Linux has a BlueZ DBus and a Bluetooth Kernel API backend. When using the Bluetooth Kernel API backend of QLowEnergyController, QtBluetooth creates a Bluetooth L2CAP socket to establish a connection with an external Bluetooth Low Energy device. After that, the external device can send malformed Bluetooth ATT commands to trigger read past the end of the buffer and division by zero errors. The problem is relevant for both central and peripheral roles.
+</p><p>For central role use cases the Bluetooth Kernel API backend is only used if the system's BlueZ runtime version is lower than 5.42. For peripheral use cases, the Bluetooth Kernel API backend is used by default for all Qt versions before Qt 6.7. Deployments using Qt 6.7 or later trigger the backend if the Bluez version is below 5.56 or the explicit opt in via the env variable QT_BLUETOOTH_USE_KERNEL_PERIPHERAL was given. In the central role the user has to explicitly connect to the attacking external device before the malformed commands are processed. In the peripheral role, the advertising should be started with the QLowEnergyAdvertisingParameters::AdvInd mode to allow the external device to connect.
+</p><p><b>Affected versions:</b> From 5.4.0 to 5.15.18, 6.0.0 to 6.5.8, and 6.6.0 to 6.8.1.
+</p><p><b>Fixed:</b> 5.15.19, 6.5.9, 6.8.2 and 6.9.0.
+</p>
+<h3><span class="mw-headline" id="CVE-2024-39936">CVE-2024-39936</span></h3>
+<p><b>HTTP2 vulnerability with non-matching TLS certificates</b>
+</p><p>An issue was discovered in HTTP2 in Qt before 5.15.18, 6.x before 6.2.13, 6.3.x through 6.5.x before 6.5.7, and 6.6.x through 6.7.x before 6.7.3. Code to make security-relevant decisions about an established connection may execute too early, because the encrypted() signal has not yet been emitted and processed. Fixed in 5.15.19, 6.2.14, 6.5.8 and 6.7.4.
+</p>
+<h3><span class="mw-headline" id="CVE-2024-36048">CVE-2024-36048</span></h3>
+<p><b>Predictable nonces in QtNetworkAuth</b>
+</p><p>QAbstractOAuth in Qt Network Authorization in Qt before 5.15.17, 6.x before 6.2.13, 6.3.x through 6.5.x before 6.5.6, and 6.6.x through 6.7.x before 6.7.1 uses only the time to seed the PRNG, which may result in guessable values. Fixed in Qt 5.15.17, 6.2.14, 6.5.6, 6.7.1.
+</p>
+<h3><span class="mw-headline" id="CVE-2024-33861">CVE-2024-33861</span></h3>
+<p><b>QStringConverter has an invalid pointer being passed as a callback which can allow modification of the stack</b>
+</p><p>QStringConverter has an invalid pointer being passed as a callback which can allow modification of the stack. Qt itself is not vulnerable to remote attack however an application using QStringDecoder either directly or indirectly can be vulnerable. Qt does not automatically use any of those codecs, so this needs the application to implement something using QStringDecoder to be vulnerable. This affects Qt 6.5.0-&gt;6.5.5, 6.6.x and 6.7.0. Fixed in Qt 6.5.6 and 6.7.1.
+</p>
+<h3><span class="mw-headline" id="CVE-2024-30161">CVE-2024-30161</span></h3>
+<p><b>Use-After-Free in Qt for WebAssembly’s implementation of QNetworkReply</b>
+</p><p>In Qt 6.5.4, 6.5.5, and 6.6.2, QNetworkReply header data might be accessed via a dangling pointer in Qt for WebAssembly (wasm). Fixed in Qt 6.5.6 and 6.7.0.
+</p>
+<h3><span class="mw-headline" id="CVE-2024-25580">CVE-2024-25580</span></h3>
+<p><b>OOB read in QKtxHandler</b>
+</p><p>An issue was discovered in gui/util/qktxhandler.cpp in Qt before 5.15.17, 6.x before 6.2.12, 6.3.x through 6.5.x before 6.5.5, and 6.6.x before 6.6.2. A buffer overflow and application crash can occur via a crafted KTX image file. Fixed in Qt 5.15.18, 6.2.13, 6.5.6 and 6.7.0.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-51714">CVE-2023-51714</span></h3>
+<p><b>Ineffective integer overflow check in HPack implementation</b>
+</p><p>An issue was discovered in the HTTP2 implementation in Qt before 5.15.17, 6.x before 6.2.11, 6.3.x through 6.5.x before 6.5.4, and 6.6.x before 6.6.2. network/access/http2/hpacktable.cpp has an incorrect HPack integer overflow check. Fixed in Qt 5.15.18, 6.2.12, 6.5.5 and 6.7.0.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-38197">CVE-2023-38197</span></h3>
+<p><b>QXMLStreamReader can freeze or get out of memory on recursive entity expansion, with DTD tokens in XML body</b>
+</p><p>An issue was discovered in Qt before 5.15.15, 6.x before 6.2.10, and 6.3.x through 6.5.x before 6.5.3. There are infinite loops in recursive entity expansion. Fixed in Qt 5.15.16, 6.2.11, and 6.5.4.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-45872">CVE-2023-45872</span></h3>
+<p><b>QML Image bad source crashes application instead of error status (QSvgHandler::parse)</b>
+</p><p>An issue was discovered in Qt before 6.2.11 and 6.3.x through 6.6.x before 6.6.1. When a QML image refers to an image whose content is not known yet, there is an assumption that it is an SVG document, leading to a denial of service (application crash) if it is not actually an SVG document. Fixed in Qt 6.2.12 and 6.6.2.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-43114">CVE-2023-43114</span></h3>
+<p><b>Crash on corrupted font data</b>
+</p><p>An issue was discovered in Qt before 5.15.16, 6.x before 6.2.10, and 6.3.x through 6.5.x before 6.5.3 on Windows. When using the GDI font engine, if a corrupted font is loaded via QFontDatabase::addApplicationFont[FromData], then it can cause the application to crash because of missing length checks. Fixed in Qt 5.15.17, 6.2.11 and 6.5.4.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-32763">CVE-2023-32763</span></h3>
+<p><b>Integer overflow in qfixed_p.h when rendering SVG image on the minimal plugin</b>
+</p><p>An issue was discovered in Qt before 5.15.15, 6.x before 6.2.9, and 6.3.x through 6.5.x before 6.5.1. When a SVG file with an image inside it is rendered, a QTextLayout buffer overflow can be triggered. Fixed in Qt 5.15.16, 6.2.10, and 6.5.2.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-37369">CVE-2023-37369</span></h3>
+<p><b>Potential buffer overflow in QXmlStreamReader</b>
+</p><p>In Qt before 5.15.15, 6.x before 6.2.9, and 6.3.x through 6.5.x before 6.5.2, there can be an application crash in QXmlStreamReader via a crafted XML string that triggers a situation in which a prefix is greater than a length. Fixed in Qt 5.15.16, 6.2.10, and 6.5.3.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-34410">CVE-2023-34410</span></h3>
+<p><b>Possible vulnerability regarding SSL implementation in Qt</b>
+</p><p>An issue was discovered in Qt before 5.15.15, 6.x before 6.2.9, and 6.3.x through 6.5.x before 6.5.2. Certificate validation for TLS does not always consider whether the root of a chain is a configured CA certificate. Fixed in Qt 5.15.16, 6.2.10, and 6.5.3.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-33285">CVE-2023-33285</span></h3>
+<p><b>QDnsLookup buffer overflow UB on Unix</b>
+</p><p>An issue was discovered in Qt 5.x before 5.15.14, 6.x before 6.2.9, and 6.3.x through 6.5.x before 6.5.1. QDnsLookup has a buffer over-read via a crafted reply from a DNS server. Fixed in Qt 5.15.15, 6.2.10, and 6.5.2.
+</p>
+<h3><span class="mw-headline" id="CVE-2023-32762">CVE-2023-32762</span></h3>
+<p><b>Qt Network incorrectly parses the strict-transport-security (HSTS) header</b>
+</p><p>An issue was discovered in Qt before 5.15.14, 6.x before 6.2.9, and 6.3.x through 6.5.x before 6.5.1. Qt Network incorrectly parses the strict-transport-security (HSTS) header, allowing unencrypted connections to be established, even when explicitly prohibited by the server. This happens if the case used for this header does not exactly match. Fixed in Qt 5.15.15, 6.2.10, and 6.5.2.
+</p>
+<h2><span class="mw-headline" id="Qt_for_MCUs">Qt for MCUs</span></h2>
+<h3><span class="mw-headline" id="CVE-2026-94370:">CVE-2026-94370:</span></h3>
+<p><b>Memory corruption (double free / use-after-free) vulnerability in core string handling impacts Qt for MCUs</b>
+</p><p><b>Impact:</b> A compromise of system integrity. Where an application passes text into the framework through the affected interface, the same heap allocation can be released more than once. Double free, invalid free and use-after-free are all undefined behavior, and may result in a crash or in memory corruption of the running application.   
+</p><p><b>Affected versions:</b> From Qt for MCUs 2.12.1 to Qt for MCUs 2.12.2   
+</p><p><b>Fixed:</b> MCUs 2.12.3
+</p>
+<h3><span class="mw-headline" id="CVE-2026-95509:">CVE-2026-95509:</span></h3>
+<p><b>An out-of-bounds read vulnerability in the String.arg() string formatting function of Qt for MCUs.</b>
+</p><p><b>Impact:</b> Application integrity and availability may be affected. When a Latin-1 optimized string containing Latin-1 characters is formatted with String.arg(), the resulting text may be rendered incorrectly, and in some cases the application may terminate unexpectedly.  
+</p><p><b>Affected versions:</b> From Qt for MCUs 2.6.0 to Qt for MCUs 2.11.2, from Qt for MCUs 2.12.0 to Qt for MCUs 2.12.2  
+</p><p><b>Fixed:</b> Qt for MCUs 2.11.3 and 2.12.3
+</p>
+<h3><span class="mw-headline" id="CVE-2026-19395:">CVE-2026-19395:</span></h3>
+<p><b>An empty <code>&lt;img&gt;</code> attribute value in styled text triggers a parser error that halts the device.</b>
+</p><p><b>Impact:</b> The device will halt when triggered which might cause unavailability of service for devices in the field.  
+</p><p><b>Affected versions:</b> From 2.12.0 to 2.12.2 
+</p><p><b>Fixed:</b> Qt for MCUs 2.12.3
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20261026115857
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.023 seconds
+Real time usage: 0.044 seconds
+Preprocessor visited node count: 165/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key heroku_app_db:pcache:idhash:10902-0!canonical and timestamp 20261026115903 and revision id 46827. Rendering was triggered because: edit-page
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://wiki.qt.io/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;oldid=46827">https://wiki.qt.io/index.php?title=List_of_known_vulnerabilities_in_Qt_products&amp;oldid=46827</a>"</div></div>
+					<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 26 October 2026, at 11:58.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/Qt_Wiki:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/Qt_Wiki:About">About Qt Wiki</a></li>
+	<li id="footer-places-disclaimers"><a href="/Qt_Wiki:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="/resources/assets/poweredby_mediawiki.svg" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+<div class="vector-settings" id="p-dock-bottom">
+	<ul></ul>
+</div><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":89,"wgPageParseReport":{"limitreport":{"cputime":"0.023","walltime":"0.044","ppvisitednodes":{"value":165,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20261026115857","ttl":86400,"transientcontent":false}}});});</script>
+</body>
+</html>

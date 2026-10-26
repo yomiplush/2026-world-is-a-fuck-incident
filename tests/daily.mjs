@@ -50,12 +50,12 @@ try {
   }
   await cdp('Emulation.setScriptExecutionDisabled', { value: false });
   await open('/?lang=ja');
-  assert.equal(await run('document.querySelector(".latest-update").getAttribute("href")'), './update-20261026-1456.html');
+  assert.equal(await run('document.querySelector(".latest-update").getAttribute("href")'), './update-20261026-2135');
   assert.equal(await run('typeof CONTENT'), 'undefined', 'entry still defers briefing');
   await open('/?lang=ja&still=1#49');
   for (let i = 0; i < 80 && !(await run('window.__booted === true')); i++) await pause(50);
-  assert.equal(await run('CONTENT.scenes.length'), 55);
-  assert.ok(await run('document.getElementById("asof").textContent.includes("2026-10-26 14:56")'));
+  assert.equal(await run('CONTENT.scenes.length'), 57);
+  assert.ok(await run('document.getElementById("asof").textContent.includes("2026-10-26 21:35")'));
   assert.ok(await run('document.getElementById("title").textContent.includes("10:27")'));
   assert.equal(await run('window.__drawErr'), null);
   console.log('10 daily pages without JS, date navigation, sources, 4 widths, latest entry and morning scene passed');
