@@ -13,14 +13,14 @@ try {
  await cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
  await open('/tailworm.html?lang=ja','!!document.getElementById("actions") && !!window.TAILWORM_LANGUAGE_READY');
  assert.ok(await run('!!document.getElementById("lang-select")'),'Tailworm needs its own language dropdown');
- const codes=['en','ja','zh','ko','es','fr','de','pt','ru','ar','hi','id','uk'];
+ const codes=['en','ja','zh','ko','es','fr','de','pt','ru','ar','hi','id','uk','pl','sv'];
  await run('document.getElementById("privacy-reject")?.click();true');
  for (const code of codes) {
   await run(`document.getElementById('lang-select').value=${JSON.stringify(code)};document.getElementById('lang-select').dispatchEvent(new Event('change'));true`);
   for(let i=0;i<100;i++){await new Promise(r=>setTimeout(r,50));if(await run('document.documentElement.dataset.locale === '+JSON.stringify(code)+' && !!window.TAILWORM_LANGUAGE_READY'))break;}
   assert.equal(await run('document.documentElement.dataset.locale'),code,'locale did not change: '+code);
   assert.equal(await run('document.getElementById("lang-select").value'),code);
-  assert.equal(await run('document.getElementById("lang-select").options.length'),13);
+  assert.equal(await run('document.getElementById("lang-select").options.length'),15);
   assert.equal(await run('document.documentElement.dir'),code==='ar'?'rtl':'ltr');
   assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,code+' horizontal overflow');
   assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'rejected storage must not persist '+code);
@@ -54,8 +54,8 @@ try {
   await open(code==='ja'?'/tailworm.html':'/tailworm.'+code+'.html','!!document.getElementById("actions")');
   assert.equal(await run('document.documentElement.dataset.locale'),code,'static locale missing '+code);
   assert.ok(await run('document.querySelector("h1").textContent.length>10'));
-  assert.equal(await run('document.querySelectorAll(".language-fallback a").length'),13,'no-JS language links');
+  assert.equal(await run('document.querySelectorAll(".language-fallback a").length'),15,'no-JS language links');
  }
  await cdp('Emulation.setScriptExecutionDisabled',{value:false});
- console.log('Tailworm:13 translated static locales at4sizes, native dropdown, RTL, shared links and consent passed');
+ console.log('Tailworm:15 translated static locales at4sizes, native dropdown, RTL, shared links and consent passed');
 } finally {await cdp('Emulation.setScriptExecutionDisabled',{value:false});ws.close();}

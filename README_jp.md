@@ -9,7 +9,7 @@
 - **Frappe Builder / Apache Camel：** Builder 1.36.1はFrappe v16.36.1以降が必要です。CamelのDoclingで外部入力が出力先へ影響する場合は、**更新後もoutputBaseDirectoryの設定が必要**です。機能と修正系列を照合してください。[条件と対処](docs/research-collection-2026-10-26-2135.md)
 - **ブラストメール / ホテルタビノス：** ブラストメールは配信先関連情報の対象が**345契約**に増え、再開時刻は未定。タビノスは一部予約に関する不審な支払メッセージを案内しています。予約内容を知る相手でも、公式窓口から確認してください。[国内の続報](docs/research-2026-10-26-2135.md)
 - **PHP / Brotli / 境界機器：** 更新と侵害調査を継続。JPCERT/CCの追記と、同梱decoder・実行中の版を確認してください。.NET NativeAOTは共有runtimeの更新だけではdecoderが置換されません。[JPCERT/CC PHP](https://www.jpcert.or.jp/at/2026/at260033.html) / [Brotli](https://www.jpcert.or.jp/at/2026/at260034.html)
-- **LiteLLM / Railway / ConnectWise / Tailscale：** 鍵・権限・利用ログの点検を継続。ConnectWiseの再開目標を再接続許可とせず、Tailwormのソース変更を配布済み修正と判断しないでください。[継続状況](docs/research-2026-10-26-2135.md) / [12言語のTailworm特集](https://www.infosec-briefing.net/tailworm)
+- **LiteLLM / Railway / ConnectWise / Tailscale：** 鍵・権限・利用ログの点検を継続。ConnectWiseの再開目標を再接続許可とせず、Tailwormのソース変更を配布済み修正と判断しないでください。[継続状況](docs/research-2026-10-26-2135.md) / [15言語のTailworm特集](https://www.infosec-briefing.net/tailworm)
 
 **[最新の読むレポート](https://www.infosec-briefing.net/update-20261026-2135) · [時系列の日付別一覧](https://www.infosec-briefing.net/timeline) · [構造化索引](data/2026-10-26-2135/incident-register.json) · [最新データの参照先](data/latest.json) · [このサイトについて](https://www.infosec-briefing.net/about)**
 
@@ -27,7 +27,7 @@
 
 **10月25日 23:18 JST基準。** 接続を許可した後のSSH転送・Unix権限、headscale、conn25、Serve/Funnelを機能別に確認。研究者の実験室報告とベンダー応答を分け、今日の暫定対策を整理しました。**1.104.2はTailworm修正版とは確認できません。**
 
-**ページ上部のプルダウンで12言語に切り替えられます。**
+**ページ上部のプルダウンで15言語に切り替えられます。**
 
 **[特集を読む](https://infosec-briefing.yomiplush.dev/tailworm.html) · [6画面のモーション特集](https://infosec-briefing.yomiplush.dev/?lang=ja#41) · [リポジトリの詳細・出典](docs/27-tailworm.ja.md)**
 
@@ -110,8 +110,8 @@ bash tools/copy-prompt.sh intel ja   # 判断用プロンプト（日本語・�
 [`docs/21`](docs/21-snapshot-1036jst.ja.md) / [`docs/22`](docs/22-snapshot-2015jst.ja.md): Infinity Core、
 開示の盲点、エコシステム、Node2Shell、開示前の試行、CNA の 9.9 が通らないフィルタ、CVE 一覧が
 名指ししない4件、PHP の後続 CVE-2026-115560）。全34シーン、すべての図を実3Dで構築（ドラッグ／スワイプで視点を回転、ダブルタップで正面に戻る）、効果音と infosec.mp3 のBGM。音が出ます（右上の SOUND で消せます）。
-**言語はプルダウンで12言語**（English / 日本語 / 中文 / 한국어 /
-Español / Français / Deutsch / Português / Русский / العربية / हिन्दी / Bahasa Indonesia。`?lang=` / `L` キー）。
+**言語はプルダウンで15言語**（English / 日本語 / 中文 / 한국어 /
+Español / Français / Deutsch / Português / Русский / العربية / हिन्दी / Bahasa Indonesia / Українська / Polski / Svenska。`?lang=` / `L` キー）。
 スマホはタップで進む／ドラッグで視点回転、PCはスペース／←→とドラッグで視点回転。
 
 対応用は「まず読み取り専用」「§2-3 の表で分岐」「バージョンは実行中のバイナリで確認」

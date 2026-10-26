@@ -1,6 +1,6 @@
 ## Native language dropdowns
 
-Motion and Tailworm offer13major languages, including Ukrainian, through native dropdowns. The searchable dialog and200+language expansion have been removed. `content/site-languages.json` owns the bounded language list. Ukrainian covers all57motion scenes, Tailworm prose and the current37-topic database. Other existing motion locales may retain English fallback for some later scenes.
+Motion and Tailworm offer 15 major languages, including Ukrainian, Polish and Swedish, through native dropdowns. The searchable dialog and200+language expansion have been removed. `content/site-languages.json` owns the bounded language list. Ukrainian, Polish and Swedish cover all 57 motion scenes, Tailworm prose and the current 37-topic database. Other existing motion locales may retain English fallback for some later scenes.
 
 Database dropdowns list complete stored translations only. `/languages` provides three simple dropdowns and no-JavaScript links. No external translation service is called. Consent-managed optional language preferences remain available.
 

@@ -2,8 +2,8 @@
   "snapshot": "2026-10-26-2135",
   "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3",
   "register_hash": "fe134a9745b1c69c9242f9fe22aa2566f98f636814d61d797d69b4c3ca154ebd",
-  "target_count": 13,
-  "ready_count": 6,
+  "target_count": 15,
+  "ready_count": 8,
   "note": "Only complete source-matched Codex translations are published. Pending/unsupported languages are never filled with another language.",
   "languages": [
     {
@@ -135,6 +135,26 @@
       "ja": "ウクライナ語",
       "status": "translated",
       "url": "/database.uk"
+    },
+    {
+      "code": "pl",
+      "native": "Polski",
+      "html": "pl",
+      "dir": "ltr",
+      "en": "Polish",
+      "ja": "ポーランド語",
+      "status": "translated",
+      "url": "/database.pl"
+    },
+    {
+      "code": "sv",
+      "native": "Svenska",
+      "html": "sv",
+      "dir": "ltr",
+      "en": "Swedish",
+      "ja": "スウェーデン語",
+      "status": "translated",
+      "url": "/database.sv"
     }
   ]
 }
