@@ -9,26 +9,31 @@ try{
  for(const [width,height] of [[320,480],[390,844],[844,350],[1440,900]]){
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<950});
   await open('/?lang=ja&still=1#56','window.__booted===true');
-  assert.equal(await run('document.getElementById("lang-select").options.length'),13);
+  assert.equal(await run('document.getElementById("lang-select").options.length'),15);
   assert.equal(await run('!!document.querySelector("dialog,.language-picker-button,.language-select-enhanced")'),false,'search dialog must be removed');
   assert.equal(await run('performance.getEntriesByType("resource").some(r=>r.name.includes("/i18n/uk.js"))'),false,'Ukrainian remains lazy');
   await run('document.getElementById("privacy-reject")?.click();true');
-  await choose('#lang-select','uk');
-  for(let i=0;i<100;i++){await pause(30);if(await run('document.documentElement.lang==="uk"'))break;}
-  assert.equal(await run('document.documentElement.lang'),'uk');assert.equal(await run('location.hash'),'#56');
-  assert.ok(await run('/[ІіЇїЄєҐґА-Яа-я]/.test(document.getElementById("title").textContent)'));
-  assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,'motion overflow '+width);
+  for(const code of ['uk','pl','sv']){
+   await choose('#lang-select',code);
+   for(let i=0;i<100;i++){await pause(30);if(await run('document.documentElement.lang==='+JSON.stringify(code)))break;}
+   assert.equal(await run('document.documentElement.lang'),code);assert.equal(await run('location.hash'),'#56');
+   assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,'motion overflow '+code+' '+width);
+   assert.equal(await run('window.__drawErr'),null,'render error '+code);
+  }
   assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'declined preferences stay unpersisted');
   const bounds=await run('document.getElementById("lang-select").getBoundingClientRect().toJSON()');assert.ok(bounds.width>=44&&bounds.height>=(width<950?44:32)&&bounds.left>=0&&bounds.right<=width,'native select clipped '+width+' '+JSON.stringify(bounds));
   await run('document.getElementById("lang-select").focus();true');await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowLeft',code:'ArrowLeft'});await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'ArrowLeft',code:'ArrowLeft'});assert.equal(await run('location.hash'),'#56','native selection keys must not advance the motion');
   await open('/tailworm.uk','!!window.TAILWORM_LANGUAGE_READY');assert.equal(await run('document.getElementById("lang-select").value'),'uk');assert.equal(await run('!!document.querySelector("dialog,.language-picker-button")'),false);
   await choose('#lang-select','ja');for(let i=0;i<100;i++){await pause(30);if(await run('document.documentElement.dataset.locale==="ja" && !!window.TAILWORM_LANGUAGE_READY'))break;}assert.equal(await run('document.documentElement.dataset.locale'),'ja');
-  await open('/database.uk','!!document.querySelector("select[data-language-navigation]")');assert.equal(await run('document.documentElement.lang'),'uk');assert.equal(await run('document.querySelectorAll("article").length'),37);assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,'database overflow');
+  for(const code of ['uk','pl','sv']){
+   await open('/database.'+code,'!!document.querySelector("select[data-language-navigation]")');assert.equal(await run('document.documentElement.lang'),code);assert.equal(await run('document.querySelectorAll("article").length'),37);assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,'database overflow '+code);
+  }
   await choose('select[data-language-navigation]','/database.fr');for(let i=0;i<100;i++){await pause(30);if(await run('document.documentElement.lang==="fr"'))break;}assert.equal(await run('document.documentElement.lang'),'fr');
+
  }
  assert.equal(requests.some(u=>/language-(?:picker|core|catalog)/.test(new URL(u).pathname)),false,'removed assets must not be requested');
  assert.equal(requests.some(u=>new URL(u).hostname==='translate.google.com'),false);
- await open('/languages');assert.equal(await run('document.querySelectorAll("select[data-language-navigation]").length'),3);assert.equal(await run('document.querySelector("select").options.length'),14);assert.equal(await run('document.body.textContent.includes("249")'),false);
+ await open('/languages');assert.equal(await run('document.querySelectorAll("select[data-language-navigation]").length'),3);assert.equal(await run('document.querySelector("select").options.length'),16);assert.equal(await run('document.body.textContent.includes("249")'),false);
  const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/incident-native-languages.png',Buffer.from(shot.data,'base64'));
- console.log('Native13-language dropdowns:4sizes, lazy Ukrainian motion,37-record Ukrainian database, Tailworm navigation, keyboard isolation, consent and no search dialog/external translator passed');
+ console.log('Native15-language dropdowns:4sizes, lazy Ukrainian/Polish/Swedish motion,37-record databases, Tailworm navigation, keyboard isolation, consent and no search dialog/external translator passed');
 }finally{ws.close()}

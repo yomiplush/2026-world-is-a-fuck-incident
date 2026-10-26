@@ -81,6 +81,18 @@ window.LANGUAGES = [
     "native": "Українська",
     "html": "uk",
     "dir": "ltr"
+  },
+  {
+    "code": "pl",
+    "native": "Polski",
+    "html": "pl",
+    "dir": "ltr"
+  },
+  {
+    "code": "sv",
+    "native": "Svenska",
+    "html": "sv",
+    "dir": "ltr"
   }
 ];
 

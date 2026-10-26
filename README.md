@@ -2,7 +2,7 @@
 
 **忙しい人向け（日本語・10/26 21:35 JST）：** 公開システムの更新・侵害調査と鍵の失効を継続し、GMOの21:00案内、対象パッケージ、国内サービスの個別通知を確認してください。**[日本語の1分要約](README_jp.md)**
 
-**Languages:** [Choose a language](https://www.infosec-briefing.net/languages). Motion and Tailworm use native dropdowns for13major languages, including Ukrainian. [Stored database translations and maintenance](docs/translations/README.md).
+**Languages:** [Choose a language](https://www.infosec-briefing.net/languages). Motion and Tailworm use native dropdowns for 15 major languages, including Ukrainian, Polish and Swedish. [Stored database translations and maintenance](docs/translations/README.md).
 
 ## For busy readers — one minute (2026-10-26 21:35 JST cutoff)
 
@@ -13,7 +13,7 @@
 - **Frappe Builder / Apache Camel:** Builder 1.36.1 requires Frappe v16.36.1 or later. Camel’s Docling routes with externally influenced output paths need **outputBaseDirectory set after upgrading**. Match the affected features and release lines. [Conditions and fixes](docs/research-collection-2026-10-26-2135.md)
 - **Blastmail / Hotel Tavinos:** Blastmail’s recipient-data follow-up covers **345 contracts**, with restart time still unknown. Tavinos describes suspicious payment messages affecting some reservations; verify requests through official channels, even when the sender knows booking details. [Domestic notices](docs/research-2026-10-26-2135.md)
 - **PHP / Brotli / edge systems:** continue updates and compromise checks. JPCERT/CC updated its guidance; check bundled decoders and the running version. For .NET NativeAOT, updating the shared runtime alone does not replace the decoder. [JPCERT/CC PHP](https://www.jpcert.or.jp/at/2026/at260033.html) / [Brotli](https://www.jpcert.or.jp/at/2026/at260034.html)
-- **LiteLLM / Railway / ConnectWise / Tailscale:** continue credential, permission and log reviews. A restoration target does not authorize ConnectWise reconnection, and source changes do not establish a shipped Tailworm fix. [Continuing findings](docs/research-2026-10-26-2135.md) / [12-language Tailworm feature](https://www.infosec-briefing.net/tailworm)
+- **LiteLLM / Railway / ConnectWise / Tailscale:** continue credential, permission and log reviews. A restoration target does not authorize ConnectWise reconnection, and source changes do not establish a shipped Tailworm fix. [Continuing findings](docs/research-2026-10-26-2135.md) / [15-language Tailworm feature](https://www.infosec-briefing.net/tailworm)
 
 **[日本語の1分要約](README_jp.md) · [Latest reading report (Japanese)](https://www.infosec-briefing.net/update-20261026-2135) · [Chronological archive](https://www.infosec-briefing.net/timeline) · [Structured register](data/2026-10-26-2135/incident-register.json) · [Dataset pointer](data/latest.json) · [About this project](https://www.infosec-briefing.net/about)**
 
