@@ -5,7 +5,7 @@
 .hud-top { direction:ltr }
 .hud-left { min-width:0 }
 .chapter { min-width:0; overflow:hidden; text-overflow:ellipsis }
-.panel { min-height:0 }
+.panel { min-height:0; background:rgba(8,17,27,.64); text-shadow:0 2px 5px #000 }
 body #app { height:var(--app-height,100dvh) }
 #stage,.cover { bottom:auto; height:var(--app-height,100dvh) }
 .drawer { inset-block-end:auto; height:var(--app-height,100dvh) }
@@ -93,7 +93,7 @@ body #app { height:var(--app-height,100dvh) }
   .hud-right .langwrap { flex:1; min-width:44px }
   .langselect { width:100%; max-width:none }
   .hud-right .chip { flex-shrink:0 }
-  .panel { max-height:min(45dvh,100%); background:#08111b; text-shadow:none }
+  .panel { max-height:min(45dvh,100%); background:rgba(8,17,27,.64); text-shadow:0 2px 5px #000 }
 }
 
 @media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
@@ -102,5 +102,5 @@ body #app { height:var(--app-height,100dvh) }
   .hud-right { flex:1; min-width:0 }
   .hud-right .langwrap { flex:1; min-width:44px }
   .langselect { width:100%; max-width:none }
-  .panel { max-height:100%; background:#08111b }
+  .panel { max-height:100%; background:rgba(8,17,27,.64) }
 }

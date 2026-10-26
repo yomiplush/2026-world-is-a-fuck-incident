@@ -89,7 +89,7 @@ try {
       const layout=await run(`(() => {const c=document.getElementById('scene').getBoundingClientRect(),p=document.getElementById('panel'),b=p.getBoundingClientRect(),a=document.getElementById('repo-link'),r=a.getBoundingClientRect();return {canvasBottom:c.bottom,panelTop:b.top,brave:document.documentElement.dataset.browser==="brave",canvasVisible:getComputedStyle(document.getElementById("scene")).visibility!=="hidden",bg:getComputedStyle(p).backgroundImage,bgc:getComputedStyle(p).backgroundColor,opacity:getComputedStyle(p).opacity,href:a.href,svg:!!a.querySelector('svg'),right:r.right,top:r.top}})()`);
       assert.equal(layout.href,'https://github.com/yomiplush/2026-world-is-a-fuck-incident');
       assert.ok(layout.svg && layout.right<=width && layout.right>width-60 && layout.top<=44,'GitHub must remain at top right');
-      if(width<500){if(layout.brave){if(layout.canvasVisible)assert.ok(layout.canvasBottom<=layout.panelTop-6,'Brave phone diagram must stay above copy');}else assert.ok(layout.canvasBottom>layout.panelTop+64,'standard phone diagram must extend behind copy');assert.equal(layout.bgc,'rgb(8, 17, 27)','mobile copy must have an opaque surface above diagram labels');assert.equal(layout.opacity,'1','copy must remain opaque');}
+      if(width<500){assert.ok(layout.canvasBottom>layout.panelTop+64,'phone diagram must remain visible behind translucent copy');assert.equal(layout.bgc,'rgba(8, 17, 27, 0.64)','only the panel background should be translucent');assert.equal(layout.opacity,'1','copy must remain opaque');}
       for (let i=0;i<sceneCount;i++) {
         const state=await run(`(() => {
           const panel=document.getElementById('panel'), box=panel.getBoundingClientRect();
