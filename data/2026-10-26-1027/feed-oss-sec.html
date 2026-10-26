@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Mon, 26 Oct 2026 00:30:03 GMT</pubDate>
+    <lastBuildDate>Mon, 26 Oct 2026 00:30:03 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>Starman versions before 0.4019 for Perl (4 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/388</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 25&lt;/p&gt;CVE-2026-115817&lt;br&gt;
+   Starman versions before 0.4019 for Perl allow a stalled request body&lt;br&gt;
+   to hold a worker indefinitely, as read_timeout covers only the&lt;br&gt;
+   headers&lt;br&gt;
+&lt;br&gt;
+CVE-2026-115822&lt;br&gt;
+   Starman versions before 0.4019 for Perl allow CPU exhaustion via&lt;br&gt;
+   quadratic regex backtracking when parsing chunked request bodies&lt;br&gt;
+&lt;br&gt;
+CVE-2026-115823&lt;br&gt;
+   Starman versions before 0.4019 for Perl send response bodies for HEAD&lt;br&gt;
+   requests, desynchronizing...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:29:00 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/388</guid>
+  </item>
+  <item>
+    <title>CVE-2026-115825: HTTP::Server::PSGI versions before 1.0056 for Perl allow a single request to crash the server by declaring a large Content-Length</title>
+    <link>https://seclists.org/oss-sec/2026/q4/387</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 25&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-115825                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-115825&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Plack&lt;br&gt;
+       Versions:  before 1.0056&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Plack&quot;&gt;https://metacpan.org/dist/Plack&lt;/a&gt;&lt;br&gt;
+       VCS Repo:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/plack/Plack&quot;&gt;https://github.com/plack/Plack&lt;/a&gt;...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:27:14 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/387</guid>
+  </item>
+  <item>
+    <title>Re: PHP 5.4.23 (custom 5.4-5.6) backported patch for PHP2Shell OOM vulnerability (CVE-2026-109618)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/386</link>
+    <description>&lt;p&gt;Posted by Demi Marie Obenour on Oct 25&lt;/p&gt;In light of the size of the upstream patch, would it be better to handle out of memory by crashing the process instead?&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:25:27 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/386</guid>
+  </item>
+  <item>
+    <title>CVE-2020-37268: Rocq/Coq Print Assumptions omits unsafe universe checking inlined through Parameter Inline (0 = 1 demonstrated) — unfixed since 2020</title>
+    <link>https://seclists.org/oss-sec/2026/q4/385</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness-audit bypass in the Rocq (formerly Coq) module system&lt;br&gt;
+allows construction of a proof of False that Print Assumptions reports&lt;br&gt;
+as closed under the global context — no axioms, no unsafe flags visible.&lt;br&gt;
+&lt;br&gt;
+When a module type declares Parameter Inline and functor application&lt;br&gt;
+inlines the parameter&amp;apos;s body, the metadata recording that the original&lt;br&gt;
+definition was produced under Unset Universe Checking is dropped....&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:23:42 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/385</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72714: Rocq universe checking state desynchronised after module close (0 = 1 demonstrated) — 0-day</title>
+    <link>https://seclists.org/oss-sec/2026/q4/384</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Rocq (formerly Coq) kernel allows construction&lt;br&gt;
+of a checked proof of False — and by extension, any proposition,&lt;br&gt;
+including 0 = 1 — without axioms, plugins, or unsafe flags. Print&lt;br&gt;
+Assumptions reports the proof as closed under the global context.&lt;br&gt;
+&lt;br&gt;
+The module system does not correctly restore the universe checking flag&lt;br&gt;
+when a module that locally disabled the check (`Local Unset Universe&lt;br&gt;
+Checking`) is...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:21:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/384</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72705: Rocq guard checker accepts fixpoint passed as higher-order argument (0 = 1 demonstrated)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/383</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Rocq (formerly Coq) kernel&amp;apos;s guard checker allows&lt;br&gt;
+construction of a checked proof of False — and by extension, any&lt;br&gt;
+proposition, including 0 = 1 — without axioms, tactics, plugins, or&lt;br&gt;
+unsafe flags. Print Assumptions reports the proof as closed under the&lt;br&gt;
+global context.&lt;br&gt;
+&lt;br&gt;
+The guard checker does not track recursive calls made through a&lt;br&gt;
+fixpoint&amp;apos;s own arguments. A fixpoint can pass itself to...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:20:10 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/383</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72704: Rocq guard checker trusts corrupted recursive tree after transport (0 = 1 demonstrated) — 0-day</title>
+    <link>https://seclists.org/oss-sec/2026/q4/382</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Rocq (formerly Coq) kernel&amp;apos;s guard checker allows&lt;br&gt;
+construction of a checked proof of False — and by extension, any&lt;br&gt;
+proposition, including 0 = 1.&lt;br&gt;
+&lt;br&gt;
+The guard checker does not recheck the recursive tree (rectree) for an&lt;br&gt;
+inductive type parameter after a transport (rewrite via eq_rect/rew)&lt;br&gt;
+changes that parameter. A fixpoint applies a rewrite along a type&lt;br&gt;
+equality to its recursive argument; the...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:18:21 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/382</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72703: Rocq guard checker accepts non-terminating fixpoint via unchecked cross-calls (0 = 1 demonstrated)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/381</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Rocq (formerly Coq) kernel&amp;apos;s guard checker allows&lt;br&gt;
+construction of a checked proof of False — and by extension, any&lt;br&gt;
+proposition, including 0 = 1 — without axioms, tactics, plugins, or&lt;br&gt;
+unsafe flags. Print Assumptions reports the proof as closed under the&lt;br&gt;
+global context.&lt;br&gt;
+&lt;br&gt;
+The guard checker treats all parameters of a nested mutual fixpoint as&lt;br&gt;
+uniform without examining cross-calls between the...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:16:35 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/381</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72711: Lean 4 kernel soundness bug — inference cache poisoning via opaque declarations (0 = 1 demonstrated)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/380</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Lean 4 kernel allows construction of a checked&lt;br&gt;
+proof of False — and by extension, any proposition, including 0 = 1 —&lt;br&gt;
+without axioms, sorry, unsafeCast, debug.skipKernelTC, or modified&lt;br&gt;
+.olean files. The proof passes the kernel at maximum checking (--trust=0).&lt;br&gt;
+&lt;br&gt;
+The kernel&amp;apos;s add_opaque path skips the closure check&lt;br&gt;
+(check_no_metavar_no_fvar) that the definition and theorem paths&lt;br&gt;
+perform. A stale...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:14:41 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/380</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72844: Lean 4 kernel soundness bug — forging proofs via nested inductive projections (0 = 1 demonstrated)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/379</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Lean 4 kernel allows construction of a checked&lt;br&gt;
+proof of False — and by extension, any proposition, including 0 = 1 —&lt;br&gt;
+without axioms, sorry, unsafeCast, or modified .olean files.&lt;br&gt;
+&lt;br&gt;
+The kernel does not verify that the structure named in a projection&lt;br&gt;
+expression matches the type of the value being projected. Additionally,&lt;br&gt;
+environment::add_inductive in src/kernel/inductive.cpp did not type-check&lt;br&gt;
+nested...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:12:48 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/379</guid>
+  </item>
+  <item>
+    <title>CVE-2025-60477: GPAC/MP4Box: NULL Pointer Dereference in gf_filter_pid_resolve_file_template_ex on crafted MP4 with special metadata</title>
+    <link>https://seclists.org/oss-sec/2026/q4/378</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Oct 25&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  gpac/gpac prior to fix commit (see References)&lt;br&gt;
+CVE:       CVE-2025-60477&lt;br&gt;
+CWE:       CWE-476 (NULL Pointer Dereference)&lt;br&gt;
+CVSS 3.1:  4.3 MEDIUM (AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L)&lt;br&gt;
+Reporter:  sigdevel &amp;lt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://infosec.exchange/@sigdevel&quot;&gt;https://infosec.exchange/@sigdevel&lt;/a&gt;&amp;gt;&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  The gf_filter_pid_resolve_file_template_ex function in filter_core/filter_pid.c&lt;br&gt;
+  is responsible for resolving output file name templates during DASH...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:10:40 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/378</guid>
+  </item>
+
+
+  <item>
+    <title>CVE-2025-60493: GPAC/MP4Box: NULL Pointer Dereference in check_media_profile via Crafted MP4 Input</title>
+    <link>https://seclists.org/oss-sec/2026/q4/377</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Oct 24&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  2.5-DEV-rev1699-g31becc9e0-master&lt;br&gt;
+           Commit 31becc9e08b88e525a4a62013a4000de1c0f8fd9&lt;br&gt;
+Fixed:     9afeea23f5c6584c02aefe1e1560c2844dfb8f7e&lt;br&gt;
+CVE:       CVE-2025-60493&lt;br&gt;
+CWE:       CWE-476 (NULL Pointer Dereference)&lt;br&gt;
+CVSS 3.1:  4.3 MEDIUM (AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L; third-party assessment)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  MP4Box dereferences a near-NULL pointer in...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:29:50 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/377</guid>
+  </item>
+  <item>
+    <title>PHP 5.4.23 (custom 5.4-5.6) backported patch for PHP2Shell OOM vulnerability (CVE-2026-109618)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/376</link>
+    <description>&lt;p&gt;Posted by Roman Kuligin on Oct 24&lt;/p&gt;Hello, I have developed a backported .patch for EOL versions of PHP (specifically PHP 5.4, 5.5, and 5.6) to mitigate &lt;br&gt;
+the critical PHP2Shell Out-of-Memory (OOM) vulnerability (CVE-2026-109618 / CVE-2026-109619). Since these legacy &lt;br&gt;
+versions are no longer supported by the upstream PHP team, this patch updates the internal memory allocation model to &lt;br&gt;
+prevent memory exhaustion and crashes during file upload progress tracking. The patch and...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:27:47 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/376</guid>
+  </item>
+  <item>
+    <title>Re: openjpeg 2.4.0 through 2.5.4 and git master: heap buffer overflow in opj_dwt_encode_and_deinterleave_v() (reversible 5/3 forward DWT, encoder)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/375</link>
+    <description>&lt;p&gt;Posted by Security @ Red Eagle Tech on Oct 24&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+CVE-2026-107080 has been assigned to the issue reported here on&lt;br&gt;
+5 October 2026. MITRE&amp;apos;s description:&lt;br&gt;
+&lt;br&gt;
+  OpenJPEG 2.4.0 through 2.5.4, and git master through commit 8314119b,&lt;br&gt;
+  contains an out-of-bounds read and write in&lt;br&gt;
+  opj_dwt_encode_and_deinterleave_v() in src/lib/openjp2/dwt.c. This&lt;br&gt;
+  allows an attacker to cause a denial of service.&lt;br&gt;
+&lt;br&gt;
+Nothing else has changed since the original post. The fix proposed&lt;br&gt;
+upstream has not been merged,...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:25:46 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/375</guid>
+  </item>
+  <item>
+    <title>CVE-2026-111813 etc: Multiple vulnerabilities in Apache Traffic Server prior to 9.2.16/10.1.5/10.2.1</title>
+    <link>https://seclists.org/oss-sec/2026/q4/374</link>
+    <description>&lt;p&gt;Posted by Valtteri Vuorikoski on Oct 24&lt;/p&gt;Announcement below was posted to the Apache Traffic Server mailing lists a few&lt;br&gt;
+days ago.&lt;br&gt;
+&lt;br&gt;
+----- Forwarded message from Masakazu Kitajo &amp;lt;maskit () apache org&amp;gt; -----&lt;br&gt;
+&lt;br&gt;
+Date: Tue, 20 Oct 2026 20:07:34 -0600&lt;br&gt;
+From: Masakazu Kitajo &amp;lt;maskit () apache org&amp;gt;&lt;br&gt;
+To: announce () trafficserver apache org,  users &amp;lt;users () trafficserver apache org&amp;gt;&lt;br&gt;
+Subject: [SECURITY] Multiple vulnerabilities fixed in Apache Traffic Server&lt;br&gt;
+ 9.2.16, 10.1.5 and...&lt;br&gt;</description>
+    <pubDate>Sat, 24 Oct 2026 22:23:33 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/374</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

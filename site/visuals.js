@@ -678,6 +678,56 @@ window.VISUALS = (function () {
     label(g,[0,260,80],'RESTORATION TARGET ≠ RECONNECT PERMISSION',C.steel,10);g.flush();
   };
 
+  // October 26: explanatory models, not a live activity feed.
+  scenes.morningEvidence = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.15,pitch:.52});
+    const a=[-330,45,70],b=[0,-80,-20],c=[330,45,70];
+    node(g,a,'OBSERVATIONS',C.cyan,t,0,{hx:105,hy:80,hz:65});
+    node(g,b,'VERIFY SOURCE',C.amber,t,1,{hx:100,hy:115,hz:70});
+    node(g,c,'ATTRIBUTION',C.steel,t,2,{hx:95,hy:55,hz:65});
+    flow(g,a,b,t,C.cyan,0,.14);wire(g,b,c,C.steel);
+    gate(g,[180,0,30],C.amber,'NOT CONFIRMED');
+    heading(g,'28 PUBLISHED / 4276 MODIFIED / OVERLAP',C.cyan);
+    label(g,[0,270,60],'ATTEMPT ≠ COMPROMISE ≠ INITIAL ACCESS',C.amber,11);g.flush();
+  };
+  scenes.socketRepair = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.24,pitch:.55});
+    const a=[-320,15,0],b=[0,15,0],c=[330,15,0];
+    node(g,a,'IPv4',C.cyan,t,0,{hx:80,hy:70,hz:60});
+    node(g,b,'CACHED BUFFER',C.red,t,1,{hx:105,hy:35,hz:45});
+    node(g,c,'IPv6',C.amber,t,2,{hx:95,hy:115,hz:70});
+    flow(g,a,b,t,C.cyan,0,.2);flow(g,c,b,t,C.red,.5,.2);
+    for(let i=0;i<4;i++)g.box(-70+i*45,115,0,16,5,36,i<2?C.green:C.red,{alpha:.75});
+    ring(g,b,150,C.amber,'xy');
+    heading(g,'WINDOWS .NET / CVE-2026-70197',C.amber);
+    label(g,[0,275,70],'OOB FIX → REBUILD → VERIFY RUNTIME',C.green,11);g.flush();
+  };
+  scenes.embeddedPhp = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.25,pitch:.52});
+    g.box(80,20,0,300,180,150,C.steel,{alpha:.22,edge:.7});
+    g.box(80,20,0,210,125,110,C.cyan,{alpha:.25,edge:.65});
+    node(g,[80,20,0],'PHP',C.amber,t,0,{hx:80,hy:65,hz:60});
+    node(g,[-370,150,60],'VENDOR FIX',C.green,t,1,{hx:80,hy:50,hz:40});
+    flow(g,[-285,140,60],[-140,60,0],t,C.green,0,.12);
+    label(g,[80,-240,0],'RUGGEDCOM APE1808',C.steel,12);
+    label(g,[80,215,110],'PAN-OS / CHECK THE RELEASE LINE',C.cyan,11);
+    heading(g,'DEPENDENCIES INSIDE APPLIANCES',C.amber);g.flush();
+  };
+  scenes.datedArchive = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.56});
+    const pts=[];
+    for(let i=0;i<10;i++) {
+      const row=i<5?0:1,col=i<5?i:9-i;
+      const p=[-360+col*180,-110+row*265,(i%2)*25];pts.push(p);
+      const tone=i===9?C.amber:C.cyan;
+      g.box(p[0],p[1],p[2],65,60*enter(t,i*.05),18,tone,{alpha:.5,edge:.7});
+      label(g,[p[0],p[1]-90,p[2]],String(17+i),tone,16);
+      if(i)flow(g,pts[i-1],p,t,tone,i*.1,.09);
+    }
+    heading(g,'OCTOBER 17—26 / DAILY RECORD',C.amber);
+    label(g,[0,295,70],'OBSERVED / PUBLISHED / FIXED / REVISED',C.steel,11);g.flush();
+  };
+
   scenes.storm = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];

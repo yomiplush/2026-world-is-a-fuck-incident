@@ -1,8 +1,11 @@
 # ソースと再取得コマンド
 
+最新10/26 10:27 JST：[総まとめ](docs/29-snapshot-20261026-1027.ja.md) / [追加一次調査](docs/research-2026-10-26-1027.md) / [固定窓の範囲・重複](docs/research-collection-2026-10-26-1027.md) / [原本・URL・取得時刻・SHA-256](data/2026-10-26-1027/collection-summary.json)。再取得：`python3 tools/intel/snapshot-1027.py`。後取得の現行本文であり、過去版の完全再現ではありません。
+
+
 最新の夜間差分：[23:18広域調査](docs/28-snapshot-20261025-2318.ja.md)、[Tailworm特集](docs/27-tailworm.ja.md)、[URL・取得時刻・ハッシュ](data/2026-10-25-2318/collection-summary.json)、[全87件](data/2026-10-25-2318/nvd-index.json)。再取得：`python3 tools/intel/snapshot-2318.py`。
 
-最新の固定窓照会・取得時刻・出典: [10/25詳細](docs/25-snapshot-20261025.ja.md)、[調査ノート](docs/research-2026-10-25.md)、[パッケージ](docs/research-packages-2026-10-25.md)、[照会URL](data/2026-10-25/collection-summary.json)。
+前回の固定窓照会・取得時刻・出典: [10/25詳細](docs/25-snapshot-20261025.ja.md)、[調査ノート](docs/research-2026-10-25.md)、[パッケージ](docs/research-packages-2026-10-25.md)、[照会URL](data/2026-10-25/collection-summary.json)。
 
 [English](SOURCES.md) | [**日本語**](SOURCES.ja.md)
 

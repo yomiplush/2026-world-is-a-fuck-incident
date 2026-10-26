@@ -1,6 +1,6 @@
 # Briefing site — `site/`
 
-**Current: 49 scenes, 23:18 JST cutoff on October 25.** Tailworm special: `tailworm.html`, scenes #41–46. Latest report: `update-20261025-2318.html`. Earlier dated sections below record the site history.
+**Current: 53 scenes, October 26, 10:27 JST cutoff.** Latest report: `update-20261026.html`; dated archive: `timeline.html` and ten `day-YYYYMMDD.html` pages. Tailworm remains at #41–46; morning update #49–52; closing #53. Earlier dated sections below retain site history.
 
 A single-page, tap-to-advance motion-graphic briefing of the October 2026 incidents, in
 chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).
@@ -359,3 +359,10 @@ bilingual deep links. `tests/browser.mjs` covers all49 scenes, 196 renderer-size
 combinations,10 layouts and12 locales. Sources and captured response hashes
 live under `data/2026-10-25-2318/`; reproduce the fixed cutoff collection with
 `python3 tools/intel/snapshot-2318.py` (network required, later content revisions).
+
+
+## October 26 — daily reading companion and morning review
+
+`python3 tools/build-daily.py` generates the latest report, date archive and ten static dated pages from `data/2026-10-26-1027/daily-record.json`. No network or dependencies. All reading content and date navigation work without JavaScript; only the existing privacy preferences script is included. The existing lock/audio loading contract is retained. The four new motion scenes distinguish evidence/attribution, the .NET socket repair, embedded PHP and dated records. JA/EN copy; other locales fall back to English with the current cutoff.
+
+`node tests/daily.mjs` checks the ten-day reading journey without JS, source links, date state, four widths, current entry and scene #49. The existing browser suite checks all 53 scenes and renderer combinations. Run CDP/browser tests sequentially because they share a browser tab. Source notes and collection manifest are under `docs/` and `data/2026-10-26-1027/`; use `python3 tools/intel/snapshot-1027.py` for a fixed-window re-fetch with current revisions.

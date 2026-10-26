@@ -1,23 +1,24 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
+> **Latest review — 2026-10-26 10:27 JST:** [.NET OOB, Siemens/PAN-OS, Perl, AI/MCP and the PHP attribution correction](docs/29-snapshot-20261026-1027.md). 21 continuity groups and 45 archived primary responses. All 28 newly published NVD records overlap the 4,276 modified records; all 93 GHSAs are unreviewed. [Current actions](https://infosec-briefing.yomiplush.dev/update-20261026.html) / [Ten daily pages, October 17–26](https://infosec-briefing.yomiplush.dev/timeline.html). **53 scenes**, morning update starts at [#49](https://infosec-briefing.yomiplush.dev/?lang=en#49). Dated sections below are historical snapshots.
+
 ## Tailworm special — for Tailscale / headscale users
 
 **October 25, 23:18 JST cutoff.** Review enabled SSH and forwarding, headscale, experimental conn25 and Serve/Funnel. Researcher lab claims and the vendor response are distinguished. **1.104.2 is not a confirmed Tailworm fix.**
 
 **[Read the special](https://infosec-briefing.yomiplush.dev/tailworm.html) · [Six motion scenes](https://infosec-briefing.yomiplush.dev/?lang=en#41) · [English report](docs/27-tailworm.md)**
 
-> **Latest review — 2026-10-25 23:18 JST:** [Nightly broad review](docs/28-snapshot-20261025-2318.md). ConnectWise’s 23:00 update plus Snipe-IT, Parse Server, YesWiki, rclone, vLLM and more. Fixed-window NVD: 87 published / 87 modified, the same identifiers, not 174 incidents; 16 GHSA records and 17 feeds. [Provenance](data/2026-10-25-2318/collection-summary.json) / [Register](data/2026-10-25-2318/incident-register.json) / [Readable response page](https://infosec-briefing.yomiplush.dev/update-20261025-2318.html). **49 scenes**. Retrieved after cutoff; undated edits cannot be reconstructed. Earlier snapshots below are historical.
-
+> **Previous review — 2026-10-25 23:18 JST:** [Nightly broad review](docs/28-snapshot-20261025-2318.md). ConnectWise’s 23:00 update plus Snipe-IT, Parse Server, YesWiki, rclone, vLLM and more. Fixed-window NVD: 87 published / 87 modified, the same identifiers, not 174 incidents; 16 GHSA records and 17 feeds. [Provenance](data/2026-10-25-2318/collection-summary.json) / [Register](data/2026-10-25-2318/incident-register.json) / [Readable response page](https://infosec-briefing.yomiplush.dev/update-20261025-2318.html). **49 scenes**. Retrieved after cutoff; undated edits cannot be reconstructed. Earlier snapshots below are historical.
 
 > **Recommendation: support open-source vulnerability remediation through [Patch the Planet](https://patchtheplanet.org/).**
 
-> **Latest review — cutoff 2026-10-25 16:34 JST:** [Priorities and 16 supplemental/revised groups](docs/25-snapshot-20261025.md): Fortinet, Java/Python trust, DNS, Brotli, Postiz, ATS, OT clients; primary confirmation of ConnectWise and final LiteLLM findings. Fixed-window NVD: 99 published / 5,432 modified. [Register](data/2026-10-25/incident-register.json) / [research](docs/research-2026-10-25.md) / [readable update](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [41-scene briefing, new addendum](https://infosec-briefing.yomiplush.dev/?lang=en#34). Retrieved after the cutoff. Older sections below retain their historical context; this review supersedes outdated status claims.
+> **October 25 review — cutoff 2026-10-25 16:34 JST:** [Priorities and 16 supplemental/revised groups](docs/25-snapshot-20261025.md): Fortinet, Java/Python trust, DNS, Brotli, Postiz, ATS, OT clients; primary confirmation of ConnectWise and final LiteLLM findings. Fixed-window NVD: 99 published / 5,432 modified. [Register](data/2026-10-25/incident-register.json) / [research](docs/research-2026-10-25.md) / [readable update](https://infosec-briefing.yomiplush.dev/update-20261025.html) / [41-scene briefing, new addendum](https://infosec-briefing.yomiplush.dev/?lang=en#34). Retrieved after the cutoff. Older sections below retain their historical context; this review supersedes outdated status claims.
 
 > **Post follow-up: [HTTP2Shell / Brotli](docs/26-brotli-http2shell.md)** — the requested post checked against primary evidence; Envoy/Istio and client decoding paths added. [Dedicated scene #40](https://infosec-briefing.yomiplush.dev/?lang=en#40).
 
 [**English**](README.md) | [日本語](README_jp.md)
 
-> **Latest update — 2026-10-24 19:13 JST:** [Broad review of 24 priority groups](docs/24-snapshot-20261024.md): exploited Arista/Collabora, Pillow, Wasmtime, Ruby, AI/MCP, Japanese products, HPE and industrial devices. Archived 526 newly published / 3,531 modified NVD records, 82 GitHub advisories and 17 recent KEV additions. [Structured register](data/2026-10-24/incident-register.json) / [primary-source notes](docs/research-2026-10-24.md). The [live briefing](https://2026-incident-briefing.pages.dev/?lang=en#26) gains eight scenes, **34 total**. Earlier sections retain their historical context; use the latest snapshot for current priorities.
+> **October 24 review — 2026-10-24 19:13 JST:** [Broad review of 24 priority groups](docs/24-snapshot-20261024.md): exploited Arista/Collabora, Pillow, Wasmtime, Ruby, AI/MCP, Japanese products, HPE and industrial devices. Archived 526 newly published / 3,531 modified NVD records, 82 GitHub advisories and 17 recent KEV additions. [Structured register](data/2026-10-24/incident-register.json) / [primary-source notes](docs/research-2026-10-24.md). The [live briefing](https://2026-incident-briefing.pages.dev/?lang=en#26) gains eight scenes, **34 total**. Earlier sections retain their historical context; use the latest snapshot for current priorities.
 
 ## 0. Busy? Read this — three minutes to "is this mine?"
 

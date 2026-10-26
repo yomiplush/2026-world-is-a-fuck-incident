@@ -74,7 +74,7 @@
     if (loading[code]) return loading[code];
     loading[code] = new Promise((resolve) => {
       const s = document.createElement("script");
-      s.src = "./i18n/" + code + ".js?v=20261025night";
+      s.src = "./i18n/" + code + ".js?v=20261026morning";
       s.async = true;
       s.onload = () => resolve(hasLocale(code));
       s.onerror = () => resolve(false);
@@ -131,7 +131,7 @@
     el.btnClose.textContent = ui("close");
     el.drawerTitle.textContent = lang === "ja" ? "出典 / SOURCES" : ui("sources");
     el.drawerFoot.innerHTML =
-      `${ui("drawerFoot")}<br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a>`;
+      `${ui("drawerFoot")}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="./update-20261026.html">10/26 10:27</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a>`;
     el.btnAudio.title = `${ui("sound")} (M)`;
     el.btnInfo.title = ui("sources");
     el.langSelect.title = `${ui("sources")} · L`;
