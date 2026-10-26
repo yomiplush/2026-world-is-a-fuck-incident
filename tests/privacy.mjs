@@ -23,6 +23,9 @@ try{
  await run('localStorage.clear();localStorage.setItem("briefing-lang","de");true');
  await cdp('Page.reload',{ignoreCache:true});await pause(250);
  assert.equal(await run('!!document.getElementById("briefing-preferences")'),true,'first visit needs an explicit accept/reject choice');
+ assert.equal(await run(`(()=>{const b=document.getElementById('briefing-preferences');const r=b.getBoundingClientRect();return !b.hidden && getComputedStyle(b).display!=='none' && r.height>40 && r.width>200})()`),true,'locked splash must still show reject/accept');
+ assert.equal(await run(`['Reject','拒否'].includes(document.getElementById('privacy-reject').textContent.trim())`),true,'reject label is Reject or 拒否');
+
  await open();
  assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'legacy preference must be removed before consent');
  assert.equal(await run('PRIVACY.getChoice()'),null);

@@ -787,6 +787,32 @@ window.VISUALS = (function () {
     heading(g,'PACKAGE RESPONSE / SCHEMATIC');g.flush();
   };
 
+  scenes.restoreStatus = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.5,yaw:.14});
+    const rows=[['CONNECTWISE','PREPARING',C.amber],['GMO NOTICE','THREAT CLOCK',C.cyan],['SOFTBANK','RESUMED',C.green]];
+    rows.forEach(([name,status,tone],i)=>{
+      const y=-210+i*210;
+      node(g,[-380,y,0],name,C.steel,t,i,{hx:100,hy:30,hz:38,font:10});
+      node(g,[380,y,0],status,tone,t,i+3,{hx:86,hy:30,hz:38,font:10});
+      wire(g,[-250,y,0],[250,y,0],C.steel);
+      flow(g,[-240,y,0],[i===2?240:90,y,0],t,tone,i*.22,.16);
+      if(i<2)g.box(200,y,0,4,42,45,C.amber,{wire:true,edge:.6});
+    });
+    heading(g,'PREPARATION / DEADLINE / RESUME');g.flush();
+  };
+
+  scenes.brotliReach = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.46,yaw:.12});
+    node(g,[0,-240,0],'BROTLI DECODER',C.amber,t,0,{hx:110,hy:32,hz:42,font:11});
+    const leaves=[[-390,160,'NET',C.cyan],[-130,160,'LIBJXL',C.amber],[130,160,'CLICKHOUSE',C.green],[390,160,'ARROW',C.steel]];
+    leaves.forEach(([x,y,name,tone],i)=>{
+      node(g,[x,y,0],name,tone,t,i+1,{hx:78,hy:28,hz:36,font:10});
+      wire(g,[0,-180,0],[x,y-50,0],tone);
+      flow(g,[0,-180,0],[x,y-55,0],t,tone,i*.18,.12);
+    });
+    heading(g,'CVE-2026-111497 / NOT HTTP/2');g.flush();
+  };
+
   scenes.storm = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];

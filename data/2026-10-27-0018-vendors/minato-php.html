@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og:http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+
+<title>港区ホームページ／PHPの重大な脆弱性への区の対応状況</title>
+<meta name="keywords" content="停止,PHP,対応" />
+
+<meta name="author" content="港区">
+
+<meta property="og:title" content="PHPの重大な脆弱性への区の対応状況">
+<meta property="og:type" content="article">
+<meta property="og:description" content="東京都港区ホームページです。">
+<meta property="og:url" content="https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html">
+<meta property="og:image" content="https://www.city.minato.tokyo.jp/shared/images/sns/summary_large_image.png">
+<meta property="og:site_name" content="港区">
+<meta property="og:locale" content="ja_jp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.city.minato.tokyo.jp/shared/images/sns/summary_large_image.png">
+<meta name="dept_code_1" content="120000000">
+<meta name="dept_code_2" content="120160000">
+<meta name="dept_code_3" content="120160010">
+<meta name="cate_code_1" content="007000000000">
+<meta name="cate_code_2" content="007012000000">
+<meta name="cate_code_3" content="007012000000">
+<meta name="cate_code_4" content="007012000000">
+<meta name="template_id" content="">
+<meta name="publish_start" content="2026-10-23 17:00:00">
+<meta name="publish_end" content="2029-10-23 00:00:00">
+<meta name="img" content="">
+
+<meta name="viewport" content="width=device-width, maximum-scale=3.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="page_id" content="182011">
+<link href="/shared/site_rn2025/style/default.css" rel="stylesheet" type="text/css" media="all">
+<link href="/shared/site_rn2025/style/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="/shared/templates/free_rn2025/style/edit.css" rel="stylesheet" type="text/css" media="all">
+<link href="/shared/site_rn2025/style/smartphone.css" rel="stylesheet" media="all" type="text/css" class="mc_css">
+<link href="/shared/templates/free_rn2025/style/edit_sp.css" rel="stylesheet" media="all" type="text/css" class="mc_css">
+<link href="/shared/cogmo/style/cogmo-base.css" rel="stylesheet" type="text/css" media="all">
+<link href="/shared/cogmo/style/cogmo-form.css" rel="stylesheet" type="text/css" media="all">
+<link href="/shared/cogmo/style/cogmo-gpt.css" rel="stylesheet" type="text/css" media="all">
+<link href="/shared/site_rn2025/images/favicon/favicon.ico" rel="icon">
+<link href="/shared/site_rn2025/images/favicon/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
+
+<script src="https://tsutaeru.cloud/assets/snippet/js/tsutaeru_mo.js"></script>
+<script>
+  __tsutaeruMO.init({
+    access_token: '237acc0b-db65-4475-91bb-fad093f343a7',
+	exclusion_class: 'noTTER',
+  });
+</script>
+<script src="/shared/site_rn2025/js/jquery.js"></script>
+<script src="/shared/site_rn2025/js/setting.js"></script>
+<script src="/shared/cogmo/js/search_config.js"></script>
+<script src="/shared/cogmo/js/search-f1_config.js"></script>
+<script src="/shared/cogmo/js/search-f2_config.js"></script>
+<script src="/shared/cogmo/js/iso_codes.js"></script>
+<script src="/shared/cogmo/js/bundle.js" defer></script>
+<script src="/shared/js/ga.js"></script>
+<script data-key="5269891a4bffec39" src="https://storage.otocreator.jp/-/js/widget.js"></script>
+<script src="/shared/system/js/furigana/ysruby.js"></script>
+
+
+</head>
+<body class="format_free no_javascript">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v21.0"></script>
+<script src="/shared/site_rn2025/js/init.js"></script>
+<script src="/shared/site_rn/js/sns_body.js"></script>
+<div id="tmp_wrapper">
+<noscript>
+<p>このサイトではJavaScriptを使用したコンテンツ・機能を提供しています。JavaScriptを有効にするとご利用いただけます。</p>
+</noscript>
+<p><a href="#tmp_honbun" class="skip">本文へスキップします。</a></p>
+
+<div id="tmp_wrap_header">
+<header id="tmp_header" class="new_header">
+<div class="container">
+<div id="tmp_hlogo">
+<p><a href="/index.html"><span>港区</span></a></p>
+</div>
+<div id="tmp_hnavi_s">
+<ul>
+	<li id="tmp_hnavi_emergency"><a href="https://city-minato.my.site.com/"><span>緊急情報</span></a>
+	<div id="tmp_emergency">&nbsp;</div>
+	</li>
+	<li id="tmp_hnavi_assistance"><a href="javascript:void(0)"><span>文字・音声支援</span></a>
+	<div id="tmp_sma_lmenu" class="wrap_sma_sch">
+	<ul class="list_content_setting">
+		<li><a href="/mojiiro/index.html">文字サイズ・色合い変更</a></li>
+		<li class="setting_speaker"><a href="javascript:void(0);">音声読み上げ</a></li>
+		<li class="setting_furigana"><a data-contents="tmp_wrapper" data-target="tmp_wrapper" href="javascript:void(0);" id="furigana">ふりがなON</a></li>
+	</ul>
+	<p class="close_btn"><a href="javascript:void(0);"><span>閉じる</span></a></p>
+	</div>
+	</li>
+	<li id="tmp_hnavi_japanese">
+	<p class="sma_japanese_btn"><a href="javascript:void(0);" class="easyjp">やさしい日本語ON</a></p>
+	</li>
+	<li id="tmp_hnavi_language"><a href="javascript:void(0)"><span lang="en">Language</span></a>
+	<div id="tmp_sma_mmenu" class="wrap_sma_sch">
+	<div id="tmp_sma_lang" class="wrap_sma_lang">
+	<div class="lang_wrap">
+	<div id="tmp_sma_lang_list" class="sma_lang_cnt">
+	<div class="lang_list_inner">
+	<ul class="lang_list">
+		<li><a href="/index.html" lang="ja">日本語</a></li>
+	</ul>
+	</div>
+	<div class="load_more">
+	<p><a href="javascript:void(0)"><span>すべての言語を見る</span></a></p>
+	</div>
+	</div>
+	<p class="close_btn"><a href="javascript:void(0);"><span>閉じる</span></a></p>
+	</div>
+	</div>
+	</div>
+	</li>
+</ul>
+<ul id="tmp_hnavi_s_rmenu">
+	<li id="tmp_hnavi_rmenu_button"><a href="/ai_search/index.html" class="sma_pc"><span>AI検索</span></a></li>
+</ul>
+</div>
+<div id="tmp_hnavi_s_search">
+<div id="tmp_hnavi_third">
+<div class="sma_search_ttl">
+<p class="bg_circle">キーワードから探す</p>
+</div>
+<div id="tmp_sma_gsearch">
+<div config="Form2SearchConfig" id="cogmo-search-form2" class="cogmo-main">&nbsp;</div>
+</div>
+</div>
+<div id="tmp_sma_search_id_top">
+<div class="sma_search_ttl">
+<p class="bg_circle">ページIDから探す</p>
+</div>
+<div class="sma_search_key_input_id">
+<form action="/cms8341/#" id="tmp_sma_search_page_id_top" name="tmp_sma_search_page_id_top">
+<div class="wrap_sch_box">
+<p class="sch_box"><input id="id_search_txt_top" name="q" size="31" type="text" /></p>
+<p class="sch_btn"><button id="id_search_btn_top" name="sa" type="submit">検索</button></p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</header>
+<nav id="tmp_gnavi">
+<div class="container">
+<div class="gnavi">
+<ul>
+	<li class="glist1"><a href="/kurashi/index.html"><span>暮らし・手続き</span></a></li>
+	<li class="glist2"><a href="/bosai-anzen/index.html"><span>防災・安全</span></a></li>
+	<li class="glist3"><a href="/kenko/index.html"><span>健康・福祉</span></a></li>
+	<li class="glist4"><a href="/kodomo/index.html"><span>子育て・教育</span></a></li>
+	<li class="glist5"><a href="/kankou/index.html"><span>観光・スポーツ・文化</span></a></li>
+	<li class="glist6"><a href="/kankyo-machi/index.html"><span>環境・まちづくり</span></a></li>
+	<li class="glist7"><a href="/sangyo/index.html"><span>産業・ビジネス</span></a></li>
+	<li class="glist8"><a href="/kuse/index.html"><span>区政情報</span></a></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<div id="tmp_hnavi_bottom">
+<ul>
+	<li id="tmp_hnavi_home"><a href="/index.html">トップ<span class="sp_br">ページ</span></a></li>
+	<li id="tmp_hnavi_sw"><a href="javascript:void(0);" lang="en"><span>Pick up</span></a>
+	<div id="tmp_btm_sw" class="wrap_btm_sw">
+	<div class="container">
+	<div class="service_wrap">
+	<div class="service_ttl">
+	<p lang="en" class="bg_circle">Pick up</p>
+	</div>
+	<div id="tmp_btm_service">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	</li>
+	<li id="tmp_hnavi_rmenu"><a href="javascript:void(0);" class="sma_sp"><span>検索</span></a>
+	<div id="tmp_sma_rmenu" class="wrap_sma_sch">
+	<div class="container">
+	<div class="sma_search_heading">
+	<p>検索</p>
+	</div>
+	<div class="search_find_infor">
+	<div id="tmp_sma_search">
+	<div class="sma_search_ttl">
+	<p class="bg_circle">キーワードから探す</p>
+	</div>
+	<div config="Form1SearchConfig" id="cogmo-search-form1" class="cogmo-main">&nbsp;</div>
+	<p class="cogmo_txt">「単語」のみの検索ではなく「単語　単語」や『文』で質問すると便利です。<br />
+	例：「保育園」&rarr;「保育園　申請」「保育園の申請の仕方」</p>
+	</div>
+	<div id="tmp_sma_search_id">
+	<div class="sma_search_ttl">
+	<p class="bg_circle">ページIDから探す</p>
+	</div>
+	<div class="sma_search_key_input_id">
+	<form action="/cms8341/#" id="tmp_sma_search_page_id" name="tmp_sma_search_page_id">
+	<div class="wrap_sch_box">
+	<p class="sch_ttl"><label for="id_search_txt">ページIDから探す</label></p>
+	<p class="sch_box"><input id="id_search_txt" name="q" size="31" type="text" /></p>
+	<p class="sch_btn"><button id="id_search_btn" name="sa" type="submit">検索</button></p>
+	</div>
+	</form>
+	</div>
+	</div>
+	</div>
+	<div id="tmp_search_keyword" class="search_keywords">
+	<div class="search_ttl">
+	<p class="bg_circle">よく検索されるキーワード</p>
+	</div>
+	<div class="search_keyword_cnt">&nbsp;</div>
+	</div>
+	<div class="lifestyle_convenience">
+	<div class="search_ttl">
+	<p class="bg_circle">暮らしのガイド</p>
+	</div>
+	<ul class="convenient_list">
+		<li>&nbsp;</li>
+	</ul>
+	</div>
+	<div class="lifestyle_subjects">
+	<div class="search_ttl">
+	<p class="bg_circle">対象者別に探す</p>
+	</div>
+	<ul class="subjects_list">
+		<li>&nbsp;</li>
+	</ul>
+	</div>
+	<div class="convenience_map_area">
+	<div class="search_ttl">
+	<p class="bg_circle">各地区のページ</p>
+	</div>
+	<ul>
+		<li><a href="/shiba/index.html"><span><span>芝地区</span></span></a></li>
+		<li><a href="/azabu/index.html"><span><span>麻布地区</span></span></a></li>
+		<li><a href="/akasaka/index.html"><span><span>赤坂地区</span></span></a></li>
+		<li><a href="/takanawa/index.html"><span><span>高輪地区</span></span></a></li>
+		<li><a href="/shibaura/index.html"><span><span>芝浦港南地区</span></span></a></li>
+	</ul>
+	</div>
+	<p class="close_btn"><a href="javascript:void(0);"><span>閉じる</span></a></p>
+	</div>
+	</div>
+	</li>
+	<li id="tmp_hnavi_menu_sp"><a href="javascript:void(0);">メニュー</a>
+	<div id="tmp_btm_menu_sp" class="wra_btm_menu">
+	<div class="container">
+	<div class="search_category">
+	<div class="search_ttl">
+	<p class="bg_circle">分類から探す</p>
+	</div>
+	</div>
+	</div>
+	</div>
+	</li>
+	<li id="tmp_hnavi_ai_chat">
+	<div class="ai_wrap">
+	<p class="ai_btn"><a href="/ai_search/index.html">AI検索</a></p>
+	</div>
+	</li>
+</ul>
+</div>
+<div id="tmp_otocreator">
+<div aria-hidden="true" data-target="oto_reader_contents" id="otowidget" style="display:none;" class="drag-and-drop"></div>
+</div>
+
+<main id="tmp_wrap_main" class="column_rnavi">
+<div id="tmp_pankuzu">
+<div class="container">
+<p><a href="/index.html">トップページ</a> &gt; <a href="/kuse/index.html">区政情報</a> &gt; <a href="/jouhoseisaku/kuse/johosesaku/index.html">情報政策・デジタル・新技術</a> &gt; PHPの重大な脆弱性への区の対応状況</p>
+</div>
+</div>
+<div id="tmp_wrap_custom_update">
+<div class="container">
+<div id="tmp_custom_update">
+
+<div id="tmp_social_plugins"><div class="social_media_btn facebook_btn">
+<div data-href="https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html" data-layout="button" data-size="small" data-mobile-iframe="true" class="fb-share-button"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html&src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+</div><div class="social_media_btn twitter_btn">
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-show-count="false" data-url="https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html" data-text="PHPの重大な脆弱性への区の対応状況" data-lang="ja" class="twitter-share-button">ポスト</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div><div class="social_media_btn line_btn">
+<div data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://www.city.minato.tokyo.jp/senryakukouhou/phptaiou202610.html" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;" class="line-it-button"></div>
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+</div></div>
+<div id="tmp_print">印刷</div>
+<p id="tmp_update">更新日：2026年10月23日</p>
+<p id="tmp_pageid">ページID：182011</p>
+
+</div>
+</div>
+</div>
+<div id="tmp_main">
+<div class="container">
+
+<div class="wrap_col_main">
+<div class="col_main">
+<p id="tmp_honbun" class="skip">ここから本文です。</p>
+<!--index_start-->
+<div id="tmp_read_contents">
+<div id="tmp_contents">
+
+<div id="tmp_anchor">
+<div class="anchor_ttl">
+<p>目次</p>
+</div>
+<div id="tmp_anchor_cnt" class="anchor_cnt"></div>
+</div>
+
+
+
+<div class="thumbnail_blog">
+<p><span class="detail_img"><img src="/images/182011/20261022132624.png" alt="注目情報　公式サムネイル" width="764" height="505" /></span>
+</p>
+</div>
+
+
+
+<h1>PHPの重大な脆弱性への区の対応状況（10月23日15時00分現在）</h1>
+<p>2026年10月21日、IPA 独立行政法人情報処理推進機構より、プログラム言語「PHP」に関する重大な脆弱性情報が公表されました。</p>
+<p>　港区は、インターネットサービスで広く使用されているプログラム言語「PHP」に重大なセキュリティ上の脆弱性（システムの安全性に関わる弱点）が公表されたことを受け、利用者の皆様の情報とサービスの安全を守るため、10月21日23時50分頃から港区公式ホームページ等の一部機能を一時的に停止しています。</p>
+<p>　今回の措置は、不正アクセスや情報漏えい等のリスクを未然に防ぐための予防的な対応です。区では、修正プログラムの適用やシステムの安全性の確認を進めており、安全が確認できた機能から順次サービスを再開する予定です。</p>
+<h2>復旧したサービス</h2>
+<ul>
+	<li>
+	<h6>港区公式ホームページの一部機能</h6>
+	</li>
+</ul>
+<p>PHPの脆弱性に対応する修正プログラムを適用するとともに、システムの動作確認を行いました。</p>
+<p>・ページID検索機能（AI検索とサイト内検索は使用可能です）</p>
+<p>・レコメンド機能（「このページを見ている人はこのページがおすすめです」機能です）</p>
+<p>・区民の声検索機能（過去の区民の声コンテンツを検索するための機能です）</p>
+<p>・二次元コード機能（二次元コードを読み取っても一部ページが表示されません）</p>
+<p>・多言語AI翻訳機能</p>
+<h2>一時的に停止している主なサービス</h2>
+<p><a href="/documents/182011/20261023163152.pdf">一時的に停止している主なサービス（PDF：585KB）</a></p>
+<p>※一部の機能のみ停止している場合があります。</p>
+<p>※次回の更新は2026年10月26日 を予定しています。</p>
+<p>※対応が完了次第、随時再開します。ご利用の各アプリやシステムのページでご確認ください。</p>
+<h2>不正アクセスや情報漏えい等の確認状況</h2>
+<p>現時点で、本件に起因する不正アクセスや個人情報の漏えい、システムの改ざん等は確認されていません。</p>
+<h2>今後の対応</h2>
+<p>　区では、修正プログラムの適用、システムの動作確認及び安全性の検証を進めています。安全性が確認できた機能・サービスから順次再開し、復旧状況については港区公式ホームページ等でお知らせします。</p>
+<p>　皆さまにはご不便をおかけしますが、安全なサービスの提供に向けた対応について、ご理解とご協力をお願いします。</p>
+
+
+
+
+
+
+
+</div>
+
+<div class="box_faq">
+<div class="box_faq_ttl">
+<h2>よくある質問</h2>
+</div>
+<div class="box_faq_cnt"><script src="/shared/system/js/common/utility.js" type="text/javascript"></script>
+<script src="/shared/system/js/faq/faq_prev.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+document.write('<div id="tmp_faq_8341"><p>「特によくある質問」は、登録されていません。</p></div>');
+var faq = new faqPublish('007012000000',10);
+faq.LoadData();
+-->
+</script>
+<noscript><p><a href="/kuse/kocho/faq/jouhoseisaku/kuse/johosesaku/index.html">よくある質問一覧ページへ</a></p></noscript></div>
+<div class="memo">
+<p><a href="/kouchou/kuse/kocho/faq/index.html">よくある質問一覧</a></p>
+</div>
+</div>
+
+<div class="page_blogs">
+<div class="page_blog">
+<div id="tmp_reccommend_related" class="page_blog_inner">
+<div class="page_blog_ttl">
+<h2>このページを見た人はこんなページも見ています</h2>
+</div>
+<div class="page_blog_cnt">&nbsp;</div>
+</div>
+</div>
+<div class="page_blog">
+<div id="tmp_reccommend_check" class="page_blog_inner">
+<div class="page_blog_ttl">
+<h2>最近チェックしたページ</h2>
+</div>
+<div class="page_blog_cnt">&nbsp;</div>
+</div>
+</div>
+</div>
+
+
+<div id="tmp_inquiry">
+<div id="tmp_inquiry_ttl">
+<h2>お問い合わせ</h2>
+</div>
+<div id="tmp_inquiry_cnt">
+<div class="inquiry_parts">
+<p class="inquiry_section_name">
+所属課室：企画経営部区長室戦略広報係</p>
+<p class="inq_tel">電話番号：03-3578-2036</p>
+<p>ファックス番号：03-3578-2034</p>
+</div>
+<div class="inquiry_parts">
+<p class="inquiry_section_name">
+所属課室：企画経営部情報政策課情報管理係</p>
+<p class="inq_tel">電話番号：03-3578-2070</p>
+<p>ファックス番号：03-3578-2069</p>
+</div>
+<div class="inquiry_link">
+<p>外国語対応が必要な人、通訳オペレーター、区の職員の3人で会話ができます。</p>
+<ul>
+<li><a href="https://www.multilingualinterpretercallservice.city.minato.tokyo.jp/kokusai">多言語対応三者通話サービス</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+<!--index_end-->
+</div>
+</div>
+<div class="wrap_col_rgt_navi">
+<div class="col_rgt_navi">
+
+<div id="tmp_rnavi" class="rnavi_blog">
+<div id="tmp_rnavi_ttl" class="rnavi_blog_title">
+<h2><a href="/jouhoseisaku/kuse/johosesaku/index.html"><span>情報政策・デジタル・新技術</span></a></h2>
+</div>
+<div id="tmp_rnavi_cnt" class="rnavi_blog_cnt">
+<ul class="rnavi_link_list">
+<li><a href="/jouhokanri/kuse/johosesaku/shishin.html"><span>港区情報安全対策指針</span></a></li>
+<li><a href="/jouhokanri/kuse/minatocitywi-fi_01.html"><span>公衆無線LAN（Minato City Wi-Fi）サービスを提供しています</span></a></li>
+<li><a href="/jouhoseisaku/kuse/johosesaku/20180401keikaku.html"><span>港区DX推進計画（令和3年度～令和8年度） 令和5年度改定版</span></a></li>
+<li><a href="/ictsuishintan/20181012.html"><span>オープンデータの推進</span></a></li>
+<li><a href="/jouhoseisaku/5grenkeikyoutei.html"><span>令和時代の通信　次世代移動通信システム(5G)の活用促進に向けた連携協定を締結しました</span></a></li>
+<li><a href="/dejitarusuishintan/documents/5g-onestop.html"><span>5G基地局設置ワンストップ窓口について</span></a></li>
+<li><a href="/dejitarukaikakutan/line-chatbot-release.html"><span>港区LINE公式アカウントに生成AIを活用したチャットボットの本格運用を開始しました</span></a></li>
+<li><a href="/shingijyutsutan/challenge.html"><span>令和６年度みなと新技術チャレンジ提案制度～実証実験のプロジェクトを実施しました～(令和７年5月15日更新)</span></a></li>
+<li><a href="/shingijyutsutan/uketsukemadoguchi.html"><span>新技術受付窓口の設置について（事業者からの新技術を用いたサービス・製品の提案はこちらから）</span></a></li>
+<li><a href="/shingijyutsutan/challengekyoutei.html"><span>みなと新技術チャレンジ提案制度の協定を締結しました</span></a></li>
+<li><a href="/shingijyutsutan/metaverse.html"><span>港区メタバース総合支所のご利用について（令和７年６月１日更新）</span></a></li>
+<li><a href="/shingijyutsutan/r7challenge.html"><span>令和７年度みなと新技術チャレンジ提案制度～実証実験のプロジェクトを募集します～（令和７年10月2日更新）</span></a></li>
+<li><a href="/shingijyutsutan/r7challengekyoutei.html"><span>令和７年度みなと新技術チャレンジ提案制度の協定を締結しました</span></a></li>
+<li><a href="/dejitarukaikakutan/kouen-wi-fi_installation.html"><span>港区立公園・児童遊園へのスマートポール設置について</span></a></li>
+<li><a href="/shingijyutsutan/challenge2.html"><span>「令和７年度みなと新技術チャレンジ提案制度 第２弾」を実施します。（令和8年3月25日更新）</span></a></li>
+<li><a href="/shingijyutsutan/r7challengejissho1.html"><span>「人と生成AIの協働による、区役所の電話応対のDX」の実証実験を実施します！（みなと新技術チャレンジ提案制度）【本実験は終了しました】</span></a></li>
+<li><a href="/dxsenryaku/mskyoutei.html"><span>日本マイクロソフト株式会社とAI活用に向けたプロジェクトを発足しました</span></a></li>
+<li><a href="/dxsenryaku/r8mipevent1.html"><span>行政課題の解決に向けた民間事業者とのマッチングイベントを開催します！</span></a></li>
+<li><a href="/dxsenryaku/r8challenge.html"><span>令和８年度みなと新技術チャレンジ提案制度～新規応募の受付を一時停止しています～</span></a></li>
+<li><a href="/senryakukouhou/phptaiou202610.html"><span>PHPの重大な脆弱性への区の対応状況</span></a></li>
+</ul>
+</div>
+</div>
+<div id="tmp_rnavi_recommend" class="rnavi_blog">
+<div id="tmp_rnavi_recommend_ttl">
+<h2 lang="en">Pick up</h2>
+</div>
+<div id="tmp_rnavi_recommend_cnt" class="rnavi_blog_cnt">
+<ul class="rnavi_link_list">&nbsp;</ul>
+</div>
+</div>
+
+<div id="tmp_rnavi_banner" class="rnavi_banner_blog">
+<ul class="rnavi_banner_list">&nbsp;</ul>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script src="/shared/site_rn/js/chat_loader.js"></script>
+<div id="tmp_ai">
+<div class="ai_wrap">
+<p class="close_ai"><a href="javascript:void(0);">閉じる</a></p>
+<p class="ai_btn"><a href="https://storageoption-a258-jpe.chordship.global.fujitsu.com/bctrl162-standard/minato_main/chat-ui/core/html/chat.html?t=1&amp;cd=1&amp;h=https://www.city.minato.tokyo.jp">AI<br>チャット</a></p>
+</div>
+</div>
+
+
+<footer id="tmp_footer">
+<div class="container">
+<div class="footer_top">
+<div class="footer_logo_inner">
+<div class="footer_logo">
+<p><span>港区</span></p>
+</div>
+<div class="corporation_number">
+<p>法人番号：8000020131032</p>
+</div>
+</div>
+<div class="footer_contact">
+<ul>
+	<li><a href="/kuse/gaiyo/soshiki/index.html"><span>組織案内</span></a></li>
+	<li><a href="/kouchou/kuse/kocho/iken/call-center.html"><span>みなとコール</span></a></li>
+	<li><a href="/kuse/gaiyo/kotsu/index.html"><span>区役所への行き方</span></a></li>
+	<li><a href="/kouchou/kuse/kocho/iken/index.html"><span>お問い合わせ</span></a></li>
+	<li><a href="/kouchou/kuse/kocho/faq/index.html"><span>よくある質問</span></a></li>
+</ul>
+</div>
+</div>
+<ul class="fnavi">
+	<li><a href="/portal/index.html"><span>港区ホームページについて</span></a></li>
+	<li><a href="/sitemap.html"><span>サイトマップ</span></a></li>
+	<li><a href="/kuse/link/index.html"><span>リンク集</span></a></li>
+</ul>
+<div class="footer_cnt">
+<div class="footer_address">
+<address><span>〒105-8511 東京都港区芝公園1丁目5番25号</span> <span>電話番号：03-3578-2111（代表）</span> <span>ファックス番号：03-3578-2034</span></address>
+</div>
+<div class="footer_social">
+<ul>
+	<li><a href="/kouhou/kuse/koho/line.html"><img alt="LINE" height="49" src="/shared/site_rn2025/images/footer/social_01.png" width="49" /></a></li>
+	<li><a href="/kouhou/kuse/koho/sns.html"><img alt="X" height="49" src="/shared/site_rn2025/images/footer/social_02.png" width="49" /></a></li>
+	<li><a href="/kouhou/facebook.html"><img alt="Facebook" height="46" src="/shared/site_rn2025/images/footer/social_03.png" width="46" /></a></li>
+	<li><a href="https://www.youtube.com/user/tokyominatocity"><img alt="YouTube" height="35" src="/shared/site_rn2025/images/footer/social_04.png" width="51" /></a></li>
+</ul>
+</div>
+</div>
+<div class="pnavi">
+<p class="ptop"><a href="#tmp_header"><span>ページの先頭へ戻る</span></a></p>
+</div>
+</div>
+<p lang="en" class="copyright">Copyright &copy; Minato City. All rights reserved.</p>
+</footer>
+<p class="link_hidden"><a href="/kanri/kanri.html" class="kanri_url">Kanri</a></p>
+
+</div>
+<script src="/shared/site_rn2025/js/function.js"></script>
+<script src="/shared/site_rn2025/js/jquery_rwdImageMaps_min.js"></script>
+<script src="/shared/site_rn2025/js/main.js"></script>
+<script src="/shared/system/js/path_info/path_info.js"></script>
+<script src="/shared/system/js/recommend/recommend.js"></script>
+</body>
+</html>
