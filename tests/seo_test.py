@@ -86,9 +86,9 @@ class Publication(unittest.TestCase):
         self.assertEqual(Page(text).alternates,{})
     def test_translated_hreflang_is_reciprocal(self):
         pages=[Page(p.read_text()) for p in SITE.glob('tailworm*.html')]
-        self.assertEqual(len(pages),12)
+        self.assertEqual(len(pages),len(json.loads((ROOT/'content/site-languages.json').read_text())['languages']))
         for p in pages:
-            self.assertEqual(len(p.alternates),13)
+            self.assertEqual(len(p.alternates),len(json.loads((ROOT/'content/site-languages.json').read_text())['languages'])+1)
             self.assertEqual(p.alternates,pages[0].alternates)
             self.assertIn(p.canonical[0],p.alternates.values())
 

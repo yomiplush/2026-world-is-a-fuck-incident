@@ -11,11 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = json.loads((ROOT / 'content/site.json').read_text())['base_url']
-LANGUAGES = [
-    ('en', 'English', 'en'), ('ja', '日本語', 'ja'), ('zh', '中文（简体）', 'zh-Hans'),
-    ('ko', '한국어', 'ko'), ('es', 'Español', 'es'), ('fr', 'Français', 'fr'),
-    ('de', 'Deutsch', 'de'), ('pt', 'Português', 'pt'), ('ru', 'Русский', 'ru'),
-    ('ar', 'العربية', 'ar'), ('hi', 'हिन्दी', 'hi'), ('id', 'Bahasa Indonesia', 'id')]
+LANGUAGES = [(row['code'],row['native'],row['html']) for row in json.loads((ROOT/'content/site-languages.json').read_text())['languages']]
 
 
 def filename(code):
@@ -73,7 +69,7 @@ def main():
             f'<link rel="alternate" hreflang="{l}" href="{canonical(c)}">'
             for c, _, l in LANGUAGES) + f'<link rel="alternate" hreflang="x-default" href="{BASE}tailworm.html">'
         result = re.sub(r'\{\{([\w.]+)\}\}', lambda m: values[m[1]], template)
-        # The motion feature supports all twelve locales. Detailed prose on
+        # The motion feature supports the configured locales. Detailed prose on
         # GitHub is available in Japanese and English; label it accurately.
         result = result.replace('./?lang=ja#41', f'./?lang={code}#41')
         if code != 'ja':
@@ -102,7 +98,7 @@ def main():
                           href=canonical(c))
     ET.indent(tree, space='  ')
     tree.write(sitemap, encoding='utf-8', xml_declaration=True)
-    print('Built12 complete Tailworm language pages, with matching markup, source URLs and sitemap alternates')
+    print(f'Built {len(LANGUAGES)} complete Tailworm language pages, with matching markup, source URLs and sitemap alternates')
 
 
 if __name__ == '__main__':

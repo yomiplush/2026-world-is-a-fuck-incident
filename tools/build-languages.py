@@ -1,30 +1,33 @@
 #!/usr/bin/env python3
-"""Build a no-JS language directory, lazy catalog and Canvas-text transcripts."""
-import importlib.util,json,subprocess
-from collections import defaultdict
+"""Build a no-JS language directory, native language selects and Canvas-text transcripts."""
+import importlib.util,json,re,subprocess
 from pathlib import Path
-from urllib.parse import urlencode
 ROOT=Path(__file__).resolve().parents[1];SITE=ROOT/'site'
 spec=importlib.util.spec_from_file_location('publication',ROOT/'tools/publish-site.py');pub=importlib.util.module_from_spec(spec);spec.loader.exec_module(pub)
-source=json.loads((ROOT/'content/google-translate-languages.json').read_text())
+source=json.loads((ROOT/'content/site-languages.json').read_text())
+# The public app reads this generated compact catalog without an extra request.
+data_path=SITE/'data.js';data_text=data_path.read_text()
+app_languages=[{key:row[key] for key in ('code','native','html','dir')} for row in source['languages']]
+data_text=re.sub(r'window.LANGUAGES = \[.*?\n\];','window.LANGUAGES = '+json.dumps(app_languages,ensure_ascii=False,indent=2)+';',data_text,count=1,flags=re.S)
+data_path.write_text(data_text)
 export=json.loads(subprocess.check_output(['node',str(ROOT/'tools/export-briefing.cjs')],cwd=ROOT))
 scene_count=len(export['scenes']);language_count=len(source['languages'])
-local=[{'code':r['code'],'native':r['native'],'en':next((x['en'] for x in source['languages'] if x['code']==('zh-CN' if r['code']=='zh' else r['code'])),r['native']),'ja':next((x['ja'] for x in source['languages'] if x['code']==('zh-CN' if r['code']=='zh' else r['code'])),r['native'])} for r in export['languages']]
 # Only validated, source-matched packages become public pages.
 mspec=importlib.util.spec_from_file_location('translation_manager',ROOT/'tools/translations/manage.py');manager=importlib.util.module_from_spec(mspec);mspec.loader.exec_module(manager)
 translation_source,targets=manager.prepare();manifest=manager.manifest(translation_source,targets)
 record=json.loads((ROOT/'data'/translation_source['register']).read_text())
-topic_count=len(record['records']);ready=[];esc=pub.esc
-bcp=lambda code:{'iw':'he','jw':'jv','zh-CN':'zh-Hans','zh-TW':'zh-Hant','pt':'pt-BR'}.get(code,code)
+topic_count=len(record['records']);esc=pub.esc
+ready=[dict(state['language'],status=state['status'],url='/database' if code=='ja' else '/database.'+code) for code,state in manifest['languages'].items() if state['status'] in ('source','translated')]
+bcp=lambda code:targets[code]['html']
 rtl={'ar','fa','iw','ur','ps','sd','ug','dv','ckb','bal','ks','fa-AF','pa-Arab','bm-Nkoo'}
 outdir=SITE/'data/translations'/translation_source['snapshot'];outdir.mkdir(parents=True,exist_ok=True)
 for code,state in manifest['languages'].items():
  if state['status'] not in ('source','translated'):continue
  package=json.loads((ROOT/state['file']).read_text());values=package['strings'];t=lambda key:esc(values[key])
- target=state['language'];ready.append(dict(target,native=package.get('language_native',target.get('native',target['en'])),status=state['status'],url='/database' if code=='ja' else '/database.'+code))
  (outdir/(code+'.json')).write_text(json.dumps(package,ensure_ascii=False,indent=2)+'\n')
  if code=='ja':continue
- body=f'<header><p class="kicker">INFOSEC BRIEFING</p><h1>{t("ui.title")}</h1><p class="intro">{t("ui.intro")}</p><p>{t("ui.cutoff")}: <bdi>{esc(record["cutoff_jst"])}</bdi></p><p>{t("ui.counts")}</p><aside class="translation-notice">{t("ui.notice")}</aside><p><a href="/database" lang="ja">{t("ui.original")}</a> · <a href="/languages" data-language-picker aria-haspopup="dialog">{t("ui.languages")}</a> · <a href="/data/translations/{esc(translation_source["snapshot"])}/{esc(code)}.json" download>{t("ui.data")}</a></p></header>'
+ body=f'<header><p class="kicker">INFOSEC BRIEFING</p><h1>{t("ui.title")}</h1><p class="intro">{t("ui.intro")}</p><p>{t("ui.cutoff")}: <bdi>{esc(record["cutoff_jst"])}</bdi></p><p>{t("ui.counts")}</p><aside class="translation-notice">{t("ui.notice")}</aside><p><a href="/database" lang="ja">{t("ui.original")}</a> · <a href="/languages">{t("ui.languages")}</a> · <a href="/data/translations/{esc(translation_source["snapshot"])}/{esc(code)}.json" download>{t("ui.data")}</a></p></header>'
+ body=body.replace('</header>',pub.language_select(ready,code,values['ui.languages'])+'</header>',1)
  for kind in ('delta','scope-complement','reference-only'):
   rows=[r for r in record['records'] if r['kind']==kind];body+=f'<section><h2>{t("ui."+kind)} · {len(rows)}</h2>'
   for row in rows:
@@ -49,22 +52,12 @@ for path in outdir.glob('*.json'):
 public_manifest={k:manifest[k] for k in ('snapshot','source_hash','register_hash','target_count','ready_count','note')}
 public_manifest['languages']=[dict(state['language'],status=state['status'],url=('/database' if code=='ja' else '/database.'+code) if code in valid_codes else None) for code,state in manifest['languages'].items()]
 (outdir/'manifest.json').write_text(json.dumps(public_manifest,ensure_ascii=False,indent=2)+'\n')
-catalog={'languages':source['languages'],'local':local,'ready':ready,'readyCount':manifest['ready_count'],'targetCount':len(targets),'snapshot':translation_source['snapshot'],'topicCount':topic_count}
-(SITE/'language-catalog.js').write_text('/* Stored, source-matched Codex translations; no external translation service. */\nwindow.LANGUAGE_CATALOG='+json.dumps(catalog,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+';\n')
-body=f'<header><p class="kicker">LANGUAGES</p><h1>言語を選んで読む。</h1><p class="intro">Codexで翻訳したデータを、サイト内で読める形で保存しています。</p><p>最新{topic_count}論点と条件・対策・留保の本文が対象です。過去の全資料やモーションの全画面が249言語に翻訳された状態ではありません。</p><p><strong>{manifest["ready_count"]} / {len(targets)} 言語のデータを公開中</strong>（日本語原文を含む）。一覧は名前・コードで検索できます。</p><p>AI翻訳には誤りが含まれます。母語話者による校閲は未実施です。CVE番号・数値・版・URLを保護して検査していますが、意味の正確さを保証する検査ではありません。実際の対策は原文と公式案内を照合してください。</p></header>'
-body+=f'<section><h2>保存済みの翻訳を読む</h2><p><a href="/data/translations/{esc(translation_source["snapshot"])}/manifest.json">翻訳の進捗・出典ハッシュをJSONで取得</a></p><ul class="language-directory">'
-for row in sorted(ready,key=lambda r:r['en']):body+=f'<li><a href="{esc(row["url"])}" lang="{esc(bcp(row["code"]))}"><bdi>{esc(row.get("native") or row["en"])}</bdi><small>{esc(row["en"])} · {esc(row["code"])}</small></a></li>'
-body+='</ul></section><section><h2>準備中・生成できなかった言語</h2><p>249言語を対象にしていますが、未完成のデータを別の言語で埋めて公開することはありません。</p>'
-groups=defaultdict(list)
-for row in source['languages']:
- if row['code'] not in valid_codes:groups[row['en'][0].upper()].append(row)
-for letter,rows in sorted(groups.items()):
- body+=f'<details class="language-directory-group"><summary>{esc(letter)} · {len(rows)}</summary><ul>'
- for row in sorted(rows,key=lambda r:r['en']):
-  state=manifest['languages'][row['code']]['status'];body+=f'<li>{esc(row["en"])} · {esc(row["ja"])} · {esc(row["code"])} <small>({esc(state)})</small></li>'
- body+='</ul></details>'
-body+=f'</section><section><h2>モーションとTailworm</h2><p>既存の12言語表示は、保存するデータベース翻訳とは別の機能です。モーションの一部の追加画面は英語になる場合があります。</p><p><a href="/">モーションへ</a> · <a href="/tailworm?lang=ja">Tailworm特集</a> · <a href="/briefing">全{scene_count}画面の日本語本文</a> · <a href="/briefing.en">English transcript</a></p></section>'
-(SITE/'languages.html').write_text(pub.shell('保存したAI翻訳・言語一覧',f'249言語を対象にCodexで翻訳データを保存。現在{manifest["ready_count"]}言語の最新調査を読めます。',body))
+body=f'<header><p class="kicker">LANGUAGES</p><h1>対応言語</h1><p class="intro">各ページのプルダウンから言語を選べます。</p></header>'
+body+='<section><h2>モーション</h2>'+pub.language_select([dict(row,url='/?lang='+row['code']) for row in source['languages']],None,'言語')+f'<p>{language_count}言語。ウクライナ語は全{scene_count}画面を翻訳しています。他の言語の一部の追補画面は英語表示の場合があります。</p></section>'
+body+='<section><h2>Tailworm特集</h2>'+pub.language_select([dict(row,url='/tailworm?lang=ja' if row['code']=='ja' else '/tailworm.'+row['code']) for row in source['languages']],None,'言語')+'</section>'
+body+='<section><h2>調査データ</h2>'+pub.language_select(ready,None,'言語')+f'<p>最新{topic_count}論点の、保存済みの翻訳を読めます。AI翻訳は母語話者による校閲を行っていません。対策は原文・公式案内と照合してください。</p></section>'
+body+=f'<section><h2>モーションの文章版</h2><p><a href="/briefing">日本語</a> · <a href="/briefing.en">English</a> — 全{scene_count}画面の本文と出典。</p></section>'
+(SITE/'languages.html').write_text(pub.shell('対応言語',f'モーションとTailworm特集の{language_count}言語をプルダウンで選択。調査データの翻訳と文章版。',body))
 for lang in ('ja','en'):
  ja=lang=='ja';title='モーション全画面の文章版' if ja else 'Full motion briefing transcript'
  intro=f'全{scene_count}画面の文章・数値・出典を、時系列順に読めます。画面番号のリンクは元のモーションに戻ります。' if ja else f'Read the text, figures and sources of all {scene_count} motion scenes in chronological order. Scene-number links return to the original motion.'

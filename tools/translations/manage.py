@@ -26,7 +26,7 @@ def prepare():
  strings.update({'ui.'+k:v for k,v in UI.items()})
  source={'snapshot':snapshot,'cutoff':record['cutoff'],'cutoff_jst':record['cutoff_jst'],'register':latest['incident_register'],'register_hash':sha(path.read_text()),'source_locale':'ja','source_hash':sha(json.dumps(strings,ensure_ascii=False,sort_keys=True)),'strings':strings,'string_hashes':{k:sha(v) for k,v in strings.items()},'prompt_version':PROMPT_VERSION}
  dump(STORE/snapshot/'source.json',source)
- catalog=json.loads((ROOT/'content/google-translate-languages.json').read_text());targets={r['code']:r for r in catalog['languages']}
+ catalog=json.loads((ROOT/'content/site-languages.json').read_text());targets={r['code']:r for r in catalog['languages']}
  ja={'locale':'ja','language':targets['ja'],'source_hash':source['source_hash'],'register_hash':source['register_hash'],'snapshot':snapshot,'status':'source','strings':strings,'string_hashes':source['string_hashes'],'provenance':{'engine':'original','note':'Japanese authored source; no translation required.'}}
  ja['database']=materialize(source,strings)
  dump(STORE/snapshot/'ja.json',ja)
@@ -172,7 +172,7 @@ def manifest(source,targets):
  dump(STORE/source['snapshot']/'manifest.json',obj);return obj
 
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('command',choices=['prepare','run','status']);parser.add_argument('--locales',help='Comma-separated catalog codes; omitted means all249');parser.add_argument('--workers',type=int,default=1);parser.add_argument('--run-dir',default='/tmp/incident-codex-translations');args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('command',choices=['prepare','run','status']);parser.add_argument('--locales',help='Comma-separated catalog codes; omitted means configured site languages');parser.add_argument('--workers',type=int,default=1);parser.add_argument('--run-dir',default='/tmp/incident-codex-translations');args=parser.parse_args()
  source,targets=prepare()
  if args.command!='run':print(json.dumps(manifest(source,targets),ensure_ascii=False) if args.command=='status' else f'Prepared {len(source["strings"])} strings for {len(targets)} locales, snapshot {source["snapshot"]}');return
  selected=args.locales.split(',') if args.locales else list(targets)

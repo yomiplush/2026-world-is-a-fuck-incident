@@ -3,6 +3,7 @@
 Run after every page builder. No network or third-party dependencies.
 """
 import html
+from functools import lru_cache
 import json
 import re
 from datetime import datetime, timezone
@@ -19,7 +20,9 @@ BASE = CONFIG['base_url']
 LATEST = json.loads((ROOT/'data/latest.json').read_text())
 REPO = 'https://github.com/yomiplush/2026-world-is-a-fuck-incident/'
 OLD_HOSTS = {'infosec-briefing.yomiplush.dev','www.infosec-briefing.yomiplush.dev','infosec-briefing.net'}
-LANGUAGES = [('en','English'),('ja','日本語'),('zh-Hans','中文（简体）'),('ko','한국어'),('es','Español'),('fr','Français'),('de','Deutsch'),('pt','Português'),('ru','Русский'),('ar','العربية'),('hi','हिन्दी'),('id','Bahasa Indonesia')]
+LANGUAGE_ROWS = json.loads((ROOT/'content/site-languages.json').read_text())['languages']
+LANGUAGES = [(row['html'],row['native']) for row in LANGUAGE_ROWS]
+LANGUAGE_CODES = {row['html']:row['code'] for row in LANGUAGE_ROWS}
 esc = lambda s: html.escape(str(s), quote=True)
 
 def clean_url(url):
@@ -57,6 +60,15 @@ class Info(HTMLParser):
 def shell(title,description,body):
     return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{esc(title)} | Infosec Briefing</title><meta name="description" content="{esc(description)}"><link rel="stylesheet" href="/update.css"><link rel="stylesheet" href="/daily.css"><link rel="stylesheet" href="/privacy.css"><script defer src="/privacy.js"></script></head><body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global"><a href="/">モーション</a><a href="{esc(clean_url(LATEST['site_report']))}">最新レポート</a><a href="/database">調査データ</a><a href="/timeline">日付別</a><a href="/about">編集方針</a></nav>{body}</main></body></html>'''
 
+def language_select(rows,current,label):
+    options=''.join(f'<option value="{esc(row["url"])}" data-code="{esc(row["code"])}"'+(' selected' if row['code']==current else '')+f'>{esc(row["native"])}</option>' for row in rows)
+    if current is None:options='<option value="" selected disabled>—</option>'+options
+    links=' · '.join(f'<a href="{esc(row["url"])}" lang="{esc(row.get("html",row["code"]))}">{esc(row["native"])}</a>' for row in rows)
+    return f'<div class="language-select-control"><label>{esc(label)}<select data-language-navigation>{options}</select></label><noscript><p>{links}</p></noscript></div>'
+
+def database_choices():
+    return [dict(row,url='/database' if row['code']=='ja' else '/database.'+row['code']) for row in LANGUAGE_ROWS if (SITE/('database.html' if row['code']=='ja' else 'database.'+row['code']+'.html')).is_file()]
+
 def extra_pages():
     about='''<header><p class="kicker">ABOUT / EDITORIAL POLICY</p><h1>このサイトと、情報の読み方。</h1><p class="intro">Infosec Briefingは、インシデント・脆弱性と対策を、公開一次資料から整理する独立した調査サイトです。</p></header>
 <section><h2>運営・お問い合わせ</h2><p>運営・編集：YomiPlush（yomiplush）。開発元、行政機関、被害企業の公式発表を代行するサイトではありません。</p><p><a href="https://github.com/yomiplush">運営者のGitHub</a> · <a href="mailto:contact@yomiplush.dev">contact@yomiplush.dev</a> · <a href="/privacypolicy/">プライバシーポリシー</a></p></section>
@@ -93,6 +105,7 @@ def extra_pages():
     public['source_register']=REPO+'blob/main/data/'+LATEST['incident_register']
     public['note']='Curated topic groups; not a worldwide incident count. See original evidence and caveats.'
     (SITE/'data/latest.json').write_text(json.dumps(public,ensure_ascii=False,indent=2)+'\n')
+    body=body.replace('</header>',language_select(database_choices(),'ja','言語')+'</header>',1)
     (SITE/'database.html').write_text(shell('インシデント・脆弱性の調査データと対策一覧','一次資料付きの調査データ。影響条件、対策、修正・復旧の状態を確認し、時刻別のJSONと取得原本へ戻れます。',body))
     (SITE/'404.html').write_text(shell('ページが見つかりません','ページが見つかりません。最新レポート、日付別の記録、調査データからお探しください。','<header><p class="kicker">404 / NOT FOUND</p><h1>ページが見つかりません。</h1><p>URLが変わったか、このページは公開されていません。</p><p><a href="/database">調査データから探す</a> · <a href="/timeline">日付から読む</a> · <a href="/">トップへ</a></p></header>').replace('</head>','<meta name="robots" content="noindex,follow"></head>'))
 
@@ -102,6 +115,11 @@ def root_reading(text):
     text=text.replace('<title>'+Info(text).title+'</title>','<title>インシデント・脆弱性と対策 | Infosec Briefing</title>')
     text=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+esc(CONFIG['description']+' 最新調査：'+label)+'">',text)
     return text
+
+@lru_cache(maxsize=1)
+def database_alternates():
+    # Parse each language once per build; do not reparse every page for every alternate.
+    return [(Info(path.read_text()).language,canonical(path)) for path in sorted(SITE.glob('database*.html')) if path.name=='database.html' or path.name.startswith('database.')]
 
 def metadata(file,text):
     # Public contact information must remain readable without CDN-injected JS.
@@ -134,19 +152,17 @@ def metadata(file,text):
         graph.append({'@type':'Dataset','@id':url+'#dataset','name':'Infosec Briefing 調査記録','description':info.description,'url':url,'creator':{'@id':org['@id']},'distribution':[{'@type':'DataDownload','encodingFormat':'application/json','contentUrl':BASE+'data/latest.json'}],'isAccessibleForFree':True})
     tags=['<link rel="stylesheet" href="/publishing.css">',f'<meta property="og:site_name" content="{esc(CONFIG["name"])}">',f'<meta property="og:title" content="{esc(info.title)}">',f'<meta property="og:description" content="{esc(info.description)}">',f'<meta property="og:url" content="{esc(url)}">',f'<meta property="og:type" content="{"article" if is_article else "website"}">',f'<meta property="og:image" content="{BASE}{CONFIG["image"]}">',f'<meta property="og:image:width" content="{CONFIG["image_width"]}">',f'<meta property="og:image:height" content="{CONFIG["image_height"]}">','<meta name="twitter:card" content="summary_large_image">',f'<meta name="twitter:title" content="{esc(info.title)}">',f'<meta name="twitter:description" content="{esc(info.description)}">',f'<meta name="twitter:image" content="{BASE}{CONFIG["image"]}">',f'<link rel="canonical" href="{esc(url)}">','<link rel="alternate" type="application/rss+xml" title="Infosec Briefing 更新" href="/feed.xml">','<link rel="icon" type="image/svg+xml" href="/favicon.svg">']
     if relative=='database.html' or relative.startswith('database.'):
-        for locale_path in sorted(SITE.glob('database*.html')):
-            if locale_path.name!='database.html' and not locale_path.name.startswith('database.'):continue
-            locale_info=Info(locale_path.read_text())
-            tags.append(f'<link rel="alternate" hreflang="{esc(locale_info.language)}" href="{esc(canonical(locale_path))}">')
+        for language,href in database_alternates():
+            tags.append(f'<link rel="alternate" hreflang="{esc(language)}" href="{esc(href)}">')
         tags.append(f'<link rel="alternate" hreflang="x-default" href="{BASE}database">')
-    if relative!='404.html':
-        tags.extend(['<link rel="stylesheet" href="/language-picker.css?v=20261026stored">','<script src="/language-core.js?v=20261026stored" defer></script>','<script src="/language-picker.js?v=20261026stored" defer></script>'])
+    if relative=='languages.html' or relative=='database.html' or relative.startswith('database.'):
+        tags.append('<script src="/language-select.js?v=20261026major" defer></script>')
     if relative in ('briefing.html','briefing.en.html'):
         tags.extend([f'<link rel="alternate" hreflang="ja" href="{BASE}briefing">',f'<link rel="alternate" hreflang="en" href="{BASE}briefing.en">',f'<link rel="alternate" hreflang="x-default" href="{BASE}briefing">'])
     if relative!='404.html':tags.append('<meta name="robots" content="index,follow,max-image-preview:large">')
     if relative.startswith('tailworm'):
         for lang,_ in LANGUAGES:
-            code='zh' if lang=='zh-Hans' else lang
+            code=LANGUAGE_CODES[lang]
             href=BASE+('tailworm?lang=ja' if code=='ja' else 'tailworm.'+code)
             tags.append(f'<link rel="alternate" hreflang="{lang}" href="{href}">')
         tags.append(f'<link rel="alternate" hreflang="x-default" href="{BASE}tailworm">')
@@ -159,7 +175,7 @@ def metadata(file,text):
         text=text.replace('</body>','<!-- editorial:start -->'+credit+'<!-- editorial:end --></body>')
     text=re.sub(r'<!-- language-nav:start -->.*?<!-- language-nav:end -->','',text,flags=re.S)
     if relative!='404.html' and not relative.startswith('database.'):
-        nav='<a href="/languages" data-language-picker aria-haspopup="dialog">言語 / Languages</a>'
+        nav='<a href="/languages">言語 / Languages</a>'
         if is_root:
             text=text.replace('<nav aria-label="読む資料">','<nav aria-label="読む資料"><!-- language-nav:start -->'+nav+' · <!-- language-nav:end -->',1)
         else:
@@ -177,7 +193,7 @@ def discovery(pages):
         node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=canonical(file)
         if file.name.startswith('tailworm'):
             for lang,_ in LANGUAGES:
-                code='zh' if lang=='zh-Hans' else lang
+                code=LANGUAGE_CODES[lang]
                 ET.SubElement(node,'{'+xhtml+'}link',rel='alternate',hreflang=lang,href=BASE+('tailworm?lang=ja' if code=='ja' else 'tailworm.'+code))
             ET.SubElement(node,'{'+xhtml+'}link',rel='alternate',hreflang='x-default',href=BASE+'tailworm')
     ET.indent(tree);ET.ElementTree(tree).write(SITE/'sitemap.xml',encoding='utf-8',xml_declaration=True)

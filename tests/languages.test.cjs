@@ -1,16 +1,13 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
-const file=path.join(__dirname,'../site/language-core.js');
-function core(){const context={window:{},URL};vm.createContext(context);vm.runInContext(fs.readFileSync(file,'utf8'),context);return context.window.LANGUAGE_CORE;}
-test('search matches names, aliases and exact Google script/region codes',()=>{
- const c=core(),languages=[{code:'zh-TW',en:'Chinese (Traditional)',ja:'中国語（繁体）',native:'繁體中文'},{code:'fr',en:'French',ja:'フランス語',native:'Français'}];
- assert.equal(c.filter(languages,'繁體')[0].code,'zh-TW');assert.equal(c.filter(languages,'francais')[0].code,'fr');assert.equal(c.filter(languages,'ＺＨ－ＴＷ')[0].code,'zh-TW');assert.equal(c.filter(languages,'no-such-language').length,0);
+const root=path.join(__dirname,'..'),catalog=JSON.parse(fs.readFileSync(path.join(root,'content/site-languages.json'),'utf8')).languages;
+function content(){const scope={window:{}};vm.createContext(scope);vm.runInContext(fs.readFileSync(path.join(root,'site/data.js'),'utf8'),scope);return scope.window;}
+test('native dropdown offers only the configured major languages including Ukrainian',()=>{
+ const data=content();assert.equal(catalog.length,13);assert.deepEqual(Array.from(data.LANGUAGES,r=>r.code),catalog.map(r=>r.code));assert.equal(catalog.find(r=>r.code==='uk').native,'Українська');
+ const page=fs.readFileSync(path.join(root,'site/index.html'),'utf8');assert.ok(!page.includes('language-picker'));assert.ok(!page.includes('language-dialog'));
 });
-test('translation links address stored local database pages with validated codes',()=>{
- const c=core();assert.equal(c.translationURL('bm-Nkoo'),'https://www.infosec-briefing.net/database.bm-Nkoo');
- assert.equal(c.translationURL('ja'),'https://www.infosec-briefing.net/database');
- assert.throws(()=>c.translationURL('fr&u=evil'));assert.throws(()=>c.translationURL('../secret'));
-});
-test('motion translation uses static transcript with the stable original scene number',()=>{
- const c=core();assert.equal(c.readingURL('https://www.infosec-briefing.net/','https://www.infosec-briefing.net/?lang=ru#56'),'https://www.infosec-briefing.net/briefing#scene-56');
- assert.equal(c.readingURL('https://www.infosec-briefing.net/tailworm?lang=ja','https://www.infosec-briefing.net/tailworm?lang=ja#actions'),'https://www.infosec-briefing.net/tailworm?lang=ja#actions');
+test('Ukrainian motion copy covers every actual scene and UI key without an English scene fallback',()=>{
+ const data=content();let locale;const scope={window:{registerLocale:(code,value)=>{assert.equal(code,'uk');locale=value}}};vm.createContext(scope);vm.runInContext(fs.readFileSync(path.join(root,'site/i18n/uk.js'),'utf8'),scope);
+ assert.deepEqual(Object.keys(locale.scenes).sort(),Array.from(data.CONTENT.scenes,r=>r.id).sort());
+ for(const key of Object.keys(data.CONTENT.ui.en))assert.equal(typeof locale.ui[key],'string',key);
+ for(const scene of data.CONTENT.scenes){const copy=locale.scenes[scene.id];assert.ok(copy.title,scene.id);assert.equal(typeof copy.lede,'string',scene.id);if(scene.en.lede)assert.notEqual(copy.lede,scene.en.lede,scene.id);assert.equal(copy.points.length,scene.en.points.length,scene.id);}
 });

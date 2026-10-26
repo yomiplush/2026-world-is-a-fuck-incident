@@ -1,23 +1,87 @@
 /* Bilingual scene data (ja / en).
    Facts are the same in both languages and come from the repository's docs/,
    which cite primary sources. Numbers live in shared fields; only copy differs. */
-/* Languages offered by the pull-down. `native` is what the reader sees in the
-   list; `html` is the BCP-47 tag; `dir` drives RTL layout. Adding a language is
-   one entry here plus one file in i18n/ — the app lazy-loads it on selection and
-   falls back to English for any field a locale does not translate. */
+/* Dropdown languages are generated from content/site-languages.json.
+   Locale prose is lazy-loaded from i18n/; missing existing-locale fields use English. */
 window.LANGUAGES = [
-  { code: "en", native: "English",            html: "en",    dir: "ltr" },
-  { code: "ja", native: "日本語",              html: "ja",    dir: "ltr" },
-  { code: "zh", native: "中文（简体）",         html: "zh-Hans", dir: "ltr" },
-  { code: "ko", native: "한국어",              html: "ko",    dir: "ltr" },
-  { code: "es", native: "Español",            html: "es",    dir: "ltr" },
-  { code: "fr", native: "Français",           html: "fr",    dir: "ltr" },
-  { code: "de", native: "Deutsch",            html: "de",    dir: "ltr" },
-  { code: "pt", native: "Português",          html: "pt",    dir: "ltr" },
-  { code: "ru", native: "Русский",            html: "ru",    dir: "ltr" },
-  { code: "ar", native: "العربية",             html: "ar",    dir: "rtl" },
-  { code: "hi", native: "हिन्दी",                html: "hi",    dir: "ltr" },
-  { code: "id", native: "Bahasa Indonesia",   html: "id",    dir: "ltr" }
+  {
+    "code": "en",
+    "native": "English",
+    "html": "en",
+    "dir": "ltr"
+  },
+  {
+    "code": "ja",
+    "native": "日本語",
+    "html": "ja",
+    "dir": "ltr"
+  },
+  {
+    "code": "zh",
+    "native": "中文（简体）",
+    "html": "zh-Hans",
+    "dir": "ltr"
+  },
+  {
+    "code": "ko",
+    "native": "한국어",
+    "html": "ko",
+    "dir": "ltr"
+  },
+  {
+    "code": "es",
+    "native": "Español",
+    "html": "es",
+    "dir": "ltr"
+  },
+  {
+    "code": "fr",
+    "native": "Français",
+    "html": "fr",
+    "dir": "ltr"
+  },
+  {
+    "code": "de",
+    "native": "Deutsch",
+    "html": "de",
+    "dir": "ltr"
+  },
+  {
+    "code": "pt",
+    "native": "Português",
+    "html": "pt",
+    "dir": "ltr"
+  },
+  {
+    "code": "ru",
+    "native": "Русский",
+    "html": "ru",
+    "dir": "ltr"
+  },
+  {
+    "code": "ar",
+    "native": "العربية",
+    "html": "ar",
+    "dir": "rtl"
+  },
+  {
+    "code": "hi",
+    "native": "हिन्दी",
+    "html": "hi",
+    "dir": "ltr"
+  },
+  {
+    "code": "id",
+    "native": "Bahasa Indonesia",
+    "html": "id",
+    "dir": "ltr"
+  },
+  {
+    "code": "uk",
+    "native": "Українська",
+    "html": "uk",
+    "dir": "ltr"
+  }
 ];
 
 window.CONTENT = {
