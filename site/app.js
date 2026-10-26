@@ -1,7 +1,8 @@
 /* Controller: scene state, languages (lazy-loaded), DOM text, canvas loop, input, audio. */
 (function () {
   const C = window.CONTENT || { ui: {}, scenes: [] };
-  const scenes = C.scenes || [];
+  const navigation = window.BRIEFING_NAV;
+  const scenes = navigation ? navigation.scenes : (C.scenes || []);
   const LANGS = window.LANGUAGES || [
     { code: "en", native: "English", html: "en", dir: "ltr" },
     { code: "ja", native: "日本語", html: "ja", dir: "ltr" }
@@ -131,7 +132,7 @@
     el.btnClose.textContent = ui("close");
     el.drawerTitle.textContent = lang === "ja" ? "出典 / SOURCES" : ui("sources");
     el.drawerFoot.innerHTML =
-      `${ui("drawerFoot")}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="./update-20261026.html">10/26 10:27</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a>`;
+      `${ui("drawerFoot")}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="./update-20261026-1301.html">10/26 13:01</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a>`;
     el.btnAudio.title = `${ui("sound")} (M)`;
     el.btnInfo.title = ui("sources");
     el.langSelect.title = `${ui("sources")} · L`;
@@ -166,6 +167,7 @@
     renderer.invalidate();
   }
   window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("briefingviewportchange", resize, { passive: true });
 
   /* ---------- drawing ---------- */
   function drawFrame(now, frameCtx, w, h) {
@@ -263,6 +265,8 @@
     el.panel.scrollTop = 0;
 
     [...el.rail.children].forEach((b, k) => b.setAttribute("aria-current", k === i ? "true" : "false"));
+    const activeTick = el.rail.children[i];
+    if (activeTick) el.rail.scrollLeft = activeTick.offsetLeft - el.rail.offsetLeft - el.rail.clientWidth / 2 + activeTick.offsetWidth / 2;
     el.btnPrev.disabled = i === 0;
     applyChrome();
     buildSources(s);
@@ -297,6 +301,7 @@
     if (i < 0) return;
     if (i >= scenes.length) i = 0;
     index = i;
+    if (navigation) history.replaceState(null, '', '#' + navigation.numberFor(index));
     renderScene(index, dir == null ? 1 : dir);
   }
   const next = () => go(index + 1, 1);
@@ -479,7 +484,7 @@
       b.className = "tick";
       b.type = "button";
       b.setAttribute("role", "tab");
-      b.setAttribute("aria-label", `${i + 1}: ${copyFor(s).title}`);
+      b.setAttribute("aria-label", `${i + 1}: ${s.stamp} · ${copyFor(s).title}`);
       b.setAttribute("aria-current", i === 0 ? "true" : "false");
       b.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -512,10 +517,16 @@
 
   const deep = (function () {
     const m = (location.hash || "").match(/(\d+)/);
-    if (m) return parseInt(m[1], 10) - 1;
+    if (m) return navigation ? navigation.indexFor(parseInt(m[1], 10)) : parseInt(m[1], 10) - 1;
     const q = new URLSearchParams(location.search).get("scene");
-    return q ? parseInt(q, 10) - 1 : -1;
+    return q ? (navigation ? navigation.indexFor(parseInt(q, 10)) : parseInt(q, 10) - 1) : -1;
   })();
+
+  window.addEventListener('hashchange', () => {
+    const number = Number(location.hash.slice(1));
+    const target = navigation ? navigation.indexFor(number) : number - 1;
+    if (target >= 0 && target < scenes.length) { if (!started) start(); go(target, 0); }
+  });
 
   if ((deep >= 0 && deep < scenes.length) || still || (window.ENTRY && window.ENTRY.bypass)) {
     started = true;

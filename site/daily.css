@@ -3,3 +3,5 @@
 @media(max-width:600px){.global{gap:4px 14px;font-size:12px}.day-card{grid-template-columns:68px 1fr 16px;padding:18px 14px;gap:12px}.day-card p{font-size:13px}.priority-grid{grid-template-columns:1fr}.dates{gap:6px}.dates a{padding:6px 10px}.evidence-counts{gap:18px}.evidence-counts strong{font-size:28px}h1{font-size:32px}}
 @media(prefers-reduced-motion:reduce){.day-card{transition:none}.day-card:hover{transform:none}}
 @media print{.global,.dates,.skip,.siblings{display:none}.day-card,article,.priority-grid article{break-inside:avoid;background:none;color:black}.day-card time,.day-number,.event-type{color:black}}
+
+html{scroll-padding-top:24px}h3{font-size:clamp(19px,2.4vw,24px);line-height:1.5;margin:12px 0 18px}.priority-grid h3{font-size:21px}.global a,.dates a,.siblings a{min-height:44px;display:inline-flex;align-items:center}main{padding-bottom:calc(80px + env(safe-area-inset-bottom))}.global{padding-top:env(safe-area-inset-top)}

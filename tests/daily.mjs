@@ -29,6 +29,13 @@ try {
     await open('/update-20261026.html');
     assert.equal(await run('document.documentElement.scrollWidth <= innerWidth'), true);
     assert.ok(await run('document.body.textContent.includes("10:27") && document.body.textContent.includes("撤回")'));
+    await open('/update-20261026-1301.html');
+    assert.equal(await run('document.documentElement.scrollWidth <= innerWidth'), true, 'noon report overflows');
+    assert.equal(await run('document.querySelectorAll("#delta article").length'), 10);
+    assert.equal(await run('document.querySelectorAll("#incidents article").length'), 7);
+    assert.equal(await run('document.querySelectorAll("#reference article").length'), 1);
+    assert.ok(await run('document.body.textContent.includes("13:01") && document.body.textContent.includes("未確定")'));
+    assert.equal(await run(`[...document.querySelectorAll('a[href^="#"]')].every(a=>document.getElementById(a.hash.slice(1)))`), true, 'report jumps need a target');
     if (width === 390 || width === 1440) {
       const shot = await cdp('Page.captureScreenshot', { format: 'png' });
       fs.writeFileSync(`/tmp/incident-latest-${width}.png`, Buffer.from(shot.data, 'base64'));
@@ -36,12 +43,12 @@ try {
   }
   await cdp('Emulation.setScriptExecutionDisabled', { value: false });
   await open('/?lang=ja');
-  assert.equal(await run('document.querySelector(".latest-update").getAttribute("href")'), './update-20261026.html');
+  assert.equal(await run('document.querySelector(".latest-update").getAttribute("href")'), './update-20261026-1301.html');
   assert.equal(await run('typeof CONTENT'), 'undefined', 'entry still defers briefing');
   await open('/?lang=ja&still=1#49');
   for (let i = 0; i < 80 && !(await run('window.__booted === true')); i++) await pause(50);
   assert.equal(await run('CONTENT.scenes.length'), 53);
-  assert.ok(await run('document.getElementById("asof").textContent.includes("2026-10-26 10:27")'));
+  assert.ok(await run('document.getElementById("asof").textContent.includes("2026-10-26 13:01")'));
   assert.ok(await run('document.getElementById("title").textContent.includes("10:27")'));
   assert.equal(await run('window.__drawErr'), null);
   console.log('10 daily pages without JS, date navigation, sources, 4 widths, latest entry and morning scene passed');

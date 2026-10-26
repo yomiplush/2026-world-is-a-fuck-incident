@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全53画面。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全53画面を日付順に再整列。13:01の最新調査は読むレポートへ。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "10/26朝の追補は個別出典付き。過去の画面は当時の文脈です。実取得は基準時刻後です。",
-      asof: "2026-10-26 10:27 JST 基準",
+      drawerFoot: "最新レポートは10/26 13:01基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
+      asof: "2026-10-26 13:01 JST 基準",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 53 scenes total. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 53 scenes, reordered by date. See the reading report for the 13:01 update. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
-      drawerFoot: "October 26 additions have individual sources. Earlier scenes retain historical context. Retrieved after cutoff.",
-      asof: "cutoff 2026-10-26 10:27 JST",
+      drawerFoot: "Latest reading report: October 26, 13:01 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
+      asof: "cutoff 2026-10-26 13:01 JST",
       lang: "EN"
     }
   },
@@ -63,21 +63,21 @@ window.CONTENT = {
         note: { ja: "docs/14 が15件を1件ずつ検証", en: "docs/14 checks all fifteen rows" } }],
       ja: {
         kicker: "INCIDENT BRIEFING · 2026-10",
-        title: "ひと月で、15件。",
+        title: "10月の事案を、時系列で。",
         lede: "互いに無関係に見える事案が、同じ種類の弱点に集まった月。タップで時系列に進みます。",
         points: [
-          "15件のうち <b>8件</b>が npm / pip / プラグイン / リリース資産 — コードではなく<em>配布</em>",
-          "当初の14件に加え、<b>ConnectWiseも一次確認</b>。10/25追補に現在の対応を掲載",
+          "初期調査15件と、その後の広域追補。件数は全世界の被害総数ではありません",
+          '<a href="./update-20261026-1301.html">10/26 13:01 最新調査 →</a> · <a href="./timeline.html">日付から読む →</a>',
           "音が出ます。右上の SOUND で消せます"
         ]
       },
       en: {
         kicker: "INCIDENT BRIEFING · 2026-10",
-        title: "One month, fifteen incidents.",
+        title: "October incidents, in date order.",
         lede: "Unrelated failures that kept landing on the same kind of weakness. Tap through them in order.",
         points: [
-          "<b>8 of 15</b> are npm / pip / plugin / release-asset problems — the <em>distribution</em>, not the code",
-          "ConnectWise now also has <b>primary confirmation</b>; see the October 25 addendum",
+          "The initial 15 cases plus later broad reviews; these are not a worldwide victim count",
+          "<a href=\"./update-20261026-1301.html\">13:01 JST report (Japanese) →</a> · <a href=\"./timeline.html\">Read by date →</a>",
           "Sound is on — toggle it top-right"
         ]
       }

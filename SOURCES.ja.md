@@ -1,6 +1,8 @@
 # ソースと再取得コマンド
 
-最新10/26 10:27 JST：[総まとめ](docs/29-snapshot-20261026-1027.ja.md) / [追加一次調査](docs/research-2026-10-26-1027.md) / [固定窓の範囲・重複](docs/research-collection-2026-10-26-1027.md) / [原本・URL・取得時刻・SHA-256](data/2026-10-26-1027/collection-summary.json)。再取得：`python3 tools/intel/snapshot-1027.py`。後取得の現行本文であり、過去版の完全再現ではありません。
+最新10/26 13:01 JST：[一次調査・18論点](docs/research-2026-10-26-1301.md) / [構造化索引](data/2026-10-26-1301/incident-register.json) / [全照会URL・取得時刻・46応答のSHA-256](data/2026-10-26-1301/collection-summary.json)。10:27〜13:01 JST、NVD新規8/更新20、GHSA13（重複あり）。実取得は13:04 JST以降。同日・公開時刻未確定のVALTEC第3報は参考枠。以下は過去の取得記録です。
+
+前回10/26 10:27 JST：[総まとめ](docs/29-snapshot-20261026-1027.ja.md) / [追加一次調査](docs/research-2026-10-26-1027.md) / [固定窓の範囲・重複](docs/research-collection-2026-10-26-1027.md) / [原本・URL・取得時刻・SHA-256](data/2026-10-26-1027/collection-summary.json)。再取得：`python3 tools/intel/snapshot-1027.py`。後取得の現行本文であり、過去版の完全再現ではありません。
 
 
 最新の夜間差分：[23:18広域調査](docs/28-snapshot-20261025-2318.ja.md)、[Tailworm特集](docs/27-tailworm.ja.md)、[URL・取得時刻・ハッシュ](data/2026-10-25-2318/collection-summary.json)、[全87件](data/2026-10-25-2318/nvd-index.json)。再取得：`python3 tools/intel/snapshot-2318.py`。
