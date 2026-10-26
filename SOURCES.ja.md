@@ -1,6 +1,10 @@
 # ソースと再取得コマンド
 
-最新10/26 13:01 JST：[一次調査・18論点](docs/research-2026-10-26-1301.md) / [構造化索引](data/2026-10-26-1301/incident-register.json) / [全照会URL・取得時刻・46応答のSHA-256](data/2026-10-26-1301/collection-summary.json)。10:27〜13:01 JST、NVD新規8/更新20、GHSA13（重複あり）。実取得は13:04 JST以降。同日・公開時刻未確定のVALTEC第3報は参考枠。以下は過去の取得記録です。
+最新 **10/26 14:56 JST**：[固定窓収集・技術調査](docs/research-collection-2026-10-26-1456.md) / [国内・ベンダー一次調査](docs/research-2026-10-26-1456.md) / [統合索引](data/2026-10-26-1456/incident-register.json)。窓は **13:01〜14:56 JST**、NVD新規8 /更新11（**8件重複**）、GHSA **新規公開0**。KEVは2026.10.23版1,756件のまま。**差分7群・既存範囲補完8群・公開時刻未確定の参考3群**で、事件数ではありません。
+
+**82応答記録（うち15件は変更のない前回原本への参照）のhashを検証済み。** [DB・フィード原本と取得記録](data/2026-10-26-1456/collection-summary.json) / [ベンダー原本と取得記録](data/2026-10-26-1456-vendors/collection-summary.json) / [NVD索引](data/2026-10-26-1456/nvd-index.json) / [フィード索引](data/2026-10-26-1456/feed-index.json)。再取得：`python3 tools/intel/snapshot-1456.py`。実取得は対象時刻後で、原本は取得時の現行改訂です。PAN-OSのJSON/CSAF時刻不整合は両方を保存。同日eMudhra・Douzone・VALTEC続報は信頼できる公開時刻が未確定のため参考枠。GHSA新規0件は既存勧告の改訂がないという意味ではありません。以下は過去の取得記録です。
+
+前回10/26 13:01 JST：[一次調査・18論点](docs/research-2026-10-26-1301.md) / [構造化索引](data/2026-10-26-1301/incident-register.json) / [全照会URL・取得時刻・46応答のSHA-256](data/2026-10-26-1301/collection-summary.json)。10:27〜13:01 JST、NVD新規8/更新20、GHSA13（重複あり）。実取得は13:04 JST以降。同日・公開時刻未確定のVALTEC第3報は参考枠。以下は過去の取得記録です。
 
 前回10/26 10:27 JST：[総まとめ](docs/29-snapshot-20261026-1027.ja.md) / [追加一次調査](docs/research-2026-10-26-1027.md) / [固定窓の範囲・重複](docs/research-collection-2026-10-26-1027.md) / [原本・URL・取得時刻・SHA-256](data/2026-10-26-1027/collection-summary.json)。再取得：`python3 tools/intel/snapshot-1027.py`。後取得の現行本文であり、過去版の完全再現ではありません。
 

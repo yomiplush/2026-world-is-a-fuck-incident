@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <meta http-equiv="Cache-Control" content="no-store" />
+
+    
+    <meta name="description" content="A writeup on 'Your Smart CCTV might not be as Smart'">
+    <meta name="author" content="Brylle Olaivar">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:title" content="akosibrylle.dev | Writeups">
+    <meta property="og:description" content="A writeup on 'Your Smart CCTV might not be as Smart'">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://akosibrylle.dev/">
+    <meta property="og:image" content="https://akosibrylle.dev/static/img/writeups-og.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="akosibrylle.dev | Writeups">
+    <meta name="twitter:description" content="Brylle's opinion on: 'Your Smart CCTV might not be as Smart'">
+    <meta name="twitter:image" content="https://akosibrylle.dev/static/img/writeups-og.png">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.4/dist/terminal.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <script type="text/javascript" src="/static/js/libgif.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/css/index.css" />
+
+    <title>brylle - Writeups</title>
+</head>
+<body>
+    <div class="terminal-banner">
+        <div class="container">
+            <div class="terminal-prompt" id="terminal">
+                <b>root@akosibrylle.dev:~$ </b><span id="asciifx-prompt"></span>
+            </div>
+            <p># capture-the-flag is love!</p>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="container">
+        <nav class="terminal-menu">
+            <ul>
+              <li><a class="menu-item" href="/"><span>Home</span></a></li>
+              <li><a class="menu-item" href="/writeups"><span>Writeups</span></a></li>
+              <li><a class="menu-item" href="/projects">Projects</a></li>
+              <li><a class="menu-item" href="/blog">Blog</a></li>
+            </ul>
+            <hr>
+        </nav>
+    </div>
+
+    
+    <div class="container" id="main">
+        <div class="components components-grid">
+            <div>
+                <aside id="menu">
+                    <h3>Content List</h3>
+                    <b><a href="/writeups"><<< Back</a></b>
+                    <nav>
+                        <ol id="challenges">
+                            <!-- Challenge list here -->
+                        </ol>
+                    </nav>
+
+                    <div class="progress-bar progress-bar-show-percent" id="page-scroll-progress" hidden>
+                        <div class="progress-bar-filled" style="width:0%"></div>
+                    </div>
+
+                    <hr>
+                </aside>
+            </div>  
+    
+            <main>
+                <!-- Challenge contents here! -->
+                <div id="writeups">
+                    A zero-day vulnerability on a popular smart camera.
+---
+
+##### Details
+`Target`: Yoosee Smart Camera (GM8135S SoC) versions up to and including 21.00.01.36 (and possibly others)
+
+`Vulnerability:` CWE-319 Cleartext Transmission of Sensitive Information, CWE-1188 Insecure Default Initialization of Resource and CWE-345 Insufficient Verification of Data Authenticity
+
+`Summary:` Cleartext Transmission of Sensitive Information in the Shenzhen Gwell Times Technology Yoosee GM8135S Camera /npc/npc binary allows a network-positioned attacker to intercept and reconstruct live UDP video streams transmitted from the camera **during an active live stream**. Additionally, the device is configured to auto connect to different default WiFi SSIDs without a password, making sniffing easier when it is possible to be in close proximity from target device.
+
+![Yoosee Smart Camera](https://akosibrylle.me/static/yoosee-cve/24fe21c4-2151-459b-8958-221757e84a52.jpg)
+
+---
+
+# Target Device
+The target device is a camera from Gwell Times (HK) Co., Limited with a Grain Media GM8135S System-on-Chip that can be connected to the internet via WiFi or Ethernet. The camera is paired with a Yoosee mobile app to view video and audio stream, send mic audio, and control the camera.
+
+It is a popular smart camera that can be bought in online shopping applications such as Lazada, Shopee or Tiktok for around ₱400-800
+
+![Yoosee Smart Camera](https://akosibrylle.me/static/yoosee-cve/3ce1de05-a622-4408-b5bb-844bcf53b424.jpg)
+
+**Additional background information**:
+Prior to discovering all this, the SPI flash (XM25QH64) stores the firmware of the CCTV. It does not properly verify the firmware, so an attacker can extract the firmware, modify and reflash it back to the flash chip. There is no firmware verification checks on the device.
+
+To assist me with testing, I set a shell telnet backdoor (via BusyBox already installed) so I can check the system live.
+
+---
+
+# Interception Environment
+To mimic a upstream network device, the camera was connected to a laptop via an RJ45 cable. The laptop was setup with network forwarding and DHCP to act as a router while sniffing packets using wireshark
+
+
+
+**Setting up Linux with port forwarding**:
+
+```sh
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+
+> This allows the laptop to forward requests from camera to the actual router the laptop is connected to via WiFi
+
+
+
+**Setting up a DHCP server**:
+
+```sh
+sudo dnsmasq --interface=enp1s0 --dhcp-range=192.168.2.10,192.168.2.50,255.255.255.0,12h
+```
+
+> This allows the camera to receive a valid IP address
+
+
+
+**Assign ethernet interface IP for laptop**:
+
+```sh
+sudo ip addr add 192.168.2.1/24 dev enp1s0
+```
+
+
+
+**Setting up network forwarding from wired interface to wireless interface (with internet):**
+
+```sh
+sudo iptables -t nat -A POSTROUTING -o wlp2s0 -j MASQUERADE
+```
+
+> This allows proper NAT from the camera to the wifi interface
+
+
+
+Once above are setup:
+1) Plug RJ45 cable to camera and laptop ethernet ports
+2) Wireshark sniffs the packet on the ethernet interface
+3) Yoosee Mobile App is opened (app must be setup to connect to the camera prior) and simply watch the video stream
+
+This setup mimics a camera sending packets, including cleartext video frames, to any upstream network devices malicious or not. Including but not limited to:
+- routers
+- other devices in the same network
+- ISP
+
+---
+
+# Proof of Concept
+Packets sniffed during an active live stream contains raw UDP frames of the stream. To reconstruct, we use **tshark** to filter the frames.
+
+This shows us which UDP stream has the most frames
+
+```sh
+tshark -r cctv.pcapng -q -z conv,udp
+```
+
+
+
+Port **8255** contains most of the frames sent to a **PUBLIC IP ADDRESS**, we extract its data in hex format to a text file.
+
+```sh
+tshark -r cctv.pcapng -Y "udp.port == 8255" -T fields -e udp.payload > clean_camera_hex.txt
+```
+
+We use a Python script to strip the first 80 header bytes and extract only the raw H.264 frames.
+
+---
+
+```py
+import sys
+
+inf = open(sys.argv[1], "r")  # clean_camera_hex.txt
+out = open(sys.argv[2], "w")  # final.txt
+
+for line in inf.readlines():
+    out.write(line[80:])
+
+inf.close()
+out.close()
+
+# run this as: python3 snippet.py clean_camera_hex.txt final.txt
+```
+
+
+By analyzing the packets, I was able to conclude that the structure of each frames transmitted looks roughly like this:
+
+![Packet layout](https://akosibrylle.me/static/yoosee-cve/e01e223f-fabf-4110-84e6-56766ac1e4b2.jpg)
+
+The headers (first 80 bytes) doesn't seem to contain anything useful, mostly repeated bytes, counters, or checksums. Worth considering that not all packets contain an H.264 frame. They also contain (possibly) floating point values, which may be sensor telemetry.
+
+Decode hex to binary
+```sh
+xxd -r -p final.txt > stream.bin
+```
+
+Play the frames
+```sh
+ffplay stream.bin
+```
+
+...or decode it to MP4
+```sh
+ffmpeg -i frames -c:v libx264 -pix_fmt yuv420p -crf 18 output.mp4
+```
+
+Sample unencrypted video transmission captured: (mosaic used for privacy)
+
+<video width="320" height="240" autoplay loop controls> 
+  <source src="https://akosibrylle.me/static/yoosee-cve/0720.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+*This goes over the internet btw*
+
+The device is also configured to automatically connect to WiFi networks with SSID: "Free-AP0", "Free-AP1", "Free-AP2", "Free-AP3" without the need for any password. Due to this reason, an attacker does not strictly need to be network positioned, and sniffing can be possible by setting up a WiFi network in proximity of the target device and force the device to connect to the SSID by deauthentication from the WiFi SSID it is already connected to.
+
+Below is a screenshot of my Android phone with a Hotspot set to "Free-AP0" without a password, and automatically an unknown device connected (that was the Yoosee Smart Camera).
+
+![Connected](https://akosibrylle.me/static/yoosee-cve/07c4ca44-c748-4522-a1a9-9a0e5c8fd525.jpg)
+
+This is because by default the device is configured to connect to them through `wpa_supplicantX.conf` files, which is used by the **wpa_supplicant** daemon in Linux controlling the wireless WPA driver to connect to WiFi networks. The picture below shows the live filesystem of the camera with the multiple wpa_supplicant configuration files.
+
+![wpa_supplicant configuration](https://akosibrylle.me/static/yoosee-cve/b2010324-ac9c-4366-820a-b991f1bbb835.jpg)
+
+---
+
+
+# Impact
+An attacker does not need to authenticated on the camera, and only needs to be in between the camera and server routing or in the same network where sniffing is possible. If the camera is installed in homes or sensitive business environments where privacy are expected, an **attacker can passively monitor the environment without triggering any alarms or authentication failures.
+
+The budget cost of this smart camera paired with little to no setup and maintenance makes it an attractive choice for homes and offices while unwittingly allowing themselves to be viewed by anyone.
+
+---
+
+# Disclosure Timeline
+`June 06, 2026`: Vendor is informed via email
+
+`June 07, 2026`: CVE ID Reservation for Cleartext transmission
+
+`July 12, 2026`: Follow up CVE ID Reservation
+
+`July 19, 2026`: CVE ID Reservation for Insecure Default Initialization of Resource
+
+`July 20, 2026`: Writeup publicized
+
+**Remediation:** As of the date of publication, the vendor has not released a firmware update to resolve this issue.
+
+**Mitigation:** (1) Users are strongly advised to isolate these cameras onto a dedicated, non-routable IoT VLAN with strict firewall rules blocking all outbound internet access.
+
+To retain remote viewing capabilities without relying on the vulnerable Yoosee P2P infrastructure, users can capture the camera's local RTSP stream (`rtsp://admin:[PASSWORD]@[IP_ADDRESS]:554/onvif1`) and route it through a secure, self-hosted Network Video Recorder (NVR) or reverse proxy that enforces TLS. The RTSP password can typically be found on the device's physical sticker label or configured via Yoosee's NVR settings.
+
+
+(2) If local isolation and secure routing are not possible, users should transition to devices that mandate transport-layer encryption by default.
+
+
+(3) To prevent attackers from deauthenticating the device from your WiFi and auto-reconnecting to a maliciously set up WiFi network, it is recommended to connect it via Ethernet cable.
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.body.onload = function() {
+            // Initialize showdown converter
+            var converter = new showdown.Converter({
+                ghCodeBlocks: true,
+                backslashEscapesHTMLTags: true
+            });
+
+            document.getElementById("writeups").innerHTML = converter.makeHtml(document.getElementById("writeups").innerHTML);
+            hljs.highlightAll();
+
+            Array.from(document.getElementsByTagName("h1")).forEach(topic => {
+                document.getElementById("challenges").innerHTML += `<li><a href="#${topic.id}">${topic.innerHTML}</a></li>`;
+            });
+        };
+    </script>
+
+
+    <script src="/static/js/main.js"></script>
+    <script>
+        function scramble(element, finalHTML, duration) {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const intervalTime = 100;
+            const totalIterations = duration / intervalTime;
+            let iteration = 0;
+
+            // Recursive function to get all text nodes inside element
+            function getTextNodes(node) {
+                let nodes = [];
+                node.childNodes.forEach(child => {
+                if (child.nodeType === Node.TEXT_NODE) {
+                    nodes.push(child);
+                } else if (child.nodeType === Node.ELEMENT_NODE) {
+                    nodes = nodes.concat(getTextNodes(child));
+                }
+                });
+                return nodes;
+            }
+
+            // Parse the final HTML in a temporary container to preserve tags
+            const temp = document.createElement("div");
+            temp.innerHTML = finalHTML;
+            const finalTextNodes = getTextNodes(temp);
+            const currentTextNodes = getTextNodes(element);
+
+            const interval = setInterval(() => {
+                for (let i = 0; i < currentTextNodes.length; i++) {
+                const currentNode = currentTextNodes[i];
+                const finalNodeText = finalTextNodes[i]?.textContent || "";
+                let scrambled = "";
+
+                for (let j = 0; j < finalNodeText.length; j++) {
+                    const c = finalNodeText[j];
+                    scrambled += /[a-zA-Z0-9]/.test(c)
+                    ? chars[Math.floor(Math.random() * chars.length)]
+                    : c; // keep spaces and symbols
+                }
+
+                currentNode.textContent = scrambled;
+                }
+
+                iteration++;
+                if (iteration >= totalIterations) {
+                clearInterval(interval);
+                element.innerHTML = finalHTML; // restore final HTML exactly
+                }
+            }, intervalTime);
+        }
+
+        // Allow HTMX swaps from 400-500 HTTP codes (swaps do not happen by default with these codes)
+        document.addEventListener('htmx:beforeSwap', function(evt) {
+            const status = evt.detail.xhr.status;
+            if (status >= 400 && status < 600) {
+                evt.detail.shouldSwap = true;
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElements = document.querySelectorAll("p, li, a, span");
+
+            const EXPIRY_DURATION = 60 * 60 * 1000; // 1 hour
+            const path = window.location.pathname;
+
+            let visitedData = JSON.parse(localStorage.getItem("hasVisited") || '{}');
+            let visitedPaths = visitedData.paths || [];
+            let timestamp = visitedData.timestamp || 0;
+
+            if (Date.now() - timestamp > EXPIRY_DURATION) {
+                visitedPaths = [];
+            }
+
+            if (!visitedPaths.includes(path)) {
+                for (const textElement of textElements) {
+                    scramble(textElement, textElement.innerHTML, 500);
+                }
+
+                // Mark this path as visited
+                visitedPaths.push(path);
+
+                // Save back to localStorage with current timestamp
+                localStorage.setItem("hasVisited", JSON.stringify({
+                    paths: visitedPaths,
+                    timestamp: Date.now()
+                }));
+            }
+        });
+    </script>
+</body>
+</html>

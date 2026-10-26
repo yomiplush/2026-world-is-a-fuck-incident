@@ -1,18 +1,21 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA インシデント
 
-## 忙しい人向け — まず1分（2026-10-26 13:01 JST基準）
+## 忙しい人向け — まず1分（2026-10-26 14:56 JST基準）
 
-**公開サーバーの更新・侵害調査と、漏れた鍵の失効を優先。** 今回は国内外の漏えい・業務障害、国内JVN、Brotli同梱先、AI/MCPまで再確認しました。全部読む必要はありません。自分に該当する項目だけ確認してください。
+**公開システムの更新・侵害調査と、漏れた鍵の失効を継続。** 今回は条件付きのアプリ脆弱性、修正の組込み先、国内サービスの停止・再開範囲を再確認しました。自分に該当する項目から確認してください。
 
-- **PHP / GitLab / PAN-OS・境界機器を運用：** 対象構成と**実行中の版**を照合し、更新と侵害調査を並行。パッチ適用だけで既存侵入の除去とはしません。[条件別21群の対応表](https://infosec-briefing.yomiplush.dev/update-20261026.html)
-- **LiteLLM / Railway / ConnectWise等へ鍵を預けた：** 影響する鍵・セッション・クラウド権限と利用ログを確認し、失効・再発行まで実施。[継続対応](docs/29-snapshot-20261026-1027.ja.md)
-- **GMOデスクトップクラウドでFXを利用：** 別の安全な端末からパスワードを変更し、**残存する全セッションも切断**。取引履歴も確認。[事業者第5報](https://group.gmo/info/alert/2026102402/)
-- **V-SFT / 電子納品物検査支援システム / Brotli利用製品：** 設計ファイル・導入先権限・同梱コピーを追加点検。Continue / OpenBB等はMCP設定とローカルAPIの到達範囲も確認。[今回の差分と対応](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html#delta)
-- **Tailscale / headscale利用：** SSH・接続許可・Serve/Funnel等を機能別に点検。**Tailworm最低修正版は今回未確定**。1.104.2 / 0.29.6を修正版と推定しません。[特集・対処](https://infosec-briefing.yomiplush.dev/tailworm.html)
+- **PHP / GitLab / PAN-OS・境界機器：** 更新と侵害調査を並行。PAN-OSは11.1系列の追加4 hotfixを提供済みと案内しています。系列を照合し、公式JSONとCSAFの履歴時刻の不整合も留保。[ベンダーの提供状況](https://security.paloaltonetworks.com/CVE-2026-109618)
+- **.NETでBrotliを解凍：** 明示的に有効化した解凍や直接APIで非信頼データを処理する経路が対象。8.0.33 / 9.0.22 / 10.0.14等を照合し、**NativeAOTは共有runtime更新だけでなく再publish・再配置**。[Microsoft公式](https://github.com/dotnet/announcements/issues/494)
+- **GouGuOA / NocoDB / Halo / Zcode / Yoosee：** 認証・再設定トークン・template・コマンド承認・カメラの通信条件を確認。NocoDBは10/15の対処コードを確認しましたが、最低出荷修正版は未確定。[条件と未確定事項](docs/research-collection-2026-10-26-1456.md)
+- **国内サービス・バックアップ・端末：** SoftBankの地震・津波情報は再開済み、災害・避難情報は停止継続。ブラストメールも停止継続です。Ahsayの修正完備性とNeatの段階配信も確認。[一次資料付きの範囲補完](docs/research-2026-10-26-1456.md)
+- **LiteLLM / Railway / ConnectWise / GMO FX：** 鍵・権限・利用ログの点検を継続。ConnectWiseの復旧目標を再接続許可と扱わず、GMO利用者はパスワード変更後も**残存する全取引セッションを切断**。[継続対応](docs/29-snapshot-20261026-1027.ja.md) / [GMO第5報](https://group.gmo/info/alert/2026102402/)
+- **Tailscale / headscale：** SSH・接続許可・Serve/Funnelを機能別に点検。**Tailworm最低修正版は今回も未確定**。1.104.2 / 0.29.6を修正版と推定しません。[12言語の特集](https://infosec-briefing.yomiplush.dev/tailworm.html)
 
-**[最新の読むレポート](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html) · [日付別に古い→新しい順で読む](https://infosec-briefing.yomiplush.dev/timeline.html) · [一次資料付き調査](docs/research-2026-10-26-1301.md) · [構造化索引](data/2026-10-26-1301/incident-register.json)**
+**[最新の読むレポート](https://infosec-briefing.yomiplush.dev/update-20261026-1456.html) · [古い→新しい順の日付別一覧](https://infosec-briefing.yomiplush.dev/timeline.html) · [構造化索引](data/2026-10-26-1456/incident-register.json) · [出典と取得記録](SOURCES.ja.md)**
 
-**今回の収集：** 10:27〜13:01 JSTのNVD新規8件 / 更新20件、GHSA13件（全件unreviewed）。集合は重複しており、足して事件数にはしません。国内外の既存事件も補完し、18論点を整理。実取得は13:04 JST以降で、VALTECの同日第3報は公開時刻未確定の参考枠です。**発生・公表・DB登録・修正・復旧予定は別**。KEV未掲載も安全の証明にはしません。
+**今回の収集：** 13:01〜14:56 JST、NVD **新規8件 / 更新11件（新規8件は全件重複）**、GHSAは窓内の**新規公開0件**。**差分7群・既存範囲補完8群・公開時刻未確定の参考3群**で、新規18事件という意味ではありません。**82応答記録（うち15件は変更のない前回原本への参照）**のhashを検証。実取得は基準後です。PAN-OSの履歴時刻不整合を明記し、同日eMudhra・Douzone・VALTEC続報は参考枠に維持。**発生・公表・DB登録・修正・復旧は別**で、KEV未掲載も安全の証明にはしません。
+
+> **前回調査 — 2026-10-26 13:01 JST：** [18論点の一次調査](docs/research-2026-10-26-1301.md) / [構造化索引](data/2026-10-26-1301/incident-register.json) / [読むレポート](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html)。V-SFT、電子納品物検査支援システムの導入先権限、Brotli同梱先、Continue/OpenBB、国内事件を補完。10:27〜13:01 JSTのNVD新規8/更新20、GHSA13（全件unreviewed、重複あり）。実取得は基準後、VALTEC同日続報は公開時刻未確定の参考枠。
 
 ---
 
@@ -40,7 +43,7 @@
 
 ## 0. 過去の要約 — 初期調査の対応表（最新は冒頭）
 
-以下は初期調査の詳細を残した記録です。現在の優先事項は冒頭の13:01 JST要約と最新レポートを参照してください。
+以下は初期調査の詳細を残した記録です。現在の優先事項は冒頭の14:56 JST要約と最新レポートを参照してください。
 （さらに広く「直近の CRITICAL」を見たい場合は [`docs/13`](docs/13-recent-criticals.ja.md)。）
 
 ### 0-1. 今日やる（すでに現実になっているもの）

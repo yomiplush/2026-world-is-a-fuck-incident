@@ -2,6 +2,8 @@
 """Build complete, script-independent Tailworm language pages. No dependencies."""
 import html
 import json
+from datetime import datetime
+from urllib.parse import urlparse
 import re
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
@@ -45,6 +47,8 @@ class Markup(HTMLParser):
 def main():
     template = (ROOT / 'tools/templates/tailworm.html.template').read_text()
     source = json.loads((ROOT / 'content/tailworm/ja.json').read_text())
+    latest = json.loads((ROOT / 'data/latest.json').read_text())
+    latest_label = datetime.fromisoformat(latest['cutoff_jst']).strftime('%m/%d %H:%M')
     for code, native, lang in LANGUAGES:
         copy = json.loads((ROOT / f'content/tailworm/{code}.json').read_text())
         for group in ('meta', 'body'):
@@ -55,7 +59,9 @@ def main():
                 raise ValueError(f'{code}/{key}: missing copy or changed markup/URL')
         values = {f'meta.{key}': html.escape(value, quote=True) for key, value in copy['meta'].items()}
         values.update({f'body.{key}': value for key, value in copy['body'].items()})
+        values['body.t001'] = re.sub(r'\d{2}/\d{2} \d{2}:\d{2}', latest_label, values['body.t001'])
         values.update(locale=code, html_lang=lang, dir='rtl' if code == 'ar' else 'ltr',
+                      latest_report=Path(urlparse(latest['site_report']).path).name,
                       canonical=canonical(code))
         values['language_options'] = ''.join(
             f'<option value="{c}"'+(' selected' if c == code else '')+f' lang="{l}">{n}</option>'
