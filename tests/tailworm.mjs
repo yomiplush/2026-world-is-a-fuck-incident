@@ -15,11 +15,9 @@ try{
   await open('/?lang=ja','!!window.ENTRY');
   assert.equal(await run('typeof CONTENT'),'undefined','entry must retain deferred loading');
   await run('document.getElementById("privacy-reject")?.click();true');
-  const link=await run(`(()=>{const a=document.querySelector('.tailworm-feature');if(!a)return null;const r=a.getBoundingClientRect();return {href:a.getAttribute('href'),h:r.height,left:r.left,right:r.right,visible:getComputedStyle(a).display!=='none'}})()`);
-  assert.ok(link,'Tailworm needs a prominent native entry link');assert.equal(link.href,'./tailworm');
-  assert.ok(link.visible&&link.h>=44&&link.left>=0&&link.right<=width,'feature link clipped');
-  assert.equal(await run(`(()=>{const a=document.querySelector('.tailworm-feature'),r=a.getBoundingClientRect(),b=document.querySelector('.latest-update').getBoundingClientRect();return r.bottom<=b.top && document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)?.closest('a')===a})()`),true,'feature must remain clickable and not overlap latest link');
-  await run("document.querySelector('.tailworm-feature').click()");
+  assert.equal(await run("document.querySelector('.tailworm-feature')"),null,'symbolic splash omits announcement text');
+  await open('/languages','!!window.LANGUAGE_PICKER');
+  await run("document.querySelector('a[href=\"/tailworm?lang=ja\"]').click()");
   for(let i=0;i<80;i++){await new Promise(r=>setTimeout(r,50));if(await run("/\/tailworm(?:\.[a-z]{2})?(?:\.html)?$/.test(location.pathname) && !!document.querySelector('#actions')"))break;}
   assert.equal(await run('!!document.querySelector("#actions")'),true,'feature link should reach actionable report');
   assert.equal(await run('!!window.CONTENT || !!window.AUDIO'),false,'static feature should not load briefing or audio');
@@ -33,5 +31,5 @@ try{
   assert.ok(await run('document.getElementById("title").textContent.length>8'));
   assert.ok(await run('CONTENT.scenes['+(n-1)+'].sources.length>=2'));
  }
- console.log('Tailworm entry, 4 widths, static actions, deferred audio and 6 bilingual deep links passed');
+ console.log('Tailworm directory link,4widths, static actions, deferred audio and 6 bilingual deep links passed');
 }finally{ws.close()}

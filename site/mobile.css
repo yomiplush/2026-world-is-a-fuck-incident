@@ -4,13 +4,10 @@ body #app { height:var(--app-height,100dvh) }
 .drawer { inset-block-end:auto; height:var(--app-height,100dvh) }
 .privacy-dock { bottom:calc(var(--viewport-bottom,0px) + max(6px,env(safe-area-inset-bottom))) }
 .briefing-preferences { max-height:calc(var(--app-height,100dvh) - 80px); bottom:calc(var(--viewport-bottom,0px) + max(52px,env(safe-area-inset-bottom) + 44px)) }
-body.entry-locked .latest-update { bottom:calc(var(--viewport-bottom,0px) + 52px + env(safe-area-inset-bottom)) }
 .rail { display:flex; overflow-x:auto; gap:4px; padding:2px 0; scrollbar-width:thin; overscroll-behavior-x:contain }
 .tick { flex:1 0 18px; min-width:18px; min-height:32px }
 .tick::after { top:15px }
 .tick[aria-current="true"]::after { top:13px }
-.timeline-entry { position:fixed; top:calc(16px + env(safe-area-inset-top)); left:max(16px,env(safe-area-inset-left)); z-index:25; display:flex; align-items:center; min-height:44px; max-width:calc(100vw - 130px); padding:8px 10px; border:1px solid #29414e; border-radius:4px; background:#08111fee; font:11px/1.5 system-ui,sans-serif; text-decoration:none }
-body:not(.entry-locked) .timeline-entry { display:none }
 /* Keep primary navigation above the privacy dock and inside the safe area. */
 @media (max-width:600px), (max-height:560px) and (max-width:950px) {
   body #app { padding-bottom:calc(72px + env(safe-area-inset-bottom)) }
@@ -42,12 +39,7 @@ body:not(.entry-locked) .timeline-entry { display:none }
   .privacy-dock a,.privacy-dock button { display:flex; flex:1; align-items:center; justify-content:center; min-height:44px; padding:8px; text-align:center; font-size:11px }
   .privacy-dock button { border-inline-start:1px solid #34414d }
   .briefing-preferences { bottom:calc(var(--viewport-bottom,0px) + 64px + env(safe-area-inset-bottom)) }
-  .latest-update { left:max(16px,env(safe-area-inset-left)); right:max(16px,env(safe-area-inset-right)); transform:none; min-height:48px; display:flex; align-items:center; justify-content:center; padding:10px 12px; white-space:normal; text-align:center; font-size:12px }
-  body.entry-locked .latest-update { bottom:calc(var(--viewport-bottom,0px) + 68px + env(safe-area-inset-bottom)) }
-  .entry-locked .cover { padding:220px 16px calc(150px + env(safe-area-inset-bottom)) }
   .entry-control { width:min(70vw,36dvh,300px) }
-  .tailworm-feature { top:calc(78px + env(safe-area-inset-top)); bottom:auto; left:16px; right:16px; width:auto; padding:12px 16px }
-  .tailworm-feature strong { font-size:30px }
 }
 
 @media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
@@ -58,22 +50,12 @@ body:not(.entry-locked) .timeline-entry { display:none }
   .hud-bottom .nav { grid-column:2; grid-row:2; width:min(320px,45vw); display:grid; grid-template-columns:1fr 2fr; gap:12px }
   .more { grid-column:1; grid-row:2; align-self:center; max-width:40vw }
   .hint { display:none }
-  .entry-locked .cover { justify-items:end; padding:60px clamp(24px,8vw,70px) 80px 16px }
   .entry-control { width:min(32vw,54dvh,260px) }
-  .tailworm-feature { top:calc(76px + env(safe-area-inset-top)); bottom:auto; left:16px; right:auto; width:min(44vw,360px); padding:10px 14px }
-  .tailworm-feature strong { font-size:28px }
-  .tailworm-feature b { font-size:11px }
-  .latest-update { left:16px; right:auto; transform:none; width:min(44vw,360px); min-height:44px; display:flex; align-items:center; justify-content:center; padding:8px 12px; white-space:normal; text-align:center }
-  body.entry-locked .latest-update { bottom:calc(var(--viewport-bottom,0px) + 66px + env(safe-area-inset-bottom)) }
 }
 
 /* Compact in-app portrait viewports still need an unobstructed unlock button. */
 @media (max-width:600px) and (orientation:portrait) {
-  .compact-viewport .entry-locked .cover { padding:186px 16px 130px }
   .compact-viewport .entry-control { width:min(46vw,25dvh,150px) }
-  .compact-viewport .tailworm-feature { top:calc(60px + env(safe-area-inset-top)); padding:8px 12px }
-  .compact-viewport .tailworm-feature strong { font-size:24px }
-  .compact-viewport .tailworm-feature b { font-size:11px }
   .compact-viewport #app { gap:6px; padding-top:10px }
   .compact-viewport .hud-top { padding-bottom:6px; gap:4px }
   .compact-viewport .hud-left .tag { display:none }

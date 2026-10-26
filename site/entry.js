@@ -87,7 +87,7 @@
     }).catch(fail);
   }
   function keydown(event) {
-    if (event.defaultPrevented || document.querySelector('#language-dialog[open]') || event.target.closest('a,button,input,select,textarea,summary,.entry-reading,[contenteditable]')) return;
+    if (event.defaultPrevented || document.querySelector('#language-dialog[open]') || event.target.closest('a,button,input,select,textarea,summary,[contenteditable]')) return;
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(); }
   }
   window.ENTRY = {

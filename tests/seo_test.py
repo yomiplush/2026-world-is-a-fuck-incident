@@ -78,7 +78,8 @@ class Publication(unittest.TestCase):
 
     def test_static_reading_entry_and_editorial_transparency(self):
         text=(SITE/'index.html').read_text()
-        self.assertIn('id="entry-reading"',text)
+        self.assertNotIn('id="entry-reading"',text)
+        self.assertIn('class="entry-library"',text)
         self.assertIn('一次情報',text)
         self.assertTrue((SITE/'about.html').exists());self.assertTrue((SITE/'database.html').exists())
         # Runtime-only query languages must not masquerade as static translations.

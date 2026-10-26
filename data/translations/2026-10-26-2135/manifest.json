@@ -1,0 +1,2052 @@
+{
+  "snapshot": "2026-10-26-2135",
+  "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3",
+  "register_hash": "fe134a9745b1c69c9242f9fe22aa2566f98f636814d61d797d69b4c3ca154ebd",
+  "target_count": 249,
+  "ready_count": 6,
+  "languages": {
+    "ab": {
+      "language": {
+        "code": "ab",
+        "en": "Abkhaz",
+        "ja": "アブハズ語"
+      },
+      "status": "unsupported",
+      "reason": "I cannot translate these 201 strings into Abkhaz faithfully while preserving every technical condition, caveat, and distinction. I have therefore left the translations empty."
+    },
+    "ace": {
+      "language": {
+        "code": "ace",
+        "en": "Acehnese",
+        "ja": "アチェ語"
+      },
+      "status": "unsupported",
+      "reason": "I cannot faithfully translate all 201 strings into Acehnese while preserving every technical condition, caveat, and distinction. I have therefore left strings empty."
+    },
+    "ach": {
+      "language": {
+        "code": "ach",
+        "en": "Acholi",
+        "ja": "アチョリ語"
+      },
+      "status": "unsupported",
+      "reason": "I cannot translate this technical dataset into Acholi faithfully enough to preserve every condition, caveat, and distinction required."
+    },
+    "aa": {
+      "language": {
+        "code": "aa",
+        "en": "Afar",
+        "ja": "アファール語"
+      },
+      "status": "unsupported",
+      "reason": "I cannot faithfully translate this material into Afar while preserving every technical condition, caveat, and distinction. No translations are provided to avoid inaccurate stored data."
+    },
+    "af": {
+      "language": {
+        "code": "af",
+        "en": "Afrikaans",
+        "ja": "アフリカーンス語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-26-2135/af.json",
+      "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3"
+    },
+    "sq": {
+      "language": {
+        "code": "sq",
+        "en": "Albanian",
+        "ja": "アルバニア語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "alz": {
+      "language": {
+        "code": "alz",
+        "en": "Alur",
+        "ja": "アルール語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "am": {
+      "language": {
+        "code": "am",
+        "en": "Amharic",
+        "ja": "アムハラ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ar": {
+      "language": {
+        "code": "ar",
+        "en": "Arabic",
+        "ja": "アラビア語"
+      },
+      "status": "pending"
+    },
+    "hy": {
+      "language": {
+        "code": "hy",
+        "en": "Armenian",
+        "ja": "アルメニア語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "as": {
+      "language": {
+        "code": "as",
+        "en": "Assamese",
+        "ja": "アッサム語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "av": {
+      "language": {
+        "code": "av",
+        "en": "Avar",
+        "ja": "アヴァル語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "awa": {
+      "language": {
+        "code": "awa",
+        "en": "Awadhi",
+        "ja": "アワディー語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ay": {
+      "language": {
+        "code": "ay",
+        "en": "Aymara",
+        "ja": "アイマラ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "az": {
+      "language": {
+        "code": "az",
+        "en": "Azerbaijani",
+        "ja": "アゼルバイジャン語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ban": {
+      "language": {
+        "code": "ban",
+        "en": "Balinese",
+        "ja": "バリ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bal": {
+      "language": {
+        "code": "bal",
+        "en": "Baluchi",
+        "ja": "バルーチー語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bm": {
+      "language": {
+        "code": "bm",
+        "en": "Bambara",
+        "ja": "バンバラ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bci": {
+      "language": {
+        "code": "bci",
+        "en": "Baoulé",
+        "ja": "バウレ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ba": {
+      "language": {
+        "code": "ba",
+        "en": "Bashkir",
+        "ja": "バシキール語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "eu": {
+      "language": {
+        "code": "eu",
+        "en": "Basque",
+        "ja": "バスク語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "btx": {
+      "language": {
+        "code": "btx",
+        "en": "Batak Karo",
+        "ja": "バタク カロ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bts": {
+      "language": {
+        "code": "bts",
+        "en": "Batak Simalungun",
+        "ja": "バタク シマルングン語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bbc": {
+      "language": {
+        "code": "bbc",
+        "en": "Batak Toba",
+        "ja": "バタクトバ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "be": {
+      "language": {
+        "code": "be",
+        "en": "Belarusian",
+        "ja": "ベラルーシ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bem": {
+      "language": {
+        "code": "bem",
+        "en": "Bemba",
+        "ja": "ベンバ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bn": {
+      "language": {
+        "code": "bn",
+        "en": "Bengali",
+        "ja": "ベンガル語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bew": {
+      "language": {
+        "code": "bew",
+        "en": "Betawi",
+        "ja": "ベタウィ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bho": {
+      "language": {
+        "code": "bho",
+        "en": "Bhojpuri",
+        "ja": "ボージュプリー語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bik": {
+      "language": {
+        "code": "bik",
+        "en": "Bikol",
+        "ja": "ビコール語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bs": {
+      "language": {
+        "code": "bs",
+        "en": "Bosnian",
+        "ja": "ボスニア語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "br": {
+      "language": {
+        "code": "br",
+        "en": "Breton",
+        "ja": "ブルトン語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bg": {
+      "language": {
+        "code": "bg",
+        "en": "Bulgarian",
+        "ja": "ブルガリア語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "bua": {
+      "language": {
+        "code": "bua",
+        "en": "Buryat",
+        "ja": "ブリヤート語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "yue": {
+      "language": {
+        "code": "yue",
+        "en": "Cantonese",
+        "ja": "広東語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ca": {
+      "language": {
+        "code": "ca",
+        "en": "Catalan",
+        "ja": "カタルーニャ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ceb": {
+      "language": {
+        "code": "ceb",
+        "en": "Cebuano",
+        "ja": "セブアノ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ch": {
+      "language": {
+        "code": "ch",
+        "en": "Chamorro",
+        "ja": "チャモロ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ce": {
+      "language": {
+        "code": "ce",
+        "en": "Chechen",
+        "ja": "チェチェン語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "ny": {
+      "language": {
+        "code": "ny",
+        "en": "Chichewa",
+        "ja": "チェワ語"
+      },
+      "status": "failed",
+      "reason": "exceeded retry limit, last status: 429 Too Many Requests | {'message': 'exceeded retry limit, last status: 429 Too Many Requests'}"
+    },
+    "zh-CN": {
+      "language": {
+        "code": "zh-CN",
+        "en": "Chinese (Simplified)",
+        "ja": "中国語（簡体）"
+      },
+      "status": "pending"
+    },
+    "zh-TW": {
+      "language": {
+        "code": "zh-TW",
+        "en": "Chinese (Traditional)",
+        "ja": "中国語（繁体）"
+      },
+      "status": "pending"
+    },
+    "chk": {
+      "language": {
+        "code": "chk",
+        "en": "Chuukese",
+        "ja": "チューク語"
+      },
+      "status": "pending"
+    },
+    "cv": {
+      "language": {
+        "code": "cv",
+        "en": "Chuvash",
+        "ja": "チュヴァシ語"
+      },
+      "status": "pending"
+    },
+    "co": {
+      "language": {
+        "code": "co",
+        "en": "Corsican",
+        "ja": "コルシカ語"
+      },
+      "status": "pending"
+    },
+    "crh": {
+      "language": {
+        "code": "crh",
+        "en": "Crimean Tatar (Cyrillic)",
+        "ja": "クリミア タタール語（キリル文字）"
+      },
+      "status": "pending"
+    },
+    "crh-Latn": {
+      "language": {
+        "code": "crh-Latn",
+        "en": "Crimean Tatar (Latin)",
+        "ja": "クリミア タタール語（ラテン文字）"
+      },
+      "status": "pending"
+    },
+    "hr": {
+      "language": {
+        "code": "hr",
+        "en": "Croatian",
+        "ja": "クロアチア語"
+      },
+      "status": "pending"
+    },
+    "cs": {
+      "language": {
+        "code": "cs",
+        "en": "Czech",
+        "ja": "チェコ語"
+      },
+      "status": "pending"
+    },
+    "da": {
+      "language": {
+        "code": "da",
+        "en": "Danish",
+        "ja": "デンマーク語"
+      },
+      "status": "pending"
+    },
+    "fa-AF": {
+      "language": {
+        "code": "fa-AF",
+        "en": "Dari",
+        "ja": "ダリー語"
+      },
+      "status": "pending"
+    },
+    "dv": {
+      "language": {
+        "code": "dv",
+        "en": "Dhivehi",
+        "ja": "ディベヒ語"
+      },
+      "status": "pending"
+    },
+    "din": {
+      "language": {
+        "code": "din",
+        "en": "Dinka",
+        "ja": "ディンカ語"
+      },
+      "status": "pending"
+    },
+    "doi": {
+      "language": {
+        "code": "doi",
+        "en": "Dogri",
+        "ja": "ドグリ語"
+      },
+      "status": "pending"
+    },
+    "dov": {
+      "language": {
+        "code": "dov",
+        "en": "Dombe",
+        "ja": "ドンベ語"
+      },
+      "status": "pending"
+    },
+    "nl": {
+      "language": {
+        "code": "nl",
+        "en": "Dutch",
+        "ja": "オランダ語"
+      },
+      "status": "pending"
+    },
+    "dyu": {
+      "language": {
+        "code": "dyu",
+        "en": "Dyula",
+        "ja": "ジュラ語"
+      },
+      "status": "pending"
+    },
+    "dz": {
+      "language": {
+        "code": "dz",
+        "en": "Dzongkha",
+        "ja": "ゾンカ語"
+      },
+      "status": "pending"
+    },
+    "en": {
+      "language": {
+        "code": "en",
+        "en": "English",
+        "ja": "英語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-26-2135/en.json",
+      "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3"
+    },
+    "eo": {
+      "language": {
+        "code": "eo",
+        "en": "Esperanto",
+        "ja": "エスペラント語"
+      },
+      "status": "pending"
+    },
+    "et": {
+      "language": {
+        "code": "et",
+        "en": "Estonian",
+        "ja": "エストニア語"
+      },
+      "status": "pending"
+    },
+    "ee": {
+      "language": {
+        "code": "ee",
+        "en": "Ewe",
+        "ja": "エウェ語"
+      },
+      "status": "pending"
+    },
+    "fo": {
+      "language": {
+        "code": "fo",
+        "en": "Faroese",
+        "ja": "フェロー語"
+      },
+      "status": "pending"
+    },
+    "fj": {
+      "language": {
+        "code": "fj",
+        "en": "Fijian",
+        "ja": "フィジー語"
+      },
+      "status": "pending"
+    },
+    "tl": {
+      "language": {
+        "code": "tl",
+        "en": "Filipino",
+        "ja": "タガログ語"
+      },
+      "status": "pending"
+    },
+    "fi": {
+      "language": {
+        "code": "fi",
+        "en": "Finnish",
+        "ja": "フィンランド語"
+      },
+      "status": "pending"
+    },
+    "fon": {
+      "language": {
+        "code": "fon",
+        "en": "Fon",
+        "ja": "フォン語"
+      },
+      "status": "pending"
+    },
+    "fr": {
+      "language": {
+        "code": "fr",
+        "en": "French",
+        "ja": "フランス語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-26-2135/fr.json",
+      "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3"
+    },
+    "fr-CA": {
+      "language": {
+        "code": "fr-CA",
+        "en": "French (Canada)",
+        "ja": "フランス語（カナダ）"
+      },
+      "status": "pending"
+    },
+    "fy": {
+      "language": {
+        "code": "fy",
+        "en": "Frisian",
+        "ja": "フリジア語"
+      },
+      "status": "pending"
+    },
+    "fur": {
+      "language": {
+        "code": "fur",
+        "en": "Friulian",
+        "ja": "フリウリ語"
+      },
+      "status": "pending"
+    },
+    "ff": {
+      "language": {
+        "code": "ff",
+        "en": "Fulani",
+        "ja": "フラニ語"
+      },
+      "status": "pending"
+    },
+    "gaa": {
+      "language": {
+        "code": "gaa",
+        "en": "Ga",
+        "ja": "ガー語"
+      },
+      "status": "pending"
+    },
+    "gl": {
+      "language": {
+        "code": "gl",
+        "en": "Galician",
+        "ja": "ガリシア語"
+      },
+      "status": "pending"
+    },
+    "ka": {
+      "language": {
+        "code": "ka",
+        "en": "Georgian",
+        "ja": "ジョージア語（グルジア語）"
+      },
+      "status": "pending"
+    },
+    "de": {
+      "language": {
+        "code": "de",
+        "en": "German",
+        "ja": "ドイツ語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-26-2135/de.json",
+      "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3"
+    },
+    "el": {
+      "language": {
+        "code": "el",
+        "en": "Greek",
+        "ja": "ギリシャ語"
+      },
+      "status": "pending"
+    },
+    "gn": {
+      "language": {
+        "code": "gn",
+        "en": "Guarani",
+        "ja": "グアラニ語"
+      },
+      "status": "pending"
+    },
+    "gu": {
+      "language": {
+        "code": "gu",
+        "en": "Gujarati",
+        "ja": "グジャラート語"
+      },
+      "status": "pending"
+    },
+    "ht": {
+      "language": {
+        "code": "ht",
+        "en": "Haitian Creole",
+        "ja": "ハイチ語"
+      },
+      "status": "pending"
+    },
+    "cnh": {
+      "language": {
+        "code": "cnh",
+        "en": "Hakha Chin",
+        "ja": "ハカ チン語"
+      },
+      "status": "pending"
+    },
+    "ha": {
+      "language": {
+        "code": "ha",
+        "en": "Hausa",
+        "ja": "ハウサ語"
+      },
+      "status": "pending"
+    },
+    "haw": {
+      "language": {
+        "code": "haw",
+        "en": "Hawaiian",
+        "ja": "ハワイ語"
+      },
+      "status": "pending"
+    },
+    "iw": {
+      "language": {
+        "code": "iw",
+        "en": "Hebrew",
+        "ja": "ヘブライ語"
+      },
+      "status": "pending"
+    },
+    "hil": {
+      "language": {
+        "code": "hil",
+        "en": "Hiligaynon",
+        "ja": "ヒリガイノン語"
+      },
+      "status": "pending"
+    },
+    "hi": {
+      "language": {
+        "code": "hi",
+        "en": "Hindi",
+        "ja": "ヒンディー語"
+      },
+      "status": "pending"
+    },
+    "hmn": {
+      "language": {
+        "code": "hmn",
+        "en": "Hmong",
+        "ja": "モン語"
+      },
+      "status": "pending"
+    },
+    "hu": {
+      "language": {
+        "code": "hu",
+        "en": "Hungarian",
+        "ja": "ハンガリー語"
+      },
+      "status": "pending"
+    },
+    "hrx": {
+      "language": {
+        "code": "hrx",
+        "en": "Hunsrik",
+        "ja": "フンスリュック語"
+      },
+      "status": "pending"
+    },
+    "iba": {
+      "language": {
+        "code": "iba",
+        "en": "Iban",
+        "ja": "イバン語"
+      },
+      "status": "pending"
+    },
+    "is": {
+      "language": {
+        "code": "is",
+        "en": "Icelandic",
+        "ja": "アイスランド語"
+      },
+      "status": "pending"
+    },
+    "ig": {
+      "language": {
+        "code": "ig",
+        "en": "Igbo",
+        "ja": "イボ語"
+      },
+      "status": "pending"
+    },
+    "ilo": {
+      "language": {
+        "code": "ilo",
+        "en": "Ilocano",
+        "ja": "イロカノ語"
+      },
+      "status": "pending"
+    },
+    "id": {
+      "language": {
+        "code": "id",
+        "en": "Indonesian",
+        "ja": "インドネシア語"
+      },
+      "status": "pending"
+    },
+    "iu-Latn": {
+      "language": {
+        "code": "iu-Latn",
+        "en": "Inuktut (Latin)",
+        "ja": "イヌクトゥット語（ラテン文字）"
+      },
+      "status": "pending"
+    },
+    "iu": {
+      "language": {
+        "code": "iu",
+        "en": "Inuktut (Syllabics)",
+        "ja": "イヌクトゥット語（音節文字）"
+      },
+      "status": "pending"
+    },
+    "ga": {
+      "language": {
+        "code": "ga",
+        "en": "Irish",
+        "ja": "アイルランド語"
+      },
+      "status": "pending"
+    },
+    "it": {
+      "language": {
+        "code": "it",
+        "en": "Italian",
+        "ja": "イタリア語"
+      },
+      "status": "pending"
+    },
+    "jam": {
+      "language": {
+        "code": "jam",
+        "en": "Jamaican Patois",
+        "ja": "ジャマイカ クレオール語"
+      },
+      "status": "pending"
+    },
+    "ja": {
+      "language": {
+        "code": "ja",
+        "en": "Japanese",
+        "ja": "日本語"
+      },
+      "status": "source",
+      "file": "data/translations/2026-10-26-2135/ja.json",
+      "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3"
+    },
+    "jw": {
+      "language": {
+        "code": "jw",
+        "en": "Javanese",
+        "ja": "ジャワ語"
+      },
+      "status": "pending"
+    },
+    "kac": {
+      "language": {
+        "code": "kac",
+        "en": "Jingpo",
+        "ja": "ジンポー語"
+      },
+      "status": "pending"
+    },
+    "kl": {
+      "language": {
+        "code": "kl",
+        "en": "Kalaallisut",
+        "ja": "カラーリット語"
+      },
+      "status": "pending"
+    },
+    "kn": {
+      "language": {
+        "code": "kn",
+        "en": "Kannada",
+        "ja": "カンナダ語"
+      },
+      "status": "pending"
+    },
+    "kr": {
+      "language": {
+        "code": "kr",
+        "en": "Kanuri",
+        "ja": "カヌリ語"
+      },
+      "status": "pending"
+    },
+    "pam": {
+      "language": {
+        "code": "pam",
+        "en": "Kapampangan",
+        "ja": "パンパンガ語"
+      },
+      "status": "pending"
+    },
+    "kk": {
+      "language": {
+        "code": "kk",
+        "en": "Kazakh",
+        "ja": "カザフ語"
+      },
+      "status": "pending"
+    },
+    "kha": {
+      "language": {
+        "code": "kha",
+        "en": "Khasi",
+        "ja": "カーシ語"
+      },
+      "status": "pending"
+    },
+    "km": {
+      "language": {
+        "code": "km",
+        "en": "Khmer",
+        "ja": "クメール語"
+      },
+      "status": "pending"
+    },
+    "cgg": {
+      "language": {
+        "code": "cgg",
+        "en": "Kiga",
+        "ja": "キガ語"
+      },
+      "status": "pending"
+    },
+    "kg": {
+      "language": {
+        "code": "kg",
+        "en": "Kikongo",
+        "ja": "キコンゴ語"
+      },
+      "status": "pending"
+    },
+    "rw": {
+      "language": {
+        "code": "rw",
+        "en": "Kinyarwanda",
+        "ja": "キニヤルワンダ語"
+      },
+      "status": "pending"
+    },
+    "ktu": {
+      "language": {
+        "code": "ktu",
+        "en": "Kituba",
+        "ja": "キトゥバ語"
+      },
+      "status": "pending"
+    },
+    "trp": {
+      "language": {
+        "code": "trp",
+        "en": "Kokborok",
+        "ja": "コクバラ語"
+      },
+      "status": "pending"
+    },
+    "kv": {
+      "language": {
+        "code": "kv",
+        "en": "Komi",
+        "ja": "コミ語"
+      },
+      "status": "pending"
+    },
+    "gom": {
+      "language": {
+        "code": "gom",
+        "en": "Konkani",
+        "ja": "コンカニ語"
+      },
+      "status": "pending"
+    },
+    "ko": {
+      "language": {
+        "code": "ko",
+        "en": "Korean",
+        "ja": "韓国語"
+      },
+      "status": "pending"
+    },
+    "kri": {
+      "language": {
+        "code": "kri",
+        "en": "Krio",
+        "ja": "クリオ語"
+      },
+      "status": "pending"
+    },
+    "ku": {
+      "language": {
+        "code": "ku",
+        "en": "Kurdish (Kurmanji)",
+        "ja": "クルド語（クルマンジー）"
+      },
+      "status": "pending"
+    },
+    "ckb": {
+      "language": {
+        "code": "ckb",
+        "en": "Kurdish (Sorani)",
+        "ja": "クルド語（ソラニー）"
+      },
+      "status": "pending"
+    },
+    "ky": {
+      "language": {
+        "code": "ky",
+        "en": "Kyrgyz",
+        "ja": "キルギス語"
+      },
+      "status": "pending"
+    },
+    "lo": {
+      "language": {
+        "code": "lo",
+        "en": "Lao",
+        "ja": "ラオ語"
+      },
+      "status": "pending"
+    },
+    "ltg": {
+      "language": {
+        "code": "ltg",
+        "en": "Latgalian",
+        "ja": "ラトガリア語"
+      },
+      "status": "pending"
+    },
+    "la": {
+      "language": {
+        "code": "la",
+        "en": "Latin",
+        "ja": "ラテン語"
+      },
+      "status": "pending"
+    },
+    "lv": {
+      "language": {
+        "code": "lv",
+        "en": "Latvian",
+        "ja": "ラトビア語"
+      },
+      "status": "pending"
+    },
+    "lij": {
+      "language": {
+        "code": "lij",
+        "en": "Ligurian",
+        "ja": "リグリア語"
+      },
+      "status": "pending"
+    },
+    "li": {
+      "language": {
+        "code": "li",
+        "en": "Limburgish",
+        "ja": "リンブルフ語"
+      },
+      "status": "pending"
+    },
+    "ln": {
+      "language": {
+        "code": "ln",
+        "en": "Lingala",
+        "ja": "リンガラ語"
+      },
+      "status": "pending"
+    },
+    "lt": {
+      "language": {
+        "code": "lt",
+        "en": "Lithuanian",
+        "ja": "リトアニア語"
+      },
+      "status": "pending"
+    },
+    "lmo": {
+      "language": {
+        "code": "lmo",
+        "en": "Lombard",
+        "ja": "ロンバルド語"
+      },
+      "status": "pending"
+    },
+    "lg": {
+      "language": {
+        "code": "lg",
+        "en": "Luganda",
+        "ja": "ルガンダ語"
+      },
+      "status": "pending"
+    },
+    "luo": {
+      "language": {
+        "code": "luo",
+        "en": "Luo",
+        "ja": "ルオ語"
+      },
+      "status": "pending"
+    },
+    "lb": {
+      "language": {
+        "code": "lb",
+        "en": "Luxembourgish",
+        "ja": "ルクセンブルク語"
+      },
+      "status": "pending"
+    },
+    "mk": {
+      "language": {
+        "code": "mk",
+        "en": "Macedonian",
+        "ja": "マケドニア語"
+      },
+      "status": "pending"
+    },
+    "mad": {
+      "language": {
+        "code": "mad",
+        "en": "Madurese",
+        "ja": "マドゥラ語"
+      },
+      "status": "pending"
+    },
+    "mai": {
+      "language": {
+        "code": "mai",
+        "en": "Maithili",
+        "ja": "マイティリー語"
+      },
+      "status": "pending"
+    },
+    "mak": {
+      "language": {
+        "code": "mak",
+        "en": "Makassar",
+        "ja": "マカッサル語"
+      },
+      "status": "pending"
+    },
+    "mg": {
+      "language": {
+        "code": "mg",
+        "en": "Malagasy",
+        "ja": "マラガシ語"
+      },
+      "status": "pending"
+    },
+    "ms": {
+      "language": {
+        "code": "ms",
+        "en": "Malay",
+        "ja": "マレー語"
+      },
+      "status": "pending"
+    },
+    "ms-Arab": {
+      "language": {
+        "code": "ms-Arab",
+        "en": "Malay (Jawi)",
+        "ja": "マレー語（ジャウィ）"
+      },
+      "status": "pending"
+    },
+    "ml": {
+      "language": {
+        "code": "ml",
+        "en": "Malayalam",
+        "ja": "マラヤーラム語"
+      },
+      "status": "pending"
+    },
+    "mt": {
+      "language": {
+        "code": "mt",
+        "en": "Maltese",
+        "ja": "マルタ語"
+      },
+      "status": "pending"
+    },
+    "mam": {
+      "language": {
+        "code": "mam",
+        "en": "Mam",
+        "ja": "マム語"
+      },
+      "status": "pending"
+    },
+    "gv": {
+      "language": {
+        "code": "gv",
+        "en": "Manx",
+        "ja": "マン島語"
+      },
+      "status": "pending"
+    },
+    "mi": {
+      "language": {
+        "code": "mi",
+        "en": "Maori",
+        "ja": "マオリ語"
+      },
+      "status": "pending"
+    },
+    "mr": {
+      "language": {
+        "code": "mr",
+        "en": "Marathi",
+        "ja": "マラーティー語"
+      },
+      "status": "pending"
+    },
+    "mh": {
+      "language": {
+        "code": "mh",
+        "en": "Marshallese",
+        "ja": "マーシャル語"
+      },
+      "status": "pending"
+    },
+    "mwr": {
+      "language": {
+        "code": "mwr",
+        "en": "Marwadi",
+        "ja": "マルワディー語"
+      },
+      "status": "pending"
+    },
+    "mfe": {
+      "language": {
+        "code": "mfe",
+        "en": "Mauritian Creole",
+        "ja": "クレオール語（モーリシャス）"
+      },
+      "status": "pending"
+    },
+    "chm": {
+      "language": {
+        "code": "chm",
+        "en": "Meadow Mari",
+        "ja": "牧地マリ語"
+      },
+      "status": "pending"
+    },
+    "mni-Mtei": {
+      "language": {
+        "code": "mni-Mtei",
+        "en": "Meiteilon (Manipuri)",
+        "ja": "メイテイ語（マニプリ語）"
+      },
+      "status": "pending"
+    },
+    "min": {
+      "language": {
+        "code": "min",
+        "en": "Minang",
+        "ja": "ミナン語"
+      },
+      "status": "pending"
+    },
+    "lus": {
+      "language": {
+        "code": "lus",
+        "en": "Mizo",
+        "ja": "ミゾ語"
+      },
+      "status": "pending"
+    },
+    "mn": {
+      "language": {
+        "code": "mn",
+        "en": "Mongolian",
+        "ja": "モンゴル語"
+      },
+      "status": "pending"
+    },
+    "my": {
+      "language": {
+        "code": "my",
+        "en": "Myanmar (Burmese)",
+        "ja": "ミャンマー語（ビルマ語）"
+      },
+      "status": "pending"
+    },
+    "nhe": {
+      "language": {
+        "code": "nhe",
+        "en": "Nahuatl (Eastern Huasteca)",
+        "ja": "ナワトル語（東部ウアステカ）"
+      },
+      "status": "pending"
+    },
+    "ndc-ZW": {
+      "language": {
+        "code": "ndc-ZW",
+        "en": "Ndau",
+        "ja": "ンダウ語"
+      },
+      "status": "pending"
+    },
+    "nr": {
+      "language": {
+        "code": "nr",
+        "en": "Ndebele (South)",
+        "ja": "ンデベレ語（南部）"
+      },
+      "status": "pending"
+    },
+    "new": {
+      "language": {
+        "code": "new",
+        "en": "Nepalbhasa (Newari)",
+        "ja": "ネパールバサ語（ネワール語）"
+      },
+      "status": "pending"
+    },
+    "ne": {
+      "language": {
+        "code": "ne",
+        "en": "Nepali",
+        "ja": "ネパール語"
+      },
+      "status": "pending"
+    },
+    "bm-Nkoo": {
+      "language": {
+        "code": "bm-Nkoo",
+        "en": "NKo",
+        "ja": "ンコ語"
+      },
+      "status": "pending"
+    },
+    "no": {
+      "language": {
+        "code": "no",
+        "en": "Norwegian",
+        "ja": "ノルウェー語"
+      },
+      "status": "pending"
+    },
+    "nus": {
+      "language": {
+        "code": "nus",
+        "en": "Nuer",
+        "ja": "ヌエル語"
+      },
+      "status": "pending"
+    },
+    "oc": {
+      "language": {
+        "code": "oc",
+        "en": "Occitan",
+        "ja": "オック語"
+      },
+      "status": "pending"
+    },
+    "or": {
+      "language": {
+        "code": "or",
+        "en": "Odia (Oriya)",
+        "ja": "オディア語（オリヤ語）"
+      },
+      "status": "pending"
+    },
+    "om": {
+      "language": {
+        "code": "om",
+        "en": "Oromo",
+        "ja": "オロモ語"
+      },
+      "status": "pending"
+    },
+    "os": {
+      "language": {
+        "code": "os",
+        "en": "Ossetian",
+        "ja": "オセット語"
+      },
+      "status": "pending"
+    },
+    "pag": {
+      "language": {
+        "code": "pag",
+        "en": "Pangasinan",
+        "ja": "パンガシナン語"
+      },
+      "status": "pending"
+    },
+    "pap": {
+      "language": {
+        "code": "pap",
+        "en": "Papiamento",
+        "ja": "パピアメント語"
+      },
+      "status": "pending"
+    },
+    "ps": {
+      "language": {
+        "code": "ps",
+        "en": "Pashto",
+        "ja": "パシュト語"
+      },
+      "status": "pending"
+    },
+    "fa": {
+      "language": {
+        "code": "fa",
+        "en": "Persian",
+        "ja": "ペルシャ語"
+      },
+      "status": "pending"
+    },
+    "pl": {
+      "language": {
+        "code": "pl",
+        "en": "Polish",
+        "ja": "ポーランド語"
+      },
+      "status": "pending"
+    },
+    "pt": {
+      "language": {
+        "code": "pt",
+        "en": "Portuguese (Brazil)",
+        "ja": "ポルトガル語（ブラジル）"
+      },
+      "status": "pending"
+    },
+    "pt-PT": {
+      "language": {
+        "code": "pt-PT",
+        "en": "Portuguese (Portugal)",
+        "ja": "ポルトガル語（ポルトガル）"
+      },
+      "status": "pending"
+    },
+    "pa": {
+      "language": {
+        "code": "pa",
+        "en": "Punjabi (Gurmukhi)",
+        "ja": "パンジャブ語（グルムキー）"
+      },
+      "status": "pending"
+    },
+    "pa-Arab": {
+      "language": {
+        "code": "pa-Arab",
+        "en": "Punjabi (Shahmukhi)",
+        "ja": "パンジャブ語（シャームキー）"
+      },
+      "status": "pending"
+    },
+    "qu": {
+      "language": {
+        "code": "qu",
+        "en": "Quechua",
+        "ja": "ケチュア語"
+      },
+      "status": "pending"
+    },
+    "kek": {
+      "language": {
+        "code": "kek",
+        "en": "Qʼeqchiʼ",
+        "ja": "ケクチ語"
+      },
+      "status": "pending"
+    },
+    "rom": {
+      "language": {
+        "code": "rom",
+        "en": "Romani",
+        "ja": "ロマーニー語"
+      },
+      "status": "pending"
+    },
+    "ro": {
+      "language": {
+        "code": "ro",
+        "en": "Romanian",
+        "ja": "ルーマニア語"
+      },
+      "status": "pending"
+    },
+    "rn": {
+      "language": {
+        "code": "rn",
+        "en": "Rundi",
+        "ja": "ルンディ語"
+      },
+      "status": "pending"
+    },
+    "ru": {
+      "language": {
+        "code": "ru",
+        "en": "Russian",
+        "ja": "ロシア語"
+      },
+      "status": "pending"
+    },
+    "se": {
+      "language": {
+        "code": "se",
+        "en": "Sami (North)",
+        "ja": "サーミ語（北部）"
+      },
+      "status": "pending"
+    },
+    "sm": {
+      "language": {
+        "code": "sm",
+        "en": "Samoan",
+        "ja": "サモア語"
+      },
+      "status": "pending"
+    },
+    "sg": {
+      "language": {
+        "code": "sg",
+        "en": "Sango",
+        "ja": "サンゴ語"
+      },
+      "status": "pending"
+    },
+    "sa": {
+      "language": {
+        "code": "sa",
+        "en": "Sanskrit",
+        "ja": "サンスクリット語"
+      },
+      "status": "pending"
+    },
+    "sat-Latn": {
+      "language": {
+        "code": "sat-Latn",
+        "en": "Santali (Latin)",
+        "ja": "サンタル語（ラテン文字）"
+      },
+      "status": "pending"
+    },
+    "sat": {
+      "language": {
+        "code": "sat",
+        "en": "Santali (Ol Chiki)",
+        "ja": "サンタル語（オルチキ文字）"
+      },
+      "status": "pending"
+    },
+    "gd": {
+      "language": {
+        "code": "gd",
+        "en": "Scots Gaelic",
+        "ja": "スコットランド ゲール語"
+      },
+      "status": "pending"
+    },
+    "nso": {
+      "language": {
+        "code": "nso",
+        "en": "Sepedi",
+        "ja": "セペディ語"
+      },
+      "status": "pending"
+    },
+    "sr": {
+      "language": {
+        "code": "sr",
+        "en": "Serbian",
+        "ja": "セルビア語"
+      },
+      "status": "pending"
+    },
+    "st": {
+      "language": {
+        "code": "st",
+        "en": "Sesotho",
+        "ja": "ソト語"
+      },
+      "status": "pending"
+    },
+    "crs": {
+      "language": {
+        "code": "crs",
+        "en": "Seychellois Creole",
+        "ja": "クレオール語（セーシェル）"
+      },
+      "status": "pending"
+    },
+    "shn": {
+      "language": {
+        "code": "shn",
+        "en": "Shan",
+        "ja": "シャン語"
+      },
+      "status": "pending"
+    },
+    "sn": {
+      "language": {
+        "code": "sn",
+        "en": "Shona",
+        "ja": "ショナ語"
+      },
+      "status": "pending"
+    },
+    "scn": {
+      "language": {
+        "code": "scn",
+        "en": "Sicilian",
+        "ja": "シチリア語"
+      },
+      "status": "pending"
+    },
+    "szl": {
+      "language": {
+        "code": "szl",
+        "en": "Silesian",
+        "ja": "シロンスク語"
+      },
+      "status": "pending"
+    },
+    "sd": {
+      "language": {
+        "code": "sd",
+        "en": "Sindhi",
+        "ja": "シンド語"
+      },
+      "status": "pending"
+    },
+    "si": {
+      "language": {
+        "code": "si",
+        "en": "Sinhala",
+        "ja": "シンハラ語"
+      },
+      "status": "pending"
+    },
+    "sk": {
+      "language": {
+        "code": "sk",
+        "en": "Slovak",
+        "ja": "スロバキア語"
+      },
+      "status": "pending"
+    },
+    "sl": {
+      "language": {
+        "code": "sl",
+        "en": "Slovenian",
+        "ja": "スロベニア語"
+      },
+      "status": "pending"
+    },
+    "so": {
+      "language": {
+        "code": "so",
+        "en": "Somali",
+        "ja": "ソマリ語"
+      },
+      "status": "pending"
+    },
+    "es": {
+      "language": {
+        "code": "es",
+        "en": "Spanish",
+        "ja": "スペイン語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-26-2135/es.json",
+      "source_hash": "c2c92bac7ad68830728b1f381a2983f60050ee5817a4e9de7473640fe69a57c3"
+    },
+    "su": {
+      "language": {
+        "code": "su",
+        "en": "Sundanese",
+        "ja": "スンダ語"
+      },
+      "status": "pending"
+    },
+    "sus": {
+      "language": {
+        "code": "sus",
+        "en": "Susu",
+        "ja": "スス語"
+      },
+      "status": "pending"
+    },
+    "sw": {
+      "language": {
+        "code": "sw",
+        "en": "Swahili",
+        "ja": "スワヒリ語"
+      },
+      "status": "pending"
+    },
+    "ss": {
+      "language": {
+        "code": "ss",
+        "en": "Swati",
+        "ja": "スワート語"
+      },
+      "status": "pending"
+    },
+    "sv": {
+      "language": {
+        "code": "sv",
+        "en": "Swedish",
+        "ja": "スウェーデン語"
+      },
+      "status": "pending"
+    },
+    "ty": {
+      "language": {
+        "code": "ty",
+        "en": "Tahitian",
+        "ja": "タヒチ語"
+      },
+      "status": "pending"
+    },
+    "tg": {
+      "language": {
+        "code": "tg",
+        "en": "Tajik",
+        "ja": "タジク語"
+      },
+      "status": "pending"
+    },
+    "ber-Latn": {
+      "language": {
+        "code": "ber-Latn",
+        "en": "Tamazight",
+        "ja": "タマージク語"
+      },
+      "status": "pending"
+    },
+    "ber": {
+      "language": {
+        "code": "ber",
+        "en": "Tamazight (Tifinagh)",
+        "ja": "タマージク語（ティフィナグ）"
+      },
+      "status": "pending"
+    },
+    "ta": {
+      "language": {
+        "code": "ta",
+        "en": "Tamil",
+        "ja": "タミル語"
+      },
+      "status": "pending"
+    },
+    "tt": {
+      "language": {
+        "code": "tt",
+        "en": "Tatar",
+        "ja": "タタール語"
+      },
+      "status": "pending"
+    },
+    "te": {
+      "language": {
+        "code": "te",
+        "en": "Telugu",
+        "ja": "テルグ語"
+      },
+      "status": "pending"
+    },
+    "tet": {
+      "language": {
+        "code": "tet",
+        "en": "Tetum",
+        "ja": "テトゥン語"
+      },
+      "status": "pending"
+    },
+    "th": {
+      "language": {
+        "code": "th",
+        "en": "Thai",
+        "ja": "タイ語"
+      },
+      "status": "pending"
+    },
+    "bo": {
+      "language": {
+        "code": "bo",
+        "en": "Tibetan",
+        "ja": "チベット語"
+      },
+      "status": "pending"
+    },
+    "ti": {
+      "language": {
+        "code": "ti",
+        "en": "Tigrinya",
+        "ja": "ティグリニャ語"
+      },
+      "status": "pending"
+    },
+    "tiv": {
+      "language": {
+        "code": "tiv",
+        "en": "Tiv",
+        "ja": "ティブ語"
+      },
+      "status": "pending"
+    },
+    "tpi": {
+      "language": {
+        "code": "tpi",
+        "en": "Tok Pisin",
+        "ja": "トクピシン語"
+      },
+      "status": "pending"
+    },
+    "to": {
+      "language": {
+        "code": "to",
+        "en": "Tongan",
+        "ja": "トンガ語"
+      },
+      "status": "pending"
+    },
+    "lua": {
+      "language": {
+        "code": "lua",
+        "en": "Tshiluba",
+        "ja": "ルバ語"
+      },
+      "status": "pending"
+    },
+    "ts": {
+      "language": {
+        "code": "ts",
+        "en": "Tsonga",
+        "ja": "ツォンガ語"
+      },
+      "status": "pending"
+    },
+    "tn": {
+      "language": {
+        "code": "tn",
+        "en": "Tswana",
+        "ja": "ツワナ語"
+      },
+      "status": "pending"
+    },
+    "tcy": {
+      "language": {
+        "code": "tcy",
+        "en": "Tulu",
+        "ja": "トゥル語"
+      },
+      "status": "pending"
+    },
+    "tum": {
+      "language": {
+        "code": "tum",
+        "en": "Tumbuka",
+        "ja": "トゥンブカ語"
+      },
+      "status": "pending"
+    },
+    "tr": {
+      "language": {
+        "code": "tr",
+        "en": "Turkish",
+        "ja": "トルコ語"
+      },
+      "status": "pending"
+    },
+    "tk": {
+      "language": {
+        "code": "tk",
+        "en": "Turkmen",
+        "ja": "トルクメン語"
+      },
+      "status": "pending"
+    },
+    "tyv": {
+      "language": {
+        "code": "tyv",
+        "en": "Tuvan",
+        "ja": "トゥバ語"
+      },
+      "status": "pending"
+    },
+    "ak": {
+      "language": {
+        "code": "ak",
+        "en": "Twi",
+        "ja": "トゥイ語"
+      },
+      "status": "pending"
+    },
+    "udm": {
+      "language": {
+        "code": "udm",
+        "en": "Udmurt",
+        "ja": "ウドムルト語"
+      },
+      "status": "pending"
+    },
+    "uk": {
+      "language": {
+        "code": "uk",
+        "en": "Ukrainian",
+        "ja": "ウクライナ語"
+      },
+      "status": "pending"
+    },
+    "ur": {
+      "language": {
+        "code": "ur",
+        "en": "Urdu",
+        "ja": "ウルドゥ語"
+      },
+      "status": "pending"
+    },
+    "ug": {
+      "language": {
+        "code": "ug",
+        "en": "Uyghur",
+        "ja": "ウイグル語"
+      },
+      "status": "pending"
+    },
+    "uz": {
+      "language": {
+        "code": "uz",
+        "en": "Uzbek",
+        "ja": "ウズベク語"
+      },
+      "status": "pending"
+    },
+    "ve": {
+      "language": {
+        "code": "ve",
+        "en": "Venda",
+        "ja": "ヴェンダ語"
+      },
+      "status": "pending"
+    },
+    "vec": {
+      "language": {
+        "code": "vec",
+        "en": "Venetian",
+        "ja": "ヴェネト語"
+      },
+      "status": "pending"
+    },
+    "vi": {
+      "language": {
+        "code": "vi",
+        "en": "Vietnamese",
+        "ja": "ベトナム語"
+      },
+      "status": "pending"
+    },
+    "war": {
+      "language": {
+        "code": "war",
+        "en": "Waray",
+        "ja": "ワライ語"
+      },
+      "status": "pending"
+    },
+    "cy": {
+      "language": {
+        "code": "cy",
+        "en": "Welsh",
+        "ja": "ウェールズ語"
+      },
+      "status": "pending"
+    },
+    "wo": {
+      "language": {
+        "code": "wo",
+        "en": "Wolof",
+        "ja": "ウォロフ語"
+      },
+      "status": "pending"
+    },
+    "xh": {
+      "language": {
+        "code": "xh",
+        "en": "Xhosa",
+        "ja": "コーサ語"
+      },
+      "status": "pending"
+    },
+    "sah": {
+      "language": {
+        "code": "sah",
+        "en": "Yakut",
+        "ja": "ヤクート語"
+      },
+      "status": "pending"
+    },
+    "yi": {
+      "language": {
+        "code": "yi",
+        "en": "Yiddish",
+        "ja": "イディッシュ語"
+      },
+      "status": "pending"
+    },
+    "yo": {
+      "language": {
+        "code": "yo",
+        "en": "Yoruba",
+        "ja": "ヨルバ語"
+      },
+      "status": "pending"
+    },
+    "yua": {
+      "language": {
+        "code": "yua",
+        "en": "Yucatec Maya",
+        "ja": "ユカテコマヤ語"
+      },
+      "status": "pending"
+    },
+    "zap": {
+      "language": {
+        "code": "zap",
+        "en": "Zapotec",
+        "ja": "サポテク語"
+      },
+      "status": "pending"
+    },
+    "zu": {
+      "language": {
+        "code": "zu",
+        "en": "Zulu",
+        "ja": "ズールー語"
+      },
+      "status": "pending"
+    }
+  },
+  "note": "Only complete source-matched Codex translations are published. Pending/unsupported languages are never filled with another language."
+}
