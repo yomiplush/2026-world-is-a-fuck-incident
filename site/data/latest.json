@@ -1,0 +1,960 @@
+{
+  "cutoff": "2026-10-26T12:35:00Z",
+  "cutoff_jst": "2026-10-26T21:35:00+09:00",
+  "counts": {
+    "nvd_published": 99,
+    "nvd_modified": 1434,
+    "published_modified_overlap": 99,
+    "ghsa": 111,
+    "ghsa_unreviewed": 103,
+    "ghsa_reviewed": 0,
+    "ghsa_malware": 8,
+    "ghsa_modified": 151,
+    "ghsa_published_modified_overlap": 111,
+    "ghsa_current_published_overlap": 95,
+    "ghsa_previous_published_overlap": 8,
+    "delta_topic_groups": 23,
+    "scope_complement_topic_groups": 12,
+    "reference_only_topic_groups": 2,
+    "record_topic_groups": 37,
+    "nvd_rejected_records": 1,
+    "verified_response_records": 169,
+    "deduplicated_previous_references": 27,
+    "rendered_supplement_captures": 1
+  },
+  "caveats": [
+    "対象時刻後に取得した現行改訂です。公開・DB収録・侵入・修正提供を分けてください。",
+    "deltaには窓内のDB初収録と公式注意喚起を含み、新規発見・新しい被害を一律には意味しません。",
+    "NVD新規99件は更新1434件に全件重複します。GHSA公開111件はmodified151件に全件重複します。",
+    "今回はGHSAのreviewed/unreviewed/malwareを明示して公開・modifiedを取得しました。以前の既定照会と範囲が異なるため、malware追加数を過去窓の不存在と比較しないでください。",
+    "GitHubのmalware区分と原分析のPROBABLY_PENTEST等を区別します。",
+    "CVE-2012-20006はRejectedであり、新規の有効な脆弱性として推奨しません。",
+    "KEV非掲載、更新なし、フィード未配信は悪用や被害がない証明ではありません。",
+    "コード照合は実験・実悪用確認ではなく、最低出荷修正版の確定にもなりません。",
+    "GNOME GitLabはHTTP成功でもchallenge画面。PictShare Release API404とタグ存在を区別します。",
+    "取得は21:37:41〜21:43:21 JST。HTTP原本は基準時刻後の現行改訂で、無記載の追記を完全には復元できない。",
+    "GMO21:00、ブラストメール17:00の表示、JPCERT公式RSS16:25、JVNトップ18:00、ページの非深夜0時の更新メタデータを時刻根拠とした。これらを侵入・攻撃開始時刻としない。",
+    "PHP honeypot、Huntress、Wiz、Oviの一次研究は前回より前の公表。夜の再報道を新しい被害や発見と数え直さない。",
+    "研究者報告を読むことは全packetの独立再分析やPoC実行ではない。観測したshell・branch・サインイン件数を被害人数・組織数に変換しない。",
+    "Tailwormのソースmergeと配布版は別。最低修正版は今回も未確定で、check modeや転送停止だけで全項目の修正完了とはしない。",
+    "ConnectWiseの次回予定23:00 JSTは基準後。個別手順まで対象接続を無効維持し、復旧目標を接続許可としない。",
+    "IceWarpの取得本文は21:39:58〜21:40:23 JSTに改訂されたため、基準21:35以前の確定patch一覧として含めない。",
+    "川西町のHTTP Last-Modifiedはresource更新で、復旧や初回公開の実時刻ではない。参考枠として留保する。",
+    "Reddit直接HTTP200は読み取り不能なchallenge、JSONは403。ベンダー本文は別のブラウズ描画テキストで確認し、投稿の正確な編集時刻は未確認。",
+    "全世界の全事件を網羅しない。報道・SNSは一次探索の入口に限り、攻撃者主張や前年の感染数を確定被害へ足さない。",
+    "統合台帳は37論点（差分23、既存事案の補足12、参考2）。JPCERT/CCのPHP・Brotli情報はAPI側の1群へ統合し、ベンダー側の2群を重複計上しない。",
+    "保存・参照169応答のうち27件は過去原本への参照。別にブラウズ描画テキスト1件を保存し、HTTP原本と区別する。",
+    "GHSAのmalwareを今回は明示的に取得。前回の検索範囲の差もあるため、件数の増加をそのまま新たな攻撃の増加とみなさない。"
+  ],
+  "records": [
+    {
+      "id": "npm-miners",
+      "title": "npmの2パッケージ：インストール時の採掘処理",
+      "kind": "delta",
+      "time": "15:30 JST（GHSA公開）",
+      "date": "2026-10-26",
+      "body": "GitHubのmalware勧告はdsh-plugin-blender-3d 0.2.1と@walknpm/todo-cli 2.0.1のpostinstallによる採掘プログラムと永続化処理を説明しています。rootやパスワード不要sudoの有無で処理が異なります。全npmパッケージやBlender本体の侵害という意味ではありません。",
+      "action": "該当版の導入履歴を確認してください。実行済みなら環境を隔離し、永続化・外部通信・資格情報への到達を調査し、安全な環境から必要な鍵を失効してください。",
+      "sources": [
+        {
+          "name": "GitHub malware勧告",
+          "url": "https://github.com/advisories/GHSA-c7hg-7rf4-q54h"
+        },
+        {
+          "name": "GitHub malware勧告",
+          "url": "https://github.com/advisories/GHSA-q4qv-538q-m27m"
+        },
+        {
+          "name": "OpenSSF原記録",
+          "url": "https://raw.githubusercontent.com/ossf/malicious-packages/eac9baa31aaebdf7ba1cb053549c9fcddb5bb60f/osv/malicious/npm/dsh-plugin-blender-3d/MAL-2026-18321.json"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": []
+    },
+    {
+      "id": "npm-worca",
+      "title": "@worca/app：対象RC版のmalware勧告",
+      "kind": "delta",
+      "time": "16:33 JST（GHSA公開）",
+      "date": "2026-10-26",
+      "body": "GitHubは@worca/app 1.14.0-rc.2 / 1.14.0-rc.4をmalwareと分類し、実行・導入した端末を侵害された前提で扱うよう案内しています。公開記録は具体的な被害組織数や侵入開始日時を示していません。",
+      "action": "対象版を導入した環境を隔離して調査してください。別の安全な端末から鍵・秘密情報を更新し、パッケージ削除だけで復旧完了としないでください。",
+      "sources": [
+        {
+          "name": "GitHub malware勧告",
+          "url": "https://github.com/advisories/GHSA-rmc5-cxrx-5fh9"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": []
+    },
+    {
+      "id": "npm-publish-poc",
+      "title": "npmのpublish-poc系：インストール環境の公開権限",
+      "kind": "delta",
+      "time": "18:31 JST（GHSA公開）",
+      "date": "2026-10-26",
+      "body": "publish-poc-test3の対象7版はpostinstallで利用環境のnpm認証を用いた公開処理を試みると報告されています。publish-poc-base 1.0.7はREADME断片と資格情報を含む一時ファイルを準備しますが、その版では公開・通信の前に削除すると説明されています。両者を同じ外部送信成功と数えないでください。",
+      "action": "対象版とCIの導入ログ、npm公開履歴を確認してください。不審な公開があれば該当トークンを失効し、依存関係と公開権限を見直してください。",
+      "sources": [
+        {
+          "name": "test3勧告",
+          "url": "https://github.com/advisories/GHSA-mq69-4j49-gmx8"
+        },
+        {
+          "name": "base勧告",
+          "url": "https://github.com/advisories/GHSA-35j9-6ggx-3fcq"
+        },
+        {
+          "name": "OpenSSF原記録",
+          "url": "https://raw.githubusercontent.com/ossf/malicious-packages/4f27542fecd13e7f077489c04a2f3503d1189f32/osv/malicious/npm/publish-poc-test3/MAL-2026-18324.json"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": []
+    },
+    {
+      "id": "pypi-netweavex",
+      "title": "PyPI netweavex：import時の遠隔コード取得",
+      "kind": "delta",
+      "time": "21:30 JST（GHSA公開）",
+      "date": "2026-10-26",
+      "body": "対象はnetweavex 1.1.0 / 1.1.1 / 1.1.2です。原分析は正規パッケージの複製、難読化、import時のGitHubからのコード取得・実行を説明しています。分析時の取得先はplaceholderだったとも記載されており、特定の情報窃取が成功したとまでは確認していません。",
+      "action": "該当版を実行せず導入履歴を確認してください。実行済みなら外部通信と実行履歴を調査し、秘密情報の露出に応じて失効・再構築を行ってください。",
+      "sources": [
+        {
+          "name": "GitHub malware勧告",
+          "url": "https://github.com/advisories/GHSA-rr8h-gqmw-34rx"
+        },
+        {
+          "name": "OpenSSF原記録",
+          "url": "https://raw.githubusercontent.com/ossf/malicious-packages/704cd12348e734be09a1c7c2f3bdba3e5f889d84/osv/malicious/pypi/netweavex/MAL-2026-18328.json"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": []
+    },
+    {
+      "id": "pypi-pentest",
+      "title": "PyPIの2件：基本端末情報の送信と分析分類",
+      "kind": "delta",
+      "time": "18:31 JST（GHSA公開）",
+      "date": "2026-10-26",
+      "body": "zagents-framework 6.25.30.10b5 / 99.25.30.10b5とchanges-lxc-wrapper 0.0.0 / 0.1.0は、installまたはimportで基本端末情報を送ると記録されています。GitHubはmalware区分ですが、原分析の分類はPROBABLY_PENTESTです。大規模な資格情報窃取事件と同一視しないでください。",
+      "action": "利用目的と導入経路を確認し、不要な対象パッケージを除外してください。実行済みなら送信先と実際の影響を調査してください。",
+      "sources": [
+        {
+          "name": "zagents勧告",
+          "url": "https://github.com/advisories/GHSA-vqh8-gjqw-v2r3"
+        },
+        {
+          "name": "changes-lxc-wrapper勧告",
+          "url": "https://github.com/advisories/GHSA-3rm9-gfp2-hphh"
+        },
+        {
+          "name": "OpenSSF原記録",
+          "url": "https://raw.githubusercontent.com/ossf/malicious-packages/6338462adbfe05eae85d7721e0235915b2a4e352/osv/malicious/pypi/zagents-framework/MAL-2026-18327.json"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": []
+    },
+    {
+      "id": "frappe-builder",
+      "title": "Frappe Builder：画像取得のSSRFとAI利用権限",
+      "kind": "delta",
+      "time": "14:58 JST（開発元勧告）、21:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "開発元は14:58 JSTに3勧告を公開しました。ログイン済み利用者による画像取得先の制御、redirect・DNS再解決による内部宛先への到達、AI provider keyを使うimprove_promptの権限不足が対象です。任意の未認証利用者による全サーバー侵害ではありません。",
+      "action": "Builder 1.36.1以降とFrappe v16.36.1以降の要件を照合してください。画像取得先・公開保存物・AI利用ログを確認し、更新できない場合は対象APIの制限とAIキーの一時除去を検討してください。",
+      "sources": [
+        {
+          "name": "画像取得勧告",
+          "url": "https://github.com/frappe/builder/security/advisories/GHSA-5qcg-q3jf-fjcg"
+        },
+        {
+          "name": "AI利用権限勧告",
+          "url": "https://github.com/frappe/builder/security/advisories/GHSA-58mj-c563-p78w"
+        },
+        {
+          "name": "redirect対策勧告",
+          "url": "https://github.com/frappe/builder/security/advisories/GHSA-hvrf-fhv3-3v7p"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-115717",
+        "CVE-2026-115718",
+        "CVE-2026-115720"
+      ]
+    },
+    {
+      "id": "misp-guard",
+      "title": "MISP Guard：共有ポリシーの判定を確認",
+      "kind": "delta",
+      "time": "18:16 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116372は200以外の成功応答、116469はタグ・category・sharing group UUIDの大文字小文字によって、配信フィルターを迂回できる問題です。開発元は16:53 / 18:25 JSTのコミットで対処しています。MISP本体すべての侵害や、全てのfeedデータの流出確認ではありません。",
+      "action": "両修正を含む稼働コードを照合し、TLP等の許可設定と配信履歴を確認してください。最低の配布リリース番号は今回未確定です。",
+      "sources": [
+        {
+          "name": "成功応答の修正",
+          "url": "https://github.com/MISP/misp-guard/commit/b5f606a4e57a49cc4dbf9b3ef0c6ddd19f866735"
+        },
+        {
+          "name": "大文字小文字の修正",
+          "url": "https://github.com/MISP/misp-guard/commit/9868b1d93fc9cc40cc7c69ca11c86afd825bbc1c"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-116372",
+        "CVE-2026-116469"
+      ]
+    },
+    {
+      "id": "mendix-saml",
+      "title": "Mendix SAML：IdP起点の応答再利用",
+      "kind": "delta",
+      "time": "20:16 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-89209はIdP-initiated SSOで有効なSAML応答を再利用する条件の認証回避です。Mendix 9用モジュール3.6.29未満、10/11用4.2.4未満が対象です。任意のSAML応答を作るだけで成立するとまでは記載していません。",
+      "action": "利用するSAMLモジュールを3.6.29または4.2.4以降へ更新してください。直ちに更新できない場合はIdP-initiated SSOの無効化を開発元の案内と照合してください。",
+      "sources": [
+        {
+          "name": "Siemens公式勧告",
+          "url": "https://cert-portal.siemens.com/productcert/html/ssa-137528.html"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-89209"
+      ]
+    },
+    {
+      "id": "ash-multitenancy",
+      "title": "Ash：upsertのテナント境界",
+      "kind": "scope-complement",
+      "time": "14:32 JST（開発元勧告）、17:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-96581の開発元勧告は14:32 JSTで前回基準前の公表です。attribute multitenancyで、主キー等を受け付けるupsert付きcreate actionから他テナントのレコードを更新・取得できる条件を説明します。全create actionや全Ashアプリが同じ構成とは限りません。",
+      "action": "Ash 3.37.2以降を照合し、テナントを跨ぐupsertとレコード移動履歴を確認してください。暫定upsert_conditionはMnesiaでは効かないとの例外にも注意してください。",
+      "sources": [
+        {
+          "name": "開発元勧告",
+          "url": "https://github.com/ash-project/ash/security/advisories/GHSA-vw7c-67pf-gh96"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-96581"
+      ]
+    },
+    {
+      "id": "camel-components",
+      "title": "Apache Camel：更新後にもDoclingの設定が必要",
+      "kind": "scope-complement",
+      "time": "10/22公表、10/26 NVD収録",
+      "date": "2026-10-26",
+      "body": "10/22公表の5勧告をNVD収録に合わせて補完しました。Doclingの入出力パス、Keycloak introspection結果の期限、AWS2-S3のオブジェクト名の式評価、CoAPのエラー情報漏えいは別の条件です。Keycloakの問題はtoken introspectionを有効にした場合で、既定ではありません。",
+      "action": "4.18.5 / 4.22.2 / 4.23.0等へ更新してください。外部入力からDocling出力先を指定できる経路は、更新後もoutputBaseDirectoryを設定してください。S3 headerと期限切れtokenの扱いを確認してください。",
+      "sources": [
+        {
+          "name": "Docling出力先",
+          "url": "https://camel.apache.org/security/CVE-2026-95629.html"
+        },
+        {
+          "name": "Docling引数",
+          "url": "https://camel.apache.org/security/CVE-2026-95628.html"
+        },
+        {
+          "name": "Keycloak期限",
+          "url": "https://camel.apache.org/security/CVE-2026-95663.html"
+        },
+        {
+          "name": "S3式評価",
+          "url": "https://camel.apache.org/security/CVE-2026-95664.html"
+        },
+        {
+          "name": "CoAPエラー",
+          "url": "https://camel.apache.org/security/CVE-2026-101259.html"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-95628",
+        "CVE-2026-95629",
+        "CVE-2026-95663",
+        "CVE-2026-95664",
+        "CVE-2026-101259"
+      ]
+    },
+    {
+      "id": "soem-ethercat",
+      "title": "SOEM：同一EtherCATネットワーク上の装置応答",
+      "kind": "scope-complement",
+      "time": "9/21付勧告、10/26 NVD収録",
+      "date": "2026-10-26",
+      "body": "9/21付のRT-Labs資料はSOEM 2.0.0以前の6件を説明しています。悪意ある・侵害されたEtherCAT装置がmasterへ不正な応答を返すことが前提で、長さ・累積量・配列添字等の検証不足からメモリ破損、情報漏えい、停止の可能性があります。一般のインターネット到達だけで成立する問題ではありません。",
+      "action": "SOEM 2.0.1以降の組込みを製品ベンダーと照合してください。EtherCAT区画への装置追加、保守用接続、master権限を確認し、設備の停止手順と検証計画に沿って更新してください。",
+      "sources": [
+        {
+          "name": "RT-Labs原勧告PDF",
+          "url": "https://rt-labs.com/wp-content/uploads/2026/10/RRTL-260921-01.pdf"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-70388",
+        "CVE-2026-82943",
+        "CVE-2026-82944",
+        "CVE-2026-82945",
+        "CVE-2026-82946",
+        "CVE-2026-82947"
+      ]
+    },
+    {
+      "id": "woocommerce-callbacks",
+      "title": "WooCommerce決済連携：入金通知と注文状態",
+      "kind": "scope-complement",
+      "time": "10/23原報告公開、16:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "10/23公開の6件をNVD収録に合わせて補完しました。CCAvenue、nexi Alpha Bank、Eurobank、iKhokha、OPay、Mintpayの個別プラグインで、通知の真正性や既定の空secretによる支払済み・取消等への状態変更が問題です。銀行本体やWooCommerce本体の侵害ではありません。",
+      "action": "iKhokhaは3.0.4以降を照合してください。他5件は原資料で既知の修正版なしとされるため、影響連携の利用停止・代替と、決済事業者の記録による入金照合を検討してください。",
+      "sources": [
+        {
+          "name": "CCAvenue原報告",
+          "url": "https://wpscan.com/vulnerability/7224481a-60f8-42c2-87e9-4615ce666357/"
+        },
+        {
+          "name": "nexi Alpha Bank原報告",
+          "url": "https://wpscan.com/vulnerability/0a1c3070-181d-49ea-9488-d0d7e4be419c/"
+        },
+        {
+          "name": "Eurobank原報告",
+          "url": "https://wpscan.com/vulnerability/37851403-0765-4fc2-80f6-f70d3fc34a88/"
+        },
+        {
+          "name": "iKhokha原報告",
+          "url": "https://wpscan.com/vulnerability/2d888e78-ed1f-4968-9bdc-19e9420f6956/"
+        },
+        {
+          "name": "OPay原報告",
+          "url": "https://wpscan.com/vulnerability/c07f15a0-3c15-429f-bcde-1511ad658c6c/"
+        },
+        {
+          "name": "Mintpay原報告",
+          "url": "https://wpscan.com/vulnerability/593fa052-8917-416c-944b-11b890c9ab50/"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-103298",
+        "CVE-2026-103299",
+        "CVE-2026-103300",
+        "CVE-2026-103306",
+        "CVE-2026-103319",
+        "CVE-2026-103381"
+      ]
+    },
+    {
+      "id": "wordpress-plugins",
+      "title": "WordPress追加群：権限と個別修正版を照合",
+      "kind": "delta",
+      "time": "20:16 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "JetEngine 3.9.0以前のSQL injectionはContributor、Media Library Assistant 3.42以前のSQL injectionはAuthor、AI Engine 3.8.6以前の認可不足はContributorの権限条件を原資料で確認しました。ほかのXSS・CSRF登録も含め、全件を未認証RCEや実悪用とは扱いません。",
+      "action": "JetEngine 3.9.0.1、Media Library Assistant 3.43、AI Engine 3.8.7以降を照合し、投稿者権限と利用プラグインを点検してください。残りの個別記録はNVD索引から製品別の修正を確認してください。",
+      "sources": [
+        {
+          "name": "JetEngine原報告",
+          "url": "https://patchstack.com/database/wordpress/plugin/jet-engine/vulnerability/wordpress-jetengine-plugin-3-9-0-sql-injection-vulnerability?_s_id=cve"
+        },
+        {
+          "name": "Media Library Assistant原報告",
+          "url": "https://patchstack.com/database/wordpress/plugin/media-library-assistant/vulnerability/wordpress-media-library-assistant-plugin-3-42-sql-injection-vulnerability?_s_id=cve"
+        },
+        {
+          "name": "AI Engine原報告",
+          "url": "https://patchstack.com/database/wordpress/plugin/ai-engine/vulnerability/wordpress-ai-engine-plugin-3-8-6-broken-access-control-vulnerability?_s_id=cve"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-115608",
+        "CVE-2026-115948",
+        "CVE-2026-112828"
+      ]
+    },
+    {
+      "id": "nocodb-auth-extra",
+      "title": "NocoDB追加4件：認証処理とレート制限の役割",
+      "kind": "delta",
+      "time": "15:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116120〜116123は登録・再設定の資源消費、登録競合、sign-inの情報差、認証試行制限に関するCNA記録です。公式のPublicApiLimiterGuardはreverse proxy等で制限する設計と明記し、現在の登録処理にはwithSignupClaimもあります。登録番号の増加だけで全版未修正とは判断できません。",
+      "action": "外部公開した登録・再設定・ログインのレート制限をproxy側も含めて確認してください。異常な登録・セッション失効ログと利用版を照合し、最低出荷修正版は未確定として扱ってください。",
+      "sources": [
+        {
+          "name": "CVE-2026-116120",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116120"
+        },
+        {
+          "name": "CVE-2026-116121",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116121"
+        },
+        {
+          "name": "CVE-2026-116122",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116122"
+        },
+        {
+          "name": "CVE-2026-116123",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116123"
+        },
+        {
+          "name": "公式guardコード",
+          "url": "https://raw.githubusercontent.com/nocodb/nocodb/develop/packages/nocodb/src/guards/public-api-limiter.guard.ts"
+        },
+        {
+          "name": "公式登録処理",
+          "url": "https://raw.githubusercontent.com/nocodb/nocodb/develop/packages/nocodb/src/services/users/users.service.ts"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-116120",
+        "CVE-2026-116121",
+        "CVE-2026-116122",
+        "CVE-2026-116123"
+      ]
+    },
+    {
+      "id": "libimobiledevice",
+      "title": "libimobiledevice：接続相手のプロトコル応答",
+      "kind": "delta",
+      "time": "20:16 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116258〜116262は1.4.0までのAFC・Web Inspector等のメモリ処理に関するCNA登録です。device infoにはローカル条件の項目も含まれます。公式コードは確認しましたが、研究者サイトは動的表示で詳細を取得できず、接続・ペアリング等の全条件と最低修正版は未確定です。",
+      "action": "利用する端末管理ツールと同梱版、信頼して接続する装置を確認してください。全iPhoneが任意のWeb閲覧だけで侵害されると解釈せず、不審な端末・プロトコル応答の処理を隔離してください。",
+      "sources": [
+        {
+          "name": "CVE-2026-116258",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116258"
+        },
+        {
+          "name": "CVE-2026-116262",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116262"
+        },
+        {
+          "name": "公式AFCコード",
+          "url": "https://raw.githubusercontent.com/libimobiledevice/libimobiledevice/master/src/afc.c"
+        },
+        {
+          "name": "研究者サイト・本文制限",
+          "url": "https://bohmid-com.vercel.app/"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-116258",
+        "CVE-2026-116259",
+        "CVE-2026-116260",
+        "CVE-2026-116261",
+        "CVE-2026-116262"
+      ]
+    },
+    {
+      "id": "libgsf-ole",
+      "title": "libgsf：OLE2ファイル解析の境界確認",
+      "kind": "delta",
+      "time": "16:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116124は1.14.60までのOLE2 parserに関するCNA登録です。GNOME公式mirrorで9/26の境界書込み修正コミットを確認しました。元GitLabページはHTTP成功でもchallenge画面のため本文は読めていません。今回の新規修正ではなく、最低配布修正版は未確定です。",
+      "action": "文書解析・変換処理の同梱libgsfを棚卸しし、当該修正を含む配布物を確認してください。非信頼のOLE2文書を扱う処理環境と権限を制限してください。",
+      "sources": [
+        {
+          "name": "CVE-2026-116124",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116124"
+        },
+        {
+          "name": "GNOME公式mirrorの修正",
+          "url": "https://github.com/GNOME/libgsf/commit/a8e25560b74f84c3f86df6ca0ac59195fa5af68a"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-116124"
+      ]
+    },
+    {
+      "id": "qt-http2",
+      "title": "Qt：HTTP/2の悪意ある接続先による停止",
+      "kind": "delta",
+      "time": "21:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-96432はQNetworkAccessManagerが悪意ある・侵害されたHTTP/2サーバーの応答列を処理して停止する問題です。公式表は6.8.0〜6.8.9、6.9.0〜6.11.2を対象としています。利用アプリからのコード実行や全Qt製品の侵害確認ではありません。",
+      "action": "Qt 6.8.10 / 6.11.3等の該当系列を照合し、アプリや同梱ライブラリの更新を行ってください。接続先の制御と再起動監視も確認してください。",
+      "sources": [
+        {
+          "name": "Qt公式脆弱性一覧",
+          "url": "https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products"
+        },
+        {
+          "name": "Qt修正",
+          "url": "https://codereview.qt-project.org/c/qt/qtbase/+/759718"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-96432"
+      ]
+    },
+    {
+      "id": "brain2-setup",
+      "title": "BRAIN2：インストールログに残るサービス資格情報",
+      "kind": "delta",
+      "time": "19:16 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-112250はBRAIN2 3.09以前で、SQL Server Integrated SecurityとWindowsサービスアカウント指定を組み合わせた場合に平文パスワードがsetup logへ残る問題です。ログは通常、導入した管理者の一時領域にあり、標準ユーザーへ無条件公開されるという説明ではありません。",
+      "action": "3.10以降へ更新し、該当setup logの安全な除去とアクセス権を確認してください。露出が疑われるサービスアカウントは資格情報を変更してください。",
+      "sources": [
+        {
+          "name": "Bizerba公式勧告PDF",
+          "url": "https://www.bizerba.com/downloads/global/information-security/2026/bizerba-sa-2026-0004.pdf"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-112250"
+      ]
+    },
+    {
+      "id": "image-upload-races",
+      "title": "画像アップロード：一時ファイルと削除権限",
+      "kind": "delta",
+      "time": "21:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "PictShare CVE-2026-116263は予測できる一時ファイル名による競合で、検査後の内容が差し替わる問題です。10/18の修正とv3.7.2タグを確認しましたがGitHub Release APIは404でした。EasyImage CVE-2026-116223は削除権限の問題で、10/24の関連hardeningコミットを確認しています。両製品の条件は同一ではありません。",
+      "action": "PictShareは3.7.2相当のタグ・修正収録、EasyImageは該当修正と認証・保存先設定を照合してください。任意の番号を新たな最低修正版として推定しないでください。",
+      "sources": [
+        {
+          "name": "PictShare修正",
+          "url": "https://github.com/HaschekSolutions/pictshare/commit/6306e33da630c04ddff60703922c2ec7b7539452"
+        },
+        {
+          "name": "PictShare v3.7.2タグ",
+          "url": "https://github.com/HaschekSolutions/pictshare/tree/v3.7.2"
+        },
+        {
+          "name": "EasyImage関連修正",
+          "url": "https://github.com/icret/EasyImages2.0/commit/b12cb67d447bcbb67e21c8f011d0f5638229760c"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-116263",
+        "CVE-2026-116223"
+      ]
+    },
+    {
+      "id": "local-agent-http",
+      "title": "agent-teams-ai：ローカルHTTPサービスの境界",
+      "kind": "delta",
+      "time": "16:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116228は2.17.10までのLocal HTTP Serviceの認証不足に関するCNA登録です。公式コードでは既定のlocalhost origin処理と、設定によって広がるCORS条件、指定hostでのlistenを確認しました。外部Webページから全設定で無条件侵害できるとまでは検証していません。",
+      "action": "ローカルHTTPサービスのlisten先、CORS_ORIGIN、実行ユーザーとローカル利用者の権限を確認してください。最低修正版は未確定です。",
+      "sources": [
+        {
+          "name": "CVE-2026-116228",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116228"
+        },
+        {
+          "name": "公式HTTPコード",
+          "url": "https://raw.githubusercontent.com/777genius/agent-teams-ai/main/src/main/services/infrastructure/HttpServer.ts"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-116228"
+      ]
+    },
+    {
+      "id": "game-desktop-inputs",
+      "title": "ゲーム・デスクトップ補助ツール：外部入力の処理",
+      "kind": "delta",
+      "time": "17:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "FFXIV Teamcraft CVE-2026-116229はrendererのclipboard IPC、Plague Inc Evolved CVE-2026-116230はWorkshop scenarioのデシリアライズが対象です。Teamcraft 11.4.32の公開は10/13で、今夜の新規修正ではありません。ゲーム本体すべてや通常の閲覧だけへの一般化は避けてください。",
+      "action": "Teamcraft 11.4.32、Plague Inc Evolved 1.24.0.4等の修正案内を利用環境と照合し、非信頼のscenario・renderer入力を制限してください。",
+      "sources": [
+        {
+          "name": "Teamcraft公式release",
+          "url": "https://github.com/ffxiv-teamcraft/ffxiv-teamcraft/releases/tag/v11.4.32"
+        },
+        {
+          "name": "Plague Inc公式更新",
+          "url": "https://store.steampowered.com/news/app/246620/view/708909893000628135"
+        },
+        {
+          "name": "CVE-2026-116230",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116230"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-116229",
+        "CVE-2026-116230"
+      ]
+    },
+    {
+      "id": "pleasanter-nvd",
+      "title": "プリザンター：LDAP認証の既報を再照合",
+      "kind": "scope-complement",
+      "time": "10/23開発元公表、10/26 NVD収録",
+      "date": "2026-10-26",
+      "body": "CVE-2026-113438のNVD収録に合わせ、10/23の開発元説明を再確認しました。LDAP認証でLinux/DockerまたはWindows Novell providerと、ADまたは匿名bindを許すLDAPを組み合わせた条件が対象です。ローカル・SAML・パスキー等を含む全利用者の認証回避ではありません。",
+      "action": "対象構成では1.5.9.1以降へ更新してください。1.5.9.0には修正が含まれない点、LDAP+LocalではLDAP利用者が対象となる点を確認してください。",
+      "sources": [
+        {
+          "name": "開発元説明",
+          "url": "https://pleasanter.org/news/vulnerability-update-20261023/"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-113438"
+      ]
+    },
+    {
+      "id": "vsft-nvd",
+      "title": "V-SFT：既報7件のNVD収録",
+      "kind": "scope-complement",
+      "time": "13:00 JST（既報JVN）、16:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-107894〜107900は前回までにJVN情報として掲載した7件です。今回NVDへ収録されましたが、新しい7事件や新たな7件の実悪用を意味しません。細工したV7形式ファイルを設計端末で開く条件が継続します。",
+      "action": "6.2.11.0以前の利用と外部設計ファイルの取扱いを確認し、6.2.12.0の改善情報・パッチを照合してください。",
+      "sources": [
+        {
+          "name": "JVN一次勧告",
+          "url": "https://jvn.jp/vu/JVNVU96549652/"
+        },
+        {
+          "name": "CVE-2026-107894",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107894"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": [
+        "CVE-2026-107894",
+        "CVE-2026-107895",
+        "CVE-2026-107896",
+        "CVE-2026-107897",
+        "CVE-2026-107898",
+        "CVE-2026-107899",
+        "CVE-2026-107900"
+      ]
+    },
+    {
+      "id": "jpcert-php-brotli",
+      "title": "JPCERT/CC：PHP更新とBrotliの国内注意喚起",
+      "kind": "delta",
+      "time": "16:25 / 18:00 JST（公式フィード）",
+      "date": "2026-10-26",
+      "body": "16:25 JSTのJPCERT/CCはPHPの実証・環境依存条件とupload progress緩和を追記し、Brotli注意喚起を公開しました。18:00のJVNもBrotliを掲載しています。新たなPHP/Brotliの別CVEではなく、国内向け説明の更新です。",
+      "action": "PHPは修正版への更新・侵害調査を継続し、CVE-2026-115560へのsession.upload_progress.enabled=0と全worker再起動を確認してください。Brotliは1.0.10 / 1.1.1 / 1.2.1の分岐別修正と同梱製品の案内を照合してください。",
+      "sources": [
+        {
+          "name": "JPCERT PHP",
+          "url": "https://www.jpcert.or.jp/at/2026/at260033.html"
+        },
+        {
+          "name": "JPCERT Brotli",
+          "url": "https://www.jpcert.or.jp/at/2026/at260034.html"
+        },
+        {
+          "name": "JVN Brotli",
+          "url": "https://jvn.jp/vu/JVNVU97400824/"
+        }
+      ],
+      "certainty": "confirmed-publication",
+      "cve_ids": []
+    },
+    {
+      "id": "oray-router",
+      "title": "Oray X5 Pro：設定値からの改行・ファイル処理",
+      "kind": "delta",
+      "time": "17:17〜19:16 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116231〜116237はPugongying X5 Pro 7.6.1のSer2net、SNMP、Dnsmasq、IPsec、L2TP、PPPoE等の設定処理に関するCNA登録です。改行注入とuploadを一括して無認証の外部侵入へ一般化せず、管理操作への到達と権限条件の追加確認が必要です。",
+      "action": "機種・firmware、管理口の公開範囲、設定変更履歴を確認してください。最低修正版は未確定のため、ベンダー案内と不要な管理アクセスの制限を照合してください。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116231"
+        },
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116236"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-116231",
+        "CVE-2026-116232",
+        "CVE-2026-116233",
+        "CVE-2026-116234",
+        "CVE-2026-116235",
+        "CVE-2026-116236",
+        "CVE-2026-116237"
+      ]
+    },
+    {
+      "id": "siem-management",
+      "title": "Logsign SIEM / Liman MYS：製品別の管理経路",
+      "kind": "delta",
+      "time": "21:17 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CNAはLogsign SIEM 6.4.120以上6.4.122未満のpath traversalと、Liman MYS 2.3.4-1124以上2.3.5-1131未満のパスワード回復を別件として記録しています。国の原通知ページは動的画面で本文を取得できず、成立条件と実悪用は今回独立確認できていません。",
+      "action": "Logsign 6.4.122、Liman 2.3.5-1131等の配布元案内を利用系列と照合し、管理経路の公開・回復手順・関連ログを確認してください。",
+      "sources": [
+        {
+          "name": "Logsign CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105947"
+        },
+        {
+          "name": "Liman CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94380"
+        },
+        {
+          "name": "トルコ当局・本文取得制限",
+          "url": "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-1397"
+        }
+      ],
+      "certainty": "CNA-unreviewed",
+      "cve_ids": [
+        "CVE-2026-105947",
+        "CVE-2026-94380"
+      ]
+    },
+    {
+      "id": "gmo-sixth",
+      "title": "GMO：全セッションに加え、連携先とブラウザー同期も確認",
+      "kind": "delta",
+      "time": "21:00 JST（第6報の基準時刻）",
+      "date": "2026-10-26",
+      "body": "別の安全な端末から全端末・全セッションをログアウトし、FX・証券・メール・Google等のパスワード変更とMFAを案内。心当たりのない連携アプリ・転送設定・拡張機能・登録端末の削除、点検完了までブラウザー同期をオンにしないことも追加。全接続端末への感染確定ではない。",
+      "action": "公式窓口で案内を確認し、全sessionの失効と追加された認証・連携を点検する。フルスキャンと切離したバックアップを行い、任意のPC調査は事前確認書の範囲を確認する。",
+      "sources": [
+        {
+          "name": "GMO第6報",
+          "url": "https://group.gmo/info/alert/20261026/"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "blastmail-345",
+      "title": "ブラストメール：345契約へ追加、再開時刻は未定",
+      "kind": "delta",
+      "time": "17:00 JST（運営元の更新表示）",
+      "date": "2026-10-26",
+      "body": "外部調査で契約者情報以外の漏えいを新たに1契約確認。計345契約、345契約への個別連絡を完了したと説明。345人や全受信者の漏えいではない。管理画面・API・配信は停止継続、次回報告予定は10/27 12:00頃。",
+      "action": "契約別の対象情報を最新通知と照合し、代替配信・問い合わせ対応と偽メールへの注意を続ける。通知完了を調査終了や再開許可とみなさない。",
+      "sources": [
+        {
+          "name": "運営元17:00更新",
+          "url": "https://info.blastmail.jp/information_20261021.html"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "tavinos-reservation-followup",
+      "title": "ホテルタビノス：予約を知る相手からの支払リンクにも注意",
+      "kind": "delta",
+      "time": "15:37:47 JST（ページ更新メタデータ）",
+      "date": "2026-10-26",
+      "body": "浜松町・浅草・京都の3施設で、9/21までに成立し宿泊日が9/21以降という両条件を満たす一部予約に不審メッセージ。TEMAIRAZU経由で予約情報が閲覧取得された可能性を説明。全予約の確定流出や、この時刻の新規侵入ではない。",
+      "action": "予約の詳細を知る連絡でもメッセージ内のURLから入力・送金せず、施設や予約サイトの公式窓口で確認する。カード情報を入力済みならカード会社へ相談する。",
+      "sources": [
+        {
+          "name": "ホテル公式続報",
+          "url": "https://hoteltavinos.com/notices-events/about-phishing-scams2/"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "php-honeypot-observed",
+      "title": "PHP2Shell：限定したhoneypotで実行を観測した一次研究",
+      "kind": "scope-complement",
+      "time": "10/24観測・初公開、最終追記10/26 11:28:31 JST",
+      "date": "2026-10-24",
+      "body": "研究者はPHP8.4.26 / single-worker Apache mod_php / 128MiBの3対象で、HTTP要求と35回のApache-child shellを相関。UID33での実行で、35被害者やroot取得ではない。本稿は全PCAPの独立再分析やPoC実行をしていない。Unit42の政府機関侵入との紐付け撤回は別に維持する。",
+      "action": "更新に加え、PHP workerからの不審な子プロセス・通信・ファイル作成と前後のHTTP記録を調べる。500エラーや巨大Cookieだけを成功・無被害の判定に使わない。",
+      "sources": [
+        {
+          "name": "研究者一次報告",
+          "url": "https://github.com/0x4D31/honeypot-data/blob/main/reports/php2shell/2026-10-24-confirmed-rce.md"
+        },
+        {
+          "name": "公開履歴",
+          "url": "https://api.github.com/repos/0x4D31/honeypot-data/commits?path=reports%2Fphp2shell%2F2026-10-24-confirmed-rce.md&per_page=20"
+        },
+        {
+          "name": "証拠索引と限界",
+          "url": "https://github.com/0x4D31/honeypot-data/blob/main/reports/php2shell/2026-10-24-rce-evidence/README.md"
+        },
+        {
+          "name": "Unit42現行訂正",
+          "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "tailworm-code-and-release",
+      "title": "Tailworm：ソース修正と配布版を分け、不要な転送を止める",
+      "kind": "scope-complement",
+      "time": "SSH転送PRは10/26 12:08:59 JST merge。前回以前の変更",
+      "date": "2026-10-26",
+      "body": "公式PR21942はUnixの転送を認証済みローカルユーザー資格情報で処理する構成へ変更。ServeのPR21931もmerge済みだが、最新安定版は1.104.2、headscale0.29.6で、Tailworm全体の最低修正版は今回未確定。接続policyのPR21944はopen。mainへのmergeを配布済み修正としない。",
+      "action": "不要な転送は、代替管理経路を確認後、tailscaledのservice環境でTS_SSH_DISABLE_FORWARDING=1を設定して再起動する暫定策を照合。check modeやこのflagだけで全研究項目の修正完了とはしない。",
+      "sources": [
+        {
+          "name": "ベンダー責任者の案内",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/"
+        },
+        {
+          "name": "公式転送PR21942",
+          "url": "https://github.com/tailscale/tailscale/pull/21942"
+        },
+        {
+          "name": "1.104.2公式flag実装",
+          "url": "https://github.com/tailscale/tailscale/blob/v1.104.2/ssh/tailssh/tailssh.go"
+        },
+        {
+          "name": "最新公式release一覧",
+          "url": "https://api.github.com/repos/tailscale/tailscale/releases?per_page=5"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "m365-token-replay",
+      "title": "Microsoft 365：sessionだけでなく、MFA・登録端末も確認",
+      "kind": "scope-complement",
+      "time": "10/22 22:00 JST一次研究公開。観測7/14〜9/22",
+      "date": "2026-10-22",
+      "body": "Huntressは79組織で497件の成功サインイン、少なくとも48台の不正Entra端末登録、MFA差替えと受信箱規則を報告。盗用sessionの再利用とその後の永続化を分ける。今日の79件の侵入やConnectWiseと同一の原因を確認した資料ではない。",
+      "action": "session失効とパスワード変更に加え、登録端末・MFA手段・受信箱規則・新しいenterprise applicationと同意を調査し不正なものを除去する。失敗試行数だけで対応優先度を決めない。",
+      "sources": [
+        {
+          "name": "Huntress一次研究",
+          "url": "https://www.huntress.com/blog/token-replay-spray"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "gheist-github-tokens",
+      "title": "Gheist：GitHubログを経由する秘密の持出し",
+      "kind": "scope-complement",
+      "time": "10/26 02:55:33 JST一次研究公開。観測9/15以降",
+      "date": "2026-10-26",
+      "body": "Wizは盗用tokenによる850超のアカウントと13,500超の不審branchを報告。workflowが秘密をログへ出し、GitHub APIで回収後runを削除する。調べたpublic実行は承認holdで阻止されたが、private / Enterpriseでは実行と後続操作を観測。branch数は被害組織数ではない。",
+      "action": "ci-sync- branch、sync-check workflow、短時間で削除されたrunやcloud側role引受けを確認。実行されたrepoでtokenと到達可能secretsを失効・交換し、self-hosted runnerと権限も調査する。保留中の不審workflowを承認しない。",
+      "sources": [
+        {
+          "name": "Wiz一次研究",
+          "url": "https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles"
+        },
+        {
+          "name": "GitHubの承認hold案内",
+          "url": "https://github.blog/changelog/2026-07-28-github-actions-holds-potentially-malicious-workflows-for-approval/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "ucreator-android",
+      "title": "uCreator：改変APK・containerを通じる監視能力の研究",
+      "kind": "scope-complement",
+      "time": "10/21 23:57:50 JST一次研究公開",
+      "date": "2026-10-21",
+      "body": "改変Telegram・WeChat等のAPKやOnion Box container内のhookを分析。2FA情報・session等の取得能力を示すが、信頼できる被害者数は未確定。Android17で全chainが成立したとも、OS更新だけで全件を防げるとも証明されていない。",
+      "action": "配布元・署名とアプリの由来を点検。不審な改変版がある場合は安全な端末からsessionと認証手段を調査する。LSPatchの残存ファイルだけで感染を確定せず、前年の感染数を今回へ加算しない。",
+      "sources": [
+        {
+          "name": "研究者Oviの一次分析",
+          "url": "https://www.0x0v1.com/ucreator-virtualization-based-android-spyware-platform-targeting-wechat-telegram-and-other-messaging-apps/"
+        },
+        {
+          "name": "前年のDoctor Web原報告・件数は別",
+          "url": "https://news.drweb.com/show/?i=15076"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "neat-rollout-recheck",
+      "title": "Neat：端末とクラウド、それぞれの配信完了を確認",
+      "kind": "scope-complement",
+      "time": "18:10:22 JST（公式勧告のSummary edit）",
+      "date": "2026-10-26",
+      "body": "勧告の古い「firmwareを準備中」という説明を削除した更新。NeatOS26.5.4は引き続き段階配信、Pulseは組織別、非Pulse OTAは10/28目標。cloud側修正は別枠で約2週間見込みで、今回の説明更新は全配信完了の証明ではない。",
+      "action": "PulseのRoadmapと実機版を確認し、必要なwebhook資格情報の更新はcloud修正完了確認と分ける。日付や勧告の編集だけで全端末修正済みとはしない。",
+      "sources": [
+        {
+          "name": "公式セキュリティ勧告",
+          "url": "https://support.neat.no/article/security-advisory-october-2026-compromised-emudhra-intermediate-ca-certificates-affecting-neat-devices-and-cloud-services/"
+        },
+        {
+          "name": "26.5.4配信案内",
+          "url": "https://support.neat.no/article/neat-devices-version-26-5-4/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "icewarp-after-cutoff",
+      "title": "参考：IceWarpの取得版は基準時刻後に改訂",
+      "kind": "reference-only",
+      "time": "21:39:58編集 / 21:40:23更新 JST（基準21:35の後）",
+      "date": "2026-10-26",
+      "body": "記事作成は10/21だが、公式APIは基準後の改訂を記録。取得した同梱PHPのpatch一覧・future release記述を21:35以前の確定内容へ遡らせない。14.3.0.14等の本文と14.3.0.15等のdownload名を独自に最小修正版へ整理しない。",
+      "action": "利用者は系列・OSに合う現行公式案内を照合できるが、本稿では後取得の版番号を確定差分へ含めない。古い系列の部分緩和を完全な修正と扱わない。",
+      "sources": [
+        {
+          "name": "公式記事の取得版",
+          "url": "https://support.icewarp.com/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560"
+        },
+        {
+          "name": "改訂時刻・公式Zendesk API",
+          "url": "https://support.icewarp.com/api/v2/help_center/en-us/articles/52154202993041.json"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    },
+    {
+      "id": "kawanishi-restoration-reference",
+      "title": "参考：川西町の復旧案内は正確な復旧時刻が不明",
+      "kind": "reference-only",
+      "time": "10/26日付。HTTP Last-Modified16:00:20 JST、復旧・公開時刻は未確定",
+      "date": "2026-10-26",
+      "body": "現行ページはPHP対応で停止した問い合わせ・FAQ・避難所管理・ごみ分別検索等の復旧と、侵害・漏えい未確認を説明。serverのresource更新時刻を実際の復旧や初回公開時刻とせず、対象時点を完全復元できない参考枠に分ける。",
+      "action": "利用する機能の公式状態を確認する。予防停止を侵害確定とせず、この町の案内を全自治体の復旧へ一般化しない。",
+      "sources": [
+        {
+          "name": "川西町公式案内",
+          "url": "https://www.town.nara-kawanishi.lg.jp/0000009056.html"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    }
+  ],
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-10-26-2135/incident-register.json",
+  "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
+}

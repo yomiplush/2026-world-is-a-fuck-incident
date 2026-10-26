@@ -14,6 +14,11 @@ try {
  assert.equal(heavy,0,'locked entrance must defer the briefing engine and data');
  assert.equal(await run("document.querySelectorAll('#cover .cover-title,#cover .cover-sub').length"),0,'entrance must use symbols instead of visible copy');
  assert.equal(await run("!!document.querySelector('#btn-start svg')"),true);
+ await run("document.querySelector('#entry-reading summary').focus();true");
+ await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'});await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+ assert.equal(await run('ENTRY.state'),'locked','reading summary keyboard activation must not unlock motion');
+ assert.equal(await run('document.getElementById("entry-reading").open'),true);
+ await run('document.getElementById("entry-reading").open=false;document.activeElement.blur();true');
  const patch=await run(`(() => {const a=document.getElementById('patch-link');if(!a)return null;const r=a.getBoundingClientRect(),g=document.getElementById('repo-link').getBoundingClientRect();return {href:a.href,label:a.getAttribute('aria-label'),svg:!!a.querySelector('svg'),width:r.width,height:r.height,right:r.right,githubLeft:g.left}})()`);
  assert.ok(patch,'Patch the Planet must be accessible before unlocking');
  assert.equal(patch.href,'https://patchtheplanet.org/');

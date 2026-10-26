@@ -1,6 +1,10 @@
 # ソースと再取得コマンド
 
-最新 **10/26 14:56 JST**：[固定窓収集・技術調査](docs/research-collection-2026-10-26-1456.md) / [国内・ベンダー一次調査](docs/research-2026-10-26-1456.md) / [統合索引](data/2026-10-26-1456/incident-register.json)。窓は **13:01〜14:56 JST**、NVD新規8 /更新11（**8件重複**）、GHSA **新規公開0**。KEVは2026.10.23版1,756件のまま。**差分7群・既存範囲補完8群・公開時刻未確定の参考3群**で、事件数ではありません。
+最新 **10/26 21:35 JST**：[技術・固定窓調査](docs/research-collection-2026-10-26-2135.md) / [事件・ベンダー一次調査](docs/research-2026-10-26-2135.md) / [統合索引](data/2026-10-26-2135/incident-register.json) / [最新データ参照先](data/latest.json) / [読むレポート](https://www.infosec-briefing.net/update-20261026-2135)。窓は **14:56〜21:35 JST**、NVD **新規99 / 更新1,434（99件重複、新規にRejected1件を含む）**。GHSA **公開111 / modified151（111件重複）**、公開分は**unreviewed103＋malware8**です。今回は種別・改訂の照会範囲を拡張しており、事件数ではありません。**37論点＝差分23・既存範囲補完12・公開時刻未確定の参考2**です。KEVは1,756件で前回原本と同一です。
+
+**169のHTTP応答記録（うち27件は変更のない過去原本への参照）のhashを検証し、別枠で画面表示の補足記録1件を保存。** [API・フィード取得記録](data/2026-10-26-2135/collection-summary.json) / [事件・ベンダー取得記録](data/2026-10-26-2135-vendors/collection-summary.json) / [NVD索引](data/2026-10-26-2135/nvd-index.json) / [GHSA modified索引](data/2026-10-26-2135/ghsa-modified-index.json) / [フィード索引](data/2026-10-26-2135/feed-index.json)。再取得：`python3 tools/intel/snapshot-2135.py`。実取得は基準後で、保存原本は取得時の現行改訂です。公表・DB登録・実悪用確認・ソース修正・配布済み更新・復旧を分け、公開時刻未確定の資料は参考枠に維持しています。KEV未掲載も安全の証明にはしません。以下は過去の取得記録です。
+
+前回 **10/26 14:56 JST**：[固定窓収集・技術調査](docs/research-collection-2026-10-26-1456.md) / [国内・ベンダー一次調査](docs/research-2026-10-26-1456.md) / [統合索引](data/2026-10-26-1456/incident-register.json)。窓は **13:01〜14:56 JST**、NVD新規8 /更新11（**8件重複**）、GHSA **新規公開0**。KEVは2026.10.23版1,756件のまま。**差分7群・既存範囲補完8群・公開時刻未確定の参考3群**で、事件数ではありません。
 
 **82応答記録（うち15件は変更のない前回原本への参照）のhashを検証済み。** [DB・フィード原本と取得記録](data/2026-10-26-1456/collection-summary.json) / [ベンダー原本と取得記録](data/2026-10-26-1456-vendors/collection-summary.json) / [NVD索引](data/2026-10-26-1456/nvd-index.json) / [フィード索引](data/2026-10-26-1456/feed-index.json)。再取得：`python3 tools/intel/snapshot-1456.py`。実取得は対象時刻後で、原本は取得時の現行改訂です。PAN-OSのJSON/CSAF時刻不整合は両方を保存。同日eMudhra・Douzone・VALTEC続報は信頼できる公開時刻が未確定のため参考枠。GHSA新規0件は既存勧告の改訂がないという意味ではありません。以下は過去の取得記録です。
 

@@ -1,0 +1,307 @@
+{
+  "cutoff": "2026-10-26T12:35:00Z",
+  "cutoff_jst": "2026-10-26T21:35:00+09:00",
+  "delta_start": "2026-10-26T05:56:00Z",
+  "counts": {
+    "record_topic_groups": 13,
+    "delta_topic_groups": 5,
+    "scope_complement_topic_groups": 6,
+    "reference_only_topic_groups": 2,
+    "vendor_url_attempts": 64,
+    "saved_http_responses": 63,
+    "verified_raw_response_hashes": 63,
+    "rendered_supplement_captures": 1,
+    "note": "論点群・取得数は新規侵害数ではない。既公表研究、下流影響、説明更新、参考情報を含み、同一事案の別形式も取得した。"
+  },
+  "caveats": [
+    "取得は21:37:41〜21:43:21 JST。HTTP原本は基準時刻後の現行改訂で、無記載の追記を完全には復元できない。",
+    "GMO21:00、ブラストメール17:00の表示、JPCERT公式RSS16:25、JVNトップ18:00、ページの非深夜0時の更新メタデータを時刻根拠とした。これらを侵入・攻撃開始時刻としない。",
+    "PHP honeypot、Huntress、Wiz、Oviの一次研究は前回より前の公表。夜の再報道を新しい被害や発見と数え直さない。",
+    "研究者報告を読むことは全packetの独立再分析やPoC実行ではない。観測したshell・branch・サインイン件数を被害人数・組織数に変換しない。",
+    "Tailwormのソースmergeと配布版は別。最低修正版は今回も未確定で、check modeや転送停止だけで全項目の修正完了とはしない。",
+    "ConnectWiseの次回予定23:00 JSTは基準後。個別手順まで対象接続を無効維持し、復旧目標を接続許可としない。",
+    "IceWarpの取得本文は21:39:58〜21:40:23 JSTに改訂されたため、基準21:35以前の確定patch一覧として含めない。",
+    "川西町のHTTP Last-Modifiedはresource更新で、復旧や初回公開の実時刻ではない。参考枠として留保する。",
+    "Reddit直接HTTP200は読み取り不能なchallenge、JSONは403。ベンダー本文は別のブラウズ描画テキストで確認し、投稿の正確な編集時刻は未確認。",
+    "全世界の全事件を網羅しない。報道・SNSは一次探索の入口に限り、攻撃者主張や前年の感染数を確定被害へ足さない。"
+  ],
+  "provenance": {
+    "summary": "collection-summary.json",
+    "analysis": "analysis.json",
+    "normalized_diff": "normalized-text-diff.json",
+    "research": "../../docs/research-2026-10-26-2135.md",
+    "official_feed_timestamps": "../2026-10-26-2135/feed-index.json",
+    "retrieval_started_at": "2026-10-26T12:37:41.123750+00:00",
+    "retrieval_finished_at": "2026-10-26T12:43:21.452452+00:00",
+    "verified_raw_response_hashes": 63,
+    "sha256_is": "decompressed HTTP response body bytes",
+    "rendered_supplement": "tailscale-vendor-web-rendered.json",
+    "rendered_supplement_is": "browser tool rendering, not HTTP response body"
+  },
+  "records": [
+    {
+      "id": "gmo-sixth",
+      "title": "GMO：全セッションに加え、連携先とブラウザー同期も確認",
+      "kind": "delta",
+      "time": "21:00 JST（第6報の基準時刻）",
+      "date": "2026-10-26",
+      "body": "別の安全な端末から全端末・全セッションをログアウトし、FX・証券・メール・Google等のパスワード変更とMFAを案内。心当たりのない連携アプリ・転送設定・拡張機能・登録端末の削除、点検完了までブラウザー同期をオンにしないことも追加。全接続端末への感染確定ではない。",
+      "action": "公式窓口で案内を確認し、全sessionの失効と追加された認証・連携を点検する。フルスキャンと切離したバックアップを行い、任意のPC調査は事前確認書の範囲を確認する。",
+      "sources": [
+        {
+          "name": "GMO第6報",
+          "url": "https://group.gmo/info/alert/20261026/"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "blastmail-345",
+      "title": "ブラストメール：345契約へ追加、再開時刻は未定",
+      "kind": "delta",
+      "time": "17:00 JST（運営元の更新表示）",
+      "date": "2026-10-26",
+      "body": "外部調査で契約者情報以外の漏えいを新たに1契約確認。計345契約、345契約への個別連絡を完了したと説明。345人や全受信者の漏えいではない。管理画面・API・配信は停止継続、次回報告予定は10/27 12:00頃。",
+      "action": "契約別の対象情報を最新通知と照合し、代替配信・問い合わせ対応と偽メールへの注意を続ける。通知完了を調査終了や再開許可とみなさない。",
+      "sources": [
+        {
+          "name": "運営元17:00更新",
+          "url": "https://info.blastmail.jp/information_20261021.html"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "jpcert-php-1625",
+      "title": "PHP：実行環境の条件と後続115560への緩和を確認",
+      "kind": "delta",
+      "time": "16:25 JST（JPCERT/CC公式フィード）",
+      "date": "2026-10-26",
+      "body": "国内注意喚起が、PoC・試行通信と実行成功の条件を分け、CVE-2026-115560へのupload progress無効化と全worker再起動を追記。109618/109619は8.2.35 / 8.3.36 / 8.4.27 / 8.5.12等を照合。設定緩和だけでPHP全体の修正完了とはしない。",
+      "action": "対象系列・同梱製品を更新して侵害を調べる。後続115560の修正までsession.upload_progress.enabled=0の有効化と全worker再起動を確認し、EOL版はサポート中系列へ移行する。",
+      "sources": [
+        {
+          "name": "JPCERT/CC更新",
+          "url": "https://www.jpcert.or.jp/at/2026/at260033.html"
+        },
+        {
+          "name": "時刻根拠・公式RSS",
+          "url": "https://www.jpcert.or.jp/rss/jpcert.rdf"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "jpcert-brotli-1625",
+      "title": "Brotli：C実装の同梱コピーを系列ごとに更新",
+      "kind": "delta",
+      "time": "16:25 JST（JPCERT公表）/ 18:00 JST（JVN更新）",
+      "date": "2026-10-26",
+      "body": "既報CVE-2026-111497の国内案内。影響範囲は1.0.3以上1.0.10未満、1.1.0以上1.1.1未満、1.2.0以上1.2.1未満。1.0.10や1.1.1の修正済み分岐を未修正に含めず、HTTP/2製品すべての共通欠陥とも解釈しない。",
+      "action": "細工された圧縮データを展開する経路とNode.js・Bun・Python等の同梱コピーを棚卸しし、配布元の修正が実行環境へ配置されたことを確認する。",
+      "sources": [
+        {
+          "name": "JPCERT/CC",
+          "url": "https://www.jpcert.or.jp/at/2026/at260034.html"
+        },
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU97400824/"
+        },
+        {
+          "name": "時刻根拠・JVNトップ",
+          "url": "https://jvn.jp/"
+        },
+        {
+          "name": "時刻根拠・公式RSS",
+          "url": "https://www.jpcert.or.jp/rss/jpcert.rdf"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "tavinos-reservation-followup",
+      "title": "ホテルタビノス：予約を知る相手からの支払リンクにも注意",
+      "kind": "delta",
+      "time": "15:37:47 JST（ページ更新メタデータ）",
+      "date": "2026-10-26",
+      "body": "浜松町・浅草・京都の3施設で、9/21までに成立し宿泊日が9/21以降という両条件を満たす一部予約に不審メッセージ。TEMAIRAZU経由で予約情報が閲覧取得された可能性を説明。全予約の確定流出や、この時刻の新規侵入ではない。",
+      "action": "予約の詳細を知る連絡でもメッセージ内のURLから入力・送金せず、施設や予約サイトの公式窓口で確認する。カード情報を入力済みならカード会社へ相談する。",
+      "sources": [
+        {
+          "name": "ホテル公式続報",
+          "url": "https://hoteltavinos.com/notices-events/about-phishing-scams2/"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "php-honeypot-observed",
+      "title": "PHP2Shell：限定したhoneypotで実行を観測した一次研究",
+      "kind": "scope-complement",
+      "time": "10/24観測・初公開、最終追記10/26 11:28:31 JST",
+      "date": "2026-10-24",
+      "body": "研究者はPHP8.4.26 / single-worker Apache mod_php / 128MiBの3対象で、HTTP要求と35回のApache-child shellを相関。UID33での実行で、35被害者やroot取得ではない。本稿は全PCAPの独立再分析やPoC実行をしていない。Unit42の政府機関侵入との紐付け撤回は別に維持する。",
+      "action": "更新に加え、PHP workerからの不審な子プロセス・通信・ファイル作成と前後のHTTP記録を調べる。500エラーや巨大Cookieだけを成功・無被害の判定に使わない。",
+      "sources": [
+        {
+          "name": "研究者一次報告",
+          "url": "https://github.com/0x4D31/honeypot-data/blob/main/reports/php2shell/2026-10-24-confirmed-rce.md"
+        },
+        {
+          "name": "公開履歴",
+          "url": "https://api.github.com/repos/0x4D31/honeypot-data/commits?path=reports%2Fphp2shell%2F2026-10-24-confirmed-rce.md&per_page=20"
+        },
+        {
+          "name": "証拠索引と限界",
+          "url": "https://github.com/0x4D31/honeypot-data/blob/main/reports/php2shell/2026-10-24-rce-evidence/README.md"
+        },
+        {
+          "name": "Unit42現行訂正",
+          "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "tailworm-code-and-release",
+      "title": "Tailworm：ソース修正と配布版を分け、不要な転送を止める",
+      "kind": "scope-complement",
+      "time": "SSH転送PRは10/26 12:08:59 JST merge。前回以前の変更",
+      "date": "2026-10-26",
+      "body": "公式PR21942はUnixの転送を認証済みローカルユーザー資格情報で処理する構成へ変更。ServeのPR21931もmerge済みだが、最新安定版は1.104.2、headscale0.29.6で、Tailworm全体の最低修正版は今回未確定。接続policyのPR21944はopen。mainへのmergeを配布済み修正としない。",
+      "action": "不要な転送は、代替管理経路を確認後、tailscaledのservice環境でTS_SSH_DISABLE_FORWARDING=1を設定して再起動する暫定策を照合。check modeやこのflagだけで全研究項目の修正完了とはしない。",
+      "sources": [
+        {
+          "name": "ベンダー責任者の案内",
+          "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/"
+        },
+        {
+          "name": "公式転送PR21942",
+          "url": "https://github.com/tailscale/tailscale/pull/21942"
+        },
+        {
+          "name": "1.104.2公式flag実装",
+          "url": "https://github.com/tailscale/tailscale/blob/v1.104.2/ssh/tailssh/tailssh.go"
+        },
+        {
+          "name": "最新公式release一覧",
+          "url": "https://api.github.com/repos/tailscale/tailscale/releases?per_page=5"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "m365-token-replay",
+      "title": "Microsoft 365：sessionだけでなく、MFA・登録端末も確認",
+      "kind": "scope-complement",
+      "time": "10/22 22:00 JST一次研究公開。観測7/14〜9/22",
+      "date": "2026-10-22",
+      "body": "Huntressは79組織で497件の成功サインイン、少なくとも48台の不正Entra端末登録、MFA差替えと受信箱規則を報告。盗用sessionの再利用とその後の永続化を分ける。今日の79件の侵入やConnectWiseと同一の原因を確認した資料ではない。",
+      "action": "session失効とパスワード変更に加え、登録端末・MFA手段・受信箱規則・新しいenterprise applicationと同意を調査し不正なものを除去する。失敗試行数だけで対応優先度を決めない。",
+      "sources": [
+        {
+          "name": "Huntress一次研究",
+          "url": "https://www.huntress.com/blog/token-replay-spray"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "gheist-github-tokens",
+      "title": "Gheist：GitHubログを経由する秘密の持出し",
+      "kind": "scope-complement",
+      "time": "10/26 02:55:33 JST一次研究公開。観測9/15以降",
+      "date": "2026-10-26",
+      "body": "Wizは盗用tokenによる850超のアカウントと13,500超の不審branchを報告。workflowが秘密をログへ出し、GitHub APIで回収後runを削除する。調べたpublic実行は承認holdで阻止されたが、private / Enterpriseでは実行と後続操作を観測。branch数は被害組織数ではない。",
+      "action": "ci-sync- branch、sync-check workflow、短時間で削除されたrunやcloud側role引受けを確認。実行されたrepoでtokenと到達可能secretsを失効・交換し、self-hosted runnerと権限も調査する。保留中の不審workflowを承認しない。",
+      "sources": [
+        {
+          "name": "Wiz一次研究",
+          "url": "https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles"
+        },
+        {
+          "name": "GitHubの承認hold案内",
+          "url": "https://github.blog/changelog/2026-07-28-github-actions-holds-potentially-malicious-workflows-for-approval/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "ucreator-android",
+      "title": "uCreator：改変APK・containerを通じる監視能力の研究",
+      "kind": "scope-complement",
+      "time": "10/21 23:57:50 JST一次研究公開",
+      "date": "2026-10-21",
+      "body": "改変Telegram・WeChat等のAPKやOnion Box container内のhookを分析。2FA情報・session等の取得能力を示すが、信頼できる被害者数は未確定。Android17で全chainが成立したとも、OS更新だけで全件を防げるとも証明されていない。",
+      "action": "配布元・署名とアプリの由来を点検。不審な改変版がある場合は安全な端末からsessionと認証手段を調査する。LSPatchの残存ファイルだけで感染を確定せず、前年の感染数を今回へ加算しない。",
+      "sources": [
+        {
+          "name": "研究者Oviの一次分析",
+          "url": "https://www.0x0v1.com/ucreator-virtualization-based-android-spyware-platform-targeting-wechat-telegram-and-other-messaging-apps/"
+        },
+        {
+          "name": "前年のDoctor Web原報告・件数は別",
+          "url": "https://news.drweb.com/show/?i=15076"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "neat-rollout-recheck",
+      "title": "Neat：端末とクラウド、それぞれの配信完了を確認",
+      "kind": "scope-complement",
+      "time": "18:10:22 JST（公式勧告のSummary edit）",
+      "date": "2026-10-26",
+      "body": "勧告の古い「firmwareを準備中」という説明を削除した更新。NeatOS26.5.4は引き続き段階配信、Pulseは組織別、非Pulse OTAは10/28目標。cloud側修正は別枠で約2週間見込みで、今回の説明更新は全配信完了の証明ではない。",
+      "action": "PulseのRoadmapと実機版を確認し、必要なwebhook資格情報の更新はcloud修正完了確認と分ける。日付や勧告の編集だけで全端末修正済みとはしない。",
+      "sources": [
+        {
+          "name": "公式セキュリティ勧告",
+          "url": "https://support.neat.no/article/security-advisory-october-2026-compromised-emudhra-intermediate-ca-certificates-affecting-neat-devices-and-cloud-services/"
+        },
+        {
+          "name": "26.5.4配信案内",
+          "url": "https://support.neat.no/article/neat-devices-version-26-5-4/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "icewarp-after-cutoff",
+      "title": "参考：IceWarpの取得版は基準時刻後に改訂",
+      "kind": "reference-only",
+      "time": "21:39:58編集 / 21:40:23更新 JST（基準21:35の後）",
+      "date": "2026-10-26",
+      "body": "記事作成は10/21だが、公式APIは基準後の改訂を記録。取得した同梱PHPのpatch一覧・future release記述を21:35以前の確定内容へ遡らせない。14.3.0.14等の本文と14.3.0.15等のdownload名を独自に最小修正版へ整理しない。",
+      "action": "利用者は系列・OSに合う現行公式案内を照合できるが、本稿では後取得の版番号を確定差分へ含めない。古い系列の部分緩和を完全な修正と扱わない。",
+      "sources": [
+        {
+          "name": "公式記事の取得版",
+          "url": "https://support.icewarp.com/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560"
+        },
+        {
+          "name": "改訂時刻・公式Zendesk API",
+          "url": "https://support.icewarp.com/api/v2/help_center/en-us/articles/52154202993041.json"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    },
+    {
+      "id": "kawanishi-restoration-reference",
+      "title": "参考：川西町の復旧案内は正確な復旧時刻が不明",
+      "kind": "reference-only",
+      "time": "10/26日付。HTTP Last-Modified16:00:20 JST、復旧・公開時刻は未確定",
+      "date": "2026-10-26",
+      "body": "現行ページはPHP対応で停止した問い合わせ・FAQ・避難所管理・ごみ分別検索等の復旧と、侵害・漏えい未確認を説明。serverのresource更新時刻を実際の復旧や初回公開時刻とせず、対象時点を完全復元できない参考枠に分ける。",
+      "action": "利用する機能の公式状態を確認する。予防停止を侵害確定とせず、この町の案内を全自治体の復旧へ一般化しない。",
+      "sources": [
+        {
+          "name": "川西町公式案内",
+          "url": "https://www.town.nara-kawanishi.lg.jp/0000009056.html"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    }
+  ]
+}

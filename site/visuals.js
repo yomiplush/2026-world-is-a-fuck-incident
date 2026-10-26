@@ -760,6 +760,33 @@ window.VISUALS = (function () {
     heading(g,'RELEASE / DEPLOYMENT / RESTORATION');g.flush();
   };
 
+  scenes.accountControls = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.48,yaw:.16});
+    const rows=[['CREDENTIALS','CHANGE',C.cyan],['SESSIONS','LOG OUT',C.amber],['APPS / DEVICES','REVIEW',C.green]];
+    rows.forEach(([name,action,tone],i)=>{
+      const y=-210+i*210;
+      node(g,[-360,y,0],name,C.steel,t,i,{hx:94,hy:30,hz:40,font:10});
+      gate(g,[0,y,0],tone,'');
+      flow(g,[-250,y,0],[-28,y,0],t,tone,i*.2,.14);
+      node(g,[350,y,0],action,tone,t,i+3,{hx:80,hy:30,hz:40,font:10});
+      wire(g,[28,y,0],[240,y,0],tone);
+    });
+    heading(g,'ACCOUNT CHECKS / SCHEMATIC');g.flush();
+  };
+
+  scenes.packageResponse = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.52,yaw:.1});
+    const positions=[[-390,-180,0],[0,-180,0],[390,-180,0]];
+    [['MATCH VERSION',C.cyan],['ISOLATE',C.amber],['REBUILD',C.green]].forEach(([name,tone],i)=>{
+      node(g,positions[i],name,tone,t,i,{hx:86,hy:48,hz:52,font:10});
+      if(i)flow(g,[positions[i-1][0]+105,-180,0],[positions[i][0]-105,-180,0],t,tone,i*.25,.14);
+    });
+    node(g,[0,180,0],'REVOKE CREDENTIALS',C.amber,t,4,{hx:128,hy:35,hz:42,font:11});
+    wire(g,[0,-100,0],[0,100,0],C.amber);
+    ring(g,[0,180,0],180,C.amber,'xz');
+    heading(g,'PACKAGE RESPONSE / SCHEMATIC');g.flush();
+  };
+
   scenes.storm = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];

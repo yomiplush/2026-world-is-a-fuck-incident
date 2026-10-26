@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
-BASE = 'https://infosec-briefing.yomiplush.dev/'
+BASE = json.loads((ROOT / 'content/site.json').read_text())['base_url']
 REPO = 'https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/'
 DATA = ROOT / 'data/2026-10-26-1027/daily-record.json'
 LATEST = json.loads((ROOT / 'data/latest.json').read_text())

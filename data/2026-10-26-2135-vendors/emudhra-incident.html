@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PS44SJ5');</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eMudhra Statement on Recent Certificate Security Incident | eMudhra</title>
+<meta name="description" content="eMudhra’s statement on a security incident involving a specific set of intermediate CA certificates, with updates as the investigation progresses.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="eMudhra Statement on Recent Certificate Security Incident">
+<meta property="og:description" content="eMudhra’s statement on a security incident involving a specific set of intermediate CA certificates, with updates as the investigation progresses.">
+<meta property="article:published_time" content="2026-10-20">
+<meta property="article:modified_time" content="2026-10-26">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="eMudhra Statement on Recent Certificate Security Incident">
+<meta name="twitter:description" content="eMudhra’s statement on a security incident involving a specific set of intermediate CA certificates, with updates as the investigation progresses.">
+<link rel="alternate" hreflang="en" href="https://emudhra.com/en/post/certificate-security-incident">
+<link rel="alternate" hreflang="x-default" href="https://emudhra.com/en/post/certificate-security-incident">
+<link rel="canonical" href="https://emudhra.com/en/post/certificate-security-incident">
+<link rel="icon" href="/images/favicon.png" sizes="60x60">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/css/common/swiper-bundle.min.css">
+<link rel="stylesheet" href="/css/common/select2.min.css">
+<link rel="stylesheet" href="/css/stylesheet.css">
+<link rel="stylesheet" href="/css/box-icons.css">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "eMudhra Statement on Recent Certificate Security Incident",
+    "description": "eMudhra’s statement on a security incident involving a specific set of intermediate CA certificates, with updates as the investigation progresses.",
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-26",
+    "author": { "@type": "Organization", "name": "eMudhra Limited" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "eMudhra Limited",
+      "logo": { "@type": "ImageObject", "url": "https://emudhra.com/images/brandlogos/logo.png" }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://emudhra.com/en/post/certificate-security-incident"
+    }
+  }
+  </script>
+<script type="text/javascript" id="hs-script-loader" async defer
+    src="//js.hs-scripts.com/40916122.js"></script>
+<!-- Organization Schema - eMudhra Corporation -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Corporation",
+  "name": "eMudhra Limited",
+  "legalName": "eMudhra Limited",
+  "url": "https://emudhra.com/",
+  "description": "eMudhra is a globally trusted Certifying Authority providing digital signature solutions, PKI services, and enterprise identity management. Trusted by millions worldwide.",
+  "logo": "https://emudhra.com/images/brandlogos/logo.png",
+  "foundingDate": "2008",
+  "areaServed": ["IN", "US", "AE", "NL", "CO", "SG", "ID", "KE", "PH"],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91 8046156902",
+      "contactType": "business inquiries",
+      "availableLanguage": ["en"]
+    }
+  ],
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "eMudhra Digital Campus, No 12-P1-A & 12-P1-B, Hi-Tech Defence And Aerospace Park (IT Sector), Jala Hobli",
+      "addressLocality": "B.K. Palya",
+      "addressRegion": "Bengaluru",
+      "postalCode": "562149",
+      "addressCountry": "IN"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "97 Cedar Grove Lane, Suite 202",
+      "addressLocality": "Somerset",
+      "addressRegion": "New Jersey",
+      "postalCode": "08873",
+      "addressCountry": "US"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "#1604 Fortune Executive Tower, Cluster T, JLT",
+      "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
+      "postalCode": "32620",
+      "addressCountry": "AE"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Wilhelmina Van Pruisenweg 104",
+      "addressLocality": "The Hague",
+      "addressRegion": "South Holland",
+      "postalCode": "2595AN",
+      "addressCountry": "NL"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 95 # 71-45, Interior 7 Apartment 1703",
+      "addressLocality": "Bogota",
+      "addressRegion": "Bogota",
+      "addressCountry": "CO"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "1 Philip Street, #03-01, Royal One Philip",
+      "addressLocality": "Singapore",
+      "postalCode": "048692",
+      "addressCountry": "SG"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "MidPlaza 1, 7th Floor, Jalan Jenderal Sudirman KAV 10-11",
+      "addressLocality": "Jakarta",
+      "postalCode": "10220",
+      "addressCountry": "ID"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Office 1, 4th Floor, Mirage Towers 3, Waiyaki Way",
+      "addressLocality": "Nairobi",
+      "postalCode": "0606",
+      "addressCountry": "KE"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "9th Floor, Tower 3, Uptown Bonifacio, 36th Street, Fort Bonifacio (BGC)",
+      "addressLocality": "Taguig City",
+      "addressRegion": "Metro Manila",
+      "postalCode": "1634",
+      "addressCountry": "PH"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/emudhra/",
+    "https://www.facebook.com/eMudhra/",
+    "https://www.youtube.com/channel/UCHw3wmhVx7Qe3Bqjb_BX8Gw",
+    "https://x.com/eMudhra"
+  ]
+}
+</script>
+<style>
+    /* Plain, factual layout. Note: stylesheet.css forces margin:0 !important on
+       h1-h5 and p, so spacing here uses !important or flex/grid gaps. */
+    /* top padding clears the fixed site header (same values as the blog banner) */
+    .stmt-head {
+      background: #F5F7FB;
+      border-bottom: 1px solid #E5E7EB;
+      padding: 7rem 0 32px;
+    }
+    @media (min-width: 768px) {
+      .stmt-head { padding: 9rem 0 40px; }
+    }
+    .stmt-wrap { max-width: 820px; margin: 0 auto; }
+    .stmt-eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1A56DB;
+      margin-bottom: 14px;
+    }
+    .stmt-title {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      font-weight: 700;
+      color: #111827;
+    }
+    .stmt-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin-top: 20px;
+      font-size: 15px;
+      color: #4B5563;
+    }
+    .stmt-meta strong { color: #111827; font-weight: 600; }
+    .stmt-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #FFF4ED;
+      border: 1px solid #F9C9B6;
+      color: #B4431B;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .stmt-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f26739;
+    }
+
+    .stmt-body-sec { padding: 40px 0 72px; background: #fff; }
+    .stmt-note {
+      font-size: 14px;
+      color: #6B7280;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .stmt-updates { list-style: none; margin: 0; padding: 0; }
+    .stmt-update {
+      position: relative;
+      padding: 32px 0 32px 32px;
+      border-bottom: 1px solid #E5E7EB;
+      scroll-margin-top: 110px; /* clear the sticky header on #update-N links */
+    }
+    .stmt-update:last-child { border-bottom: 0; }
+    /* timeline rail + dot */
+    .stmt-update::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #E5E7EB;
+    }
+    .stmt-update::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 38px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #9CA3AF;
+    }
+    .stmt-update.is-latest::after { border-color: #1A56DB; }
+    .stmt-update:target { background: #F5F7FB; }
+
+    .stmt-update__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px 12px;
+      margin-bottom: 18px;
+    }
+    .stmt-update__label {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+    .stmt-update__time { font-size: 15px; color: #4B5563; }
+    .stmt-update__latest {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #1A56DB;
+      background: #EBF2FF;
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+    .stmt-update__link {
+      font-size: 14px;
+      color: #6B7280;
+      text-decoration: none;
+      margin-left: auto;
+    }
+    .stmt-update__link:hover,
+    .stmt-update__link:focus-visible { color: #1A56DB; text-decoration: underline; }
+
+    .stmt-update__body p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1F2937;
+    }
+    .stmt-update__body p + p { margin-top: 16px !important; }
+    .stmt-update__body ul {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+    .stmt-update__body li {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1F2937;
+      list-style: disc;
+    }
+    .stmt-update__body li + li { margin-top: 10px; }
+    .stmt-update__body ul + p { margin-top: 16px !important; }
+    .stmt-update__body .stmt-doc-title {
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: #111827;
+      text-align: center;
+      margin-bottom: 8px !important;
+    }
+    .stmt-update__body .stmt-center { text-align: center; }
+    .stmt-update__body .stmt-signoff { font-weight: 600; color: #111827; }
+
+    @media (max-width: 575.98px) {
+      .stmt-update { padding-left: 26px; }
+      .stmt-update__link { margin-left: 0; }
+      .stmt-update__body p,
+      .stmt-update__body li { font-size: 16px; }
+    }
+    /* Anchor targets clear the sitewide ticker (lib/site-ticker.js) as well as the fixed header. */
+    body.has-site-ticker .stmt-update { scroll-margin-top: calc(110px + 52px); }
+    @media (max-width: 767px) {
+      body.has-site-ticker .stmt-update { scroll-margin-top: calc(110px + 56px); }
+    }
+    @media print {
+      header, footer, .mobile-bottom-bar, .stmt-update__link { display: none !important; }
+      .stmt-head { background: none; padding-top: 0; }
+    }
+  </style>
+</head>
+<body class="mt-home mt-details has-site-ticker">
+<style>
+  .site-ticker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* above .ems-sticky-top header (999) */
+    display: block;
+    height: 52px;
+    overflow: hidden;
+    background: #183153; /* solid deep navy: a security notice, not an event/promo bar */
+    text-decoration: none;
+    color: #fff;
+  }
+  .site-ticker:hover,
+  .site-ticker:focus {
+    text-decoration: none;
+    color: #fff;
+  }
+  .site-ticker:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+  }
+
+  .site-ticker__container {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+
+  .site-ticker__row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 26px;
+    height: 100%;
+    padding-inline: 1.2rem;
+  }
+
+  .site-ticker__identity {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .site-ticker__spark {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .site-ticker__center {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+  }
+  .site-ticker__message {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .site-ticker__detail {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .site-ticker__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--primary-600, #1C64F2);
+    font-size: 12.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .site-ticker:hover .site-ticker__cta,
+    .site-ticker:focus-visible .site-ticker__cta {
+      transform: translateY(-1px);
+    }
+  }
+
+  /* Trim non-essential content as width narrows, before switching to the mobile layout. */
+  @media (max-width: 1199px) {
+    .site-ticker__detail { display: none; }
+  }
+  @media (max-width: 991px) {
+    .site-ticker__row { column-gap: 16px; }
+  }
+
+  /* --- Mobile: compact two-line layout, own markup below 768px --- */
+  .site-ticker__mobile { display: none; }
+  @media (max-width: 767px) {
+    .site-ticker { height: 56px; }
+    .site-ticker__row.site-ticker__desktop { display: none; }
+    .site-ticker__mobile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      height: 100%;
+    }
+    .site-ticker__mobile-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+    .site-ticker__mobile-top {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+    .site-ticker__mobile-top .site-ticker__identity {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .site-ticker__mobile-line2 {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.72);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .site-ticker__mobile .site-ticker__cta {
+      flex-shrink: 0;
+      align-self: center;
+      padding: 6px 10px;
+    }
+  }
+
+  /* Push the page and the fixed header down to make room for the ticker.
+     Padding on <body> moves every page layout by the same amount, whatever
+     header variant or hero the page uses. Product headers (emSigner, CertiNext,
+     IDBroker, PrivaTrust) are in-flow (#header is position: relative in their
+     emudhra-top-header.css), so the body padding already moves them; only
+     their scroll-pinned product bar needs the offset. */
+  body.has-site-ticker { padding-top: 52px; }
+  body.has-site-ticker .ems-sticky-top:not(:has(.emudhra-top-nav)),
+  body.has-site-ticker .emsigner-india-header.sticky-active,
+  body.has-site-ticker .securepass-header.sticky-active { top: 52px; }
+  /* Off-canvas mobile menu (full height from the top): start it below the ticker.
+     The product headers' own menu sits above the ticker (z-index 10000), so it is left alone. */
+  @media (max-width: 991px) {
+    body.has-site-ticker .navbar-collapse:not(.emudhra-top-nav .navbar-collapse) { top: 52px; height: calc(100% - 52px); }
+  }
+  @media (max-width: 767px) {
+    body.has-site-ticker { padding-top: 56px; }
+    body.has-site-ticker .ems-sticky-top:not(:has(.emudhra-top-nav)),
+    body.has-site-ticker .emsigner-india-header.sticky-active,
+    body.has-site-ticker .securepass-header.sticky-active { top: 56px; }
+    body.has-site-ticker .navbar-collapse:not(.emudhra-top-nav .navbar-collapse) { top: 56px; height: calc(100% - 56px); }
+  }
+
+  /* One bar at a time: the sitewide ticker replaces the GISEC event ticker,
+     and the event ticker's own offsets are undone (body padding covers it). */
+  body.has-site-ticker .ems-event-ticker { display: none; }
+  body.has-site-ticker.has-event-ticker .ems-main-wrapper { padding-top: 70px; }
+  @media (min-width: 768px) {
+    body.has-site-ticker.has-event-ticker .ems-main-wrapper { padding-top: 50px; }
+  }
+
+  /* /en-ae/securepass/* (.spa-page, securepass-ae.css/js): the product row's
+     margin is measured from the fixed header's bottom edge, which already
+     includes the ticker, so take back what the body padding adds; and pin the
+     row under this ticker rather than the (hidden) event ticker. */
+  body.has-site-ticker.spa-page { --spa-tickerh: 52px; --spa-headerh: 102px; }
+  body.has-site-ticker.spa-page .securepass-header:not(.is-pinned) { margin-top: calc(var(--spa-headerh) - 52px); }
+  @media (max-width: 767px) {
+    body.has-site-ticker.spa-page { --spa-tickerh: 56px; --spa-headerh: 126px; }
+    body.has-site-ticker.spa-page .securepass-header:not(.is-pinned) { margin-top: calc(var(--spa-headerh) - 56px); }
+  }
+
+  @media print {
+    .site-ticker { display: none; }
+    body.has-site-ticker { padding-top: 0; }
+  }
+</style>
+<a class="site-ticker" href="/en/post/certificate-security-incident">
+<div class="container site-ticker__container">
+<div class="site-ticker__row site-ticker__desktop">
+<span class="site-ticker__identity">
+<span class="site-ticker__spark" aria-hidden="true">&#10022;</span>
+Security Update
+</span>
+<span class="site-ticker__center">
+<span class="site-ticker__message">Update on our TLS certificates</span>
+<span class="site-ticker__detail">Digital signature, eSign, emSigner, CertiNext, emCA, PrivaTrust and SecurePass are not affected · Updated 26 Oct 2026</span>
+</span>
+<span class="site-ticker__cta">Read the Update</span>
+</div>
+<div class="site-ticker__mobile">
+<span class="site-ticker__mobile-text">
+<span class="site-ticker__mobile-top">
+<span class="site-ticker__identity">
+<span class="site-ticker__spark" aria-hidden="true">&#10022;</span>
+Security Update
+</span>
+</span>
+<span class="site-ticker__mobile-line2">Update on our TLS certificates</span>
+</span>
+<span class="site-ticker__cta">Read the Update</span>
+</div>
+</div>
+</a>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PS44SJ5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header class="ems-sticky-top" id="header">
+<!-- Top Header -->
+<!-- Main Navigation -->
+<nav class="ems-navheader navbar navbar-expand-lg">
+<div class="container d-block">
+<div class="row">
+<div class="col-12 ems-navheader__container">
+<div class="d-flex align-items-center">
+<button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" id="top-hamburger">
+<span class="navbar-toggler-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"></span>
+</button>
+<div class="ems-headerlogo-wrappr">
+<a class="qx-brandlogo" href="/en/">
+<img src="/images/brandlogos/logo.png" alt="eMudhra logo" />
+</a>
+</div>
+</div>
+<a href="/en/contact-us" class="d-none align-items-center justify-content-between d-md-none" id="top-contact">
+<button class="ems-btn ems-btn--default ems-btn-login-h-mb">Contact Us</button>
+</a>
+<div class="collapse navbar-collapse" id="navbarText">
+<div class="ems-headerlogo-wrappr-mb d-flex flex-wrap d-lg-none align-items-center justify-content-between w-100">
+<a class="qx-brandlogo d-md-none" href="/en/">
+<img src="/images/brandlogos/logo.png" alt="eMudhra Logo" />
+</a>
+<span class="nav-close d-inline-block d-lg-none" id="navClose">&#x2715;</span>
+</div>
+<ul class="ems-navlist navbar-nav ms-auto">
+<li class="nav-item nav-item-header">
+<a class="nav-link mb-accordion" aria-current="page" href="#">Products</a>
+<!--Dropdown-->
+<div class="nav-dropdown nav-dropdown--lg">
+<div class="ems-h-dropdown ">
+<div class="row feature-container">
+<div class="col-12 feature-container__item">
+<!-- All Product (converted into Tab Menu + Content) -->
+<div class="megamenu-tab-content-wrapper" id="tab-all">
+<div class="megamenu-lists row h-100">
+<!-- Left Tab Menu -->
+<div class="gray col-lg-3 p-0 feature-container__item">
+<div class="megamenu-tab-wrapper">
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">Featured Products</h3>
+</div>
+<ul id="tabs-nav" class="products-tabs">
+<li class="ems-color-neu800 fs-16 active" data-tab="products-one"><span>eSignature
+Solution</span></li>
+<li class="ems-color-neu800 fs-16" data-tab="products-two"><span>Identity & Access
+Solution</span></li>
+<li class="ems-color-neu800 fs-16" data-tab="products-three"><span>Certificate Lifecycle Management</span></li>
+<li class="ems-color-neu800 fs-16" data-tab="products-idbroker"><span>Digital Identity &amp; KYC</span></li>
+</ul>
+</div>
+</div>
+<!-- Right Tab Content -->
+<div class="col-lg-9 p-0 feature-container__item">
+<div class="megamenu-list">
+<div class="megamenu-content-wrapper">
+<div id="tabs-content">
+<!-- TAB: emsigner -->
+<div id="products-one" class="tab-content products-tab-content active">
+<div class="row h-100">
+<div class="col-lg-8">
+<div class="product-hero row align-items-center">
+<div class="col-lg-12">
+<a href="/en/emsigner/" class="sub_brand d-flex align-items-center gap-3">
+<img src="/images/home/product/emsigner-fav.svg" alt="emSigner" class="brand-mark">
+<div class="title">
+<h4 class="main-title">emSigner</h4>
+<p class="sub-title">Sign smarter. Approve faster. Go fully
+paperless with ease.</p>
+</div>
+</a>
+</div>
+</div>
+<!-- Feature Cards -->
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esign.svg" alt="Workflow Icon">
+<div class="title-content">
+<h5 class="mb-2">Features</h5>
+<p>Automate multi-level approvals, accelerate document signing,
+and monitor workflow progress in real time.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/manufacturing.svg" alt="BulkSign Icon">
+<div class="title-content">
+<h5 class="mb-2">Use Cases</h5>
+<p>Streamline bulk signing for HR, finance, legal, procurement,
+and other enterprise operations.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esignature-resources.svg" alt="Document Certificates Icon">
+<div class="title-content">
+<h5 class="mb-2">Resources</h5>
+<p>Access implementation guides, technical documentation, and best
+practices for eSignature deployment.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/instant-sign.svg" alt="Pricing Icon">
+<div class="title-content">
+<h5 class="mb-2">Pricing</h5>
+<p>Flexible plans for individuals, SMBs, and large enterprises
+with scalable usage tiers.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Case Studies for emSigner -->
+<div class="col-lg-4">
+<div class="h-caseStudy-listWrap h-100">
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">Customer Stories</h3>
+</div>
+<div class="ems-h-dropdown__body">
+<ul class="ems-drp-link-lg p-0">
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/emsigner/case-studies-fab">
+<div class="ems-drp-link__img">
+<img src="/images/dropdown/casestudy/fab.png" alt="Banking & Financial Services">
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Banking</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">FAB drives an enterprise-wide paperless initiative...</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/emsigner/case-studies-mercedes-benz">
+<div class="ems-drp-link__img">
+<img src="/images/dropdown/casestudy/mercedes.png" alt="Automobile">
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Automotive</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">Mercedes curbs employment fraud by going digital...</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/emsigner/case-studies-cisco">
+<div class="ems-drp-link__img">
+<img src="/images/dropdown/casestudy/cisco.png" alt="Customer case study for emSigner - Cisco">
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Networking hardware &amp; software</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">emSigner plays an instrumental role in streamlining processes...</p>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<a class="link-arr fs-16 ems-color-primary600 fw-500 text-capitalize d-inline-block mb-2 mt-3" href="/en/emsigner/case-studies">View All Case Studies</a>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB: SecurePass -->
+<div id="products-two" class="tab-content products-tab-content">
+<div class="row h-100">
+<div class="col-lg-8">
+<div class="product-hero row align-items-center">
+<div class="col-lg-12">
+<a href="/en/securepass/" class="sub_brand d-flex align-items-center gap-3">
+<img src="/images/home/product/securepass-fav.svg" alt="SecurePass" class="brand-mark">
+<div class="title">
+<h4 class="main-title">SecurePass</h4>
+<p class="sub-title">Converged identity platform for authentication,
+access management and identity governance</p>
+</div>
+</a>
+</div>
+</div>
+<!-- Feature Cards -->
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esign.svg" alt="Workflow Icon">
+<div class="title-content">
+<h5 class="mb-2">Features</h5>
+<p>Enforce adaptive authentication, SSO, and centralized
+governance to strengthen access control across your enterprise.
+</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/manufacturing.svg" alt="BulkSign Icon">
+<div class="title-content">
+<h5 class="mb-2">Use Cases</h5>
+<p>Simplify secure logins, user provisioning, and access
+management for internal systems and apps.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esignature-resources.svg" alt="Document Certificates Icon">
+<div class="title-content">
+<h5 class="mb-2">Resources</h5>
+<p>Find documentation, configuration guides, and best practices
+for identity and access management.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/instant-sign.svg" alt="Pricing Icon">
+<div class="title-content">
+<h5 class="mb-2">Pricing</h5>
+<p>Tiered pricing designed for individuals, SMBs, and enterprise
+deployments with flexible scalability.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Case Studies for SecurePass -->
+<div class="col-lg-4">
+<div class="h-caseStudy-listWrap h-100">
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">Case Studies</h3>
+</div>
+<div class="ems-h-dropdown__body">
+<ul class="ems-drp-link-lg p-0">
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/resources/life-insurance-india-securepass-idam">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--bfsi">
+<i class="bx bxs-bank"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">BFSI</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">India's Largest Life Insurance Provider Scales Digital Identity for 50M+ Users</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/resources/central-government-department-in-india-secures-employee">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--govt">
+<i class="bx bxs-landmark"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Government</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">Central Govt Department in India Secures Employee Access Across a Large Workforce</p>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<a class="link-arr fs-16 ems-color-primary600 fw-500 text-capitalize d-inline-block mb-2 mt-3" href="/en/case-studies">View All Case Studies</a>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB: SSL/TLS -->
+<div id="products-three" class="tab-content products-tab-content">
+<div class="row h-100">
+<div class="col-lg-8">
+<div class="product-hero row align-items-center">
+<div class="col-lg-12">
+<a href="/en/certinext/" class="sub_brand d-flex align-items-center gap-3">
+<img src="/images/home/product/certinext-fav.svg" alt="CertiNext" class="brand-mark">
+<div class="title">
+<h4 class="main-title">CertiNext</h4>
+<p class="sub-title">Discover, automate and manage the lifecycle of digital certificates from any certificate authority</p>
+</div>
+</a>
+</div>
+</div>
+<!-- Feature Cards -->
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esign.svg" alt="Workflow Icon">
+<div class="title-content">
+<h5 class="mb-2">Features</h5>
+<p>Issue, renew, and revoke digital certificates for users,
+devices, and services with complete lifecycle management.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/manufacturing.svg" alt="BulkSign Icon">
+<div class="title-content">
+<h5 class="mb-2">Use Cases</h5>
+<p>Secure internal systems, apps, and communications through
+PKI-based authentication and encryption.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esignature-resources.svg" alt="Document Certificates Icon">
+<div class="title-content">
+<h5 class="mb-2">Resources</h5>
+<p>Access guides, technical manuals, and workflows for PKI and
+certificate lifecycle management.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/instant-sign.svg" alt="Pricing Icon">
+<div class="title-content">
+<h5 class="mb-2">Pricing</h5>
+<p>Flexible subscription models to support small teams, large
+enterprises, and global deployments.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Case Studies for CertiNext -->
+<div class="col-lg-4">
+<div class="h-caseStudy-listWrap h-100">
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">Case Studies</h3>
+</div>
+<div class="ems-h-dropdown__body">
+<ul class="ems-drp-link-lg p-0">
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/resources/large-bank-india-certinext">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--bfsi">
+<i class="bx bxs-bank"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">BFSI</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">India's Largest Commercial Bank Deploys CertiNext for Enterprise CLM</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/resources/digital-government-services-authority-in-the-middle-east">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--govt">
+<i class="bx bxs-landmark"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Government</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">Digital Government Authority in the Middle East Establishes Certificate Governance</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/resources/cable-and-internet-service-provider-in-southeast-asia">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--telecom">
+<i class="bx bxs-buildings"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Telecommunication</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">Cable &amp; Internet Provider in Southeast Asia Centralises Certificate Management</p>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<a class="link-arr fs-16 ems-color-primary600 fw-500 text-capitalize d-inline-block mb-2 mt-3" href="/en/case-studies">View All Case Studies</a>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB: IDBroker (Digital Identity & KYC) -->
+<div id="products-idbroker" class="tab-content products-tab-content">
+<div class="row h-100">
+<div class="col-lg-8">
+<div class="product-hero row align-items-center">
+<div class="col-lg-12">
+<a href="/en/idbroker/" class="sub_brand d-flex align-items-center gap-3">
+<img src="/images/home/product/idbroker-fav.svg" alt="IDBroker" class="brand-mark">
+<div class="title">
+<h4 class="main-title">IDBroker</h4>
+<p class="sub-title">The identity platform that scales from KYC to national ID.</p>
+</div>
+</a>
+</div>
+</div>
+<!-- Feature Cards -->
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/as-a-service" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/integration.svg" alt="IDPaaS">
+<div class="title-content">
+<h5 class="mb-2">IDPaaS</h5>
+<p>API-first KYC for banks, fintechs, NBFCs and certifying authorities.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/as-a-solution" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/five_epassport.svg" alt="IDP Solution">
+<div class="title-content">
+<h5 class="mb-2">IDP Solution</h5>
+<p>Sovereign-grade identity infrastructure for national ID programmes.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/feature-kyc-modules" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/trust.svg" alt="KYC Modules">
+<div class="title-content">
+<h5 class="mb-2">KYC Modules</h5>
+<p>OCR, liveness, face match and 20+ government verification APIs.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/feature-video-kyc" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/videos.svg" alt="Video KYC">
+<div class="title-content">
+<h5 class="mb-2">Video KYC</h5>
+<p>V-CIP and two-way video sessions with audit-ready recording.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Use Cases -->
+<div class="col-lg-4">
+<div class="h-caseStudy-listWrap h-100">
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">Use Cases</h3>
+</div>
+<div class="ems-h-dropdown__body">
+<ul class="ems-drp-link-lg p-0">
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/idbroker/usecases-banking-financial">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--bfsi">
+<i class="bx bxs-bank"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Banking &amp; Financial</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">Account opening, V-CIP, periodic re-KYC...</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/idbroker/usecases-government">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--govt">
+<i class="bx bxs-landmark"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Government</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">Citizen enrolment, sovereign ID, civil registry...</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/idbroker/usecases-telecom">
+<div class="ems-drp-link__img ems-cs-icon-box ems-cs-icon--telecom">
+<i class="bx bx-broadcast"></i>
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-14 ems-color-neu800 fw-600 mb-lg-1">Telecom</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">SIM activation, CAF compliance, subscriber verification...</p>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<a class="link-arr fs-16 ems-color-primary600 fw-500 text-capitalize d-inline-block mb-2 mt-3" href="/en/idbroker/">Explore IDBroker</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-item nav-item-header">
+<a class="nav-link mb-accordion" aria-current="page" href="#">Use Cases</a>
+<!--Dropdown-->
+<div class="nav-dropdown nav-dropdown--lg">
+<div class="ems-h-dropdown ">
+<div class="row feature-container">
+<div class="col-12 col-lg-9 feature-container__item">
+<div class="megamenu-tab-content-wrapper" id="tab-all">
+<div class="megamenu-lists row h-100">
+<!-- Left Tab Menu -->
+<div class="gray col-lg-3 p-0 feature-container__item">
+<div class="megamenu-tab-wrapper">
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">Use Cases</h3>
+</div>
+<ul id="industry-tabs-nav" class="industry-tabs">
+<li class="ems-color-neu800 fs-16 active" data-tab="industry-one">
+<span>emSigner</span>
+</li>
+<li class="ems-color-neu800 fs-16" data-tab="industry-two"><span>SecurePass</span>
+</li>
+<li class="ems-color-neu800 fs-16" data-tab="industry-three"><span>CertiNext</span>
+</li>
+<li class="ems-color-neu800 fs-16" data-tab="industry-idbroker"><span>IDBroker</span></li>
+</ul>
+</div>
+</div>
+<!-- Right Tab Content -->
+<div class="col-lg-9 p-0 feature-container__item">
+<div class="megamenu-list">
+<div class="megamenu-content-wrapper">
+<div id="industry-tabs-content">
+<!-- TAB: eSignature -->
+<div id="industry-one" class="tab-content industry-tab-content active">
+<!-- <div class="product-hero row align-items-center">
+                                                                <div class="col-lg-12">
+                                                                  <a href="" target="_blank" class="sub_brand d-flex align-items-center gap-3">
+                                                                    <div class="title">
+                                                                    <h4 class="main-title"></h4>
+                                                                    <p class="sub-title"></p>
+                                                                    </div>
+                                                                  </a>
+                                                                </div>
+                                                              </div> -->
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/usecases-retail-banking" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/banking.svg" alt="Workflow Icon">
+<div class="title-content">
+<h5 class="mb-2">Retail Banking</h5>
+<p>Digital-first customer onboarding and account services.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/usecases-manufacturing" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/manufacturing.svg" alt="BulkSign Icon">
+<div class="title-content">
+<h5 class="mb-2">Manufacturing</h5>
+<p>Streamline contracts and supply chain workflows.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/usecases-healthcare" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/healthcare.svg" alt="Healthcare Icon">
+<div class="title-content">
+<h5 class="mb-2">Healthcare</h5>
+<p>Digital workflows for patient and compliance needs.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/usecases-logistics" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/services-and-logistics.svg" alt="Services Icon">
+<div class="title-content">
+<h5 class="mb-2">Services & Logistics</h5>
+<p>Seamless contracts and delivery docs.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/usecases-education" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/education.svg" alt="Education Icon">
+<div class="title-content">
+<h5 class="mb-2">Education</h5>
+<p>Effortless admissions and certifications.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/emsigner/usecases-insurance" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/insurance.svg" alt="Insurance Icon">
+<div class="title-content">
+<h5 class="mb-2">Insurance</h5>
+<p>Fast claims and policy management.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- 2 -->
+<div id="industry-two" class="tab-content industry-tab-content">
+<div class="product-hero row align-items-center">
+</div>
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/usecases-government" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/GovernmentServices.svg" alt="Government Icon">
+<div class="title-content">
+<h5 class="mb-2">Government Services</h5>
+<p>Secure and simplify citizen services with trusted digital identity.
+</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/usecases-finacialservices" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/FinancialServices.svg" alt="Financial Icon">
+<div class="title-content">
+<h5 class="mb-2">Financial Services</h5>
+<p>Protect financial assets with continuous identity verification.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/usecases-manufacturing" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/Manufacturing.svg" alt="Manufacturing Icon">
+<div class="title-content">
+<h5 class="mb-2">Manufacturing</h5>
+<p>Enable trusted access across people, systems, and machines.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/usecases-automotive" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/Automotive.svg" alt="Automotive Icon">
+<div class="title-content">
+<h5 class="mb-2">Automotive</h5>
+<p>Secure vehicles and data through unified digital identity.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/usecases-telecom" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/Telecom.svg" alt="Telecom Icon">
+<div class="title-content">
+<h5 class="mb-2">Telecom</h5>
+<p>Manage users and networks under one secure identity.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/securepass/usecases-defence" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/Defence.svg" alt="Defense Icon">
+<div class="title-content">
+<h5 class="mb-2">Defense</h5>
+<p>Safeguard classified systems with military-grade identity controls.
+</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- 3 -->
+<div id="industry-three" class="tab-content industry-tab-content">
+<div class="product-hero row align-items-center">
+</div>
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/usecases-clm-government" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/drop-icon-5.svg" alt="Government Icon">
+<div class="title-content">
+<h5 class="mb-2">Government Services</h5>
+<p>Ensuring Continuity and Security in Critical Services</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/usecases-clm-manufacturing" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/drop-icon-manufaucturing.svg" alt="Manufacturing Icon">
+<div class="title-content">
+<h5 class="mb-2">Manufacturing</h5>
+<p>Securing IoT, 5G, and Connected Vehicle (CV2X) Infrastructure</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/usecases-clm-telecom" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/drop-icon-4.svg" alt="Telecom Icon">
+<div class="title-content">
+<h5 class="mb-2">Telecom</h5>
+<p>Reliable Certificate Management for 5G and CV2X Networks</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/usecases-clm-finacialservices" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/drop-icon-6.svg" alt="Financial Icon">
+<div class="title-content">
+<h5 class="mb-2">Financial Services</h5>
+<p>Implementing Zero Trust Across Financial IT Infrastructure</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/usecases-clm-automotive" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/drop-icon-automative.svg" alt="Financial Icon">
+<div class="title-content">
+<h5 class="mb-2">Automotive</h5>
+<p>Enhancing Security for IoT and Electric Vehicle (EV) Ecosystems</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/certinext/usecases-clm-defence" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/drop-icon-4.svg" alt="Financial Icon">
+<div class="title-content">
+<h5 class="mb-2">Defense</h5>
+<p>Future-proofing Security with Post Quantum Cryptography</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- IDBroker -->
+<div id="industry-idbroker" class="tab-content industry-tab-content">
+<div class="product-hero row align-items-center">
+</div>
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/usecases-banking-financial" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/FinancialServices.svg" alt="Banking Icon">
+<div class="title-content">
+<h5 class="mb-2">Banking &amp; Financial</h5>
+<p>Account opening, V-CIP and periodic re-KYC on one platform.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/usecases-nbfc-lending" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/banking.svg" alt="Lending Icon">
+<div class="title-content">
+<h5 class="mb-2">NBFC &amp; Lending</h5>
+<p>Loan origination KYC, bank account verification and V-CIP.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/usecases-fintech" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/InformationTechnology.svg" alt="Fintech Icon">
+<div class="title-content">
+<h5 class="mb-2">Fintech &amp; Payments</h5>
+<p>Wallet onboarding, prepaid card KYC and merchant verification.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/usecases-insurance" class="feature-card">
+<div class="md-flex">
+<img src="/images/icons/navigation/insurance.svg" alt="Insurance Icon">
+<div class="title-content">
+<h5 class="mb-2">Insurance</h5>
+<p>Proposer KYC, video suitability checks and nominee verification.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/usecases-government" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/GovernmentServices.svg" alt="Government Icon">
+<div class="title-content">
+<h5 class="mb-2">Government &amp; Public Sector</h5>
+<p>Citizen enrolment, sovereign ID and benefit delivery.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="/en/idbroker/usecases-telecom" class="feature-card">
+<div class="md-flex">
+<img src="/images/svg/Navigations/UseCases/Telecom.svg" alt="Telecom Icon">
+<div class="title-content">
+<h5 class="mb-2">Telecom</h5>
+<p>SIM activation, CAF compliance and subscriber verification.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- 5 -->
+<div id="industry-five" class="tab-content industry-tab-content">
+<div class="product-hero row align-items-center">
+<div class="col-lg-12">
+<a href="" class="sub_brand d-flex align-items-center gap-3">
+<div class="title">
+<h4 class="main-title">Building Trust in InsurTech</h4>
+<p class="sub-title">Simplifying policy and claims management while
+protecting sensitive information.</p>
+</div>
+</a>
+</div>
+</div>
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esign.svg" alt="Workflow Icon">
+<div class="title-content">
+<h5 class="mb-2">eSignature Solution</h5>
+<p>Automate policy approvals and claims docs.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/manufacturing.svg" alt="BulkSign Icon">
+<div class="title-content">
+<h5 class="mb-2">Identity & Access</h5>
+<p>Secure agent and policyholder access.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esignature-resources.svg" alt="Document Certificates Icon">
+<div class="title-content">
+<h5 class="mb-2">Digital Trust</h5>
+<p>Protect policy docs and claims with certificates.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/instant-sign.svg" alt="Pricing Icon">
+<div class="title-content">
+<h5 class="mb-2">Use Cases</h5>
+<p>Policy issuance, claims approvals and agent onboarding.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- 6 -->
+<div id="industry-six" class="tab-content industry-tab-content">
+<div class="product-hero row align-items-center">
+<div class="col-lg-12">
+<a href="" class="sub_brand d-flex align-items-center gap-3">
+<div class="title">
+<h4 class="main-title"> Enabling Digital Learning Environments </h4>
+<p class="sub-title">Digitizing approvals, securing records and enabling
+smooth academic operations.</p>
+</div>
+</a>
+</div>
+</div>
+<div class="row feature-cards g-3">
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esign.svg" alt="Workflow Icon">
+<div class="title-content">
+<h5 class="mb-2">eSignature Solution</h5>
+<p>Simplify approvals and document workflows for institutions.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/manufacturing.svg" alt="BulkSign Icon">
+<div class="title-content">
+<h5 class="mb-2">Identity & Access</h5>
+<p>Secure student, faculty and staff access.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/esignature-resources.svg" alt="Document Certificates Icon">
+<div class="title-content">
+<h5 class="mb-2">Digital Trust</h5>
+<p>Protect student records and institutional data.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-6 col-lg-6">
+<a href="" class="feature-card">
+<div class="md-flex">
+<img src="/images/home/icons/instant-sign.svg" alt="Pricing Icon">
+<div class="title-content">
+<h5 class="mb-2">Use Cases</h5>
+<p>Enrollment forms, approvals and transcripts.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- TAB: PrivaTrust (India only) -->
+</div><!-- /tabs-content -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-3 feature-container__item">
+<div class="h-100">
+<div class="h-100">
+<div class="feature-cards mt-2">
+<a href="https://emudhra.com/hubfs/emudhradocs/documents/landing-pdf/e-book-the-future-of-digital-signatures-in-the-age-of-genai.pdf" class="industry-common">
+<h3 class="ems-color-neu800 fs-16 mb-2">The Future of Digital Signatures</h3>
+<p>How GenAI is transforming trust, security and signing workflows.
+</p>
+<svg class="ems-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 11L11 1M11 1H1M11 1V11" stroke="#111928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+<div class="industry-swiper mt-3">
+<a href="https://www.gartner.com/reviews/market/electronic-signature/vendor/emudhra/product/emsigner" target="_blank">
+<img src="/images/home/industry/em-industry-slide.svg" alt="industry">
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-item nav-item-header">
+<a class="nav-link mb-accordion" href="#">Resources</a>
+<div class="nav-dropdown nav-dropdown--md">
+<div class="ems-h-dropdown ">
+<div class="row feature-container">
+<div class="col-12 col-lg-6 feature-container__item">
+<div class="resources_item">
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">Document Library</h3>
+</div>
+<div class="ems-h-dropdown__body">
+<!--Respources-->
+<ul class="ems-drp-link-list p-0 ems-drp-link-list--w100 d-flex flex-wrap">
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/resources">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/how-emsigner-works.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">All Resources</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/case-studies">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/esignature-legality-guide.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">Case Studies</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/datasheets">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/videos.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">Datasheets</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/faq">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/release-notes.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">FAQs</h4>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<div class="ems-h-dropdown__head mb-3 mt-4 mb-lg-4">
+<h3 class="text-capitalize">Connect With Us</h3>
+</div>
+<div class="ems-h-dropdown__body">
+<!--Respources-->
+<ul class="ems-drp-link-list p-0 ems-drp-link-list--w100 d-flex flex-wrap">
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/webinars">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/how-to-trust-service-works.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">Webinars</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/reports">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/support-center.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">Reports</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/podcasts">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/how-to-trust-service-works.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">Podcasts</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/events">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/navigation/videos.svg" alt="Navigation">
+</div>
+<div class="col-10 col-lg-9">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-0">Events</h4>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!--Blogs-->
+<div class="col-12 col-lg-6 feature-container__item">
+<div>
+<div class="ems-h-dropdown__head mb-3 mb-lg-4">
+<h3 class="text-capitalize">latest blog posts</h3>
+</div>
+<div class="ems-h-dropdown__body">
+<ul class="ems-drp-link-lg p-0">
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/blog/what-is-a-qualified-trust-service-provider-qtsp">
+<div class="ems-drp-link__img blogs_pro">
+<img class="img-fluid" src="/images/blog/thumbnails/what-is-a-qualified-trust-service-provider-qtsp.svg" alt="Poster card reading TRUST LISTED with a verified-check ring icon, for an explainer on qualified trust service providers and how to verify them">
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">What Is a Qualified Trust Service Provider (QTSP)?</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">What is a qualified trust service provider? See how QTSP status is granted, which services can be qualified and how to check a QTSP on the EU trusted lists.</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/blog/what-is-a-private-ca-when-to-run-your-own">
+<div class="ems-drp-link__img blogs_pro">
+<img class="img-fluid" src="/images/blog/thumbnails/what-is-a-private-ca-when-to-run-your-own.svg" alt="Poster card reading OWN YOUR ROOT with a root-of-trust hub icon, for an explainer on private certificate authorities">
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">What Is a Private CA? When to Run Your Own Certificate Authority</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">What is a private CA and when should you run your own? Compare private and public CAs, the ways to operate one and the responsibilities that come with it.</p>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-lg__item">
+<a class="d-flex ems-drp-link" href="/en/blog/what-is-ciam-customer-vs-workforce-identity">
+<div class="ems-drp-link__img blogs_pro">
+<img class="img-fluid" src="/images/blog/thumbnails/what-is-ciam-customer-vs-workforce-identity.svg" alt="Poster card reading MILLIONS OF LOGINS with a cluster-of-users icon, for an explainer on customer identity versus workforce identity">
+</div>
+<div class="col-9 col-md-10 col-lg-8">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">What Is CIAM? Customer Identity vs Workforce Identity</h4>
+<p class="fs-14 ems-color-neu500 mb-lg-1">What is CIAM? Compare customer and workforce identity side by side, follow the customer identity journey and see which CIAM capabilities matter at scale.</p>
+</div>
+</a>
+</li>
+</ul>
+</div>
+<a class="link-arr ems-color-primary600 fw-500 text-capitalize" href="/en/blog">All Blog Posts</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-item nav-item-header">
+<a class="nav-link mb-accordion" href="#">About Us</a>
+<div class="nav-dropdown nav-dropdown--sm">
+<div class="ems-h-dropdown ">
+<div class="row feature-container">
+<div class="col-12 feature-container__item">
+<div class="common-backdrop">
+<div class="ems-h-dropdown__body">
+<!--Developers Portal-->
+<ul class="ems-drp-link-list p-0 d-md-flex flex-wrap">
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/our-history">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/ems-drp-img.svg" alt="Navigation">
+</div>
+<div class="col-10">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">Our History & Purpose</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/leadership">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/ems-drp-img.svg" alt="Navigation">
+</div>
+<div class="col-10">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">Leadership</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/board-directors">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/ems-drp-img.svg" alt="Navigation">
+</div>
+<div class="col-10">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">Board of Directors</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/investors">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/ems-drp-img.svg" alt="Navigation">
+</div>
+<div class="col-10">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">Investor</h4>
+</div>
+</a>
+</li>
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/corporate-social-responsibility">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/ems-drp-img.svg" alt="Navigation">
+</div>
+<div class="col-10">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">CSR</h4>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-item nav-item-header">
+<a class="nav-link mb-accordion" href="#" onclick="event.preventDefault(); yourFunction();">Partners</a>
+<div class="nav-dropdown nav-dropdown--sm">
+<div class="ems-h-dropdown ">
+<div class="row feature-container">
+<div class="col-12 feature-container__item">
+<div class="common-backdrop">
+<div class="ems-h-dropdown__body">
+<!--Partners-->
+<ul class="ems-drp-link-list p-0 d-md-flex flex-wrap">
+<li class="ems-drp-link-list__item">
+<a class="ems-drp-link d-flex flex-wrap" href="/en/partners">
+<div class="ems-drp-link__icon">
+<img class="img-fluid" src="/images/icons/ems-drp-img.svg" alt="Navigation">
+</div>
+<div class="col-10">
+<h4 class="fs-16 ems-color-neu800 fw-600 mb-lg-1">Become a Partner</h4>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="nav-item nav-item-header box-icon-none d-md-none">
+<a class="nav-link" href="/en/contact-us">Contact Us</a>
+</li>
+<li class="nav-item nav-item-header box-icon-none d-md-none">
+<a class="nav-link" href="/en/">All Products</a>
+</li>
+<li class="nav-item nav-item-header box-icon-none d-md-none">
+<div class="country-dropdown">
+<button id="toggleMenu"><img src="/images/flags/global.svg" alt="Global"> Global</button>
+<ul id="countryList" class="country-list">
+<li data-region="en"><img src="/images/flags/global.svg" alt="Global"> Global</li>
+<li data-region="en-in"><img src="/images/flags/india.svg" alt="India"> India</li>
+</ul>
+</div>
+</li>
+</ul>
+<div class="d-flex align-items-center header-flex-end justify-content-between d-none d-md-flex">
+<div class="country-dropdown">
+<button id="toggleMenu"><img src="/images/flags/global.svg" alt="Global"> Global</button>
+<ul id="countryList" class="country-list">
+<li data-region="en"><img src="/images/flags/global.svg" alt="Global"> Global</li>
+<li data-region="en-in"><img src="/images/flags/india.svg" alt="India"> India</li>
+</ul>
+</div>
+<div class="d-none d-md-flex">
+<a class="ems-navlink ems-btn ems-btn--info" href="/en/contact-us">Contact Us</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<main>
+<section class="stmt-head">
+<div class="container">
+<div class="stmt-wrap">
+<span class="stmt-eyebrow">Statement</span>
+<h1 class="stmt-title">eMudhra Statement on Recent Certificate Security Incident</h1>
+<div class="stmt-meta">
+<span class="stmt-status">Investigation ongoing</span>
+<span>Last updated: <strong><time datetime="2026-10-26">26 October 2026</time></strong></span>
+<span>First published: <time datetime="2026-10-20">20 October 2026</time></span>
+</div>
+</div>
+</div>
+</section>
+<section class="stmt-body-sec">
+<div class="container">
+<div class="stmt-wrap">
+<p class="stmt-note">Updates are listed newest first.</p>
+<ol class="stmt-updates">
+<li class="stmt-update is-latest" id="update-5">
+<div class="stmt-update__head">
+<h2 class="stmt-update__label">A Note from eMudhra Leadership</h2>
+<span class="stmt-update__time"><time datetime="2026-10-26">26 October 2026</time></span>
+<span class="stmt-update__latest">Latest</span>
+<a class="stmt-update__link" href="#update-5">Link to this update</a>
+</div>
+<div class="stmt-update__body">
+<p>Last week, a security researcher reported that the private keys associated with eight of our emSign G3 intermediate TLS CAs were recoverable. They were right.</p>
+<p>The flaw was ours. A script error resulted in issuing CA’s with weak keys.</p>
+<p>We want to apologise directly to our customers and to the broader WebPKI community, both of whom were entitled to expect better from us. Also to our partners, who have had to field questions that are ours to answer.</p>
+<p>The affected intermediate CAs were revoked within 14 hours of our confirming the issue. Based on our investigation to date, the affected intermediates had not issued publicly trusted end-entity certificates, and there has been no compromise of our infrastructure or customer data.</p>
+<p>Our digital-signature &amp; eSign/eSignature in India, and Globally, along with all of our enterprise applications operate on separate infrastructure and were not impacted in any manner. We are already in the process of moving our impacted G3 customers and our broader non-impacted TLS customers to alternate certificates at no cost.</p>
+<p>We will publish a full root-cause analysis through the CCADB process. It will explain what went wrong, why our controls failed to detect it, and the changes we are making as a result.</p>
+<p>We are also commissioning an independent expert to review the incident and the procedures and controls followed by us. Nothing is more important in our business than the trust placed in us by our customers and the broader digital-trust ecosystem.</p>
+<p>We will do all that is necessary to maintain that trust and confidence through our actions in the coming weeks.</p>
+<p class="stmt-signoff">eMudhra Leadership Team</p>
+</div>
+</li>
+<li class="stmt-update" id="update-4">
+<div class="stmt-update__head">
+<h2 class="stmt-update__label">Update 4</h2>
+<span class="stmt-update__time"><time datetime="2026-10-22">22 October 2026</time></span>
+<a class="stmt-update__link" href="#update-4">Link to this update</a>
+</div>
+<div class="stmt-update__body">
+<h3 class="stmt-doc-title">Availability of Sectigo Certificates as an Alternate Option</h3>
+<p>eMudhra is making certificates issued by Sectigo available as an alternate option to all of our customers.</p>
+<p>Our G1 root certificates remain active and continue to be fully supported. Despite this, we are offering Sectigo-issued certificates to give customers additional peace of mind and flexibility in managing their certificate deployments.</p>
+<p><strong>How to request a Sectigo certificate</strong></p>
+<ul>
+<li><strong>Existing CertiNext users:</strong> Submit your request directly through your CertiNext account.</li>
+<li><strong>All other customers:</strong> Contact eMudhra Support at <a href="mailto:support@emudhra.com">support@emudhra.com</a>.</li>
+<li><strong>Customers in the USA:</strong> Contact <a href="mailto:support@certinext.io">support@certinext.io</a>.</li>
+</ul>
+<p>Our support team will guide you through the process and help ensure a smooth experience for your environment.</p>
+<p>We remain committed to the security, reliability, and continuity of the services our customers depend on.</p>
+</div>
+</li>
+<li class="stmt-update" id="update-3">
+<div class="stmt-update__head">
+<h2 class="stmt-update__label">Update 3</h2>
+<span class="stmt-update__time"><time datetime="2026-10-21">21 October 2026</time></span>
+<a class="stmt-update__link" href="#update-3">Link to this update</a>
+</div>
+<div class="stmt-update__body">
+<h3 class="stmt-doc-title">An Update on Our Global TLS Intermediate CA Incident</h3>
+<p class="stmt-center"><em>What happened, who is affected, and what we are doing about it</em></p>
+<p>On October 17, 2026, an independent security researcher reported that the keys of eight (out of several) eMudhra Global TLS intermediate Certificate Authorities (CAs) were cryptographically weak. We revoked all eight intermediates the following day. No certificates had been issued from any of them, our infrastructure was not compromised, and no data was breached.</p>
+<p>We take this incident seriously. We believe an organization's character is shown in how it responds when something goes wrong, so this post sets out plainly what happened, who is affected, and what we are doing about it.</p>
+<p><strong>What happened</strong></p>
+<p>Eight intermediate (issuing) CAs in our Global TLS business were revoked because their published keys were weak. These intermediates sit under eMudhra's ECC root. As a consequence of the incident, the browser root programs have also distrusted that one ECC root.</p>
+<p>To be clear about what was and was not affected:</p>
+<ul>
+<li><strong>Intermediate keys were revoked, not root keys.</strong> The weakness was in the keys of the eight intermediates.</li>
+<li><strong>The root was distrusted by the root programs as a precaution.</strong> To the best of our knowledge, no other roots or intermediates were generated using the flawed process.</li>
+<li><strong>Seven of the eight intermediates were never used in production.</strong> The one that was in production had not issued a single certificate.</li>
+</ul>
+<p>The key sequence of events:</p>
+<ul>
+<li><strong>April 30, 2025:</strong> The eight intermediates were created in a Key Generation Ceremony.</li>
+<li><strong>Mid-2025:</strong> The hierarchy was included in browser trust lists. It has since passed two independent audit cycles.</li>
+<li><strong>October 17, 2026 (late evening, India time):</strong> We were made aware of the issue. The researcher notified Apple, Google, Microsoft and Mozilla at the same time.</li>
+<li><strong>October 18, 2026:</strong> We revoked all eight intermediates.</li>
+</ul>
+<p><strong>How it happened</strong></p>
+<p>The keys were generated on FIPS 140-2 Level 3 certified Hardware Security Modules (HSMs). Suggestions that HSMs were not used are incorrect. The problem was a flaw in one step of the ceremony procedure, not the absence of HSMs.</p>
+<p>During the ceremony, a key wrap/unwrap step produced a second, weak set of keys alongside the original strong keys. The weak keys were the ones published to the browser root stores. The issue went undetected for about 18 months, through two independent audit cycles. The researcher was able to reverse-engineer the weak keys, reportedly with the help of AI-assisted tooling.</p>
+<p>We have not yet confirmed the exact root cause. We will publish it in full once our investigation is complete. We are not aware of any evidence that the weak keys were recovered or exploited by anyone before the issue was disclosed.</p>
+<p><strong>What is the actual impact</strong></p>
+<p>The impact is limited to TLS certificates chaining to the distrusted ECC root, and it is contained to a single customer ecosystem in the United States.</p>
+<ul>
+<li><strong>The revoked intermediates themselves have no customer impact.</strong> They never issued a certificate, so no certificate in use anywhere relied on them.</li>
+<li><strong>The distrust of the ECC root affects one customer ecosystem in the United States.</strong> Certificates from that hierarchy are being replaced, and we are working directly with this customer on a transition plan.</li>
+<li><strong>The majority of TLS certificates we have issued are unaffected,</strong> because they chain to other trusted hierarchies.</li>
+</ul>
+<p><strong>There is no impact whatsoever on:</strong></p>
+<ul>
+<li><strong>Our digital signature and eSign services, in India or anywhere else in the world</strong></li>
+<li><strong>emSigner</strong></li>
+<li><strong>CertiNext</strong></li>
+<li><strong>emCA</strong></li>
+<li><strong>Privatrust</strong></li>
+<li><strong>SecurePass</strong></li>
+</ul>
+<p><strong>These products and services run on separate infrastructure and continue to operate normally. Customers using them do not need to take any action.</strong></p>
+<p><strong>How we are handling it</strong></p>
+<p>Our first priority is making sure the affected customer's services keep running without disruption.</p>
+<ul>
+<li><strong>Replacement certificates.</strong> We are issuing fresh certificates to the affected customer ecosystem from an alternate, independently operated, publicly trusted CA hierarchy.</li>
+<li><strong>Working with the root programs.</strong> We are cooperating fully with Apple, Google, Microsoft and Mozilla.</li>
+<li><strong>Clear communication.</strong> We have notified affected customers and partners directly. We are also making sure every customer knows exactly what is and is not affected: all of our enterprise applications, the majority of our TLS certificates, and all of our digital signature and eSign services remain unaffected.</li>
+</ul>
+<p><strong>What we are putting in place</strong></p>
+<p><strong>CA redundancy for all Enterprise TLS customers.</strong> We are offering every Enterprise TLS customer certificates from an additional publicly trusted CA. If one hierarchy ever has a problem, customers can switch without interrupting their business. Keeping our customers running is one of our top priorities.</p>
+<p><strong>A full review of our key generation process.</strong> We are reviewing every step of our Key Generation Ceremonies, starting with the wrap/unwrap step that caused this incident. We intend to deeply study how we can enhance the governance around our processes, and adopt AI based tooling in addition to other conventional means available to mitigate such occurences. </p>
+<p><strong>Our commitment</strong></p>
+<p>We acknowledge this incident and take full responsibility for it. Trust is the foundation of everything we do, and we intend to earn it back through action.</p>
+<ul>
+<li><strong>Transparency with the WebPKI community.</strong> We will keep working in good faith with the root programs and the CA/Browser Forum, and publish our root cause and investigation findings openly.</li>
+<li><strong>Full support for the affected customer.</strong> We are working closely with the one affected customer ecosystem in the United States to make sure they receive our utmost support throughout the transition.</li>
+<li><strong>Reducing risk for every TLS customer.</strong> We will work proactively with our unaffected TLS customers to put measures such as CA redundancy in place, so that no single event can disrupt their business.</li>
+</ul>
+<p>We thank the independent researcher who reported this issue responsibly, and our customers and partners for their trust.</p>
+</div>
+</li>
+<li class="stmt-update" id="update-2">
+<div class="stmt-update__head">
+<h2 class="stmt-update__label">Update 2</h2>
+<span class="stmt-update__time"><time datetime="2026-10-20">20 October 2026</time></span>
+<a class="stmt-update__link" href="#update-2">Link to this update</a>
+</div>
+<div class="stmt-update__body">
+<p>eMudhra is actively investigating a security incident involving a specific set of intermediate CA certificates created as part of a Key Generation Ceremony (KGC) conducted in April 2025 within its public trust infrastructure.</p>
+<p>The incident is limited to these specific intermediate CA certificates and does not affect eMudhra's root CA private keys or other intermediate CAs.</p>
+<p>Importantly, none of the affected intermediate CAs were deployed in production, with the exception of one. Furthermore, none of these intermediate CAs, including the one deployed in production, have issued any end-entity certificates. This has been confirmed through our internal analysis and corroborated by publicly available Certificate Transparency records on crt.sh.</p>
+<p>Upon becoming aware of the incident, eMudhra initiated its incident response procedures, took measures to contain the affected certificates, and began working closely with browser and root-store operators to safeguard users and maintain the integrity of the broader WebPKI ecosystem.</p>
+<p>We are conducting a thorough investigation into the circumstances surrounding the incident and reviewing our security controls and operational procedures to identify and implement any necessary improvements.</p>
+<p>The security and integrity of our trust services remain our highest priority. We are committed to transparency, adherence to industry standards, and continued collaboration with the global WebPKI community.</p>
+<p>To avoid any misunderstanding, the removal of our Root CA’s C1 and C3 with Mozilla was a voluntary and planned activity and does not pertain to this security incident.</p>
+<p>We will provide further updates as our investigation progresses and additional findings are confirmed.</p>
+</div>
+</li>
+<li class="stmt-update" id="update-1">
+<div class="stmt-update__head">
+<h2 class="stmt-update__label">Update 1</h2>
+<span class="stmt-update__time"><time datetime="2026-10-20">20 October 2026</time></span>
+<a class="stmt-update__link" href="#update-1">Link to this update</a>
+</div>
+<div class="stmt-update__body">
+<p>On 20 October 2026, Mozilla published a post on its Security Blog regarding eMudhra intermediate certificates. According to Mozilla:</p>
+<ul>
+<li>On 17 October 2026 at 20:06 UTC, Mozilla received a report that private keys associated with eight eMudhra intermediate certificates had been compromised.</li>
+<li>Mozilla blocked the affected certificates in Firefox through OneCRL, its centralised list of revoked certificates. By 22:59 UTC the same day, the update had reached all Firefox users with standard configurations, without requiring them to update or restart Firefox.</li>
+<li>Mozilla released Firefox 158.0.1 (Desktop and Android), Firefox ESR 115.43.1 and Firefox ESR 153.5.1 to extend this protection to users whose custom settings may have prevented the OneCRL update.</li>
+<li>Mozilla is updating the trusted certificate list in NSS (NSS 3.131.1) to remove the root certificate that signed the affected intermediates, to protect other applications that use Mozilla’s trust store but do not receive OneCRL updates.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</section>
+</main>
+<footer class="ems-footer pt-4 pt-md-5 pb-3">
+<div class="container">
+<div class="ems-footer-container">
+<!-- Left wrapper -->
+<div class="ems-footer__left-wrap">
+<a href="/en/">
+<img class="brand" src="/images/brandlogos/logo.png" alt="eMudhra logo" />
+</a>
+<p class="fs-16 mt-3 mt-md-4">Empowering digital transformation through trusted identity, signatures, and
+secure enterprise solutions.</p>
+<div class="d-flex">
+<iframe id="Iframe1" src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=1" width="114px" height="97px" frameborder="0" scrolling="no" allowtransparency="true" title="Dun &amp; Bradstreet D-U-N-S Registered seal" referrerpolicy="strict-origin-when-cross-origin" loading="lazy">
+</iframe>
+</div>
+</div>
+<!-- Right wrapper -->
+<div class="ems-footer__right-wrap pt-4 mt-4 pt-md-0 mt-md-0">
+<div class="ems-footermenu-list">
+<div class="ems-footermenu-item mb-3 mb-md-0">
+<h6 class="fs-14 ems-footermenu-heading fw-600 mb-3">Company</h6>
+<a class="ems-footermenu-link d-block mb-2" href="/en/our-history">Our History & Purpose</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/leadership">Leadership</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/board-directors">Board of Directors</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/investors">Investor</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/environment-social-and-governance">ESG</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/corporate-social-responsibility">CSR</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/sitemap">Sitemap</a>
+</div>
+</div>
+<div class="ems-footermenu-list">
+<div class="ems-footermenu-item mb-2 mb-md-0">
+<h6 class="fs-14 ems-footermenu-heading fw-600 mb-3">Contact</h6>
+<a class="ems-footermenu-link d-block mb-2" href="/en/contact-us">Contact Sales</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/media-contacts">Media Contacts</a>
+</div>
+<div class="ems-footermenu-item mb-3 mb-md-0">
+<h6 class="fs-14 ems-footermenu-heading fw-600 mb-3">FAQs</h6>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/what-is-pki-and-how-does-it-work">What is PKI</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/what-is-identity-and-access-management-iam-solution">What is IAM</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/what-is-certificate-lifecycle-management">What is CLM</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/what-is-certificate-authority">What is a Certificate Authority</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/what-is-zero-trust-security-and-how-does-it-work">What is Zero Trust</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/what-is-multi-factor-authentication">What is MFA</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/difference-between-mfa-and-2fa">Two-Factor Authentication</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/faq/what-is-a-key-management-system-kms">Key Management System</a>
+</div>
+</div>
+<div class="ems-footermenu-list">
+<div class="ems-footermenu-item mb-2 mb-md-0">
+<h6 class="fs-14 ems-footermenu-heading fw-600 mb-3">Legal</h6>
+<a class="ems-footermenu-link d-block mb-2" href="/en/emsigner/esignature-legality-guide">eSignature Legality Guide</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/terms-of-use">Terms of Use</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/disclaimer">Legal Disclaimer</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/privacy-policy">Privacy Policy</a>
+<a class="ems-footermenu-link d-block mb-2" href="#" onclick="if(window.PrivaTrustCMP&&PrivaTrustCMP.showPreferences){PrivaTrustCMP.showPreferences();}return false;">Cookie Preferences</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/cookie-policy">Cookie Policy</a>
+</div>
+<div class="ems-footermenu-item mb-3 mb-md-0">
+<h6 class="fs-14 ems-footermenu-heading fw-600 mb-3">Partners</h6>
+<a class="ems-footermenu-link d-block mb-2" href="/en/partners">Become a Partner</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/partners">Meet our Partners</a>
+</div>
+</div>
+<div class="ems-footermenu-list">
+<div class="ems-footermenu-item mb-3 mb-md-0">
+<h6 class="fs-14 ems-footermenu-heading fw-600 mb-3">Resources</h6>
+<a class="ems-footermenu-link d-block mb-2" href="/en/blog">Blog</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/press-release">Press
+Release</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/case-studies">Case Studies</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/datasheets">Datasheets</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/webinars">Webinars</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/reports">Reports</a>
+<a class="ems-footermenu-link d-block mb-2" href="/en/podcasts">Podcasts</a>
+</div>
+</div>
+</div>
+</div>
+<div class="ems-footer-sub mt-4 pt-4 border-top">
+<p class="fs-12 mb-2 mb-md-0">© 2026 eMudhra. All rights reserved.</p>
+<div class="ems-footer-socialnav">
+<a href="https://www.linkedin.com/company/emudhra/">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_27_11891)">
+<path d="M17.0324 0H4.96762C2.22408 0 0 2.23438 0 4.99062V17.0094C0 19.7656 2.22408 22 4.96762 22H17.0324C19.7759 22 22 19.7656 22 17.0094V4.99062C22 2.23438 19.7759 0 17.0324 0Z" fill="#111928" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.80723 8.52772H11.5869V9.95917H11.6273C12.0144 9.26157 12.961 8.52772 14.3725 8.52772C17.3077 8.52772 17.8504 10.3628 17.8504 12.75V17.7971H14.9518L14.9513 13.3021C14.9513 12.2743 14.9303 10.9516 13.444 10.9516C11.9349 10.9516 11.7033 12.0701 11.7033 13.2274V17.7971H8.80723V8.52772ZM7.16453 5.71794C7.16453 6.55366 6.48906 7.23226 5.65719 7.23226C4.82488 7.23226 4.14941 6.55366 4.14941 5.71794C4.14941 4.88178 4.82488 4.20361 5.65719 4.20361C6.48906 4.20361 7.16453 4.88178 7.16453 5.71794ZM4.14941 8.52772H7.16453V17.7971H4.14941V8.52772Z" fill="white" />
+</g>
+<defs>
+<clipPath id="clip0_27_11891">
+<rect width="22" height="22" fill="white" />
+</clipPath>
+</defs>
+</svg>
+</a>
+<a href="https://www.facebook.com/eMudhra/">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_27_11896)">
+<path d="M17.0323 0H4.9677C2.22412 0 0 2.23442 0 4.99071V17.0093C0 19.7656 2.22412 22 4.9677 22H17.0323C19.7759 22 22 19.7656 22 17.0093V4.99071C22 2.23442 19.7759 0 17.0323 0Z" fill="#111928" />
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.3325 22.0003H8.34254V14.3667H6.07422V10.9898H8.34254V9.53462C8.34254 5.77324 10.0369 4.02979 13.7126 4.02979C14.4095 4.02979 15.612 4.1671 16.1039 4.30438V7.36561C15.8442 7.33816 15.3934 7.32448 14.8331 7.32448C13.0294 7.32448 12.3325 8.01084 12.3325 9.79544V10.9898H15.9255L15.3082 14.3667H12.3325V22.0003Z" fill="white" />
+</g>
+<defs>
+<clipPath id="clip0_27_11896">
+<rect width="22" height="22" fill="white" />
+</clipPath>
+</defs>
+</svg>
+</a>
+<a href="https://www.youtube.com/channel/UCHw3wmhVx7Qe3Bqjb_BX8Gw">
+<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.7609 4.1998C23.7609 4.1998 23.5266 2.54512 22.8047 1.81855C21.8906 0.862305 20.8688 0.857617 20.4 0.801367C17.0438 0.557617 12.0047 0.557617 12.0047 0.557617H11.9953C11.9953 0.557617 6.95625 0.557617 3.6 0.801367C3.13125 0.857617 2.10938 0.862305 1.19531 1.81855C0.473438 2.54512 0.24375 4.1998 0.24375 4.1998C0.24375 4.1998 0 6.14512 0 8.08574V9.90449C0 11.8451 0.239062 13.7904 0.239062 13.7904C0.239062 13.7904 0.473437 15.4451 1.19062 16.1717C2.10469 17.1279 3.30469 17.0951 3.83906 17.1982C5.76094 17.3811 12 17.4373 12 17.4373C12 17.4373 17.0438 17.4279 20.4 17.1889C20.8688 17.1326 21.8906 17.1279 22.8047 16.1717C23.5266 15.4451 23.7609 13.7904 23.7609 13.7904C23.7609 13.7904 24 11.8498 24 9.90449V8.08574C24 6.14512 23.7609 4.1998 23.7609 4.1998ZM9.52031 12.1123V5.36699L16.0031 8.75137L9.52031 12.1123Z" fill="#111928" />
+</svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/header.js"></script>
+<!-- Fixed Bottom Mobile Navigation Bar -->
+<div class="mobile-bottom-bar" id="mobileBottomBar">
+<div class="container-fluid">
+<div class="d-flex justify-content-between align-items-center">
+<button class="bottom-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+</button>
+<a href="/en/contact-us" class="bottom-contact-btn">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.3327 14.0999V16.5999C18.3337 16.8319 18.2862 17.0617 18.1936 17.2744C18.1011 17.487 17.9654 17.6779 17.7951 17.8348C17.6248 17.9917 17.4237 18.1111 17.2045 18.1855C16.9853 18.2599 16.7528 18.2875 16.5227 18.2666C13.9536 17.988 11.4893 17.1117 9.32525 15.7083C7.31136 14.4288 5.60434 12.7218 4.32525 10.7083C2.91602 8.53426 2.03944 6.05908 1.76602 3.47992C1.74518 3.25042 1.77245 3.01855 1.84632 2.79988C1.9202 2.58121 2.03881 2.38049 2.19478 2.21017C2.35075 2.03985 2.54065 1.90395 2.75238 1.81077C2.96412 1.71759 3.19304 1.66927 3.42435 1.66992H5.92435C6.32924 1.66564 6.72136 1.81507 7.028 2.08948C7.33464 2.36388 7.53493 2.74345 7.59102 3.15325C7.69566 4.00007 7.89246 4.8308 8.17768 5.63325C8.2872 5.92615 8.31137 6.24559 8.24729 6.55244C8.18322 6.85929 8.03347 7.14114 7.81602 7.36325L6.74102 8.43825C7.92783 10.5284 9.63859 12.2392 11.7285 13.4259L12.8035 12.3509C13.0256 12.1335 13.3075 11.9837 13.6143 11.9196C13.9212 11.8556 14.2406 11.8797 14.5335 11.9892C15.336 12.2745 16.1667 12.4713 17.0135 12.5759C17.4286 12.6324 17.8124 12.8369 18.0876 13.1492C18.3628 13.4615 18.5098 13.8609 18.501 14.2708" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+<span>Contact</span>
+</a>
+</div>
+</div>
+</div>
+</body>
+</html>
