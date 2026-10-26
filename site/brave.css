@@ -1,8 +1,8 @@
 /* Conservative Brave layout; scoped so other browsers keep their existing UI. */
 html[data-browser="brave"] .panel {
   scrollbar-gutter:stable;
-  background:#08111b;
-  text-shadow:none;
+  background:rgba(8,17,27,.64);
+  text-shadow:0 2px 5px #000;
 }
 html[data-browser="brave"] .drawer {
   background:#070e17;

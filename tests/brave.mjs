@@ -30,7 +30,8 @@ try {
    const state=await run(`(()=>{const p=document.getElementById('panel').getBoundingClientRect(),c=document.getElementById('scene').getBoundingClientRect(),f=document.querySelector('.hud-bottom').getBoundingClientRect();return {panel:p.toJSON(),canvas:c.toJSON(),footer:f.top,width:document.documentElement.scrollWidth,split:matchMedia('(min-width: 1100px), (min-width: 900px) and (min-height: 561px) and (min-aspect-ratio: 6/5)').matches,diagramVisible:getComputedStyle(document.getElementById('scene')).visibility!=='hidden',error:window.__drawErr}})()`);
    assert.ok(state.width<=width,'horizontal overflow');assert.equal(state.error,null);
    assert.ok(state.panel.height>=45 && state.panel.bottom<=state.footer+1,'copy clips into footer');
-   if(!state.split && state.diagramVisible)assert.ok(state.canvas.bottom<=state.panel.top-6,'Brave diagram must not sit beneath copy: '+JSON.stringify(state));
+   if(!state.split)assert.ok(state.diagramVisible && state.canvas.bottom>state.panel.top,'Brave diagram must extend behind translucent copy: '+JSON.stringify(state));
+   assert.deepEqual(await run(`({background:getComputedStyle(document.getElementById('panel')).backgroundColor,opacity:getComputedStyle(document.getElementById('panel')).opacity})`),{background:'rgba(8, 17, 27, 0.64)',opacity:'1'},'preserve opaque text over a translucent surface');
   }
  }
  console.log('Real Brave: automatic compatibility mode and54 scene/locale/viewport layouts passed');
