@@ -69,10 +69,21 @@ h1#title { font-size:clamp(25px,2.8vw,43px); font-weight:750; line-height:1.22; 
 .hint { grid-column:1; grid-row:2; font:9px/1.7 var(--mono); color:#658093; letter-spacing:.04em; margin:0 }
 .more { grid-row:3; grid-column:1/-1; color:var(--amber); font:10px var(--mono); text-align:center }
 .entry-locked #app { visibility:hidden; pointer-events:none }
-.cover { position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:20px;
+.cover { --entry-map-opacity:.58; position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:20px;
   background:radial-gradient(ellipse at 50% 47%,#101e2b 0%,#080f18 36%,#05080d 72%);
   transition:opacity .32s,visibility .32s; contain:layout paint }
 .cover.hidden { opacity:0; visibility:hidden; pointer-events:none }
+/* Keep the map translucent independently of the opaque unlock control. */
+.entry-backdrop { position:absolute; inset:0; z-index:0; opacity:var(--entry-map-opacity); pointer-events:none; user-select:none }
+.entry-backdrop img { display:block; width:100%; height:100%; object-fit:cover; object-position:50% 50% }
+@media (orientation:portrait) {
+  .cover { --entry-map-opacity:.5 }
+  .entry-backdrop img { object-position:58% 50% }
+}
+@media (max-height:500px) and (orientation:landscape) {
+  .cover { --entry-map-opacity:.48 }
+}
+
 .cover::after { content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:radial-gradient(ellipse at center,rgba(5,8,13,.58) 0%,rgba(5,8,13,.08) 38%,rgba(5,8,13,.72) 100%),
     linear-gradient(to bottom,rgba(5,8,13,.45),transparent 24%,transparent 75%,rgba(5,8,13,.65)) }

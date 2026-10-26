@@ -127,8 +127,9 @@ all twelve locale selections. Screenshots and the verification report go to
 ## Resource ownership and symbolic entry
 
 The root entrance is an inline SVG key and lock, with an accessible native button.
-Only `audio.js` and `entry.js` load initially: no scene data, engine, Canvas raster
-allocation or media request until intent. Tap/Enter/Space turns the key, lifts the
+The initial runtime is `privacy.js`, `audio.js` and `entry.js`, with a low-priority
+decorative WebP. Scene data, the engine, Canvas raster allocation and audio media
+wait until intent. Tap/Enter/Space turns the key, lifts the
 shackle and reveals the briefing after a finite 1.25-second sequence. Reduced
 motion skips the decorative delay. Asset failures expose a retry control. Scene
 deep links and `?still=1` bypass the entry and keep audio off until interaction.
@@ -136,7 +137,7 @@ The fixed top-right GitHub SVG links to the source repository in all layouts.
 The decorative entry backdrop is derived from the supplied `img-map/map.png`:
 `images/entry-map-{768,1440}.webp` provides phone/large-screen variants (about
 53/139 KB). A noninteractive picture layer and gradient veil keep the key clear;
-portrait phones use a centered regional crop. No new animation loop is added.
+portrait screens use a regional crop at 58% horizontal focus. Map opacity is 58% on wide screens, 50% in portrait and 48% on short landscape screens; the key stays opaque. No new animation loop is added.
 
 `render.js` owns the only Canvas RAF chain. Normal playback targets 30 fps (24
 with Save-Data or at most four logical cores); manual motion targets 60 fps.
