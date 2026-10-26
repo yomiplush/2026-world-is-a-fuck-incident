@@ -1,0 +1,522 @@
+{
+  "cutoff": "2026-10-26T01:27:00Z",
+  "delta_start": "2026-10-25T14:18:00Z",
+  "started_at": "2026-10-26T01:30:17+00:00",
+  "note": "Responses are retrieved after cutoff. Pages without precise publication time cannot establish cutoff availability. No severity filter. Published and modified overlap; do not sum.",
+  "php-releases": {
+    "name": "php-releases",
+    "url": "https://www.php.net/releases/index.php?json",
+    "retrieved_at": "2026-10-26T01:30:17+00:00",
+    "file": "php-releases.html",
+    "sha256": "fcd8b43f566bf97ffb4285693aa72c7d762c75d90735f9abc36c9522d85639c0",
+    "bytes": 2774,
+    "status": "ok",
+    "last_modified": null
+  },
+  "php-news": {
+    "name": "php-news",
+    "url": "https://www.php.net/archive/2026.php",
+    "retrieved_at": "2026-10-26T01:30:17+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "php-news.html.gz",
+    "sha256": "36cad7cc5c2d93f7b2926a82e04e515459ab570430c9ffc4f49d4b97e70694ad",
+    "bytes": 102924,
+    "status": "ok",
+    "last_modified": "Sat, 24 Oct 2026 05:50:02 GMT"
+  },
+  "tailworm": {
+    "name": "tailworm",
+    "url": "https://tailworm.com/",
+    "retrieved_at": "2026-10-26T01:30:17+00:00",
+    "file": "tailworm.html",
+    "sha256": "b52ab5d33d383610001ee28d6af3093970e8b52db2238f0638f8c9d6f6ec7bdc",
+    "bytes": 68047,
+    "status": "ok",
+    "last_modified": "Sat, 24 Oct 2026 17:38:43 GMT"
+  },
+  "firecrawl-issue": {
+    "name": "firecrawl-issue",
+    "url": "https://github.com/firecrawl/firecrawl/issues/5256",
+    "retrieved_at": "2026-10-26T01:30:17+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "firecrawl-issue.html.gz",
+    "sha256": "d7be434a1ea881538659064fae3bfd9fedb7ae76d56c1d835ee0b7849a32ab09",
+    "bytes": 291997,
+    "status": "ok",
+    "last_modified": null
+  },
+  "paisa-release": {
+    "name": "paisa-release",
+    "url": "https://github.com/ananthakumaran/paisa/releases/tag/v0.7.8",
+    "retrieved_at": "2026-10-26T01:30:17+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "paisa-release.html.gz",
+    "sha256": "ab4e7a3f7e192c0ebf09f3e766de0812e8855a2200b0c876ab1ebd40c25e0e79",
+    "bytes": 192201,
+    "status": "ok",
+    "last_modified": null
+  },
+  "ipa-fallback": {
+    "name": "ipa-fallback",
+    "url": "https://www.ipa.go.jp/security/security-alert/",
+    "retrieved_at": "2026-10-26T01:30:18+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "ipa-fallback.html.gz",
+    "sha256": "75b63f9a1ca10d3d702948589c9fb9461115877f34a78cf16e7095859954c242",
+    "bytes": 229610,
+    "status": "ok",
+    "last_modified": "Fri, 23 Oct 2026 02:02:46 GMT"
+  },
+  "dokploy-pr": {
+    "name": "dokploy-pr",
+    "url": "https://github.com/Dokploy/dokploy/pull/5752",
+    "retrieved_at": "2026-10-26T01:30:17+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "dokploy-pr.html.gz",
+    "sha256": "efddf953de075020a4bdd824c94afd60bffd52b2001466744219ced2abe645e6",
+    "bytes": 374833,
+    "status": "ok",
+    "last_modified": null
+  },
+  "tailscale-bulletins": {
+    "name": "tailscale-bulletins",
+    "url": "https://tailscale.com/security-bulletins",
+    "retrieved_at": "2026-10-26T01:30:18+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "tailscale-bulletins.html.gz",
+    "sha256": "61420ea5107dc3b1c0a75550123df0c1df98be6907a897733ef2c946318078db",
+    "bytes": 390129,
+    "status": "ok",
+    "last_modified": null
+  },
+  "rotki-pr": {
+    "name": "rotki-pr",
+    "url": "https://github.com/rotki/rotki/pull/13401",
+    "retrieved_at": "2026-10-26T01:30:17+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "rotki-pr.html.gz",
+    "sha256": "9ea574b18086df1d99a80b43fa881384cac117800854f7b907f51083076f9917",
+    "bytes": 427409,
+    "status": "ok",
+    "last_modified": null
+  },
+  "fortinet": {
+    "name": "fortinet",
+    "url": "https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products",
+    "retrieved_at": "2026-10-26T01:30:19+00:00",
+    "file": "fortinet.html",
+    "sha256": "0dffe5ead83d265bd05f7e454b41fd31f3444baffd4f579cb5aff6b2b3a85e16",
+    "bytes": 54704,
+    "status": "ok",
+    "last_modified": "Fri, 23 Oct 2026 17:13:33 GMT"
+  },
+  "connectwise": {
+    "name": "connectwise",
+    "url": "https://www.connectwise.com/company/trust/advisories",
+    "retrieved_at": "2026-10-26T01:30:18+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "connectwise.html.gz",
+    "sha256": "5d7fe80ded87c4ad4b9f33a256a0667692f312ced54120011f618dcb0aeae33c",
+    "bytes": 297580,
+    "status": "ok",
+    "last_modified": null
+  },
+  "tailscale-ssh-docs": {
+    "name": "tailscale-ssh-docs",
+    "url": "https://tailscale.com/docs/features/tailscale-ssh",
+    "retrieved_at": "2026-10-26T01:30:18+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "tailscale-ssh-docs.html.gz",
+    "sha256": "a7d06809f85736e94caa9c643fb96ca65db10ba77fd7acbdaad72025ec101f00",
+    "bytes": 453641,
+    "status": "ok",
+    "last_modified": null
+  },
+  "tailscale-changelog": {
+    "name": "tailscale-changelog",
+    "url": "https://tailscale.com/changelog",
+    "retrieved_at": "2026-10-26T01:30:18+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "tailscale-changelog.html.gz",
+    "sha256": "807f4eb916f9572cd6636efdbb015a3b72d1c59dfff2bd7c87f8fc1e1b770bfa",
+    "bytes": 1740069,
+    "status": "ok",
+    "last_modified": null
+  },
+  "kev": {
+    "name": "kev",
+    "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+    "retrieved_at": "2026-10-26T01:30:19+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "kev.json.gz",
+    "sha256": "97a6e54bc74c651ab3c55657191db9adec6c63b05ca54e4205327cfd97a8fb70",
+    "bytes": 1807090,
+    "status": "ok",
+    "last_modified": null
+  },
+  "reddit-response": {
+    "name": "reddit-response",
+    "url": "https://www.reddit.com/r/Tailscale/comments/1xeoj1l/recent_tailscale_vulnerability_reports/.json?raw_json=1",
+    "retrieved_at": "2026-10-26T01:30:19+00:00",
+    "status": "error",
+    "error": "HTTP Error 403: Blocked"
+  },
+  "ghsa": {
+    "complete": true,
+    "returned": 93,
+    "pages": [
+      {
+        "url": "https://api.github.com/advisories?per_page=100&page=1&sort=published&direction=desc&published=2026-10-25T14%3A18%3A00Z..2026-10-26T01%3A27%3A00Z",
+        "retrieved_at": "2026-10-26T01:30:21+00:00",
+        "file": "ghsa-1.json",
+        "returned": 93,
+        "sha256": "abeebf2d77dd16197621644053f90adc502ba66f58d26410519f9263753620aa"
+      }
+    ]
+  },
+  "nvd-published": {
+    "mode": "published",
+    "complete": true,
+    "totalResults": 28,
+    "returned": 28,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-25T14%3A18%3A00.000&pubEndDate=2026-10-26T01%3A27%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-10-26T01:30:20+00:00",
+        "file": "nvd-published-0.json.gz",
+        "totalResults": 28,
+        "returned": 28,
+        "sha256": "277535b80968747f11f4f0ed694a2e30cc08405d6fbfcad059d8f0191703c00d"
+      }
+    ]
+  },
+  "feeds": [
+    {
+      "name": "feed-project-zero",
+      "url": "https://googleprojectzero.blogspot.com/feeds/posts/default?alt=rss&max-results=20",
+      "retrieved_at": "2026-10-26T01:30:20+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-project-zero.html.gz",
+      "sha256": "a2e7a3498f86e034ff786137cf9bd80f6e389d90a2482ac90838291a4b4a7e0b",
+      "bytes": 11309698,
+      "status": "ok",
+      "last_modified": "Tue, 20 Oct 2026 22:20:46 GMT"
+    },
+    {
+      "name": "feed-portswigger-research",
+      "url": "https://portswigger.net/research/rss",
+      "retrieved_at": "2026-10-26T01:30:20+00:00",
+      "file": "feed-portswigger-research.html",
+      "sha256": "0d9accfd05ae89c3ddc28b1d6cdda66ece3cfdbb0e565836d2ae02e24e5a39c3",
+      "bytes": 28588,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-trail-of-bits",
+      "url": "https://blog.trailofbits.com/feed/",
+      "retrieved_at": "2026-10-26T01:30:20+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-trail-of-bits.html.gz",
+      "sha256": "73744dbec1d2e608208e6b1749ae7158270352f701da8216d7a902945b26af8b",
+      "bytes": 969238,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-github-security",
+      "url": "https://github.blog/security/feed/",
+      "retrieved_at": "2026-10-26T01:30:20+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-github-security.html.gz",
+      "sha256": "33b83eb29c4dbedb9ccf7f98a8edd4540b43aabf621820df60d6f57ca6ea8acf",
+      "bytes": 1012077,
+      "status": "ok",
+      "last_modified": "Sat, 24 Oct 2026 00:58:28 GMT"
+    },
+    {
+      "name": "feed-unit42",
+      "url": "https://unit42.paloaltonetworks.com/feed/",
+      "retrieved_at": "2026-10-26T01:30:20+00:00",
+      "file": "feed-unit42.html",
+      "sha256": "96e0f65e9f6caf42c6086e73a7038e02365746fe33248e27e0134036c8a3cb9b",
+      "bytes": 24518,
+      "status": "ok",
+      "last_modified": "Sun, 25 Oct 2026 21:46:24 GMT"
+    },
+    {
+      "name": "feed-talos",
+      "url": "https://blog.talosintelligence.com/rss/",
+      "retrieved_at": "2026-10-26T01:30:20+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-talos.html.gz",
+      "sha256": "006eb1a66cb5e892a95a5d506f064e98d491445777e097b17f666d214f5f4e4e",
+      "bytes": 278772,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-microsoft-security",
+      "url": "https://www.microsoft.com/security/blog/feed/",
+      "retrieved_at": "2026-10-26T01:30:20+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-microsoft-security.html.gz",
+      "sha256": "1c9a1b8f50d6291eb1240992d911ffeb1f43c9f3d9f1f742663e1d34def7f984",
+      "bytes": 286330,
+      "status": "ok",
+      "last_modified": "Sat, 24 Oct 2026 01:03:11 GMT"
+    },
+    {
+      "name": "feed-sans-isc",
+      "url": "https://isc.sans.edu/rssfeed.xml",
+      "retrieved_at": "2026-10-26T01:30:21+00:00",
+      "file": "feed-sans-isc.html",
+      "sha256": "85a4a3f596242d08c9917844ed0d56c2d6b6448c23ab9024d2ff441f93f67837",
+      "bytes": 6422,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 01:28:57 GMT"
+    },
+    {
+      "name": "feed-dfir-report",
+      "url": "https://thedfirreport.com/feed/",
+      "retrieved_at": "2026-10-26T01:30:21+00:00",
+      "file": "feed-dfir-report.html",
+      "sha256": "aae918b1adbf638e11e081f6a26685a69f581fc4478ac0c00f2ac15e74823f0f",
+      "bytes": 13933,
+      "status": "ok",
+      "last_modified": "Mon, 28 Sep 2026 20:27:35 GMT"
+    },
+    {
+      "name": "feed-oss-sec",
+      "url": "https://seclists.org/rss/oss-sec.rss",
+      "retrieved_at": "2026-10-26T01:30:21+00:00",
+      "file": "feed-oss-sec.html",
+      "sha256": "ecbba9126b113cb59627971f3bec748734cf8d77f4e3d444e2deeb1de462106c",
+      "bytes": 15270,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 00:30:03 GMT"
+    },
+    {
+      "name": "feed-cisa-advisories",
+      "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+      "retrieved_at": "2026-10-26T01:30:21+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-cisa-advisories.html.gz",
+      "sha256": "dbee0b938081fe0dfbb204f24484ab277240652c75da1e6c8d62342990aa42c0",
+      "bytes": 5696987,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-jpcert",
+      "url": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+      "retrieved_at": "2026-10-26T01:30:21+00:00",
+      "file": "feed-jpcert.html",
+      "sha256": "f37736427e5f60322d81f8ac229fd8ff40cc15b1b5a9da1d186fdb37a36ababe",
+      "bytes": 20535,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 00:27:05 GMT"
+    },
+    {
+      "name": "feed-imperva",
+      "url": "https://www.imperva.com/blog/feed/",
+      "retrieved_at": "2026-10-26T01:30:22+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-imperva.html.gz",
+      "sha256": "c9be60c9619216eb8a33aeee9562d212f1c669851249722c47aa0b4f0212dc72",
+      "bytes": 264151,
+      "status": "ok",
+      "last_modified": "Thu, 22 Oct 2026 16:56:12 GMT"
+    },
+    {
+      "name": "feed-citizenlab",
+      "url": "https://citizenlab.ca/feed/",
+      "retrieved_at": "2026-10-26T01:30:22+00:00",
+      "file": "feed-citizenlab.html",
+      "sha256": "f4f24b428e7c6699d100a1baedefacabe4b6cec97756ed35a2d8cd556ad29a26",
+      "bytes": 26614,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-thehackernews",
+      "url": "https://feeds.feedburner.com/TheHackersNews",
+      "retrieved_at": "2026-10-26T01:30:22+00:00",
+      "file": "feed-thehackernews.html",
+      "sha256": "595ae4b5d68d31120bb6a073b2d31afa413cd9d2d3a6ce6f0b1251297a1acc54",
+      "bytes": 59760,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 00:53:59 GMT"
+    },
+    {
+      "name": "feed-bleepingcomputer",
+      "url": "https://www.bleepingcomputer.com/feed/",
+      "retrieved_at": "2026-10-26T01:30:22+00:00",
+      "file": "feed-bleepingcomputer.html",
+      "sha256": "832144477048e46a4575f0ef0ab3b57c9741db34cac6e5f563fef476b4d81ba1",
+      "bytes": 13048,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 01:29:59 GMT"
+    },
+    {
+      "name": "feed-jvn",
+      "url": "https://jvn.jp/rss/jvn.rdf",
+      "retrieved_at": "2026-10-26T01:30:22+00:00",
+      "file": "feed-jvn.html",
+      "sha256": "249d5e415d47edf3c589eba69ebd0d3b45d49ee24882ce8db8e7887e20195295",
+      "bytes": 16531,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 00:00:03 GMT"
+    },
+    {
+      "name": "feed-ipa",
+      "url": "https://www.ipa.go.jp/security/alert/index.html",
+      "retrieved_at": "2026-10-26T01:30:23+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "nvd-modified": {
+    "mode": "modified",
+    "complete": true,
+    "totalResults": 4276,
+    "returned": 4276,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-25T14%3A18%3A00.000&lastModEndDate=2026-10-26T01%3A27%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-10-26T01:30:20+00:00",
+        "file": "nvd-modified-0.json.gz",
+        "totalResults": 4276,
+        "returned": 2000,
+        "sha256": "50a2d78b8585e7f3f0f0c0a06322e251779af627c1986e257c5c9995bab7d0db"
+      },
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-25T14%3A18%3A00.000&lastModEndDate=2026-10-26T01%3A27%3A00.000&resultsPerPage=2000&startIndex=2000",
+        "retrieved_at": "2026-10-26T01:30:31+00:00",
+        "file": "nvd-modified-2000.json.gz",
+        "totalResults": 4276,
+        "returned": 2000,
+        "sha256": "1f0ebf60aa4fd6aa9bfec2a267e48cfd5784c30402d55f645499cf43e9e1db0e"
+      },
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-25T14%3A18%3A00.000&lastModEndDate=2026-10-26T01%3A27%3A00.000&resultsPerPage=2000&startIndex=4000",
+        "retrieved_at": "2026-10-26T01:30:42+00:00",
+        "file": "nvd-modified-4000.json.gz",
+        "totalResults": 4276,
+        "returned": 276,
+        "sha256": "cce70f19f739510a353e16a286a5d1b66140f6040efc19c8da0ab79ba9cb6042"
+      }
+    ]
+  },
+  "finished_at": "2026-10-26T01:31:16+00:00",
+  "dotnet-oob": {
+    "name": "dotnet-oob",
+    "url": "https://api.github.com/repos/dotnet/announcements/issues/493",
+    "retrieved_at": "2026-10-26T01:31:15+00:00",
+    "file": "dotnet-oob.html",
+    "sha256": "9432250fee75a1b7af2132c25410af7c44716510e5a96f1d3c1535702ce6a659",
+    "bytes": 11499,
+    "status": "ok",
+    "last_modified": "Sun, 25 Oct 2026 19:23:37 GMT"
+  },
+  "starman-changes": {
+    "name": "starman-changes",
+    "url": "https://metacpan.org/release/MIYAGAWA/Starman-0.4019/changes",
+    "retrieved_at": "2026-10-26T01:31:15+00:00",
+    "file": "starman-changes.html",
+    "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+    "bytes": 3038,
+    "status": "ok",
+    "last_modified": null
+  },
+  "plack-changes": {
+    "name": "plack-changes",
+    "url": "https://metacpan.org/release/MIYAGAWA/Plack-1.0056/changes",
+    "retrieved_at": "2026-10-26T01:31:15+00:00",
+    "file": "plack-changes.html",
+    "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+    "bytes": 3038,
+    "status": "ok",
+    "last_modified": null
+  },
+  "oss-starman": {
+    "name": "oss-starman",
+    "url": "https://seclists.org/oss-sec/2026/q4/388",
+    "retrieved_at": "2026-10-26T01:31:15+00:00",
+    "file": "oss-starman.html",
+    "sha256": "2e948060b8152d4ee3ffd0a684de9eaf2de6084aaef48f23fd5b9e1b08672a48",
+    "bytes": 17972,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 00:30:02 GMT"
+  },
+  "oss-psgi": {
+    "name": "oss-psgi",
+    "url": "https://seclists.org/oss-sec/2026/q4/387",
+    "retrieved_at": "2026-10-26T01:31:15+00:00",
+    "file": "oss-psgi.html",
+    "sha256": "4bd061d073c032fc365f63ab79c789df8f898411a2d3bc350fc90bea907bdd85",
+    "bytes": 11645,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 00:30:02 GMT"
+  },
+  "oss-php-backport": {
+    "name": "oss-php-backport",
+    "url": "https://seclists.org/oss-sec/2026/q4/386",
+    "retrieved_at": "2026-10-26T01:31:16+00:00",
+    "file": "oss-php-backport.html",
+    "sha256": "6983f662f622055e907904890c922fb2abe06ddfa0cff118e03bd8008fdaffe8",
+    "bytes": 10993,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 00:30:02 GMT"
+  },
+  "snipe-vendor": {
+    "name": "snipe-vendor",
+    "url": "https://api.github.com/repos/grokability/snipe-it/security-advisories/GHSA-xf36-wx48-5rqp",
+    "retrieved_at": "2026-10-26T01:31:16+00:00",
+    "file": "snipe-vendor.html",
+    "sha256": "f50d800990d89fcffb375ba3a161a54945203314290391a990697f10a04a87f9",
+    "bytes": 5981,
+    "status": "ok",
+    "last_modified": "Thu, 08 Oct 2026 15:30:10 GMT"
+  },
+  "parse-vendor": {
+    "name": "parse-vendor",
+    "url": "https://api.github.com/repos/parse-community/parse-server/security-advisories/GHSA-rq3w-5c6f-p7wr",
+    "retrieved_at": "2026-10-26T01:31:16+00:00",
+    "file": "parse-vendor.html",
+    "sha256": "f2599c24f776ad427ccfb3624ef782133daaafddbdb0a816bcd203e5ab4d4e11",
+    "bytes": 5405,
+    "status": "ok",
+    "last_modified": "Sat, 10 Oct 2026 02:04:34 GMT"
+  },
+  "unit42-php": {
+    "name": "unit42-php",
+    "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+    "retrieved_at": "2026-10-26T01:31:16+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "unit42-php.html.gz",
+    "sha256": "41f5c1a21e1782b3608bcec236b0dd88c54e0d35bf5a4abd2eab1b68fe6bc49c",
+    "bytes": 339407,
+    "status": "ok",
+    "last_modified": null
+  }
+}

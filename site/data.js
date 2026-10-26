@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24の広域調査8画面と10-25追補とTailworm大特集6画面。全49画面。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全53画面。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "10/25追補は個別出典付き。ConnectWiseの旧「未確認」は今回更新。実取得は基準時刻後です。",
-      asof: "2026-10-25 23:18 JST 基準",
+      drawerFoot: "10/26朝の追補は個別出典付き。過去の画面は当時の文脈です。実取得は基準時刻後です。",
+      asof: "2026-10-26 10:27 JST 基準",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates and a six-scene Tailworm special. 49 scenes total. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 53 scenes total. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
-      drawerFoot: "October 25 sources supersede the old ConnectWise uncertainty. Sources were retrieved after the cutoff.",
-      asof: "cutoff 2026-10-25 23:18 JST",
+      drawerFoot: "October 26 additions have individual sources. Earlier scenes retain historical context. Retrieved after cutoff.",
+      asof: "cutoff 2026-10-26 10:27 JST",
       lang: "EN"
     }
   },
@@ -2517,6 +2517,162 @@ window.CONTENT = {
           "<b>Keep connections disabled until individual instructions</b>; infrastructure recovery is not full service recovery",
           "Stored backup assurance and investigation of live M365 access remain separate",
           "Continue PHP, GitLab, Brotli, exploited KEV and Fortinet work; <b>use the role-based report</b>"
+        ]
+      }
+    },
+    {
+      "id": "morning-cutoff",
+      "stamp": "10.26 · 10:27 JST",
+      "visual": {
+        "type": "morningEvidence"
+      },
+      "cue": "whoosh",
+      "sources": [
+        {
+          "name": "10/26 collection and limits",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/research-collection-2026-10-26-1027.md"
+        },
+        {
+          "name": "Current report",
+          "url": "https://infosec-briefing.yomiplush.dev/update-20261026.html"
+        }
+      ],
+      "ja": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "10:27。何が変わったか。",
+        "lede": "PHP以降を日付別に振り返り、今朝までの更新を追う。データベースへの収録と、事件の発生は別です。",
+        "points": [
+          "NVDは新規<b>28件</b>、更新<b>4,276件</b>。新規はすべて更新集合に含まれる",
+          "GHSA <b>93件</b>は全件unreviewed。前回NVDの後追い登録を多数含む",
+          "<b>政府機関への初期侵入＝PHP2Shell</b>というUnit 42の説明は撤回。AWSの試行観測とは別"
+        ]
+      },
+      "en": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "10:27. What changed?",
+        "lede": "A dated record from PHP onward, plus the overnight changes. A database entry is not an incident.",
+        "points": [
+          "NVD: <b>28 published / 4,276 modified</b>; the former are included in the latter",
+          "<b>93 GHSAs</b>, all unreviewed; many follow earlier NVD entries",
+          "Unit 42 <b>withdrew the PHP2Shell initial-access attribution</b> for a government incident. AWS attempt observations are separate"
+        ]
+      }
+    },
+    {
+      "id": "morning-dotnet",
+      "stamp": "10.26 · 10:27 JST",
+      "visual": {
+        "type": "socketRepair"
+      },
+      "cue": "whoosh",
+      "sources": [
+        {
+          "name": "Microsoft official advisory",
+          "url": "https://github.com/dotnet/announcements/issues/493"
+        },
+        {
+          "name": "Research and exact timestamps",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/research-2026-10-26-1027.md"
+        }
+      ],
+      "ja": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "更新した。それでも、修正がなかった。",
+        "lede": "Windows .NETのCVE-2026-70197。Microsoftは10/13の更新に修正が含まれていなかったと説明し、臨時更新を公開。",
+        "points": [
+          "公表 <b>10/26 03:50 JST</b>。IPv4 / IPv6 datagram間でのSocketAsyncEventArgs再利用が条件",
+          "対象系列は <b>8.0.33 / 9.0.22 / 10.0.14</b>等の修正版を照合",
+          "self-containedアプリは<b>再ビルド・再配布</b>し、稼働するruntimeも確認"
+        ]
+      },
+      "en": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "Updated. The fix was missing.",
+        "lede": "Windows .NET CVE-2026-70197: Microsoft says the October 13 updates omitted this fix. An out-of-band update supplies it.",
+        "points": [
+          "Published <b>03:50 JST, October 26</b>; requires reuse across IPv4/IPv6 datagram sockets",
+          "Check the matching fixed line: <b>8.0.33 / 9.0.22 / 10.0.14</b>, or the documented preview",
+          "<b>Rebuild and redistribute self-contained apps</b>; verify the running runtime"
+        ]
+      }
+    },
+    {
+      "id": "morning-ot",
+      "stamp": "10.26 · 10:27 JST",
+      "visual": {
+        "type": "embeddedPhp"
+      },
+      "cue": "whoosh",
+      "sources": [
+        {
+          "name": "JVN Siemens update",
+          "url": "https://jvn.jp/vu/JVNVU90141693/"
+        },
+        {
+          "name": "Siemens SSA-566512",
+          "url": "https://cert-portal.siemens.com/productcert/html/ssa-566512.html"
+        },
+        {
+          "name": "PAN-OS status",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+        }
+      ],
+      "ja": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "PHPは、機器の中にもある。",
+        "lede": "今朝のJVN更新は、RUGGEDCOM上のPAN-OSへのPHP2Shell波及を含みます。Siemens全製品に同じ欠陥があるという話ではありません。",
+        "points": [
+          "<b>09:00 JST</b>のフィード更新。SSA-566512自体の公表日とは別",
+          "PAN-OSは<b>一部系列で修正版提供済み</b>。他系列のETAと分ける",
+          "Starman / Plackも追補。PHPだけでなく<b>HTTP処理の境界</b>を確認"
+        ]
+      },
+      "en": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "PHP also lives inside appliances.",
+        "lede": "This morning’s JVN update includes PHP2Shell in PAN-OS on RUGGEDCOM. It does not make every Siemens product affected.",
+        "points": [
+          "JVN feed updated at <b>09:00 JST</b>; the Siemens advisory has its own publication date",
+          "PAN-OS: <b>some release lines now ship fixes</b>; other ETAs remain separate",
+          "Starman and Plack also need checks at the <b>HTTP processing boundary</b>"
+        ]
+      }
+    },
+    {
+      "id": "morning-dates",
+      "stamp": "10.26 · 10:27 JST",
+      "visual": {
+        "type": "datedArchive"
+      },
+      "cue": "whoosh",
+      "sources": [
+        {
+          "name": "Dated reading archive",
+          "url": "https://infosec-briefing.yomiplush.dev/timeline.html"
+        },
+        {
+          "name": "Current actions and scope",
+          "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/29-snapshot-20261026-1027.ja.md"
+        }
+      ],
+      "ja": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "日付から読む。今の対応へ戻る。",
+        "lede": "10月17日から26日まで、10日分の独立したページ。観測日、公表日、修正日と、後日分かったことを分けました。",
+        "points": [
+          "<a href=\"./timeline.html\">日付別の記録 →</a> / <a href=\"./update-20261026.html\">10/26 10:27 総まとめ →</a>",
+          "公開サービスの更新と侵害調査、資格情報の失効を継続",
+          "Tailwormの最低修正版とConnectWiseの再開完了は<b>今回未確定</b>。予定を実績に置き換えない"
+        ]
+      },
+      "en": {
+        "kicker": "MORNING UPDATE · 2026-10-26",
+        "title": "Read by date. Return to today’s actions.",
+        "lede": "Ten independent pages, October 17–26. Observation, publication, fixes and later discoveries are labeled separately.",
+        "points": [
+          "<a href=\"./timeline.html\">Daily record (Japanese) →</a> / <a href=\"./update-20261026.html\">10:27 review (Japanese) →</a>",
+          "Continue patching public services, investigating exposure and revoking credentials",
+          "A minimum Tailworm fix and completed ConnectWise restoration remain <b>unconfirmed here</b>; a target is not completion"
         ]
       }
     },

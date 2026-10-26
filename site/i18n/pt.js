@@ -12,7 +12,7 @@ window.registerLocale("pt", {
     coverFoot: "10/25: ConnectWise primary sources verified. Earlier scenes are historical.",
     drawerTitle: "FONTES / SOURCES",
     drawerFoot: "10/25 sources supersede earlier ConnectWise uncertainty; retrieved after cutoff.",
-    asof: "2026-10-25 23:18 JST"
+    asof: "2026-10-26 10:27 JST"
   },
   scenes: {
     intro: { title: "Um mês, quinze incidentes.",
