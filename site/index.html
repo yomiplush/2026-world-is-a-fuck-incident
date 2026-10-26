@@ -35,9 +35,9 @@
 
 
 
-<link rel="stylesheet" href="./style.css?v=20261026adaptive">
+<link rel="stylesheet" href="./style.css?v=symbols-20261026adaptive">
 <link rel="stylesheet" href="/privacy.css?v=20261025brave">
-<link rel="stylesheet" href="./mobile.css?v=20261026noon">
+<link rel="stylesheet" href="./mobile.css?v=symbols-20261026noon">
 <script src="./viewport.js?v=20261026noon" defer></script>
 
 
@@ -60,9 +60,9 @@
 <link rel="canonical" href="https://www.infosec-briefing.net/">
 <link rel="alternate" type="application/rss+xml" title="Infosec Briefing 更新" href="/feed.xml">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="stylesheet" href="/language-picker.css?v=20261026all">
-<script src="/language-core.js?v=20261026all" defer></script>
-<script src="/language-picker.js?v=20261026all" defer></script>
+<link rel="stylesheet" href="/language-picker.css?v=20261026stored">
+<script src="/language-core.js?v=20261026stored" defer></script>
+<script src="/language-picker.js?v=20261026stored" defer></script>
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.infosec-briefing.net/#website","url":"https://www.infosec-briefing.net/","name":"Infosec Briefing","alternateName":"インフォセック・ブリーフィング","publisher":{"@id":"https://www.infosec-briefing.net/about#operator"}},{"@type":"Person","@id":"https://www.infosec-briefing.net/about#operator","name":"YomiPlush","url":"https://github.com/yomiplush"},{"@type":"WebPage","@id":"https://www.infosec-briefing.net/#page","url":"https://www.infosec-briefing.net/","name":"インシデント・脆弱性と対策 | Infosec Briefing","description":"インシデント・脆弱性と対策を一次情報から確認するセキュリティ調査サイト。影響条件、修正、復旧状況を日付別のレポートとモーショングラフィックスで整理します。 最新調査：10/26 21:35 JST","inLanguage":"ja","isPartOf":{"@id":"https://www.infosec-briefing.net/#website"}}]}</script>
 <!-- publication:end -->
@@ -147,10 +147,6 @@
 
 <!-- The entry remains meaningful before any briefing engine is downloaded. -->
 <div class="cover" id="cover">
-  <picture class="entry-backdrop" aria-hidden="true">
-    <source media="(max-width: 600px)" srcset="./images/entry-map-768.webp">
-    <img src="./images/entry-map-1440.webp" width="1440" height="810" alt="" decoding="async" fetchpriority="low" draggable="false">
-  </picture>
   <button type="button" id="btn-start" class="entry-control" aria-label="Unlock" disabled>
     <svg viewBox="0 0 360 360" class="entry-art" aria-hidden="true" focusable="false">
       <defs>
@@ -191,16 +187,10 @@
     </svg>
   </button>
 </div>
-<a class="tailworm-feature" href="./tailworm"><span>大特集 / SPECIAL REPORT · 10/25 23:18 JST</span><strong>Tailworm</strong><b>Tailscale / headscale 利用者へ</b><small>影響条件と、今日確認すること →</small></a>
-<a class="timeline-entry" href="./timeline">日付から読む · 10/17 → 10/26</a>
-<a class="latest-update" href="./update-20261026-2135">10/26 21:35 · 最新調査・今やること →</a>
-<noscript><p class="privacy-noscript">JavaScript OFF · <a href="./timeline">日付別に読む</a> · <a href="./update-20261026-2135">最新調査</a> · <a href="/privacypolicy/">プライバシーポリシー / Privacy policy</a></p></noscript>
 
-
-
-<!-- reading:start --><details class="entry-reading" id="entry-reading"><summary>このサイトについて・読む資料</summary><section><h1>インシデント・脆弱性と対策を、一次情報から。</h1><p>Infosec Briefingは、セキュリティ事案の影響条件、修正、復旧状況を整理する調査サイトです。モーショングラフィックスで概要を確認し、出典付きの本文へ進めます。</p><p>最新調査の基準：<strong>10/26 21:35 JST</strong>。発生・公表・DB登録・取得を区別し、未確定の情報はその旨を記載します。</p><ul><li>GMOを利用している方へ</li><li>開発・ビルド環境を管理している方へ</li><li>アプリ・公開サービスの管理者の方へ</li><li>配信・予約サービスを利用している方へ</li></ul><nav aria-label="読む資料"><!-- language-nav:start --><a href="/languages" data-language-picker aria-haspopup="dialog">言語 / Languages</a> · <!-- language-nav:end --><a href="https://www.infosec-briefing.net/update-20261026-2135">最新レポート</a> · <a href="/database">調査データと対策一覧</a> · <a href="/timeline">日付別の記録</a> · <a href="/tailworm?lang=ja">Tailworm特集（12言語）</a></nav><p><a href="/about">運営・編集方針と訂正窓口</a> · <a href="/feed.xml">更新RSS</a></p><p>画面中央の鍵からモーションを開始できます。動きを減らす設定や静止表示にも対応しています。レポートはJavaScriptを使わずに読めます。</p></section></details><!-- reading:end -->
+<a class="entry-library" href="/database" aria-label="調査データを読む / Read the database"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4c4-1 6 0 9 2 3-2 5-3 9-2v15c-4-1-6 0-9 2-3-2-5-3-9-2Z"/><path d="M12 6v15"/></svg></a>
 <script src="/privacy.js?v=20261025brave" defer></script>
 <script src="./audio.js?v=19" defer></script>
-<script src="./entry.js?v=20261026languages" defer></script>
+<script src="./entry.js?v=20261026symbols" defer></script>
 </body>
 </html>

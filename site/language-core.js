@@ -11,12 +11,9 @@ window.LANGUAGE_CORE = (function () {
     if (url.origin !== 'https://www.infosec-briefing.net' || url.username || url.password) throw new Error('Expected public briefing URL');
     return url;
   }
-  function translationURL(code, source) {
+  function translationURL(code) {
     if (!/^[a-zA-Z]{2,8}(?:-[a-zA-Z0-9]{2,8})*$/.test(code)) throw new Error('Invalid language code');
-    const url = new URL('https://translate.google.com/translate');
-    url.searchParams.set('sl','auto'); url.searchParams.set('tl',code);
-    url.searchParams.set('u', publicURL(source).href);
-    return url.href;
+    return 'https://www.infosec-briefing.net/database'+(code==='ja'?'':'.'+code);
   }
   function readingURL(canonical, current) {
     const url = publicURL(canonical), now = new URL(current);

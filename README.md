@@ -2,6 +2,8 @@
 
 **忙しい人向け（日本語・10/26 21:35 JST）：** 公開システムの更新・侵害調査と鍵の失効を継続し、GMOの21:00案内、対象パッケージ、国内サービスの個別通知を確認してください。**[日本語の1分要約](README_jp.md)**
 
+**Stored AI translations:** [Read available languages](https://www.infosec-briefing.net/languages) · [Generation status](data/translations/2026-10-26-2135/manifest.json) · [Scope and refresh commands](docs/translations/README.md). The target is249languages; only complete source-matched data is published.
+
 ## For busy readers — one minute (2026-10-26 21:35 JST cutoff)
 
 **Start with the products and services you use.** Continue patching exposed systems, checking for compromise, and revoking affected credentials. This review separates new notices, database registrations and follow-ups to earlier reports.

@@ -14,7 +14,6 @@
 .privacy-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .privacy-noscript{position:fixed;bottom:12px;left:12px;right:12px;z-index:100;padding:12px;background:#0d1722;color:#e4edf5;font:13px/1.6 system-ui,sans-serif}
 body #app{padding-bottom:calc(50px + env(safe-area-inset-bottom))}
-body.entry-locked .latest-update{bottom:calc(52px + env(safe-area-inset-bottom))}
 .privacy-policy-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:18px;border:1px solid #53697a;border-radius:6px;background:#14212d}
 .privacy-policy-actions button{border:1px solid #9fb3c2;border-radius:5px;min-height:44px;padding:10px 16px;background:#192b3a;color:#f0f5f9;font:600 14px system-ui,sans-serif;cursor:pointer}
 @media(max-width:400px){.briefing-preferences{padding:16px}.privacy-actions{gap:8px}.privacy-actions button{font-size:11px}}

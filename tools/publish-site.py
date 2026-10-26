@@ -87,7 +87,7 @@ def extra_pages():
         label=r.get('cutoff_jst',r.get('cutoff',p.parent.name))
         body+=f'<li><a href="{REPO}blob/main/{p.relative_to(ROOT)}">{esc(label)}：構造化記録</a>'+(f' · <a href="/{esc(report.removesuffix(".html"))}">読むレポート</a>' if report else '')+'</li>'
     body+='</ul></section>'
-    body=body.replace('</header>', '<p><a href="/data/latest.json" download>現在の調査データをJSONで取得</a></p></header>',1)
+    body=body.replace('</header>', '<p><a href="/data/latest.json" download>現在の調査データをJSONで取得</a> · <a href="/languages">保存したAI翻訳を読む</a></p></header>',1)
     (SITE/'data').mkdir(exist_ok=True)
     public={k:register[k] for k in ('cutoff','cutoff_jst','counts','caveats','records') if k in register}
     public['source_register']=REPO+'blob/main/data/'+LATEST['incident_register']
@@ -99,12 +99,9 @@ def extra_pages():
 def root_reading(text):
     text=re.sub(r'<!-- reading:start -->.*?<!-- reading:end -->\n?','',text,flags=re.S)
     label=datetime.fromisoformat(LATEST['cutoff_jst']).strftime('%m/%d %H:%M JST')
-    record=json.loads((ROOT/'data'/LATEST['incident_register']).read_text())
-    items=''.join('<li>'+esc(r['title'])+'</li>' for r in record.get('report',{}).get('quick',[]))
-    section=f'''<!-- reading:start --><details class="entry-reading" id="entry-reading"><summary>このサイトについて・読む資料</summary><section><h1>インシデント・脆弱性と対策を、一次情報から。</h1><p>Infosec Briefingは、セキュリティ事案の影響条件、修正、復旧状況を整理する調査サイトです。モーショングラフィックスで概要を確認し、出典付きの本文へ進めます。</p><p>最新調査の基準：<strong>{esc(label)}</strong>。発生・公表・DB登録・取得を区別し、未確定の情報はその旨を記載します。</p><ul>{items}</ul><nav aria-label="読む資料"><a href="{esc(clean_url(LATEST['site_report']))}">最新レポート</a> · <a href="/database">調査データと対策一覧</a> · <a href="/timeline">日付別の記録</a> · <a href="/tailworm?lang=ja">Tailworm特集（12言語）</a></nav><p><a href="/about">運営・編集方針と訂正窓口</a> · <a href="/feed.xml">更新RSS</a></p><p>画面中央の鍵からモーションを開始できます。動きを減らす設定や静止表示にも対応しています。レポートはJavaScriptを使わずに読めます。</p></section></details><!-- reading:end -->'''
     text=text.replace('<title>'+Info(text).title+'</title>','<title>インシデント・脆弱性と対策 | Infosec Briefing</title>')
     text=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+esc(CONFIG['description']+' 最新調査：'+label)+'">',text)
-    return text.replace('<script src="/privacy.js',section+'\n<script src="/privacy.js',1)
+    return text
 
 def metadata(file,text):
     # Public contact information must remain readable without CDN-injected JS.
@@ -136,8 +133,14 @@ def metadata(file,text):
     if relative=='database.html':
         graph.append({'@type':'Dataset','@id':url+'#dataset','name':'Infosec Briefing 調査記録','description':info.description,'url':url,'creator':{'@id':org['@id']},'distribution':[{'@type':'DataDownload','encodingFormat':'application/json','contentUrl':BASE+'data/latest.json'}],'isAccessibleForFree':True})
     tags=['<link rel="stylesheet" href="/publishing.css">',f'<meta property="og:site_name" content="{esc(CONFIG["name"])}">',f'<meta property="og:title" content="{esc(info.title)}">',f'<meta property="og:description" content="{esc(info.description)}">',f'<meta property="og:url" content="{esc(url)}">',f'<meta property="og:type" content="{"article" if is_article else "website"}">',f'<meta property="og:image" content="{BASE}{CONFIG["image"]}">',f'<meta property="og:image:width" content="{CONFIG["image_width"]}">',f'<meta property="og:image:height" content="{CONFIG["image_height"]}">','<meta name="twitter:card" content="summary_large_image">',f'<meta name="twitter:title" content="{esc(info.title)}">',f'<meta name="twitter:description" content="{esc(info.description)}">',f'<meta name="twitter:image" content="{BASE}{CONFIG["image"]}">',f'<link rel="canonical" href="{esc(url)}">','<link rel="alternate" type="application/rss+xml" title="Infosec Briefing 更新" href="/feed.xml">','<link rel="icon" type="image/svg+xml" href="/favicon.svg">']
+    if relative=='database.html' or relative.startswith('database.'):
+        for locale_path in sorted(SITE.glob('database*.html')):
+            if locale_path.name!='database.html' and not locale_path.name.startswith('database.'):continue
+            locale_info=Info(locale_path.read_text())
+            tags.append(f'<link rel="alternate" hreflang="{esc(locale_info.language)}" href="{esc(canonical(locale_path))}">')
+        tags.append(f'<link rel="alternate" hreflang="x-default" href="{BASE}database">')
     if relative!='404.html':
-        tags.extend(['<link rel="stylesheet" href="/language-picker.css?v=20261026all">','<script src="/language-core.js?v=20261026all" defer></script>','<script src="/language-picker.js?v=20261026all" defer></script>'])
+        tags.extend(['<link rel="stylesheet" href="/language-picker.css?v=20261026stored">','<script src="/language-core.js?v=20261026stored" defer></script>','<script src="/language-picker.js?v=20261026stored" defer></script>'])
     if relative in ('briefing.html','briefing.en.html'):
         tags.extend([f'<link rel="alternate" hreflang="ja" href="{BASE}briefing">',f'<link rel="alternate" hreflang="en" href="{BASE}briefing.en">',f'<link rel="alternate" hreflang="x-default" href="{BASE}briefing">'])
     if relative!='404.html':tags.append('<meta name="robots" content="index,follow,max-image-preview:large">')
@@ -150,12 +153,12 @@ def metadata(file,text):
     schema=json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     tags.append('<script type="application/ld+json">'+schema+'</script>')
     text=text.replace('</head>','<!-- publication:start -->\n'+'\n'.join(tags)+'\n<!-- publication:end -->\n</head>')
-    if not is_root and relative!='404.html':
+    if not is_root and relative!='404.html' and not relative.startswith('database.'):
         text=re.sub(r'<!-- editorial:start -->.*?<!-- editorial:end -->','',text,flags=re.S)
         credit='<footer class="editorial-credit"><p>編集・調査：<a href="/about">YomiPlush / Infosec Briefing</a> · <a href="/about">編集方針・訂正窓口</a> · <a href="/database">調査データ</a> · <a href="/feed.xml">RSS</a></p></footer>'
         text=text.replace('</body>','<!-- editorial:start -->'+credit+'<!-- editorial:end --></body>')
     text=re.sub(r'<!-- language-nav:start -->.*?<!-- language-nav:end -->','',text,flags=re.S)
-    if relative!='404.html':
+    if relative!='404.html' and not relative.startswith('database.'):
         nav='<a href="/languages" data-language-picker aria-haspopup="dialog">言語 / Languages</a>'
         if is_root:
             text=text.replace('<nav aria-label="読む資料">','<nav aria-label="読む資料"><!-- language-nav:start -->'+nav+' · <!-- language-nav:end -->',1)

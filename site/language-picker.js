@@ -1,23 +1,23 @@
-/* Searchable progressive enhancement: no Google requests until an external link is chosen. */
+/* Search saved translations locally; no external translation service. */
 (function () {
   'use strict';
   const core=window.LANGUAGE_CORE;
   if (!core || !window.HTMLDialogElement || !HTMLDialogElement.prototype.showModal) return;
   let ja=document.documentElement.lang.startsWith('ja');
   const jaCopy={
-    title:'言語を選ぶ',close:'閉じる',search:'言語を検索',hint:'日本語名・英語名・現地語名・言語コード',site:'サイト内の表示',google:'Google翻訳',loading:'言語一覧を読み込んでいます…',empty:'一致する言語がありません。',
-    note:'Google翻訳は別タブで開き、選んだページのURLをGoogleへ送ります。自動翻訳のため、製品名・版・対策は原文と照合してください。',motion:'モーションの翻訳は、全画面の文章を読めるページで開きます。Canvas上の文字は翻訳されません。',fallback:'すべての言語・翻訳について',ready:'言語',external:'Google翻訳で開く',native:'サイト内で表示',error:'一覧を読み込めませんでした。言語一覧ページをご利用ください。'
+    title:'言語を選ぶ',close:'閉じる',search:'言語を検索',hint:'日本語名・英語名・現地語名・言語コード',site:'サイト内の表示',stored:'保存したDB翻訳',loading:'言語一覧を読み込んでいます…',empty:'一致する言語がありません。',
+    note:'Codexで翻訳し、原文と対応するデータだけを保存しています。母語話者の校閲は未実施です。対策は原文・公式案内と照合してください。',motion:'最新{count}論点の本文・条件・対策の翻訳です。モーションの表示言語とは別に選べます。',fallback:'すべての言語・翻訳について',ready:'言語',external:'保存した翻訳を読む',native:'サイト内で表示',error:'一覧を読み込めませんでした。言語一覧ページをご利用ください。'
   };
-  const enCopy={title:'Choose a language',close:'Close',search:'Search languages',hint:'Name, native name or language code',site:'On-site display',google:'Google Translate',loading:'Loading languages…',empty:'No matching languages.',note:'Google Translate opens in another tab and receives the selected page URL. Automatic translations may contain errors; check product names, versions and actions against the original.',motion:'Motion text opens as a readable transcript. Canvas labels cannot be translated by Google.',fallback:'All languages and translation information',ready:'Languages',external:'Open in Google Translate',native:'Display on this site',error:'The list could not be loaded. Please use the language directory.'};
+  const enCopy={title:'Choose a language',close:'Close',search:'Search languages',hint:'Name, native name or language code',site:'On-site display',stored:'Stored database translations',loading:'Loading languages…',empty:'No matching languages.',note:'These Codex translations are stored with their source hash. They have not been reviewed by native speakers. Check actions against the original and official guidance.',motion:'Translations cover the latest {count} topic groups, conditions and actions. Motion display languages are selected separately.',fallback:'All languages and translation information',ready:'Languages',external:'Read the stored translation',native:'Display on this site',error:'The list could not be loaded. Please use the language directory.'};
   let text=ja?jaCopy:enCopy;
   let catalog=null,pending=null,mode='site',opener=null;
   const dialog=document.createElement('dialog');dialog.id='language-dialog';dialog.className='language-dialog';dialog.setAttribute('aria-labelledby','language-title');dialog.setAttribute('translate','no');
-  dialog.innerHTML='<header><h2 id="language-title"></h2><button type="button" class="language-close"></button></header><label for="language-search"></label><input id="language-search" type="search" autocomplete="off" spellcheck="false"><div class="language-modes"><button type="button" data-mode="site"></button><button type="button" data-mode="google"></button></div><p class="language-status" role="status" aria-live="polite"></p><div class="language-results"></div><footer><p class="language-note"></p><p class="language-motion-note"></p><a href="/languages"></a></footer>';
+  dialog.innerHTML='<header><h2 id="language-title"></h2><button type="button" class="language-close"></button></header><label for="language-search"></label><input id="language-search" type="search" autocomplete="off" spellcheck="false"><div class="language-modes"><button type="button" data-mode="site"></button><button type="button" data-mode="stored"></button></div><p class="language-status" role="status" aria-live="polite"></p><div class="language-results"></div><footer><p class="language-note"></p><p class="language-motion-note"></p><a href="/languages"></a></footer>';
   const find=s=>dialog.querySelector(s),search=find('input'),results=find('.language-results'),status=find('.language-status');
   function labels(){
     ja=document.documentElement.lang.startsWith('ja');text=ja?jaCopy:enCopy;
   find('h2').textContent=text.title;find('.language-close').textContent=text.close;find('label').textContent=text.search;search.placeholder=text.hint;
-  find('[data-mode=site]').textContent=text.site;find('[data-mode=google]').textContent=text.google;
+  find('[data-mode=site]').textContent=text.site;find('[data-mode=stored]').textContent=text.stored;
   find('.language-note').textContent=text.note;find('.language-motion-note').textContent=text.motion;find('footer a').textContent=text.fallback;
   }
   labels();
@@ -47,11 +47,11 @@
   }
   function render(){
     for(const button of dialog.querySelectorAll('[data-mode]'))button.setAttribute('aria-pressed',String(button.dataset.mode===mode));
-    find('.language-note').hidden=mode!=='google';find('.language-motion-note').hidden=mode!=='google'||!isMotion();
+    find('.language-note').hidden=mode!=='stored';find('.language-motion-note').hidden=mode!=='stored';find('.language-motion-note').textContent=text.motion.replace('{count}',catalog?catalog.topicCount:'…');
     results.replaceChildren();
     if(!catalog){status.textContent=text.loading;return;}
-    const rows=core.filter(mode==='site'?localRows():catalog.languages,search.value);
-    status.textContent=rows.length+' / '+(mode==='site'?localRows().length:catalog.languages.length);
+    const rows=core.filter(mode==='site'?localRows():catalog.ready,search.value);
+    status.textContent=rows.length+' / '+(mode==='site'?localRows().length:catalog.ready.length)+(mode==='stored'?' · '+catalog.readyCount+'/'+catalog.targetCount+' '+(ja?'言語公開中':'languages ready'):'');
     if(!rows.length){status.textContent=text.empty;return;}
     const fragment=document.createDocumentFragment();
     for(const row of rows){
@@ -59,7 +59,7 @@
       if(mode==='site'){
         item.type='button';item.setAttribute('aria-pressed',String(row.code===current()));item.addEventListener('click',()=>selectLocal(row.code));
       }else{
-        item.href=core.translationURL(row.code,source());item.target='_blank';item.rel='noopener noreferrer';
+        item.href=row.url;
         item.setAttribute('aria-label',row.en+' · '+text.external);
       }
       const name=document.createElement('bdi');name.dir='auto';name.textContent=row.native||row.en;
@@ -71,11 +71,11 @@
   function load(){
     if(pending)return pending;
     pending=new Promise((resolve,reject)=>{
-      const script=document.createElement('script');script.src='/language-catalog.js?v=20261026all';
+      const script=document.createElement('script');script.src='/language-catalog.js?v=20261026stored';
       script.onload=()=>{if(!window.LANGUAGE_CATALOG){pending=null;reject(new Error('Missing catalog'));return;}
         catalog=window.LANGUAGE_CATALOG;
         for(const row of catalog.languages){
-          try{if(Intl.DisplayNames && Intl.DisplayNames.supportedLocalesOf([row.code]).length)row.native=new Intl.DisplayNames([row.code],{type:'language'}).of(row.code);}catch(_){/* Google codes can be non-BCP47. */}
+          try{if(Intl.DisplayNames && Intl.DisplayNames.supportedLocalesOf([row.code]).length)row.native=new Intl.DisplayNames([row.code],{type:'language'}).of(row.code);}catch(_){/* Legacy catalog aliases may not be BCP47. */}
         }
         resolve();};
       script.onerror=()=>{script.remove();pending=null;reject(new Error('Catalog failed'));};document.head.appendChild(script);
@@ -88,7 +88,7 @@
   }
   function open(button,initial){
     if(dialog.open)return;
-    labels();opener=button;mode=initial||(document.getElementById('lang-select')?'site':'google');search.value='';
+    labels();opener=button;mode=initial||(document.getElementById('lang-select')?'site':'stored');search.value='';
     render();viewport();dialog.showModal();notify();search.focus();
     window.addEventListener('resize',viewport,{passive:true});
     if(window.visualViewport){visualViewport.addEventListener('resize',viewport,{passive:true});visualViewport.addEventListener('scroll',viewport,{passive:true});}

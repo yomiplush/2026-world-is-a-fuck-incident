@@ -11,14 +11,14 @@ try{
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<950});
   await open('/?lang=ja&still=1#56','window.__booted===true && !!window.LANGUAGE_PICKER');
   assert.equal(await run('!!window.LANGUAGE_CATALOG'),false,'catalog must be lazy');
-  await run('document.getElementById("privacy-reject")?.click();true');await panel('google');
-  assert.equal(await run('document.querySelectorAll(".language-results a").length'),249);
+  await run('document.getElementById("privacy-reject")?.click();true');await panel('stored');
+  assert.equal(await run('document.querySelectorAll(".language-results a").length'),await run('LANGUAGE_CATALOG.readyCount'));
   const bounds=await run('document.getElementById("language-dialog").getBoundingClientRect().toJSON()');assert.ok(bounds.left>=0&&bounds.right<=width&&bounds.top>=0&&bounds.bottom<=height,JSON.stringify(bounds));
-  for(const [search,code]of[['アフリカーンス','af'],['Cantonese','yue'],['ＺＨ－ＴＷ','zh-TW'],['francais','fr'],['bm-Nkoo','bm-Nkoo']]){
+  for(const [search,code]of[['フランス語','fr'],['German','de'],['francais','fr']]){
    await query(search);assert.equal(await run('document.querySelector(".language-results a")?.dataset.code'),code,search);
   }
-  const link=await run('document.querySelector(".language-results a").href');const target=new URL(link);assert.equal(target.hostname,'translate.google.com');assert.equal(target.searchParams.get('u'),'https://www.infosec-briefing.net/briefing#scene-56');
-  assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'Google selection UI must not persist preferences');
+  const link=await run('document.querySelector(".language-results a").getAttribute("href")');assert.equal(link,'/database.fr');
+  assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'searching stored translations must not persist preferences');
   await query('no-such-language-zzzz');assert.equal(await run('document.querySelectorAll(".language-results a").length'),0);
   await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight'});assert.equal(await run('location.hash'),'#56');
   await query('');
@@ -30,18 +30,18 @@ try{
  assert.equal(requests.some(u=>new URL(u).hostname==='translate.google.com'),false,'opening/searching the picker must not contact Google');
  await cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
  await open('/?lang=ja#56','window.__booted===true && !!window.LANGUAGE_PICKER');
- await run('window.__languageDraws=0;const draw=VISUALS.draw;VISUALS.draw=(...a)=>{__languageDraws++;return draw(...a)};true');await panel('google');await pause(100);await run('__languageDraws=0');await pause(350);assert.equal(await run('__languageDraws'),0,'language panel must pause background rendering');
+ await run('window.__languageDraws=0;const draw=VISUALS.draw;VISUALS.draw=(...a)=>{__languageDraws++;return draw(...a)};true');await panel('stored');await pause(100);await run('__languageDraws=0');await pause(350);assert.equal(await run('__languageDraws'),0,'language panel must pause background rendering');
  await run('Object.defineProperty(visualViewport,"height",{configurable:true,value:400});visualViewport.dispatchEvent(new Event("resize"));true');await pause(80);
  assert.ok(await run('document.getElementById("language-dialog").getBoundingClientRect().bottom<=400'),'panel must fit the keyboard-reduced visual viewport');
  await run('delete visualViewport.height;document.querySelector(".language-close").click();true');await pause(250);assert.ok(await run('__languageDraws>0'),'closing the panel must resume animation');
  await open('/tailworm?lang=ja','!!window.TAILWORM_LANGUAGE_READY && !!window.LANGUAGE_PICKER');await panel('site');assert.equal(await run('document.querySelectorAll(".language-results button").length'),12);
  await run('document.querySelector(".language-option[data-code=en]").click();true');
  for(let i=0;i<100;i++){await pause(50);if(await run('document.documentElement.dataset.locale==="en" && !!window.TAILWORM_LANGUAGE_READY && !!window.LANGUAGE_PICKER'))break;}
- assert.equal(await run('document.documentElement.dataset.locale'),'en');await panel('google');assert.equal(await run('document.querySelector("#language-title").textContent'),'Choose a language');
+ assert.equal(await run('document.documentElement.dataset.locale'),'en');await panel('stored');assert.equal(await run('document.querySelector("#language-title").textContent'),'Choose a language');
  const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/incident-language-picker.png',Buffer.from(shot.data,'base64'));
  await open('/?lang=ja','!!window.LANGUAGE_PICKER');await panel('site');await run('document.querySelector(".language-option[data-code=fr]").click();true');
  for(let i=0;i<100;i++){await pause(50);if(await run('new URLSearchParams(location.search).get("lang")==="fr" && !!window.LANGUAGE_PICKER'))break;}
  assert.equal(await run('new URLSearchParams(location.search).get("lang")'),'fr');assert.equal(await run('typeof CONTENT'),'undefined','pre-unlock choice must not start heavy motion');
- await cdp('Emulation.setScriptExecutionDisabled',{value:true});await open('/languages','!!document.querySelector("h1")');assert.equal(await run("Array.from(document.links).filter(a=>a.href.startsWith('https://translate.google.com/translate?')).length"),249); for(const path of ['/briefing','/briefing.en']){await open(path,'!!document.getElementById("scene-57")');assert.equal(await run('document.querySelectorAll("article").length'),57);assert.equal(await run('document.querySelector("article:last-of-type").id'),'scene-53');}
- console.log('249-language lazy searchable picker:4sizes, JA/EN/native/code search, no Google requests,12 on-site languages, Escape, no-JS directory and57-scene transcripts passed');
+ await cdp('Emulation.setScriptExecutionDisabled',{value:true});await open('/languages','!!document.querySelector("h1")');assert.equal(await run("Array.from(document.links).filter(a=>/\\/database(?:\\.[a-zA-Z-]+)?$/.test(new URL(a.href).pathname)).length>0"),true); for(const path of ['/briefing','/briefing.en']){await open(path,'!!document.getElementById("scene-57")');assert.equal(await run('document.querySelectorAll("article").length'),57);assert.equal(await run('document.querySelector("article:last-of-type").id'),'scene-53');}
+ console.log('Stored translation picker:4sizes, search, local URLs, no Google requests,12 motion languages, Escape, no-JS directory and57-scene transcripts passed');
 }finally{await cdp('Emulation.setScriptExecutionDisabled',{value:false});ws.close()}

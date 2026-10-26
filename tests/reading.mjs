@@ -28,11 +28,10 @@ try{
    if(path==='/about')assert.equal(await run('document.querySelector("a[href^=mailto]").getAttribute("href")'),'mailto:contact@yomiplush.dev');
   }
   await open('/?lang=ja');
-  const pos=await run('(()=>{const r=document.querySelector("#entry-reading summary").getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2}})()');
-  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...pos});await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...pos});
-  assert.equal(await run('document.getElementById("entry-reading").open'),true,'reading context needs native no-JS access');
+  assert.equal(await run('document.querySelector(".entry-library").getAttribute("href")'),'/database');
+  assert.equal(await run('document.querySelector(".entry-library").textContent.trim()'),'','no-JS entrance must use symbols');
   assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true);
   if(width===390){const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/incident-reading-390.png',Buffer.from(shot.data,'base64'))}
  }
- console.log('Static21:35report37topics, database, editorial policy and native root reading at4sizes passed withoutJS');
+ console.log('Static21:35report37topics, database, editorial policy and symbolic root database access at4sizes passed withoutJS');
 }finally{await cdp('Emulation.setScriptExecutionDisabled',{value:false});ws.close()}

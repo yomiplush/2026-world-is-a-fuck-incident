@@ -1,18 +1,2 @@
-/* Static reading context is available to every visitor before motion loads. */
-.entry-reading { position:fixed; z-index:30; top:calc(66px + env(safe-area-inset-top)); left:max(16px,env(safe-area-inset-left)); right:max(16px,env(safe-area-inset-right)); max-width:700px; margin:auto; color:#dceaf2; font:12px/1.65 system-ui,sans-serif }
-.entry-reading summary { min-height:44px; width:fit-content; padding:7px 12px; border:1px solid #29414e; border-radius:5px; background:#08111f; cursor:pointer; color:#b6d5df }
-.entry-reading[open] { z-index:85; bottom:calc(var(--viewport-bottom,0px) + 110px + env(safe-area-inset-bottom)); overflow:auto; overscroll-behavior:contain; background:#08111ffb; border:1px solid #405b6c; border-radius:8px; box-shadow:0 16px 48px #000a }
-.entry-reading[open] summary { position:sticky; top:0; width:100%; border:0; border-bottom:1px solid #29414e; padding:12px 18px; background:#0c1a28 }
-.entry-reading section { padding:8px 20px 24px; max-width:70ch }
-.entry-reading h1 { font-size:clamp(21px,4vw,30px); line-height:1.5; letter-spacing:0 }
-.entry-reading p,.entry-reading li { font-size:14px; line-height:1.9 }
-.entry-reading nav a { display:inline-block; min-height:44px; padding-block:10px }
-.entry-reading a:focus-visible { outline:2px solid #ffb545; outline-offset:3px }
-body:not(.entry-locked) .entry-reading { display:none }
-body.entry-locked .tailworm-feature { top:calc(114px + env(safe-area-inset-top)) }
+/* Shared editorial attribution on reading pages. */
 .editorial-credit { max-width:1120px; margin:0 auto; padding:20px 24px 90px; font:12px/1.9 system-ui,sans-serif; color:#90a8b7 }
-@media(max-height:650px) {
-  .entry-reading { top:calc(64px + env(safe-area-inset-top)) }
-  .entry-reading summary { min-height:44px; padding:4px 10px; font-size:11px }
-  body.entry-locked .tailworm-feature { top:calc(114px + env(safe-area-inset-top)); bottom:auto }
-}

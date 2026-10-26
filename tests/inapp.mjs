@@ -40,10 +40,10 @@ try {
  await cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
  await open('/?lang=ja','!!window.ENTRY');
  await run(`document.getElementById('privacy-reject')?.click();Object.defineProperty(window.visualViewport,'height',{configurable:true,value:480});window.visualViewport.dispatchEvent(new Event('resize'));true`);
- const overlay = await run(`(()=>{const r=document.getElementById('btn-start').getBoundingClientRect(),latest=document.querySelector('.latest-update').getBoundingClientRect(),dock=document.querySelector('.privacy-dock').getBoundingClientRect();return {layout:innerHeight,app:document.getElementById('app').getBoundingClientRect().height,keyBottom:r.bottom,latestTop:latest.top,dockBottom:dock.bottom,hit:document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('button')?.id}})()`);
+ const overlay = await run(`(()=>{const r=document.getElementById('btn-start').getBoundingClientRect(),dock=document.querySelector('.privacy-dock').getBoundingClientRect();return {layout:innerHeight,app:document.getElementById('app').getBoundingClientRect().height,keyBottom:r.bottom,dockBottom:dock.bottom,hit:document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('button')?.id}})()`);
  assert.equal(overlay.layout,844,'layout viewport must remain tall');
  assert.equal(overlay.app,480,'app must follow visual viewport independently');
- assert.ok(overlay.keyBottom<=overlay.latestTop && overlay.dockBottom<=480 && overlay.hit==='btn-start','overlay toolbar hides entry '+JSON.stringify(overlay));
+ assert.ok(overlay.keyBottom<=480 && overlay.dockBottom<=480 && overlay.hit==='btn-start','overlay toolbar hides entry '+JSON.stringify(overlay));
  await run('ENTRY.open();true');
  for(let i=0;i<80 && !(await run('ENTRY.state === "ready"'));i++) await new Promise(r=>setTimeout(r,50));
  await run('document.getElementById("btn-info").click();true');
