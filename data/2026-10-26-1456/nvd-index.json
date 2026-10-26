@@ -1,0 +1,2573 @@
+{
+  "cutoff": "2026-10-26T05:56:00Z",
+  "delta_start": "2026-10-26T04:01:00Z",
+  "published": [
+    {
+      "id": "CVE-2026-116113",
+      "published": "2026-10-26T04:17:47.653",
+      "modified": "2026-10-26T04:17:47.653",
+      "status": "Received",
+      "description": "A security flaw has been discovered in GouGuOA up to 6.1.2. The impacted element is the function chunkUpload of the file app/disk/controller/Api.php. The manipulation of the argument file_extension results in unrestricted upload. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://github.com/Gum29/rrrreeeeeeee-readme/blob/main/images/img/GouguOA-RCE-Standard-Vuln-Report-EN.md",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116113",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1003776",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426181",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426181/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 2.1,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+              "baseScore": 6.3,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 2.8,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "baseScore": 6.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "SINGLE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 8.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116114",
+      "published": "2026-10-26T04:17:54.187",
+      "modified": "2026-10-26T04:17:54.187",
+      "status": "Received",
+      "description": "A weakness has been identified in Yoosee GM8135S Camera 21.00.01.36. This affects an unknown function of the file /npc/npc of the component Live UDP H.264 Video Stream Handler. This manipulation causes cleartext transmission of sensitive information. The attack can be initiated remotely. The attack's complexity is rated as high. The exploitability is reported as difficult. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://akosibrylle.me/writeups/yoosee-cve",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116114",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004708",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426182",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426182/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 2.9,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "HIGH",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "NONE",
+              "vulnAvailabilityImpact": "NONE",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+              "baseScore": 3.7,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "HIGH",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "NONE",
+              "availabilityImpact": "NONE"
+            },
+            "exploitabilityScore": 2.2,
+            "impactScore": 1.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:H/Au:N/C:P/I:N/A:N",
+              "baseScore": 2.6,
+              "accessVector": "NETWORK",
+              "accessComplexity": "HIGH",
+              "authentication": "NONE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "NONE",
+              "availabilityImpact": "NONE"
+            },
+            "baseSeverity": "LOW",
+            "exploitabilityScore": 4.9,
+            "impactScore": 2.9,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116115",
+      "published": "2026-10-26T04:17:54.830",
+      "modified": "2026-10-26T04:17:54.830",
+      "status": "Received",
+      "description": "A security vulnerability has been detected in Yoosee GM8135S Camera 21.00.01.36. This impacts an unknown function of the file wpa_supplicantX.conf of the component WiFi Configuration. Such manipulation leads to improper initialization. The attack can only be initiated within the local network. This attack is characterized by high complexity. The exploitability is said to be difficult. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://akosibrylle.me/writeups/yoosee-cve",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116115",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004711",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426183",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426183/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:A/AC:H/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 1.3,
+              "baseSeverity": "LOW",
+              "attackVector": "ADJACENT",
+              "attackComplexity": "HIGH",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "NONE",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "NONE",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "baseScore": 3.1,
+              "baseSeverity": "LOW",
+              "attackVector": "ADJACENT_NETWORK",
+              "attackComplexity": "HIGH",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "NONE",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "NONE"
+            },
+            "exploitabilityScore": 1.6,
+            "impactScore": 1.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:A/AC:H/Au:N/C:N/I:P/A:N",
+              "baseScore": 1.8,
+              "accessVector": "ADJACENT_NETWORK",
+              "accessComplexity": "HIGH",
+              "authentication": "NONE",
+              "confidentialityImpact": "NONE",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "NONE"
+            },
+            "baseSeverity": "LOW",
+            "exploitabilityScore": 3.2,
+            "impactScore": 2.9,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116116",
+      "published": "2026-10-26T04:17:55.047",
+      "modified": "2026-10-26T04:17:55.047",
+      "status": "Received",
+      "description": "A vulnerability was detected in Yoosee GM8135S Camera 21.00.01.36. Affected is an unknown function of the component Secure Boot. Performing a manipulation results in improper verification of cryptographic signature. The attack needs to be approached locally. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://akosibrylle.me/writeups/yoosee-cve",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116116",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004712",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426184",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426184/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:N/PR:H/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 8.4,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "HIGH",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "HIGH",
+              "vulnIntegrityImpact": "HIGH",
+              "vulnAvailabilityImpact": "HIGH",
+              "subConfidentialityImpact": "HIGH",
+              "subIntegrityImpact": "HIGH",
+              "subAvailabilityImpact": "HIGH",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 8.2,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "HIGH",
+              "userInteraction": "NONE",
+              "scope": "CHANGED",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "HIGH",
+              "availabilityImpact": "HIGH"
+            },
+            "exploitabilityScore": 1.5,
+            "impactScore": 6.0
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:L/AC:L/Au:M/C:C/I:C/A:C",
+              "baseScore": 6.5,
+              "accessVector": "LOCAL",
+              "accessComplexity": "LOW",
+              "authentication": "MULTIPLE",
+              "confidentialityImpact": "COMPLETE",
+              "integrityImpact": "COMPLETE",
+              "availabilityImpact": "COMPLETE"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 2.5,
+            "impactScore": 10.0,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-113345",
+      "published": "2026-10-26T05:17:54.020",
+      "modified": "2026-10-26T05:17:54.020",
+      "status": "Received",
+      "description": "Electronic delivery item Inspection Support System provided by Japan's Ministry of Land, Infrastructure, Transport and Tourism contains an improper file access permission vulnerability. Files in the installation folder of the application may be tampered with, resulting in arbitrary code execution.",
+      "references": [
+        {
+          "url": "https://jvn.jp/en/jp/JVN75668103/",
+          "source": "vultures@jpcert.or.jp"
+        },
+        {
+          "url": "https://www.ysk.nilim.go.jp/cals/",
+          "source": "vultures@jpcert.or.jp"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "vultures@jpcert.or.jp",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 8.5,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "HIGH",
+              "vulnIntegrityImpact": "HIGH",
+              "vulnAvailabilityImpact": "HIGH",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "NOT_DEFINED",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV30": [
+          {
+            "source": "vultures@jpcert.or.jp",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "3.0",
+              "vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "baseScore": 7.8,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "HIGH",
+              "availabilityImpact": "HIGH"
+            },
+            "exploitabilityScore": 1.8,
+            "impactScore": 5.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116117",
+      "published": "2026-10-26T05:17:54.180",
+      "modified": "2026-10-26T05:17:54.317",
+      "status": "Deferred",
+      "description": "A flaw has been found in halo-dev halo up to 2.27.0-beta.1. Affected by this vulnerability is the function run.halo.app.theme.DefaultViewNameResolver.resolveViewNameOrDefault of the file application/src/main/java/run/halo/app/theme/DefaultViewNameResolver.java of the component View Name Resolver. Executing a manipulation of the argument template can lead to path traversal. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116117",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004845",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426185",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426185/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 5.5,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "baseScore": 7.3,
+              "baseSeverity": "HIGH",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 3.9,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "baseScore": 7.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "NONE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "HIGH",
+            "exploitabilityScore": 10.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116118",
+      "published": "2026-10-26T05:17:54.370",
+      "modified": "2026-10-26T05:17:54.370",
+      "status": "Received",
+      "description": "A vulnerability has been found in Z.ai Zcode up to 3.14.3/3.15.1. Affected by this issue is some unknown functionality of the component Sed Command Filter. The manipulation leads to os command injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
+      "references": [
+        {
+          "url": "https://mcniyfj5bw9b.feishu.cn/docx/ZRTudN7cPoJUaZxv89ycn3rbnTG",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116118",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004886",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426186",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426186/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 2.1,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+              "baseScore": 6.3,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 2.8,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "baseScore": 6.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "SINGLE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 8.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116119",
+      "published": "2026-10-26T05:17:54.550",
+      "modified": "2026-10-26T05:17:54.550",
+      "status": "Received",
+      "description": "A vulnerability was found in NocoDB up to 2026.08.0. This affects an unknown part of the file packages/nocodb/src/services/users/users.service.ts of the component Password-Reset Flow. The manipulation results in race condition. The attack can be executed remotely. The vendor deleted the GitHub issue for this vulnerability without any explanation. Afterwards the vendor was contacted early about this disclosure via email but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://github.com/nocodb/nocodb/",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://github.com/nocodb/nocodb/issues/14684",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116119",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004891",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426187",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426187/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 5.1,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "PASSIVE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "NOT_DEFINED",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L",
+              "baseScore": 5.5,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "REQUIRED",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 2.1,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "baseScore": 6.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "SINGLE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 8.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    }
+  ],
+  "modified": [
+    {
+      "id": "CVE-2026-55653",
+      "published": "2026-06-23T04:17:36.600",
+      "modified": "2026-10-26T04:17:57.077",
+      "status": "Modified",
+      "description": "A flaw was found in OpenSSH. A malicious SSH server can exploit a double free vulnerability in the Diffie-Hellman Group Exchange (DH-GEX) client path. This occurs during FIPS (Federal Information Processing Standards) mode known-group validation when the client processes attacker-controlled DH-GEX group parameters. Successful exploitation leads to client-side process termination, resulting in a Denial of Service (DoS).",
+      "references": [
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:36759",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:47755",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:47756",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:47757",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:54387",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:58981",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:76748",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:76993",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:80513",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82749",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82750",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82751",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82752",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82753",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82754",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82755",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82756",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82757",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82758",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82759",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82761",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82762",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82763",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82897",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82898",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82899",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82900",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82901",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82902",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82903",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82904",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82907",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82908",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82909",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82910",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82912",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82913",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82914",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82915",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82916",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82917",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82918",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82920",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82921",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82922",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82923",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:89739",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2026-55653",
+          "source": "secalert@redhat.com",
+          "tags": [
+            "Vendor Advisory"
+          ]
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2462351",
+          "source": "secalert@redhat.com",
+          "tags": [
+            "Exploit",
+            "Issue Tracking",
+            "Vendor Advisory"
+          ]
+        }
+      ],
+      "metrics": {
+        "cvssMetricV31": [
+          {
+            "source": "secalert@redhat.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+              "baseScore": 4.3,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "NONE",
+              "userInteraction": "REQUIRED",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "NONE",
+              "integrityImpact": "NONE",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 2.8,
+            "impactScore": 1.4
+          },
+          {
+            "source": "nvd@nist.gov",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "baseScore": 6.5,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "NONE",
+              "userInteraction": "REQUIRED",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "NONE",
+              "integrityImpact": "NONE",
+              "availabilityImpact": "HIGH"
+            },
+            "exploitabilityScore": 2.8,
+            "impactScore": 3.6
+          }
+        ],
+        "ssvcV203": [
+          {
+            "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+            "ssvcData": {
+              "timestamp": "2026-06-23T14:30:51.025049Z",
+              "id": "CVE-2026-55653",
+              "options": [
+                {
+                  "exploitation": "none"
+                },
+                {
+                  "automatable": "no"
+                },
+                {
+                  "technicalImpact": "partial"
+                }
+              ],
+              "role": "CISA Coordinator",
+              "version": "2.0.3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-55655",
+      "published": "2026-06-23T04:17:40.787",
+      "modified": "2026-10-26T04:17:57.867",
+      "status": "Modified",
+      "description": "A flaw was found in OpenSSH. A local unprivileged attacker on a Linux client host can hijack client-side X11 forwarding connections. This is possible by pre-binding the preferred abstract X socket name when X11 forwarding is enabled and a local UNIX-domain X socket is used. A successful attack can compromise the confidentiality of forwarded X11 traffic, including sensitive window contents and input, and may allow some manipulation of the forwarded session.",
+      "references": [
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:36759",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:47755",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:47756",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:47757",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:54387",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:58981",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:76748",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:76993",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:80513",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82749",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82750",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82751",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82752",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82753",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82754",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82755",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82756",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82757",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82758",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82759",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82761",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82762",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82763",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82897",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82898",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82899",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82900",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82901",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82902",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82903",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82904",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82907",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82908",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82909",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82910",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82912",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82913",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82914",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82915",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82916",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82917",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82918",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82920",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82921",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82922",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:82923",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:89739",
+          "source": "secalert@redhat.com"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2026-55655",
+          "source": "secalert@redhat.com",
+          "tags": [
+            "Vendor Advisory"
+          ]
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2462250",
+          "source": "secalert@redhat.com",
+          "tags": [
+            "Issue Tracking",
+            "Vendor Advisory"
+          ]
+        }
+      ],
+      "metrics": {
+        "cvssMetricV31": [
+          {
+            "source": "secalert@redhat.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:L/A:N",
+              "baseScore": 5.0,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "LOCAL",
+              "attackComplexity": "HIGH",
+              "privilegesRequired": "LOW",
+              "userInteraction": "REQUIRED",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "NONE"
+            },
+            "exploitabilityScore": 0.8,
+            "impactScore": 4.2
+          },
+          {
+            "source": "nvd@nist.gov",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N",
+              "baseScore": 6.1,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "NONE",
+              "userInteraction": "REQUIRED",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "NONE"
+            },
+            "exploitabilityScore": 1.8,
+            "impactScore": 4.2
+          }
+        ],
+        "ssvcV203": [
+          {
+            "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+            "ssvcData": {
+              "timestamp": "2026-06-23T12:21:42.502865Z",
+              "id": "CVE-2026-55655",
+              "options": [
+                {
+                  "exploitation": "none"
+                },
+                {
+                  "automatable": "no"
+                },
+                {
+                  "technicalImpact": "partial"
+                }
+              ],
+              "role": "CISA Coordinator",
+              "version": "2.0.3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-111497",
+      "published": "2026-10-22T14:17:37.190",
+      "modified": "2026-10-26T05:17:53.007",
+      "status": "Awaiting Analysis",
+      "description": "A buffer overflow vulnerability in the Brotli decoder (c/dec/decode.c) in Google Brotli versions 1.0.3 through 1.2.0 on all platforms allows a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memory contents, cause a denial of service, or potentially execute arbitrary code using a crafted Brotli-compressed stream.\n\n\n\n\n\nUsers need to update any Brotli libraries or binaries between 1.0.3 through 1.2.0 to the latest available version: 1.0.10 or 1.1.1 or 1.2.1.",
+      "references": [
+        {
+          "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases#nodejs-brotli-decoder-out-of-bounds-write-permits-remote-code-execution-cve-2026-111497---high",
+          "source": "cve-coordination@google.com"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2026/10/23/25",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2026/10/24/6",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2026/10/26/12",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2026/10/26/13",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://broccoli2shell.com",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://github.com/advisories/GHSA-9v8h-qqgm-4m35",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://github.com/dotnet/announcements/issues/494",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://github.com/google/brotli/releases/tag/v1.0.10",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://github.com/google/brotli/releases/tag/v1.1.1",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://github.com/google/brotli/releases/tag/v1.2.1",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2026/10/msg00049.html",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        },
+        {
+          "url": "https://www.aikido.dev/blog/node2shell-nodejs-brotli-rce-cve-2026-111497",
+          "source": "af854a3a-2127-422b-91ae-364da2661108"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cve-coordination@google.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 9.2,
+              "baseSeverity": "CRITICAL",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "PRESENT",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "HIGH",
+              "vulnIntegrityImpact": "HIGH",
+              "vulnAvailabilityImpact": "HIGH",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "NOT_DEFINED",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "ssvcV203": [
+          {
+            "source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+            "ssvcData": {
+              "timestamp": "2026-10-23T00:00:00+00:00",
+              "id": "CVE-2026-111497",
+              "options": [
+                {
+                  "exploitation": "none"
+                },
+                {
+                  "automatable": "no"
+                },
+                {
+                  "technicalImpact": "total"
+                }
+              ],
+              "role": "CISA Coordinator",
+              "version": "2.0.3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116113",
+      "published": "2026-10-26T04:17:47.653",
+      "modified": "2026-10-26T04:17:47.653",
+      "status": "Received",
+      "description": "A security flaw has been discovered in GouGuOA up to 6.1.2. The impacted element is the function chunkUpload of the file app/disk/controller/Api.php. The manipulation of the argument file_extension results in unrestricted upload. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://github.com/Gum29/rrrreeeeeeee-readme/blob/main/images/img/GouguOA-RCE-Standard-Vuln-Report-EN.md",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116113",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1003776",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426181",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426181/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 2.1,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+              "baseScore": 6.3,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 2.8,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "baseScore": 6.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "SINGLE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 8.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116114",
+      "published": "2026-10-26T04:17:54.187",
+      "modified": "2026-10-26T04:17:54.187",
+      "status": "Received",
+      "description": "A weakness has been identified in Yoosee GM8135S Camera 21.00.01.36. This affects an unknown function of the file /npc/npc of the component Live UDP H.264 Video Stream Handler. This manipulation causes cleartext transmission of sensitive information. The attack can be initiated remotely. The attack's complexity is rated as high. The exploitability is reported as difficult. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://akosibrylle.me/writeups/yoosee-cve",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116114",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004708",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426182",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426182/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 2.9,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "HIGH",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "NONE",
+              "vulnAvailabilityImpact": "NONE",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+              "baseScore": 3.7,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "HIGH",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "NONE",
+              "availabilityImpact": "NONE"
+            },
+            "exploitabilityScore": 2.2,
+            "impactScore": 1.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:H/Au:N/C:P/I:N/A:N",
+              "baseScore": 2.6,
+              "accessVector": "NETWORK",
+              "accessComplexity": "HIGH",
+              "authentication": "NONE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "NONE",
+              "availabilityImpact": "NONE"
+            },
+            "baseSeverity": "LOW",
+            "exploitabilityScore": 4.9,
+            "impactScore": 2.9,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116115",
+      "published": "2026-10-26T04:17:54.830",
+      "modified": "2026-10-26T04:17:54.830",
+      "status": "Received",
+      "description": "A security vulnerability has been detected in Yoosee GM8135S Camera 21.00.01.36. This impacts an unknown function of the file wpa_supplicantX.conf of the component WiFi Configuration. Such manipulation leads to improper initialization. The attack can only be initiated within the local network. This attack is characterized by high complexity. The exploitability is said to be difficult. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://akosibrylle.me/writeups/yoosee-cve",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116115",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004711",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426183",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426183/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:A/AC:H/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 1.3,
+              "baseSeverity": "LOW",
+              "attackVector": "ADJACENT",
+              "attackComplexity": "HIGH",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "NONE",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "NONE",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "baseScore": 3.1,
+              "baseSeverity": "LOW",
+              "attackVector": "ADJACENT_NETWORK",
+              "attackComplexity": "HIGH",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "NONE",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "NONE"
+            },
+            "exploitabilityScore": 1.6,
+            "impactScore": 1.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:A/AC:H/Au:N/C:N/I:P/A:N",
+              "baseScore": 1.8,
+              "accessVector": "ADJACENT_NETWORK",
+              "accessComplexity": "HIGH",
+              "authentication": "NONE",
+              "confidentialityImpact": "NONE",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "NONE"
+            },
+            "baseSeverity": "LOW",
+            "exploitabilityScore": 3.2,
+            "impactScore": 2.9,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116116",
+      "published": "2026-10-26T04:17:55.047",
+      "modified": "2026-10-26T04:17:55.047",
+      "status": "Received",
+      "description": "A vulnerability was detected in Yoosee GM8135S Camera 21.00.01.36. Affected is an unknown function of the component Secure Boot. Performing a manipulation results in improper verification of cryptographic signature. The attack needs to be approached locally. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://akosibrylle.me/writeups/yoosee-cve",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116116",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004712",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426184",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426184/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:N/PR:H/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 8.4,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "HIGH",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "HIGH",
+              "vulnIntegrityImpact": "HIGH",
+              "vulnAvailabilityImpact": "HIGH",
+              "subConfidentialityImpact": "HIGH",
+              "subIntegrityImpact": "HIGH",
+              "subAvailabilityImpact": "HIGH",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+              "baseScore": 8.2,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "HIGH",
+              "userInteraction": "NONE",
+              "scope": "CHANGED",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "HIGH",
+              "availabilityImpact": "HIGH"
+            },
+            "exploitabilityScore": 1.5,
+            "impactScore": 6.0
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:L/AC:L/Au:M/C:C/I:C/A:C",
+              "baseScore": 6.5,
+              "accessVector": "LOCAL",
+              "accessComplexity": "LOW",
+              "authentication": "MULTIPLE",
+              "confidentialityImpact": "COMPLETE",
+              "integrityImpact": "COMPLETE",
+              "availabilityImpact": "COMPLETE"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 2.5,
+            "impactScore": 10.0,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-113345",
+      "published": "2026-10-26T05:17:54.020",
+      "modified": "2026-10-26T05:17:54.020",
+      "status": "Received",
+      "description": "Electronic delivery item Inspection Support System provided by Japan's Ministry of Land, Infrastructure, Transport and Tourism contains an improper file access permission vulnerability. Files in the installation folder of the application may be tampered with, resulting in arbitrary code execution.",
+      "references": [
+        {
+          "url": "https://jvn.jp/en/jp/JVN75668103/",
+          "source": "vultures@jpcert.or.jp"
+        },
+        {
+          "url": "https://www.ysk.nilim.go.jp/cals/",
+          "source": "vultures@jpcert.or.jp"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "vultures@jpcert.or.jp",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:L/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 8.5,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "HIGH",
+              "vulnIntegrityImpact": "HIGH",
+              "vulnAvailabilityImpact": "HIGH",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "NOT_DEFINED",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV30": [
+          {
+            "source": "vultures@jpcert.or.jp",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "3.0",
+              "vectorString": "CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "baseScore": 7.8,
+              "baseSeverity": "HIGH",
+              "attackVector": "LOCAL",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "HIGH",
+              "integrityImpact": "HIGH",
+              "availabilityImpact": "HIGH"
+            },
+            "exploitabilityScore": 1.8,
+            "impactScore": 5.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116117",
+      "published": "2026-10-26T05:17:54.180",
+      "modified": "2026-10-26T05:17:54.317",
+      "status": "Deferred",
+      "description": "A flaw has been found in halo-dev halo up to 2.27.0-beta.1. Affected by this vulnerability is the function run.halo.app.theme.DefaultViewNameResolver.resolveViewNameOrDefault of the file application/src/main/java/run/halo/app/theme/DefaultViewNameResolver.java of the component View Name Resolver. Executing a manipulation of the argument template can lead to path traversal. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116117",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004845",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426185",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426185/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 5.5,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+              "baseScore": 7.3,
+              "baseSeverity": "HIGH",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "NONE",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 3.9,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+              "baseScore": 7.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "NONE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "HIGH",
+            "exploitabilityScore": 10.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116118",
+      "published": "2026-10-26T05:17:54.370",
+      "modified": "2026-10-26T05:17:54.370",
+      "status": "Received",
+      "description": "A vulnerability has been found in Z.ai Zcode up to 3.14.3/3.15.1. Affected by this issue is some unknown functionality of the component Sed Command Filter. The manipulation leads to os command injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
+      "references": [
+        {
+          "url": "https://mcniyfj5bw9b.feishu.cn/docx/ZRTudN7cPoJUaZxv89ycn3rbnTG",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116118",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004886",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426186",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426186/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 2.1,
+              "baseSeverity": "LOW",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "PROOF_OF_CONCEPT",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+              "baseScore": 6.3,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "NONE",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 2.8,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "baseScore": 6.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "SINGLE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 8.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-116119",
+      "published": "2026-10-26T05:17:54.550",
+      "modified": "2026-10-26T05:17:54.550",
+      "status": "Received",
+      "description": "A vulnerability was found in NocoDB up to 2026.08.0. This affects an unknown part of the file packages/nocodb/src/services/users/users.service.ts of the component Password-Reset Flow. The manipulation results in race condition. The attack can be executed remotely. The vendor deleted the GitHub issue for this vulnerability without any explanation. Afterwards the vendor was contacted early about this disclosure via email but did not respond in any way.",
+      "references": [
+        {
+          "url": "https://github.com/nocodb/nocodb/",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://github.com/nocodb/nocodb/issues/14684",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/cve/CVE-2026-116119",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/submit/1004891",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426187",
+          "source": "cna@vuldb.com"
+        },
+        {
+          "url": "https://vuldb.com/vuln/426187/cti",
+          "source": "cna@vuldb.com"
+        }
+      ],
+      "metrics": {
+        "cvssMetricV40": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "4.0",
+              "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:P/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+              "baseScore": 5.1,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "attackRequirements": "NONE",
+              "privilegesRequired": "LOW",
+              "userInteraction": "PASSIVE",
+              "vulnConfidentialityImpact": "LOW",
+              "vulnIntegrityImpact": "LOW",
+              "vulnAvailabilityImpact": "LOW",
+              "subConfidentialityImpact": "NONE",
+              "subIntegrityImpact": "NONE",
+              "subAvailabilityImpact": "NONE",
+              "exploitMaturity": "NOT_DEFINED",
+              "confidentialityRequirement": "NOT_DEFINED",
+              "integrityRequirement": "NOT_DEFINED",
+              "availabilityRequirement": "NOT_DEFINED",
+              "modifiedAttackVector": "NOT_DEFINED",
+              "modifiedAttackComplexity": "NOT_DEFINED",
+              "modifiedAttackRequirements": "NOT_DEFINED",
+              "modifiedPrivilegesRequired": "NOT_DEFINED",
+              "modifiedUserInteraction": "NOT_DEFINED",
+              "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+              "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+              "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+              "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+              "modifiedSubIntegrityImpact": "NOT_DEFINED",
+              "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+              "Safety": "NOT_DEFINED",
+              "Automatable": "NOT_DEFINED",
+              "Recovery": "NOT_DEFINED",
+              "valueDensity": "NOT_DEFINED",
+              "vulnerabilityResponseEffort": "NOT_DEFINED",
+              "providerUrgency": "NOT_DEFINED"
+            }
+          }
+        ],
+        "cvssMetricV31": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Primary",
+            "cvssData": {
+              "version": "3.1",
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L",
+              "baseScore": 5.5,
+              "baseSeverity": "MEDIUM",
+              "attackVector": "NETWORK",
+              "attackComplexity": "LOW",
+              "privilegesRequired": "LOW",
+              "userInteraction": "REQUIRED",
+              "scope": "UNCHANGED",
+              "confidentialityImpact": "LOW",
+              "integrityImpact": "LOW",
+              "availabilityImpact": "LOW"
+            },
+            "exploitabilityScore": 2.1,
+            "impactScore": 3.4
+          }
+        ],
+        "cvssMetricV2": [
+          {
+            "source": "cna@vuldb.com",
+            "type": "Secondary",
+            "cvssData": {
+              "version": "2.0",
+              "vectorString": "AV:N/AC:L/Au:S/C:P/I:P/A:P",
+              "baseScore": 6.5,
+              "accessVector": "NETWORK",
+              "accessComplexity": "LOW",
+              "authentication": "SINGLE",
+              "confidentialityImpact": "PARTIAL",
+              "integrityImpact": "PARTIAL",
+              "availabilityImpact": "PARTIAL"
+            },
+            "baseSeverity": "MEDIUM",
+            "exploitabilityScore": 8.0,
+            "impactScore": 6.4,
+            "acInsufInfo": false,
+            "obtainAllPrivilege": false,
+            "obtainUserPrivilege": false,
+            "obtainOtherPrivilege": false,
+            "userInteractionRequired": false
+          }
+        ]
+      }
+    }
+  ],
+  "ghsa": []
+}

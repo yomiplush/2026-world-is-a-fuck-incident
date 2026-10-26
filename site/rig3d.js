@@ -196,6 +196,9 @@ window.RIG3D = (function () {
   function rig(ctx, c, w, h) {
     const items = [];
     const labels = [];
+    // Solids often share a tone and lighting within a frame. Cache only their
+    // colors; depth, fog, opacity and projected geometry remain per face.
+    const materials = new Map();
     let budget = 0;
     const P = (p) => project(c, p[0], p[1], p[2], w, h);
     const D = (p) => depth(c, p[0], p[1], p[2]);
@@ -212,19 +215,29 @@ window.RIG3D = (function () {
         push(z, (fog) => {
           const pts = f.p.map(P);
           const b = o.flat ? 1 : brightness(c, f.n) * (o.dim || 1);
+          let tones = materials.get(tone);
+          if (!tones) { tones = new Map(); materials.set(tone, tones); }
+          let material = tones.get(b);
+          if (!material) {
+            const base = rgb(C.deep), tint = rgb(tone);
+            const mix = 0.13 + b * 0.30;
+            material = {
+              fill: "rgb(" + base.slice(0, 3).map((v, i) => Math.round(v + (tint[i] - v) * mix)).join(",") + ")",
+              stroke: shade(tone, Math.min(1.8, b + 0.35))
+            };
+            tones.set(b, material);
+          }
           ctx.beginPath();
           ctx.moveTo(pts[0][0], pts[0][1]);
           for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
           ctx.closePath();
           if (!o.wire) {
             ctx.globalAlpha = alpha * fog;
-            const base = rgb(C.deep), tint = rgb(tone);
-            const mix = 0.13 + b * 0.30;
-            ctx.fillStyle = o.fill || "rgb(" + base.slice(0, 3).map((v, i) => Math.round(v + (tint[i] - v) * mix)).join(",") + ")";
+            ctx.fillStyle = o.fill || material.fill;
             ctx.fill();
           }
           ctx.globalAlpha = (o.edge == null ? 0.5 : o.edge) * fog;
-          ctx.strokeStyle = shade(tone, Math.min(1.8, b + 0.35));
+          ctx.strokeStyle = material.stroke;
           ctx.lineWidth = (o.width || 1) * kOf(pts[0][2]);
           ctx.stroke();
           if (o.glow) {
@@ -447,6 +460,7 @@ window.RIG3D = (function () {
         }
         ctx.restore();
         items.length = 0; labels.length = 0;
+        materials.clear();
       },
       get count() { return budget; }
     };

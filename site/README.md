@@ -1,9 +1,11 @@
-## October 26, 13:01 JST update
+Adaptive rendering and verification: [performance notes](../docs/performance-2026-10-26.md).
 
-Latest reading report: `update-20261026-1301.html`. Research and response provenance:
-`docs/research-2026-10-26-1301.md` and `data/2026-10-26-1301/`.
-Rebuild static pages with `python3 tools/build-daily.py` then `python3 tools/build-noon.py`.
-The 53 motion scenes play in ascending stamped-date order, with intro/closing at the ends;
+## October 26, 14:56 JST update
+
+Latest reading report: `update-20261026-1456.html`. Research and response provenance:
+`docs/research-2026-10-26-1456.md` and `data/2026-10-26-1456/`.
+Rebuild static pages with `python3 tools/build-daily.py` then `python3 tools/build-noon.py`, `python3 tools/build-review.py data/2026-10-26-1456/incident-register.json`, and `python3 tools/build-tailworm.py`.
+The 55 motion scenes play in ascending stamped-date order, with intro/closing at the ends;
 addenda retain their review date, and range summaries sort at the end of the range.
 `CONTENT.scenes` retains its original order for locale integrations. `chronology.js` maps
 old `#N` / `?scene=N` links to their original content. The chapter counter shows playback
@@ -12,7 +14,7 @@ order within that day; no exact publication time is inferred.
 
 `viewport.js` tracks VisualViewport resize/pageshow for X/WKWebView browser toolbars,
 while leaving pinch zoom native. `mobile.css` reserves safe-area/privacy space and makes
-all 53 rail buttons horizontally scrollable; the active tick follows navigation.
+all 55 rail buttons horizontally scrollable; the active tick follows navigation.
 Verified with X user-agent emulation at seven viewport sizes, dynamic resizing, and
 a separate VisualViewport-only height reduction (480 visible / 844 layout pixels),
 including the unlock control and source drawer;
@@ -22,7 +24,7 @@ Run `node tests/chronology.test.cjs`, and (with the local server/CDP setup below
 
 # Briefing site — `site/`
 
-**53 scenes; latest research cutoff October 26, 13:01 JST.** Latest report: `update-20261026.html`; dated archive: `timeline.html` and ten `day-YYYYMMDD.html` pages. Tailworm remains at #41–46; morning update #49–52; closing #53. Earlier dated sections below retain site history.
+**55 scenes; latest research cutoff October 26, 14:56 JST.** Latest report: `update-20261026-1456.html`; dated archive: `timeline.html` and ten `day-YYYYMMDD.html` pages. Tailworm remains at #41–46; morning update #49–52; closing #53; afternoon deployment/release-state scenes #54–55. Earlier dated sections below retain site history.
 
 A single-page, tap-to-advance motion-graphic briefing of the October 2026 incidents, in
 chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).

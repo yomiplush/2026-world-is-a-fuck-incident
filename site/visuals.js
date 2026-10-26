@@ -728,6 +728,38 @@ window.VISUALS = (function () {
     label(g,[0,295,70],'OBSERVED / PUBLISHED / FIXED / REVISED',C.steel,11);g.flush();
   };
 
+  // Deployment paths are a schematic: an SDK/runtime update does not replace
+  // the already-linked decoder inside a bundled or NativeAOT application.
+  scenes.deploymentPaths = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.52,yaw:.18});
+    ['SHARED','BUNDLE','AOT'].forEach((name,i)=>{
+      const x=(i-1)*380, tone=i===0?C.green:C.amber;
+      label(g,[x,-255,0],name,C.ink,13);
+      node(g,[x,-125,0],['RUNTIME','BUILD','SDK/PACK'][i],C.cyan,t,i,{hx:70,hy:34,hz:48,font:10});
+      node(g,[x,185,0],'RUNNING',tone,t,i+3,{hx:70,hy:34,hz:48,font:10});
+      flow(g,[x,-75,0],[x,130,0],t,tone,i*.2,.17);
+      g.prism(x,35,0,44,6,6,tone,{alpha:.55,edge:.6});
+      label(g,[x,20,-105],['RESTART','REDEPLOY','REPUBLISH'][i],tone,10);
+    });
+    heading(g,'UPDATE THE BINARY THAT ACTUALLY RUNS',C.green);g.flush();
+  };
+
+  scenes.releaseStates = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.5,yaw:.12});
+    const rows=[['PAN-OS','RELEASED',C.green],['NEAT','STAGED',C.amber],['CONNECTWISE','TARGET',C.cyan]];
+    rows.forEach(([name,status,tone],i)=>{
+      const y=-210+i*210;
+      node(g,[-380,y,0],name,C.steel,t,i,{hx:82,hy:30,hz:38,font:10});
+      node(g,[380,y,0],status,tone,t,i+3,{hx:74,hy:30,hz:38,font:10});
+      wire(g,[-275,y,0],[275,y,0],C.steel);
+      const end=i===0?265:i===1?90:-85;
+      flow(g,[-270,y,0],[end,y,0],t,tone,i*.23,.16);
+      g.octa(end,y,0,16,tone,{alpha:.8});
+      if(i>0)g.box(220,y,0,4,42,45,C.amber,{wire:true,edge:.6});
+    });
+    heading(g,'RELEASE / DEPLOYMENT / RESTORATION');g.flush();
+  };
+
   scenes.storm = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];

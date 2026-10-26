@@ -1,20 +1,23 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
-**忙しい人向け（日本語・10/26 13:01 JST）：** サーバーの脆弱性だけでなく、正規の配布物・クラウドに預けた鍵・国内サービスにも影響が広がっています。自分が利用する製品と稼働版を確認し、更新・侵害調査・漏れた鍵の失効を優先。GMOのFX利用者は既存セッションも切断してください。**[日本語の1分要約と対応一覧](README_jp.md)**
+**忙しい人向け（日本語・10/26 14:56 JST）：** 公開システムの更新・侵害調査と、漏れた鍵の失効を継続。PAN-OSは追加hotfixの提供状況、.NETはBrotli解凍とNativeAOTの再配置、国内サービスは停止範囲と個別通知を確認してください。**[日本語の1分要約と対応一覧](README_jp.md)**
 
-## For busy readers — one minute (2026-10-26 13:01 JST cutoff)
+## For busy readers — one minute (2026-10-26 14:56 JST cutoff)
 
-**Patch exposed systems, investigate compromise, and revoke affected credentials.** The latest review covers Japanese and global breaches/outages, domestic advisories, bundled Brotli, local APIs and MCP. Read only the items relevant to your environment.
+**Patch exposed systems, investigate compromise, and revoke affected credentials.** This review adds conditional application flaws, checks downstream fixes, and separates service restoration from a restoration target.
 
-- **Public PHP / GitLab / PAN-OS and edge systems:** check the affected configuration and running version; patch and investigate together. [21-group response table](https://infosec-briefing.yomiplush.dev/update-20261026.html)
-- **LiteLLM / Railway / ConnectWise:** check affected keys, sessions, cloud permissions and provider logs; revoke and reissue credentials. [Continuing actions](docs/29-snapshot-20261026-1027.md)
-- **GMO Desktop Cloud used for FX:** change passwords from a separate trusted device and **disconnect all remaining trading sessions**. [Vendor notice](https://group.gmo/info/alert/2026102402/)
-- **V-SFT / MLIT delivery-inspection software / bundled Brotli:** check design files, installation permissions and downstream copies. For Continue/OpenBB, also check trusted MCP configuration and local API reachability. [New findings and actions](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html#delta)
-- **Tailscale / headscale:** review SSH, connection grants and Serve/Funnel separately. A **minimum Tailworm-fixed version remains unconfirmed here**; do not infer one from 1.104.2 / 0.29.6. [Feature report](https://infosec-briefing.yomiplush.dev/tailworm.html)
+- **PHP / GitLab / PAN-OS and edge systems:** keep patching and investigating. PAN-OS lists four more 11.1 hotfixes as released; match your release line. Its official JSON and CSAF histories disagree on the timestamp. [Vendor status](https://security.paloaltonetworks.com/CVE-2026-109618)
+- **Brotli in .NET:** exposure requires enabled or explicit decompression of untrusted data. Check 8.0.33 / 9.0.22 / 10.0.14; **NativeAOT needs republishing and redeployment**, beyond updating the shared runtime. [Microsoft advisory](https://github.com/dotnet/announcements/issues/494)
+- **GouGuOA / NocoDB / Halo / Zcode / Yoosee:** check authentication, reset tokens, templates, command approval and camera networking against the actual conditions. NocoDB has mitigation code in an October 15 commit; the minimum shipped fixed release remains unconfirmed. [Findings and limits](docs/research-collection-2026-10-26-1456.md)
+- **Japanese services / backups / devices:** SoftBank earthquake/tsunami alerts resumed; disaster/evacuation alerts remain paused. Blastmail remains stopped. Check Ahsay patch completeness and Neat’s staged certificate update. [Primary-source review](docs/research-2026-10-26-1456.md)
+- **LiteLLM / Railway / ConnectWise / GMO FX:** continue credential, permission and log checks. ConnectWise restoration goals do not authorize reconnection; GMO users must **disconnect remaining trading sessions** after changing passwords. [Continuing actions](docs/29-snapshot-20261026-1027.md) / [GMO notice](https://group.gmo/info/alert/2026102402/)
+- **Tailscale / headscale:** review SSH, connection grants and Serve/Funnel separately. A **minimum Tailworm-fixed version remains unconfirmed here**; do not infer one from 1.104.2 / 0.29.6. [12-language feature](https://infosec-briefing.yomiplush.dev/tailworm.html)
 
-**[日本語の1分要約](README_jp.md) · [Latest reading report (Japanese)](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html) · [Oldest-to-newest daily archive](https://infosec-briefing.yomiplush.dev/timeline.html) · [Primary-source research](docs/research-2026-10-26-1301.md) · [Structured register](data/2026-10-26-1301/incident-register.json)**
+**[日本語の1分要約](README_jp.md) · [Latest reading report (Japanese)](https://infosec-briefing.yomiplush.dev/update-20261026-1456.html) · [Oldest-to-newest archive](https://infosec-briefing.yomiplush.dev/timeline.html) · [Structured register](data/2026-10-26-1456/incident-register.json) · [Sources and retrieval](SOURCES.md)**
 
-**Collection:** 10:27–13:01 JST: NVD 8 published / 20 modified; GHSA 13, all unreviewed. These overlap and must not be summed into an incident count. The review has 18 topic groups including earlier incidents and one timestamp-unconfirmed reference. Retrieved after 13:04 JST; VALTEC's date-only October 26 follow-up is segregated from cutoff-proven findings. Publication, DB registration, exploitation, fixes and restoration targets are distinct. Absence from KEV does not establish safety.
+**Collection:** 13:01–14:56 JST: NVD **8 published / 11 modified, with all 8 overlapping**; GHSA **0 newly published** in the window. The register contains **7 delta / 8 earlier-scope / 3 timestamp-unconfirmed reference groups**, not 18 new incidents. **82 archived response records, including 15 references to unchanged earlier originals**, were hash-verified. Retrieval occurred after cutoff. PAN-OS timestamp disagreement is explicit; date-only eMudhra, Douzone and VALTEC follow-ups stay reference-only. Publication, DB registration, exploitation, fixes and restoration are distinct; absence from KEV does not establish safety.
+
+> **Previous review — 2026-10-26 13:01 JST:** [18-topic primary research](docs/research-2026-10-26-1301.md) / [register](data/2026-10-26-1301/incident-register.json) / [reading report](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html). V-SFT, MLIT installation permissions, Brotli downstream copies, Continue/OpenBB and domestic incidents. Window 10:27–13:01 JST: NVD 8 published / 20 modified, GHSA 13, all unreviewed and overlapping. Retrieved after cutoff; VALTEC’s date-only follow-up remained reference-only.
 
 ---
 
@@ -42,7 +45,7 @@
 
 ## 0. Historical quick reference — initial review (latest summary above)
 
-The following tables preserve the initial review. Use the 13:01 JST summary and current reading report above for present priorities.
+The following tables preserve the initial review. Use the 14:56 JST summary and current reading report above for present priorities.
 (For a wider "what else is critical right now", see [`docs/13`](docs/13-recent-criticals.md).)
 
 ### 0-1. Today (this is already happening)

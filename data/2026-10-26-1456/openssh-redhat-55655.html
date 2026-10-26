@@ -1,0 +1,347 @@
+{
+  "threat_severity" : "Moderate",
+  "public_date" : "2026-06-22T23:22:11Z",
+  "bugzilla" : {
+    "description" : "openssh: Local MITM of X11 forwarding via abstract UNIX socket pre-binding in Red Hat Enterprise Linux OpenSSH client versions",
+    "id" : "2462250",
+    "url" : "https://bugzilla.redhat.com/show_bug.cgi?id=2462250"
+  },
+  "cvss3" : {
+    "cvss3_base_score" : "5.0",
+    "cvss3_scoring_vector" : "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:L/A:N",
+    "status" : "verified"
+  },
+  "cwe" : "CWE-923",
+  "details" : [ "A flaw was found in OpenSSH. A local unprivileged attacker on a Linux client host can hijack client-side X11 forwarding connections. This is possible by pre-binding the preferred abstract X socket name when X11 forwarding is enabled and a local UNIX-domain X socket is used. A successful attack can compromise the confidentiality of forwarded X11 traffic, including sensitive window contents and input, and may allow some manipulation of the forwarded session.", "A flaw was found in OpenSSH. A local unprivileged attacker on a Linux client host can hijack client-side X11 forwarding connections. This is possible by pre-binding the preferred abstract X socket name when X11 forwarding is enabled and a local UNIX-domain X socket is used. A successful attack can compromise the confidentiality of forwarded X11 traffic, including sensitive window contents and input, and may allow some manipulation of the forwarded session." ],
+  "statement" : "This is a Moderate severity flaw. The OpenSSH client in Red Hat Enterprise Linux is vulnerable to a local man-in-the-middle attack on X11 forwarding connections. Exploitation requires an attacker to have local unprivileged access on the client system and for X11 forwarding to be explicitly enabled and in use, which is not a default configuration. The attack can compromise the confidentiality of forwarded X11 traffic. This vulnerability doesn't affect the upstream OpenSSH versions and is restricted to the versions as shipped with Red Hat Enterprise Linux.",
+  "acknowledgement" : "This issue was discovered by In partnership with Red Hat (Aisle.com).",
+  "affected_release" : [ {
+    "product_name" : "Red Hat Enterprise Linux 10",
+    "release_date" : "2026-07-30T00:00:00Z",
+    "advisory" : "RHSA-2026:47757",
+    "cpe" : "cpe:/o:redhat:enterprise_linux:10.2",
+    "package" : "openssh-0:9.9p1-25.el10_2"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 10.0 Extended Update Support",
+    "release_date" : "2026-10-06T00:00:00Z",
+    "advisory" : "RHSA-2026:76748",
+    "cpe" : "cpe:/o:redhat:enterprise_linux_eus:10.0",
+    "package" : "openssh-0:9.9p1-7.el10_0.5"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 8",
+    "release_date" : "2026-07-30T00:00:00Z",
+    "advisory" : "RHSA-2026:47755",
+    "cpe" : "cpe:/a:redhat:enterprise_linux:8",
+    "package" : "openssh-0:8.0p1-30.el8_10"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 8",
+    "release_date" : "2026-07-30T00:00:00Z",
+    "advisory" : "RHSA-2026:47755",
+    "cpe" : "cpe:/o:redhat:enterprise_linux:8",
+    "package" : "openssh-0:8.0p1-30.el8_10"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 9",
+    "release_date" : "2026-07-29T00:00:00Z",
+    "advisory" : "RHSA-2026:47756",
+    "cpe" : "cpe:/a:redhat:enterprise_linux:9",
+    "package" : "openssh-0:9.9p1-9.el9_8"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 9",
+    "release_date" : "2026-07-29T00:00:00Z",
+    "advisory" : "RHSA-2026:47756",
+    "cpe" : "cpe:/o:redhat:enterprise_linux:9",
+    "package" : "openssh-0:9.9p1-9.el9_8"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 9.4 Update Services for SAP Solutions",
+    "release_date" : "2026-10-07T00:00:00Z",
+    "advisory" : "RHSA-2026:76993",
+    "cpe" : "cpe:/a:redhat:rhel_e4s:9.4",
+    "package" : "openssh-0:8.7p1-38.el9_4.10"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 9.6 Extended Update Support",
+    "release_date" : "2026-10-12T00:00:00Z",
+    "advisory" : "RHSA-2026:80513",
+    "cpe" : "cpe:/a:redhat:rhel_eus:9.6",
+    "package" : "openssh-0:8.7p1-45.el9_6.5"
+  }, {
+    "product_name" : "Red Hat Hardened Images",
+    "release_date" : "2026-07-08T00:00:00Z",
+    "advisory" : "RHSA-2026:36759",
+    "cpe" : "cpe:/a:redhat:hummingbird:1",
+    "package" : "openssh-main-10.3p1-6.hum1"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.0",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82751",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.0::el9",
+    "package" : "rhai/base-image-cuda-rhel9:1791818590"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.0",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82761",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.0::el9",
+    "package" : "rhai/base-image-cpu-rhel9:1791818589"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.0",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82903",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.0::el9",
+    "package" : "rhai/base-image-spyre-rhel9:1791818505"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.0",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82904",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.0::el9",
+    "package" : "rhai/base-image-tpu-rhel9:1791818496"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.0",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82914",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.0::el9",
+    "package" : "rhai/base-image-rocm-rhel9:1791818502"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.2",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82750",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.2::el9",
+    "package" : "rhai/base-image-spyre-rhel9:1791818602"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.2",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82759",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.2::el9",
+    "package" : "rhai/base-image-cpu-rhel9:1791818598"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.2",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82920",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.2::el9",
+    "package" : "rhai/base-image-tpu-rhel9:1791818512"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.2",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82921",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.2::el9",
+    "package" : "rhai/base-image-cuda-rhel9:1791818587"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.2",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82922",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.2::el9",
+    "package" : "rhai/base-image-rocm-rhel9:1791818778"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.2",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82923",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.2::el9",
+    "package" : "rhai/base-image-rocm-rhel9:1791818512"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82754",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-tpu-rhel9:1791818782"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82755",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-rocm-6.4-rhel9:1791818782"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82758",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-cuda-12.9-rhel9:1791818627"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82762",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-rocm-7.0-rhel9:1791818790"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82902",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-cpu-rhel9:1791818874"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82907",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-neuron-rhel9:1791818792"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82913",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-cuda-13.0-rhel9:1791818662"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.3",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82917",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.3::el9",
+    "package" : "rhai/base-image-spyre-rhel9:1791818877"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82749",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-neuron-rhel9:1791883722"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82752",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-cuda-12.9-rhel9:1791881612"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82753",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-cpu-rhel9:1791885618"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82756",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-rocm-6.4-rhel9:1791881487"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82897",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-spyre-rhel9:1791881732"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82898",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-rocm-7.1-rhel9:1791883315"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82899",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-gaudi-rhel9:1791881486"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82900",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-tpu-rhel9:1791881769"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.4",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82901",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.4::el9",
+    "package" : "rhai/base-image-cuda-13.0-rhel9:1791885505"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82757",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-spyre-rhel9:1791819252"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82763",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-gaudi-rhel9:1791818749"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82908",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-cpu-rhel9:1791819206"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82909",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-neuron-rhel9:1791818979"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82910",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-rocm-7.14-rhel9:1791819123"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82912",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-tpu-rhel9:1791818901"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82915",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-rubin-rhel9:1791820333"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82916",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-cuda-13.0-rhel9:1791819495"
+  }, {
+    "product_name" : "Red Hat OpenShift AI 3.5",
+    "release_date" : "2026-10-14T00:00:00Z",
+    "advisory" : "RHSA-2026:82918",
+    "cpe" : "cpe:/a:redhat:openshift_ai:3.5::el9",
+    "package" : "rhai/base-image-cuda-12.9-rhel9:1791819104"
+  }, {
+    "product_name" : "Red Hat Update Infrastructure 5",
+    "release_date" : "2026-08-12T00:00:00Z",
+    "advisory" : "RHSA-2026:54387",
+    "cpe" : "cpe:/a:redhat:rhui:5::el9",
+    "package" : "rhui5/installer-rhel9:1786435483"
+  }, {
+    "product_name" : "Red Hat Update Infrastructure 5",
+    "release_date" : "2026-08-12T00:00:00Z",
+    "advisory" : "RHSA-2026:54387",
+    "cpe" : "cpe:/a:redhat:rhui:5::el9",
+    "package" : "rhui5/rhua-rhel9:1786533529"
+  }, {
+    "product_name" : "Red Hat Update Infrastructure 5",
+    "release_date" : "2026-08-24T00:00:00Z",
+    "advisory" : "RHSA-2026:58981",
+    "cpe" : "cpe:/a:redhat:rhui:5::el9",
+    "package" : "rhui5/installer-tp-rhel9:1787135742"
+  }, {
+    "product_name" : "Red Hat Update Infrastructure 5",
+    "release_date" : "2026-08-24T00:00:00Z",
+    "advisory" : "RHSA-2026:58981",
+    "cpe" : "cpe:/a:redhat:rhui:5::el9",
+    "package" : "rhui5/rhua-tp-rhel9:1787241260"
+  } ],
+  "package_state" : [ {
+    "product_name" : "Red Hat Enterprise Linux 6",
+    "fix_state" : "Affected",
+    "package_name" : "openssh",
+    "cpe" : "cpe:/o:redhat:enterprise_linux:6"
+  }, {
+    "product_name" : "Red Hat Enterprise Linux 7",
+    "fix_state" : "Affected",
+    "package_name" : "openssh",
+    "cpe" : "cpe:/o:redhat:enterprise_linux:7"
+  }, {
+    "product_name" : "Red Hat OpenShift Container Platform 4",
+    "fix_state" : "Under investigation",
+    "package_name" : "openshift/ose-rhel-coreos-8",
+    "cpe" : "cpe:/a:redhat:openshift:4"
+  }, {
+    "product_name" : "Red Hat OpenShift Container Platform 4",
+    "fix_state" : "Under investigation",
+    "package_name" : "openshift/ose-rhel-coreos-9",
+    "cpe" : "cpe:/a:redhat:openshift:4"
+  } ],
+  "references" : [ "https://www.cve.org/CVERecord?id=CVE-2026-55655\nhttps://nvd.nist.gov/vuln/detail/CVE-2026-55655" ],
+  "name" : "CVE-2026-55655",
+  "mitigation" : {
+    "value" : "To mitigate this issue, disable X11 forwarding on OpenSSH clients when it is not required. This can be achieved by avoiding the use of `-X` or `-Y` options when invoking `ssh`, or by setting `ForwardX11 no` in the SSH client configuration file (`~/.ssh/config` or `/etc/ssh/ssh_config`). Disabling X11 forwarding will prevent the client from attempting to establish X11 connections, thereby removing the attack vector.",
+    "lang" : "en:us"
+  },
+  "csaw" : false
+}

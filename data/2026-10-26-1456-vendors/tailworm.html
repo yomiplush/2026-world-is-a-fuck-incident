@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tailworm</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<canvas id="dust" aria-hidden="true"></canvas>
+<details class="mobile-menu">
+ <summary>Tailworm</summary>
+ <nav>
+<a href="#researchers-note">Researchers note</a>
+<a href="#security-assessment-report-tailscale-v1-104-2-and-">Security Assessment Report — Tailscale v1.104.2 and headscale v0.29.5</a>
+<a href="#high-level-summary">High-level summary</a>
+<a href="#executive-summary-for-business-readers">Executive summary for business readers</a>
+<a href="#findings-and-verified-reproductions">Findings and verified reproductions</a>
+<a href="#background-the-authentication-model-that-findings-" class="lvl3">Background: the authentication model that findings 1–3 build on</a>
+<a href="#background-recon-and-enumeration-available-to-an-a" class="lvl3">Background: recon and enumeration available to an attacker</a>
+<a href="#background-app-connectors-and-the-conn25-feature" class="lvl3">Background: app connectors and the conn25 feature</a>
+<a href="#finding-1-t3-ssh-l-unix-socket-forwarding-dials-as" class="lvl3">Finding 1 (T3) — ssh -L unix-socket forwarding dials as root (writes to root-only sockets) — Severity: High</a>
+<a href="#finding-2-t2-ssh-r-unix-socket-forwarding-replaces" class="lvl3">Finding 2 (T2) — ssh -R unix-socket forwarding replaces root-owned sockets (BindUnlink) — Severity: High</a>
+<a href="#finding-3-t2-race-t3-race-toctou-defeats-the-path-" class="lvl3">Finding 3 (T2-RACE / T3-RACE) — TOCTOU defeats the path allowlist (bind and dial sides) — Severity: High</a>
+<a href="#finding-4-c1-conn25-a-user-entitlement-confers-unr" class="lvl3">Finding 4 (C1) — conn25: a user entitlement confers unrestricted egress selection through the connector (privilege-boundary flaw) — Severity: High</a>
+<a href="#finding-5-t1-gliderssh-session-pin-root-tailscaled" class="lvl3">Finding 5 (T1) — gliderssh session pin: root-tailscaled OOM loop — Severity: High</a>
+<a href="#finding-6-headscale-v0-29-5-c2-c4-memory-exhaustio" class="lvl3">Finding 6 — headscale v0.29.5: C2/C4 (memory exhaustion) + C3 upstream client bomb — Severity: Medium-High</a>
+<a href="#socket-target-variations" class="lvl3">Socket-target variations</a>
+<a href="#finding-7-serve-f-1-serve-tcp-to-the-localapi-sock" class="lvl3">Finding 7 (SERVE-F-1) — serve --tcp to the localapi socket: remote permit-write localapi — Severity: High</a>
+<a href="#finding-8-serve-f-2-istailscaledsocket-guard-is-co" class="lvl3">Finding 8 (SERVE-F-2) — isTailscaledSocket guard is config-time-only (TOCTOU) — Severity: Medium (contained)</a>
+<a href="#finding-9-serve-f-3-funnel-entitlement-enforcement" class="lvl3">Finding 9 (SERVE-F-3) — funnel entitlement enforcement is peer-cap + local config only (the node attribute is CLI-only) — Severity: Medium (threat-model finding)</a>
+<a href="#finding-10-serve-f-4-ts-serve-allow-all-interfaces" class="lvl3">Finding 10 (SERVE-F-4) — TS_SERVE_ALLOW_ALL_INTERFACES exposes serve outside the tunnel bind — Configuration note</a>
+<a href="#finding-11-serve-f-5-h2-shared-serve-context-race-" class="lvl3">Finding 11 (SERVE-F-5) — h2 shared serve-context race: cross-mount capability bleed → mount-level authorization bypass — Severity: Medium within header-authorization deployments; Low-Medium otherwise</a>
+<a href="#serve-funnel-clean-negatives-evidence-findings-md-" class="lvl3">Serve/funnel clean negatives (evidence + FINDINGS.md in poc-servefunnel/)</a>
+<a href="#negative-results-measured" class="lvl3">Negative results (measured)</a>
+<a href="#class-context-comparative-audit">Class context (comparative audit)</a>
+<a href="#check-mode-time-based-access-grants-scope-and-limi">Check mode (time-based access grants): scope and limits</a>
+<a href="#recommended-remediation">Recommended remediation</a>
+<a href="#interim-mitigations-for-operators-unpatched-deploy" class="lvl3">Interim mitigations for operators (unpatched deployments)</a>
+<a href="#vendor-side-root-cause-fixes-for-the-maintainers-n" class="lvl3">Vendor-side root-cause fixes (for the maintainers; not operator-actionable)</a>
+ </nav>
+</details>
+<div class="shell">
+<aside>
+ <a class="brand" href="#top">Tailworm</a>
+ <nav>
+<a href="#researchers-note">Researchers note</a>
+<a href="#security-assessment-report-tailscale-v1-104-2-and-">Security Assessment Report — Tailscale v1.104.2 and headscale v0.29.5</a>
+<a href="#high-level-summary">High-level summary</a>
+<a href="#executive-summary-for-business-readers">Executive summary for business readers</a>
+<a href="#findings-and-verified-reproductions">Findings and verified reproductions</a>
+<a href="#background-the-authentication-model-that-findings-" class="lvl3">Background: the authentication model that findings 1–3 build on</a>
+<a href="#background-recon-and-enumeration-available-to-an-a" class="lvl3">Background: recon and enumeration available to an attacker</a>
+<a href="#background-app-connectors-and-the-conn25-feature" class="lvl3">Background: app connectors and the conn25 feature</a>
+<a href="#finding-1-t3-ssh-l-unix-socket-forwarding-dials-as" class="lvl3">Finding 1 (T3) — ssh -L unix-socket forwarding dials as root (writes to root-only sockets) — Severity: High</a>
+<a href="#finding-2-t2-ssh-r-unix-socket-forwarding-replaces" class="lvl3">Finding 2 (T2) — ssh -R unix-socket forwarding replaces root-owned sockets (BindUnlink) — Severity: High</a>
+<a href="#finding-3-t2-race-t3-race-toctou-defeats-the-path-" class="lvl3">Finding 3 (T2-RACE / T3-RACE) — TOCTOU defeats the path allowlist (bind and dial sides) — Severity: High</a>
+<a href="#finding-4-c1-conn25-a-user-entitlement-confers-unr" class="lvl3">Finding 4 (C1) — conn25: a user entitlement confers unrestricted egress selection through the connector (privilege-boundary flaw) — Severity: High</a>
+<a href="#finding-5-t1-gliderssh-session-pin-root-tailscaled" class="lvl3">Finding 5 (T1) — gliderssh session pin: root-tailscaled OOM loop — Severity: High</a>
+<a href="#finding-6-headscale-v0-29-5-c2-c4-memory-exhaustio" class="lvl3">Finding 6 — headscale v0.29.5: C2/C4 (memory exhaustion) + C3 upstream client bomb — Severity: Medium-High</a>
+<a href="#socket-target-variations" class="lvl3">Socket-target variations</a>
+<a href="#finding-7-serve-f-1-serve-tcp-to-the-localapi-sock" class="lvl3">Finding 7 (SERVE-F-1) — serve --tcp to the localapi socket: remote permit-write localapi — Severity: High</a>
+<a href="#finding-8-serve-f-2-istailscaledsocket-guard-is-co" class="lvl3">Finding 8 (SERVE-F-2) — isTailscaledSocket guard is config-time-only (TOCTOU) — Severity: Medium (contained)</a>
+<a href="#finding-9-serve-f-3-funnel-entitlement-enforcement" class="lvl3">Finding 9 (SERVE-F-3) — funnel entitlement enforcement is peer-cap + local config only (the node attribute is CLI-only) — Severity: Medium (threat-model finding)</a>
+<a href="#finding-10-serve-f-4-ts-serve-allow-all-interfaces" class="lvl3">Finding 10 (SERVE-F-4) — TS_SERVE_ALLOW_ALL_INTERFACES exposes serve outside the tunnel bind — Configuration note</a>
+<a href="#finding-11-serve-f-5-h2-shared-serve-context-race-" class="lvl3">Finding 11 (SERVE-F-5) — h2 shared serve-context race: cross-mount capability bleed → mount-level authorization bypass — Severity: Medium within header-authorization deployments; Low-Medium otherwise</a>
+<a href="#serve-funnel-clean-negatives-evidence-findings-md-" class="lvl3">Serve/funnel clean negatives (evidence + FINDINGS.md in poc-servefunnel/)</a>
+<a href="#negative-results-measured" class="lvl3">Negative results (measured)</a>
+<a href="#class-context-comparative-audit">Class context (comparative audit)</a>
+<a href="#check-mode-time-based-access-grants-scope-and-limi">Check mode (time-based access grants): scope and limits</a>
+<a href="#recommended-remediation">Recommended remediation</a>
+<a href="#interim-mitigations-for-operators-unpatched-deploy" class="lvl3">Interim mitigations for operators (unpatched deployments)</a>
+<a href="#vendor-side-root-cause-fixes-for-the-maintainers-n" class="lvl3">Vendor-side root-cause fixes (for the maintainers; not operator-actionable)</a>
+ </nav>
+</aside>
+<main id="top">
+
+<div class="hero">
+ <h1>Tailworm</h1>
+ <p class="sub">we have zero-trust in our infrastructure</p>
+</div>
+<section><h2 id="researchers-note">Researchers note</h2>
+<p>The design choices of the open source tailscale and headscale software
+have created an environment ripe for risk, while marketing security as its design and purpose.
+Choices have been made to move away from security-in-depth, removing layers of authentication,
+and replacing daemons such as OpenSSH which employ privilege-separation with a highly-privileged
+process. Other findings include broader-than-advertised network security boundaries, which
+seems to be legitimate bugs, but the missing security and isolation is precisely what users
+are advertised by these tools.</p>
+<p>Regarding disclosure timelines, it is of the researcher's opinion that infrastructure is
+vulnerable today. This report strictly audits the open source software provided to users
+under no condition of warranty per the BSD-3 license. As such, the researchers, and the users,
+are effectively developers of said software per its open source nature.</p>
+<p>The software in question has a corporate sponsor. Tailscale Inc., is a for-profit organization
+employing developers to build secure software. The researchers are not associated with the
+Tailscale corporation, are not employed by said organization, and have not been contracted 
+or paid to conduct or report this research. All research was performed against open source software
+on the systems and devices of the researchers.</p>
+<p>It is the opinion of the researchers that rapid awareness of these flaws will expediate remediation
+across impacted devices. These vulnerabilities were not introduced by the researchers, but were
+discovered, and discovered with low effort.</p>
+<p class="sig">-- Erica Windisch, <a href="https://www.cyberdione.com">Cyberdione Labs Corporation</a></p></section>
+<section><h2 id="security-assessment-report-tailscale-v1-104-2-and-">Security Assessment Report — Tailscale v1.104.2 and headscale v0.29.5</h2>
+<p><strong>Testing window:</strong> 2026-10-22 to 2026-10-24. All findings were verified by reproduction in a
+lab environment on unmodified, released software (tailscale v1.104.2, headscale v0.29.5).
+Lab and organizational identifiers are redacted.
+<strong>Finding identifiers:</strong> T1–T3, C1–C4, and F-1–F-5 are internal audit labels, retained so the
+reproduction kits can be cross-referenced.</p></section>
+<section><h2 id="high-level-summary">High-level summary</h2>
+<p><strong>What was audited.</strong> Tailscale client agent v1.104.2 (tailscaled, its embedded Tailscale SSH
+server, its serve/funnel feature, and its DERP relay client), the headscale v0.29.5 self-hosted
+control server, the gliderssh library both build on, and the experimental conn25 app-connector
+feature. Findings fall into five classes; each names the component it affects.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Component / feature</th>
+<th>Mechanism (what breaks)</th>
+<th>Attacker requirement</th>
+<th>Principal outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Tailscale SSH</strong> (tailscaled's embedded SSH server, running as root)</td>
+<td>Unix-socket forwarding (<code>ssh -R</code>/<code>-L</code>) performs path checks and file operations as root; races and missing privilege drop let an ordinary session replace, dial, or delete privileged resources</td>
+<td>One approved device + one SSH policy rule (forwarding granted automatically on headscale; per-rule on SaaS)</td>
+<td>Root execution on target servers; capture of enrollment keys; arbitrary root-file deletion</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Tailscale app connectors</strong> (conn25, experimental)</td>
+<td>Connector translates traffic to attacker-chosen destinations with no validation; network ACLs are never consulted for the true destination</td>
+<td>A device granted the connector capability</td>
+<td>Reach cloud metadata (credential theft), internal LANs, and — in Kubernetes — every cluster service</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>headscale control server</strong> (self-hosted deployments)</td>
+<td>Unauthenticated resource exhaustion (memory growth, cache eviction)</td>
+<td>Internet reachability; no account</td>
+<td>Control-server crash loop; blocking of new-device onboarding org-wide</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Tailscale DERP client</strong> (relay connection in every agent)</td>
+<td>Unbounded read of a malicious relay's response</td>
+<td>Ability to position/point a client at a hostile relay</td>
+<td>Client-agent memory exhaustion</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>tailscale serve</strong> (local service exposure)</td>
+<td>TCP-forward to a unix socket lacks a guard present on the HTTP path; plus a race in per-mount authorization</td>
+<td>Operator configures the forward (or a peer races the mount check)</td>
+<td>Remote administrative-API access to the node; minority of requests bypass app authz</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How initial intrusion plausibly occurs.</strong> Class 1 assumes the attacker already holds a
+foothold on one device — which happens the ordinary ways: an exploited web application (a
+vulnerable PHP page or CMS plugin), a malicious build dependency (npm/PyPI package, Docker
+base image, GitHub Action), a phishing implant, a supply-chain compromise, or stolen identity
+credentials. Tailscale does not create the foothold; the finding is that the mesh converts one
+ordinary foothold into fleet-wide privileged access at machine speed, because inter-device
+paths are granted by policy that assumes trusted endpoints while the agent's privileged
+operations are reachable from unprivileged sessions.</p>
+<p><strong>Practical risk in default deployments.</strong> With Tailscale SSH enabled (opt-in per node, often
+fleet-wide): one compromised account reaches root on other servers (class 1) and, in default
+(Tailnet-Lock-disabled) configurations, joins an attacker machine as a legitimate tagged
+server with routes auto-approved. With app connectors configured: policy-invisible reach into
+cloud credentials and Kubernetes services (class 2). With a self-hosted, internet-reachable
+headscale: unauthenticated crash loop and onboarding lockout (class 3). Any client pointed at
+a hostile relay: agent exhaustion (class 4). Any node with the serve forward configured:
+remote admin-API exposure (class 5).</p>
+<p><strong>Wormability.</strong> Measured in a lab: policy-granted Tailscale SSH plus class-1 findings allow
+automated spread to every device the policy permits — no passwords, no stolen keys, no user
+interaction, under a second per hop. Two structural limits held: per-pair access grants bound
+the spread (the single control that stopped it), and hardware-bound device credentials
+(TPM/Secure Enclave) prevent the identity theft that makes compromise persist. All other
+controls changed visibility speed, not spread.</p>
+<p><strong>Mitigations, in order of effect.</strong> (1) Per-pair SSH grants — never identity-wide or tag-wide
+accept rules. (2) Disable SSH forwarding: on SaaS, set the per-rule forwarding fields to
+false; on headscale v0.29.5 forwarding cannot be disabled — it is granted unconditionally on
+every accepted session, so until fixed, treat every headscale SSH grant as root-equivalent.
+Restricting SSH to non-privileged accounts is defense-in-depth only — it does not mitigate
+these findings, which operate from fully unprivileged accounts. (3) Node-key expiry on server fleets; TPM/Secure-Enclave-bound
+agent state. (4) Keep security telemetry on infrastructure a compromised server cannot reach —
+self-tested, with coverage reporting. (5) Restrict connector entitlements; destination
+allowlists or Kubernetes default-deny egress on the connector namespace. (6) Incident response
+built on device deletion at the control plane: a node's keys live in a file an attacker with
+root can copy, and reimaging the host does not revoke an already-stolen copy — only
+control-plane deletion (or key expiry) does. (7) Self-hosted control planes: memory limits, restart supervision,
+registration-rate throttling. Vendor fixes are small and precedented (OpenSSH, Dropbear); the
+above protects you before and after they ship.</p></section>
+<section><h2 id="executive-summary-for-business-readers">Executive summary for business readers</h2>
+<ol>
+<li><strong>Race conditions in Tailscale SSH socket handling (findings 1–3, 7).</strong> A person with
+   ordinary approved access to a server over the corporate mesh can — without passwords,
+   administrative rights, or special software — take over the internal communication channels
+   that the most privileged services on that server use, including the container platform and
+   the init system. Demonstrations yielded full administrator control and, separately, capture
+   of the credentials that enroll new devices. Exposure exists wherever Tailscale SSH is
+   enabled; the fix is small and already proven in two competing products.</li>
+<li><strong>Forwarding features run with full system privilege (findings 1, 3–5).</strong> The same approved
+   user can redirect traffic in ways security policy never sees: reaching admin tools
+   "protected" only by listening on the machine's internal interface, opening listener ports
+   on the machine's public address, and reading files only the OS should read.</li>
+<li><strong>Device-enrollment credential theft closes the loop (full impact chain).</strong> With the socket
+   takeover, an attacker captures the keys that add machines to the network and joins their own
+   machine — appearing as a legitimate tagged server with routes auto-approved. In default
+   configurations this converts one compromised account into persistent, official-looking
+   network presence.</li>
+<li><strong>The app-connector feature bypasses network policy (finding 4).</strong> A validation gap lets
+   approved users route traffic to destinations the security team never authorized — including
+   the cloud metadata service that hands out server credentials, and in Kubernetes every
+   internal service.</li>
+<li><strong>Denial-of-service and lockout (findings 5–6).</strong> An unauthenticated internet user can
+   exhaust the control server's memory or evict legitimate device approvals — blocking new
+   devices from joining. Availability attacks, not data theft, but they can take remote-access
+   infrastructure offline.</li>
+<li><strong>A serving feature exposes the local admin API (finding 7).</strong> A one-line configuration
+   exposes the agent's administrative interface to remote peers — the server's management
+   console — and a related race lets a minority of requests bypass application permission
+   checks.</li>
+<li><strong>Spend terms.</strong> Entry requirements are ordinary: one approved account, or for the DoS
+   items no account at all. Fixes concentrate in three places — per-pair access rules,
+   hardware-bound credentials, and telemetry out of the compromised host's reach —
+   process changes more than purchases, detailed in the remediation sections below.</li>
+</ol></section>
+<section><h2 id="findings-and-verified-reproductions">Findings and verified reproductions</h2></section>
+<section><h3 id="background-the-authentication-model-that-findings-">Background: the authentication model that findings 1–3 build on</h3>
+<p>Tailscale SSH performs no user-level authentication. The SSH protocol's authentication phase
+completes with method <code>none</code>: the WireGuard layer has already cryptographically identified the
+<em>device</em>, and that device identity — not a password, key pair, or user credential — is what the
+SSH policy evaluates. Authorization is therefore exactly one policy rule (source device to
+target device, with target accounts named in the rule), and a session established under this
+model carries the forwarding capabilities of findings 1–3 for its lifetime. Two consequences
+for threat modeling: an attacker needs no credential material beyond a foothold on any
+policy-permitted device; and device compromise is user-agnostic — the malware of any user on
+an entitled device speaks with the device's full authorization. This model is also what makes
+the wormability measured below possible: propagation required no passwords and no stolen keys.</p></section>
+<section><h3 id="background-recon-and-enumeration-available-to-an-a">Background: recon and enumeration available to an attacker</h3>
+<p>Two design properties give an attacker complete targeting knowledge at zero risk of detection:</p>
+<ol>
+<li><strong>Peer enumeration is unconditional.</strong> Every node receives the full tailnet peer list
+   (device names, addresses, tags) regardless of what the access policy permits it to reach.
+   An attacker on any single device can enumerate every potential target in the organization
+   from its own local state.</li>
+<li><strong>Reachability probing is silent and three-valued.</strong> A connection attempt to any peer
+   distinguishes policy-dropped (timeout — ACL denies), policy-rejected (fast refusal — the
+   agent answers but the rule set denies), and permitted (the service answers). Probing all
+   peers in parallel maps the entire reachable envelope — what the policy actually allows —
+   in minutes, with no alert generated anywhere (each probe is, as far as any sensor can see,
+   an ordinary failed or successful connection).</li>
+</ol>
+<p>Together these mean an attacker's targeting is not discovery-limited: the mesh hands them the
+target list, and a quiet sweep hands them the policy map. Findings 1–4 then convert that map
+into access.</p></section>
+<section><h3 id="background-app-connectors-and-the-conn25-feature">Background: app connectors and the conn25 feature</h3>
+<p>Tailscale's app-connector facility lets an organization route traffic to external SaaS
+services (or internal applications) through designated gateway devices, so that access to
+those services appears to come from the organization's addresses and can be governed in one
+place. Administrators designate <em>connector</em> devices, define the <em>apps</em> (named service
+definitions, typically domains), and grant selected devices an entitlement to use a given
+app through the connector. In intended operation, a client resolves an app's domain, is
+directed to a connector, and the connector forwards the flow to the app's real destination.</p>
+<p><code>conn25</code> is a redesigned connector mechanism (present but experimental in v1.104.2) built on
+per-flow mappings: an entitled client <em>registers</em> a mapping with the connector over the
+tailnet's peer API — "when I send traffic to transit address X, translate it to real
+destination Y" — and the connector installs packet-filter rules and performs the translation
+in its data path. Two implementation properties matter to finding 4: the client-supplied
+destination Y is validated only for address family (never against the app's configured
+destinations), and the connector's ingress rules accept transit-pool traffic <em>before</em>
+the tailnet's access-control evaluation runs. In production the mechanism is deployed
+principally through the Kubernetes operator, which runs connector pods with full container
+privileges positioned across the cluster's service and pod networks.</p>
+<p>For threat modeling: the entitlement an administrator grants is "this device may use app X
+through the connector" — but nothing in the implementation binds translated destinations to
+app X. The reader should assess finding 4 with that gap in mind: the feature delegates
+routing decisions to the client while the authorization decision was made about the app.</p></section>
+<section><h3 id="finding-1-t3-ssh-l-unix-socket-forwarding-dials-as">Finding 1 (T3) — <code>ssh -L</code> unix-socket forwarding dials as root (writes to root-only sockets) — Severity: High</h3>
+<p><strong>Affected component / version:</strong> Tailscale SSH server in <code>tailscaled</code> v1.104.2 (gliderssh
+streamlocal local forwarding).
+<strong>Prerequisites:</strong> an SSH policy rule accepting the attacker's connection to the target, with
+local forwarding permitted. No sudo, docker-group membership, or victim-side daemon access is
+required.</p>
+<p>An authenticated peer with an SSH policy rule permitting local forwarding can cause the
+root-privileged <code>tailscaled</code> process to connect, on the peer's behalf, to unix sockets
+restricted to root:</p>
+<pre><code>ssh -fNT -L /tmp/relay.sock:/tmp/docker.sock user@target   # dockerd at an allowlisted-dir socket
+docker -H unix:///tmp/relay.sock run --rm -v /:/host busybox sh -c 'id; head -c 40 /host/etc/shadow'
+</code></pre>
+<p><strong>Verified result:</strong> <code>uid=0(root)</code> plus <code>/etc/shadow</code> contents, in 0 s measured elapsed time,
+with no sudo, docker group, or victim daemon involved.
+<strong>Scope note:</strong> the static path allowlist {home, /tmp, /run/user} is bypassed by finding 3.
+<strong>Reproduction:</strong> <code>poc-docker/tailscale-privesc.sh</code> — a single-command demonstration of
+finding 1 (negative control plus exploitation chain), shipped byte-exact as originally
+authored per the operator, for hash continuity with the previously published commitment.
+sha256: <code>c84d461603a2b48023606149b6808e3dfc0733abc6cc38d4b52e0618c3851a2d</code>
+<strong>Remediation:</strong> see "Recommended remediation" (findings 1–3 share one root cause).</p></section>
+<section><h3 id="finding-2-t2-ssh-r-unix-socket-forwarding-replaces">Finding 2 (T2) — <code>ssh -R</code> unix-socket forwarding replaces root-owned sockets (BindUnlink) — Severity: High</h3>
+<p><strong>Affected component / version:</strong> Tailscale SSH server in <code>tailscaled</code> v1.104.2 (gliderssh
+streamlocal remote forwarding; BindUnlink behavior).
+<strong>Prerequisites:</strong> as finding 1, with remote forwarding permitted.
+<strong>Impact:</strong> the root-privileged <code>tailscaled</code> unlinks a sticky-directory-protected,
+root-owned socket and binds the attacker's forwarding listener at that path, impersonating
+the service. For command-channel daemons this is direct root code execution (verified: one
+crafted message → uid=0). For Docker: cleartext registry-credential capture (cleartext POST
+observed) plus control over pulls of unpinned tags; host root requires a further engagement
+step (tag poisoning using the captured credentials).
+<strong>Reproduction:</strong> <code>poc-docker/</code> (environment setup, both commands, expected outputs; verified
+lab demonstration).
+<strong>Remediation:</strong> see "Recommended remediation" (findings 1–3 share one root cause).</p></section>
+<section><h3 id="finding-3-t2-race-t3-race-toctou-defeats-the-path-">Finding 3 (T2-RACE / T3-RACE) — TOCTOU defeats the path allowlist (bind and dial sides) — Severity: High</h3>
+<p><strong>Affected component / version:</strong> Tailscale SSH server in <code>tailscaled</code> v1.104.2
+(<code>validateAndResolve{Listen,Socket}Path</code> path validation in gliderssh).
+<strong>Prerequisites:</strong> as findings 1–2 (an SSH accept rule with forwarding permitted; the racer
+runs unprivileged inside the attacker's SSH session).</p>
+<p><code>validateAndResolve{Listen,Socket}Path</code> validates the lexical path at check time; the
+unlink/bind and the dial occur later, when the kernel re-resolves the path. A rename(2)
+race loop (~170k path-state flips/s) running in the SSH session can win the check-to-use
+gap:
+- <strong>Bind side:</strong> the root <code>tailscaled</code> unlinked the live root-owned control socket under
+  /run and bound the attacker's forward at the real path (0600 listener fingerprint); root
+  CLI localapi traffic was forwarded off-host; a byte-exact <code>POST /localapi/v0/start</code>
+  containing an authkey was captured (enrollment not executed). Reproduction:
+  <code>poc-t2race/</code> (racer.py + attack.sh; expected: victim socket inode replaced, captured
+  request in capture.log).
+- <strong>End-to-end root execution via raced stock dockerd (GAP-A1)</strong>: a single raced keep-alive
+  connection through <code>-L</code> to <code>/run/docker.sock</code> on the stock systemd-managed Docker daemon
+  completed container creation (<code>Binds=/:/host</code>), start, and execution with <code>uid=0</code> and the
+  host root filesystem mounted (mountinfo evidence). Scope note: on the SELinux-enforcing test
+  distribution, host-file reads were blocked by MLS policy (mount and execution succeeded);
+  distributions without equivalent confinement permit full host read/write.
+- <strong>Kubelet reachability (GAP-A2)</strong>: 111 raced dials to a kubelet socket stub, every accepted
+  peer presented <code>uid=0 comm=tailscaled</code> — root-credential delivery to the kubelet API is
+  mechanical; API abuse not executed.
+- <strong>Control-plane CLI capture (GAP-A3)</strong>: pre-auth crash-loop → held socket rebind → headscale
+  admin CLI traffic captured through the hijacked socket as plaintext h2c (decoded gRPC
+  headers; the headscale CLI uses no TLS on its unix socket).
+- <strong>Full impact chain (demonstrated end-to-end in a lab VM):</strong> a persistent rebind held
+  ≥4 min at the real control socket → an HTTP-aware man-in-the-middle → a live authkey
+  captured byte-exact → <strong>used on a scratch node → a rogue node joined the tailnet under
+  the victim's identity</strong> (the lock-disabled/default case was demonstrated end-to-end; for
+  the lock-enabled case the TKA disable-secret and signer-key material were captured in
+  transit, but the real disable was not executed); a phishing-grade responder was verified
+  (attacker-controlled JSON served to <code>tailscale status</code>, exit code 0).
+- <strong>Side-finding (confirmed gliderssh sub-variant; corrected attribution):</strong> the socket is
+  created at the root umask (0755) and chmod'ed to 0600 only after listen; a racer flipping
+  path resolution between Listen and Chmod (a) leaves the attacker's bind at 0755 (a
+  forensic signature) and (b) applies the root chmod to the LIVE daemon socket — extending
+  the breach to arbitrary-path root chmod-0600 (a permission-removal denial of service). An
+  earlier note attributed 0755 binds to stock OpenSSH; verification against the live sshd
+  configuration (streamlocalbindmask 0177, streamlocalbindunlink no) and auth logs (no
+  logins in the race window) showed this was a misattribution, now corrected. Stock OpenSSH
+  remains a structural analog only; the effect is NOT demonstrated there and is NOT part of
+  any disclosure claim.
+- <strong>Dial side:</strong> a root-credential dial of <code>/run/systemd/private</code>; systemd authorized
+  race-won connections as root (<code>AUTH EXTERNAL 30 → OK</code>); replayed busctl bytes →
+  <code>StartTransientUnit</code> → a root reverse shell (uid=0; demonstrated as local control over an
+  already-won connection — delivery through race exploitation is intermittent, 0–4%).
+  Reproduction: <code>poc-t3race/</code> (racer.py + attack.sh + D-Bus payload binaries; operational
+  notes in the README, including AUTH-uid masking and strace closing the race window).</p>
+<p><strong>Impact:</strong> the {home, /tmp, /run/user} allowlist is not a security boundary.</p>
+<p><strong>End-to-end exploitation (full impact chain):</strong> the successful bind is held open (≥4 min
+verified) and a localapi-aware man-in-the-middle replaces the listener. Demonstrated chain:
+byte-exact authkey capture from <code>POST /localapi/v0/start</code> → the captured key used on a
+scratch node → <strong>a rogue node enrolled and online</strong> (unauthorized tailnet enrollment under
+the victim's identity for lock-disabled tailnets; enrollment was executed and reverted in
+the lab). Lock-enabled path: <code>tka/disable</code> sends the disablement secret as the raw request
+body and <code>tka/wrap-preauth-key</code> mints lock-passing enrollment material — both were captured
+in transit (submission from any node requires no signer). A responder mode makes a real
+<code>tailscale status</code> print attacker-controlled JSON with exit code 0 (phishing grade).
+<strong>New capability extensions — chmod variant and unlink-gate bypass:</strong> the post-listen <code>chmod</code>
+follows the lexical path at use time; the racer can redirect it onto the live daemon socket
+(a same-inode 666→600 transition was observed) ⇒ <strong>arbitrary-path root chmod-0600</strong> on
+regular files too (644→600 demonstrated on a root-owned /var file; 0755-mode socket at a
+root path is the forensic signature of a missed chmod). Additionally the <strong>unlink type gate
+is bypassable</strong>: the gate Lstats the session's own /tmp path (a socket, so the check passes)
+but the subsequent <code>unlink()</code> re-resolves through the racer's symlink — root unlinks
+ARBITRARY REGULAR FILES (6 live catches; demonstrated on test files). This corrects the
+earlier scoping claim that bind-path destruction was socket-type-gated: an unprivileged SSH
+session can delete arbitrary root-owned files and chmod them 0600 — targeted
+availability/destruction primitives short of content modification. Reproduction:
+<code>poc-t2race-unlock/</code> and <code>gap-a/poc-a4-chmod/</code> (evidence in each; live lab credentials
+redacted).</p>
+<p><strong>Related class history:</strong> Dropbear <strong>CVE-2025-14282</strong> (2024.84–2025.88) is this exact class
+on the dial side — root <code>SO_PEERCRED</code> via <code>direct-streamlocal</code>. Dropbear's fix (2025.89:
+setuid to the session user inside <code>USERAUTH_SUCCESS</code>, before any channel/global request) is
+the privilege-drop fix family recommended here; current Dropbear master (<code>17549ea6</code>) audits
+clean for this class on default builds (its streamlocal still has zero path validation and
+unconditional unlink, but runs at the session user's uid). OpenSSH (master <code>26b1363c</code>,
+source-audited): <strong>clean negative for this class</strong> — the post-auth child drops to the
+session user <em>before</em> the server loop, so every streamlocal bind/unlink/dial runs at the
+user's uid (the monitor never touches paths; there is no check/use gap because there is no
+check phase). Upstream master <code>b37c095a</code> now force-disables streamlocal (plus
+<code>GatewayPorts</code> and remote-forward ports &lt;1024) when post-auth sshd runs as root — an
+explicit acknowledgment that these features assume user privilege (the same assumption
+gliderssh violates). Residual policy gap, not privilege crossing: <code>PermitListen</code> does not
+constrain unix paths at all (open <code>XXX</code> since 2018); <code>PermitOpen</code> fails closed for unix
+dials. OpenSSH 10.6p1 <code>cee6aedb</code> (agent sockets out of /tmp, dirfd + <code>O_NOFOLLOW</code> cleanup)
+is direct precedent for the dirfd fix family below.
+<strong>Remediation:</strong> see "Recommended remediation" (findings 1–3 share one root cause).</p></section>
+<section><h3 id="finding-4-c1-conn25-a-user-entitlement-confers-unr">Finding 4 (C1) — conn25: a user entitlement confers unrestricted egress selection through the connector (privilege-boundary flaw) — Severity: High</h3>
+<p><strong>Affected component / version:</strong> tailscale v1.104.2, feature/conn25 connector data path
+(unmodified code under test).</p>
+<p><strong>Claim.</strong> A per-app USER entitlement — the conn25 client capability, granted to ordinary
+users when they are assigned an app — silently confers network-administration capability:
+choosing ARBITRARY egress destinations through a shared connector, with no approval step, no
+visibility, and no policy evaluation of the real destination.</p>
+<p><strong>Intended versus actual boundary.</strong> Intended: an app entitlement scopes a user to the app's
+sanctioned backends (admin-configured domains, connector-side DoH discovery — per the
+published contract). Actual: family match plus transit-pool membership only. The destination
+is client-declared at runtime via the registration API and never validated; transit
+destinations are force-accepted before filtering; the DNAT rewrite lands after the filter
+verdict — the real destination is never a policy object. The core harm is UNRESTRICTED
+EGRESS SELECTION: the operator's model is "the connector egresses to the app's approved
+backends" (the documented IP allowlisting exists so REMOTE systems can admit the
+connector's public IP), but nothing enforces the egress set — an entitled peer selects ANY
+destination (arbitrary subnets, the connector's own LAN and loopback, IMDS, the internet)
+and the flow egresses masqueraded as the connector (verified out its WAN,
+reverse-translated back). Interaction with the documented allowlisting (analysis, not
+lab-demonstrated): the allowlist authenticates the CONNECTOR, not the user, so it is
+defeated when multiple apps share a connector egress IP (one connector host serving several
+apps — a common deployment): a peer entitled to app X pivoting to app Y's allowlisted
+endpoint arrives from the trusted connector IP. With one-app-per-connector-IP, cross-app
+pivots to allowlisted apps remain filtered; non-allowlisted internal targets (IMDS, LAN
+services) are reachable regardless of allowlist placement.</p>
+<p><strong>Scope and limitations.</strong> Not a novel interception ceiling: a tagged subnet-router or
+exit-node enrollment reaches the same end state. The flaw is the PATH to it — a user-level
+trigger instead of an infrastructure role; no approval step (subnet routes are approved and
+visible; conn25 destinations never are); no governance footprint; and the grants that would
+govern these same destinations on the subnet path are never consulted on the transit path.</p>
+<p><strong>Severity rationale.</strong> Blast radius = every user granted any conn25 app. Prerequisites =
+the feature is configured and the attacker holds an ordinary app entitlement — no exploit
+is required for the pivot itself. Escalations beyond the pivot require a TAGGED enrollment
+(prerequisite ladder):</p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Requires</th>
+<th>Yields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ordinary entitlement</td>
+<td>admin granted your user the app</td>
+<td>this finding's pivot (no exploit needed)</td>
+</tr>
+<tr>
+<td>leaked reusable tagged key</td>
+<td>provisioning hygiene failure</td>
+<td>rogue connector (HA route selection, DNS hook) + autoApprover route grants</td>
+</tr>
+<tr>
+<td>full-impact-chain leg (finding 3)</td>
+<td>T2-RACE + operator runs <code>up --auth-key</code> (tagged) via the hijacked socket</td>
+<td>same, made reliably exploitable from an SSH accept-rule foothold</td>
+</tr>
+<tr>
+<td>compromised tagged host</td>
+<td>host compromise</td>
+<td>same, plus the live connector's flows</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mechanism (verified on unmodified v1.104.2).</strong> Registration accepts
+transitIP→arbitrary destinationIP (only family and pool are checked); ingress hooks
+force-accept transit-pool destinations before ACL evaluation; DNAT lands after the filter
+verdict; source identity is preserved into the connector's egress (internet flows are
+masqueraded). Tailnet-overlay destinations are dropped at receivers' WireGuard cryptokey
+routing (client source preserved) — the pivot's reachable set is exactly the connector's
+own network position (its LANs, its uplink, IMDS, itself); destinations served by other
+nodes' approved routes also die at cryptokey routing.</p>
+<p><strong>Evidence.</strong> Test harness: <code>conn25/poc-conn25-test.go</code> (drives wgengine/filter +
+feature/conn25 on stock code; all steps PASS, including zero-ACL acceptance and negative
+controls). Live LAN pivots (2026-10-24): <code>poc-conn25-docker/</code> (root-equivalent
+docker-on-TCP API driven from a zero-grant peer) and <code>poc-conn25-wp/</code> (internal PHP app;
+credential-interception position; internet-egress packet capture). Test-environment
+prerequisites and validity threats: RIG.md in each PoC directory (entitlement, family, and
+pool checks all ran live; unentitled peers were refused).</p>
+<p><strong>Governance posture.</strong> conn25 sits outside both route governance and grants evaluation:
+production conn25 advertises nothing (the magic range installs locally on clients; transit
+IPs ride per-peer WireGuard allowed-IPs; destinations live only in the connector's runtime
+DNAT table, expiring ~1 h, trivially renewed) — autoApprovers/routes see neither the transit
+pool nor any destination; grants gate only the capability mint.</p>
+<p><strong>Deployable containment.</strong> <code>mitigation-conn25/</code> — a kernel-layer destination allowlist on
+the connector (FORWARD + INPUT policy chains for tailnet-sourced traffic): implements the
+destination validation the code lacks; hard-blocks IMDS/internal/loopback pivots; caveats:
+per-connector, not per-peer, and SaaS-destination egress weakens the default-deny tail.
+<strong>Remediation:</strong> the real fix is per-app destination validation at registration.</p>
+<p><strong>Production path (Kubernetes; verified in a lab VM via the stock operator CR→STS→pod
+flow):</strong> the operator-deployed app connector runs privileged/uid-0 in the pod network
+namespace — its position = the entire Service CIDR + pod CIDR + node-local TCP + internet
+egress. An entitled peer registered transit→kube-apiserver ClusterIP, a cross-namespace
+Service, and a node IP (all accepted, no destination validation) and reached them through
+the connector: cross-namespace Service 200 OK (unauthenticated response), kube-apiserver
+and kubelet 10250 reachable (401 — position delivered, credentials still required). Blast
+radius = every cluster CIDR for any entitled peer. Operational hazard: under non-Tailscale
+control planes the connector reports ConnectorReady while silently dormant. Containment: a
+default-deny egress NetworkPolicy on the connector namespace (the in-cluster equivalent of
+a destination allowlist).</p></section>
+<section><h3 id="finding-5-t1-gliderssh-session-pin-root-tailscaled">Finding 5 (T1) — gliderssh session pin: root-tailscaled OOM loop — Severity: High</h3>
+<p><strong>Affected component / version:</strong> Tailscale SSH server in <code>tailscaled</code> v1.104.2; issue
+inherited from upstream gliderlabs/ssh v0.3.8.
+<strong>Prerequisites:</strong> an authenticated SSH session (per policy).
+<strong>Impact:</strong> a window-change blocking send parks a goroutine per session channel; environment
+appends are unbounded; ~536 MB allocated in 7 s, persisting &gt;100 s after disconnect — a
+memory-exhaustion condition in the root-privileged daemon.
+<strong>Reproduction:</strong> open SSH sessions, send window-change/environment churn, observe RSS.
+<strong>Remediation:</strong> the fix belongs upstream in gliderlabs/ssh (non-blocking sends / bounded
+buffers); no tailscale-side workaround was identified in this audit.</p></section>
+<section><h3 id="finding-6-headscale-v0-29-5-c2-c4-memory-exhaustio">Finding 6 — headscale v0.29.5: C2/C4 (memory exhaustion) + C3 upstream client bomb — Severity: Medium-High</h3>
+<p><strong>Affected component / version:</strong> headscale v0.29.5 (embedded DERP, noise auth cache);
+tailscale client derphttp/magicsock for C3.
+<strong>Impact:</strong> embedded-DERP sendHistory growth (requires an authenticated insider; the
+vendored fix is missing); noise auth-cache eviction = pre-authentication denial of node
+onboarding (1024 tiny registrations evict pending approvals; fails closed); derphttp
+<code>ReadAll</code> bomb (10 MB → 1.34 GB; the error string embeds the body, 586 MB measured;
+magicsock retry-retention makes the first peak the floor).
+<strong>Reproduction:</strong> sketches in each README / the original working-tree reports.
+<strong>Remediation:</strong> vendor the upstream embedded-DERP fix; bound the noise auth cache; bound
+derphttp response reads.</p></section>
+<section><h3 id="socket-target-variations">Socket-target variations</h3>
+<p>Demonstrated (evidence on file): docker <code>/tmp/docker.sock</code> (this kit), a command-channel
+daemon (direct root), <code>/run/systemd/private</code> (root shell), the tailscaled localapi (authkey
+capture), loopback TCP. Mechanism applies generally; payloads not built: <code>/run/docker.sock</code>,
+containerd/crio, the system D-Bus, kubelet, local database sockets — reachable via the race
+reproduction kits; each requires its own API payload.</p></section>
+<section><h3 id="finding-7-serve-f-1-serve-tcp-to-the-localapi-sock">Finding 7 (SERVE-F-1) — <code>serve --tcp</code> to the localapi socket: remote permit-write localapi — Severity: High</h3>
+<p><strong>Affected component / version:</strong> tailscale v1.104.2 (e26db7a5), ipn/ipnlocal serve TCP
+forwarding.
+<strong>Prerequisites:</strong> serve-config access (local operator); an ACL-authorized peer to use the
+forward.</p>
+<p><code>tailscale serve --bg --tcp &lt;port&gt; unix:/run/tailscale/tailscaled.sock</code> is accepted by the
+CLI and the daemon; the raw TCP forward passes client bytes verbatim into the localapi
+socket, dialed by tailscaled itself (peer credentials = daemon uid ⇒ PermitRead +
+PermitWrite). Lab-verified: GET /localapi/v0/status and PATCH /v0/prefs both returned 200
+from a remote peer = node takeover, race-free (a second, cleaner route to the localapi
+position compared with finding 3; the prerequisite is serve-config access by the operator
+instead of an SSH accept rule — all steps of the full impact chain apply verbatim). The
+unix-HTTP-proxy path on the SAME socket is blocked daemon-side ("cannot proxy to tailscaled
+socket"): guard parity was missed between commits 50f1c285b (unix TCP-forward, no guard) and
+f4d34f38b (unix HTTP proxy, guard).
+<strong>Remediation:</strong> apply the same guard to TCPForward unix backends (at config time AND per
+dial). The funnel variant (internet→localapi) is additionally bounded by the control-minted
+funnel attribute upstream; the daemon side performs no attribute check (finding 9).
+<strong>Reproduction:</strong> <code>poc-servefunnel/</code> (poc-sf1 script, receipts/sf1-*).</p></section>
+<section><h3 id="finding-8-serve-f-2-istailscaledsocket-guard-is-co">Finding 8 (SERVE-F-2) — isTailscaledSocket guard is config-time-only (TOCTOU) — Severity: Medium (contained)</h3>
+<p><strong>Affected component / version:</strong> tailscale v1.104.2 (e26db7a5), ipn/ipnlocal serve
+unix-proxy guard.
+<strong>Prerequisites:</strong> ability to replace the configured unix backend path with a symlink after
+configuration (local write access to the path's directory).</p>
+<p>The guard runs once per serve-config reload (os.Stat follows symlinks; a symlink present at
+config time IS caught); dials happen per request. Swapping the configured benign unix
+backend for a symlink AFTER configuration defeats it (lab: the dial landed on
+tailscaled.sock; the ipnserver HTML banner was returned). Contained for the localapi itself
+(the proxy rewrites Host to "localhost" → 403 invalid localapi request); residual impact:
+root-context dial of ANY root-only unix socket (docker.sock class) via serve/funnel — the
+T-class privileged dial with serve as the vehicle. /tmp swaps are blocked by
+fs.protected_symlinks=1 for non-owner root; non-sticky directories are not protected.
+<strong>Remediation:</strong> re-validate the resolved dial target per connection (or open the socket
+once at config time and keep the fd).
+<strong>Reproduction:</strong> receipts/sf2-*.</p></section>
+<section><h3 id="finding-9-serve-f-3-funnel-entitlement-enforcement">Finding 9 (SERVE-F-3) — funnel entitlement enforcement is peer-cap + local config only (the node attribute is CLI-only) — Severity: Medium (threat-model finding)</h3>
+<p><strong>Affected component / version:</strong> tailscale v1.104.2 (e26db7a5), funnel ingress gates;
+headscale v0.29.5 (cannot mint the ingress capability).</p>
+<p>Daemon gates on the funnel data path: (1) per-connection peer capability
+<code>https://tailscale.com/cap/ingress</code> at peerapi /v0/ingress (netmap-driven), (2) the local
+AllowFunnel target check. The funnel node attribute and funnel-ports capabilities are
+enforced ONLY by the CLI; a raw POST /localapi/v0/serve-config arms funnel with no
+attribute (lab: "Funnel on" under headscale, which mints neither attributes nor
+CertDomains; the configuration survives restart). headscale cannot grant the ingress
+capability at all (policy v2 rejects "://" capability names; ingress/funnel are not
+allowlisted; funnel unsupported) ⇒ no funnel traffic on stock headscale; a
+knob-injected positive control (TS_ALLOW_SELF_INGRESS=1, an upstream envknob, explicitly
+labeled as a test substitution) drove the data plane: 101 → a funneled request with
+Tailscale-Funnel-Request: ?1 and X-Forwarded-For = the ingress peer's attacker-chosen
+Tailscale-Ingress-Src value, forwarded verbatim (funnel XFF is only as trustworthy as the
+capability-holding relay). Negatives fail closed (403 no-cap / wrong-target /
+self-without-knob). BYO-domain certificates follow the same shape: a local-config gate only
+(Let's Encrypt domain validation is the outer gate).
+<strong>Remediation:</strong> enforce the attribute server-side if funnel arming without a
+control-minted attribute is to be prevented.
+<strong>Reproduction:</strong> poc-sf3-ingress.py, sf3-funnel-serveconf.json, receipts/sf3-*.</p></section>
+<section><h3 id="finding-10-serve-f-4-ts-serve-allow-all-interfaces">Finding 10 (SERVE-F-4) — TS_SERVE_ALLOW_ALL_INTERFACES exposes serve outside the tunnel bind — Configuration note</h3>
+<p><strong>Affected component / version:</strong> tailscale v1.104.2 (e26db7a5); non-default knob
+(upstream-acknowledged).</p>
+<p>The knob skips the SO_BINDTODEVICE tunnel-interface bind for serve listeners only (the web
+client + peerapi stay bound): any network that can route to the node's tailscale IP (LAN et
+al.) reaches all serve backends — no WireGuard, no tailnet ACL, no identity headers (WhoIs
+of a LAN source fails). Upstream-acknowledged ("re-exposes the serve listener to the local
+network"); default off; set only by the k8s operator's experimental cluster-traffic
+ingress. Applies to ALL serve listeners on the node, funnel-armed ones included.
+Source-verified (no lab LAN path in the test environment).</p></section>
+<section><h3 id="finding-11-serve-f-5-h2-shared-serve-context-race-">Finding 11 (SERVE-F-5) — h2 shared serve-context race: cross-mount capability bleed → mount-level authorization bypass — Severity: Medium within header-authorization deployments; Low-Medium otherwise</h3>
+<p><strong>Affected component / version:</strong> tailscale v1.104.2 (e26db7a5), ipn/ipnlocal serveWebHandler.
+<strong>Prerequisites:</strong> serve TLS (h2), ≥2 mounts differing in AcceptAppCaps, a peer holding the
+capability, concurrent streams on one connection.</p>
+<p>serveWebHandler writes c.AppCapabilities per request (serve.go:1226) and
+addAppCapabilitiesHeader reads it inside ReverseProxy's Rewrite (serve.go:1152); ONE
+<em>serveHTTPContext is shared by all streams of a TCP connection (BaseContext +
+OneConnListener), and serve TLS advertises h2. Reproduced on the pinned tree under -race:
+the detector fires deterministically with the exact production stacks; observable bleed
+13/2000 (a mount accepting no capabilities forwarded the accepting mount's
+Tailscale-App-Capabilities header). ACCESS-DECISION FLIP against the documented
+header-authorization middleware pattern (same app, /ops accepts corp/cap/role, /admin
+accepts nothing, peer holds role engineer): sequential baseline /admin 403 x100; under
+concurrent racing requests on one connection, 8/4000 /admin requests returned 200 INTERNAL-APP-DATA — full privileged
+responses authorized by the bled header; silent (the app cannot distinguish them from
+legitimate flows) and retryable (0.2%/request converts to a reliable primitive for a
+patient peer). Same-peer bound (values are always intersected with the requesting peer's
+own grants); funnel flows skip the header entirely. Upstream tests inject per-test
+contexts, so they cannot catch it.
+<strong>Remediation:</strong> use a per-request context for AcceptAppCaps instead of the shared
+connection struct.
+<strong>Reproduction:</strong> serve_sf5_race_test.go (bleed), serve_sf5_bypass_test.go (flip),
+receipts/sf5-</em>.</p></section>
+<section><h3 id="serve-funnel-clean-negatives-evidence-findings-md-">Serve/funnel clean negatives (evidence + FINDINGS.md in poc-servefunnel/)</h3>
+<p>localapi serve-config authorization (PermitWrite + local-admin for unix/path), proxy header
+hygiene (identity/XFF re-set server-side), malformed-path handling, web-client CSRF
+(non-Tailscale control planes auto-authenticate manage sessions — a documented headscale
+TODO — with WebUI capabilities governing tagged nodes), port claiming behavior, idle-conn
+limits.</p></section>
+<section><h3 id="negative-results-measured">Negative results (measured)</h3>
+<ul>
+<li><strong>conn25 tailnet-destination bridge refuted (live testing):</strong> registration with a tailnet
+  destination is ACCEPTED and the connector DNATs with the <em>client's</em> source preserved
+  (destination-only NAT, source-verified) — but the receiving tailnet node's WireGuard
+  cryptokey routing drops the inner packets (peer C's key is not valid for source A's
+  address). No SSH evaluation occurs. conn25 pivots hold for non-tailnet destinations only
+  (IMDS/LAN).</li>
+<li>No OOM→RCE substrate in Go; the netfilter-path confused-deputy surface is clean (peer
+  surface = dial/bind/unlink/DNAT only); crash-loop×socket-planting is blocked at default
+  paths; ~117M fuzz executions, zero crashers; SSH check approvals unaffected.</li>
+</ul></section>
+<section><h2 id="class-context-comparative-audit">Class context (comparative audit)</h2>
+<ul>
+<li><strong>The TOCTOU/dial-as-privileged class is CVE-recognized:</strong> Dropbear's CVE-2025-14282
+  (fixed in 2025.89) is the dial-side instance — root SO_PEERCRED presented on race-won
+  unix dials.</li>
+<li><strong>The recommended fix has an existence proof:</strong> post-fix Dropbear setuid()s to the session
+  user inside USERAUTH_SUCCESS, <em>before</em> any channel/global request — i.e., privileges drop
+  ahead of every path-sensitive forwarding operation (structurally removing the privileged
+  actor our findings require). Dropbear otherwise ships weaker path policy than gliderssh
+  (zero validation, unconditional unlink) — and is safe <em>because of</em> the privilege drop,
+  not the path checks.</li>
+<li><strong>OpenSSH: clean negative for the class on defaults</strong> — the post-auth child drops to the
+  session user <em>before</em> the server loop (sshd-session.c); the monitor never binds; there is
+  no check phase, hence no check/use gap. Upstream commit b37c095a (2026-10) force-disables
+  streamlocal/GatewayPorts/privileged-port reverse forwards whenever post-auth sshd would
+  run as root — an explicit upstream statement that forwarding features assume user
+  privilege (directly citable against gliderssh, which runs them as root with no such
+  assumption). cee6aedb (10.6p1, agent sockets via dirfd+O_NOFOLLOW) is precedent for the
+  dirfd fix family. Policy-only residuals: PermitListen ignores unix paths (upstream TODO
+  since 2018); PermitOpen fails closed for unix dials.</li>
+<li><strong>Completed class matrix:</strong> gliderssh/Tailscale — class demonstrated, root actor;
+  OpenSSH — clean, user-uid actor + upstream force-disable precedent; Dropbear — fixed in
+  2025.89 (CVE-2025-14282 = class precedent), user-uid after early setuid.</li>
+</ul></section>
+<section><h2 id="check-mode-time-based-access-grants-scope-and-limi">Check mode (time-based access grants): scope and limits</h2>
+<p>Tailscale SSH offers <code>action: check</code> rules — before a session is established, the connecting
+user must re-authenticate (browser, via the identity provider), granting access for a time
+window (<code>checkPeriod</code>; default 12 h, configurable 1 m–168 h or <code>always</code>). Deployments commonly
+rely on it to protect high-risk access. Measured and documented limits:</p>
+<ol>
+<li><strong>It does not mitigate the forwarding findings (1–3).</strong> Check mode gates session
+   <em>establishment</em> only. Port forwarding (<code>ssh -R</code> / <code>-L</code>) occurs <em>inside</em> an established,
+   human-approved session — after the check has passed, every finding in classes 1 applies for
+   the life of that session. An operator who enables check mode and believes it constrains
+   forwarding is mistaken; only the per-action forwarding flags (SaaS) or the vendor fix do.</li>
+<li><strong>One approval amortizes fleet-wide on the SaaS control plane.</strong> Per vendor documentation, a
+   successful check authorizes the user for <em>all</em> check-mode destinations in the tailnet for
+   the window — one authentication, every gated target. The self-hosted control server
+   (headscale) was measured to scope the window to the destination pair, which is materially
+   stronger; deployments able to choose should note the difference.</li>
+<li><strong>Authorization can be obtained without deceiving the user.</strong> Three mechanisms, in
+   increasing strength: (a) <em>solicitation</em> — an attacker's connection can request the check,
+   causing the victim to receive a legitimate-looking authentication prompt they did not
+   initiate (phishable, but not reliably); (b) <em>piggybacking</em> — an attacker holding a position
+   in the tailnet need not solicit anything: they monitor for the victim's next legitimate
+   authorization and, once it occurs, the resulting window (fleet-wide on the SaaS control
+   plane, per point 2) covers the attacker's check-gated destinations too — the user's own
+   routine access arms the attacker; (c) <em>incident-forcing</em> — the denial-of-service findings
+   in this report give an attacker the means to manufacture the exact conditions (node
+   connectivity failure, control-plane degradation) that cause an administrator to
+   re-authenticate as part of repair — the remediation itself completes the check and opens
+   the window the attacker then rides. Operational rules: treat an unrequested Tailscale
+   authentication prompt as a security incident; and treat check-window openings during an
+   active incident as attacker-relevant events, since the incident may have been staged to
+   provoke them.</li>
+<li><strong>Hold-window detection is threshold-based and paceable.</strong> A check-gated connection is held
+   pre-authentication for up to 30 minutes. Lab measurement showed an attacker holding below a
+   detector's threshold (11 s against a 20 s rule) completes the ride undetected; detection
+   here needs randomized or human-reviewed thresholds, not fixed ones.</li>
+</ol>
+<p><strong>Configuration guidance:</strong> prefer <code>checkPeriod</code> of minutes or <code>always</code> for privileged rules;
+require identity-provider step-up (fresh authentication, not session reuse) for the approval;
+on self-hosted control planes, rely on the pair-scoped window; and never treat check mode as a
+control on forwarding — that is the forwarding flags' job.</p></section>
+<section><h2 id="recommended-remediation">Recommended remediation</h2></section>
+<section><h3 id="interim-mitigations-for-operators-unpatched-deploy">Interim mitigations for operators (unpatched deployments)</h3>
+<p>These are actions an administrator can take now, with configuration and process — no vendor
+fix required. Ordered by risk reduction per unit of effort.</p>
+<p><strong>Immediate, configuration-only:</strong></p>
+<ol>
+<li><strong>Inventory and restrict Tailscale SSH rules.</strong> List every node advertising SSH and every
+   <code>ssh</code> rule in policy. Rewrite rules as per-pair grants (specific source to specific
+   destination); remove identity-wide and tag-wide accept rules; never allow privileged
+   target accounts (<code>root</code>, or accounts with passwordless sudo). On headscale, assume every
+   SSH grant includes all forwarding — treat any SSH grant as root-equivalent and restrict
+   the rule set accordingly. On SaaS, set forwarding flags to denied per action unless a
+   documented need exists.</li>
+<li><strong>Audit and constrain the serve configuration.</strong> On every node running <code>tailscale serve</code>,
+   grep the configuration for TCP forwards targeting unix sockets
+   (<code>serve --tcp &lt;port&gt; unix:&lt;path&gt;</code>) and remove any that target the agent's own socket or
+   other privileged paths (finding 7).</li>
+<li><strong>Constrain app connectors — enforce destinations at the firewall.</strong> Until fixed: remove
+   the connector capability from clients that do not require it; in Kubernetes, apply
+   default-deny egress NetworkPolicy to the connector namespace. On connector hosts, enforce
+   a kernel-layer destination allowlist with netfilter (a deployable script ships with this
+   report: <code>mitigation-conn25/</code>). The enforcement point is verified: traffic translated by
+   the connector crosses FORWARD/INPUT with its tailnet source address <em>before</em> network
+   address translation, so firewall destination policy there governs every pivot this report
+   demonstrated — cloud metadata (169.254.0.0/16, dropped unconditionally), internal RFC1918
+   ranges (default-deny with an operator allowlist for the connector's intended backends),
+   services on the connector itself, and arbitrary internet egress. IPv4 and IPv6 rules are
+   included. Known limits: the policy is per-connector (it cannot distinguish which entitled
+   peer is pivoting), and SaaS-destination connectors need broad egress, which weakens the
+   default-deny tail — the control is strongest for self-hosted/VPC app connectors.</li>
+<li><strong>Process-scoped egress rules on SSH-enabled nodes (findings 1–3 network reach).</strong>
+   nftables can match traffic by cgroup, and systemd places tailscaled in its own; rules of
+   the form "reject output from the tailscaled service cgroup to loopback, link-local
+   (including metadata), and RFC1918 unless allowlisted" constrain where forwarded
+   connections (<code>-L</code> dials performed by the root agent) may land — the kernel-level version
+   of the destination validation the SSH forwarding paths lack. Allow the agent's legitimate
+   destinations (control plane, relays, tailnet peers) explicitly.</li>
+<li><strong>What firewalls cannot do here.</strong> Unix-socket operations (the race conditions and
+   socket replacement in findings 1–3) never traverse netfilter — no iptables/nftables/ebtables
+   rule sees them; for those, the detection items below (socket-lifecycle auditing,
+   rename-storm detection) are the interim control. ebtables/bridge rules apply only to the
+   LAN-side pivots on bridged connector hosts.</li>
+<li><strong>Harden self-hosted control planes.</strong> headscale: set systemd memory limits (<code>MemoryMax</code>)
+   sized to survive the documented growth rates, enable restart supervision, place a
+   rate-limiting reverse proxy in front of the registration endpoints, and restrict network
+   exposure (control-plane reachability from an admin network or VPN only, not the open
+   internet).</li>
+<li><strong>Give identities a clock.</strong> Enable node-key expiry on server fleets (opt out of the
+   no-expiry default for tagged devices) and enable TPM/Secure-Enclave-bound agent state
+   where hardware allows, so stolen identity material does not persist indefinitely.</li>
+</ol>
+<p><strong>Detection while unpatched (deploy these sensors; self-test each):</strong></p>
+<ol>
+<li><strong>Socket-lifecycle auditing.</strong> auditd rules on unix-socket <code>unlink</code>/<code>bind</code>/<code>chmod</code> in the
+   forwarding-allowed directories (<code>/tmp</code>, homes, <code>/run/user</code>) and on the agent's own socket
+   paths — object-scoped (watch the path and operation), not syscall-name-scoped.</li>
+<li><strong>Cross-identity endpoint analytics.</strong> Baseline each device identity's network endpoint;
+   alert when one endpoint begins serving a second node identity (site-independent — catches
+   same-machine impersonation that location-change analytics cannot), and when a machine key
+   appears from a new network/ASN (catches stolen state used elsewhere; note this detects
+   cross-site use only — same-site reuse of stolen identity remains blind to it).</li>
+<li><strong>Rename-storm detection.</strong> The race exploits sustained directory rename loops
+   (~10⁵/s). inotify or audit watch with rate alerting on candidate directories; a socket
+   with mode 0755 at a path that should be 0600 is a forensic signature of a race-won bind.</li>
+<li><strong>Enrollment and key monitoring.</strong> Alert on authkey issuance and use outside change
+   windows; alert on any node joining with a previously unseen key under a tagged identity;
+   treat an unrequested Tailscale authentication prompt reported by a user as an incident.</li>
+<li><strong>Control-plane health.</strong> headscale: monitor resident memory (it retains peak RSS after
+   attack), registration-cache churn, and registration latency; alert on deviation.</li>
+</ol>
+<p><strong>Containment on suspicion or incident:</strong></p>
+<ol>
+<li><strong>Delete the device at the control plane — reimaging alone is not containment.</strong> A
+    node's identity is key material stored in its state file; an attacker with root on the
+    host can have copied that file off-box (demonstrated in this report: the copied state
+    file re-creates the node's identity on other hardware, accepted by the control plane).
+    Reimaging wipes only the compromised host's copy — it does not revoke stolen keys, which
+    remain valid until the device is deleted or its keys expire. Assume exfiltration after
+    any root compromise; delete the device (which invalidates both its machine and node
+    keys), then rotate any authkeys and credentials reachable from the affected host; if a
+    Tailnet Lock signing node was compromised, rotate the lock; review policy history via
+    your GitOps trail for unauthorized diffs (routes, DERP map, approvers, key scopes).</li>
+</ol></section>
+<section><h3 id="vendor-side-root-cause-fixes-for-the-maintainers-n">Vendor-side root-cause fixes (for the maintainers; not operator-actionable)</h3>
+<p>Findings 1–3 share one root cause. Fix family: openat/dirfd-relative bind+dial;
+validate-at-use-time; BindUnlink restricted to session-owned sockets; privilege-drop
+forwarding à la OpenSSH (precedent: Dropbear 2025.89 / CVE-2025-14282 fix — setuid before
+any channel/global request); deny-by-default per-action forwarding flags; signer-gating of
+the TKA disablement endpoint (submission currently requires no signer).
+Serve family (findings 7–11): isTailscaleSocket parity for TCPForward unix backends with
+per-dial re-validation (7, 8); per-request context for AcceptAppCaps instead of the shared
+connection struct (11); attribute enforcement server-side if funnel arming without a
+control-minted attribute is to be prevented (9).</p></section>
+
+<p class="sig">— Erica Windisch, <a href="https://www.cyberdione.com">Cyberdione Labs Corporation</a></p>
+<footer class="site">Tailworm · 2026-10</footer>
+</main>
+</div>
+<script src="assets/dust.js" defer></script>
+<script src="assets/nav.js" defer></script>
+</body>
+</html>

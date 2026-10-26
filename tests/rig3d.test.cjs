@@ -42,3 +42,30 @@ test('default camera looks down from above the floor', () => {
   const near=R.project(c,0,0,-200,960,700),far=R.project(c,0,0,200,960,700);
   assert.ok(near[1]>far[1],'near floor edge should appear below the far edge');
 });
+
+test('repeated solid materials avoid repeated color calculations within one flush', () => {
+  let rounding = 0;
+  const countedMath = Object.create(Math);
+  countedMath.round = (value) => { rounding++; return Math.round(value); };
+  const local = { window: {}, Math: countedMath };
+  vm.runInNewContext(fs.readFileSync('site/rig3d.js', 'utf8'), local);
+  const rig = local.window.RIG3D;
+  rig.setView(960, 700);
+  const ctx = { beginPath() {}, moveTo() {}, lineTo() {}, closePath() {}, fill() {}, stroke() {}, save() {}, restore() {} };
+  const camera = rig.cam(0, { yaw: .3, pitch: .5 });
+  const single = rig.rig(ctx, camera, 960, 700);
+  single.box(0, 0, 0, 20, 20, 20, rig.C.cyan);
+  single.flush();
+  const oneMaterialSet = rounding;
+  assert.ok(oneMaterialSet > 0);
+  rounding = 0;
+  const repeated = rig.rig(ctx, camera, 960, 700);
+  repeated.box(0, 0, -120, 20, 20, 20, rig.C.cyan, { alpha: .4 });
+  repeated.box(0, 0, 120, 20, 20, 20, rig.C.cyan, { alpha: .8 });
+  repeated.flush();
+  assert.equal(rounding, oneMaterialSet, 'depth and alpha changes should reuse the same face colors');
+  rounding = 0;
+  repeated.box(0, 0, 0, 20, 20, 20, rig.C.cyan);
+  repeated.flush();
+  assert.equal(rounding, oneMaterialSet, 'a flushed rig must release its material cache');
+});

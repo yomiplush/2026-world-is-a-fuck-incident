@@ -29,12 +29,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全53画面を日付順に再整列。13:01の最新調査は読むレポートへ。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全55画面を日付順に再整列。14:56の最新調査は読むレポートへ。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "最新レポートは10/26 13:01基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
-      asof: "2026-10-26 13:01 JST 基準",
+      drawerFoot: "最新レポートは10/26 14:56基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
+      asof: "2026-10-26 14:56 JST 基準",
       lang: "JA"
     },
     en: {
@@ -44,12 +44,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 53 scenes, reordered by date. See the reading report for the 13:01 update. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 55 scenes, reordered by date. See the reading report for the 14:56 update. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
-      drawerFoot: "Latest reading report: October 26, 13:01 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
-      asof: "cutoff 2026-10-26 13:01 JST",
+      drawerFoot: "Latest reading report: October 26, 14:56 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
+      asof: "cutoff 2026-10-26 14:56 JST",
       lang: "EN"
     }
   },
@@ -67,7 +67,7 @@ window.CONTENT = {
         lede: "互いに無関係に見える事案が、同じ種類の弱点に集まった月。タップで時系列に進みます。",
         points: [
           "初期調査15件と、その後の広域追補。件数は全世界の被害総数ではありません",
-          '<a href="./update-20261026-1301.html">10/26 13:01 最新調査 →</a> · <a href="./timeline.html">日付から読む →</a>',
+          '<a href="./update-20261026-1456.html">10/26 14:56 最新調査 →</a> · <a href="./timeline.html">日付から読む →</a>',
           "音が出ます。右上の SOUND で消せます"
         ]
       },
@@ -77,7 +77,7 @@ window.CONTENT = {
         lede: "Unrelated failures that kept landing on the same kind of weakness. Tap through them in order.",
         points: [
           "The initial 15 cases plus later broad reviews; these are not a worldwide victim count",
-          "<a href=\"./update-20261026-1301.html\">13:01 JST report (Japanese) →</a> · <a href=\"./timeline.html\">Read by date →</a>",
+          "<a href=\"./update-20261026-1456.html\">14:56 JST report (Japanese) →</a> · <a href=\"./timeline.html\">Read by date →</a>",
           "Sound is on — toggle it top-right"
         ]
       }
@@ -2727,3 +2727,95 @@ window.CONTENT = {
     }
   ]
 };
+
+/* Afternoon review additions retain new stable numerical links54/55. */
+window.CONTENT.scenes.push({
+  "id": "afternoon-deployment",
+  "stamp": "10.26 · 14:56 JST",
+  "metric": {
+    "val": "3",
+    "label": {
+      "ja": "deployment paths · 模式図",
+      "en": "deployment paths · schematic"
+    }
+  },
+  "visual": {
+    "type": "deploymentPaths"
+  },
+  "cue": "blip",
+  "sources": [
+    {
+      "name": "Microsoft .NET Brotli advisory494",
+      "url": "https://github.com/dotnet/announcements/issues/494"
+    },
+    {
+      "name": "14:56 collection and conditions",
+      "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/docs/research-collection-2026-10-26-1456.md"
+    }
+  ],
+  "ja": {
+    "kicker": "14:56 UPDATE · 配置方法を確認",
+    "title": "更新した。そのバイナリは置き換わった？",
+    "lede": ".NET Brotli勧告を補完。共有runtime、self-contained、NativeAOTでは、修正を実行中のアプリへ届ける手順が異なります。図は配置経路の模式図です。",
+    "points": [
+      "ASP.NET Core / HttpClientのBrotli解凍は<b>既定では無効</b>。明示的有効化や直接APIの入力を確認",
+      "8.0.33 /9.0.22 /10.0.14等を照合。self-containedは再配置、<b>NativeAOTはSDK等を更新して再publish・再配置</b>",
+      "これは04:06 JSTの既公表勧告の補完。午後に発生した新しい侵害ではありません"
+    ]
+  },
+  "en": {
+    "kicker": "14:56 UPDATE · DEPLOYMENT PATHS",
+    "title": "You updated. Did the running binary change?",
+    "lede": "The .NET Brotli advisory distinguishes shared-runtime, self-contained and NativeAOT deployments. The diagram is a deployment schematic.",
+    "points": [
+      "ASP.NET Core /HttpClient Brotli decompression is <b>off by default</b>; check explicit opt-in and direct API input",
+      "Check 8.0.33 / 9.0.22 / 10.0.14. Redeploy self-contained apps; <b>update SDK/packs and republish NativeAOT</b>",
+      "This supplements an advisory published at 04:06 JST. It is not a new afternoon compromise"
+    ]
+  }
+},
+{
+  "id": "afternoon-release",
+  "stamp": "10.26 · 14:56 JST",
+  "metric": null,
+  "visual": {
+    "type": "releaseStates"
+  },
+  "cue": "blip",
+  "sources": [
+    {
+      "name": "PAN-OS official update timeline",
+      "url": "https://security.paloaltonetworks.com/json/CVE-2026-109618"
+    },
+    {
+      "name": "Neat26.5.4 release notes",
+      "url": "https://support.neat.no/article/neat-devices-version-26-5-4/"
+    },
+    {
+      "name": "ConnectWise advisories",
+      "url": "https://www.connectwise.com/company/trust/advisories"
+    }
+  ],
+  "ja": {
+    "kicker": "14:56 UPDATE · 提供・展開・復旧を分ける",
+    "title": "公開済み。配信中。再開目標。",
+    "lede": "同じ「更新」でも状態は違います。提供済みの修正、端末ごとの段階配信、復旧目標を分けて、実際に使う版と個別案内を確認します。図は状態の模式図です。",
+    "points": [
+      "PAN-OS：11.1系列4hotfixの提供状態を更新。CNA JSONは<b>14:45 JST</b>、CSAF履歴との時刻差も記録",
+      "Neat OS26.5.4は<b>段階配信</b>。26日になっただけで全端末修正済みとはしない",
+      "ConnectWiseの次回案内予定は<b>23:00 JST</b>。再開目標を再接続許可に置き換えない",
+      "<a href=\"./update-20261026-1456.html\">14:56の広域レポート・対策・一次資料 →</a>"
+    ]
+  },
+  "en": {
+    "kicker": "14:56 UPDATE · RELEASE IS NOT RESTORATION",
+    "title": "Released. Rolling out. Targeted.",
+    "lede": "A published patch, staged endpoint rollout and restoration target are different states. This schematic explains the distinction; verify the actual build and individual instructions.",
+    "points": [
+      "PAN-OS: four 11.1 hotfix states updated; CNA JSON says <b>14:45 JST</b>, with a conflicting CSAF history time documented",
+      "Neat OS26.5.4 is a <b>staged rollout</b>; the calendar date does not establish every device is patched",
+      "ConnectWise’s next notice is scheduled for <b>23:00 JST</b>. A target is not permission to reconnect",
+      "<a href=\"./update-20261026-1456.html\">14:56 review, actions and primary sources (Japanese) →</a>"
+    ]
+  }
+});

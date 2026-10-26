@@ -1,0 +1,454 @@
+{
+  "cutoff": "2026-10-26T05:56:00Z",
+  "cutoff_jst": "2026-10-26T14:56:00+09:00",
+  "delta_start": "2026-10-26T04:01:00Z",
+  "counts": {
+    "nvd_published": 8,
+    "nvd_modified": 11,
+    "published_modified_overlap": 8,
+    "ghsa": 0,
+    "ghsa_unreviewed": 0,
+    "ghsa_current_published_overlap": 0,
+    "ghsa_previous_published_overlap": 0,
+    "delta_topic_groups": 7,
+    "scope_complement_topic_groups": 8,
+    "reference_only_topic_groups": 3,
+    "record_topic_groups": 18,
+    "verified_response_records": 82,
+    "deduplicated_previous_references": 15
+  },
+  "kev": {
+    "catalog_version": "2026.10.23",
+    "count": 1756,
+    "same_bytes": true,
+    "added_ids": []
+  },
+  "caveats": [
+    "登録・改訂件数は事件数ではない。NVD published8件はmodified11件に全件重複。",
+    "GHSA0は公開窓の検索。既存アドバイザリの改訂が0とは限らない。",
+    "MLITは前回のJVN情報として既報。.NET494も前回より前の公表を今回補完。",
+    "取得は対象時刻後の現行改訂。CNA登録と実悪用・ベンダー修正確認を区別。",
+    "コード照合はPoC実行ではなく最低配布修正版を自動的に確定しない。",
+    "ベンダー追加収集の実取得は15:02:44〜15:08:03 JST（API等の収集は15:00:57 JST開始）。保存本文は対象時刻後の現行改訂で、無記載の追記を対象時点へ完全には復元できない。",
+    "PAN-OSは公式CNA JSONの14:45 JST更新時刻を採用。CSAFの同じ履歴は7時間早い時刻を記載し、両原本に不整合がある。バイナリ初回提供時刻は断定しない。",
+    "既公表の対応範囲補完を、13:01〜14:56 JSTの新しい侵害へ数え直さない。",
+    "eMudhra、Douzoneの同日謝罪、VALTEC第3報は公開時刻未確定の参考枠。日付正規化の可能性がある深夜0時メタデータを厳密な配信時刻にしない。",
+    "Ahsayの10/22告知には10.3.5.54と10.3.4.54の番号不整合がある。予定の10.3.6やv9追加hotfixを提供済みとしない。",
+    "端末向け修正、クラウド側修正、段階配信、復旧予定、実際の再開は別の状態である。",
+    "全世界の全事件を網羅しない。Neat勧告の推定URL404は記録し、公式release notesの正規リンクから取得した。",
+    "Tailworm最低修正版は今回も未確定。ConnectWiseの復旧目標は接続再許可ではなく、次回案内予定は23:00 JST。",
+    "新しいNVD8件のうち電子納品物検査支援システムは前回JVN情報として既報。DB収録と新規発見を分ける。"
+  ],
+  "provenance": {
+    "summary": "collection-summary.json",
+    "nvd": "nvd-index.json",
+    "feeds": "feed-index.json",
+    "research": "../../docs/research-collection-2026-10-26-1456.md",
+    "vendor_summary": "../2026-10-26-1456-vendors/collection-summary.json",
+    "vendor_analysis": "../2026-10-26-1456-vendors/analysis.json",
+    "vendor_research": "../../docs/research-2026-10-26-1456.md"
+  },
+  "records": [
+    {
+      "id": "gouguoa",
+      "title": "GouGuOA：従業員アカウントのアップロード経路",
+      "kind": "delta",
+      "time": "13:17:47 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116113。CNA対象6.1.2まで。9/28付研究者報告は一般従業員の認証が必要と明記。結合後拡張子とWeb公開領域での処理が問題。実悪用と最低修正版は未確定。",
+      "action": "分割アップロードの権限、結合後拡張子、保存領域でのコード実行を制限し不審ファイルを調査する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116113"
+        },
+        {
+          "name": "研究者原報告",
+          "url": "https://github.com/Gum29/rrrreeeeeeee-readme/blob/main/images/img/GouguOA-RCE-Standard-Vuln-Report-EN.md"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "yoosee",
+      "title": "Yooseeカメラ：平文映像・既定WiFi・署名確認",
+      "kind": "delta",
+      "time": "13:17:54〜55 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116114〜116116。GM8135S 21.00.01.36。7/20公開の研究。稼働中ストリームと通信経路上等の位置が必要な映像盗聴、近接等を伴う既定SSID接続、ローカルなfirmware改変を分ける。全件を遠隔RCEとはしない。最低修正版は未確定。",
+      "action": "機微な設置場所、IoT分離、外向き通信、暗号化された閲覧経路を確認する。Ethernetだけで全件対処とはしない。",
+      "sources": [
+        {
+          "name": "116114",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116114"
+        },
+        {
+          "name": "116115",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116115"
+        },
+        {
+          "name": "116116",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116116"
+        },
+        {
+          "name": "研究者原報告",
+          "url": "https://akosibrylle.me/writeups/yoosee-cve"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "mlit-nvd",
+      "title": "電子納品物検査支援システム：既報のNVD収録",
+      "kind": "delta",
+      "time": "14:17:54 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-113345。Ver.4.0.36以前のローカルなファイル権限問題。12:00のJVN公表として前回掲載済みで、新しい被害ではない。",
+      "action": "導入済みは更新、新規導入は最新版インストーラを使用する。",
+      "sources": [
+        {
+          "name": "NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113345"
+        },
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/jp/JVN75668103/"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "halo",
+      "title": "Halo：テンプレート名のpath traversal",
+      "kind": "delta",
+      "time": "14:17:54 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116117。CNA対象2.27.0-beta.1まで。公式コードでテーマtemplates領域への要求名resolveを確認したが、全HTTP到達条件やRCEの実証はしていない。最低修正版・実悪用は未確定。",
+      "action": "非信頼template名を処理する機能・権限を確認し、配布元の修正を追う。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116117"
+        },
+        {
+          "name": "公式コード",
+          "url": "https://github.com/halo-dev/halo/blob/main/application/src/main/java/run/halo/app/theme/DefaultViewNameResolver.java"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "zcode",
+      "title": "Z.ai Zcode：sedフィルターのコマンド処理",
+      "kind": "delta",
+      "time": "14:17:54 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116118。CNA対象3.14.3/3.15.1まで。原報告はリダイレクトループで取得できず、承認設定等の成立条件と最低修正版は未確定。",
+      "action": "利用版とコマンド自動実行・承認設定を確認し、非信頼入力の処理を制限する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116118"
+        },
+        {
+          "name": "原報告・取得失敗",
+          "url": "https://mcniyfj5bw9b.feishu.cn/docx/ZRTudN7cPoJUaZxv89ycn3rbnTG"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "nocodb",
+      "title": "NocoDB：再設定トークンの競合、開発版に対処コード",
+      "kind": "delta",
+      "time": "14:17:54 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116119。CNA対象2026.08.0まで。issue削除は確認したが10/15の公式コミットにもatomic token消費実装がある。現行全版を未修正とはしない。最低出荷修正版と配布ビルドへの収録は未確定。",
+      "action": "対処コードを含む配布物か照合し、再設定とセッション失効のログを確認する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116119"
+        },
+        {
+          "name": "10/15公式コード",
+          "url": "https://github.com/nocodb/nocodb/blob/9e57d237c8964ff74ae9ab1fb131d25a2a637a8e/packages/nocodb/src/services/users/users.service.ts"
+        },
+        {
+          "name": "モデル",
+          "url": "https://github.com/nocodb/nocodb/blob/9e57d237c8964ff74ae9ab1fb131d25a2a637a8e/packages/nocodb/src/models/User.ts"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "dotnet-brotli",
+      "title": ".NET Brotli：明示的解凍とNativeAOTを確認",
+      "kind": "scope-complement",
+      "time": "04:06:12 JST作成、04:23:38 JST更新。NVD更新14:17",
+      "date": "2026-10-26",
+      "body": "CVE-2026-111497公式勧告494は前回以前の公表。ASP.NET Core/HttpClientは既定でBrotli解凍なし。明示的有効化や直接APIで非信頼データを処理する場合が対象。Framework対象外。NativeAOTは共有runtime更新だけでdecoderが置換されない。",
+      "action": "8.0.33/9.0.22/10.0.14等を照合。self-contained再配置、NativeAOTはSDK等更新後に再publish・再配置。既存でない自動解凍を緩和のため有効化しない。",
+      "sources": [
+        {
+          "name": "Microsoft公式勧告",
+          "url": "https://github.com/dotnet/announcements/issues/494"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "openssh-redhat",
+      "title": "Red Hat版OpenSSH：FIPS client停止とX11転送",
+      "kind": "scope-complement",
+      "time": "13:17:57 JST（NVD改訂）。初公表6月",
+      "date": "2026-10-26",
+      "body": "CVE-2026-55653/55655。悪意あるSSHサーバーによるFIPSのDH-GEX client停止と、ローカル攻撃者による明示的X11 forwarding横取り。Red Hat配布版の問題で、上流OpenSSH一般やTailwormへ同一視しない。",
+      "action": "該当製品errataを照合し不要なX11 forwardingを停止。FIPS交渉設定は製品暗号ポリシーと整合させる。",
+      "sources": [
+        {
+          "name": "Red Hat55653",
+          "url": "https://access.redhat.com/security/cve/CVE-2026-55653"
+        },
+        {
+          "name": "Red Hat55655",
+          "url": "https://access.redhat.com/security/cve/CVE-2026-55655"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "panos-hotfix-111",
+      "title": "PAN-OS：11.1系列4版を公開済みへ",
+      "kind": "delta",
+      "time": "14:45 JST（公式CNA JSONの更新履歴）",
+      "date": "2026-10-26",
+      "body": "11.1.4-h38 / 11.1.6-h40 / 11.1.10-h36 / 11.1.13-h16のETAを削除し公開済みとした。CNA JSONは05:45 UTC、CSAFの同じ履歴は前日22:45 UTCで7時間不整合。CSAF生成時刻をバイナリ初回提供時刻と扱わない。",
+      "action": "稼働系列と配布済みhotfixを照合し、管理Web UI / XML APIのアクセス制限を維持する。他系列のETAは別に確認する。",
+      "sources": [
+        {
+          "name": "ベンダー製品表",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+        },
+        {
+          "name": "公式CNA JSON",
+          "url": "https://security.paloaltonetworks.com/json/CVE-2026-109618"
+        },
+        {
+          "name": "公式CSAF・時刻差のある履歴",
+          "url": "https://security.paloaltonetworks.com/csaf/CVE-2026-109618"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "ahsay-recovery",
+      "title": "AhsayCBS：不完全だった旧修正と侵害後の復旧",
+      "kind": "scope-complement",
+      "time": "10/12〜22の既公表勧告、時刻未記載",
+      "date": "2026-10-12",
+      "body": "9.15.2.59 / 10.3.4.0はCVE-2026-105133 / -105134を完全には修正せず、9.15.2.70 / 10.3.4.45を案内。10/22の追加hardening本文は10.3.5.54と10.3.4.54が不整合。実悪用報告は10/9からで、今回の新発生ではない。",
+      "action": "正規配布物と系列をpartner portalで照合する。未知のJSP・管理者・RPS receiver等を調査し、侵害が疑われる場合はOSを含むクリーン再構築と侵害前設定からの復旧を行う。",
+      "sources": [
+        {
+          "name": "不完全な旧修正の公式告知",
+          "url": "https://www.ahsay.com/en/company/announcements/patch-cve-105133-105134-update"
+        },
+        {
+          "name": "公式侵害調査・復旧手順",
+          "url": "https://www.ahsay.com/en/company/announcements/ahsaycbs-vulnerability-status-update"
+        },
+        {
+          "name": "追加hardening・番号不整合",
+          "url": "https://www.ahsay.com/en/company/announcements/release-103454"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "neat-cert-rollout",
+      "title": "Neat：端末とクラウドの証明書対策は別配信",
+      "kind": "scope-complement",
+      "time": "10/22公開・10/23更新、端末配信開始予定10/26",
+      "date": "2026-10-22",
+      "body": "Neat OS 26.5.4はeMudhra信頼ストア対策。10/26から段階配信で、Pulseは組織別、非Pulse OTAは10/28目標。Pulse / Openクラウドの外向き通信修正は別枠で約2週間見込み。実悪用は未確認で、鍵と通信経路上の位置が条件。",
+      "action": "Neat PulseのRoadmapと実機版を確認し、自動更新を無効にした端末も点検する。クラウド修正完了後に必要なwebhook資格情報更新を検討し、自社サービスの証明書も照合する。",
+      "sources": [
+        {
+          "name": "公式Neatセキュリティ勧告",
+          "url": "https://support.neat.no/article/security-advisory-october-2026-compromised-emudhra-intermediate-ca-certificates-affecting-neat-devices-and-cloud-services/"
+        },
+        {
+          "name": "26.5.4公式release notes",
+          "url": "https://support.neat.no/article/neat-devices-version-26-5-4/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "softbank-alert-scope",
+      "title": "ソフトバンク：地震・津波と災害・避難情報を区別",
+      "kind": "scope-complement",
+      "time": "10/23公表、地震・津波再開10/25 09:25 JST。改訂時刻未確認",
+      "date": "2026-10-23",
+      "body": "PHP対応による緊急速報メール停止のうち、気象庁の地震・津波情報は10/25 09:25に再開。国・自治体の災害・避難情報は継続停止。メンテナンスの10/26完了は予定であり、全復旧完了の確認ではない。",
+      "action": "ソフトバンク / ワイモバイル / LINEMO利用者は停止中の災害・避難情報について代替の防災情報経路を用意し、公式再開案内を確認する。",
+      "sources": [
+        {
+          "name": "ソフトバンク公式更新",
+          "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "blastmail-scope",
+      "title": "ブラストメール：全契約者情報と一部配信先リスト",
+      "kind": "scope-complement",
+      "time": "10/21公表、現行案内10/26 10:00 JST更新",
+      "date": "2026-10-26",
+      "body": "全契約者の販売管理情報と、一部契約の配信先リスト等の持出しを確認。後者は344契約、全344契約へ個別連絡済みで第12報から変更なし。管理画面・API・配信は停止継続、再開未定。次回報告は17:00頃の予定。入口の詳細は調査中。",
+      "action": "契約別通知で対象情報を確認し、代替配信と問い合わせ対応を用意する。344人や全受信者の漏えいと読まず、流出情報を使った偽メールに備える。",
+      "sources": [
+        {
+          "name": "運営元・10/26 10:00更新",
+          "url": "https://info.blastmail.jp/information_20261021.html"
+        },
+        {
+          "name": "ラクス第2報",
+          "url": "https://www.rakus.co.jp/news/2026/1021-3.html"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "digital-agency-studio",
+      "title": "Studio利用先：デジタル庁フォームの対象範囲",
+      "kind": "scope-complement",
+      "time": "10/22公表、時刻未記載",
+      "date": "2026-10-22",
+      "body": "2021年5月〜2023年3月のフォーム最大13,323件と、職員・委託事業従事者のStudioアカウント35件を別に説明。漏えいの可能性を精査中で、実取得や二次被害の確認とはしない。既報Studio事案の下流補完で、政府システム全体の新規侵害ではない。",
+      "action": "利用したフォーム・期間と任意記入項目を照合し、デジタル庁を装う連絡に注意する。記録数とアカウント数を人数へ合算しない。",
+      "sources": [
+        {
+          "name": "デジタル庁一次発表",
+          "url": "https://www.digital.go.jp/press/a0a8f66c-b32d-4695-9372-bcd5d4280f22"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "douzone-scope",
+      "title": "Douzone Bizon：Smart A 10とAPOは別通知",
+      "kind": "scope-complement",
+      "time": "10/18・23の公式通知、会社提供声明10/26 11:50 KST/JST",
+      "date": "2026-10-18",
+      "body": "Smart A 10はVPNアカウントによる開発サーバー不正アクセスと一部顧客情報漏えいの可能性。APOはAhsay基盤の脆弱性照会後、暗号化データの一部持出し形跡を説明。鍵流出形跡・対象者・両事件の関係は未確定。会社のzero-day表現だけで特定CVEを割り当てない。",
+      "action": "利用サービスと個別通知、保存データの内容を確認し、予防的な二要素認証と不審連絡への注意を行う。全顧客の平文情報流出や同一原因と断定しない。",
+      "sources": [
+        {
+          "name": "Smart A 10・10/18一次通知",
+          "url": "https://www.douzone.com/board/read.jsp?code=notice&id=3494"
+        },
+        {
+          "name": "APO・10/23一次通知",
+          "url": "https://www.douzone.com/board/read.jsp?code=notice&id=3508"
+        },
+        {
+          "name": "会社提供の時刻付き配信声明",
+          "url": "https://www.newswire.co.kr/newsRead.php?no=1045523"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "emudhra-reference-1026",
+      "title": "eMudhra：同日謝罪・地域声明は公開時刻未確定",
+      "kind": "reference-only",
+      "time": "10/26日付のみ、14:56以前の公開は未確定",
+      "date": "2026-10-26",
+      "body": "後取得の謝罪はscriptの誤りによる弱い鍵、CCADBでのRCA公開予定、独立専門家の確認を説明。中東・アフリカ声明は地域顧客への影響なしとする。深夜0時メタデータは日付正規化の可能性があり、確定差分へ含めない。",
+      "action": "対象サービスと証明書チェーンを分けて照合する。地域顧客へのサービス影響の説明を、第三者アプリのtrust store更新不要や偽証明書リスク不存在へ拡張しない。",
+      "sources": [
+        {
+          "name": "事件ページ・10/26謝罪",
+          "url": "https://emudhra.com/en/post/certificate-security-incident"
+        },
+        {
+          "name": "中東・アフリカ向け10/26声明",
+          "url": "https://emudhra.com/en/press-release/emudhra-confirms-no-impact-middle-east-africa-global-tls-incident"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    },
+    {
+      "id": "douzone-reference-1026",
+      "title": "Douzone：10/26謝罪の公開時刻は未確定",
+      "kind": "reference-only",
+      "time": "10/26日付のみ、14:56以前の公開は未確定",
+      "date": "2026-10-26",
+      "body": "後取得の公式謝罪は現行顧客サービスの通常運用、調査協力と専用窓口を説明するが、公開・改訂時刻は不明。14:56以前の確定差分へ含めず、通常運用を情報流出不存在の証明としない。",
+      "action": "既公表のSmart A 10 / APO通知と個別の対象案内を確認し、公開時刻未確定の同日謝罪を新たな漏えい確定へ読み替えない。",
+      "sources": [
+        {
+          "name": "10/26公式謝罪",
+          "url": "https://www.douzone.com/board/read.jsp?code=notice&id=3511"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    },
+    {
+      "id": "valtec-reference-1456",
+      "title": "VALTEC第3報：公開時刻の留保を継続",
+      "kind": "reference-only",
+      "time": "10/26日付のみ、14:56以前の公開は未確定",
+      "date": "2026-10-26",
+      "body": "前回から参考枠を維持。企業情報1,213件、売上等データ875社と外部送信確認を説明するが、個人情報件数は調査中。今回も公開時刻の確証なし。順次再開と全サービスのパスワード強制変更は予定・案内で、全復旧完了ではない。",
+      "action": "対象サービスの個別案内と復旧状況を確認する。PHP原因説撤回の留保も維持し、同日第3報を対象時刻以前の確定情報へ格上げしない。",
+      "sources": [
+        {
+          "name": "10/26第3報",
+          "url": "https://www.webjapan.co.jp/maintenance/serviceteishi261026/"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    }
+  ],
+  "report": {
+    "path": "update-20261026-1456.html",
+    "title": "14:56 — 修正を、稼働環境へ届ける",
+    "headline": "修正した、その先を。",
+    "intro": "境界機器・バックアップ・証明書・AIツールから、国内の配信停止と委託先影響まで。新規登録と既存事件の対策補完を分け、18論点を一次資料で整理しました。",
+    "window_jst": "13:01〜14:56 JST",
+    "cutoff_jst_label": "2026-10-26 14:56 JST /05:56 UTC",
+    "retrieved_jst": "15:00 JST以降",
+    "previous": "update-20261026-1301.html",
+    "previous_label": "13:01の調査記録",
+    "quick": [
+      {
+        "title": "公開機器・バックアップを確認。",
+        "text": "PAN-OSの11.1系列4hotfixを追加照合。Ahsayは不完全だった旧修正に注意し、侵害調査と必要なクリーン再構築まで追います。",
+        "href": "#panos-hotfix-111",
+        "label": "更新状態と出典へ"
+      },
+      {
+        "title": "アプリに同梱されたものも更新。",
+        "text": ".NET Brotliは明示的に解凍を有効化した経路を確認。NativeAOTは共有runtimeの更新だけでは不足し、SDK等更新後の再publish・再配置が必要です。",
+        "href": "#dotnet-brotli",
+        "label": "配置方法ごとの対策へ"
+      },
+      {
+        "title": "配信と警報の、止まっている範囲。",
+        "text": "ソフトバンクの地震・津波速報は再開、国・自治体の災害・避難情報は停止継続。ブラストメールも停止・再開未定で、代替経路と個別通知を確認します。",
+        "href": "#softbank-alert-scope",
+        "label": "国内サービスの状態へ"
+      },
+      {
+        "title": "カメラ・AI・認証の条件を確認。",
+        "text": "Yooseeの3件をすべて遠隔RCEとしません。NocoDBは開発版に既存対処があり、Zcodeの原報告取得失敗や最低修正版未確定も明示します。",
+        "href": "#yoosee",
+        "label": "追加登録の条件へ"
+      }
+    ]
+  }
+}

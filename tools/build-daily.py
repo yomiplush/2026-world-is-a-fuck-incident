@@ -5,6 +5,8 @@ not a reconstruction of what readers knew that day.
 """
 import html
 import json
+from datetime import datetime
+from urllib.parse import urlparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +14,9 @@ SITE = ROOT / 'site'
 BASE = 'https://infosec-briefing.yomiplush.dev/'
 REPO = 'https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/'
 DATA = ROOT / 'data/2026-10-26-1027/daily-record.json'
+LATEST = json.loads((ROOT / 'data/latest.json').read_text())
+LATEST_PATH = Path(urlparse(LATEST['site_report']).path).name
+LATEST_LABEL = datetime.fromisoformat(LATEST['cutoff_jst']).strftime('%m/%d %H:%M')
 
 def esc(value):
     return html.escape(str(value), quote=True)
@@ -25,7 +30,7 @@ def shell(path, title, description, content):
 <title>{esc(title)} — October Incident Briefing</title><meta name="description" content="{esc(description)}"><link rel="canonical" href="{BASE}{path}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:type" content="article"><meta property="og:url" content="{BASE}{path}">
 <link rel="stylesheet" href="./update.css"><link rel="stylesheet" href="./daily.css?v=20261026"><link rel="stylesheet" href="/privacy.css?v=20261025brave"><script src="/privacy.js?v=20261025brave" defer></script></head>
-<body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global" aria-label="サイト内">{anchor('./','モーションブリーフィング')} {anchor('./update-20261026-1301.html','10/26 13:01 最新まとめ')} {anchor('./update-20261026.html','10:27 朝の記録')} {anchor('./timeline.html','日付から読む')} {anchor('./tailworm.html','Tailworm特集')}</nav>
+<body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global" aria-label="サイト内">{anchor('./','モーションブリーフィング')} {anchor('./'+LATEST_PATH,LATEST_LABEL+' 最新まとめ')} {anchor('./update-20261026.html','10:27 朝の記録')} {anchor('./timeline.html','日付から読む')} {anchor('./tailworm.html','Tailworm特集')}</nav>
 {content}
 <footer>{anchor('./timeline.html','日付別一覧')} · {anchor(REPO+'docs/29-snapshot-20261026-1027.ja.md','調査範囲・全文・出典')} · {anchor('/privacypolicy','プライバシーポリシー')}<p>基準 2026-10-26 10:27 JST / 01:27 UTC。取得は基準後。更新後の本文を過去時点へ完全には復元できません。</p></footer></main></body></html>'''
 
@@ -47,10 +52,10 @@ def main():
     for index, day in enumerate(days):
         filename = 'day-' + day['date'].replace('-','') + '.html'
         previous = anchor('./day-'+days[index-1]['date'].replace('-','')+'.html','← 前の日') if index else '<span>記録の起点</span>'
-        following = anchor('./day-'+days[index+1]['date'].replace('-','')+'.html','次の日 →') if index+1<len(days) else anchor('./update-20261026-1301.html','現在の対応へ →')
+        following = anchor('./day-'+days[index+1]['date'].replace('-','')+'.html','次の日 →') if index+1<len(days) else anchor('./'+LATEST_PATH,'現在の対応へ →')
         content = nav_dates(days,day['date'])+f'''<header><p class="kicker">DAILY RECORD · {esc(day['date'])}</p><h1><span class="day-number">{esc(day['date'][5:].replace('-','/'))}</span>{esc(day['title'])}</h1><p class="intro">{esc(day['summary'])}</p><p class="date">10/26 10:27 JST時点の振り返り。原資料の日付のみの項目は厳密なJST日付が未確定です。</p></header>'''
         content += ''.join(article(e) for e in day['events'])
-        content += f'<aside><strong>当日の記録と、今の対策は分けて確認。</strong><p>{esc(day["now"])}</p>{anchor("./update-20261026-1301.html","最新の対応優先度を読む →")}</aside>'
+        content += f'<aside><strong>当日の記録と、今の対策は分けて確認。</strong><p>{esc(day["now"])}</p>{anchor("./"+LATEST_PATH,"最新の対応優先度を読む →")}</aside>'
         content += f'<nav class="siblings" aria-label="前後の日">{previous}{following}</nav>'
         (SITE/filename).write_text(shell(filename,day['date']+' — '+day['title'],day['summary'],content))
     review = '''<header><p class="kicker">SECURITY REVIEW · 2026-10-26 10:27 JST</p><h1>修正の先まで、<br>確認する朝。</h1><p class="intro">PHP以降の事案を広範囲に再確認。欠落していた.NET修正、機器への波及、資格情報の侵害と、訂正された説明をまとめました。</p><p class="date">対象：2026-10-26 10:27 JST / 01:27 UTC。実取得は基準後。<br>「現在起きていること」は継続対応を含み、今朝発生した事件だけを指しません。</p><div class="report-links"><a href="./timeline.html">10日分を日付から読む →</a><a href="./?lang=ja#49">今朝の4画面を再生 →</a><a href="./tailworm.html">Tailworm特集 →</a></div></header>

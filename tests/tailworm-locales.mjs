@@ -11,7 +11,7 @@ async function open(path,ready){await cdp('Page.navigate',{url:'http://127.0.0.1
 try {
  await cdp('Page.enable');await cdp('Network.enable');await cdp('Network.setCacheDisabled',{cacheDisabled:true});
  await cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
- await open('/tailworm.html?lang=ja','!!document.getElementById("actions")');
+ await open('/tailworm.html?lang=ja','!!document.getElementById("actions") && !!window.TAILWORM_LANGUAGE_READY');
  assert.ok(await run('!!document.getElementById("lang-select")'),'Tailworm needs its own language dropdown');
  const codes=['en','ja','zh','ko','es','fr','de','pt','ru','ar','hi','id'];
  await run('document.getElementById("privacy-reject")?.click();true');

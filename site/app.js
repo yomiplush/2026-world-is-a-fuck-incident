@@ -42,7 +42,10 @@
   let pausedAt = 0;
   const header = document.querySelector(".hud-top"), footer = document.querySelector(".hud-bottom");
   const splitLayout = window.matchMedia("(min-width: 1100px), (min-width: 900px) and (min-height: 561px) and (min-aspect-ratio: 6/5)");
-  const renderer = window.RENDER.create({ canvas: el.scene, draw: drawFrame, step: stepCamera });
+  const renderer = window.RENDER.create({ canvas: el.scene, draw: drawFrame, step: stepCamera,
+    onBudget(budget) { document.documentElement.dataset.renderEffects = budget.effects; }
+  });
+  let layoutFrame = 0;
   function syncRuntime() {
     const active = started && !document.hidden && !el.drawer.classList.contains("open");
     const now = performance.now();
@@ -75,7 +78,7 @@
     if (loading[code]) return loading[code];
     loading[code] = new Promise((resolve) => {
       const s = document.createElement("script");
-      s.src = "./i18n/" + code + ".js?v=20261026morning";
+      s.src = "./i18n/" + code + ".js?v=20261026afternoon";
       s.async = true;
       s.onload = () => resolve(hasLocale(code));
       s.onerror = () => resolve(false);
@@ -132,7 +135,7 @@
     el.btnClose.textContent = ui("close");
     el.drawerTitle.textContent = lang === "ja" ? "出典 / SOURCES" : ui("sources");
     el.drawerFoot.innerHTML =
-      `${ui("drawerFoot")}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="./update-20261026-1301.html">10/26 13:01</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a>`;
+      `${ui("drawerFoot")}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="./update-20261026-1456.html">10/26 14:56</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">github.com/yomiplush/2026-world-is-a-fuck-incident</a>`;
     el.btnAudio.title = `${ui("sound")} (M)`;
     el.btnInfo.title = ui("sources");
     el.langSelect.title = `${ui("sources")} · L`;
@@ -163,8 +166,11 @@
 
   /* ---------- canvas sizing ---------- */
   function resize() {
-    measureLayout();
-    renderer.invalidate();
+    if (document.hidden || layoutFrame) return;
+    layoutFrame = requestAnimationFrame(() => {
+      layoutFrame = 0;
+      measureLayout(); renderer.invalidate();
+    });
   }
   window.addEventListener("resize", resize, { passive: true });
   window.addEventListener("briefingviewportchange", resize, { passive: true });
@@ -183,7 +189,7 @@
   }
 
   function stepCamera(now) {
-    const dt = Math.min(.05, (now - last) / 1000) || 1 / 60;
+    const dt = Math.min(.1, (now - last) / 1000) || 1 / 60;
     last = now;
     const frames = dt * 60;
     if (holding) {
@@ -246,6 +252,7 @@
   function renderScene(i, dir, silent, preserveTime) {
     const s = scenes[i];
     const copy = copyFor(s);
+    el.panel.lang = copy === s.en ? "en" : meta(lang).html;
     el.panel.classList.remove("swap");
     void el.panel.offsetWidth;
 
@@ -274,6 +281,7 @@
     if (!preserveTime) { sceneStart = performance.now(); pausedAt = 0; }
     // the camera angle carries over: the next scene is the same object, turned.
     vel.yaw = vel.pitch = 0;
+    if (layoutFrame) { cancelAnimationFrame(layoutFrame); layoutFrame = 0; }
     measureLayout();
     syncRuntime(); renderer.invalidate();
     if (started && !silent) {
@@ -511,7 +519,6 @@
     document.body.classList.add("still");
   }
 
-  resize();
   buildLanguageSelect();
   buildRail();
 
@@ -568,6 +575,7 @@
 
   if (new URLSearchParams(location.search).get("debug") === "1") {
     setTimeout(function () {
+      const ctx = el.scene.getContext('2d');
       const d = ctx.getImageData(0, 0, el.scene.width, el.scene.height).data;
       let lit = 0, max = 0;
       for (let i = 0; i < d.length; i += 4) {
@@ -593,19 +601,23 @@
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
+      if (layoutFrame) { cancelAnimationFrame(layoutFrame); layoutFrame = 0; }
       if (pendingAdvance) clearTimeout(pendingAdvance);
       pendingAdvance = 0; lastTap = 0; endDrag();
     }
+    if (!document.hidden) resize();
     last = performance.now();
     syncRuntime();
     if (A.setVisible) A.setVisible(!document.hidden);
   });
   window.addEventListener("pagehide", (event) => {
+    if (layoutFrame) { cancelAnimationFrame(layoutFrame); layoutFrame = 0; }
     renderer.configure({ active: false });
     if (A.setVisible) A.setVisible(false);
     if (!event.persisted) { renderer.dispose(); A.dispose(); }
   });
   window.addEventListener("pageshow", () => {
+    resize();
     syncRuntime();
     if (A.setVisible) A.setVisible(!document.hidden);
   });

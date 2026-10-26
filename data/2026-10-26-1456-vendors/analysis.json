@@ -1,0 +1,36 @@
+{
+  "cutoff": "2026-10-26T05:56:00Z",
+  "delta_start": "2026-10-26T04:01:00Z",
+  "http_response_records": 35,
+  "successful_responses": 34,
+  "failed_responses": [
+    {
+      "name": "neat-advisory",
+      "url": "https://support.neat.no/article/security-advisory-neat-sa-2026-10-22-2/",
+      "retrieved_at": "2026-10-26T06:06:42.133479+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "hashes_verified": 34,
+  "retrieved_from": "2026-10-26T06:02:44.431513+00:00",
+  "retrieved_until": "2026-10-26T06:08:03.449102+00:00",
+  "pan_hotfix_update": {
+    "cna_json_timeline_utc": "2026-10-26T05:45:00.000Z",
+    "cna_json_timeline_jst": "2026-10-26T14:45:00+09:00",
+    "csaf_revision_history_utc": "2026-10-25T22:45:00.000Z",
+    "csaf_generator_utc": "2026-10-26T05:47:15.566Z",
+    "note": "CNA JSON and CSAF revision history differ systematically by seven hours. Use JSON as explicit advisory update timestamp with caveat; do not equate advisory publication with exact binary first availability.",
+    "versions": [
+      "11.1.4-h38",
+      "11.1.6-h40",
+      "11.1.10-h36",
+      "11.1.13-h16"
+    ]
+  },
+  "normalized_text_unchanged_from_1027": [
+    "tailworm",
+    "fortinet",
+    "connectwise"
+  ]
+}
