@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Mon, 26 Oct 2026 21:45:03 GMT</pubDate>
+    <lastBuildDate>Mon, 26 Oct 2026 21:45:03 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>Godot 4.x: arbitrary code execution via .po translation file Plural-Forms header</title>
+    <link>https://seclists.org/oss-sec/2026/q4/396</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Oct 26&lt;/p&gt;A code-execution vulnerability in Godot 4.x translation loading was&lt;br&gt;
+publicly disclosed on 2026-10-26 [1].&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+Godot 4.1.0 through 4.7.2. Runtime-confirmed on the official 4.7-stable&lt;br&gt;
+export. No equivalent path found in 3.5.&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+The .po loader stores the file&amp;apos;s Plural-Forms header without validating it&lt;br&gt;
+against the GNU gettext grammar (core/io/translation_loader_po.cpp:232). At&lt;br&gt;
+the first plural lookup the header is...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 21:31:35 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/396</guid>
+  </item>
+  <item>
+    <title>CVE-2025-60467: GPAC/MP4Box: Use-After-Free in gf_filter_pid_inst_swap_delete_task on crafted MPEG-2 TS file</title>
+    <link>https://seclists.org/oss-sec/2026/q4/395</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Oct 26&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  gpac/gpac prior to fix commit (see References)&lt;br&gt;
+CVE:       CVE-2025-60467&lt;br&gt;
+CWE:       CWE-416 (Use After Free)&lt;br&gt;
+CVSS 3.1:  4.3 MEDIUM (AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L)&lt;br&gt;
+Reporter:  sigdevel &amp;lt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://infosec.exchange/@sigdevel&quot;&gt;https://infosec.exchange/@sigdevel&lt;/a&gt;&amp;gt;&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  The gf_filter_pid_inst_swap_delete_task() function in GPAC&amp;apos;s filter&lt;br&gt;
+  session core (filter_core/filter_pid.c:574) is a scheduled task that&lt;br&gt;
+  deletes a...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 21:28:47 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/395</guid>
+  </item>
+  <item>
+    <title>CVE-2026-112818: git-annex cross-repository data exfiltration</title>
+    <link>https://seclists.org/oss-sec/2026/q4/394</link>
+    <description>&lt;p&gt;Posted by Joey Hess on Oct 26&lt;/p&gt;I have released git-annex 10.20261026, which fixes a cross-repository&lt;br&gt;
+data exfiltration attack.&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://git-annex.branchable.com/download/&quot;&gt;https://git-annex.branchable.com/download/&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+There are also backported patches for several past versions available&lt;br&gt;
+as branches in the git repository:&lt;br&gt;
+        CVE-2026-112818-patch-10.20250416&lt;br&gt;
+        CVE-2026-112818-patch-10.20251029&lt;br&gt;
+        CVE-2026-112818-patch-10.20261006...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 18:47:28 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/394</guid>
+  </item>
+  <item>
+    <title>Brotli CVE-2026-111497 and git-remote-https</title>
+    <link>https://seclists.org/oss-sec/2026/q4/393</link>
+    <description>&lt;p&gt;Posted by Harry Sintonen on Oct 26&lt;/p&gt;I haven&amp;apos;t seen this mentioned here, yet: git https remote (git-remote-https) &lt;br&gt;
+is vulnerable to CVE-2026-111497, too, when libcurl has been built with &lt;br&gt;
+brotli support (generally this is the case for most distros).&lt;br&gt;
+&lt;br&gt;
+When scanning for vulnerable apps using libcurl also check for &lt;br&gt;
+CURLOPT_ENCODING since this is an alias for CURLOPT_ACCEPT_ENCODING. Fair &lt;br&gt;
+bit of older code still uses this old option name. (*)&lt;br&gt;
+&lt;br&gt;
+*)...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 16:40:19 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/393</guid>
+  </item>
+  <item>
+    <title>Re: PHP 5.4.23 (custom 5.4-5.6) backported patch for PHP2Shell OOM vulnerability (CVE-2026-109618)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/392</link>
+    <description>&lt;p&gt;Posted by Michael Orlitzky on Oct 26&lt;/p&gt;Considering that PHP 5.x has been out of security support for ~8 years&lt;br&gt;
+and out of active support for ~10, best of all would be to crash the&lt;br&gt;
+process when it starts.&lt;br&gt;
+&lt;br&gt;
+For many of those years, there existed no AI marketing departments to&lt;br&gt;
+publicize individual vulnerabilities. No one knows how, but hundreds&lt;br&gt;
+of vulnerabilities were nevertheless fixed during that time.&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 16:38:20 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/392</guid>
+  </item>
+  <item>
+    <title>GNU patch 2.8.1 released, fixes CVE-2026-115207</title>
+    <link>https://seclists.org/oss-sec/2026/q4/391</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 26&lt;/p&gt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://lists.gnu.org/archive/html/bug-patch/2026-10/msg00014.html&quot;&gt;https://lists.gnu.org/archive/html/bug-patch/2026-10/msg00014.html&lt;/a&gt; announces:&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 16:33:26 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/391</guid>
+  </item>
+  <item>
+    <title>Re: Brotli CVE-2026-111497</title>
+    <link>https://seclists.org/oss-sec/2026/q4/390</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 25&lt;/p&gt;Sorry, copy &amp;amp; paste error - the second URL should have been:&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/google/brotli/commit/0ed4268a4401abcb4472096340477cf4af7d1a2b&quot;&gt;https://github.com/google/brotli/commit/0ed4268a4401abcb4472096340477cf4af7d1a2b&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 02:11:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/390</guid>
+  </item>
+  <item>
+    <title>Re: Brotli CVE-2026-111497</title>
+    <link>https://seclists.org/oss-sec/2026/q4/389</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 25&lt;/p&gt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://broccoli2shell.com/&quot;&gt;https://broccoli2shell.com/&lt;/a&gt; lists even more including:&lt;br&gt;
+  - .NET runtime&lt;br&gt;
+  - 7-Zip-zstd&lt;br&gt;
+  - Apache Arrow&lt;br&gt;
+  - Brotli4j&lt;br&gt;
+  - brotlicffi&lt;br&gt;
+  - CatBoost&lt;br&gt;
+  - Chromium&lt;br&gt;
+  - ClickHouse&lt;br&gt;
+  - DuckDB&lt;br&gt;
+  - EDK II&lt;br&gt;
+  - Firefox&lt;br&gt;
+  - Ghostscript&lt;br&gt;
+  - GraalJS (graal-nodejs)&lt;br&gt;
+  - libjxl&lt;br&gt;
+  - MuPDF&lt;br&gt;
+  - NanaZip&lt;br&gt;
+  - ngx_brotli&lt;br&gt;
+  - p7zip&lt;br&gt;
+  - PHP brotli extension&lt;br&gt;
+  - Ruby brotli gem&lt;br&gt;
+  - SumatraPDF&lt;br&gt;
+  - UEFITool&lt;br&gt;
+  - v8-jsi&lt;br&gt;
+  - woff2&lt;br&gt;
+  - YDB&lt;br&gt;
+  - YTsaurus&lt;br&gt;
+&lt;br&gt;
+Some of these fixed it...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 02:05:33 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/389</guid>
+  </item>
+  <item>
+    <title>Starman versions before 0.4019 for Perl (4 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/388</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 25&lt;/p&gt;CVE-2026-115817&lt;br&gt;
+   Starman versions before 0.4019 for Perl allow a stalled request body&lt;br&gt;
+   to hold a worker indefinitely, as read_timeout covers only the&lt;br&gt;
+   headers&lt;br&gt;
+&lt;br&gt;
+CVE-2026-115822&lt;br&gt;
+   Starman versions before 0.4019 for Perl allow CPU exhaustion via&lt;br&gt;
+   quadratic regex backtracking when parsing chunked request bodies&lt;br&gt;
+&lt;br&gt;
+CVE-2026-115823&lt;br&gt;
+   Starman versions before 0.4019 for Perl send response bodies for HEAD&lt;br&gt;
+   requests, desynchronizing...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:29:00 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/388</guid>
+  </item>
+  <item>
+    <title>CVE-2026-115825: HTTP::Server::PSGI versions before 1.0056 for Perl allow a single request to crash the server by declaring a large Content-Length</title>
+    <link>https://seclists.org/oss-sec/2026/q4/387</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 25&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-115825                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-115825&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Plack&lt;br&gt;
+       Versions:  before 1.0056&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Plack&quot;&gt;https://metacpan.org/dist/Plack&lt;/a&gt;&lt;br&gt;
+       VCS Repo:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/plack/Plack&quot;&gt;https://github.com/plack/Plack&lt;/a&gt;...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:27:14 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/387</guid>
+  </item>
+  <item>
+    <title>Re: PHP 5.4.23 (custom 5.4-5.6) backported patch for PHP2Shell OOM vulnerability (CVE-2026-109618)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/386</link>
+    <description>&lt;p&gt;Posted by Demi Marie Obenour on Oct 25&lt;/p&gt;In light of the size of the upstream patch, would it be better to handle out of memory by crashing the process instead?&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:25:27 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/386</guid>
+  </item>
+  <item>
+    <title>CVE-2020-37268: Rocq/Coq Print Assumptions omits unsafe universe checking inlined through Parameter Inline (0 = 1 demonstrated) — unfixed since 2020</title>
+    <link>https://seclists.org/oss-sec/2026/q4/385</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness-audit bypass in the Rocq (formerly Coq) module system&lt;br&gt;
+allows construction of a proof of False that Print Assumptions reports&lt;br&gt;
+as closed under the global context — no axioms, no unsafe flags visible.&lt;br&gt;
+&lt;br&gt;
+When a module type declares Parameter Inline and functor application&lt;br&gt;
+inlines the parameter&amp;apos;s body, the metadata recording that the original&lt;br&gt;
+definition was produced under Unset Universe Checking is dropped....&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:23:42 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/385</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72714: Rocq universe checking state desynchronised after module close (0 = 1 demonstrated) — 0-day</title>
+    <link>https://seclists.org/oss-sec/2026/q4/384</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Rocq (formerly Coq) kernel allows construction&lt;br&gt;
+of a checked proof of False — and by extension, any proposition,&lt;br&gt;
+including 0 = 1 — without axioms, plugins, or unsafe flags. Print&lt;br&gt;
+Assumptions reports the proof as closed under the global context.&lt;br&gt;
+&lt;br&gt;
+The module system does not correctly restore the universe checking flag&lt;br&gt;
+when a module that locally disabled the check (`Local Unset Universe&lt;br&gt;
+Checking`) is...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:21:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/384</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72705: Rocq guard checker accepts fixpoint passed as higher-order argument (0 = 1 demonstrated)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/383</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Rocq (formerly Coq) kernel&amp;apos;s guard checker allows&lt;br&gt;
+construction of a checked proof of False — and by extension, any&lt;br&gt;
+proposition, including 0 = 1 — without axioms, tactics, plugins, or&lt;br&gt;
+unsafe flags. Print Assumptions reports the proof as closed under the&lt;br&gt;
+global context.&lt;br&gt;
+&lt;br&gt;
+The guard checker does not track recursive calls made through a&lt;br&gt;
+fixpoint&amp;apos;s own arguments. A fixpoint can pass itself to...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:20:10 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/383</guid>
+  </item>
+  <item>
+    <title>CVE-2026-72704: Rocq guard checker trusts corrupted recursive tree after transport (0 = 1 demonstrated) — 0-day</title>
+    <link>https://seclists.org/oss-sec/2026/q4/382</link>
+    <description>&lt;p&gt;Posted by Jonathan Brossard on Oct 25&lt;/p&gt;1. Summary&lt;br&gt;
+==========&lt;br&gt;
+&lt;br&gt;
+A soundness bug in the Rocq (formerly Coq) kernel&amp;apos;s guard checker allows&lt;br&gt;
+construction of a checked proof of False — and by extension, any&lt;br&gt;
+proposition, including 0 = 1.&lt;br&gt;
+&lt;br&gt;
+The guard checker does not recheck the recursive tree (rectree) for an&lt;br&gt;
+inductive type parameter after a transport (rewrite via eq_rect/rew)&lt;br&gt;
+changes that parameter. A fixpoint applies a rewrite along a type&lt;br&gt;
+equality to its recursive argument; the...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 00:18:21 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/382</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

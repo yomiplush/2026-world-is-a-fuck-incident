@@ -83,13 +83,13 @@ try {
     })()`);
     console.log(`${renderReport.length} render combinations: unique scenes, animation, tilt, reduced motion passed`);
     const sceneCount = await run('CONTENT.scenes.length');
-    assert.equal(sceneCount,57,'Tailworm special, nightly and morning updates must be present');
+    assert.equal(sceneCount,61,'Tailworm, nightly and 07:47 morning updates must be present');
     for (const [lang, width, height] of [['ja',390,844],['en',1440,900],['ar',390,844],['ja',844,390],['ja',320,568],['en',375,667],['ja',768,1024],['en',1024,768],['ja',1280,800],['en',1920,1080]]) {
       await open(lang,width,height);
-      const layout=await run(`(() => {const c=document.getElementById('scene').getBoundingClientRect(),p=document.getElementById('panel'),b=p.getBoundingClientRect(),a=document.getElementById('repo-link'),r=a.getBoundingClientRect();return {canvasBottom:c.bottom,panelTop:b.top,bg:getComputedStyle(p).backgroundImage,opacity:getComputedStyle(p).opacity,href:a.href,svg:!!a.querySelector('svg'),right:r.right,top:r.top}})()`);
+      const layout=await run(`(() => {const c=document.getElementById('scene').getBoundingClientRect(),p=document.getElementById('panel'),b=p.getBoundingClientRect(),a=document.getElementById('repo-link'),r=a.getBoundingClientRect();return {canvasBottom:c.bottom,panelTop:b.top,bg:getComputedStyle(p).backgroundImage,bgc:getComputedStyle(p).backgroundColor,opacity:getComputedStyle(p).opacity,href:a.href,svg:!!a.querySelector('svg'),right:r.right,top:r.top}})()`);
       assert.equal(layout.href,'https://github.com/yomiplush/2026-world-is-a-fuck-incident');
       assert.ok(layout.svg && layout.right<=width && layout.right>width-60 && layout.top<=44,'GitHub must remain at top right');
-      if(width<500){assert.ok(layout.canvasBottom>layout.panelTop+64,'phone diagram must extend behind copy');assert.match(layout.bg,/rgba/);assert.equal(layout.opacity,'1','copy must remain opaque');}
+      if(width<500){assert.ok(layout.canvasBottom>layout.panelTop+64,'phone diagram must extend behind copy');assert.equal(layout.bgc,'rgb(8, 17, 27)','mobile copy must have an opaque surface above diagram labels');assert.equal(layout.opacity,'1','copy must remain opaque');}
       for (let i=0;i<sceneCount;i++) {
         const state=await run(`(() => {
           const panel=document.getElementById('panel'), box=panel.getBoundingClientRect();

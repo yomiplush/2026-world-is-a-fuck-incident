@@ -46,6 +46,17 @@ def main():
     record = json.loads(DATA.read_text())
     days = record['days']
     cards = ''.join(f'''<a class="day-card" href="./day-{d['date'].replace('-','')}.html"><time datetime="{d['date']}">{d['date'][5:].replace('-','/')}</time><div><strong>{esc(d['title'])}</strong><p>{esc(d['summary'])}</p></div><span aria-hidden="true">↗</span></a>''' for d in days)
+    reviews = []
+    for path in (ROOT / 'data').glob('*/incident-register.json'):
+        review_record = json.loads(path.read_text())
+        if review_record.get('report'):
+            reviews.append(review_record)
+    review_cards = ''
+    for review_record in sorted(reviews, key=lambda r: r['cutoff']):
+        report = review_record['report']
+        stamp = datetime.fromisoformat(review_record['cutoff_jst']).strftime('%m/%d %H:%M')
+        review_cards += f'<a class="day-card" href="./{esc(report["path"])}"><time datetime="{esc(review_record["cutoff_jst"])}">{esc(stamp[:5])}<small>{esc(stamp[6:])} JST</small></time><div><strong>{esc(report["headline"])}</strong><p>{esc(report["intro"])}</p></div><span aria-hidden="true">↗</span></a>'
+    cards += '<h2>追補レポート：調査の基準時刻順</h2><p>基準時刻は事件の発生時刻ではありません。各回の差分と継続対応を確認できます。</p>' + review_cards
     intro = '''<header><p class="kicker">OCTOBER 17—26 · DAILY RECORD</p><h1>何が起きて、<br>何が変わったか。</h1><p class="date">古い日付 → 新しい日付の順。8月からの背景はモーション版に収録。</p><p class="intro">PHPの公開前の試行から、修正の波及、資格情報の侵害、今朝の更新まで。日付ごとに読み、いま必要な対応へ戻れます。</p><p class="date">2026-10-26 10:27 JST 基準 · 日本語 / Japanese</p></header>
 <aside><strong>事件の日付と、判明した日付。</strong><p>観測・公表・修正・収録・本調査の更新を区別しています。過去のページも現在確認できる資料による振り返りです。PHPがほかの事件を引き起こしたという関係は示しません。時刻のある情報はJSTへ換算。時刻未記載の資料は原資料の日付に置き、日付境界は未確定と明記します。</p></aside>'''
     (SITE/'timeline.html').write_text(shell('timeline.html','10月17日〜26日 — 日付から読む','PHP2Shellの公開前試行以降を日付別10ページに整理。攻撃観測、公表、修正、後日判明を区別し、10月26日10:27 JSTの対応へ。',intro+'<section class="day-list" aria-label="日付別記録">'+cards+'</section>'))

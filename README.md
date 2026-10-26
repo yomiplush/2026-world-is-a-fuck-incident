@@ -1,5 +1,17 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
+## Latest review — 2026-10-27 07:47 JST
+
+**[Current reading report](https://www.infosec-briefing.net/update-20261027-0747) · [Research database](https://www.infosec-briefing.net/database) · [Two response diagrams](https://www.infosec-briefing.net/?lang=en#60)**
+
+This review covers GMO’s date correction, Railway restoration updates, Apple security releases, Consul authorization boundaries, OpenHands SDK, Cloud Run MCP, AI inference and dependency advisories. It separates sandbox root from host root, Consul API reachability from default loopback binding, and patching from credential revocation and investigation.
+
+Window 00:18–07:47 JST: NVD 532 published / 4,815 modified (532 overlap); GHSA 540 published / 748 modified (540 overlap). These are database records, **not new incident counts**. The register contains 23 editorial groups: 17 delta, 5 continuity and 1 reference. All 182 saved or referenced HTTP responses were verified by decompressed SHA-256. Retrieval occurred after cutoff; historical revisions cannot be fully reconstructed.
+
+[Primary research](docs/research-2026-10-27-0747.md) · [Collection and limitations](docs/research-collection-2026-10-27-0747.md) · [Register](data/2026-10-27-0747/incident-register.json) · [Dataset pointer](data/latest.json)
+
+The dated sections below retain their historical context.
+
 **忙しい人向け（日本語・10/27 00:18 JST）：** 公開システムの更新・侵害調査と鍵の失効を継続し、GMO第7報（12:00は攻撃者予告）、ConnectWiseの準備継続、Brotli下流の到達条件を確認してください。**[日本語の1分要約](README_jp.md)**
 
 **Languages:** [Choose a language](https://www.infosec-briefing.net/languages). Motion and Tailworm use native dropdowns for 15 major languages, including Ukrainian, Polish and Swedish. [Stored database translations and maintenance](docs/translations/README.md).

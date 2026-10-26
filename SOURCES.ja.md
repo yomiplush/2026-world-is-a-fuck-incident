@@ -1,6 +1,18 @@
 # ソースと再取得コマンド
 
-最新 **10/26 21:35 JST**：[技術・固定窓調査](docs/research-collection-2026-10-26-2135.md) / [事件・ベンダー一次調査](docs/research-2026-10-26-2135.md) / [統合索引](data/2026-10-26-2135/incident-register.json) / [最新データ参照先](data/latest.json) / [読むレポート](https://www.infosec-briefing.net/update-20261026-2135)。窓は **14:56〜21:35 JST**、NVD **新規99 / 更新1,434（99件重複、新規にRejected1件を含む）**。GHSA **公開111 / modified151（111件重複）**、公開分は**unreviewed103＋malware8**です。今回は種別・改訂の照会範囲を拡張しており、事件数ではありません。**37論点＝差分23・既存範囲補完12・公開時刻未確定の参考2**です。KEVは1,756件で前回原本と同一です。
+## 最新の取得資料 — 2026-10-27 07:47 JST
+
+**[忙しい人向けの最新レポート](https://www.infosec-briefing.net/update-20261027-0747) · [調査データ](https://www.infosec-briefing.net/database) · [対策のモーション2画面](https://www.infosec-briefing.net/?lang=ja#60)**
+
+GMOの00:20訂正、Railwayの復旧更新、Appleの端末更新、Consulの認可境界、OpenHands SDK・Cloud Run MCP・AI推論基盤と依存packageを23論点に整理しました。ConsulはACL有効・API到達・cache条件、OpenHandsはsandbox内の実行とhost側公開portを区別します。修正と、鍵の失効・侵害調査は別に確認してください。
+
+差分窓00:18〜07:47 JST：NVD新規532／改訂4,815（532重複）、GHSA公開540／改訂748（540重複）。**事件数ではありません。** 23論点＝差分17・継続補完5・参考1。取得原本182応答の展開SHA-256を照合しました。取得は基準時刻後で、当時の本文を完全には復元できません。
+
+[一次調査](docs/research-2026-10-27-0747.md) · [収集範囲・留保](docs/research-collection-2026-10-27-0747.md) · [台帳](data/2026-10-27-0747/incident-register.json) · [最新参照先](data/latest.json)
+
+以下は過去の基準時刻ごとの記録です。
+
+前回 **10/26 21:35 JST**：[技術・固定窓調査](docs/research-collection-2026-10-26-2135.md) / [事件・ベンダー一次調査](docs/research-2026-10-26-2135.md) / [統合索引](data/2026-10-26-2135/incident-register.json) / [最新データ参照先](data/latest.json) / [読むレポート](https://www.infosec-briefing.net/update-20261026-2135)。窓は **14:56〜21:35 JST**、NVD **新規99 / 更新1,434（99件重複、新規にRejected1件を含む）**。GHSA **公開111 / modified151（111件重複）**、公開分は**unreviewed103＋malware8**です。今回は種別・改訂の照会範囲を拡張しており、事件数ではありません。**37論点＝差分23・既存範囲補完12・公開時刻未確定の参考2**です。KEVは1,756件で前回原本と同一です。
 
 **169のHTTP応答記録（うち27件は変更のない過去原本への参照）のhashを検証し、別枠で画面表示の補足記録1件を保存。** [API・フィード取得記録](data/2026-10-26-2135/collection-summary.json) / [事件・ベンダー取得記録](data/2026-10-26-2135-vendors/collection-summary.json) / [NVD索引](data/2026-10-26-2135/nvd-index.json) / [GHSA modified索引](data/2026-10-26-2135/ghsa-modified-index.json) / [フィード索引](data/2026-10-26-2135/feed-index.json)。再取得：`python3 tools/intel/snapshot-2135.py`。実取得は基準後で、保存原本は取得時の現行改訂です。公表・DB登録・実悪用確認・ソース修正・配布済み更新・復旧を分け、公開時刻未確定の資料は参考枠に維持しています。KEV未掲載も安全の証明にはしません。以下は過去の取得記録です。
 

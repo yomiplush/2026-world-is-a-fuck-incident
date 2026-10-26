@@ -129,13 +129,13 @@
     el.chapter.textContent =
       `${ui("chapter")} ${String(index + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")}`;
     if (el.langSelect && el.langSelect.value !== lang) el.langSelect.value = lang;
-    if (el.asof) el.asof.textContent = ui("asof");
+    if (el.asof) el.asof.textContent = C.review ? C.review.label : ui("asof");
     el.btnAudio.textContent = `${ui("sound")} ${A.isOn && A.isOn() ? ui("on") : ui("off")}`;
     el.btnInfo.textContent = ui("sources");
     el.btnClose.textContent = ui("close");
     el.drawerTitle.textContent = lang === "ja" ? "出典 / SOURCES" : ui("sources");
     el.drawerFoot.innerHTML =
-      `${ui("drawerFoot")}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="./update-20261026-2135.html">10/26 21:35</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">調査資料・ソースコード / Research repository</a>`;
+      `${lang === "ja" ? "各画面は記載時点の記録です。最新の条件・対策は読むレポートで確認してください。" : "Scenes retain their dated context. Check the latest reading report for current conditions and actions."}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="${C.review ? C.review.report : "./database"}">${C.review ? C.review.label : "Latest report"}</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">調査資料・ソースコード / Research repository</a>`;
     el.btnAudio.title = `${ui("sound")} (M)`;
     el.btnInfo.title = ui("sources");
     el.langSelect.title = `${ui("sources")} · L`;

@@ -5,3 +5,8 @@
 @media print{.global,.dates,.skip,.siblings{display:none}.day-card,article,.priority-grid article{break-inside:avoid;background:none;color:black}.day-card time,.day-number,.event-type{color:black}}
 
 html{scroll-padding-top:24px}h3{font-size:clamp(19px,2.4vw,24px);line-height:1.5;margin:12px 0 18px}.priority-grid h3{font-size:21px}.global a,.dates a,.siblings a{min-height:44px;display:inline-flex;align-items:center}main{padding-bottom:calc(80px + env(safe-area-inset-bottom))}.global{padding-top:env(safe-area-inset-top)}
+.day-card time{font-size:clamp(24px,3vw,36px)}
+.day-card time small{font:12px/1.6 ui-monospace,monospace;letter-spacing:0}
+.day-card>div{min-width:0}
+.day-card strong,h1,h2,h3{overflow-wrap:anywhere}
+@media(max-width:600px){.day-card time{font-size:24px}}
