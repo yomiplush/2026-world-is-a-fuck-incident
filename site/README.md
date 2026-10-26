@@ -1,3 +1,13 @@
+## Language selection and automatic translation
+
+A searchable dialog separates 12 on-site display languages from 249 Google Translate consumer targets. It matches official English/Japanese names, supported native names and exact Google codes. The source catalog is `content/google-translate-languages.json`; refresh it with `python3 tools/fetch-google-translate-languages.py`, then run the normal site build.
+
+The catalog loads only when the picker opens. Google receives no application requests until the visitor chooses an external translation link. Those links open a new tab with an explicit automatic-translation notice. There is no legacy widget, paid API or newly added optional storage. Existing consent-gated locale preferences remain in place.
+
+Canvas labels cannot be translated by Google. Motion translations therefore open `/briefing`, the chronological 57-scene static transcript. `/briefing.en` is its English equivalent; `/languages` provides all 249 links without JavaScript. Neither these outbound languages nor Google proxy pages are advertised as hosted translations through hreflang.
+
+Tests: `node tests/languages.test.cjs`, `CDP_PORT=9238 node tests/language-picker.mjs`, existing privacy/resources/Tailworm/entry/in-app suites, and `python3 tests/seo_test.py`. The dialog respects VisualViewport height, pauses background rendering and restores it on close. A native select and language-directory links remain the fallback when enhancement is unavailable.
+
 # Infosec Briefing — publishing and domain migration
 
 Canonical origin: **https://www.infosec-briefing.net/**. Current review: October 26, 21:35 JST; 37 curated groups. The motion application has 57 stable scene IDs; 56/57 explain account and package response. Closing remains original #53 and plays last.

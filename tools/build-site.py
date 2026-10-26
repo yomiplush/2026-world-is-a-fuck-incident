@@ -12,4 +12,5 @@ for p in sorted((ROOT/'data').glob('*/incident-register.json')):
     if p.parent.name.endswith('-vendors'):continue
     if json.loads(p.read_text()).get('report'):run('build-review.py',str(p.relative_to(ROOT)))
 run('build-tailworm.py')
+run('build-languages.py')
 run('publish-site.py')

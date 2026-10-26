@@ -47,12 +47,13 @@
   });
   let layoutFrame = 0;
   function syncRuntime() {
-    const active = started && !document.hidden && !el.drawer.classList.contains("open");
+    const active = started && !document.hidden && !el.drawer.classList.contains("open") && !document.querySelector("#language-dialog[open]");
     const now = performance.now();
     if (!active && !pausedAt) pausedAt = now;
     if (active && pausedAt) { sceneStart += now - pausedAt; pausedAt = 0; last = now; }
     renderer.configure({ active, animated: !reduced, interactive: !!drag || holding });
   }
+  window.addEventListener("briefinglanguagepanelchange", syncRuntime);
   motionPreference.addEventListener("change", (event) => {
     reduced = event.matches || still;
     syncRuntime(); renderer.invalidate();
@@ -359,7 +360,7 @@
 
   document.addEventListener("pointerdown", (e) => {
     if (!started) return;
-    if (e.target.closest("button, a, select, label, .drawer, .panel, .briefing-preferences, .privacy-dock")) return;
+    if (e.target.closest("button, a, select, label, .drawer, .panel, .briefing-preferences, .privacy-dock, #language-dialog")) return;
     lastInteraction = performance.now();
     drag = { x: e.clientX, y: e.clientY, t: Date.now(), moved: false };
     vel.yaw = vel.pitch = 0;
@@ -428,7 +429,7 @@
   document.addEventListener("pointercancel", endDrag, { passive: true });
 
   window.addEventListener("keydown", (e) => {
-    if (e.defaultPrevented || e.target.closest("a,button,input,select,textarea,[contenteditable]")) return;
+    if (e.defaultPrevented || document.querySelector("#language-dialog[open]") || e.target.closest("a,button,input,select,textarea,[contenteditable]")) return;
     if (!started) return;
     if (e.key === " " || e.key === "ArrowRight" || e.key === "Enter") {
       e.preventDefault(); next();
