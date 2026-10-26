@@ -1,0 +1,21 @@
+/* Conservative Brave layout; scoped so other browsers keep their existing UI. */
+html[data-browser="brave"] .panel {
+  scrollbar-gutter:stable;
+  background:#08111b;
+  text-shadow:none;
+}
+html[data-browser="brave"] .drawer {
+  background:#070e17;
+  backdrop-filter:none;
+}
+html[data-browser="brave"] .briefing-preferences {
+  background:#0b121a;
+  backdrop-filter:none;
+}
+html[data-browser="brave"] .hud-top,
+html[data-browser="brave"] .hud-bottom { background:var(--bg) }
+html[data-browser="brave"] .chip,
+html[data-browser="brave"] .langselect { line-height:1.4 }
+@media (max-width:900px) and (min-height:561px) {
+  html[data-browser="brave"] .panel { max-height:min(42dvh,100%) }
+}

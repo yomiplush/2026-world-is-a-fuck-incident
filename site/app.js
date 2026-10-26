@@ -234,11 +234,16 @@
     const rtl = document.documentElement.dir === "rtl";
     const left = split ? (rtl ? 16 : box.right + 24) : 10;
     const right = split ? (rtl ? box.left - 24 : w - 16) : w - 10;
-    const bottom = footer.getBoundingClientRect().top - 12;
+    const brave = document.documentElement.dataset.browser === "brave";
+    const bottom = Math.min(footer.getBoundingClientRect().top - 12,
+      brave && !split ? box.top - 12 : Infinity);
     const landscape = !split && w > h;
-    visualViewport = { x: left, y: top, width: Math.max(80, right - left), height: Math.max(80, bottom - top),
+    // Brave's conservative composition keeps diagram labels outside the copy.
+    // On very short screens prioritize the scrollable text and navigation.
+    el.scene.style.visibility = brave && bottom - top < 56 ? "hidden" : "visible";
+    visualViewport = { x: left, y: top, width: Math.max(80, right - left), height: Math.max(brave ? 1 : 80, bottom - top),
       anchorX: landscape ? (rtl ? .28 : .72) : .5,
-      anchorY: split || landscape ? .5 : .30 };
+      anchorY: brave || split || landscape ? .5 : .30 };
     renderer.resize(visualViewport);
   }
   function updateMore() {
