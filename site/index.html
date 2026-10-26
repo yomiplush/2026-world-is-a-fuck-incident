@@ -35,7 +35,7 @@
 
 
 
-<link rel="stylesheet" href="./style.css?v=symbols-20261026adaptive">
+<link rel="stylesheet" href="./style.css?v=20261027map">
 <link rel="stylesheet" href="/privacy.css?v=20261025brave">
 <link rel="stylesheet" href="./mobile.css?v=symbols-20261026noon">
 <script src="./viewport.js?v=20261026noon" defer></script>
@@ -144,6 +144,10 @@
 
 <!-- The entry remains meaningful before any briefing engine is downloaded. -->
 <div class="cover" id="cover">
+  <picture class="entry-backdrop" aria-hidden="true">
+    <source media="(max-width:600px)" srcset="./images/entry-map-768.webp">
+    <img src="./images/entry-map-1440.webp" width="1439" height="810" alt="" decoding="async" fetchpriority="low" draggable="false">
+  </picture>
   <button type="button" id="btn-start" class="entry-control" aria-label="Unlock" disabled>
     <svg viewBox="0 0 360 360" class="entry-art" aria-hidden="true" focusable="false">
       <defs>

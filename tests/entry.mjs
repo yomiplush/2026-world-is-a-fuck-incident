@@ -14,7 +14,9 @@ try {
  assert.equal(heavy,0,'locked entrance must defer the briefing engine and data');
  assert.equal(await run("document.querySelectorAll('#cover .cover-title,#cover .cover-sub').length"),0,'entrance must use symbols instead of visible copy');
  assert.equal(await run("!!document.querySelector('#btn-start svg')"),true);
- assert.equal(await run("document.querySelector('#entry-reading,.tailworm-feature,.latest-update,.timeline-entry,.entry-backdrop')"),null);
+ const backdrop=await run("(()=>{const p=document.querySelector('.entry-backdrop'),im=p?.querySelector('img');return {decorative:p?.getAttribute('aria-hidden'),alt:im?.alt,pointer:p?getComputedStyle(p).pointerEvents:null,opacity:p?Number(getComputedStyle(p).opacity):0}})()");
+ assert.equal(backdrop.decorative,'true');assert.equal(backdrop.alt,'');assert.equal(backdrop.pointer,'none');assert.ok(backdrop.opacity>0&&backdrop.opacity<1,'map must be visible but translucent');
+ assert.equal(await run("document.querySelector('#entry-reading,.tailworm-feature,.latest-update,.timeline-entry')"),null);
  assert.equal(await run("getComputedStyle(document.querySelector('.privacy-dock')).display"),'none','initial splash hides visible preference text');
  assert.equal(await run("document.querySelector('.entry-library').textContent.trim()"),'');
  assert.equal(await run("document.querySelector('.entry-library').getAttribute('href')"),'/database');
