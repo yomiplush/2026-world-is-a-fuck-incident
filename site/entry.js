@@ -9,7 +9,7 @@
   const deep = Number((location.hash.match(/(\d+)/) || [])[1] || query.get('scene'));
   const bypass = query.get('still') === '1' || deep > 0;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const files = ['data.js?v=202610270747', 'chronology.js?v=20261026noon', 'render.js?v=20261026adaptive', 'rig3d.js?v=20261026adaptive', 'visuals.js?v=202610270747', 'app.js?v=202610270747'];
+  const files = ['data.js?v=202610270747', 'chronology.js?v=20261026noon', 'render.js?v=20261026adaptive', 'rig3d.js?v=20261026adaptive', 'visuals.js?v=202610270747', 'app.js?v=20261027brave'];
   const loaded = new Map(), preloads = [];
   let motionTimer = 0;
   let state = bypass ? 'loading' : 'locked', start = null, pending = null;
