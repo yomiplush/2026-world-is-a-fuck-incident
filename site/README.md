@@ -1,12 +1,10 @@
-## Language selection and automatic translation
+## Native language dropdowns
 
-A searchable dialog separates 12 on-site display languages from 249 Google Translate consumer targets. It matches official English/Japanese names, supported native names and exact Google codes. The source catalog is `content/google-translate-languages.json`; refresh it with `python3 tools/fetch-google-translate-languages.py`, then run the normal site build.
+Motion and Tailworm offer13major languages, including Ukrainian, through native dropdowns. The searchable dialog and200+language expansion have been removed. `content/site-languages.json` owns the bounded language list. Ukrainian covers all57motion scenes, Tailworm prose and the current37-topic database. Other existing motion locales may retain English fallback for some later scenes.
 
-The catalog loads only when the picker opens. Google receives no application requests until the visitor chooses an external translation link. Those links open a new tab with an explicit automatic-translation notice. There is no legacy widget, paid API or newly added optional storage. Existing consent-gated locale preferences remain in place.
+Database dropdowns list complete stored translations only. `/languages` provides three simple dropdowns and no-JavaScript links. No external translation service is called. Consent-managed optional language preferences remain available.
 
-Canvas labels cannot be translated by Google. Motion translations therefore open `/briefing`, the chronological 57-scene static transcript. `/briefing.en` is its English equivalent; `/languages` provides all 249 links without JavaScript. Neither these outbound languages nor Google proxy pages are advertised as hosted translations through hreflang.
-
-Tests: `node tests/languages.test.cjs`, `CDP_PORT=9238 node tests/language-picker.mjs`, existing privacy/resources/Tailworm/entry/in-app suites, and `python3 tests/seo_test.py`. The dialog respects VisualViewport height, pauses background rendering and restores it on close. A native select and language-directory links remain the fallback when enhancement is unavailable.
+Tests: `node --test tests/languages.test.cjs`, `CDP_PORT=9238 node tests/language-select.mjs`, and the existing privacy/resources/Tailworm/entry/in-app suites; `python3 tests/seo_test.py` checks discovery metadata.
 
 # Infosec Briefing — publishing and domain migration
 
@@ -21,7 +19,7 @@ node tests/redirects.test.cjs
 python3 tools/serve.py 8096
 ```
 
-`content/site.json` owns site identity. `tools/publish-site.py` writes final extensionless canonicals, matching social metadata, reciprocal static-language alternates, truthful JSON-LD, sitemap and RSS. It does not invent publish dates from review cutoffs. The root has native reading details; `/database` and `/about` work without JavaScript. `/data/latest.json` exposes the curated current register, while full raw archives remain in the repository.
+`content/site.json` owns site identity. `tools/publish-site.py` writes final extensionless canonicals, matching social metadata, reciprocal static-language alternates, truthful JSON-LD, sitemap and RSS. It does not invent publish dates from review cutoffs. The root entrance uses symbols and an accessible database icon; `/database` and `/about` work without JavaScript. `/data/latest.json` exposes the curated current register, while full raw archives remain in the repository.
 
 `site/_worker.js` permanently redirects the oldhost, oldwww, newapex and productionPageshost to www, preserving path/query. Canonical and preview hosts pass straight through to `env.ASSETS.fetch`, preserving static headers and 404 behavior. `404.html` prevents Pages' default unknown-path 200 fallback. Native scene fragments are retained by the browser.
 

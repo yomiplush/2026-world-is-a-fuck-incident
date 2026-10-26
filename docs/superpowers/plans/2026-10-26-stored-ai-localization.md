@@ -1,3 +1,9 @@
+# Superseded: major-language native dropdowns
+
+The user cancelled the249-language expansion. The active scope is existing12languages plus Ukrainian, with native selects and no searchable language dialog. No long-running translation or publishing job was launched. Saved valid translations remain in version history.
+
+---
+
 # Stored AI localization and symbolic splash implementation plan
 
 **Goal:** Generate and retain actual Codex translations for249target languages, make updates source-hash aware, remove the external translation flow, and keep the startup splash symbolic.
@@ -12,4 +18,6 @@
 - [x] Remove Google translation links and replace language-directory choices with actual hosted data.
 - [x] Make splash icon-only, including privacy/policy UI before unlock; retain accessible icon navigation and normal controls after unlock.
 - [x] Verify static output, metadata, locale selection, no external translation requests, identifiers and responsive/accessibility/runtime/privacy behavior.
-- [ ] Publish tested changes and verify production. Report actual language coverage; do not claim249if generation has not completed.
+- [x] Publish tested changes and verify production. Report actual language coverage; do not claim249if generation has not completed.
+
+Published baseline: commit1c151a5,6/249languages including Japanese,41indexable pages. Production JSON exact bytes verified for all6;249generation remains in progress, with unsupported targets explicit.

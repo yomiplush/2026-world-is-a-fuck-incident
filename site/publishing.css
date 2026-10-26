@@ -1,2 +1,6 @@
 /* Shared editorial attribution on reading pages. */
 .editorial-credit { max-width:1120px; margin:0 auto; padding:20px 24px 90px; font:12px/1.9 system-ui,sans-serif; color:#90a8b7 }
+.language-select-control{margin:16px 0;max-width:360px}
+.language-select-control label{display:grid;gap:6px;font:14px/1.6 system-ui,sans-serif}
+.language-select-control select{width:100%;min-height:44px;padding:8px 12px;border:1px solid #405b6c;border-radius:5px;background:#0c1a28;color:#edf5fc;font:16px/1.4 system-ui,sans-serif}
+.language-select-control select:focus-visible{outline:2px solid #ffb545;outline-offset:3px}

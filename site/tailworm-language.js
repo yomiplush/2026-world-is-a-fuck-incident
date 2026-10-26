@@ -1,9 +1,10 @@
 /* Native language navigation; complete translations are also readable without JS. */
 (function () {
-  const codes = ['en', 'ja', 'zh', 'ko', 'es', 'fr', 'de', 'pt', 'ru', 'ar', 'hi', 'id'];
   const current = document.documentElement.dataset.locale;
   const select = document.getElementById('lang-select');
-  if (!select || !codes.includes(current)) return;
+  if (!select) return;
+  const codes = Array.from(select.options,option=>option.value);
+  if (!codes.includes(current)) return;
 
   function targetURL(code) {
     const target = new URL(location.href);
