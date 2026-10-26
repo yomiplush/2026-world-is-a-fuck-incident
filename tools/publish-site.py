@@ -136,6 +136,10 @@ def metadata(file,text):
     if relative=='database.html':
         graph.append({'@type':'Dataset','@id':url+'#dataset','name':'Infosec Briefing 調査記録','description':info.description,'url':url,'creator':{'@id':org['@id']},'distribution':[{'@type':'DataDownload','encodingFormat':'application/json','contentUrl':BASE+'data/latest.json'}],'isAccessibleForFree':True})
     tags=['<link rel="stylesheet" href="/publishing.css">',f'<meta property="og:site_name" content="{esc(CONFIG["name"])}">',f'<meta property="og:title" content="{esc(info.title)}">',f'<meta property="og:description" content="{esc(info.description)}">',f'<meta property="og:url" content="{esc(url)}">',f'<meta property="og:type" content="{"article" if is_article else "website"}">',f'<meta property="og:image" content="{BASE}{CONFIG["image"]}">',f'<meta property="og:image:width" content="{CONFIG["image_width"]}">',f'<meta property="og:image:height" content="{CONFIG["image_height"]}">','<meta name="twitter:card" content="summary_large_image">',f'<meta name="twitter:title" content="{esc(info.title)}">',f'<meta name="twitter:description" content="{esc(info.description)}">',f'<meta name="twitter:image" content="{BASE}{CONFIG["image"]}">',f'<link rel="canonical" href="{esc(url)}">','<link rel="alternate" type="application/rss+xml" title="Infosec Briefing 更新" href="/feed.xml">','<link rel="icon" type="image/svg+xml" href="/favicon.svg">']
+    if relative!='404.html':
+        tags.extend(['<link rel="stylesheet" href="/language-picker.css?v=20261026all">','<script src="/language-core.js?v=20261026all" defer></script>','<script src="/language-picker.js?v=20261026all" defer></script>'])
+    if relative in ('briefing.html','briefing.en.html'):
+        tags.extend([f'<link rel="alternate" hreflang="ja" href="{BASE}briefing">',f'<link rel="alternate" hreflang="en" href="{BASE}briefing.en">',f'<link rel="alternate" hreflang="x-default" href="{BASE}briefing">'])
     if relative!='404.html':tags.append('<meta name="robots" content="index,follow,max-image-preview:large">')
     if relative.startswith('tailworm'):
         for lang,_ in LANGUAGES:
@@ -150,6 +154,13 @@ def metadata(file,text):
         text=re.sub(r'<!-- editorial:start -->.*?<!-- editorial:end -->','',text,flags=re.S)
         credit='<footer class="editorial-credit"><p>編集・調査：<a href="/about">YomiPlush / Infosec Briefing</a> · <a href="/about">編集方針・訂正窓口</a> · <a href="/database">調査データ</a> · <a href="/feed.xml">RSS</a></p></footer>'
         text=text.replace('</body>','<!-- editorial:start -->'+credit+'<!-- editorial:end --></body>')
+    text=re.sub(r'<!-- language-nav:start -->.*?<!-- language-nav:end -->','',text,flags=re.S)
+    if relative!='404.html':
+        nav='<a href="/languages" data-language-picker aria-haspopup="dialog">言語 / Languages</a>'
+        if is_root:
+            text=text.replace('<nav aria-label="読む資料">','<nav aria-label="読む資料"><!-- language-nav:start -->'+nav+' · <!-- language-nav:end -->',1)
+        else:
+            text=text.replace('</nav>','<!-- language-nav:start -->'+nav+'<!-- language-nav:end --></nav>',1)
     # Only links to our HTML pages change. JS/CSS/media and primary-source URLs stay intact.
     text=re.sub(r'\bhref=(["\'])(.*?)\1',lambda m:'href='+m[1]+esc(clean_url(html.unescape(m[2])))+m[1],text)
     return text

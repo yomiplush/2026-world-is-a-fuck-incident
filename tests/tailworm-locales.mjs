@@ -27,7 +27,7 @@ try {
   assert.equal(await run('!!window.CONTENT || !!window.AUDIO'),false,'reading page must not start the motion briefing');
   assert.ok(await run('document.body.textContent.includes("1.104.2") && document.body.textContent.includes("0.29.5")'));
   assert.equal(await run(`new URL(document.querySelector('a[data-motion-link]').href).searchParams.get('lang')`),code);
-  const target=await run(`(()=>{const s=document.getElementById('lang-select'),r=s.getBoundingClientRect();return {height:r.height,left:r.left,right:r.right,label:!!document.querySelector('label[for="lang-select"]')}})()`);
+  const target=await run(`(()=>{const s=document.querySelector('.language-picker-button')||document.getElementById('lang-select'),r=s.getBoundingClientRect();return {height:r.height,left:r.left,right:r.right,label:!!document.querySelector('label[for="lang-select"]')}})()`);
   assert.ok(target.label&&target.height>=44&&target.left>=0&&target.right<=390,code+' selector clipped');
  }
  for(const [width,height] of [[320,568],[844,390],[1440,900]]) {
@@ -35,7 +35,7 @@ try {
   for(const code of codes) {
    await open('/tailworm.html?lang='+code,'document.documentElement.dataset.locale === '+JSON.stringify(code)+' && !!window.TAILWORM_LANGUAGE_READY');
    assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,code+' overflow at '+width);
-   assert.ok(await run('document.getElementById("lang-select").getBoundingClientRect().height>=44'));
+   assert.ok(await run('(document.querySelector(".language-picker-button")||document.getElementById("lang-select")).getBoundingClientRect().height>=44'));
   }
  }
  await cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
