@@ -107,6 +107,11 @@ def root_reading(text):
     return text.replace('<script src="/privacy.js',section+'\n<script src="/privacy.js',1)
 
 def metadata(file,text):
+    # Public contact information must remain readable without CDN-injected JS.
+    # Cloudflare documents these comments as a per-address opt-out.
+    text=re.sub(r'<!--email_off-->(.*?)<!--/email_off-->',r'\1',text,flags=re.S)
+    text=re.sub(r'<a\b[^>]*href=["\']mailto:[^"\']+["\'][^>]*>.*?</a>',
+                lambda m:'<!--email_off-->'+m[0]+'<!--/email_off-->',text,flags=re.S|re.I)
     # The block can be regenerated repeatedly without accumulating metadata.
     text=re.sub(r'<link\b[^>]*\brel=["\'](?:icon|shortcut icon)["\'][^>]*>','',text,flags=re.I)
     text=re.sub(r'<link rel="stylesheet" href="/publishing.css">','',text)

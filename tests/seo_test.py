@@ -43,6 +43,11 @@ class Publication(unittest.TestCase):
                 self.assertTrue(p.meta['og:image'].startswith(BASE))
                 self.assertTrue(p.schema)
                 self.assertNotIn(p.title,titles);titles.add(p.title)
+    def test_public_contact_does_not_require_cdn_decoding(self):
+        for filename in ['about.html','privacypolicy/index.html']:
+            text=(SITE/filename).read_text()
+            self.assertIn('<!--email_off--><a href="mailto:contact@yomiplush.dev">',text)
+
     def test_non_http_links_are_preserved(self):
         import importlib.util
         spec=importlib.util.spec_from_file_location('publisher',ROOT/'tools/publish-site.py')
