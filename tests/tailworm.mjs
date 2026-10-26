@@ -20,7 +20,7 @@ try{
   assert.ok(link.visible&&link.h>=44&&link.left>=0&&link.right<=width,'feature link clipped');
   assert.equal(await run(`(()=>{const a=document.querySelector('.tailworm-feature'),r=a.getBoundingClientRect(),b=document.querySelector('.latest-update').getBoundingClientRect();return r.bottom<=b.top && document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)?.closest('a')===a})()`),true,'feature must remain clickable and not overlap latest link');
   await run("document.querySelector('.tailworm-feature').click()");
-  for(let i=0;i<80;i++){await new Promise(r=>setTimeout(r,50));if(await run("location.pathname==='/tailworm.html' && !!document.querySelector('#actions')"))break;}
+  for(let i=0;i<80;i++){await new Promise(r=>setTimeout(r,50));if(await run("/\/tailworm(?:\.[a-z]{2})?(?:\.html)?$/.test(location.pathname) && !!document.querySelector('#actions')"))break;}
   assert.equal(await run('!!document.querySelector("#actions")'),true,'feature link should reach actionable report');
   assert.equal(await run('!!window.CONTENT || !!window.AUDIO'),false,'static feature should not load briefing or audio');
   assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,'feature page overflow');
