@@ -13,12 +13,12 @@ window.registerLocale('sv', {
     "coverKicker": "INCIDENTÖVERSIKT · 2026-10",
     "coverTitleA": "EN MÅNAD,",
     "coverTitleB": "15 INCIDENTER.",
-    "coverSub": "De 15 incidenterna i oktober, i ordning.<br>Dessutom bredare uppdateringar, 6 Tailworm-bilder och 4 morgonbilder från 26 oktober. 57 bilder i tidsordning, inklusive 2 kvällsdiagram om konton och paketåtgärder. Se rapporten för uppdateringen 21:35. Tryck för att gå vidare.",
+    "coverSub": "De 15 incidenterna i oktober, i ordning.<br>Breda uppdateringar och 61 bilder i tidsordning, inklusive morgonens scheman om Consul och OpenHands. Se rapporten för uppdateringen den 27 oktober, 07:47 JST. Tryck för att gå vidare.",
     "coverStart": "TRYCK FÖR ATT BÖRJA",
     "coverFoot": "Källor ingår. ConnectWise har nu bekräftats genom förstahandskällor; tidigare bilder behåller sitt historiska sammanhang.",
     "drawerTitle": "KÄLLOR",
-    "drawerFoot": "Senaste läsrapport: 26 oktober, 21:35 JST. Bilderna behåller sitt daterade sammanhang; tilläggen följer granskningsdatumen. Källorna hämtades efter bryttiden.",
-    "asof": "bryttid 2026-10-26 21:35 JST",
+    "drawerFoot": "Senaste läsrapport: 27 oktober, 07:47 JST. Bilderna behåller sammanhanget för sina datum; tillägg följer granskningsdatumen. Källorna hämtades efter bryttiden.",
+    "asof": "läget 2026-10-27 07:47 JST",
     "lang": "SV"
   },
   "scenes": {
@@ -28,7 +28,7 @@ window.registerLocale('sv', {
       "lede": "Oberoende fel som gång på gång träffade samma slags svaghet. Tryck för att gå igenom dem i ordning.",
       "points": [
         "De första 15 fallen och senare breda granskningar; detta är inte ett globalt antal drabbade",
-        "<a href=\"./update-20261026-2135.html\">Rapport 21:35 JST (japanska) →</a> · <a href=\"./timeline.html\">Läs efter datum →</a>",
+        "<a href=\"./update-20261027-0747.html\">Rapport 07:47 JST (japanska) →</a> · <a href=\"./timeline.html\">Läs efter datum →</a>",
         "Ljudet är på — slå av eller på uppe till höger"
       ],
       "metric": "incidenter · 1 månad"
@@ -678,6 +678,10 @@ window.registerLocale('sv', {
         "2 separata PROBABLY_PENTEST-klassningar fastställer inte samma observerade skada",
         "<a href=\"./update-20261026-2135.html#npm-worca\">Paketvillkor och åtgärder (japanska) →</a>"
       ]
-    }
+    },
+    "night-restore-status": {"kicker": "UPPDATERING 00:18 · ÅTERSTÄLLNING OCH ÅTERUPPTAGEN DRIFT", "title": "Förberedelser, en hotfrist och en återupptagen varningskanal.", "lede": "ConnectWises inlägg klockan 14:00 UTC beskriver fortsatta förberedelser för anslutning. GMO:s tid 12:00 är angriparens tidsfrist. SoftBank återupptog katastrofvarningar klockan 23:17 JST. Endast en schematisk bild.", "points": ["ConnectWise: detta är inget besked om att partner har börjat återställa. <b>Behåll anslutningarna avstängda</b> tills tjänstespecifika instruktioner ges", "GMO: företaget kommer inte att betala. Fortsätt med kontokontrollerna i det sjätte meddelandet. Rättelsen klockan 00:20 kom efter bryttiden", "SoftBanks återupptagande gäller denna operatörskanal, inte att hela PHP-ekosystemet är färdigåtgärdat", "<a href=\"./update-20261027-0018.html#connectwise-1400\">Läsrapport för 00:18 (på japanska) →</a>"]},
+    "brotli-reach": {"kicker": "UPPDATERING 00:18 · VÄGAR TILL BROTLI", "title": "Namnet säger HTTP/2. Felet finns i avkodaren.", "lede": "HTTP2Shell, Node2Shell och Brotli2Shell är CVE-2026-111497. Vägarna skiljer sig mellan HTTP-svar, .NET-API:er, JPEG XL, ClickHouse och Parquet. Endast en schematisk bild.", "points": ["Uppdatera .NET-körmiljöerna; <b>publicera NativeAOT på nytt</b>. Brotli-dekomprimering i ASP.NET / HttpClient är avstängd som standard", "Ingen RCE hade demonstrerats för FFmpeg/libjxl, ClickHouse eller Arrow; behandla ej utgivna rättningar som ej åtgärdade", "Cloudflares akuta WAF använder fortfarande Log som standard. Bandits HTTP/2-kluster är separat", "<a href=\"./update-20261027-0018.html#brotli-jfrog-reach\">Nåbarhet och åtgärder (på japanska) →</a>"]},
+    "morning-consul-identity": {"kicker": "UPPDATERING 07:47 · TJÄNSTEIDENTITET", "title": "En saknad API-kontroll kan röja ett certifikat och dess privata nyckel.", "lede": "CVE-2026-105765 kringgår behörighetskontroll för cachade slutcertifikatsvar i Consul-agentens HTTP API. Schemat visar villkor och åtgärder, inte observerat utnyttjande.", "points": ["Berörda versioner: <b>1.17.0–2.0.4</b> med ACL aktiverat. HTTP API lyssnar som standard på loopback; API:t måste vara nåbart och målcertifikatet och dess privata nyckel redan cachade", "Kontrollera rätt utgivningsgren: Community <b>2.1.0</b>; Enterprise <b>2.1.0 / 1.21.19</b>", "Begränsa API:ts nåbarhet. Uppdatering och utredning av potentiellt röjda tjänsteidentiteter är separata uppgifter", "<a href=\"./update-20261027-0747.html#consul-leaf\">Villkor och primärkällor (på japanska) →</a>"]},
+    "morning-sandbox-auth": {"kicker": "UPPDATERING 07:47 · AUTENTISERING I SANDBOX", "title": "Även en sandbox behöver autentisering på sitt publika API.", "lede": "OpenHands SDK CVE-2026-112346 berör versioner före 1.52.0. En launcher bunden till 0.0.0.0 med tomma session_api_keys kan tillåta kommandon utan autentisering genom en nåbar publicerad port.", "points": ["Root-körning sker <b>inne i sandboxen</b>; monterade arbetsytor och tillförda hemligheter kan också exponeras", "Verifiera rättningen i <b>1.52.0</b> eller senare och granska publicerade portar och autentiseringsinställningar", "För tidigare nåbara miljöer: granska loggar och återkalla samt utfärda röjda hemligheter på nytt som en separat åtgärd", "<a href=\"./update-20261027-0747.html#openhands-sdk\">Villkor och primärkällor (på japanska) →</a>"]}
   }
 });

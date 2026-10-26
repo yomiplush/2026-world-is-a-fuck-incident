@@ -105,12 +105,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全59画面を日付順に。夜のアカウント確認と、00:18の復旧状態・Brotli到達を追加。00:18の広域調査は読むレポートへ。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全61画面を日付順に。夜のアカウント確認と、00:18の復旧状態・Brotli到達を追加。07:47のConsul・sandbox対策を追加。広域調査は読むレポートへ。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "最新レポートは10/27 00:18基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
-      asof: "2026-10-27 00:18 JST 基準",
+      drawerFoot: "最新レポートは10/27 07:47基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
+      asof: "2026-10-27 07:47 JST 基準",
       lang: "JA"
     },
     en: {
@@ -120,12 +120,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes, evening account checks, and two 00:18 diagrams for restoration status and Brotli reach. 59 chronological scenes. See the reading report for the 00:18 update. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes, evening account checks, and two 00:18 diagrams for restoration status and Brotli reach. 61 chronological scenes. The 07:47 update adds Consul and sandbox authentication responses; see the latest reading report. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
-      drawerFoot: "Latest reading report: October 27, 00:18 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
-      asof: "cutoff 2026-10-27 00:18 JST",
+      drawerFoot: "Latest reading report: October 27, 07:47 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
+      asof: "cutoff 2026-10-27 07:47 JST",
       lang: "EN"
     }
   },
@@ -143,7 +143,7 @@ window.CONTENT = {
         lede: "互いに無関係に見える事案が、同じ種類の弱点に集まった月。タップで時系列に進みます。",
         points: [
           "初期調査15件と、その後の広域追補。件数は全世界の被害総数ではありません",
-          '<a href="./update-20261026-2135.html">10/26 21:35 最新調査 →</a> · <a href="./timeline.html">日付から読む →</a>',
+          '<a href="./update-20261027-0747.html">10/27 07:47 最新調査 →</a> · <a href="./timeline.html">日付から読む →</a>',
           "音が出ます。右上の SOUND で消せます"
         ]
       },
@@ -153,7 +153,7 @@ window.CONTENT = {
         lede: "Unrelated failures that kept landing on the same kind of weakness. Tap through them in order.",
         points: [
           "The initial 15 cases plus later broad reviews; these are not a worldwide victim count",
-          "<a href=\"./update-20261026-2135.html\">21:35 JST report (Japanese) →</a> · <a href=\"./timeline.html\">Read by date →</a>",
+          "<a href=\"./update-20261027-0747.html\">07:47 JST report (Japanese) →</a> · <a href=\"./timeline.html\">Read by date →</a>",
           "Sound is on — toggle it top-right"
         ]
       }
@@ -3049,6 +3049,85 @@ window.CONTENT.scenes.push(...[
         "FFmpeg/libjxl, ClickHouse and Arrow had no demonstrated RCE; treat unreleased fixes as unpatched",
         "Cloudflare emergency WAF still defaults to Log. Bandit’s HTTP/2 cluster is separate",
         "<a href=\"./update-20261027-0018.html#brotli-jfrog-reach\">Reachability and actions (Japanese) →</a>"
+      ]
+    }
+  }
+]);
+
+/* 07:47 JST review: stable shared scene numbers 60–61. */
+window.CONTENT.review = {"cutoff": "2026-10-26T22:47:00Z", "label": "2026-10-27 07:47 JST", "report": "/update-20261027-0747"};
+window.CONTENT.scenes.push(...[
+  {
+    "id": "morning-consul-identity",
+    "stamp": "10.27 · 07:47 JST",
+    "metric": null,
+    "visual": {
+      "type": "consulIdentity"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "開発元・CNA参照 1",
+        "url": "https://discuss.hashicorp.com/t/hcsec-2026-46-consul-vulnerable-to-an-authorization-bypass-in-the-agents-service-mesh-leaf-certificate-api/77911"
+      }
+    ],
+    "ja": {
+      "kicker": "07:47 UPDATE · SERVICE IDENTITY",
+      "title": "APIの認可漏れは、証明書と秘密鍵に届く。",
+      "lede": "CVE-2026-105765は、Consul agent HTTP APIにあるcached leaf証明書応答の認可回避です。図は成立条件と対応の模式図で、実被害の観測図ではありません。",
+      "points": [
+        "対象は<b>1.17.0〜2.0.4</b>のACL有効構成。HTTP APIは既定loopback。APIへの到達と、対象の証明書・秘密鍵のcacheが成立条件",
+        "Community <b>2.1.0</b>、Enterprise <b>2.1.0 / 1.21.19</b>の系列別案内を照合",
+        "APIの公開を制限。更新と、露出し得たservice identityの調査は別に実施",
+        "<a href=\"./update-20261027-0747.html#consul-leaf\">条件と出典を読む →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "07:47 UPDATE · SERVICE IDENTITY",
+      "title": "A missing API check can expose a certificate and its private key.",
+      "lede": "CVE-2026-105765 bypasses authorization for cached leaf certificate responses on the Consul agent HTTP API. This schematic shows conditions and response, not observed exploitation.",
+      "points": [
+        "Affected: <b>1.17.0–2.0.4</b> with ACLs enabled. The API defaults to loopback; reachability and a cached target certificate and private key are required",
+        "Check the appropriate release line: Community <b>2.1.0</b>; Enterprise <b>2.1.0 / 1.21.19</b>",
+        "Restrict API reachability. Patching and investigating potentially exposed service identities are separate tasks",
+        "<a href=\"./update-20261027-0747.html#consul-leaf\">Conditions and primary sources (Japanese) →</a>"
+      ]
+    }
+  },
+  {
+    "id": "morning-sandbox-auth",
+    "stamp": "10.27 · 07:47 JST",
+    "metric": null,
+    "visual": {
+      "type": "sandboxAuth"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "開発元・CNA参照 1",
+        "url": "https://github.com/OpenHands/software-agent-sdk/releases/tag/v1.52.0"
+      }
+    ],
+    "ja": {
+      "kicker": "07:47 UPDATE · SANDBOX AUTH",
+      "title": "sandboxでも、公開APIには認証が要る。",
+      "lede": "OpenHands SDKのCVE-2026-112346は1.52.0未満。launcherが0.0.0.0へbindし、session_api_keysが空のとき、公開ポートから未認証でコマンドを実行できる条件です。",
+      "points": [
+        "root実行は<b>sandbox内</b>。mountされたworkspaceや渡したsecretにも影響し得る",
+        "<b>1.52.0</b>以降の修正を照合し、公開ポートと認証設定を点検",
+        "外部に到達可能だった環境はログ確認とsecretの失効・再発行を別途行う",
+        "<a href=\"./update-20261027-0747.html#openhands-sdk\">条件と出典を読む →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "07:47 UPDATE · SANDBOX AUTH",
+      "title": "A sandbox still needs authentication on its public API.",
+      "lede": "OpenHands SDK CVE-2026-112346 affects versions below 1.52.0. A launcher bound to 0.0.0.0 with empty session_api_keys can permit unauthenticated commands through a reachable published port.",
+      "points": [
+        "Root execution is <b>inside the sandbox</b>; mounted workspaces and supplied secrets can also be exposed",
+        "Verify the fix in <b>1.52.0</b> or later, and review published ports and authentication settings",
+        "For previously reachable environments, investigate logs and separately revoke and reissue exposed secrets",
+        "<a href=\"./update-20261027-0747.html#openhands-sdk\">Conditions and primary sources (Japanese) →</a>"
       ]
     }
   }

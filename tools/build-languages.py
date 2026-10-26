@@ -2,6 +2,24 @@
 """Build a no-JS language directory, native language selects and Canvas-text transcripts."""
 import importlib.util,json,re,subprocess
 from pathlib import Path
+
+def validated_archive(manager,current,code):
+ """Return the newest verified older translation; never promote it to current."""
+ for folder in sorted(manager.STORE.iterdir(),reverse=True):
+  if not folder.is_dir() or folder.name>=current['snapshot']:continue
+  try:
+   source=json.loads((folder/'source.json').read_text())
+   path=folder/(code+'.json');package=json.loads(path.read_text())
+   if source['snapshot']!=folder.name or package.get('snapshot')!=folder.name or package.get('locale')!=code:continue
+   if package.get('status')!='translated' or not manager.is_current(source,package):continue
+   if manager.sha(json.dumps(source['strings'],ensure_ascii=False,sort_keys=True))!=source['source_hash']:continue
+   manager.validate(source,package['strings'],code)
+   record=manager.materialize(source,source['strings']) # Also checks the original register hash.
+   return source,package,record,path
+  except (OSError,ValueError,KeyError,TypeError):continue
+ return None
+
+
 ROOT=Path(__file__).resolve().parents[1];SITE=ROOT/'site'
 spec=importlib.util.spec_from_file_location('publication',ROOT/'tools/publish-site.py');pub=importlib.util.module_from_spec(spec);spec.loader.exec_module(pub)
 source=json.loads((ROOT/'content/site-languages.json').read_text())
@@ -17,25 +35,37 @@ mspec=importlib.util.spec_from_file_location('translation_manager',ROOT/'tools/t
 translation_source,targets=manager.prepare();manifest=manager.manifest(translation_source,targets)
 record=json.loads((ROOT/'data'/translation_source['register']).read_text())
 topic_count=len(record['records']);esc=pub.esc
-ready=[dict(state['language'],status=state['status'],url='/database' if code=='ja' else '/database.'+code) for code,state in manifest['languages'].items() if state['status'] in ('source','translated')]
+publications={}
+for code,state in manifest['languages'].items():
+ if state['status'] in ('source','translated'):
+  publications[code]=(translation_source,json.loads((ROOT/state['file']).read_text()),record,False)
+ elif code!='ja':
+  archived=validated_archive(manager,translation_source,code)
+  if archived:
+   archived_source,package,archived_record,_=archived
+   publications[code]=(archived_source,package,archived_record,True)
+ready=[dict(targets[code],status='archive' if archived else manifest['languages'][code]['status'],snapshot=page_source['snapshot'],url='/database' if code=='ja' else '/database.'+code) for code,(page_source,package,page_record,archived) in publications.items()]
 bcp=lambda code:targets[code]['html']
 rtl={'ar','fa','iw','ur','ps','sd','ug','dv','ckb','bal','ks','fa-AF','pa-Arab','bm-Nkoo'}
 outdir=SITE/'data/translations'/translation_source['snapshot'];outdir.mkdir(parents=True,exist_ok=True)
-for code,state in manifest['languages'].items():
- if state['status'] not in ('source','translated'):continue
- package=json.loads((ROOT/state['file']).read_text());values=package['strings'];t=lambda key:esc(values[key])
- (outdir/(code+'.json')).write_text(json.dumps(package,ensure_ascii=False,indent=2)+'\n')
+for code,(page_source,package,page_record,archived) in publications.items():
+ values=package['strings'];t=lambda key:esc(values[key])
+ page_outdir=SITE/'data/translations'/page_source['snapshot'];page_outdir.mkdir(parents=True,exist_ok=True)
+ (page_outdir/(code+'.json')).write_text(json.dumps(package,ensure_ascii=False,indent=2)+'\n')
  if code=='ja':continue
- body=f'<header><p class="kicker">INFOSEC BRIEFING</p><h1>{t("ui.title")}</h1><p class="intro">{t("ui.intro")}</p><p>{t("ui.cutoff")}: <bdi>{esc(record["cutoff_jst"])}</bdi></p><p>{t("ui.counts")}</p><aside class="translation-notice">{t("ui.notice")}</aside><p><a href="/database" lang="ja">{t("ui.original")}</a> · <a href="/languages">{t("ui.languages")}</a> · <a href="/data/translations/{esc(translation_source["snapshot"])}/{esc(code)}.json" download>{t("ui.data")}</a></p></header>'
+ body=f'<header><p class="kicker">INFOSEC BRIEFING</p><h1>{t("ui.title")}</h1><p class="intro">{t("ui.intro")}</p><p>{t("ui.cutoff")}: <bdi>{esc(page_record["cutoff_jst"])}</bdi></p><p>{t("ui.counts")}</p><aside class="translation-notice">{t("ui.notice")}</aside><p><a href="/database" lang="ja">{t("ui.original")}</a> · <a href="/languages">{t("ui.languages")}</a> · <a href="/data/translations/{esc(page_source["snapshot"])}/{esc(code)}.json" download>{t("ui.data")}</a></p></header>'
+ if archived:
+  notice=f'<aside class="translation-notice archive-notice" data-snapshot="{esc(page_source["snapshot"])}"><span lang="en">Archived translation · <bdi>{esc(page_record["cutoff_jst"])}</bdi>. Information may differ from the latest version. <a href="/database">Latest Japanese database →</a></span></aside>'
+  body=body.replace('<header>','<header>'+notice,1)
  body=body.replace('</header>',pub.language_select(ready,code,values['ui.languages'])+'</header>',1)
  for kind in ('delta','scope-complement','reference-only'):
-  rows=[r for r in record['records'] if r['kind']==kind];body+=f'<section><h2>{t("ui."+kind)} · {len(rows)}</h2>'
+  rows=[r for r in page_record['records'] if r['kind']==kind];body+=f'<section><h2>{t("ui."+kind)} · {len(rows)}</h2>'
   for row in rows:
    prefix='records.'+row['id']+'.';sources=' / '.join(f'<a href="{esc(x["url"])}" dir="auto">{esc(x["name"])}</a>' for x in row['sources'])
    body+=f'<article id="{esc(row["id"])}"><p class="event-type">{t(prefix+"time")}</p><h3>{t(prefix+"title")}</h3><p>{t(prefix+"body")}</p><p class="action"><strong>{t("ui.actions")}: </strong>{t(prefix+"action")}</p><p class="sources">{t("ui.sources")}: {sources}</p></article>'
   body+='</section>'
- body+='<section><ul>'+''.join('<li>'+t('caveats.'+str(i))+'</li>' for i in range(len(record.get('caveats',[]))))+'</ul>'
- body+=f'<p><a href="{pub.REPO}blob/main/data/{esc(translation_source["register"])}">{t("ui.evidence")}</a></p></section>'
+ body+='<section><ul>'+''.join('<li>'+t('caveats.'+str(i))+'</li>' for i in range(len(page_record.get('caveats',[]))))+'</ul>'
+ body+=f'<p><a href="{pub.REPO}blob/main/data/{esc(page_source["register"])}">{t("ui.evidence")}</a></p></section>'
  # A translated page has no Japanese navigation or editorial footer inserted into its body.
  page=pub.shell(values['ui.title'],values['ui.intro'],body)
  page=page.replace('<html lang="ja">',f'<html lang="{esc(bcp(code))}" dir="{"rtl" if code in rtl else "ltr"}">',1)
@@ -43,19 +73,19 @@ for code,state in manifest['languages'].items():
  a=page.index('<nav class="global">');z=page.index('</nav>',a)+6
  page=page[:a]+f'<nav class="global"><a href="/">{t("ui.home")}</a><a href="/database">{t("ui.original")}</a></nav>'+page[z:]
  (SITE/('database.'+code+'.html')).write_text(page)
-# Remove stale generated locale pages and stale public packages, rather than serving obsolete translations.
+# Remove unavailable pages; verified dated archives remain separate from current translations.
 valid_codes={r['code'] for r in ready}
 for path in SITE.glob('database.*.html'):
  if path.name[len('database.'):-len('.html')] not in valid_codes:path.unlink()
 for path in outdir.glob('*.json'):
- if path.stem not in valid_codes and path.name!='manifest.json':path.unlink()
+ if manifest['languages'].get(path.stem,{}).get('status') not in ('source','translated') and path.name!='manifest.json':path.unlink()
 public_manifest={k:manifest[k] for k in ('snapshot','source_hash','register_hash','target_count','ready_count','note')}
-public_manifest['languages']=[dict(state['language'],status=state['status'],url=('/database' if code=='ja' else '/database.'+code) if code in valid_codes else None) for code,state in manifest['languages'].items()]
+public_manifest['languages']=[dict(state['language'],status=state['status'],url=('/database' if code=='ja' else '/database.'+code) if state['status'] in ('source','translated') else None,archive=({'snapshot':publications[code][0]['snapshot'],'url':'/database.'+code} if code in publications and publications[code][3] else None)) for code,state in manifest['languages'].items()]
 (outdir/'manifest.json').write_text(json.dumps(public_manifest,ensure_ascii=False,indent=2)+'\n')
 body=f'<header><p class="kicker">LANGUAGES</p><h1>対応言語</h1><p class="intro">各ページのプルダウンから言語を選べます。</p></header>'
 body+='<section><h2>モーション</h2>'+pub.language_select([dict(row,url='/?lang='+row['code']) for row in source['languages']],None,'言語')+f'<p>{language_count}言語。ウクライナ語・ポーランド語・スウェーデン語は全{scene_count}画面を翻訳しています。他の言語の一部の追補画面は英語表示の場合があります。</p></section>'
 body+='<section><h2>Tailworm特集</h2>'+pub.language_select([dict(row,url='/tailworm?lang=ja' if row['code']=='ja' else '/tailworm.'+row['code']) for row in source['languages']],None,'言語')+'</section>'
-body+='<section><h2>調査データ</h2>'+pub.language_select(ready,None,'言語')+f'<p>最新{topic_count}論点の、保存済みの翻訳を読めます。AI翻訳は母語話者による校閲を行っていません。対策は原文・公式案内と照合してください。</p></section>'
+body+='<section><h2>調査データ</h2>'+pub.language_select(ready,None,'言語')+f'<p>最新の日本語データベースは{topic_count}論点です。翻訳ページは各ページに記載された日時の保存版で、最新情報と異なる場合があります。<a href="/database">最新の日本語データベース</a>で確認してください。AI翻訳は母語話者による校閲を行っていません。対策は原文・公式案内と照合してください。</p></section>'
 body+=f'<section><h2>モーションの文章版</h2><p><a href="/briefing">日本語</a> · <a href="/briefing.en">English</a> — 全{scene_count}画面の本文と出典。</p></section>'
 (SITE/'languages.html').write_text(pub.shell('対応言語',f'モーションとTailworm特集の{language_count}言語をプルダウンで選択。調査データの翻訳と文章版。',body))
 for lang in ('ja','en'):

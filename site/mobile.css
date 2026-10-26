@@ -1,4 +1,11 @@
 /* Visible viewport, including changing X/WKWebView browser toolbars. */
+/* Keep the drawer in the root stacking context, above the fixed corner links. */
+#app { z-index:auto }
+.hud-top,.panel,.hud-bottom { position:relative; z-index:2 }
+.hud-top { direction:ltr }
+.hud-left { min-width:0 }
+.chapter { min-width:0; overflow:hidden; text-overflow:ellipsis }
+.panel { min-height:0 }
 body #app { height:var(--app-height,100dvh) }
 #stage,.cover { bottom:auto; height:var(--app-height,100dvh) }
 .drawer { inset-block-end:auto; height:var(--app-height,100dvh) }
@@ -74,4 +81,26 @@ body #app { height:var(--app-height,100dvh) }
   .hud-right .langwrap { flex:1 }
   .langselect { width:100%; max-width:none }
   .panel { min-height:0; max-height:100% }
+}
+
+/* Reserve a full first row for the corner links before fitting the controls.
+   This also covers the 601–680px gap and languages with longer UI labels. */
+@media (max-width:900px) {
+  .hud-top { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; padding-right:0 }
+  .hud-left { display:flex; width:100%; min-height:52px; padding:0 108px 0 0; gap:8px }
+  .hud-left .sep { display:none }
+  .hud-right { display:flex; width:100%; min-width:0; gap:8px; justify-content:start }
+  .hud-right .langwrap { flex:1; min-width:44px }
+  .langselect { width:100%; max-width:none }
+  .hud-right .chip { flex-shrink:0 }
+  .panel { max-height:min(45dvh,100%); background:#08111b; text-shadow:none }
+}
+
+@media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
+  .hud-top { display:flex; flex-wrap:nowrap; padding-right:108px }
+  .hud-left { display:none }
+  .hud-right { flex:1; min-width:0 }
+  .hud-right .langwrap { flex:1; min-width:44px }
+  .langselect { width:100%; max-width:none }
+  .panel { max-height:100%; background:#08111b }
 }

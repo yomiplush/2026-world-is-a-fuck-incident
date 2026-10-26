@@ -1,5 +1,17 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA インシデント
 
+## 最新の確認 — 2026-10-27 07:47 JST
+
+**[忙しい人向けの最新レポート](https://www.infosec-briefing.net/update-20261027-0747) · [調査データ](https://www.infosec-briefing.net/database) · [対策のモーション2画面](https://www.infosec-briefing.net/?lang=ja#60)**
+
+GMOの00:20訂正、Railwayの復旧更新、Appleの端末更新、Consulの認可境界、OpenHands SDK・Cloud Run MCP・AI推論基盤と依存packageを23論点に整理しました。ConsulはACL有効・API到達・cache条件、OpenHandsはsandbox内の実行とhost側公開portを区別します。修正と、鍵の失効・侵害調査は別に確認してください。
+
+差分窓00:18〜07:47 JST：NVD新規532／改訂4,815（532重複）、GHSA公開540／改訂748（540重複）。**事件数ではありません。** 23論点＝差分17・継続補完5・参考1。取得原本182応答の展開SHA-256を照合しました。取得は基準時刻後で、当時の本文を完全には復元できません。
+
+[一次調査](docs/research-2026-10-27-0747.md) · [収集範囲・留保](docs/research-collection-2026-10-27-0747.md) · [台帳](data/2026-10-27-0747/incident-register.json) · [最新参照先](data/latest.json)
+
+以下は過去の基準時刻ごとの記録です。
+
 ## 忙しい人向け — まず1分（2026-10-27 00:18 JST基準）
 
 **利用している製品・サービスから確認してください。** 公開システムの更新・侵害調査、影響する鍵の失効を継続しながら、21:35以降の案内と既存事件の続報を整理しました。

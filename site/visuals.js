@@ -813,6 +813,33 @@ window.VISUALS = (function () {
     heading(g,'CVE-2026-111497 / NOT HTTP/2');g.flush();
   };
 
+  scenes.consulIdentity = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.44,yaw:.18});
+    node(g,[-360,-150,0],'REACHABLE API',C.cyan,t,0,{hx:100,hy:42,hz:55});
+    gate(g,[0,-150,0],C.amber,'ACL CHECK');
+    node(g,[360,-150,0],'CACHED KEY',C.amber,t,1,{hx:95,hy:42,hz:55});
+    flow(g,[-245,-150,0],[-30,-150,0],t,C.cyan,0,.16);
+    flow(g,[30,-150,0],[245,-150,0],t,C.amber,.4,.16);
+    node(g,[-230,190,0],'RESTRICT API',C.green,t,2,{hx:100,hy:28,hz:40});
+    node(g,[230,190,0],'PATCH / REVIEW',C.green,t,3,{hx:110,hy:28,hz:40});
+    ring(g,[360,-150,0],125,C.amber,'xy');
+    heading(g,'CONSUL / CACHED SERVICE IDENTITY');g.flush();
+  };
+
+  scenes.sandboxAuth = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.5,yaw:.12});
+    node(g,[-380,-100,0],'PUBLIC PORT',C.cyan,t,0,{hx:85,hy:42,hz:55});
+    gate(g,[-100,-100,0],C.amber,'AUTH REQUIRED');
+    g.box(270,-70,0,180,145,130,C.steel,{wire:true,edge:.6});
+    node(g,[270,-60,0],'SANDBOX ROOT',C.amber,t,1,{hx:95,hy:38,hz:45});
+    flow(g,[-275,-100,0],[130,-100,0],t,C.cyan,0,.17);
+    node(g,[0,240,0],'MOUNTED WORKSPACE',C.amber,t,2,{hx:130,hy:25,hz:40,font:10});
+    node(g,[400,240,0],'SECRETS',C.green,t,3,{hx:75,hy:25,hz:40});
+    wire(g,[270,85,0],[0,185,0],C.amber);
+    wire(g,[270,85,0],[400,185,0],C.green);
+    heading(g,'OPENHANDS / AUTHENTICATE THE SANDBOX');g.flush();
+  };
+
   scenes.storm = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];

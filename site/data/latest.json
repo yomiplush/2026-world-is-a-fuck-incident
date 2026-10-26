@@ -1,463 +1,642 @@
 {
-  "cutoff": "2026-10-26T15:18:00Z",
-  "cutoff_jst": "2026-10-27T00:18:00+09:00",
+  "cutoff": "2026-10-26T22:47:00Z",
+  "cutoff_jst": "2026-10-27T07:47:00+09:00",
   "counts": {
-    "nvd_published": 98,
-    "nvd_modified": 1048,
-    "published_modified_overlap": 98,
-    "ghsa": 0,
-    "ghsa_unreviewed": 0,
+    "nvd_published": 532,
+    "nvd_modified": 4815,
+    "published_modified_overlap": 532,
+    "ghsa": 540,
+    "ghsa_unreviewed": 515,
     "ghsa_reviewed": 0,
-    "ghsa_malware": 0,
-    "ghsa_modified": 19,
-    "ghsa_published_modified_overlap": 0,
-    "delta_topic_groups": 12,
-    "scope_complement_topic_groups": 6,
-    "reference_only_topic_groups": 2,
-    "record_topic_groups": 20,
-    "nvd_rejected_records": 0,
-    "verified_response_records": 161,
-    "deduplicated_previous_references": 55,
-    "rendered_supplement_captures": 0,
-    "snapshot_ok": 85,
-    "vendor_ok": 76
+    "ghsa_malware": 25,
+    "ghsa_modified": 748,
+    "ghsa_published_modified_overlap": 540,
+    "ghsa_current_published_overlap": 437,
+    "ghsa_previous_published_overlap": 78,
+    "nvd_rejected_records": 20,
+    "apple_cna_published": 324,
+    "ghsa_modified_reviewed": 31,
+    "ghsa_modified_unreviewed": 687,
+    "ghsa_modified_malware": 30,
+    "verified_response_records": 182,
+    "deduplicated_previous_references": 78,
+    "delta_topic_groups": 17,
+    "scope_complement_topic_groups": 5,
+    "reference_only_topic_groups": 1,
+    "record_topic_groups": 23
   },
   "caveats": [
-    "対象時刻後に取得した現行改訂です。公開・DB収録・侵入・修正提供を分けてください。",
-    "deltaには窓内のDB初収録と公式注意喚起を含み、新規発見・新しい被害を一律には意味しません。",
-    "NVD新規98件は更新1,048件に全件重複します。GHSA公開0件、modified 19件は既存reviewedの改訂です。",
-    "98＋1,048＋19を事件数や被害組織数へ足し合わせないでください。",
-    "NVD Received / DeferredはCNA受け取りまたは分析待ちであり、CVSS確定・悪用確認ではありません。",
-    "HTTP2Shell / Node2Shell / Brotli2Shellは同じCVE-2026-111497です。HTTP/2プロトコル欠陥ではありません。",
-    "Bandit HTTP/2資源枯渇クラスタはBrotli decoder欠陥と別です。",
-    "KEV非掲載、更新なし、フィード未配信は悪用や被害がない証明ではありません。",
-    "FortiSandbox等の修正版番号をNVD Received本文から推定しません。",
-    "ConnectWiseの10/26オンボーディング目標は14:00 UTC更新では準備継続です。復旧作業中を再接続許可としない。",
-    "GMOの10/27 12:00は攻撃者予告。公式の情報公開時刻でも解析完了時刻でもない。",
-    "GMO第7報の00:20 JST日付訂正は基準後。23:10本文へ書き戻さない。",
-    "ソフトバンク23:17再開は当該メール種別の配信再開。PHPエコシステム全体のクローズではない。",
-    "Tailscale 1.104.2はeMudhra用。Tailwormの最低修正版は今回も未確定。",
-    "ClickHouse PR mergeとlibjxl main bumpを、利用者向け修正リリース出荷と同一視しない。",
-    "Arrow issue未close。NativeAOTは共有runtime更新だけではdecoderが置換されない。",
-    "Cloudflare緊急WAFは既定Log。Logを遮断完了としない。",
-    "cybersecuritynews.comとReddit JSONは403。二次報道を権威にしない。",
-    "実取得は00:48 JST以降。HTTP原本は基準時刻後の現行改訂で、無記載の追記を完全には復元できない。",
-    "全世界の全事件を網羅しない。報道・SNSは一次探索の入口に限り、攻撃者主張を確定被害へ足さない。"
+    "基準は2026-10-27 07:47 JST。取得は07:50 JST以降の現行改訂で、原公開時の本文を完全には復元しません。",
+    "NVD新規532件は改訂4,815件に全件重複。20件のRejectedを含み、324件はApple CNAです。",
+    "GHSA公開540件はunreviewed515 / malware25 / reviewed0。437件は今回NVD、78件は前回NVDのCVEと重複します。",
+    "GHSA改訂748件は公開540件を全件含む。内訳はunreviewed687 / reviewed31 / malware30。全集合を足して事件数にしません。",
+    "NVD Received / Awaiting Analysis / Deferred、GHSA unreviewedは、悪用・被害の確定を意味しません。",
+    "APIによる収録・改訂時刻は、製品修正の初出荷時刻や攻撃開始時刻とは別です。",
+    "KEV原本一致・非掲載、フィード未配信は悪用不存在の証明ではありません。",
+    "API参照の一部は404/403、研究ページ1件はredirect loop。収集summaryへ失敗を保存し、空件数へ読み替えません。",
+    "Railway復旧通知は追加インシデントではない。新規登録再開予定と既存利用者復旧を分けます。",
+    "Appleの旧系列と新系列のCVEを合算して今朝の新規出荷数としません。",
+    "全世界の事件・被害を網羅した一覧ではありません。公表のない事案や未確認の攻撃者主張は件数に含めません。"
   ],
   "records": [
     {
-      "id": "connectwise-1400",
-      "title": "ConnectWise：14:00 UTC更新は準備継続であり、復元開始報告ではない",
+      "id": "gmo-correction",
+      "title": "GMO：00:20の日付訂正を確認、12:00は攻撃者予告",
+      "body": "第7報は端末調査の依頼日を10/23から10/25へ00:20 JSTに訂正。第7報の本文基準は前日23:10で、端末は解析中。10/27 12:00の情報公開・ランサムウェア攻撃は攻撃者とみられる者からの予告であり、実行済みの確定被害ではない。",
+      "action": "第6報の端末検査・バックアップ・アカウント保護を続ける。公式の個別連絡を確認し、認証コードや金銭を求める連絡へ応じない。",
+      "cve_ids": [],
       "kind": "delta",
-      "time": "23:00 JST（14:00 UTC 日次更新）",
-      "body": "Trust CenterはMonday October 26 14:00 UTCの更新を公開。phased partner onboardingの準備継続と、既存バックアップからの復元開始が可能になり次第案内する、と説明。10/26に復元を開始できたという達成報告ではない。影響接続は個別手順まで無効維持。アーカイブは暗号化・隔離・保全、他製品への波及indicationなし。次回は10/27 14:00 UTC。",
-      "action": "対象接続は無効のまま。サービス別の再有効化手順が出るまで再接続しない。M365側はEntraサインイン、アプリ登録、同意、転送規則、登録デバイスを別作業として続ける。インフラ復旧や日次更新を再接続許可と読まない。",
-      "sources": [
-        {
-          "name": "ConnectWise Trust Center",
-          "url": "https://www.connectwise.com/company/trust/advisories"
-        }
-      ],
       "certainty": "confirmed-publication",
-      "date": "2026-10-26",
-      "cve_ids": []
-    },
-    {
-      "id": "gmo-seventh",
-      "title": "GMO第7報：12:00は攻撃者予告。要求には応じない",
-      "kind": "delta",
-      "time": "23:10 JST（第7報の本文基準）",
-      "body": "攻撃者とみられる者から10/27 12:00に情報公開とランサムウェア攻撃の予告を受けたと説明。要求には応じない。端末調査協力で10/26 22時時点まで回収し解析中。マルウェア設置の確定ではない。第6報のアカウント保護は再掲。パスワードや認証コードを尋ねることはない。",
-      "action": "当該サービスへ接続した端末・アカウントがある場合、別の安全な端末から第6報の点検を続ける。公式以外の金銭要求や「被害金を取り戻す」連絡には応じない。12:00を公式の情報公開時刻としない。端末未提出を未被害としない。",
       "sources": [
         {
           "name": "GMO第7報",
           "url": "https://group.gmo/info/alert/2026102602/"
         },
         {
-          "name": "GMO第6報（再掲の依頼）",
-          "url": "https://group.gmo/info/alert/20261026/"
-        }
-      ],
-      "certainty": "confirmed-publication",
-      "date": "2026-10-26",
-      "cve_ids": []
-    },
-    {
-      "id": "softbank-resume",
-      "title": "ソフトバンク：災害・避難情報を23:17に再開",
-      "kind": "delta",
-      "time": "23:17 JST（公式本文）",
-      "body": "緊急地震速報・津波警報に加え、国・地方公共団体の災害・避難情報配信を10/26 23:17に再開。SoftBank / Y!mobile / LINEMOは緊急速報メールの全情報を受信できると説明。メンテナンスは10/23 6:47〜10/26 23:17。キャリア経路の再開であり、PHPエコシステム全体の修正完了ではない。",
-      "action": "該当回線では緊急速報設定を確認すれば足りる場合が多い。キャリア再開を自組織PHPのパッチ完了や悪用終了とみなさない。",
-      "sources": [
-        {
-          "name": "ソフトバンク公式案内",
-          "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/"
-        }
-      ],
-      "certainty": "confirmed-publication",
-      "date": "2026-10-26",
-      "cve_ids": []
-    },
-    {
-      "id": "nvd-fortisandbox",
-      "title": "FortiSandbox：代替経路による認証回避（NVD Received）",
-      "kind": "delta",
-      "time": "23:16 JST（NVD published 14:16:24 UTC）",
-      "body": "CVE-2026-107656はFortiSandbox 5.0.0–5.0.6、4.4.0–4.4.9、4.2全版と対応PaaSについて、代替経路の認証回避と細工HTTPによる未認可コードまたはコマンド実行の可能性を記載。状態はReceived。修正版番号はNVDから推定しない。",
-      "action": "インターネットに管理面を出している場合のみFortiGuard FG-IR-26-185を読み、系列ごとの公式修正を照合する。Receivedを緊急悪用確定としない。",
-      "sources": [
-        {
-          "name": "FortiGuard PSIRT FG-IR-26-185",
-          "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-185"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-107656"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "nvd-harbor-ssrf",
-      "title": "Harbor：ProjectAdminのwebhook SSRF",
-      "kind": "delta",
-      "time": "23:16 JST（NVD published 14:16:28 UTC）",
-      "body": "CVE-2026-111590はwebhook宛先検証不足。ProjectAdminがプライベート・リンクローカル宛先を置け、応答本文が実行ログに残る条件。未認証の全Harbor侵害ではない。",
-      "action": "webhook作成権限と宛先制限を確認し、GHSA-2phj-cp9f-qq6wの修正を照合する。",
-      "sources": [
-        {
-          "name": "Harbor GHSA-2phj-cp9f-qq6w",
-          "url": "https://github.com/goharbor/harbor/security/advisories/GHSA-2phj-cp9f-qq6w"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-111590"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "nvd-mongosh-emudhra",
-      "title": "mongosh：同梱Node.jsのeMudhra中間CA",
-      "kind": "delta",
-      "time": "00:16 JST（NVD published 15:16:39 UTC）",
-      "body": "CVE-2026-115930はmongosh 2.14.0未満がNode.js同梱TLSストアに復旧可能なeMudhra中間CAを含む問題。2.14.0はNode.js 24.22.1以降を同梱するとNVDは説明。npm経由はホストNodeの更新が別条件。Tailworm修正の証明ではない。",
-      "action": "配布経路ごとのmongosh版とホストNode版を分けて照合する。eMudhra不信任が目的ならNode 24.22.1系とmongosh 2.14.0を案内どおり確認する。",
-      "sources": [
-        {
-          "name": "MongoDB Shell changelog",
-          "url": "https://www.mongodb.com/docs/mongodb-shell/changelog/"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-115930"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "nvd-mcp-toolbox",
-      "title": "MCP Toolbox：未認証のファイル持ち出しとローカル上書き",
-      "kind": "delta",
-      "time": "00:16 JST（NVD published 15:16:45 UTC）",
-      "body": "CVE-2026-93328はgoogleapis/mcp-toolbox 1.2.0–1.4.0のcloud-storage sourceにおけるパストラバーサルと認可欠如。未認証でホストファイルを外部GCSへ持ち出し、ローカルを上書きできるとNVDは記載。Received。",
-      "action": "対象版を公開している場合のみPR 3454と配布元修正を照合する。",
-      "sources": [
-        {
-          "name": "googleapis/mcp-toolbox PR 3454",
-          "url": "https://github.com/googleapis/mcp-toolbox/pull/3454"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-93328"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "nvd-avocent-wsserver",
-      "title": "Avocent ACS8000：wsserverのコマンド組み立て",
-      "kind": "delta",
-      "time": "00:16 JST（NVD published 15:16:41 UTC）",
-      "body": "CVE-2026-65184はroot権限wsserverがWebSocket欄からsystem()/popen()へコマンドを渡す、というrunZero報告。公開鍵session経路がアプライアンスsession検査を行わない。Received。修正版は本調査で未確定。",
-      "action": "該当アプライアンスをインターネット管理している場合のみrunZero勧告とベンダー案内を照合する。",
-      "sources": [
-        {
-          "name": "runZero advisory",
-          "url": "https://www.runzero.com/advisories/avocent-acs8000-wsserver-cmdinj-cve-2026-65184"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-65184"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "nvd-camel-saxon-oauth",
-      "title": "Apache Camel：Saxon XXEとOAuthトークンキャッシュ",
-      "kind": "delta",
-      "time": "00:16 JST（NVD published 15:16:45 UTC台）",
-      "body": "CVE-2026-90885はcamel-saxonのXXE（4.0.0以上4.18.5未満、4.19.0以上4.22.2未満）。CVE-2026-94386はOAuthトークンキャッシュの取り違え（4.19.0以上4.22.2未満）。前回補完したDocling経路とは別条件。",
-      "action": "使っているコンポーネントと系列を4.18.5 / 4.22.2以降の公式案内と照合する。Camel全体の一括RCEとして数えない。",
-      "sources": [
-        {
-          "name": "CVE-2026-90885",
-          "url": "https://camel.apache.org/security/CVE-2026-90885.html"
-        },
-        {
-          "name": "CVE-2026-94386",
-          "url": "https://camel.apache.org/security/CVE-2026-94386.html"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-90885",
-        "CVE-2026-94386"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "nvd-mautic7",
-      "title": "Mautic 7：upload / SSTI / デシリアライズ / SQLi等の一連",
-      "kind": "delta",
-      "time": "23:16 JST台（NVD Deferred）",
-      "body": "CVE-2026-115188〜115196はMautic 7の別条件。キャンペーンimportのupload、Twig SSTI、デシリアライズ、管理AJAXとdashboard APIのSQLi、stored XSS、Asset API経路、Stats API権限、公開formのopen redirect。認証済み権限や特定機能が前提のものが含まれる。9件を未認証全サーバー侵害として足さない。",
-      "action": "該当機能を使っている場合のみ各GHSAの修正版と権限設定を照合する。",
-      "sources": [
-        {
-          "name": "GHSA-mxjf-pghx-h299",
-          "url": "https://github.com/mautic/mautic/security/advisories/GHSA-mxjf-pghx-h299"
-        },
-        {
-          "name": "GHSA-h7pm-79gc-8867",
-          "url": "https://github.com/mautic/mautic/security/advisories/GHSA-h7pm-79gc-8867"
-        },
-        {
-          "name": "GHSA-5r63-8h35-j3mw",
-          "url": "https://github.com/mautic/mautic/security/advisories/GHSA-5r63-8h35-j3mw"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-115188",
-        "CVE-2026-115189",
-        "CVE-2026-115190",
-        "CVE-2026-115191",
-        "CVE-2026-115192",
-        "CVE-2026-115193",
-        "CVE-2026-115194",
-        "CVE-2026-115195",
-        "CVE-2026-115196"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "nvd-bandit-http2",
-      "title": "Bandit HTTP/2等：HTTP2Shell（Brotli）とは別クラスタ",
-      "kind": "delta",
-      "time": "23:16 JST台（NVD published）",
-      "body": "mtrudel banditのHTTP/2・HTTP/1.1実装に資源枯渇・複雑度・圧縮増幅・リクエスト密輸等の一連がNVDへ入った。CVE-2026-111497のBrotli decoder欠陥とは別。HTTP/2利用だけでBrotli修正対象へ混ぜない。hackneyの別CVEも同バッチ。",
-      "action": "Elixir/Banditまたはhackneyを公開面で使う場合のみ、各CVEの成立条件と配布元修正を照合する。",
-      "sources": [
-        {
-          "name": "NVD CVE-2026-108525",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108525"
-        }
-      ],
-      "certainty": "CNA-unreviewed",
-      "cve_ids": [
-        "CVE-2026-108525",
-        "CVE-2026-108529",
-        "CVE-2026-109584"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "ghsa-modified-19",
-      "title": "GHSA：新規公開0、既存reviewed 19件の改訂",
-      "kind": "delta",
-      "time": "23:07〜00:16 JST（GHSA updated）",
-      "body": "公開窓は0件。updated 19件はaiohttp 3.14.4、Keycloak、kobako、Grav、Wagtail、Talos Linux、Dolibarr、ImageSharp、PostCSS、Open WebUIの古いGHSA再タッチ、Log4j 1-to-2 bridge等。updatedは本文・範囲の改訂であり、今夜の新規ゼロデイ公開集合ではない。",
-      "action": "導入済みなら各GHSAの現行版境界を照合する。前回の公開件数へ足し直さない。",
-      "sources": [
-        {
-          "name": "aiohttp GHSA-494j-54xm-rwp3",
-          "url": "https://github.com/advisories/GHSA-494j-54xm-rwp3"
-        }
-      ],
-      "certainty": "confirmed-publication",
-      "date": "2026-10-26",
-      "cve_ids": []
-    },
-    {
-      "id": "brotli-jfrog-reach",
-      "title": "Brotli：.NET / FFmpeg / ClickHouse / Arrowの到達はHTTP/2欠陥ではない",
-      "kind": "scope-complement",
-      "time": "10/25 JFrog・Microsoft一次。NVD lastMod 23:16 JST",
-      "body": "CVE-2026-111497はC decoderの範囲外書き込み。通称HTTP2Shell/Node2Shell/Brotli2Shellは同じCVE。.NETはSIGSEGVでRCE未実証、修正8.0.33/9.0.22/10.0.14、NativeAOTは再発行。FFmpeg→libjxl brob箱でポインタ破壊、修正リリース未確認。ClickHouseはbr約23MBでcrash、PR merge・リリース未出荷扱い。Arrowは534バイト無限ループ、issue未close。Cloudflare緊急WAFは既定Log。cybersecuritynewsは403。",
-      "action": "同梱コピーと実際の展開経路を棚卸しする。Accept-Encodingからbrを外すだけで完了としない。NativeAOTは再発行。ClickHouse/Arrow/libjxlは配布済み修正を確認できるまで未修正として扱う。Logルールを遮断完了としない。",
-      "sources": [
-        {
-          "name": "JFrog Brotli2Shell",
-          "url": "https://research.jfrog.com/post/brotli2shell-beyond-node2shell-and-http2shell/"
-        },
-        {
-          "name": "dotnet/announcements#494",
-          "url": "https://github.com/dotnet/announcements/issues/494"
-        },
-        {
-          "name": "Cloudflare emergency WAF 2026-10-25",
-          "url": "https://developers.cloudflare.com/changelog/post/2026-10-25-emergency-waf-release/"
-        },
-        {
-          "name": "Google CNA CVE-2026-111497",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-111497"
-        }
-      ],
-      "certainty": "prior-scope",
-      "cve_ids": [
-        "CVE-2026-111497"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "gmo-sixth-still",
-      "title": "GMO第6報：アカウント保護の依頼は撤回されていない",
-      "kind": "scope-complement",
-      "time": "21:00 JST（第6報）。第7報が再掲",
-      "body": "第6報の4点（フルスキャン、オフラインバックアップ、別端末からの全セッション切断・パスワード・MFA・同期オフ、任意の端末預かり）は第7報でも再掲。FXに限らず証券・メール・Google等。全接続端末への感染確定ではない。",
-      "action": "別の信頼できる端末から点検を続ける。点検完了までブラウザー同期をオンにしない。",
-      "sources": [
-        {
           "name": "GMO第6報",
           "url": "https://group.gmo/info/alert/20261026/"
         }
       ],
-      "certainty": "prior-scope",
-      "date": "2026-10-26",
-      "cve_ids": []
+      "time": "00:20 JST（公式訂正）",
+      "date": "2026-10-27"
     },
     {
-      "id": "blastmail-345",
-      "title": "ブラストメール：345契約・再開未定は17:00案内のまま",
-      "kind": "scope-complement",
-      "time": "17:00 JST更新（前回窓内）。次回10/27 12:00頃",
-      "body": "契約者情報以外の漏えい確認345契約、個別連絡345。再開時刻は未定。この窓の本文差分なし。345人や全受信者、345件の新しい侵入ではない。",
-      "action": "個別通知で対象項目を確認し、連絡・配信の代替経路を維持する。すべてに連絡済みを調査終了や再開許可としない。",
+      "id": "railway-recovery",
+      "title": "Railway：復旧チャンネル開設、既存利用者と新規登録を分ける",
+      "body": "公式statusは19:12 / 20:46 UTCに復旧継続の通知を掲載し、追加のセキュリティ事件ではないと明記。一次報告の20:41 UTC改訂では既存利用者向けサービスの復旧と、新規登録停止を区別。既存原本との本文差分はContinuous Updatesの追記であり、以前の約10万workspaceという影響推計を今回の新規流出として数え直さない。",
+      "action": "10/21より前に保存した機密環境変数・APIキー等の失効と再発行、GitHubやレジストリの監査を続ける。復旧は旧鍵の安全性を保証しない。新規登録の今週再開は予定。",
+      "cve_ids": [],
+      "kind": "delta",
+      "certainty": "confirmed-publication",
       "sources": [
         {
-          "name": "ブラストメール運営案内",
-          "url": "https://info.blastmail.jp/information_20261021.html"
+          "name": "Railway公式status",
+          "url": "https://status.railway.com/"
+        },
+        {
+          "name": "Railway一次報告・継続更新",
+          "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
         }
       ],
-      "certainty": "prior-scope",
-      "date": "2026-10-26",
-      "cve_ids": []
+      "time": "04:12 / 05:46 JST（status 19:12 / 20:46 UTC）",
+      "date": "2026-10-27"
     },
     {
-      "id": "pan-os-php",
-      "title": "PAN-OS PHP：この窓の新しいETA削除はない",
-      "kind": "scope-complement",
-      "time": "JSON timeline最終 14:45 JST（05:45 UTC）",
-      "body": "11.1.4-h38 / 11.1.6-h40 / 11.1.10-h36 / 11.1.13-h16 はreleased。残ETA（例: 11.2.13-h4と10.2.13-h27が10/27）は05:45Z以前の表のまま。悪用は自社製品に対する認識なし。GlobalProtect portal等はimpactedではないという既存区別を維持。",
-      "action": "管理面をインターネットから閉じ、自系列がreleased側かETA側かを表で照合する。コンテンツ署名をOS hotfixの代替にしない。PANの「認識していない」をPHP一般の未悪用と読み替えない。",
-      "sources": [
-        {
-          "name": "Palo Alto Networks CVE-2026-109618",
-          "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
-        }
-      ],
-      "certainty": "prior-scope",
+      "id": "openhands-sdk",
+      "title": "OpenHands SDK：公開sandbox agentの未認証コマンド実行",
+      "body": "CVE-2026-112346のCNA記録はSDK 1.52.0未満で、空のsession_api_keysによる無認証のsandbox command実行を説明。公開portへ到達できる場合、sandbox内rootとmountされたworkspace・secretが対象。確認したPR #5209はDockerWorkspaceのhost側port公開を127.0.0.1へ制限し、container内の0.0.0.0待受は維持する。CNAが併記するApptainerへの同じ修正の適用は、このPRからは確認できない。",
+      "action": "software-agent-sdk 1.52.0以降の修正を照合し、workspaceを再作成してhost側port公開とsession key設定を確認する。agent-server imageのtagだけでSDK launcher修正の適用を判定しない。到達可能だったworkspaceのsecretはログ調査と失効・再発行を別作業で実施する。",
       "cve_ids": [
-        "CVE-2026-109618"
+        "CVE-2026-112346"
       ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "tailscale-1042",
-      "title": "Tailscale：1.104.2のまま。Tailworm最低修正版は未確定",
-      "kind": "scope-complement",
-      "time": "最新安定 1.104.2（10/21）。この窓の新tagなし",
-      "body": "公式bulletinとGitHub releasesの最新安定は1.104.2（eMudhra）。この窓に新しいtagもbulletinもない。ソースmerge、check mode、TS_SSH_DISABLE_FORWARDING=1は配布済み修正の証明に使わない。",
-      "action": "eMudhra不信任が目的なら1.104.2以降。SSH転送・Serve/Funnel・headscaleは項目別に公式修正が出るまで、代替管理経路の確認と不要転送の停止に留める。",
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
       "sources": [
         {
-          "name": "Tailscale security bulletins",
+          "name": "SDK 1.52.0 release",
+          "url": "https://github.com/OpenHands/software-agent-sdk/releases/tag/v1.52.0"
+        },
+        {
+          "name": "DockerWorkspace修正PR 5209",
+          "url": "https://github.com/OpenHands/software-agent-sdk/pull/5209"
+        },
+        {
+          "name": "CNA由来NVD記録",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112346"
+        }
+      ],
+      "time": "01:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "cloud-run-mcp",
+      "title": "Cloud Run MCP：ビルド用bucketのsquatting",
+      "body": "CVE-2026-85297は1.11.0未満のGoogle Cloud Run MCP。bucket squattingによるソースコード取得・コード実行・持ち出しをGoogle CNAは説明。前回収録のMCP Toolbox cloud-storage問題とは別。",
+      "action": "Cloud Run MCPを1.11.0以降へ更新する。ToolboxとCloud Run MCPを同じ製品として一括判定せず、使ったビルド経路と機密情報の露出を確認する。",
+      "cve_ids": [
+        "CVE-2026-85297"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://github.com/GoogleCloudPlatform/cloud-run-mcp/releases/tag/v1.11.0"
+        }
+      ],
+      "time": "01:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "consul-leaf",
+      "title": "Consul：cached leaf証明書と秘密鍵の認可回避",
+      "body": "CVE-2026-105765はACL有効構成のConsul 1.17.0〜2.0.4。agent HTTP APIのcached service leaf応答がACL token検査を欠き、到達可能な攻撃者が既にcacheされた証明書と秘密鍵を得られる条件。APIは既定でloopbackのみで、同一hostのprocessへ露出が限定される。全サービスの鍵が無条件に取れるという意味ではない。",
+      "action": "Consul Community 2.1.0、Enterprise 2.1.0 / 1.21.19を系列別に照合。agent APIの到達制限と、露出した可能性のあるservice identity・証明書を調査する。leaf endpointのblockはConnect-nativeアプリやconsul-templateが依存しない場合のみ検討する。",
+      "cve_ids": [
+        "CVE-2026-105765"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://discuss.hashicorp.com/t/hcsec-2026-46-consul-vulnerable-to-an-authorization-bypass-in-the-agents-service-mesh-leaf-certificate-api/77911"
+        }
+      ],
+      "time": "03:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "consul-http-acl",
+      "title": "Consul：HTTP API DoS、mesh登録とhealth checkの認可",
+      "body": "CVE-2026-105626は未認証HTTP APIのメモリ枯渇。105608はservice write権限からmesh writeなしのEnvoy escape-hatch設定。115804は認証済み利用者が同一nodeの他service health checkを変更する認可回避。leaf秘密鍵の問題とは成立条件が別。",
+      "action": "Community 2.1.0、Enterprise 2.1.0 / 1.21.19へ公式の系列別手順で更新。HTTP API公開とservice write権限、check登録を個別に点検する。",
+      "cve_ids": [
+        "CVE-2026-105626",
+        "CVE-2026-105608",
+        "CVE-2026-115804"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://discuss.hashicorp.com/t/hcsec-2026-48-consul-vulnerable-to-a-denial-of-service-in-http-apis/77913"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://discuss.hashicorp.com/t/hcsec-2026-47-consul-vulnerable-to-an-authorization-bypass-in-service-mesh-registration/77912"
+        },
+        {
+          "name": "開発元・CNA参照 3",
+          "url": "https://discuss.hashicorp.com/t/hcsec-2026-49-consul-vulnerable-to-an-authorization-bypass-in-health-check-registration/77914"
+        }
+      ],
+      "time": "03:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "consul-k8s",
+      "title": "consul-k8s：別namespaceのServiceAccountからcomponent権限",
+      "body": "CVE-2026-110720はglobal.acls.manageSystemACLs=trueの構成。別namespaceでServiceAccountを作成しtokenを取得でき、Consul APIにも到達できる利用者が、component向けACL binding ruleを通じて昇格できる条件。",
+      "action": "consul-k8s 2.1.0 / 1.8.18を系列別に照合。Kubernetes RBAC、APIへの到達、system ACL管理の有効化を確認する。",
+      "cve_ids": [
+        "CVE-2026-110720"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://discuss.hashicorp.com/t/hcsec-2026-50-consul-k8s-vulnerable-to-a-cross-namespace-authorization-bypass-in-component-acl-binding-rules/77915"
+        }
+      ],
+      "time": "04:16 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "vllm-0320",
+      "title": "vLLM：template・共有memory・OCR・CORS・Responsesの複数条件",
+      "body": "CVE-2026-115911〜115918は0.32.0で修正とCNAが記載。request chat templateによる資源枯渇、共有memory識別子、音声encoder、OCR/画像処理、token ID境界、CORS、Responses経路を含む。認証済みcaller・特定modelや設定が必要なものを未認証の一括RCEへまとめない。",
+      "action": "vLLM 0.32.0を照合し、公開APIの認証、任意template、model供給元、画像・音声入力、CORSの設定を確認する。",
+      "cve_ids": [
+        "CVE-2026-115911",
+        "CVE-2026-115912",
+        "CVE-2026-115913",
+        "CVE-2026-115914",
+        "CVE-2026-115915",
+        "CVE-2026-115916",
+        "CVE-2026-115917",
+        "CVE-2026-115918"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-542m-9234-8gvf"
+        },
+        {
+          "name": "開発元・CNA参照 3",
+          "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-6757-hggm-hp2w"
+        },
+        {
+          "name": "開発元・CNA参照 4",
+          "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-8397-8qf6-f2gm"
+        },
+        {
+          "name": "開発元・CNA参照 5",
+          "url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-gq5q-89c7-vhvx"
+        }
+      ],
+      "time": "02:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "onnx-models",
+      "title": "ONNX：信用できないmodelのshape inferenceと低bit配列",
+      "body": "CVE-2026-115919〜115922は1.22.0未満。RNN/LSTM/GRUのrank検証、ConvTranspose、Scan shape inference、2/4bit unpack配列のサイズ等に関する不正model入力の問題。checker通過だけでshape inferenceの安全性が保証されるとはしない。",
+      "action": "ONNX 1.22.0以降を照合。外部modelの検証処理を制限付き環境へ置き、時間・memory上限を設定する。",
+      "cve_ids": [
+        "CVE-2026-115919",
+        "CVE-2026-115920",
+        "CVE-2026-115921",
+        "CVE-2026-115922"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://github.com/onnx/onnx/releases/tag/v1.22.0"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://github.com/onnx/onnx/security/advisories/GHSA-48m4-24cq-37qf"
+        },
+        {
+          "name": "開発元・CNA参照 3",
+          "url": "https://github.com/onnx/onnx/security/advisories/GHSA-6pwm-x34p-fvj2"
+        },
+        {
+          "name": "開発元・CNA参照 4",
+          "url": "https://github.com/onnx/onnx/security/advisories/GHSA-m4pr-6v3c-6fgr"
+        },
+        {
+          "name": "開発元・CNA参照 5",
+          "url": "https://github.com/onnx/onnx/security/advisories/GHSA-q69g-f4f5-v8m7"
+        }
+      ],
+      "time": "03:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "netty-tcnative",
+      "title": "Netty tcnative：native TLSのbuffer・ticket・SNI",
+      "body": "CVE-2026-116539〜116542はnative TLSのBIO buffer・bytes consumed報告・SNI・session ticket rotation等、成立条件が異なる。116540の公式GHSAはOpenSSL 3.0以降とのbuild、hot rotationと同時handshake、影響版2.0.81.Final以降・修正2.0.84.Finalを記載。CNA記録の下限2.0.66.Finalとの差があるため、最低影響版を本調査で確定しない。Java本体更新のみでnative library置換済みとはしない。",
+      "action": "netty-tcnative 2.0.84.Finalの修正と実際にloadしたnative artifactを確認。OpenSSL系列、ticket rotation、SNI routingの利用条件を分けて照合する。",
+      "cve_ids": [
+        "CVE-2026-116539",
+        "CVE-2026-116540",
+        "CVE-2026-116541",
+        "CVE-2026-116542"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "Netty公式UAF勧告",
+          "url": "https://github.com/netty/netty-tcnative/security/advisories/GHSA-mmc8-vg2v-fvvw"
+        },
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://github.com/netty/netty-tcnative/releases/tag/netty-tcnative-parent-2.0.84.Final"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://github.com/netty/netty-tcnative/security/advisories/GHSA-gf9q-9mg7-g5qh"
+        },
+        {
+          "name": "開発元・CNA参照 3",
+          "url": "https://github.com/netty/netty-tcnative/security/advisories/GHSA-mmc8-vg2v-fvvw"
+        },
+        {
+          "name": "開発元・CNA参照 4",
+          "url": "https://github.com/netty/netty-tcnative/security/advisories/GHSA-9xr3-jwv4-r489"
+        },
+        {
+          "name": "開発元・CNA参照 5",
+          "url": "https://github.com/netty/netty-tcnative/security/advisories/GHSA-2784-hxmm-4hgf"
+        }
+      ],
+      "time": "01:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "go-jose",
+      "title": "Go JOSE：4.1.5と4.1.6の修正境界を分ける",
+      "body": "CVE-2026-116585は空のCBC-HMAC JWE ciphertext、116586は深いJSONによるpanic/stack overflowで4.1.5修正。116587は不正RSA JWKの検証負荷で4.1.6修正、Go 1.24以降の条件がある。4.1.5だけですべて解消とはしない。",
+      "action": "go-jose 4.1.6以降と組込みバイナリの再buildを確認。信用できないJWE / JSON / JWKをparseする入口に入力制限を設ける。",
+      "cve_ids": [
+        "CVE-2026-116585",
+        "CVE-2026-116586",
+        "CVE-2026-116587"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "Go JOSE v4.1.5 release",
+          "url": "https://github.com/go-jose/go-jose/releases/tag/v4.1.5"
+        },
+        {
+          "name": "Go JOSE v4.1.6 release",
+          "url": "https://github.com/go-jose/go-jose/releases/tag/v4.1.6"
+        },
+        {
+          "name": "CNA由来NVD記録",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116587"
+        }
+      ],
+      "time": "07:16 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "compression-libraries",
+      "title": "Autobahn / Rust zip / snappy-java / Go compress：decoderの別問題",
+      "body": "Autobahn CVE-2026-116579はopt-in permessage-brotliの出力上限を展開後に確認するDoSで26.10.1修正。Rust zip 115905はcentral/local header名の不一致で9.0.5修正、同時収録の115906〜115909は別境界。snappy-java 116590は1.1.10.9、Go compress 116591のzstd panicは1.20.2修正。Brotli2Shell CVE-2026-111497とは別。",
+      "action": "実際に利用したdecoderと信頼できない入力経路を棚卸しし、それぞれの修正を適用。圧縮形式が同じというだけで別CVEの修正まで完了と判定しない。",
+      "cve_ids": [
+        "CVE-2026-116579",
+        "CVE-2026-115905",
+        "CVE-2026-115906",
+        "CVE-2026-115907",
+        "CVE-2026-115908",
+        "CVE-2026-115909",
+        "CVE-2026-116590",
+        "CVE-2026-116591"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://github.com/crossbario/autobahn-python/releases/tag/v26_10_1"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://github.com/crossbario/autobahn-python/security/advisories/GHSA-pjh6-c8mg-3x7m"
+        },
+        {
+          "name": "開発元・CNA参照 3",
+          "url": "https://github.com/zip-rs/zip2/releases/tag/v9.0.5"
+        },
+        {
+          "name": "開発元・CNA参照 4",
+          "url": "https://github.com/zip-rs/zip2/security/advisories/GHSA-m665-v7pm-7grj"
+        },
+        {
+          "name": "開発元・CNA参照 5",
+          "url": "https://github.com/zip-rs/zip2/releases/tag/v9.0.0"
+        }
+      ],
+      "time": "02:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "backstage-catalog",
+      "title": "Backstage：catalog URL規則のcanonicalization不一致",
+      "body": "CVE-2026-115923の3.9.2 / 4.0.2という境界は@backstage/plugin-catalog-backend packageの版。catalog.location.create権限の利用者がraw URL規則とURL readerの正規化差を使い、範囲外のentityをtrustedとして扱わせる条件。Backstage本体release v1.54.10にもcanonical URL照合の修正を確認し、本体版とpackage版を混同しない。",
+      "action": "@backstage/plugin-catalog-backend 3.9.2 / 4.0.2以降を系列別に確認。Backstage本体や独自portalの表示版だけで判定せず、実際の依存package、登録権限、catalog.rules、取得先URLを点検する。",
+      "cve_ids": [
+        "CVE-2026-115923"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://github.com/backstage/backstage/releases/tag/v1.54.10"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://github.com/backstage/backstage/releases/tag/v1.56.1"
+        },
+        {
+          "name": "開発元・CNA参照 3",
+          "url": "https://github.com/backstage/backstage/security/advisories/GHSA-w658-mh9p-ww8f"
+        }
+      ],
+      "time": "03:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "kener-transmission",
+      "title": "Kener / Transmission：管理入口とブラウザ経由RPC",
+      "body": "Kener CVE-2026-116747は3.0.0〜4.1.10未満、KENER_SECRET_KEY空/未設定時のDUMMY_SECRET fallbackで管理者emailを知る攻撃者がtokenを偽造。Transmission 116748は4.0.0〜4.1.3未満のCORSがRPC anti-CSRF tokenを他originへ公開する条件。",
+      "action": "Kener 4.1.10へ更新し固有のsecretを設定、旧sessionを失効。Transmission 4.1.3の修正とRPCの認証・到達制限を照合。両製品を導入している場合に限って優先する。",
+      "cve_ids": [
+        "CVE-2026-116747",
+        "CVE-2026-116748"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://github.com/rajnandan1/kener/releases/tag/v4.1.10"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://github.com/transmission/transmission/releases/tag/4.1.3"
+        }
+      ],
+      "time": "07:16 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "retired-vysper",
+      "title": "Apache Vysper：全版に影響、修正版を待たない",
+      "body": "CVE-2026-115721はXML解析の無制限allocation、115748はXEP-0077の認証検査欠落。プロジェクトはretiredで全版が対象、Apacheは修正版リリース予定なしと説明。後者は認証済み利用者による他accountの侵害条件。",
+      "action": "Vysperを使っている場合は代替へ移行する。未発表の修正版番号を設定せず、移行まで到達制限・登録機能制限を検討する。",
+      "cve_ids": [
+        "CVE-2026-115721",
+        "CVE-2026-115748"
+      ],
+      "kind": "delta",
+      "certainty": "CNA-unreviewed",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115721"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115748"
+        }
+      ],
+      "time": "01:17 JST（NVD published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "malicious-packages",
+      "title": "npm：malware新規25件と既存改訂を分離",
+      "body": "新規25件にはnpmの@greenlake/*、@ppa-web-components/*、@drone-js-ext/*、ctf-agent 0.1.0等を含む。公開は16:17〜20:42 UTC。GHSA一覧登録は導入企業の侵害確定ではなく、package名やscope一致だけで他版へ一般化しない。",
+      "action": "lockfile、SBOM、install logで各GHSAのpackageとversionを照合する。実行済みなら隔離と、その実行環境に置かれたsecretの失効・再発行を別の安全な端末から行う。単にuninstallして完了としない。",
+      "cve_ids": [],
+      "kind": "delta",
+      "certainty": "confirmed-publication",
+      "sources": [
+        {
+          "name": "ctf-agent GHSA",
+          "url": "https://github.com/advisories/GHSA-2j3v-rjgw-5wgg"
+        },
+        {
+          "name": "@greenlake/auth GHSA",
+          "url": "https://github.com/advisories/GHSA-h6v3-2957-9j3g"
+        },
+        {
+          "name": "GHSA公開窓API",
+          "url": "https://api.github.com/advisories?type=malware&published=2026-10-26T15:18:00Z..2026-10-26T22:47:00Z"
+        }
+      ],
+      "time": "01:17〜05:42 JST（GHSA published）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "ghsa-existing",
+      "title": "GHSA reviewed改訂31件：AirflowやCA bundleは既存公開",
+      "body": "公開窓のreviewedは0件、改訂窓は31件。Airflow JWT logout / Hive / Edge3 / Google / Sqoop / Mongo provider、NASA AIT-Core、AgentScope、Aim、AutoGPT、certifi emSign CA、ImageSharp等の既存勧告を含む。2022〜2025年公開のものもあり、31件を今朝の新規ゼロデイへ換算しない。",
+      "action": "導入済みpackageと各GHSAの現行range・修正を確認する。certifiのCA不信任と、他のTailwormやBrotli修正を混同しない。",
+      "cve_ids": [],
+      "kind": "delta",
+      "certainty": "confirmed-publication",
+      "sources": [
+        {
+          "name": "Airflow JWT GHSA",
+          "url": "https://github.com/advisories/GHSA-c92r-g8j5-vhcx"
+        },
+        {
+          "name": "certifi GHSA",
+          "url": "https://github.com/advisories/GHSA-6q48-6c7w-9gw2"
+        }
+      ],
+      "time": "00:48〜06:21 JST（GHSA updated）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "apple-oct26",
+      "title": "Apple：OS/Safariの10月26日security releaseを照合",
+      "body": "Apple一次資料はiOS/iPadOS 27.2と26.7.2、macOS Golden Gate 27.2の10/26 releaseを確認できる。この窓のNVD新規532件中324件はApple CNA記録で、過去releaseの修正にも言及する。324件すべてがこの窓の新規出荷や悪用確認という意味ではない。",
+      "action": "端末ごとの対応系列をSoftware Updateと公式security releases一覧で照合し、OSとSafariを更新。旧系列の端末に27系を一律要求せず、対応機種を確認する。",
+      "cve_ids": [
+        "CVE-2026-86986"
+      ],
+      "kind": "scope-complement",
+      "certainty": "prior-scope",
+      "sources": [
+        {
+          "name": "開発元・CNA参照 1",
+          "url": "https://support.apple.com/en-us/149227"
+        },
+        {
+          "name": "開発元・CNA参照 2",
+          "url": "https://support.apple.com/en-us/149230"
+        },
+        {
+          "name": "開発元・CNA参照 3",
+          "url": "https://support.apple.com/en-us/149521"
+        },
+        {
+          "name": "開発元・CNA参照 4",
+          "url": "https://support.apple.com/en-us/149526"
+        },
+        {
+          "name": "開発元・CNA参照 5",
+          "url": "https://support.apple.com/en-us/149527"
+        }
+      ],
+      "time": "10/26 release（公式日付）、NVD収録は固定窓内",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "connectwise-continuity",
+      "title": "ConnectWise：準備継続、個別案内まで接続無効を維持",
+      "body": "取得本文の最終更新は10/26 14:00 UTCのまま。phase onboardingの準備と復元開始可能時の通知を説明。10/26目標を達成報告として書き換えず、前回と同じ一次本文を参照。",
+      "action": "対象接続は個別手順まで無効を維持し、M365のapp同意・転送規則・sign-in・deviceを別に調査する。",
+      "cve_ids": [],
+      "kind": "scope-complement",
+      "certainty": "prior-scope",
+      "sources": [
+        {
+          "name": "ConnectWise Trust Center",
+          "url": "https://www.connectwise.com/company/trust/advisories"
+        }
+      ],
+      "time": "前日23:00 JST更新（今回取得で本文継続）",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "php-panos",
+      "title": "PHP / PAN-OS / IceWarp：系列別hotfixと配置確認を継続",
+      "body": "PAN JSON timeline最終は10/26 05:45 UTCで、11.1系4 hotfixのreleased情報は前回どおり。IceWarp公式API本文も前回と同一で15:30 UTC改訂。古いIceWarpの設定変更は部分緩和であり完全対処ではない。",
+      "action": "公開管理面を制限し、PHP修正・各製品hotfix・全worker再起動・実際の同梱コピーを確認する。PANのETAを出荷済みへ変えず、IceWarpのmemory_limit=-1等を他環境へ無条件に転用しない。",
+      "cve_ids": [],
+      "kind": "scope-complement",
+      "certainty": "prior-scope",
+      "sources": [
+        {
+          "name": "PAN CVE-2026-109618",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+        },
+        {
+          "name": "IceWarp PHP公式案内",
+          "url": "https://support.icewarp.com/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560"
+        }
+      ],
+      "time": "既存勧告の継続確認",
+      "date": "2026-10-27"
+    },
+    {
+      "id": "tailscale-continued",
+      "title": "Tailscale / eMudhra：最新安定1.104.2、Tailworm修正版は未確定",
+      "body": "公式releasesの最新安定は10/21の1.104.2。eMudhra中間CA対応の版をTailwormの最低修正版と読み替えない。ソースmergeや環境変数だけで配布済み修正と断定しない。",
+      "action": "eMudhra対応とSSH forwarding / Serve / Funnel等の到達条件を分け、公式bulletinとreleaseを追跡する。代替管理経路を確保したうえで不要転送を停止する。",
+      "cve_ids": [],
+      "kind": "scope-complement",
+      "certainty": "prior-scope",
+      "sources": [
+        {
+          "name": "Tailscale公式bulletin",
           "url": "https://tailscale.com/security-bulletins"
         },
         {
-          "name": "GitHub releases",
+          "name": "Tailscale releases",
           "url": "https://github.com/tailscale/tailscale/releases"
         }
       ],
-      "certainty": "prior-scope",
-      "date": "2026-10-26",
-      "cve_ids": []
+      "time": "最新安定10/21（今回取得で照合）",
+      "date": "2026-10-27"
     },
     {
-      "id": "php-brotli-jpcert",
-      "title": "PHP / Brotli国内注意喚起：16:25 / 18:00の案内を継続",
+      "id": "genesys-scope",
+      "title": "Genesys：内部LMS/CRMと顧客platformを区別",
+      "body": "当事者は10/16把握の内部business system事案を説明。LMS/CRMのbusiness連絡先・account情報等へのアクセス/取得を確認する一方、Cloud / Engage / Engage Cloudや顧客platform内のcall recording等への侵害は否定。調査は継続。今回窓の新規侵入として数えない。",
+      "action": "Genesysを名乗りbusiness情報を引用する不審連絡に注意し、公式窓口で確認。内部CRMの漏えいを顧客contact center全体の侵害へ一般化しない。",
+      "cve_ids": [],
       "kind": "scope-complement",
-      "time": "JPCERT 16:25 / JVN 18:00 JST（前回窓内）",
-      "body": "AT-2026-0033はPoCや試行通信がある一方、実行成功は版・環境・メモリ配置に依存すると追記。CVE-2026-115560はsession.upload_progress.enabled=0と全ワーカー再起動。Brotli AT-2026-0034は系列ごとの修正境界。この窓の新規国内注意喚起なし。",
-      "action": "対象系列の修正と実際に配置されたコピーを照合する。緩和設定をPHP全体の修正完了と同一視しない。",
-      "sources": [
-        {
-          "name": "JPCERT/CC AT-2026-0033",
-          "url": "https://www.jpcert.or.jp/at/2026/at260033.html"
-        },
-        {
-          "name": "JPCERT/CC AT-2026-0034",
-          "url": "https://www.jpcert.or.jp/at/2026/at260034.html"
-        }
-      ],
       "certainty": "prior-scope",
-      "cve_ids": [
-        "CVE-2026-109618",
-        "CVE-2026-109619",
-        "CVE-2026-115560",
-        "CVE-2026-111497"
-      ],
-      "date": "2026-10-26"
-    },
-    {
-      "id": "gmo-seventh-correction",
-      "title": "参考：GMO第7報の日付訂正は基準の2分後",
-      "kind": "reference-only",
-      "time": "00:20 JST訂正（基準00:18の後）",
-      "date": "2026-10-27",
-      "body": "取得HTMLに「10月27日 0:20 訂正 誤）10月23日 正）10月25日」（端末調査依頼日）。訂正そのものを23:10時点の確定事実へ戻さない。顧客向け依頼日は取得時点では10/25に訂正済み。",
-      "action": "現行公式ページの依頼日を確認する。訂正時刻を侵入や解析完了の時刻としない。",
       "sources": [
         {
-          "name": "GMO第7報（取得版）",
-          "url": "https://group.gmo/info/alert/2026102602/"
+          "name": "Genesys当事者公表",
+          "url": "https://www.genesys.com/blog/post/security-update-incident-affecting-certain-genesys-internal-business-systems"
         }
       ],
-      "certainty": "timestamp-unconfirmed",
-      "cve_ids": []
+      "time": "10/16把握の既存事案・範囲補完",
+      "date": "2026-10-27"
     },
     {
-      "id": "bc-dotnet-after-cutoff",
-      "title": "参考：BleepingComputerの.NET記事RSSは基準後",
+      "id": "frontline-notification",
+      "title": "参考：Frontline Educationの8月事案通知",
+      "body": "10/26付の当事者公表はFrontline Central / School Health Managementの8/14〜15の不正活動について、個人通知開始を説明。個人によりSSN、出生年月日、政府ID、Medicaid / Student ID等が異なる。新しい10/26侵入ではなく、公開時刻が日付のみのため固定窓内の確定差分から分離。",
+      "action": "対象学区と個別通知で自分の影響情報・対象の信用監視案内を確認する。全児童へ同じ情報が漏えいしたと一般化しない。",
+      "cve_ids": [],
       "kind": "reference-only",
-      "time": "RSS pubDate 15:38 UTC（基準15:18の後）",
-      "body": "Microsoft releases emergency .NET patches のRSSは15:38 UTC。一次は10/25のdotnet/announcements#494/#493。基準後記事を窓内新規出荷としない。",
-      "action": ".NET対策は#494/#493の一次案内を照合する。NativeAOT再発行とFramework対象外を維持する。",
+      "certainty": "timestamp-unconfirmed",
       "sources": [
         {
-          "name": "dotnet/announcements#494",
-          "url": "https://github.com/dotnet/announcements/issues/494"
+          "name": "Frontline Education通知",
+          "url": "https://www.frontlineeducation.com/news/frontline-education-notice-of-data-breach/"
         }
       ],
-      "certainty": "timestamp-unconfirmed",
-      "date": "2026-10-26",
-      "cve_ids": []
+      "time": "10/26付・公開時刻は未確定",
+      "date": "2026-10-27"
     }
   ],
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-10-27-0018/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-10-27-0747/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }
