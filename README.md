@@ -1,6 +1,24 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
-> **Latest review — 2026-10-26 10:27 JST:** [.NET OOB, Siemens/PAN-OS, Perl, AI/MCP and the PHP attribution correction](docs/29-snapshot-20261026-1027.md). 21 continuity groups and 45 archived primary responses. All 28 newly published NVD records overlap the 4,276 modified records; all 93 GHSAs are unreviewed. [Current actions](https://infosec-briefing.yomiplush.dev/update-20261026.html) / [Ten daily pages, October 17–26](https://infosec-briefing.yomiplush.dev/timeline.html). **53 scenes**, morning update starts at [#49](https://infosec-briefing.yomiplush.dev/?lang=en#49). Dated sections below are historical snapshots.
+**忙しい人向け（日本語・10/26 13:01 JST）：** サーバーの脆弱性だけでなく、正規の配布物・クラウドに預けた鍵・国内サービスにも影響が広がっています。自分が利用する製品と稼働版を確認し、更新・侵害調査・漏れた鍵の失効を優先。GMOのFX利用者は既存セッションも切断してください。**[日本語の1分要約と対応一覧](README_jp.md)**
+
+## For busy readers — one minute (2026-10-26 13:01 JST cutoff)
+
+**Patch exposed systems, investigate compromise, and revoke affected credentials.** The latest review covers Japanese and global breaches/outages, domestic advisories, bundled Brotli, local APIs and MCP. Read only the items relevant to your environment.
+
+- **Public PHP / GitLab / PAN-OS and edge systems:** check the affected configuration and running version; patch and investigate together. [21-group response table](https://infosec-briefing.yomiplush.dev/update-20261026.html)
+- **LiteLLM / Railway / ConnectWise:** check affected keys, sessions, cloud permissions and provider logs; revoke and reissue credentials. [Continuing actions](docs/29-snapshot-20261026-1027.md)
+- **GMO Desktop Cloud used for FX:** change passwords from a separate trusted device and **disconnect all remaining trading sessions**. [Vendor notice](https://group.gmo/info/alert/2026102402/)
+- **V-SFT / MLIT delivery-inspection software / bundled Brotli:** check design files, installation permissions and downstream copies. For Continue/OpenBB, also check trusted MCP configuration and local API reachability. [New findings and actions](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html#delta)
+- **Tailscale / headscale:** review SSH, connection grants and Serve/Funnel separately. A **minimum Tailworm-fixed version remains unconfirmed here**; do not infer one from 1.104.2 / 0.29.6. [Feature report](https://infosec-briefing.yomiplush.dev/tailworm.html)
+
+**[日本語の1分要約](README_jp.md) · [Latest reading report (Japanese)](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html) · [Oldest-to-newest daily archive](https://infosec-briefing.yomiplush.dev/timeline.html) · [Primary-source research](docs/research-2026-10-26-1301.md) · [Structured register](data/2026-10-26-1301/incident-register.json)**
+
+**Collection:** 10:27–13:01 JST: NVD 8 published / 20 modified; GHSA 13, all unreviewed. These overlap and must not be summed into an incident count. The review has 18 topic groups including earlier incidents and one timestamp-unconfirmed reference. Retrieved after 13:04 JST; VALTEC's date-only October 26 follow-up is segregated from cutoff-proven findings. Publication, DB registration, exploitation, fixes and restoration targets are distinct. Absence from KEV does not establish safety.
+
+---
+
+> **Previous review — 2026-10-26 10:27 JST:** [.NET OOB, Siemens/PAN-OS, Perl, AI/MCP and the PHP attribution correction](docs/29-snapshot-20261026-1027.md). 21 continuity groups and 45 archived primary responses. All 28 newly published NVD records overlap the 4,276 modified records; all 93 GHSAs are unreviewed. [Current actions](https://infosec-briefing.yomiplush.dev/update-20261026.html) / [Ten daily pages, October 17–26](https://infosec-briefing.yomiplush.dev/timeline.html). **53 scenes**, morning update starts at [#49](https://infosec-briefing.yomiplush.dev/?lang=en#49). Dated sections below are historical snapshots.
 
 ## Tailworm special — for Tailscale / headscale users
 
@@ -20,9 +38,9 @@
 
 > **October 24 review — 2026-10-24 19:13 JST:** [Broad review of 24 priority groups](docs/24-snapshot-20261024.md): exploited Arista/Collabora, Pillow, Wasmtime, Ruby, AI/MCP, Japanese products, HPE and industrial devices. Archived 526 newly published / 3,531 modified NVD records, 82 GitHub advisories and 17 recent KEV additions. [Structured register](data/2026-10-24/incident-register.json) / [primary-source notes](docs/research-2026-10-24.md). The [live briefing](https://2026-incident-briefing.pages.dev/?lang=en#26) gains eight scenes, **34 total**. Earlier sections retain their historical context; use the latest snapshot for current priorities.
 
-## 0. Busy? Read this — three minutes to "is this mine?"
+## 0. Historical quick reference — initial review (latest summary above)
 
-**Eight things landed in two weeks.** You do not need to read all of them. Find your row.
+The following tables preserve the initial review. Use the 13:01 JST summary and current reading report above for present priorities.
 (For a wider "what else is critical right now", see [`docs/13`](docs/13-recent-criticals.md).)
 
 ### 0-1. Today (this is already happening)
@@ -61,7 +79,7 @@
 
 1. **Do I run it?** → no: stop reading.
 2. **Can the internet reach it?** → no: lower the priority.
-3. **Is it being exploited?** (KEV) → no: "this week", not "today".
+3. **Is there exploitation, public reachability, or sensitive data at risk?** → prioritize by conditions and impact; absence from KEV alone is not a reason to postpone.
 
 Check your own estate — three read-only commands, about a minute:
 

@@ -1,6 +1,8 @@
 # Sources and re-fetch commands
 
-Latest, October 26 10:27 JST: [review](docs/29-snapshot-20261026-1027.md), [primary research](docs/research-2026-10-26-1027.md), [fixed window and overlap](docs/research-collection-2026-10-26-1027.md), [URLs/times/SHA-256](data/2026-10-26-1027/collection-summary.json). Re-fetch: `python3 tools/intel/snapshot-1027.py`; retrieval-time revisions do not reconstruct historical edits.
+Latest, October 26 13:01 JST: [primary research](docs/research-2026-10-26-1301.md), [structured register](data/2026-10-26-1301/incident-register.json), [all query URLs, retrieval times and 46 response hashes](data/2026-10-26-1301/collection-summary.json). Window 10:27–13:01 JST: NVD8 published/20 modified; GHSA13, overlapping. Retrieved after13:04 JST; date-only VALTEC follow-up is reference-only. Earlier records below are historical.
+
+Previous, October 26 10:27 JST: [review](docs/29-snapshot-20261026-1027.md), [primary research](docs/research-2026-10-26-1027.md), [fixed window and overlap](docs/research-collection-2026-10-26-1027.md), [URLs/times/SHA-256](data/2026-10-26-1027/collection-summary.json). Re-fetch: `python3 tools/intel/snapshot-1027.py`; retrieval-time revisions do not reconstruct historical edits.
 
 
 Previous nightly delta: [23:18 review](docs/28-snapshot-20261025-2318.md), [Tailworm](docs/27-tailworm.md), [URLs/times/hashes](data/2026-10-25-2318/collection-summary.json), [87-record index](data/2026-10-25-2318/nvd-index.json). Re-fetch: `python3 tools/intel/snapshot-2318.py`.

@@ -1,0 +1,378 @@
+{
+  "cutoff": "2026-10-26T04:01:00Z",
+  "cutoff_jst": "2026-10-26T13:01:00+09:00",
+  "delta_start": "2026-10-26T01:27:00Z",
+  "counts": {
+    "nvd_published": 8,
+    "nvd_modified": 20,
+    "nvd_published_in_modified": 8,
+    "ghsa_published": 13,
+    "ghsa_unreviewed": 13,
+    "ghsa_overlap_current_nvd_published": 8,
+    "ghsa_overlap_previous_nvd_published": 5,
+    "kev_catalog_version": "2026.10.23",
+    "kev_count": 1756,
+    "kev_unchanged_from_previous": true,
+    "record_topic_groups": 18,
+    "delta_topic_groups": 10,
+    "scope_complement_topic_groups": 7,
+    "reference_only_topic_groups": 1,
+    "note": "API登録件数と編集上の論点群。事件数・被害件数ではなく、集合間の重複を足し合わせない。"
+  },
+  "caveats": [
+    "対象時刻後に取得した現行改訂。公開日・DB収録日・発生日・取得日時は異なる。",
+    "同日で時刻未記載のVALTEC第3報は参考情報。13:01以前の公開確定へ含めない。",
+    "PingCAPの公表日時は未確認。dateはnullであり、本文の発生期間を公表日へ代入しない。",
+    "CNA記述やunreviewed GHSAは独立実証や実悪用確認ではない。",
+    "KEV非掲載は悪用不存在の証明ではない。",
+    "PSGIのCNA版境界1.0056と前回一次勧告Solutionsの1.0057に不整合が残る。",
+    "全世界の全事件を網羅するものではない。"
+  ],
+  "provenance": {
+    "summary": "collection-summary.json",
+    "research": "../../docs/research-2026-10-26-1301.md",
+    "retrieval_started_at": "2026-10-26T04:04:26+00:00",
+    "retrieval_finished_at": "2026-10-26T04:06:05+00:00",
+    "verified_raw_response_hashes": 46,
+    "sha256_is": "decompressed response bytes",
+    "kev_sha256": "97a6e54bc74c651ab3c55657191db9adec6c63b05ca54e4205327cfd97a8fb70"
+  },
+  "records": [
+    {
+      "id": "v-sft",
+      "title": "富士電機V-SFT：設計ファイルを開く経路",
+      "kind": "delta",
+      "time": "13:00 JST（JVNフィード）",
+      "date": "2026-10-26",
+      "body": "V-SFT 6.2.11.0以前に7件の脆弱性。細工したV7形式ファイルを開くことで情報漏えいやコード実行のおそれ。実悪用確認ではない。",
+      "action": "配布元のVer.6.2.12.0改善情報とパッチを照合する。",
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/vu/JVNVU96549652/"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "mlit-delivery",
+      "title": "電子納品物検査支援システム：導入先のアクセス権",
+      "kind": "delta",
+      "time": "12:00 JST（JVNフィード）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-113345。Ver.4.0.36以前のインストール先ファイルをローカル低権限利用者が改ざんでき、コード実行につながる可能性。最低修正版の番号は未確定。",
+      "action": "導入済み環境を更新し、新規導入には最新版インストーラを使う。",
+      "sources": [
+        {
+          "name": "JVN",
+          "url": "https://jvn.jp/jp/JVN75668103/"
+        },
+        {
+          "name": "開発元",
+          "url": "https://www.ysk.nilim.go.jp/cals/"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "brotli-downstream",
+      "title": "Brotli：Ghostscript等の同梱コピーも確認",
+      "kind": "delta",
+      "time": "11:05:33 / 11:11:58 JST（RSS配信）",
+      "date": "2026-10-26",
+      "body": "oss-secでCVE-2026-111497の下流利用先とGhostscriptの既存同梱更新が示された。原メールの重複URLは後続メールで訂正。全製品で同じ条件のRCEとはしない。",
+      "action": "NodeやBun以外のPDF・画像・フォント処理系も配布元の組込み版を照合する。",
+      "sources": [
+        {
+          "name": "一次メール",
+          "url": "https://seclists.org/oss-sec/2026/q4/389"
+        },
+        {
+          "name": "訂正",
+          "url": "https://seclists.org/oss-sec/2026/q4/390"
+        },
+        {
+          "name": "Ghostscript変更",
+          "url": "https://github.com/ArtifexSoftware/ghostpdl/commit/0f318d9a288a4016b8a3ef11a52e536443aa8e2b"
+        }
+      ],
+      "certainty": "confirmed-publication"
+    },
+    {
+      "id": "continue-mcp",
+      "title": "Continue：MCP起動設定の信頼境界",
+      "kind": "delta",
+      "time": "12:17:10 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116109。CNAはContinue 2.0.0のMCP transportにOSコマンドインジェクションと記載。現行公式コードで設定からstdio接続を生成する経路を確認したが、対象版の全成立条件、遠隔入力経路、最低修正版は未確定。",
+      "action": "非信頼のMCP起動定義を読み込まず、実行権限と秘密情報を絞る。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116109"
+        },
+        {
+          "name": "公式コード",
+          "url": "https://github.com/continuedev/continue/blob/main/core/context/mcp/MCPConnection.ts"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "openbb-api",
+      "title": "OpenBB：ローカルAPIのCORSと到達範囲",
+      "kind": "delta",
+      "time": "11:17:06 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116108。CNAは4.7.2/5.0.0までのアクセス制御を指摘。公式コードのCORS既定値を確認したが、それだけで資格情報窃取やRCEの独立実証にはならない。最低修正版は未確定。",
+      "action": "bind先、認証、許可origin、ブラウザーからの到達性を確認する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116108"
+        },
+        {
+          "name": "公式設定",
+          "url": "https://github.com/OpenBB-finance/OpenBB/blob/develop/openbb_platform/core/openbb_core/app/model/api_settings.py"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "datafeedr",
+      "title": "Datafeedr Product Sets：AJAX認可不足",
+      "kind": "delta",
+      "time": "11:17:06 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116107。対象1.3.24以前。公式変更履歴では10/5の1.3.25でAJAX handlerの権限確認を追加。1.3.26にも追加修正があり、今朝の新規修正ではない。",
+      "action": "1.3.25以上の修正を照合し、1.3.26とDatafeedr API 1.4.3以上の追加対策も確認する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116107"
+        },
+        {
+          "name": "公式配布履歴",
+          "url": "https://wordpress.org/plugins/datafeedr-product-sets/"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "livewallpaper",
+      "title": "LiveWallPaper：ローカル管理APIの公開範囲",
+      "kind": "delta",
+      "time": "12:17:11 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116110。対象Windows版2.6.8.0。10/24の開発元修正はlisten先を全インターフェースからループバックへ変更し、パス等を検査する。最低リリース番号と実悪用は未確定。",
+      "action": "修正コミットを含む配布物と管理APIの到達範囲を確認する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116110"
+        },
+        {
+          "name": "公式修正",
+          "url": "https://github.com/GiantappMan/livewallpaper/commit/b62f878899adbfc2968e3345442f3a3df91b774d"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "heycyan",
+      "title": "HeyCyan Android：平文通信とFileProvider",
+      "kind": "delta",
+      "time": "11:17:06 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116105 / 116106。CNA対象1.0.103。平文通信とFileProviderアクセス制御の2件。リンク先研究資料は404で、再現と最低修正版は未確認。",
+      "action": "利用端末と扱う機微情報、配布元通知を確認する。",
+      "sources": [
+        {
+          "name": "116105",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116105"
+        },
+        {
+          "name": "116106",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116106"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "civilization-v",
+      "title": "Civilization V：Lua sandboxの型混同報告",
+      "kind": "delta",
+      "time": "12:17:11 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116111。CNA対象1.0.3.144。研究者本文の取得に制限があり、ベンダー勧告、最低修正版、実悪用は未確定。通常起動だけで無条件RCEとはしない。",
+      "action": "非信頼MOD等の入力と端末権限を確認する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116111"
+        },
+        {
+          "name": "研究者",
+          "url": "https://drbloop.dev/blog/three-click-rce-in-civi-v"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "edoc",
+      "title": "edoc-doctor-appointment-system：SQL injection登録",
+      "kind": "delta",
+      "time": "12:17:11 JST（NVD収録）",
+      "date": "2026-10-26",
+      "body": "CVE-2026-116112。対象コミットcc258425b915d1af9e298777ccd26d160493e68dまで、admin/add-new.phpのspec引数。修正版番号と実被害は未確定。",
+      "action": "該当ソフトウェアの利用版と管理画面の公開範囲を確認する。",
+      "sources": [
+        {
+          "name": "CNA/NVD",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116112"
+        }
+      ],
+      "certainty": "CNA-unreviewed"
+    },
+    {
+      "id": "gmo-fx",
+      "title": "GMO：FX口座はパスワード変更と全セッション切断",
+      "kind": "scope-complement",
+      "time": "第4・5報10/24、時刻未記載",
+      "date": "2026-10-24",
+      "body": "既存のデスクトップクラウド侵害の対応補完。パスワード変更後も既存セッションが残る場合がある。端末スキャンは予防的措置で、全利用者端末への感染確定ではない。",
+      "action": "取引に使っていない端末から変更し、全セッションを切断、取引履歴・残高を確認する。",
+      "sources": [
+        {
+          "name": "第5報",
+          "url": "https://group.gmo/info/alert/2026102402/"
+        },
+        {
+          "name": "第4報",
+          "url": "https://group.gmo/info/alert/20261024/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "valtec-correction",
+      "title": "VALTEC：PHP原因説の撤回",
+      "kind": "scope-complement",
+      "time": "初報10/22、第2報10/23。訂正時刻未記載",
+      "date": "2026-10-22",
+      "body": "初報ページはPHPを原因とした説明を撤回し、自社サービスの脆弱性と訂正。第2報は10/20のマルウェア設置と漏えい可能性を報告する。",
+      "action": "PHP2Shellの実被害へ合算せず、個別の対象サービス通知を確認する。",
+      "sources": [
+        {
+          "name": "訂正のある初報",
+          "url": "https://www.webjapan.co.jp/maintenance/serviceteishi261022/"
+        },
+        {
+          "name": "第2報",
+          "url": "https://www.webjapan.co.jp/maintenance/serviceteishi261023/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "futureshop",
+      "title": "futureshop：対象1店舗の会員情報314万件",
+      "kind": "scope-complement",
+      "time": "10/23公表、時刻未記載",
+      "date": "2026-10-23",
+      "body": "10/17侵入、10/18情報取得、10/19検知。漏えい3,147,469件は1店舗の会員情報で、全店舗ではない。ハッシュ化パスワードを含みカード情報は含まない。具体的CVEは公表資料から未確定。",
+      "action": "対象店舗の個別通知とパスワード対応を確認する。",
+      "sources": [
+        {
+          "name": "事業者一次報告",
+          "url": "https://www.future-shop.jp/news/2026/10/23.html"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "studio",
+      "title": "Studio：取得可能状態と実取得の確証を区別",
+      "kind": "scope-complement",
+      "time": "10/16初報、案内最終更新表示10/20 12:30",
+      "date": "2026-10-16",
+      "body": "9/30〜10/1の不正アクセスを確認し、10/13発見、10/13〜14対処。実取得は未確認だが取得されたものとみなして対応。全利用サイトの同一被害確定ではない。",
+      "action": "メールとログイン後の個別案内で対象情報・必要な対応を確認する。",
+      "sources": [
+        {
+          "name": "事業者一次案内",
+          "url": "https://studio.design/ja/security/notice/2026-10-incident"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "pingcap",
+      "title": "PingCAP：社内情報とTiDB Cloudを区別",
+      "kind": "scope-complement",
+      "time": "公表日時未確認",
+      "date": null,
+      "body": "事業者は9/9〜10/7米国時間の盗用資格情報による社内システムアクセスと日本国内最大約5万件の個人情報漏えいを説明。TiDB Cloud不正アクセスとカード情報流出は未確認。後取得の現行ページで、公表日時と対象時刻以前の本文は未確定。",
+      "action": "対象者への個別通知を確認し、不審メール等に備える。",
+      "sources": [
+        {
+          "name": "事業者一次報告",
+          "url": "https://pingcap.co.jp/trust-hub/security/security-update-october-2026/"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "sansan-commune",
+      "title": "Sansan User Forum：外部Commune上の会員情報",
+      "kind": "scope-complement",
+      "time": "10/9公表、時刻未記載",
+      "date": "2026-10-09",
+      "body": "漏えい確認1,325名、可能性8,687名で対象項目は異なる。パスワードを含まず、営業AXサービス等への影響はないと説明。委託先と委託元の公表を別事件へ水増ししない。",
+      "action": "User Forumの個別通知で対象と情報項目を確認する。",
+      "sources": [
+        {
+          "name": "Sansan一次報告",
+          "url": "https://jp.corp-sansan.com/news/2026/1009.html"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "sbi",
+      "title": "State Bank of India：顧客PIIの予備分析",
+      "kind": "scope-complement",
+      "time": "10/21付取引所開示",
+      "date": "2026-10-21",
+      "body": "10/16通報。ダークウェブ上約375,000レコードの予備分析で顧客PII3,897レコードを特定。真正性・完全性・流出元と範囲は追加調査中。375,000人全員の顧客漏えいや銀行業務停止とはしない。",
+      "action": "対象者への銀行公式通知を確認し、推定被害数を拡大しない。",
+      "sources": [
+        {
+          "name": "銀行開示索引",
+          "url": "https://sbi.bank.in/hi/web/corporate-governance/3rd-quarter-2026-27"
+        },
+        {
+          "name": "原本PDF",
+          "url": "https://sbi.bank.in/documents/17826/0/22.10.2026_21.10.2026.pdf/3dd9933d-aa02-a905-6e5e-271515600378?t=1792671044750"
+        }
+      ],
+      "certainty": "prior-scope"
+    },
+    {
+      "id": "valtec-reference-1026",
+      "title": "VALTEC第3報：同日・公開時刻未確定の参考情報",
+      "kind": "reference-only",
+      "time": "10/26日付のみ、13:01以前の公開は未確定",
+      "date": "2026-10-26",
+      "body": "後取得の第3報は外部送信確認、企業情報1,213件、売上等データ875社と報告。個人情報件数は調査中。13:01以前の確定情報には含めない。10/26から順次再開と全サービスのパスワード強制変更は予定・案内であり完了確認ではない。",
+      "action": "公開時刻の確証を分け、再開とパスワード変更の個別案内を確認する。",
+      "sources": [
+        {
+          "name": "10/26第3報",
+          "url": "https://www.webjapan.co.jp/maintenance/serviceteishi261026/"
+        }
+      ],
+      "certainty": "timestamp-unconfirmed"
+    }
+  ]
+}

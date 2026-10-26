@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#05080d">
 <title>OCT 2026 — Incident Briefing</title>
-<meta name="description" content="2026年10月に重なったセキュリティ事案を、タップで進むブリーフィング形式のモーショングラフィックスで時系列に追う。10/26 10:27 JST基準。.NET臨時更新、Siemens/PAN-OS、Perl、AI/MCPと継続対応21群。日付別10ページと出典付き53画面。">
+<meta name="description" content="2026年10月に重なったセキュリティ事案を、タップで進むブリーフィング形式のモーショングラフィックスで時系列に追う。10/26 13:01 JST基準。国内JVN、Brotli同梱先、AI/MCPと国内外の漏えい・障害を調査。日付別10ページと出典付き53画面。">
 <link rel="canonical" href="https://infosec-briefing.yomiplush.dev/">
 <link rel="alternate" hreflang="en" href="https://infosec-briefing.yomiplush.dev/?lang=en">
 <link rel="alternate" hreflang="ja" href="https://infosec-briefing.yomiplush.dev/?lang=ja">
@@ -23,8 +23,8 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="2026 Incident Briefing">
-<meta property="og:title" content="One month, 15 incidents — incident briefing">
-<meta property="og:description" content="October 26, 10:27 JST review: .NET OOB, embedded PHP, credentials, AI/MCP and the PHP attribution correction. Ten daily pages, 53 scenes and primary sources.">
+<meta property="og:title" content="October incidents in date order — incident briefing">
+<meta property="og:description" content="October 26, 13:01 JST review: Japanese advisories, Brotli, AI/MCP and domestic/global incidents. Ten daily pages, 53 chronological scenes and sources.">
 <meta property="og:url" content="https://infosec-briefing.yomiplush.dev/">
 <meta property="og:image" content="https://infosec-briefing.yomiplush.dev/og.png">
 <meta property="og:image:width" content="1200">
@@ -32,12 +32,13 @@
 <meta property="og:image:alt" content="Dark briefing card: ONE MONTH, 15 INCIDENTS.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="One month, 15 incidents — incident briefing">
-<meta name="twitter:description" content="October 26, 10:27 JST review, ten daily pages and 53 scenes. Publication, attack observations and patch delivery kept separate.">
+<meta name="twitter:title" content="October incidents in date order — incident briefing">
+<meta name="twitter:description" content="October 26, 13:01 JST review, ten daily pages and 53 chronological scenes. Publication, observations and patch delivery kept separate.">
 <meta name="twitter:image" content="https://infosec-briefing.yomiplush.dev/og.png">
 <link rel="stylesheet" href="./style.css?v=20261026morning">
 <link rel="stylesheet" href="/privacy.css?v=20261025brave">
-<link rel="stylesheet" href="./mobile.css?v=20261026touch">
+<link rel="stylesheet" href="./mobile.css?v=20261026noon">
+<script src="./viewport.js?v=20261026noon" defer></script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23070b12'/><path d='M6 22 L16 8 L26 22' stroke='%23ffb545' stroke-width='2' fill='none'/><circle cx='16' cy='22' r='2.5' fill='%23ffb545'/></svg>">
 </head>
 <body class="entry-locked">
@@ -66,7 +67,7 @@
       <span class="tag">OCT 2026</span>
       <span class="sep"></span>
       <span id="chapter" class="chapter">BRIEFING 00</span>
-      <span id="asof" class="asof">2026-10-26 10:27 JST</span>
+      <span id="asof" class="asof">2026-10-26 13:01 JST</span>
     </div>
     <div class="hud-right">
       <label class="langwrap">
@@ -165,10 +166,11 @@
   </button>
 </div>
 <a class="tailworm-feature" href="./tailworm.html"><span>大特集 / SPECIAL REPORT · 10/25 23:18 JST</span><strong>Tailworm</strong><b>Tailscale / headscale 利用者へ</b><small>影響条件と、今日確認すること →</small></a>
-<a class="latest-update" href="./update-20261026.html">10/26 10:27 · 総まとめ / 日付から読む →</a>
-<noscript><p class="privacy-noscript">JavaScript OFF · <a href="/privacypolicy">プライバシーポリシー / Privacy policy</a></p></noscript>
+<a class="timeline-entry" href="./timeline.html">日付から読む · 10/17 → 10/26</a>
+<a class="latest-update" href="./update-20261026-1301.html">10/26 13:01 · 最新調査・今やること →</a>
+<noscript><p class="privacy-noscript">JavaScript OFF · <a href="./timeline.html">日付別に読む</a> · <a href="./update-20261026-1301.html">最新調査</a> · <a href="/privacypolicy">プライバシーポリシー / Privacy policy</a></p></noscript>
 <script src="/privacy.js?v=20261025brave" defer></script>
 <script src="./audio.js?v=19" defer></script>
-<script src="./entry.js?v=20261026morning" defer></script>
+<script src="./entry.js?v=20261026noon" defer></script>
 </body>
 </html>

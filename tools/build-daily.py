@@ -21,11 +21,11 @@ def anchor(url, text):
 
 def shell(path, title, description, content):
     return f'''<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b12">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b12">
 <title>{esc(title)} — October Incident Briefing</title><meta name="description" content="{esc(description)}"><link rel="canonical" href="{BASE}{path}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:type" content="article"><meta property="og:url" content="{BASE}{path}">
 <link rel="stylesheet" href="./update.css"><link rel="stylesheet" href="./daily.css?v=20261026"><link rel="stylesheet" href="/privacy.css?v=20261025brave"><script src="/privacy.js?v=20261025brave" defer></script></head>
-<body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global" aria-label="サイト内">{anchor('./','モーションブリーフィング')} {anchor('./update-20261026.html','10/26 10:27 総まとめ')} {anchor('./timeline.html','日付から読む')} {anchor('./tailworm.html','Tailworm特集')}</nav>
+<body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global" aria-label="サイト内">{anchor('./','モーションブリーフィング')} {anchor('./update-20261026-1301.html','10/26 13:01 最新まとめ')} {anchor('./update-20261026.html','10:27 朝の記録')} {anchor('./timeline.html','日付から読む')} {anchor('./tailworm.html','Tailworm特集')}</nav>
 {content}
 <footer>{anchor('./timeline.html','日付別一覧')} · {anchor(REPO+'docs/29-snapshot-20261026-1027.ja.md','調査範囲・全文・出典')} · {anchor('/privacypolicy','プライバシーポリシー')}<p>基準 2026-10-26 10:27 JST / 01:27 UTC。取得は基準後。更新後の本文を過去時点へ完全には復元できません。</p></footer></main></body></html>'''
 
@@ -40,17 +40,17 @@ def article(event):
 def main():
     record = json.loads(DATA.read_text())
     days = record['days']
-    cards = ''.join(f'''<a class="day-card" href="./day-{d['date'].replace('-','')}.html"><time datetime="{d['date']}">{d['date'][5:].replace('-','/')}</time><div><strong>{esc(d['title'])}</strong><p>{esc(d['summary'])}</p></div><span aria-hidden="true">↗</span></a>''' for d in reversed(days))
-    intro = '''<header><p class="kicker">OCTOBER 17—26 · DAILY RECORD</p><h1>何が起きて、<br>何が変わったか。</h1><p class="intro">PHPの公開前の試行から、修正の波及、資格情報の侵害、今朝の更新まで。日付ごとに読み、いま必要な対応へ戻れます。</p><p class="date">2026-10-26 10:27 JST 基準 · 日本語 / Japanese</p></header>
+    cards = ''.join(f'''<a class="day-card" href="./day-{d['date'].replace('-','')}.html"><time datetime="{d['date']}">{d['date'][5:].replace('-','/')}</time><div><strong>{esc(d['title'])}</strong><p>{esc(d['summary'])}</p></div><span aria-hidden="true">↗</span></a>''' for d in days)
+    intro = '''<header><p class="kicker">OCTOBER 17—26 · DAILY RECORD</p><h1>何が起きて、<br>何が変わったか。</h1><p class="date">古い日付 → 新しい日付の順。8月からの背景はモーション版に収録。</p><p class="intro">PHPの公開前の試行から、修正の波及、資格情報の侵害、今朝の更新まで。日付ごとに読み、いま必要な対応へ戻れます。</p><p class="date">2026-10-26 10:27 JST 基準 · 日本語 / Japanese</p></header>
 <aside><strong>事件の日付と、判明した日付。</strong><p>観測・公表・修正・収録・本調査の更新を区別しています。過去のページも現在確認できる資料による振り返りです。PHPがほかの事件を引き起こしたという関係は示しません。時刻のある情報はJSTへ換算。時刻未記載の資料は原資料の日付に置き、日付境界は未確定と明記します。</p></aside>'''
     (SITE/'timeline.html').write_text(shell('timeline.html','10月17日〜26日 — 日付から読む','PHP2Shellの公開前試行以降を日付別10ページに整理。攻撃観測、公表、修正、後日判明を区別し、10月26日10:27 JSTの対応へ。',intro+'<section class="day-list" aria-label="日付別記録">'+cards+'</section>'))
     for index, day in enumerate(days):
         filename = 'day-' + day['date'].replace('-','') + '.html'
         previous = anchor('./day-'+days[index-1]['date'].replace('-','')+'.html','← 前の日') if index else '<span>記録の起点</span>'
-        following = anchor('./day-'+days[index+1]['date'].replace('-','')+'.html','次の日 →') if index+1<len(days) else anchor('./update-20261026.html','現在の対応へ →')
+        following = anchor('./day-'+days[index+1]['date'].replace('-','')+'.html','次の日 →') if index+1<len(days) else anchor('./update-20261026-1301.html','現在の対応へ →')
         content = nav_dates(days,day['date'])+f'''<header><p class="kicker">DAILY RECORD · {esc(day['date'])}</p><h1><span class="day-number">{esc(day['date'][5:].replace('-','/'))}</span>{esc(day['title'])}</h1><p class="intro">{esc(day['summary'])}</p><p class="date">10/26 10:27 JST時点の振り返り。原資料の日付のみの項目は厳密なJST日付が未確定です。</p></header>'''
         content += ''.join(article(e) for e in day['events'])
-        content += f'<aside><strong>当日の記録と、今の対策は分けて確認。</strong><p>{esc(day["now"])}</p>{anchor("./update-20261026.html","最新の対応優先度を読む →")}</aside>'
+        content += f'<aside><strong>当日の記録と、今の対策は分けて確認。</strong><p>{esc(day["now"])}</p>{anchor("./update-20261026-1301.html","最新の対応優先度を読む →")}</aside>'
         content += f'<nav class="siblings" aria-label="前後の日">{previous}{following}</nav>'
         (SITE/filename).write_text(shell(filename,day['date']+' — '+day['title'],day['summary'],content))
     review = '''<header><p class="kicker">SECURITY REVIEW · 2026-10-26 10:27 JST</p><h1>修正の先まで、<br>確認する朝。</h1><p class="intro">PHP以降の事案を広範囲に再確認。欠落していた.NET修正、機器への波及、資格情報の侵害と、訂正された説明をまとめました。</p><p class="date">対象：2026-10-26 10:27 JST / 01:27 UTC。実取得は基準後。<br>「現在起きていること」は継続対応を含み、今朝発生した事件だけを指しません。</p><div class="report-links"><a href="./timeline.html">10日分を日付から読む →</a><a href="./?lang=ja#49">今朝の4画面を再生 →</a><a href="./tailworm.html">Tailworm特集 →</a></div></header>

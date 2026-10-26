@@ -1,0 +1,526 @@
+{
+  "cutoff": "2026-10-26T04:01:00Z",
+  "delta_start": "2026-10-26T01:27:00Z",
+  "started_at": "2026-10-26T04:04:26+00:00",
+  "note": "Retrieved after cutoff. Responses are retrieval-time revisions; metadata dates do not prove original content availability. No severity filter; published/modified overlap.",
+  "valtec-2": {
+    "name": "valtec-2",
+    "url": "https://www.webjapan.co.jp/maintenance/serviceteishi261023/",
+    "retrieved_at": "2026-10-26T04:04:26+00:00",
+    "file": "valtec-2.html",
+    "sha256": "ddfb12d19d686d005f7e5d9b80dd8970ca1bf3aa5f52f4be5d33dbe2a3c89c99",
+    "bytes": 68734,
+    "status": "ok",
+    "last_modified": null
+  },
+  "valtec-1": {
+    "name": "valtec-1",
+    "url": "https://www.webjapan.co.jp/maintenance/serviceteishi261022/",
+    "retrieved_at": "2026-10-26T04:04:26+00:00",
+    "file": "valtec-1.html",
+    "sha256": "b4ada8c4bb45b565b25a9bdd39b21f9e7507fdc7e7c8d45bb7cfd0ff06c655af",
+    "bytes": 70470,
+    "status": "ok",
+    "last_modified": null
+  },
+  "ghsa": {
+    "complete": true,
+    "returned": 13,
+    "pages": [
+      {
+        "url": "https://api.github.com/advisories?per_page=100&page=1&sort=published&direction=desc&published=2026-10-26T01%3A27%3A00Z..2026-10-26T04%3A01%3A00Z",
+        "retrieved_at": "2026-10-26T04:04:26+00:00",
+        "file": "ghsa-1.json",
+        "returned": 13,
+        "sha256": "3f6c4691c51c46c1b21c56f233c9a1a63b5d919be43d2e4ad908eb41b5639ee7"
+      }
+    ]
+  },
+  "pingcap": {
+    "name": "pingcap",
+    "url": "https://pingcap.co.jp/trust-hub/security/security-update-october-2026/",
+    "retrieved_at": "2026-10-26T04:04:26+00:00",
+    "file": "pingcap.html",
+    "sha256": "30805ae095c4f53655910c9ca02fdef3e52b2a3960085dceccf88afad4b443e6",
+    "bytes": 98373,
+    "status": "ok",
+    "last_modified": null
+  },
+  "valtec-3": {
+    "name": "valtec-3",
+    "url": "https://www.webjapan.co.jp/maintenance/serviceteishi261026/",
+    "retrieved_at": "2026-10-26T04:04:26+00:00",
+    "file": "valtec-3.html",
+    "sha256": "73d0bcbf12d8d458ab575618da8422e5a7c6c27b785f6f6146d6d3dbccf813da",
+    "bytes": 70664,
+    "status": "ok",
+    "last_modified": null
+  },
+  "studio": {
+    "name": "studio",
+    "url": "https://studio.design/ja/security/notice/2026-10-incident",
+    "retrieved_at": "2026-10-26T04:04:26+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "studio.html.gz",
+    "sha256": "480e311070521862ba34efecf1bc295020692f12af95211e2e02ed63d92e473f",
+    "bytes": 480867,
+    "status": "ok",
+    "last_modified": "Sun, 25 Oct 2026 12:56:44 GMT"
+  },
+  "sansan": {
+    "name": "sansan",
+    "url": "https://jp.corp-sansan.com/news/2026/1009.html",
+    "retrieved_at": "2026-10-26T04:04:27+00:00",
+    "file": "sansan.html",
+    "sha256": "bb6408783854932a8c31ea4907f71dfe8134d3dba1007706026b34ded5570fbe",
+    "bytes": 41119,
+    "status": "ok",
+    "last_modified": "Fri, 09 Oct 2026 08:00:56 GMT"
+  },
+  "gmo-4": {
+    "name": "gmo-4",
+    "url": "https://group.gmo/info/alert/20261024/",
+    "retrieved_at": "2026-10-26T04:04:27+00:00",
+    "file": "gmo-4.html",
+    "sha256": "e29d80d0dcee4d552522eefd8cc3b1ce8c6b6cd8d446ff0cceeb88d3aed98ab0",
+    "bytes": 55183,
+    "status": "ok",
+    "last_modified": null
+  },
+  "gmo-5": {
+    "name": "gmo-5",
+    "url": "https://group.gmo/info/alert/2026102402/",
+    "retrieved_at": "2026-10-26T04:04:27+00:00",
+    "file": "gmo-5.html",
+    "sha256": "8da5605fe0d16969d7c7c7fb14dad759a9ccc20d7bc64f7c6b702a85d7fe2609",
+    "bytes": 45121,
+    "status": "ok",
+    "last_modified": null
+  },
+  "nvd-published": {
+    "mode": "published",
+    "complete": true,
+    "totalResults": 8,
+    "returned": 8,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-26T01%3A27%3A00.000&pubEndDate=2026-10-26T04%3A01%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-10-26T04:04:26+00:00",
+        "file": "nvd-published-0.json.gz",
+        "totalResults": 8,
+        "returned": 8,
+        "sha256": "44c5d3ff1ce83501dc816da3bacb479e427ef9b6557aee1249dace6b0646df95"
+      }
+    ]
+  },
+  "kev": {
+    "name": "kev",
+    "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+    "retrieved_at": "2026-10-26T04:04:27+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "kev.json.gz",
+    "sha256": "97a6e54bc74c651ab3c55657191db9adec6c63b05ca54e4205327cfd97a8fb70",
+    "bytes": 1807090,
+    "status": "ok",
+    "last_modified": null
+  },
+  "nvd-modified": {
+    "mode": "modified",
+    "complete": true,
+    "totalResults": 20,
+    "returned": 20,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-10-26T01%3A27%3A00.000&lastModEndDate=2026-10-26T04%3A01%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-10-26T04:04:26+00:00",
+        "file": "nvd-modified-0.json.gz",
+        "totalResults": 20,
+        "returned": 20,
+        "sha256": "9a3ce5b50bdc20373bf3b7f8d683234f492ad17cbfe82953d0ec47aaeaafc52e"
+      }
+    ]
+  },
+  "sbi": {
+    "name": "sbi",
+    "url": "https://sbi.bank.in/documents/17826/0/22.10.2026_21.10.2026.pdf/3dd9933d-aa02-a905-6e5e-271515600378?t=1792671044750",
+    "retrieved_at": "2026-10-26T04:04:27+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "sbi.html.gz",
+    "sha256": "37f844c13637072da5d11670f0201dccb7354db368fe7fb97af81a066ea28f02",
+    "bytes": 271950,
+    "status": "ok",
+    "last_modified": "Thu, 22 Oct 2026 12:10:44 GMT"
+  },
+  "feeds": [
+    {
+      "name": "feed-project-zero",
+      "url": "https://googleprojectzero.blogspot.com/feeds/posts/default?alt=rss&max-results=20",
+      "retrieved_at": "2026-10-26T04:04:26+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-project-zero.html.gz",
+      "sha256": "a2e7a3498f86e034ff786137cf9bd80f6e389d90a2482ac90838291a4b4a7e0b",
+      "bytes": 11309698,
+      "status": "ok",
+      "last_modified": "Tue, 20 Oct 2026 22:20:46 GMT"
+    },
+    {
+      "name": "feed-portswigger-research",
+      "url": "https://portswigger.net/research/rss",
+      "retrieved_at": "2026-10-26T04:04:26+00:00",
+      "file": "feed-portswigger-research.html",
+      "sha256": "0d9accfd05ae89c3ddc28b1d6cdda66ece3cfdbb0e565836d2ae02e24e5a39c3",
+      "bytes": 28588,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-trail-of-bits",
+      "url": "https://blog.trailofbits.com/feed/",
+      "retrieved_at": "2026-10-26T04:04:26+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-trail-of-bits.html.gz",
+      "sha256": "73744dbec1d2e608208e6b1749ae7158270352f701da8216d7a902945b26af8b",
+      "bytes": 969238,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-github-security",
+      "url": "https://github.blog/security/feed/",
+      "retrieved_at": "2026-10-26T04:04:26+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-github-security.html.gz",
+      "sha256": "33b83eb29c4dbedb9ccf7f98a8edd4540b43aabf621820df60d6f57ca6ea8acf",
+      "bytes": 1012077,
+      "status": "ok",
+      "last_modified": "Sat, 24 Oct 2026 00:58:28 GMT"
+    },
+    {
+      "name": "feed-unit42",
+      "url": "https://unit42.paloaltonetworks.com/feed/",
+      "retrieved_at": "2026-10-26T04:04:26+00:00",
+      "file": "feed-unit42.html",
+      "sha256": "96e0f65e9f6caf42c6086e73a7038e02365746fe33248e27e0134036c8a3cb9b",
+      "bytes": 24518,
+      "status": "ok",
+      "last_modified": "Sun, 25 Oct 2026 21:46:24 GMT"
+    },
+    {
+      "name": "feed-talos",
+      "url": "https://blog.talosintelligence.com/rss/",
+      "retrieved_at": "2026-10-26T04:04:26+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-talos.html.gz",
+      "sha256": "006eb1a66cb5e892a95a5d506f064e98d491445777e097b17f666d214f5f4e4e",
+      "bytes": 278772,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-microsoft-security",
+      "url": "https://www.microsoft.com/security/blog/feed/",
+      "retrieved_at": "2026-10-26T04:04:26+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-microsoft-security.html.gz",
+      "sha256": "1c9a1b8f50d6291eb1240992d911ffeb1f43c9f3d9f1f742663e1d34def7f984",
+      "bytes": 286330,
+      "status": "ok",
+      "last_modified": "Sat, 24 Oct 2026 01:03:11 GMT"
+    },
+    {
+      "name": "feed-sans-isc",
+      "url": "https://isc.sans.edu/rssfeed.xml",
+      "retrieved_at": "2026-10-26T04:04:27+00:00",
+      "file": "feed-sans-isc.html",
+      "sha256": "108546d8ac28cb4ff3dfc0725d5b16a3eeb29617054f58e143d5320c27bb1e00",
+      "bytes": 6422,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 03:59:00 GMT"
+    },
+    {
+      "name": "feed-dfir-report",
+      "url": "https://thedfirreport.com/feed/",
+      "retrieved_at": "2026-10-26T04:04:27+00:00",
+      "file": "feed-dfir-report.html",
+      "sha256": "aae918b1adbf638e11e081f6a26685a69f581fc4478ac0c00f2ac15e74823f0f",
+      "bytes": 13933,
+      "status": "ok",
+      "last_modified": "Mon, 28 Sep 2026 20:27:35 GMT"
+    },
+    {
+      "name": "feed-oss-sec",
+      "url": "https://seclists.org/rss/oss-sec.rss",
+      "retrieved_at": "2026-10-26T04:04:27+00:00",
+      "file": "feed-oss-sec.html",
+      "sha256": "188aeef5442ed2fcef241040ca5a796371acdf3cffcab32b64558b7f92fdbd1d",
+      "bytes": 15055,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 02:15:03 GMT"
+    },
+    {
+      "name": "feed-cisa-advisories",
+      "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+      "retrieved_at": "2026-10-26T04:04:27+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-cisa-advisories.html.gz",
+      "sha256": "dbee0b938081fe0dfbb204f24484ab277240652c75da1e6c8d62342990aa42c0",
+      "bytes": 5696987,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-jpcert",
+      "url": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+      "retrieved_at": "2026-10-26T04:04:27+00:00",
+      "file": "feed-jpcert.html",
+      "sha256": "f37736427e5f60322d81f8ac229fd8ff40cc15b1b5a9da1d186fdb37a36ababe",
+      "bytes": 20535,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 03:50:35 GMT"
+    },
+    {
+      "name": "feed-imperva",
+      "url": "https://www.imperva.com/blog/feed/",
+      "retrieved_at": "2026-10-26T04:04:27+00:00",
+      "compression": "gzip",
+      "sha256_is": "decompressed bytes",
+      "file": "feed-imperva.html.gz",
+      "sha256": "c9be60c9619216eb8a33aeee9562d212f1c669851249722c47aa0b4f0212dc72",
+      "bytes": 264151,
+      "status": "ok",
+      "last_modified": "Thu, 22 Oct 2026 16:56:12 GMT"
+    },
+    {
+      "name": "feed-citizenlab",
+      "url": "https://citizenlab.ca/feed/",
+      "retrieved_at": "2026-10-26T04:04:28+00:00",
+      "file": "feed-citizenlab.html",
+      "sha256": "f4f24b428e7c6699d100a1baedefacabe4b6cec97756ed35a2d8cd556ad29a26",
+      "bytes": 26614,
+      "status": "ok",
+      "last_modified": null
+    },
+    {
+      "name": "feed-thehackernews",
+      "url": "https://feeds.feedburner.com/TheHackersNews",
+      "retrieved_at": "2026-10-26T04:04:28+00:00",
+      "file": "feed-thehackernews.html",
+      "sha256": "0ac53825c0ddb19b7b6468fff46f3697f5a75a552c522eba0f9d083b016503d7",
+      "bytes": 59760,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 03:35:08 GMT"
+    },
+    {
+      "name": "feed-bleepingcomputer",
+      "url": "https://www.bleepingcomputer.com/feed/",
+      "retrieved_at": "2026-10-26T04:04:28+00:00",
+      "file": "feed-bleepingcomputer.html",
+      "sha256": "40e733948b6a68a48331b0703fb6f3af36c8701ba0cc3ba93693d29336e8e683",
+      "bytes": 13048,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 04:00:03 GMT"
+    },
+    {
+      "name": "feed-jvn",
+      "url": "https://jvn.jp/rss/jvn.rdf",
+      "retrieved_at": "2026-10-26T04:04:29+00:00",
+      "file": "feed-jvn.html",
+      "sha256": "c185b36283e695a41f6dac37196be698388a96aaedaba2545e4041fc250d8927",
+      "bytes": 16705,
+      "status": "ok",
+      "last_modified": "Mon, 26 Oct 2026 04:00:06 GMT"
+    },
+    {
+      "name": "feed-ipa",
+      "url": "https://www.ipa.go.jp/security/alert/index.html",
+      "retrieved_at": "2026-10-26T04:04:29+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "finished_at": "2026-10-26T04:06:05+00:00",
+  "jvn-fuji": {
+    "name": "jvn-fuji",
+    "url": "https://jvn.jp/vu/JVNVU96549652/",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "jvn-fuji.html",
+    "sha256": "f57fa68fdcffca98ef30b3fb0c75f129eb5deecbea538a9d11c9b11a0e11c412",
+    "bytes": 15295,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 04:00:10 GMT"
+  },
+  "jvn-delivery": {
+    "name": "jvn-delivery",
+    "url": "https://jvn.jp/jp/JVN75668103/",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "jvn-delivery.html",
+    "sha256": "5867920064d16bec67e7bc548b994b1130460d1562ec5df0a3305faf4474dd17",
+    "bytes": 11683,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 03:00:08 GMT"
+  },
+  "oss-brotli-389": {
+    "name": "oss-brotli-389",
+    "url": "https://seclists.org/oss-sec/2026/q4/389",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "oss-brotli-389.html",
+    "sha256": "b8e5f5b22425208552cc4bb9a16ea2cfcfcd7ee49b52dc55a68f54e4b9f4f0f1",
+    "bytes": 12117,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 02:15:02 GMT"
+  },
+  "oss-brotli-390": {
+    "name": "oss-brotli-390",
+    "url": "https://seclists.org/oss-sec/2026/q4/390",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "oss-brotli-390.html",
+    "sha256": "16185e62621ee689d6726ed317308235f1f31a3665e2b17d2a14c7666d27171b",
+    "bytes": 11304,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 02:15:02 GMT"
+  },
+  "continue-code": {
+    "name": "continue-code",
+    "url": "https://raw.githubusercontent.com/continuedev/continue/main/core/config/ConfigHandler.ts",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "continue-code.html",
+    "sha256": "7eb24c4872914824592b2ce5cc773808a794b75b90d13fa6d1b22c662ca0e0be",
+    "bytes": 10966,
+    "status": "ok",
+    "last_modified": null
+  },
+  "continue-mcp": {
+    "name": "continue-mcp",
+    "url": "https://raw.githubusercontent.com/continuedev/continue/main/core/context/mcp/MCPManagerSingleton.ts",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "continue-mcp.html",
+    "sha256": "920f596de91e099387d7551b0eaf277ca1c8176864f263801f11b8efe5c2b1e9",
+    "bytes": 5707,
+    "status": "ok",
+    "last_modified": null
+  },
+  "openbb-code": {
+    "name": "openbb-code",
+    "url": "https://raw.githubusercontent.com/OpenBB-finance/OpenBB/develop/openbb_platform/core/openbb_core/app/model/api_settings.py",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "openbb-code.html",
+    "sha256": "527c36f734766c72080db48b260237d09a41b390d9f54ae309f16787c5947275",
+    "bytes": 1837,
+    "status": "ok",
+    "last_modified": null
+  },
+  "livewallpaper-commit": {
+    "name": "livewallpaper-commit",
+    "url": "https://api.github.com/repos/GiantappMan/livewallpaper/commits/b62f878899adbfc2968e3345442f3a3df91b774d",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "livewallpaper-commit.html.gz",
+    "sha256": "0a5d4b3a1f0986ac8bfb628ebd35d1e9481c58a35a76a823e9b9c8af0ae35eb3",
+    "bytes": 1340085,
+    "status": "ok",
+    "last_modified": "Sat, 24 Oct 2026 10:19:56 GMT"
+  },
+  "datafeedr": {
+    "name": "datafeedr",
+    "url": "https://plugins.svn.wordpress.org/datafeedr-product-sets/trunk/readme.txt",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "datafeedr.html",
+    "sha256": "b14410745aef3b9660549bed0716daa38cf3fcb0dbfc1c50f17c15b823b4d643",
+    "bytes": 22852,
+    "status": "ok",
+    "last_modified": "Mon, 05 Oct 2026 17:32:16 GMT"
+  },
+  "civ-research": {
+    "name": "civ-research",
+    "url": "https://drbloop.dev/blog/three-click-rce-in-civi-v",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "civ-research.html",
+    "sha256": "ffcc6390405150c34b206c1892d73f48a3e31dcc4e2bb5b7f96be49b5c0c7b26",
+    "bytes": 2695,
+    "status": "ok",
+    "last_modified": null
+  },
+  "futureshop": {
+    "name": "futureshop",
+    "url": "https://www.future-shop.jp/news/2026/10/23.html",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "file": "futureshop.html",
+    "sha256": "c95ecaf5910dae65d9f89d8780b40cc47274a21c02b4516d38633c9dcb8f893b",
+    "bytes": 43386,
+    "status": "ok",
+    "last_modified": null
+  },
+  "nec": {
+    "name": "nec",
+    "url": "https://jpn.nec.com/news/info/20261020.html",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "status": "error",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "ipa-fallback": {
+    "name": "ipa-fallback",
+    "url": "https://www.ipa.go.jp/security/security-alert/",
+    "retrieved_at": "2026-10-26T04:05:25+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "ipa-fallback.html.gz",
+    "sha256": "3e108ac5f688a34a85bb2751d2b32335a7a27296575ce6865cc919a5fa0ebd82",
+    "bytes": 229770,
+    "status": "ok",
+    "last_modified": "Mon, 26 Oct 2026 02:02:42 GMT"
+  },
+  "sbi-text": {
+    "name": "sbi-text",
+    "url": "https://sbi.bank.in/hi/web/corporate-governance/3rd-quarter-2026-27",
+    "retrieved_at": "2026-10-26T04:05:26+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "sbi-text.html.gz",
+    "sha256": "4586f03710269fe47083f64a7c0dc297df46bacd429e82f42ef9e5114b99cd39",
+    "bytes": 396321,
+    "status": "ok",
+    "last_modified": null
+  },
+  "continue-mcp-connection": {
+    "name": "continue-mcp-connection",
+    "url": "https://raw.githubusercontent.com/continuedev/continue/main/core/context/mcp/MCPConnection.ts",
+    "retrieved_at": "2026-10-26T04:06:04+00:00",
+    "file": "continue-mcp-connection.html",
+    "sha256": "fe169f9a13d29be6fe61fc983b96624b06b66f82bf1fda28165ea77681e7c165",
+    "bytes": 20767,
+    "status": "ok",
+    "last_modified": null
+  },
+  "ghostscript-brotli": {
+    "name": "ghostscript-brotli",
+    "url": "https://api.github.com/repos/ArtifexSoftware/ghostpdl/commits/0f318d9a288a4016b8a3ef11a52e536443aa8e2b",
+    "retrieved_at": "2026-10-26T04:06:04+00:00",
+    "compression": "gzip",
+    "sha256_is": "decompressed bytes",
+    "file": "ghostscript-brotli.html.gz",
+    "sha256": "a04252e4794ce369bde3b78ffb6b648c75943fcdae85b1a20caf6ddc03a09b7e",
+    "bytes": 1053109,
+    "status": "ok",
+    "last_modified": "Fri, 03 Apr 2026 18:08:04 GMT"
+  },
+  "mlit-vendor": {
+    "name": "mlit-vendor",
+    "url": "https://www.ysk.nilim.go.jp/cals/",
+    "retrieved_at": "2026-10-26T04:06:04+00:00",
+    "file": "mlit-vendor.html",
+    "sha256": "9930ae3907bc8f7be8f79d816dbc1fd827b1deb98439b0185ea38ca8cefd773b",
+    "bytes": 656,
+    "status": "ok",
+    "last_modified": "Wed, 03 Dec 2025 08:10:05 GMT"
+  }
+}

@@ -1,6 +1,28 @@
+## October 26, 13:01 JST update
+
+Latest reading report: `update-20261026-1301.html`. Research and response provenance:
+`docs/research-2026-10-26-1301.md` and `data/2026-10-26-1301/`.
+Rebuild static pages with `python3 tools/build-daily.py` then `python3 tools/build-noon.py`.
+The 53 motion scenes play in ascending stamped-date order, with intro/closing at the ends;
+addenda retain their review date, and range summaries sort at the end of the range.
+`CONTENT.scenes` retains its original order for locale integrations. `chronology.js` maps
+old `#N` / `?scene=N` links to their original content. The chapter counter shows playback
+position; sharing uses the stable original number. Date-only scenes retain editorial
+order within that day; no exact publication time is inferred.
+
+`viewport.js` tracks VisualViewport resize/pageshow for X/WKWebView browser toolbars,
+while leaving pinch zoom native. `mobile.css` reserves safe-area/privacy space and makes
+all 53 rail buttons horizontally scrollable; the active tick follows navigation.
+Verified with X user-agent emulation at seven viewport sizes, dynamic resizing, and
+a separate VisualViewport-only height reduction (480 visible / 844 layout pixels),
+including the unlock control and source drawer;
+actual X iOS/Android app testing is still needed for device-specific behavior.
+Run `node tests/chronology.test.cjs`, and (with the local server/CDP setup below)
+`node tests/inapp.mjs` and `node tests/daily.mjs`.
+
 # Briefing site — `site/`
 
-**Current: 53 scenes, October 26, 10:27 JST cutoff.** Latest report: `update-20261026.html`; dated archive: `timeline.html` and ten `day-YYYYMMDD.html` pages. Tailworm remains at #41–46; morning update #49–52; closing #53. Earlier dated sections below retain site history.
+**53 scenes; latest research cutoff October 26, 13:01 JST.** Latest report: `update-20261026.html`; dated archive: `timeline.html` and ten `day-YYYYMMDD.html` pages. Tailworm remains at #41–46; morning update #49–52; closing #53. Earlier dated sections below retain site history.
 
 A single-page, tap-to-advance motion-graphic briefing of the October 2026 incidents, in
 chronological order. Built for phones first, keyboard on desktop (space, arrows, M, S, L).

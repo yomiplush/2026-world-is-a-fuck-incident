@@ -1,6 +1,22 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA インシデント
 
-> **最新調査 — 2026-10-26 10:27 JST:** [.NET臨時修正・Siemens/PAN-OS・Perl・AI/MCP・PHP帰属の訂正](docs/29-snapshot-20261026-1027.ja.md)。継続対応21群、一次調査と固定窓原本45件。NVD新規28件は更新4,276件に包含、GHSA93件は全件unreviewed。[総まとめ](https://infosec-briefing.yomiplush.dev/update-20261026.html) / [10/17〜26の日付別10ページ](https://infosec-briefing.yomiplush.dev/timeline.html)。**53画面**、最新4画面は[#49から](https://infosec-briefing.yomiplush.dev/?lang=ja#49)。下の日時付き記録は過去の調査です。
+## 忙しい人向け — まず1分（2026-10-26 13:01 JST基準）
+
+**公開サーバーの更新・侵害調査と、漏れた鍵の失効を優先。** 今回は国内外の漏えい・業務障害、国内JVN、Brotli同梱先、AI/MCPまで再確認しました。全部読む必要はありません。自分に該当する項目だけ確認してください。
+
+- **PHP / GitLab / PAN-OS・境界機器を運用：** 対象構成と**実行中の版**を照合し、更新と侵害調査を並行。パッチ適用だけで既存侵入の除去とはしません。[条件別21群の対応表](https://infosec-briefing.yomiplush.dev/update-20261026.html)
+- **LiteLLM / Railway / ConnectWise等へ鍵を預けた：** 影響する鍵・セッション・クラウド権限と利用ログを確認し、失効・再発行まで実施。[継続対応](docs/29-snapshot-20261026-1027.ja.md)
+- **GMOデスクトップクラウドでFXを利用：** 別の安全な端末からパスワードを変更し、**残存する全セッションも切断**。取引履歴も確認。[事業者第5報](https://group.gmo/info/alert/2026102402/)
+- **V-SFT / 電子納品物検査支援システム / Brotli利用製品：** 設計ファイル・導入先権限・同梱コピーを追加点検。Continue / OpenBB等はMCP設定とローカルAPIの到達範囲も確認。[今回の差分と対応](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html#delta)
+- **Tailscale / headscale利用：** SSH・接続許可・Serve/Funnel等を機能別に点検。**Tailworm最低修正版は今回未確定**。1.104.2 / 0.29.6を修正版と推定しません。[特集・対処](https://infosec-briefing.yomiplush.dev/tailworm.html)
+
+**[最新の読むレポート](https://infosec-briefing.yomiplush.dev/update-20261026-1301.html) · [日付別に古い→新しい順で読む](https://infosec-briefing.yomiplush.dev/timeline.html) · [一次資料付き調査](docs/research-2026-10-26-1301.md) · [構造化索引](data/2026-10-26-1301/incident-register.json)**
+
+**今回の収集：** 10:27〜13:01 JSTのNVD新規8件 / 更新20件、GHSA13件（全件unreviewed）。集合は重複しており、足して事件数にはしません。国内外の既存事件も補完し、18論点を整理。実取得は13:04 JST以降で、VALTECの同日第3報は公開時刻未確定の参考枠です。**発生・公表・DB登録・修正・復旧予定は別**。KEV未掲載も安全の証明にはしません。
+
+---
+
+> **前回調査 — 2026-10-26 10:27 JST:** [.NET臨時修正・Siemens/PAN-OS・Perl・AI/MCP・PHP帰属の訂正](docs/29-snapshot-20261026-1027.ja.md)。継続対応21群、一次調査と固定窓原本45件。NVD新規28件は更新4,276件に包含、GHSA93件は全件unreviewed。[総まとめ](https://infosec-briefing.yomiplush.dev/update-20261026.html) / [10/17〜26の日付別10ページ](https://infosec-briefing.yomiplush.dev/timeline.html)。**53画面**、最新4画面は[#49から](https://infosec-briefing.yomiplush.dev/?lang=ja#49)。下の日時付き記録は過去の調査です。
 
 ## 大特集：Tailworm — Tailscale / headscale 利用者へ
 
@@ -20,9 +36,9 @@
 
 > **最新更新 — 2026-10-24 19:13 JST:** [広域調査と24事案群](docs/24-snapshot-20261024.ja.md)。Arista/Collaboraの実悪用、Pillow・Wasmtime・Ruby、AI/MCP、国内製品・HPE・産業機器を追加。NVD新規526件/更新3,531件、GHSA82件、KEV直近17件を保存。[構造化索引](data/2026-10-24/incident-register.json) / [一次調査メモ](docs/research-2026-10-24.md)。[公開ブリーフィング](https://2026-incident-briefing.pages.dev/?lang=ja#26)は8画面追加して**34画面**。以下は過去時点の記録を含み、現在の優先事項は最新調査を参照してください。
 
-## 0. 忙しい人向け — 3分で「自分に関係あるか」まで
+## 0. 過去の要約 — 初期調査の対応表（最新は冒頭）
 
-この2週間に**8件**が重なりました。全部を読む必要はありません。自分に該当する行だけ追ってください。
+以下は初期調査の詳細を残した記録です。現在の優先事項は冒頭の13:01 JST要約と最新レポートを参照してください。
 （さらに広く「直近の CRITICAL」を見たい場合は [`docs/13`](docs/13-recent-criticals.ja.md)。）
 
 ### 0-1. 今日やる（すでに現実になっているもの）
@@ -50,7 +66,7 @@
 
 | 言葉 | かみ砕くと |
 |---|---|
-| **CVSS 10.0** | 満点。「ログイン不要・遠隔から・コード実行」 |
+| **CVSS 10.0** | 技術的深刻度の最高値。具体的な攻撃条件と実悪用の有無は別に確認 |
 | **KEV** | 米 CISA が「実際に悪用された」と確認した一覧。**載っていない＝安全ではない** |
 | **影響版 / 修正版** | 「今危ない版」と「上げれば直る版」。混同すると、直したつもりで漏れる |
 | **中間CA** | 証明書を発行する権限。鍵が漏れると、そのCAが発行したのと同じ偽証明書を作れる |
@@ -61,7 +77,7 @@
 
 1. **そのソフトを自分で動かしている？** → いいえ、で読了。
 2. **インターネットから届く？** → いいえ、で優先度を下げる。
-3. **実際に悪用されている？（KEV）** → いいえ、で「今日中」ではなく「今週中」。
+3. **実悪用、公開到達性、影響するデータは？** → KEV未掲載だけで対応を延期せず、条件と影響から優先度を決める。
 
 自環境の確認は、読み取り専用の3コマンドで1分:
 
