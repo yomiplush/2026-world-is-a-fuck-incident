@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="title" content="DOUZONE"/>
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="더존, 더존ICT그룹 공식 사이트, 기업 전용 클라우드, ERP, 그룹웨어, 전자세금계산서, 보안 제품 안내" />
+<meta name="keywords" content="더존,더존비즈온,회계프로그램,더존ERP,SmartA,ERP,세무,회계,IT,클라우드,인공지능" />
+<title>더존ICT그룹</title>
+ 
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N57HMJ6F');</script>
+<!-- End Google Tag Manager -->
+<!-- NAVER 공통 + 전환 조건부 스크립트 -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if (!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "s_2dd175406d9";
+if (!_nasa) var _nasa = {};
+
+// URL에 submitted=true 파라미터가 포함되어 있을 때만 lead 전환 실행
+if (location.search.indexOf("submitted=true") > -1) {
+    var _conv = {};
+    _conv.type = 'lead';
+    wcs.trans(_conv);
+}
+
+if (window.wcs) {
+    wcs.inflow();
+    wcs_do();
+}
+</script>
+<!-- CSS -->
+<link type="text/css" rel="stylesheet" href="/html/plugin/jquery-ui/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="/html/plugin/swiper/css/swiper.css" />
+<link type="text/css" rel="stylesheet" href="/html/css/style.css" />
+<!-- bootstrap -->
+<link type="text/css" rel="stylesheet" href="/html/css_new/webfont.css" />
+<link type="text/css" rel="stylesheet" href="/html/css_new/common.css" />
+<link type="text/css" rel="stylesheet" href="/html/css_new/content.css" />
+<link type="text/css" rel="stylesheet" href="/html/css_new/layout.css" />
+<link type="text/css" rel="stylesheet" href="/html/css_new/main.css" />
+
+<!-- new -->
+<link type="text/css" rel="stylesheet" href="/new_site_css/solution.css">
+<link type="text/css" rel="stylesheet" href="/new_site_css/product.css">
+<link type="text/css" rel="stylesheet" href="/new_site_css/product2.css">
+<link type="text/css" rel="stylesheet" href="/new_site_css/new_layout.css">
+
+<!-- plugin -->
+<script src="/html/plugin/jquery/jquery.min.js"></script>
+<script src="/html/js_new/ui.js"></script>
+<script src="/html/plugin/swiper/js/swiper.min.js"></script>
+<script src="/common/js/common.js"></script>
+
+<!-- new -->
+<!-- <script src="/new_site_js/solution.js"></script>
+ <script src="/new_site_js/new_product.js"></script>   -->
+
+
+<script src="/html/plugin/skrollr/skrollr.js"></script>
+
+<script src="/html/plugin/jquery-ui/jquery-ui.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0Q827E0QJ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0Q827E0QJ2');
+</script>
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N57HMJ6F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	<div id="wrap" class="wrap">
+		<!-- skip_navi -->
+		<div class="skip_navi">
+			<p>
+				<a href="#contents">본문 바로가기</a>
+			</p>
+			<p>
+				<a href="#gnb">주메뉴 바로가기</a>
+			</p>
+		</div>
+		<!-- //skip_navi-->
+		<script>
+  $(document).ready(function () {
+
+    //
+    // const $ticker = $('.ticker-list');
+    // const speed = 1; // 45초 느낌의 아주 느린 속도
+    // let currentX = 0;
+    // function moveTicker() {
+    //   // 1. 숫자를 직접 계산 (jQuery -= 대신 사용)
+    //   currentX -= speed;
+    //
+    //   // 2. 첫 번째 li의 너비 확인 (간격 포함)
+    //   const $firstItem = $ticker.find('li').first();
+    //   const firstItemWidth = $firstItem.outerWidth(true);
+    //
+    //   // 3. 첫 번째 아이템이 완전히 나갔는지 체크 (절대값 비교)
+    //   if (Math.abs(currentX) >= firstItemWidth) {
+    //     $ticker.append($firstItem); // 첫 번째를 뒤로 보냄
+    //     currentX += firstItemWidth;  // 나간 만큼 좌표를 다시 오른쪽으로 보정 (툭 끊김 방지)
+    //   }
+    //
+    //   // 4. 실제 CSS 적용 (문자열 조합)
+    //   $ticker.css('transform', 'translateX(' + currentX + 'px)');
+    //
+    //   requestAnimationFrame(moveTicker);
+    // }
+    //
+    // moveTicker();
+
+
+
+  });
+</script>
+<style>
+
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+  a.ticker {
+    display: block;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+    background-color: #101010;
+
+  }
+  .ticker-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: max-content; /* 이게 없으면 자리가 없어서 이동이 안 됨 */
+    will-change: transform; /* 애니메이션 성능 최적화 */
+  }
+
+  .ticker-list li {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 500;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    margin-right: 300px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-block;
+    background-image:
+            linear-gradient(96deg, rgba(255, 255, 255, 0.2) 7%, rgba(255, 255, 255, 0.2) 99%),
+            linear-gradient(to right, #fff 0%, #14cdff 44%, #4794ff 65%, #4e7aff 79%, #a53cff 92%, #e632ff 114%);
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -0.26px;
+    text-align: left;
+    width: fit-content;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+  .ticker-list li span.bold {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+  }
+
+  /*롤링배너*/
+  .header .logo-wrap {
+    position: absolute;
+    left: 17px;
+    top: 30%;
+    height: 40px;
+    overflow: hidden;
+  }
+  .logo-inner {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease;
+  }
+  .header .douzone-logo{
+    width: 150px;
+    height: 40px;
+  }
+
+  .header .douzone-slogan{
+    width: 160px;
+    height: 40px;
+  }
+  .logo-item {
+    display: flex;
+    align-items: center;
+    height: 45px; /* 부모인 logo-wrap과 높이 통일 */
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .logo-item img{
+    max-height: 100%;
+    width: auto;
+    display: block
+  }
+
+
+  @media (max-width: 768px) {
+    .header .logo-wrap {
+      position: absolute;
+      left: 17px;
+      top: 30%;
+      height: 26px;
+      overflow: hidden;
+    }
+    .header .douzone-logo{
+      width: 110px;
+      height: 26px;
+    }
+    .header .douzone-slogan{
+      width: 104px;
+      height: 26px;
+    }
+    .logo-item {
+      display: flex;
+      align-items: center;
+      height: 26px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+  }
+
+
+  @media (max-width: 440px) {
+    .ticker-list li {
+      margin-right: 30px;
+    }
+  }
+
+
+</style>
+
+<header class="header">
+  <!--티커 배너-->
+<!--  <a class="ticker"  href="https://vo.la/QANlf5A" target="_blank">-->
+<!--    <ul class="ticker-list">-->
+
+<!--  <li>실시간 •제35회 AX Leadership Forum</li>-->
+<!--  <li>지금 바로 접속하세요 &gt;</li>-->
+
+<!--  <li>실시간 •제35회 AX Leadership Forum</li>-->
+<!--  <li>지금 바로 접속하세요 &gt;</li>-->
+
+<!--  <li>실시간 •제35회 AX Leadership Forum</li>-->
+<!--  <li>지금 바로 접속하세요 &gt;</li>-->
+<!--    </ul>-->
+<!--  </a>-->
+  <!--  티커 배너 끝-->
+
+
+  <div class="header-top">
+    <div class="logo-wrap">
+      <h1 class="logo-inner" id="logoInner">
+        <a href="../index.jsp" class="douzone-logo logo-item">
+          <img src="../../html/images/logo-douzone@2x.png"  alt="douzone-logo" />
+        </a>
+        <a href="../index.jsp" class="douzone-slogan logo-item">
+          <img src="../../html/images/slogan-axandmore@2x.png"  alt="douzone-slogan"/>
+        </a>
+      </h1>
+    </div>
+
+
+    <div class="gnb" id="gnb">
+      <ul>
+        <li class="">
+          <a href="../solution/business.jsp">솔루션</a>
+          <div class="gnb-sub"> 
+            <div class="container">
+              <div class="gnb-sub-group">
+                <div class="inner">
+                  <div class="depth1">
+                    <strong>솔루션</strong>
+                    <a href="#none" class="all">전체메뉴보기</a>
+                  </div>
+                  <div class="depth2 product">
+                    <ul class="line">
+                      <li>
+                        <a href="../solution/business.jsp"><span>Work&amp;Life 토털 솔루션</span></a>
+                        <ul>
+                          <li>
+                            <a href="../solution/business.jsp"><span>일반기업</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/finance.jsp"><span>금융</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/healthcare.jsp"><span>헬스케어</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/publicservice.jsp"><span>공공</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/information.jsp"><span>정보</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="../solution/digtal.jsp"><span>SaaS Integration 플랫폼</span></a>
+                        <ul>
+                          <li>
+                            <a href="../solution/digtal.jsp"><span>인공지능 전환</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/bplatform.jsp"><span>비즈니스 플랫폼</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/erp.jsp"><span>ERP</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/groupware.jsp"><span>그룹웨어</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/cloud.jsp"><span>클라우드</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="../solution/smartfactory.jsp"><span>기술별</span></a>
+                        <ul>
+                          <li>
+                            <a href="../solution/smartfactory.jsp"><span>스마트공장</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/project.jsp"><span>협업&middot;프로젝트관리</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/budget.jsp"><span>예산&middot;후원자 관리</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/taxreturn.jsp"><span>연말정산&middot;세무신고</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="../solution/scompany.jsp"><span>기업규모별</span></a>
+                        <ul>
+                          <li>
+                            <a href="../solution/scompany.jsp"><span>중소기업 1~120명/60~100억</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/mcompany.jsp"><span style="letter-spacing: -0.9px;">중소·중견기업 70~200명/100~200억</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/lcompany.jsp"><span>중견·대기업·글로벌 200명~/200억~</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/freelancer.jsp"><span>개인&middot;프리랜서</span></a>
+                          </li>
+                          <li>
+                            <a href="../solution/agent.jsp"><span>세무&middot;회계 대리인</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="">
+          <a href="../product/finance.jsp">제품</a>
+          <div class="gnb-sub">
+            <div class="container">
+              <div class="gnb-sub-group">
+                <div class="inner">
+                  <div class="depth1">
+                    <strong>제품</strong>
+                    <a href="javascript:;" class="all">전체메뉴보기</a>
+                  </div>
+                  <div class="depth2 w2">
+                    <ul class="line">
+                      <li>
+                        <a href="../product/finance.jsp"><span>기능별</span></a>
+                        <ul>
+                          <li>
+                            <a href="../product/finance.jsp"><span>재무&middot;회계 관리</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/management.jsp"><span>인사&middot;급여&middot;근태관리</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/construction.jsp"><span>건설&middot;부동산관리</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/manufacturing.jsp"><span>제조&middot;유통&middot;물류관리</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/clinic.jsp"><span>병원&middot;의료&middot;공공기관</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/perp.jsp"><span>ERP</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/bplatform.jsp"><span>비즈니스플랫폼</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/bportal.jsp"><span>업무포털</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/groupware.jsp"><span>그룹웨어</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/cloud.jsp"><span>클라우드/IDC</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/security.jsp"><span>정보보안</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/efinance.jsp"><span>전자금융</span></a>
+                          </li>
+                          <li>
+                            <a href="../product/efax.jsp"><span>전자팩스</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="../product/oneai.jsp"><span>제품/서비스</span></a>
+                        <ul class="product">
+                          <li><a href="../product/oneai.jsp"><span>ONE AI</span></a></li>
+                          <li><a href="../product/omniesol.jsp"><span>OmniEsol</span></a></li>
+                          <li><a href="../product/amaranth10.jsp"><span>Amaranth 10</span></a></li>
+                          <li><a href="../product/wehago.jsp"><span>WEHAGO</span></a></li>
+                          <li><a href="../product/wehagoh.jsp"><span>WEHAGO H</span></a></li>
+                          <li><a href="../product/idc.jsp"><span>IDC(D-Cloud)</span></a></li>
+
+                          <li><a href="../product/factoring.jsp"><span>매출채권팩토링</span></a></li>
+                          <li><a href="../product/gen.jsp"><span>GEN AI DEWS</span></a></li>
+                          <li><a href="../product/mes10.jsp"><span>MES</span></a></li>
+                          <li><a href="../product/amaranth10UC.jsp"><span>Amaranth 10 UC</span></a></li>
+                          <li><a href="../product/wehagot.jsp"><span>WEHAGO T</span></a></li>
+                          <li><a href="../product/wehagov.jsp"><span>WEHAGO V</span></a></li>
+                          <li><a href="../product/cloudserver.jsp"><span>클라우드서버</span></a></li>
+
+                          <li class="insight"><a href="../product/axbi.jsp"><span>Insight AX</span></a></li>
+                          <li><a href="../product/etax.jsp"><span>전자세금계산서</span></a></li>
+                          <li><a href="../product/efis10.jsp"><span>EFIS</span></a></li>
+                          <li><a href="../product/argoseim.jsp"><span>Argos EIM</span></a></li>
+                          <li><a href="../product/smarta10.jsp"><span>Smart A 10</span></a></li>
+                          <li><a href="../product/medical.jsp"><span>의료 빅데이터 플랫폼</span></a></li>
+                          <li><a href="../product/cloudfax.jsp"><span>클라우드팩스</span></a></li>
+
+                          <li class="local"><a href="../product/local.jsp"><span>지방정부 디지털 <br class="break-mo" />대민행정 서비스 플랫폼</span></a></li>
+                          <li><a href="../product/ics10.jsp"><span>ICS</span></a></li>
+                          <li><a href="../product/argosedm.jsp"><span>Argos EDM</span></a></li>
+                          <li><a href="../product/nahago.jsp"><span>NAHAGO</span></a></li>
+                          <li><a href="../product/smartworksv4.jsp"><span>Smart Works v4.0</span></a></li>
+
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="">
+          <a href="../intro/company.jsp">더존ICT그룹</a>
+          <div class="gnb-sub">
+            <div class="container">
+              <div class="gnb-sub-group">
+                <div class="inner">
+                  <div class="depth1">
+                    <strong>더존ICT그룹</strong>
+                    <a href="javascript:;" class="all">전체메뉴보기</a>
+                  </div>
+                  <div class="depth2 w5">
+                    <ul class="line">
+                      <li>
+                        <a href="../intro/company.jsp"><span>회사소개</span></a>
+                        <ul>
+                          <li>
+                            <a href="../intro/company.jsp"><span>회사소개</span></a>
+                          </li>
+                          <li>
+                        <a href="../intro/ceo.jsp"><span>CEO 인사말</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/history.jsp"><span>연혁</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/affiliate.jsp"><span>계열사</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/vision.jsp"><span>비전</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/management.jsp"><span>경영철학</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/rights_board.jsp"><span>지적재산권</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/awards.jsp"><span>수상내역</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/ci.jsp"><span>CI·더존체</span></a>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a href="../intro/location_gangchon.jsp"><span>사업장소개</span></a>
+                        <ul>
+                          <li>
+                            <a href="../intro/location_gangchon.jsp"><span>더존강촌캠퍼스 </span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/location_eulji.jsp"><span>더존을지타워 </span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/location_atec.jsp"><span>ATEC </span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/location_dcloud.jsp"><span>D-Cloud 센터</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/location_foex.jsp"><span>FoEX 센터 </span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/location_it.jsp"><span>IT코디센터 </span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="../job/talented.jsp"><span>채용</span></a>
+                        <ul>
+                          <li>
+                            <a href="../job/talented.jsp"><span>인재상</span></a>
+                          </li>
+                          <li>
+                            <a href="../job/recruit.jsp"><span>채용공고</span></a>
+                          </li>
+                          <li>
+                            <a href="../job/process.jsp"><span>채용방법 및 절차</span></a>
+                          </li>
+                          <li>
+                            <a href="../job/benefits.jsp"><span>복리후생제도</span></a>
+                          </li>
+                          <li>
+                            <a href="../job/recruit_faq.jsp"><span>채용 FAQ</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="../intro/support.jsp"><span>고객지원</span></a>
+                        <ul>
+                          <li>
+                            <a href="../intro/support.jsp"><span>고객지원</span></a>
+                          </li>
+                          <li>
+                            <a href="../intro/channel.jsp"><span>온라인 채널</span></a>
+                          </li>
+                          <li>
+                            <a href="../management/partnership.jsp"><span>제휴제안</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="../management/esg.jsp"><span>지속가능경영</span></a>
+                        <ul>
+                          <li>
+                            <a href="../management/esg.jsp"><span>핵심체계</span></a>
+                          </li>
+                          <li>
+                            <a href="../management/blue_heart.jsp"><span>지속가능경영</span></a>
+                          </li>
+                          <li>
+                            <a href="../management/governance.jsp"><span>AI 거버넌스</span></a>
+                          </li>
+                          <li>
+                            <a href="../management/esg.jsp"><span>AX 경영</span></a>
+                          </li>
+                          <li>
+                            <a href="../management/sharing_education.jsp"><span>나눔경영</span></a>
+                          </li>
+                          <li>
+                            <a href="../management/ethics_charter.jsp"><span>윤리경영</span></a>
+                          </li>
+                          <!-- <li>
+                            <a href="../management/at_test.jsp"><span>자격시험</span></a>
+                          </li> -->
+                          <li>
+                            <a href="../management/csv.jsp"><span>CSV</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="">
+          <a href="../media/media_room.jsp">미디어룸</a>
+          <div class="gnb-sub">
+            <div class="container">
+              <div class="gnb-sub-group">
+                <div class="inner">
+                  <div class="depth1">
+                    <strong>미디어룸</strong>
+                    <a href="javascript:;" class="all">전체메뉴보기</a>
+                  </div>
+                  <div class="depth2 w5_2">
+                    <ul>
+                      <li>
+                        <a href="../media/media_room.jsp"><span>언론보도</span></a>
+                      </li>
+                      <li>
+                        <a href="../media/seminar.jsp"><span>교육/세미나</span></a>
+                      </li>
+                      <li>
+                        <a href="../media/digital_contents.jsp"><span>Tran:D</span></a>
+                      </li>
+                      <li>
+                        <a href="https://www.youtube.com/@douzonetv" target="_blank" rel="noopener noreferrer"><span>더존TV</span></a>
+                      </li>
+                      <li>
+                        <a href="../media/social_media.jsp"><span>소셜미디어</span></a>
+                      </li>
+                      <li>
+                        <a href="../media/pr.jsp"><span>라이브러리</span></a>
+<!--						<ul>
+							<li>
+								<a href="../media/pr.jsp"><span>영상광고</span></a>
+							</li>
+							<li>
+								<a href="../media/print.jsp"><span>인쇄광고</span></a>
+							</li>
+						</ul> -->
+                      </li>
+                      <!-- <li><a href="../media/customer_case.jsp"><span>고객사례</span></a></li> -->
+                      <li>
+                        <a href="../board/index.jsp?code=notice"><span>공지사항</span></a>
+                      </li>
+                      <li>
+                        <a href="../media/axinsight.jsp"><span>AX 인사이트</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="">
+          <a href="../invest/shareholder.jsp">투자정보</a>
+          <div class="gnb-sub">
+            <div class="container">
+              <div class="gnb-sub-group">
+                <div class="inner">
+                  <div class="depth1">
+                    <strong>투자정보</strong>
+                    <a href="javascript:;" class="all">전체메뉴보기</a>
+                  </div>
+                  <div class="depth2">
+                    <ul>
+                      <li>
+                        <a href="../invest/shareholder.jsp"><span>이사회 구성</span></a>
+                      </li>
+                      <li>
+                        <a href="../invest/regular_reports.jsp"><span>IR자료실</span></a>
+                        <ul>
+                          <li>
+                            <a href="../invest/regular_reports.jsp"><span>정기보고서</span></a>
+                          </li>
+                          <li>
+                            <a href="../invest/announcement.jsp"><span>공고</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- 쇼핑 -->
+        <li class="">
+          <a>쇼핑</a>
+          <div class="gnb-sub">
+            <div class="container">
+              <div class="gnb-sub-group">
+                <div class="inner">
+                  <div class="depth1">
+                    <strong>쇼핑</strong>
+                    <a href="javascript:;" class="all">전체메뉴보기</a>
+                  </div>
+                  <div class="depth2">
+                    <ul>
+
+                      <li>
+                        <a href="https://www.douzonemall.co.kr/" target="_blank"><span>더존양식지</span></a>
+                      </li>
+                      <li>
+                        <a href="https://map.naver.com/p/search/%EA%B0%95%EC%95%84%EC%A7%80%EC%88%B2/place/1806671210?lng=127.6620201&lat=37.7364351&placePath=/booking?bookingRedirectUrl=https://m.booking.naver.com/booking/5/bizes/434118?theme=place&entry=pll&area=pll&c=15.00,0,0,0,dh" target="_blank"><span>강아지숲 티켓구매</span></a>
+                      </li>
+                      <li> 
+                        <a href="https://law.douzoneedu.co.kr/" target="_blank"><span>법정의무교육 신청</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>	
+            </div>	  
+        </li>
+        <!-- // 쇼핑 -->
+      </ul>
+    </div>
+    <div class="util">
+      <div class="btn-lang">
+        <button type="button">KOR</button>
+        <ul class="lang">
+          <li><a href="http://www.douzone.com" class="active">KOR</a></li>
+          <li><a href="http://en.douzone.com">ENG</a></li>
+        </ul>
+      </div>
+      <div class="btn-solution">
+        <button type="buttton">솔루션 바로가기</button>
+        <ul>
+          <li><a href="https://www.wehago.com/" target="_blank" rel="noopener noreferrer">WEHAGO</a></li>
+          <li><a href="https://www.amaranth10.com/" target="_blank" rel="noopener noreferrer">Amaranth 10</a></li>
+          <li><a href="http://www.douzonerp.com/" target="_blank" rel="noopener noreferrer">OmniEsol</a></li>
+<!--          <li><a href="https://www.douzonemall.co.kr/" target="_blank" rel="noopener noreferrer">사무용품</a></li>
+          <li><a href="https://www.douzonemall.co.kr/goods/goods_list.php?cateCd=034" target="_blank" rel="noopener noreferrer">강아지숲 티켓</a></li>
+          <li><a href="https://law.douzoneedu.co.kr/" target="_blank" rel="noopener noreferrer">법정의무교육</a></li>-->
+        </ul>
+      </div>
+      <!--<a href="../member/search.jsp" class="ic_srch"></a> -->
+    </div>
+    <!-- 모바일 gnb -->
+    <button type="button" class="m_btn_gnb" aria-label="전체메뉴 열기">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button type="button" class="m_btn_clse" aria-label="메뉴 닫기">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="m_gnb_wrap">
+      <div class="m_gnb_top">
+        <h2 class="gnb_logo">
+          <a href="../index.jsp"><span class="sr-only">DOUZONE</span></a>
+        </h2>
+        <div class="m_sitemap"><a href="javascript:void(0);" class="all">전체메뉴보기</a></div>
+      </div>
+      <div class="m_gnb">
+        <ul class="m_depth1 clearfix">
+          <li>
+            <span>솔루션</span>
+            <ul class="m_depth2">
+              <li>
+                <a href="../solution/business.jsp">Work&Life 토털 솔루션</a>
+                <ul class="m_depth3">
+                  <li><a href="../solution/business.jsp">일반기업</a></li>
+                  <li><a href="../solution/finance.jsp">금융</a></li>
+                  <li><a href="../solution/healthcare.jsp">헬스케어</a></li>
+                  <li><a href="../solution/publicservice.jsp">공공</a></li>
+                  <li><a href="../solution/information.jsp">정보</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="../solution/digtal.jsp">SaaS Integration 플랫폼</a>
+                <ul class="m_depth3">
+                  <li><a href="../solution/digtal.jsp">인공지능 전환</a></li>
+                  <li><a href="../solution/bplatform.jsp">비즈니스 플랫폼</a></li>
+                  <li><a href="../solution/erp.jsp">ERP</a></li>
+                  <li><a href="../solution/groupware.jsp">그룹웨어</a></li>
+                  <li><a href="../solution/cloud.jsp">클라우드</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="../solution/smartfactory.jsp">기술별</a>
+                <ul class="m_depth3">
+                  <li><a href="../solution/smartfactory.jsp">스마트공장</a></li>
+                  <li><a href="../solution/project.jsp">협업&middot;프로젝트관리</a></li>
+                  <li><a href="../solution/budget.jsp">예산&middot;후원자 관리</a></li>
+                  <li><a href="../solution/taxreturn.jsp">연말정산&middot;세무신고</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="../solution/scompany.jsp">기업규모별</a>
+                <ul class="m_depth3">
+                  <li>
+                    <a href="../solution/scompany.jsp">중소기업 <br />1~120명/60~100억</a>
+                  </li>
+                  <li>
+                    <a href="../solution/mcompany.jsp">중소·중견기업 <br />70~200명/100~200억</a>
+                  </li>
+                  <li>
+                    <a href="../solution/lcompany.jsp">중견·대기업·글로벌 <br />200명~/200억~</a>
+                  </li>
+                  <li><a href="../solution/freelancer.jsp">개인&middot;프리랜서</a></li>
+                  <li><a href="../solution/agent.jsp">세무&middot;회계 대리인</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span>제품</span>
+            <ul class="m_depth2">
+              <li>
+                <a href="../product/finance.jsp">기능별</a>
+                <ul class="m_depth3">
+                  <li><a href="../product/finance.jsp">재무&middot;회계 관리</a></li>
+                  <li><a href="../product/management.jsp">인사&middot;급여&middot;근태관리</a></li>
+                  <li><a href="../product/construction.jsp">건설&middot;부동산관리</a></li>
+                  <li><a href="../product/manufacturing.jsp">제조&middot;유통&middot;물류관리</a></li>
+                  <li><a href="../product/clinic.jsp">병원&middot;의료&middot;공공기관</a></li>
+                  <li><a href="../product/perp.jsp">ERP</a></li>
+                  <li><a href="../product/bplatform.jsp">비즈니스플랫폼</a></li>
+                  <li><a href="../product/bportal.jsp">업무포털</a></li>
+                  <li><a href="../product/groupware.jsp">그룹웨어</a></li>
+                  <li><a href="../product/cloud.jsp">클라우드/IDC</a></li>
+                  <li><a href="../product/security.jsp">정보보안</a></li>
+                  <li><a href="../product/efinance.jsp">전자금융</a></li>
+                  <li><a href="../product/efax.jsp">전자팩스</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="../product/oneai.jsp">제품/서비스</a> 
+                <ul class="m_depth3">
+                  <li><a href="../product/oneai.jsp">ONE AI</a></li>
+                  <li><a href="../product/gen.jsp">GEN AI DEWS</a></li>
+                  <li><a href="../product/axbi.jsp">Insight AX</a></li>
+                  <li><a href="../product/erp10.jsp">OmniEsol</a></li>
+                  <li><a href="../product/mes10.jsp">MES</a></li>
+                  <li><a href="../product/efis10.jsp">EFIS</a></li>
+                  <li><a href="../product/ics10.jsp">ICS</a></li>
+                  <li><a href="../product/amaranth10.jsp">Amaranth 10</a></li>
+                  <li><a href="../product/amaranth10UC.jsp">Amaranth 10 UC</a></li>
+                  <li><a href="../product/argoseim.jsp">Argos EIM</a></li>
+                  <li><a href="../product/argosedm.jsp">Argos EDM</a></li>
+                  <li><a href="../product/wehago.jsp">WEHAGO</a></li>
+                  <li><a href="../product/wehagot.jsp">WEHAGO T</a></li>
+                  <li><a href="../product/smarta10.jsp">Smart A 10</a></li>
+                  <li><a href="../product/nahago.jsp">NAHAGO</a></li>
+                  <li><a href="../product/wehagoh.jsp">WEHAGO H</a></li>
+                  <li><a href="../product/wehagov.jsp">WEHAGO V</a></li>
+                  <li><a href="../product/medical.jsp">의료 빅데이터 플랫폼</a></li>
+                  <li><a href="../product/idc.jsp">IDC (D-Cloud)</a></li>
+                  <li><a href="../product/cloudserver.jsp">클라우드서버</a></li>
+                  <li><a href="../product/cloudfax.jsp">클라우드팩스</a></li>
+                  <li><a href="../product/smartworksv4.jsp">Smart Works v4.0</a></li>
+                  <li><a href="../product/factoring.jsp">매출채권팩토링</a></li>
+                  <li><a href="../product/etax.jsp">전자세금계산서</a></li>
+                  <li><a href="../product/local.jsp">지방정부 디지털 대민행정 서비스 플랫폼</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span>더존ICT그룹</span>
+            <ul class="m_depth2">
+              <li><a href="../intro/company.jsp">회사소개</a></li>
+<!--              <li><a href="../intro/affiliate.jsp">계열사</a></li> -->
+              <li><a href="../intro/location_gangchon.jsp">사업장소개</a></li>
+              <li><a href="../job/talented.jsp">채용</a></li>
+              <li><a href="../intro/support.jsp">고객지원</a></li>
+              <li><a href="../management/esg.jsp">지속가능경영</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>미디어룸</span>
+            <ul class="m_depth2">
+              <li><a href="../media/media_room.jsp">언론보도</a></li>
+              <li><a href="../media/seminar.jsp">교육/세미나</a></li>
+              <li><a href="../media/digital_contents.jsp">Tran:D</a></li>
+              <li><a href="https://www.youtube.com/@douzonetv" target="_blank" rel="noopener noreferrer">더존TV</a></li>
+              <li><a href="../media/social_media.jsp">소셜미디어</a></li>
+              <li><a href="../media/pr.jsp">라이브러리</a>
+<!--				<ul class="m_depth3">
+					<li><a href="../media/pr.jsp">영상광고</a></li>
+					<li><a href="../media/print.jsp">인쇄광고</a></li>
+				</ul>-->
+			  </li> 
+              <!-- <li><a href="../media/customer_case.jsp">고객사례</a></li> -->
+              <li><a href="../board/index.jsp?code=notice">공지사항</a></li>
+              <li><a href="../media/axinsight.jsp">AX 인사이트</a></li>
+            </ul>
+          </li>
+          <li>
+            <span>투자정보</span>
+            <ul class="m_depth2">
+              <li><a href="../invest/shareholder.jsp">이사회 구성</a></li>
+              <li><a href="../invest/regular_reports.jsp">IR자료실</a>
+                <ul class="m_depth3">
+                  <li><a href="../invest/regular_reports.jsp">정기보고서</a></li>
+                  <li><a href="../invest/announcement.jsp">공고</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+		  <li>
+            <span>쇼핑</span>
+            <ul class="m_depth2">
+              <li>
+                <a href="https://theporterzone.com/market" target="_blank"><span>사무용품 구매</span></a>
+              </li>
+              <li>
+                <a href="https://theporterzone.com/market/category?categoryId=1000001036" target="_blank"><span>더존양식지</span></a>
+              </li>
+              <li>
+                <a href="https://map.naver.com/p/search/%EA%B0%95%EC%95%84%EC%A7%80%EC%88%B2/place/1806671210?lng=127.6620201&lat=37.7364351&placePath=/booking?bookingRedirectUrl=https://m.booking.naver.com/booking/5/bizes/434118?theme=place&entry=pll&area=pll&c=15.00,0,0,0,dh" target="_blank"><span>강아지숲 티켓구매</span></a>
+              </li>
+              <li><a href="https://law.douzoneedu.co.kr/" target="_blank">법정의무교육 신청</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="m_util clearfix">
+          <li class="m_lang">
+            KOR
+            <ul>
+              <li><a href="http://www.douzone.com" class="active">KOR</a></li>
+              <li><a href="http://en.douzone.com">ENG</a></li>
+            </ul>
+          </li>
+          <li class="m_solution">
+            솔루션 바로가기
+            <ul>
+              <li><a href="https://www.wehago.com/" target="_blank" rel="noopener noreferrer">WEHAGO</a></li>
+              <li><a href="https://www.amaranth10.com/" target="_blank" rel="noopener noreferrer">Amaranth 10</a></li>
+              <li><a href="http://www.douzonerp.com/" target="_blank" rel="noopener noreferrer">OmniEsol</a></li>
+<!--              <li><a href="https://www.douzonemall.co.kr/" target="_blank" rel="noopener noreferrer">사무용품</a></li>
+              <li><a href="https://www.douzonemall.co.kr/goods/goods_list.php?cateCd=034" target="_blank" rel="noopener noreferrer">강아지숲 티켓</a></li>
+              <li><a href="https://law.douzoneedu.co.kr/" target="_blank" rel="noopener noreferrer">법정의무교육</a></li> -->
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- //모바일 gnb -->
+  </div>
+  <!--//header-top-->
+  <div class="m_gnb_dim"></div>
+  <div class="gnb_dim"></div>
+
+  <script>
+
+    const wrap = document.querySelector('.logo-wrap');
+    const inner = document.querySelector('.logo-inner');
+    const items = document.querySelectorAll('.logo-item');
+    let current = 0;
+
+    setInterval(() => {
+      // 현재 화면에서 logo-wrap의 실제 높이를 매번 체크
+      const stepHeight = wrap.offsetHeight;
+
+      current = (current + 1) % items.length;
+
+      // 계산된 높이만큼 정확히 이동
+      const offset = current * -stepHeight;
+      inner.style.transform = `translateY(${offset}px)`;
+    }, 3000);
+  </script>
+
+		<div class="header-bottom">
+			<div class="gnb-depth2">
+				<div class="container" id="container">
+					<ul>
+						<li><a href="../media/media_room.jsp"><span class="">언론보도</span></a></li>
+						<li><a href="../media/seminar.jsp"><span class="">교육/세미나</span></a></li>
+<!--						<li><a href="../media/customer_case.jsp"><span class="">고객사례</span></a></li> -->
+						<li><a href="../media/digital_contents.jsp"><span class="">Tran:D</span></a></li>
+						<li><a href="https://www.youtube.com/@douzonetv" target="_blank" rel="noopener noreferrer"><span>더존TV</span></a></li>
+						<li><a href="../media/social_media.jsp"><span class="">소셜미디어</span></a></li>
+						<li><a href="../media/pr.jsp"><span class="">라이브러리</span></a></li>
+						<li><a href="../board/index.jsp?code=notice"><span class="active">공지사항</span></a></li>
+						<li><a href="../media/axinsight.jsp"><span class="">AX 인사이트</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="sitemap">
+		<div class="sitemap-header">
+			<h1>전체메뉴</h1>
+			<button type="button" class="close"><i class="icon-close-white"></i></button>
+		</div>
+		<div class="sitemap-body">
+		</div>
+	</div>
+	<!-- container -->
+	<div id="container-block">
+		<div class="top top-media">
+			<h2>미디어룸</h2>
+			<p>오늘을 넘어 미래의 가치를 만드는 더존ICT그룹의 소식을 만나보세요.</p>
+		</div>
+
+		<div class="container depth2_con">
+			<div class="depth2_box">
+				<ul class="tab">
+					<li class=""><a href="../media/media_room.jsp">언론보도</a></li>
+					<li class=""><a href="../media/seminar.jsp">교육/세미나</a></li>
+<!--					<li class=""><a href="../media/customer_case.jsp">고객사례</a></li> -->
+					<li class=""><a href="../media/digital_contents.jsp">Tran:D</a></li>
+					<li><a href="https://www.youtube.com/@douzonetv" target="_blank" rel="noopener noreferrer">더존TV</a></li>
+					<li class=""><a href="../media/social_media.jsp">소셜미디어</a></li>
+					<li class=""><a href="../media/pr.jsp">라이브러리</a></li>
+					<li class="active"><a href="../board/index.jsp?code=notice">공지사항</a></li>
+					<li class=""><a href="../media/axinsight.jsp">AX 인사이트</a></li>
+				</ul>
+			</div>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="../index.jsp"><i class="icon-home"><span class="sr-only">HOME</span></i></a></li>
+					<li class="breadcrumb-item"><a href="../media/media_room.jsp">미디어룸</a></li>
+					<li class="breadcrumb-item">공지사항</li>
+				</ol>
+			</nav>
+
+		
+</div>
+
+<!-- 실 컨텐츠 -->
+<div class="contents" id="contents">
+<!-- 	<section class="section-top">
+		<div class="container">
+			<div class="title-area">
+				<em>Notice</em>
+				<h3 class="title">공지사항</h3>
+			</div>
+			<p class="title-desc">더존ICT그룹의 공지사항을 알려드립니다.</p>
+		</div>
+	</section> -->
+	<section class="p-b-0">
+		<div class="container">
+			<div class="media_read">
+                <div class="read_tit">
+                    <p>개인정보 유출 가능성 및 침해사고 공지</p>
+					<div class="read_tit_info">
+						<span class="day_line">일반공지</span><span>2026.10.18</span>
+						<a href="" class="share_btn">공유</a>
+						<div class="share_sns">
+							<ul>
+								<!-- <li class="share_f"><a href="#a">
+										<img src="../html/images/ic_sns_facebook.png" alt="페이스북 아이콘">
+										<strong>페이스북</strong>
+									</a>
+								</li>
+								<li class="share_t"><a href="#a">
+										<img src="../html/images/ic_sns_twitter.png" alt="트위터 아이콘">
+										<strong>트위터</strong>
+									</a>
+								</li>
+								<li class="share_k"><a href="#a">
+										<img src="../html/images/ic_sns_kakao.png" alt="카카오 아이콘">
+										<strong>카카오톡</strong>
+									</a>
+								</li> -->
+								<li class="share_link">
+									<input type="text" id="linkArea" value="http://www.douzone.com/board/read.jsp?id=3494&code=notice"/>
+									<a href="" id="copyArea">URL 복사</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="share_copy">
+							주소가 복사되었습니다.<br>
+							원하는 곳에 붙여넣기(Ctrl+V)해주세요.
+					</div>
+                </div>
+                 
+                <div class="media_contents">
+                    <div style="background: #edf5ff; padding: clamp(12px,4vw,50px); font-family: 'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,sans-serif; font-size: 14px; line-height: 1.6; color: #333333; letter-spacing: -0.5px; word-break: keep-all; overflow-wrap: anywhere; box-sizing: border-box;">
+<div style="max-width: 700px; margin: 0 auto; padding: clamp(28px,6vw,56px) clamp(18px,6vw,64px) clamp(24px,5vw,40px); border-radius: 20px; background: #ffffff; box-shadow: 0 2px 12px 0 rgba(21,75,129,0.06); box-sizing: border-box;">
+<div style="font-size: clamp(24px,5.5vw,32px); line-height: 1.35; font-weight: bold; color: #001b65; margin: 0 0 clamp(24px,5vw,40px);">개인정보 유출 가능성 및 침해사고 공지</div>
+<div style="font-size: 16px; line-height: 1.55; font-weight: bold; margin: 0 0 12px;">먼저 당사의 Smart A 10 서비스를 이용해 주시는 귀사에 심려와 불편을 끼쳐드리게 된 점 진심으로 사과드립니다.</div>
+<div style="font-size: 14px; line-height: 22px; margin: 0 0 36px;">당사는 외부의 불법적인 접근으로 귀사가 위탁한 개인정보가 유출되었을 가능성이 있는 정황을 확인하였습니다. 이에 「개인정보 보호법」 및 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」에 따라 유출 가능성과 침해사고 발생 사실, 그 대응 현황을 아래와 같이 미리 알려드립니다. 이 통지는 유출 사실이 확정되었다는 의미가 아니라, 피해 예방을 위해 유출 가능성을 미리 알려드리는 것임에 유의하여 주시기 바랍니다.</div>
+<div style="margin: 0 0 28px;">
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; color: #001b65; margin: 0 0 8px;">1. 유출 의심 시점 및 경위</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px; margin: 0 0 6px;">&bull; <strong>발생 일시</strong>: 유출발생의 정확한 일자는 현재 조사 중입니다.</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px;">&bull; <strong>인지 경위 및 발생 원인</strong>: 당사 시스템(개발 서버)에 대한 신원불상자의 공격 징후가 확인되어, 내부 조사를 통해 2026. 10. 15. VPN 계정으로 신원불상자가 내부 시스템에 무단 접속하여 데이터를 조회한 기록 등의 정황을 확인하였습니다. 다만, 현재까지 유출 등이 된 고객사 및 정보주체를 특정하기 곤란하며 서비스 특성상 정보주체의 연락처를 확인이 어려워 홈페이지 공지를 통해 개인정보 유출 등 가능성 및 침해사고 발생 사실을 통지 드립니다.</div>
+</div>
+<div style="margin: 0 0 28px;">
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; color: #001b65; margin: 0 0 8px;">2. 유출 가능성이 있는 개인정보의 항목 및 대상</div>
+<div style="font-size: 14px; line-height: 22px;">유출 등이 되었을 가능성이 있는 개인정보의 항목은 Smart A 10 일부 이용사가 보유&middot;관리하는 정보주체의 성명, 주민등록번호(뒷 6자리 암호화), 계좌번호(암호화), 주소, 휴대전화번호, 이메일 등이며, 실제 유출 대상 및 항목은 조사 결과에 따라 달라질 수 있습니다.</div>
+</div>
+<div style="margin: 0 0 28px;">
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; color: #001b65; margin: 0 0 8px;">3. 당사의 대응 조치</div>
+<div style="font-size: 14px; line-height: 22px;">당사는 사고 인지 후 즉시 추가 침해와 피해 확산을 막기 위해 침입에 이용된 직원 VPN 계정을 차단하고, 해당 VPN 기능을 비활성화하였으며, 침입에 사용된 해외 IP를 차단하였습니다. 아울러 전반적인 추가 보안 조치를 진행하고 있습니다. 더불어 한국인터넷진흥원(KISA)에 즉시 신고하고, 본 공지(통지)와 동시에 개인정보보호위원회에 신고를 완료하였는 바 이후 관계 기관의 조사에 성실히 협조할 예정입니다.</div>
+</div>
+<div style="margin: 0 0 28px;">
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; color: #001b65; margin: 0 0 8px;">4. 피해 최소화를 위하여 취하실 수 있는 조치</div>
+<div style="padding: clamp(14px,4vw,20px); border-radius: 8px; background: #f7f8fa;">
+<div style="font-size: 15px; line-height: 23px; font-weight: bold; color: #50596c; margin: 0 0 8px;">고객사께서 취하실 수 있는 조치</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px; margin: 0 0 8px;">- <strong>사칭 연락 주의</strong>: 당사 또는 불법침입자를 자처하며 탈취한 정보를 언급하고 금전을 요구하거나 파일 열람&middot;링크 클릭을 요청하는 연락을 받으시는 경우, 이에 응하지 마시고 즉시 당사로 알려 주시기 바랍니다.</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px;">- <strong>계정 보안 강화</strong>: 이 사건으로 인하여 WEHAGO 서비스에 미치는 영향은 없으나 예방차원에서 WEHAGO 접속 시 가급적 2차 인증을 사용해 주시기 바랍니다. 2차 인증 설정 방법은 아래 해당 링크를 참고하여 주시기 바랍니다.<br /><a style="color: #105aff; text-decoration: underline;" href="https://www.wehago.com/guide/qr_setting_guide.html" target="_blank" rel="noopener noreferrer">[2차 인증 설정 가이드]</a></div>
+<div style="font-size: 15px; line-height: 23px; font-weight: bold; color: #50596c; margin: 22px 0 8px;">정보주체(고객사의 개별 이용자)께서 취하실 수 있는 조치</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px; margin: 0 0 8px;">- <strong>보이스피싱&middot;스미싱 주의</strong>: 당사, 금융기관공공기관 등을 사칭하여 성명&middot;주소&middot;계좌정보 등을 언급하며 금전 이체나 추가 정보를 요구하는 전화&middot;문자&middot;이메일에는 응하지 마시고, 출처가 불분명한 링크는 클릭하지 마시기 바랍니다.</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px; margin: 0 0 8px;">- <strong>공식 연락 수단 확인</strong>: 당사는 문자나 전화로 비밀번호, 인증번호, 계좌&middot;카드번호를 요구하지 않습니다. 이러한 정보를 요구 받으시는 경우 응하지 마시고 아래 전담 창구로 알려 주시기 바랍니다.</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px; margin: 0 0 8px;">- <strong>명의도용 방지</strong>: 금융감독원 「개인정보노출자 사고예방시스템」(<a style="color: #105aff; text-decoration: underline;" href="https://pd.fss.or.kr" target="_blank" rel="noopener noreferrer">pd.fss.or.kr</a>)에 등록하시면 본인 명의의 신규 계좌 개설, 카드 발급 등이 제한되어 명의도용 피해를 예방할 수 있습니다. 한국정보통신진흥협회 「명의도용 방지 서비스(M-Safer)」(<a style="color: #105aff; text-decoration: underline;" href="https://www.msafer.or.kr" target="_blank" rel="noopener noreferrer">www.msafer.or.kr</a>)에서는 본인 명의의 휴대전화 개통 여부를 확인하고 신규 개통을 차단할 수 있습니다.</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px;">- <strong>계좌 거래내역 확인</strong>: 금융결제원 「계좌정보 통합 관리 서비스」(<a style="color: #105aff; text-decoration: underline;" href="https://www.payinfo.or.kr" target="_blank" rel="noopener noreferrer">www.payinfo.or.kr</a>) 등을 통해 본인 명의 계좌 현황을 확인하시고, 이상 거래가 의심되는 경우 즉시 해당 금융기관에 지급정지를 요청하시기 바랍니다.</div>
+</div>
+</div>
+<div style="margin: 0 0 28px;">
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; color: #001b65; margin: 0 0 8px;">5. 피해 확산 방지 및 피해 구제 절차</div>
+<div style="font-size: 14px; line-height: 22px; margin: 0 0 8px;">당사는 이번 사고와 관련한 문의 및 피해 접수를 위해 전담 대응창구를 운영할 예정입니다.</div>
+<div style="font-size: 14px; line-height: 22px;">이번 사고로 피해가 발생한 경우, 피해 사실을 확인한 후 관계 법령 및 계약 등에 따라 신속히 피해 구제 절차를 진행하겠습니다.</div>
+</div>
+<div style="margin: 0 0 28px;">
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; color: #001b65; margin: 0 0 8px;">6. 문의 및 피해 신고 접수처</div>
+<div style="font-size: 14px; line-height: 22px; margin: 0 0 8px;">이번 사고와 관련하여 문의사항이 있으시거나 피해가 발생한 경우 아래 전담 창구로 연락하여 주시기 바랍니다.</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px; margin: 0 0 4px;">&bull; <strong>담당부서</strong>: Smart A 10 개인정보 안심지원팀</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px; margin: 0 0 4px;">&bull; <strong>전화번호</strong>: <a style="color: #105aff; text-decoration: underline;" href="tel:02-6233-0700">02-6233-0700</a> (운영시간: 평일 09:00~18:00)</div>
+<div style="font-size: 14px; line-height: 22px; padding-left: 12px; text-indent: -12px;">&bull; <strong>메일주소</strong>: <a style="color: #105aff; text-decoration: underline;" href="mailto:ir-sec@douzone.com">ir-sec@douzone.com</a></div>
+</div>
+<div style="margin: 0 0 36px;">
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; color: #001b65; margin: 0 0 8px;">7. 유출 여부 확정 시 추가 통지</div>
+<div style="font-size: 14px; line-height: 22px;">향후 조사를 통해 유출 여부 및 유출 등이 된 귀사 정보주체 및 항목이 특정되는 경우, 이를 즉시 추가로 알려드리겠습니다.</div>
+</div>
+<div style="font-size: 14px; line-height: 22px; margin: 0 0 24px;">당사는 이번 사안을 매우 엄중하게 받아들이고 있습니다. 정확한 사실관계와 피해 범위를 신속히 파악하고, 추가로 확인되는 사항은 즉시 알려드리겠습니다. 아울러 재발 방지를 위해 필요한 모든 조치를 다하겠습니다. 다시 한번 심려를 끼쳐드린 점 진심으로 사과드립니다.</div>
+<div style="font-size: 16px; line-height: 24px; font-weight: bold; text-align: right;">주식회사 더존비즈온</div>
+</div>
+</div>
+                </div>
+            </div>
+			<div class="m_r_list">
+				<ul>
+					
+					<li><a href="../board/read.jsp?id=3508&code=notice"><span class="m_r_list_up">이전글</span><p>개인정보 유출 가능성 및 침해사고 공지</p></a><span>2026.10.23</span></li>
+					
+					
+
+					
+					
+					<li><a href="../board/read.jsp?id=3481&code=notice"><span class="m_r_list_down">다음글</span><p>더존비즈온, 개인정보처리방침 개정 안내(시행일자: 2026년 10월 20일)</p></a><span>2026.10.13</span></li>
+					
+				</ul>
+			</div>
+			<div class="btns"><button  class="btn btn-lg btn-dark btns"onclick="location.href='index.jsp?code=notice';">목록</button></div>
+		</div>
+	</section>
+</div>
+<!-- //실 컨텐츠 -->
+<script>
+$(document).ready(function(){
+
+	//sns 공유하기
+	$(".share_btn").on("click", function (e) {
+		e.preventDefault();
+		$(".share_sns").slideToggle();
+	});
+	$("#copyArea").on("click", function (e) {
+		e.preventDefault();
+
+		var el = document.getElementById("linkArea");
+		el.select();
+		el.setSelectionRange(0, 99999);
+		document.execCommand("copy");
+
+		$(".share_sns").hide();
+		$(".share_copy").show();
+		$('.share_copy').fadeOut(3000);
+
+	});
+
+	$(".media_contents img").each(function() {
+		if($(this).width() < $(this).attr("width")) {
+			var ratio = $(this).width() * 100 / $(this).attr("width");
+			var h = $(this).attr("height") * Math.round(ratio) / 100;
+			$(this).height(h);
+		}
+	});
+
+	$(window).on("resize", function() {
+		$(".media_contents img").each(function() {
+			if($(this).width() < $(this).attr("width")) {
+				var ratio = $(this).width() * 100 / $(this).attr("width");
+				var h = $(this).attr("height") * Math.round(ratio) / 100;
+				$(this).height(h);
+			}
+		});
+	});
+});
+</script>
+		<!-- <a href="../business/buying_write.jsp" target="_blank" class="btn-purchase-qna btn-purchase-qna2"><i></i><span>구매상담</span><em>1688<br>-<br>5000</em></a> -->
+		<!-- 플로팅 배너 영역 색깔 변경에 따른 조정 처리 START 20240715-->
+		<a href="https://www.douzone.com/event/seminar-oneai.jsp?target=douzone" target="_blank" class="btn-purchase-qna floating ">
+			<img src="/html/images/banner/floating/20240712_oneai.png" class="normal" alt="ONE AI 세미나 신청" />
+			<img src="/html/images/banner/floating/20240712_oneai_hover.png" class="hover" alt="" />
+		</a>
+		<a href="../business/buying_write.jsp" target="_blank" ><div class="btn-purchase-qna btn-purchase-qna2"><div class="icon"></div><span>구매상담</span><div class="line"></div><em>1688<br>5000</em></div></a>
+		<style>
+			/* 구매상담 버튼 */
+			.btn-purchase-qna2 {
+			height: 9.5rem;
+			color: #fff;
+			background-image: none;
+			background-color: #272a33; text-align: center; display: flex; 
+			font-weight: 400;
+			z-index: 9998;
+			}
+			.btn-purchase-qna2:hover {
+			color: #fff;
+			}
+			.btn-purchase-qna2 span {
+			width: 44px;
+			height: 18px;
+			margin: 0 3px 8px;
+			padding: 0 0px 0 0;
+			font-family: NotoSansCJKKR;
+			font-size: 12px;
+			font-weight: normal;
+			font-stretch: normal;
+			font-style: normal;
+			line-height: 1.33;
+			letter-spacing: -0.3px;
+			text-align: center;
+			color: #fff;
+			
+			}
+			.btn-purchase-qna .icon { display: block; width: 1.75rem; height: 1.50rem; background: url("../html/images/ic_quick_apply_28@2x.png") no-repeat 50% 50%; margin-bottom: 6px; background-size: 100%;}
+			.btn-purchase-qna2 span::after {
+			display: block;
+			width: 44px;
+			height: 1px;
+			opacity: 0.15;
+			margin: 0.5rem auto;
+			background: rgba(255, 255, 255, 0.15);
+			content: "";
+			}
+			.btn-purchase-qna2 em {
+			width: 44px;
+			margin: 5px 8px 0;
+			padding: 0 4px 0 4px;
+			font-size: inherit;
+			line-height: inherit;
+			}
+			
+			.btn-purchase-qna2 .line {
+			width: 44px;
+			height: 1px;
+			opacity: 0.15;
+			background-color: #fff;
+			}
+			.btn-purchase-qna.floating {
+				overflow: hidden;
+				right: 1.1rem;
+				bottom: 276px;
+				right: 19px;
+				width: 70px;
+				height: auto;
+				background-image: none;
+				background-size: contain;
+				border-radius: 0;
+				background-color: transparent;
+				
+			}
+			.btn-purchase-qna.floating img.hover {
+				display: none;
+			}
+			.btn-purchase-qna.floating:hover img.normal {
+				display: none;
+			}
+			.btn-purchase-qna.floating:hover img.hover {
+				display: block;
+			}
+			html.is-scrolled .btn-purchase-qna.floating {
+				bottom: 245px;
+			}
+		</style>
+		<!-- 플로팅 배너 영역 색깔 변경에 따른 조정 처리 START 20240715-->		
+
+	</div>
+	<!-- //container-block -->
+	<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <ul class="footer-menu">
+                <li><a href="../member/privacy.jsp"><strong>개인정보처리방침</strong></a></li>
+                <li><a href="../member/conditions.jsp">이용약관</a></li>
+            </ul>
+            <dl class="footer-family">
+				<dt>
+					<button type="button" class="family_btn">Family Site</button>
+				</dt>
+				<dd name="golocation" id="golocation">
+					<ul>
+						<li><a href="https://www.douzone.com/intro/channel.jsp" target="_blank" rel="noopener noreferrer">더존ICT그룹 | 온라인 채널 통합안내</a></li>
+						<li><a href="http://www.wehago.com" target="_blank" rel="noopener noreferrer">WEHAGO</a></li>
+					  	<li><a href="http://www.wehagot.com" target="_blank" rel="noopener noreferrer">WEHAGO T</a></li>
+						<li><a href="http://www.wehagoh.com" target="_blank" rel="noopener noreferrer">WEHAGO H</a></li>
+						<li><a href="https://www.amaranth10.com" target="_blank" rel="noopener noreferrer">Amaranth 10</a></li>
+						<li><a href="http://www.douzonerp.com" target="_blank" rel="noopener noreferrer">OmniEsol</a></li>
+						<li><a href="https://atec.douzone.com" target="_blank" rel="noopener noreferrer">더존 ATEC</a></li>
+						<li><a href="https://dtecplex.com/" target="_blank" rel="noopener noreferrer">더존 FoEX 교육센터</a></li>
+						<li><a href="https://mv.amaranth10.co.kr/" target="_blank" rel="noopener noreferrer">Amaranth 10 가상체험관</a></li>
+						<li><a href="http://dcloud.douzone.com/" target="_blank" rel="noopener noreferrer">D-CLOUD 센터 가상체험관</a></li>
+						<li><a href="https://help.douzone.com" target="_blank" rel="noopener noreferrer">더존 온라인 고객센터</a></li>
+						<li><a href="https://helpdesk.douzone.com" target="_blank" rel="noopener noreferrer">더존 DT온라인 고객센터</a></li>
+						<li><a href="https://erphelp.douzone.com" target="_blank" rel="noopener noreferrer">더존 ERP온라인 고객센터</a></li>
+						<li><a href="http://www.douzonechina.com/" target="_blank" rel="noopener noreferrer">더존차이나</a></li>
+						<li><a href="https://www.douzonebnf.com/" target="_blank" rel="noopener noreferrer">더존비엔에프</a></li>
+						<li><a href="http://www.kicom.net/" target="_blank" rel="noopener noreferrer">키컴</a></li>
+						<li><a href="http://www.d-datazone.co.kr" target="_blank" rel="noopener noreferrer">더존 공인전자문서보관소</a></li>
+						<li><a href="http://www.cloudfax.co.kr" target="_blank" rel="noopener noreferrer">더존 클라우드팩스</a></li>
+						<li><a href="http://www.myboxs.com" target="_blank" rel="noopener noreferrer">마이박스(더존구인구직)</a></li>
+						<li><a href="https://bm.douzoneedu.co.kr/" target="_blank" rel="noopener noreferrer">온택트재경스쿨</a></li>
+						<li><a href="https://academy.douzoneedu.co.kr/" target="_blank" rel="noopener noreferrer">평생교육원</a></li>
+						<li><a href="https://inglish.douzoneedu.co.kr/" target="_blank" rel="noopener noreferrer">온택트영어</a></li>
+						<li><a href="https://hrd.douzoneedu.co.kr/" target="_blank" rel="noopener noreferrer">HRD센터</a></li>
+						<li><a href="https://law.douzoneedu.co.kr/" target="_blank" rel="noopener noreferrer">법정의무교육</a></li>
+						<li><a href="https://techfinratings.com/" target="_blank" rel="noopener noreferrer">테크핀레이팅스</a></li>
+						<li><a href="http://www.dforest.co.kr/" target="_blank" rel="noopener noreferrer">강아지숲</a></li>
+					</ul>			
+				</dd>
+			</dl>
+        </div>
+    </div>    
+	<div class="footer-mid">
+		<div class="container">
+			<ul>
+				<li><a href="../solution/sub01.jsp"><strong>솔루션</strong></a>
+					<ul>
+						<li><a href="../solution/business.jsp">Work&Life 토털 솔루션</a></li>
+						<li><a href="../solution/digtal.jsp">SaaS Integration 플랫폼</a></li>
+						<li><a href="../solution/smartfactory.jsp">기술별 솔루션</a></li>
+						<li><a href="../solution/scompany.jsp">기업규모별 솔루션</a></li>
+					</ul>
+				</li>
+				<li><a href="../product/amaranth10.jsp"><strong>제품</strong></a>
+					<ul>
+						<li><a href="../product/omniesol.jsp">OmniEsol</a></li>
+						<li><a href="../product/amaranth10.jsp">Amaranth 10</a></li>
+						<li><a href="../product/wehago.jsp">WEHAGO</a></li>
+						<li><a href="../product/smarta10.jsp">Smart A 10</a></li>
+					</ul>
+				</li>
+				<li><a href="../intro/company.jsp"><strong>더존ICT그룹</strong></a>
+					<ul>
+						<li><a href="../intro/location_gangchon.jsp">사업장소개</a></li>
+						<li><a href="../management/digital.jsp">지속가능경영</a></li>
+						<li><a href="../job/talented.jsp">채용</a></li>
+						<li><a href="../intro/support.jsp">고객지원</a></li>
+					</ul>
+				</li>
+				<li><a href="../media/media_room.jsp"><strong>미디어룸</strong></a>
+					<ul>
+						<li><a href="../media/media_room.jsp">언론보도</a></li>
+						<li><a href="../media/seminar.jsp">교육/세미나</a></li>
+						<li><a href="../media/social_media.jsp">소셜미디어</a></li>
+						<li><a href="../media/digital_contents.jsp">Tran:D</a></li>
+					</ul>
+				</li>
+				<li><a href="../business/buying_write.jsp"><strong>구매상담신청</strong></a>
+					<ul>
+						<li>문의전화 : <span class="font_blue">1688-5000</span></li>
+						<li><a href="../business/buying_write.jsp" class="gray">​구매상담 온라인접수</a></li>
+						<li><a href="../intro/location_it.jsp" class="gray">전국IT코디센터</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer-bottom">
+        <div class="container d-flex">
+            <div class="footer-logo">
+                <div class="icon-logo-gray"><span class="sr-only">DOUZONE</span></div>
+            </div>
+            <div class="footer-info">
+                <div class="line">
+                    <span>(주)더존비즈온</span><span>대표이사 이강수, 지용구</span><span>사업자등록번호 : 134-81-08473</span><span>통신판매신고번호 : 제2011-강원춘천-0039호</span>
+                </div>
+                <div>
+                    더존을지타워 : 서울특별시 중구 을지로1가 87 <span>(도로명 : 중구 을지로 29)</span>
+                </div>
+                <div>
+                    더존강촌캠퍼스 : 강원도 춘천시 남산면 수동리 749 <span>(도로명 : 춘천시 남산면 버들1길 130)</span>
+                </div>
+                <div class="line">
+                    <span>TEL : 02-6233-3000</span><span>FAX : 02-6670-9790</span><span>구매상담문의 : 1688-5000</span><span>고객센터 : 1688-6000</span><span>블루멤버십 가입문의 : 1688-8090</span><span>AX상담 : 02-6233-2020</span>
+                </div>
+                <p class="copyright">Copyright © DOUZONE BIZON. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="javascript:void(0)" class="go-top"><span class="sr-only">TOP</span></a>
+</footer>
+
+
+
+</div>
+<!-- //wrap -->
+</body>
+</html>

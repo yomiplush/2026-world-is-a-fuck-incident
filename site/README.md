@@ -8,7 +8,7 @@ Tests: `node --test tests/languages.test.cjs`, `CDP_PORT=9238 node tests/languag
 
 # Infosec Briefing — publishing and domain migration
 
-Canonical origin: **https://www.infosec-briefing.net/**. Current review: October 26, 21:35 JST; 37 curated groups. The motion application has 57 stable scene IDs; 56/57 explain account and package response. Closing remains original #53 and plays last.
+Canonical origin: **https://www.infosec-briefing.net/**. Current review: October 27, 00:18 JST; 20 curated groups. The motion application has 59 stable scene IDs; 58/59 explain restoration status and Brotli reach. Closing remains original #53 and plays last.
 
 Rebuild all static reports, Tailworm translations, discovery metadata and public curated JSON:
 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <!-- v28089 -->
+
+
+  <title>Patch and mitigation of PHP Vulnerabilities CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560 &ndash; IceWarp Help Center</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="">
+
+  <meta name="description" content="Applies to: IceWarp Server 14.3, 14.2, 14.1 and older versionsSummaryVulnerabilities have been disclosed in PHP and are tracked as..." /><meta property="og:image" content="https://support.icewarp.com/hc/theming_assets/01HZPPY0YAHCK8WYNCG8TZ5QKF" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="IceWarp Help Center" />
+<meta property="og:title" content="Patch and mitigation of PHP Vulnerabilities CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560" />
+<meta property="og:description" content="Applies to: IceWarp Server 14.3, 14.2, 14.1 and older versionsSummaryVulnerabilities have been disclosed in PHP and are tracked as CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560. IceWarp Serv..." />
+<meta property="og:url" content="https://support.icewarp.com/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560" />
+<link rel="canonical" href="https://support.icewarp.com/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560">
+<link rel="alternate" hreflang="cs-cz" href="https://support.icewarp.com/hc/cs-cz/articles/52154202993041-Aktualizace-a-mitigace-zranitelnost%C3%AD-PHP-CVE-2026-109618-CVE-2026-109619-a-CVE-2026-115560">
+<link rel="alternate" hreflang="en-us" href="https://support.icewarp.com/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560">
+<link rel="alternate" hreflang="x-default" href="https://support.icewarp.com/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560">
+
+  <link rel="stylesheet" href="//static.zdassets.com/hc/assets/application-b925b7498ff4356827db8a6064e91e2b.css" media="all" id="stylesheet" />
+    <!-- Entypo pictograms by Daniel Bruce — www.entypo.com -->
+    <link rel="stylesheet" href="//static.zdassets.com/hc/assets/theming_v1_support-e05586b61178dcde2a13a3d323525a18.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/hc/theming_assets/1058122/1421848/style.css?digest=42609614561297">
+
+  <link rel="icon" type="image/x-icon" href="/hc/theming_assets/01HZPPY12JHBJK6CZ7EDKW1Z03">
+
+    <script src="//static.zdassets.com/hc/assets/jquery-ed472032c65bb4295993684c673d706a.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BE8N4Y86ZN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BE8N4Y86ZN');
+</script>
+
+
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+  <script type="text/javascript" src="/hc/theming_assets/1058122/1421848/script.js?digest=42609614561297"></script>
+</head>
+<body class="community-enabled">
+  
+  
+  
+
+  <header class="header">
+  <div class="logo">
+    <a title="Home" href="/hc/en-us">
+      <img src="/hc/theming_assets/01HZPPY0YAHCK8WYNCG8TZ5QKF" alt="Logo">
+    </a>
+  </div>
+  <div class="nav-wrapper">
+    <span class="icon-menu"></span>
+    <nav class="user-nav" id="user-nav">
+      <a href="/hc/en-us/community/topics">Community</a>
+      <a href="http://www.icewarp.com/support/iw-license/">Contact Support</a>
+      
+     		<a class="login" data-auth-action="registration" role="button" href="/hc/en-us/signup?registration=https%3A%2F%2Fsupport.icewarp.com%2Fhc%2Fen-us&amp;locale=en-us">Sign up</a>
+			
+    </nav>
+      <a class="login" data-auth-action="signin" role="button" rel="nofollow" title="Opens a dialog" href="https://icewarp.zendesk.com/access?locale=en-us&amp;brand_id=1421848&amp;return_to=https%3A%2F%2Fsupport.icewarp.com%2Fhc%2Fen-us%2Farticles%2F52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560&amp;locale=en-us">Sign in</a>
+
+  </div>
+</header>
+
+
+  <main role="main">
+    <div class="container-divider"></div>
+<div class="container">
+  <nav class="sub-nav">
+    <ol class="breadcrumbs">
+  
+    <li title="IceWarp Help Center">
+      
+        <a href="/hc/en-us">IceWarp Help Center</a>
+      
+    </li>
+  
+    <li title="ANNOUNCEMENTS">
+      
+        <a href="/hc/en-us/categories/26989001245073-ANNOUNCEMENTS">ANNOUNCEMENTS</a>
+      
+    </li>
+  
+    <li title="Announcements">
+      
+        <a href="/hc/en-us/sections/19244172564113-Announcements">Announcements</a>
+      
+    </li>
+  
+</ol>
+
+    <form role="search" class="search" data-search="" action="/hc/en-us/search" accept-charset="UTF-8" method="get"><input type="hidden" name="utf8" value="&#x2713;" autocomplete="off" /><input type="hidden" name="category" id="category" value="26989001245073" autocomplete="off" />
+<input type="search" name="query" id="query" placeholder="Search" aria-label="Search" /></form>
+  </nav>
+
+  <div class="article-container" id="article-container">
+    <section class="article-sidebar">
+      <section class="section-articles collapsible-sidebar">
+        <h3 class="collapsible-sidebar-title sidenav-title">Articles in this section</h3>
+        <ul>
+          
+            <li>
+              <a href="/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560" class="sidenav-item current-article">Patch and mitigation of PHP Vulnerabilities CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/47923902273297-IceWarp-Security-Update-for-EPOS-versions" class="sidenav-item ">IceWarp Security Update for EPOS versions</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/43946002374801-IceWarp-compatibility-with-Mailstore" class="sidenav-item ">IceWarp compatibility with Mailstore</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/43185859494417-IceWarp-Deep-Castle-End-of-Life-EOL" class="sidenav-item ">IceWarp Deep Castle End of Life (EOL)</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/43185223566609-IceWarp-Security-Update-for-EPOS" class="sidenav-item ">IceWarp Security Update for EPOS</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/39702252317713-IceWarp-Security-Update" class="sidenav-item ">IceWarp Security Update</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/35848468046865-Outlook-2016-and-2019-end-of-life-EOL" class="sidenav-item ">Outlook 2016 and 2019 end of life (EOL)</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/32614131987985-Known-issues-in-Epos-Gen-2" class="sidenav-item ">Known issues in Epos Gen 2</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/25927594426769-Addressing-vulnerability-of-PHP-on-Windows" class="sidenav-item ">Addressing vulnerability of PHP on Windows</a>
+            </li>
+          
+            <li>
+              <a href="/hc/en-us/articles/25067320470673-CentOS-7-end-of-life-EOL" class="sidenav-item ">CentOS 7 end of life (EOL)</a>
+            </li>
+          
+        </ul>
+        
+          <a href="/hc/en-us/sections/19244172564113-Announcements" class="article-sidebar-item">See more</a>
+        
+      </section>
+    </section>
+
+    <article class="article">
+      <header class="article-header">
+        <h1 title="Patch and mitigation of PHP Vulnerabilities CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560" class="article-title">
+          Patch and mitigation of PHP Vulnerabilities CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560
+          
+        </h1>
+
+        <div class="article-author">
+          <div class="avatar article-avatar">
+            
+              <span class="icon-agent"></span>
+            
+            <img src="https://support.icewarp.com/system/photos/360570560758/Petr_Štěrba.png" alt="Avatar" class="user-avatar"/>
+          </div>
+          <div class="article-meta">
+            <a href="/hc/en-us/profiles/370744548597-Petr-%C5%A0t%C4%9Brba">
+              Petr Štěrba
+            </a>
+
+            <ul class="meta-group">
+              
+                <li class="meta-data"><time datetime="2026-10-26T15:30:21Z" title="2026-10-26T15:30:21Z" data-datetime="relative">October 26, 2026 15:30</time></li>
+                <li class="meta-data">Updated</li>
+              
+            </ul>
+          </div>
+        </div>
+        <a class="article-subscribe" title="Opens a sign-in dialog" rel="nofollow" role="button" data-auth-action="signin" aria-selected="false" href="/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560/subscription.html">Follow</a>
+      </header>
+
+      <section class="article-info">
+        <div class="article-content">
+          <div class="article-body"><div>
+<strong>Applies to:</strong> IceWarp Server 14.3, 14.2, 14.1 and older versions</div><h2 id="h_01M5HG7SG572J11MWXQ62RR1XQ"><strong>Summary</strong></h2><div>Vulnerabilities have been disclosed in PHP and are tracked as <strong>CVE-2026-109618,</strong> <strong>CVE-2026-109619 and CVE-2026-115560</strong>. IceWarp Server bundles PHP, so installations running an unpatched PHP version may be affected.<br>IceWarp is providing packages with a patched PHP for supported versions. Customers should apply the patch matching their IceWarp version and operating system as soon as possible.</div><div>&nbsp;</div><h2 id="h_01M5HG7SG6WSFM1R39FA6YK7KN"><strong>Affected versions and available patches</strong></h2><div dir="ltr" id="model-response-message-contentr_9def39125b4b4879" aria-busy="false" aria-live="off"><div>&nbsp;</div></div><div dir="ltr" id="model-response-message-contentr_9def39125b4b4879" aria-busy="false" aria-live="off"><figure class="wysiwyg-table"><table style="border-color: rgb(31, 31, 31); border-width: 0px; margin-bottom: 32px;" data-path-to-node="1">
+<thead><tr>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><strong>IceWarp Version</strong></td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><strong>Bundled PHP</strong></td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><strong>Available Downloads / OS Support</strong></td>
+</tr></thead>
+<tbody>
+<tr>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;">
+<div><strong data-path-to-node="1,1,0,0" data-index-in-node="0">EPOS Update 3</strong></div>
+<div>(14.3.0.X)</div>
+<div>&nbsp;</div>
+</td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><span data-path-to-node="1,1,1,0">PHP 8.4</span></td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><div>• <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.3.0.15_Windows_x64.zip" target="_blank" rel="noopener noreferrer" data-path-to-node="1,1,3,0" data-index-in-node="2">Windows</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.3.0.15_RHEL8_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,1,3,2" data-index-in-node="2">Red Hat 8</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.3.0.15_RHEL9_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,1,3,4" data-index-in-node="2">Red Hat 9</a>
+</div></td>
+</tr>
+<tr>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;">
+<div><strong data-path-to-node="1,2,0,0" data-index-in-node="0">EPOS Update 2</strong></div>
+<div>(14.2.0.X)</div>
+<div>&nbsp;</div>
+</td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><span data-path-to-node="1,2,1,0">PHP 8.2</span></td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><div>• <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.2.0.17_Windows_x64.zip" target="_blank" rel="noopener noreferrer" data-path-to-node="1,2,3,0" data-index-in-node="2">Windows</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.2.0.17_RHEL7_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,2,3,2" data-index-in-node="2">Red Hat 7</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.2.0.17_RHEL8_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,2,3,4" data-index-in-node="2">Red Hat 8</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.2.0.17_RHEL9_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,2,3,6" data-index-in-node="2">Red Hat 9</a>
+</div></td>
+</tr>
+<tr>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;">
+<div><strong data-path-to-node="1,3,0,0" data-index-in-node="0">EPOS Update 1</strong></div>
+<div>(14.1.0.X)</div>
+<div>&nbsp;</div>
+</td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><span data-path-to-node="1,3,1,0">PHP 8.2</span></td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><div>• <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.1.0.23_Windows_x64.zip" target="_blank" rel="noopener noreferrer" data-path-to-node="1,3,3,0" data-index-in-node="2">Windows</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.1.0.23_RHEL7_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,3,3,2" data-index-in-node="2">Red Hat 7</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.1.0.23_RHEL8_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,3,3,4" data-index-in-node="2">Red Hat 8</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.1.0.23_RHEL9_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,3,3,6" data-index-in-node="2">Red Hat 9</a>
+</div></td>
+</tr>
+<tr>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;">
+<div><strong data-path-to-node="1,4,0,0" data-index-in-node="0">EPOS</strong></div>
+<div>(14.0.0.X)</div>
+<div>&nbsp;</div>
+</td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><span data-path-to-node="1,4,1,0">PHP 7.3</span></td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><div>• <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.0.x_Windows_x86.zip" target="_blank" rel="noopener noreferrer" data-path-to-node="1,4,3,0" data-index-in-node="2">Windows</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.0.0.18_RHEL7_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,4,3,2" data-index-in-node="2">Red Hat 7</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-14.0.0.18_RHEL8_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,4,3,4" data-index-in-node="2">Red Hat 8</a>
+</div></td>
+</tr>
+<tr>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;">
+<div><strong data-path-to-node="1,5,0,0" data-index-in-node="0">Deep Castle 2</strong></div>
+<div><strong data-path-to-node="1,5,0,0" data-index-in-node="0">Update 3</strong></div>
+<div>(13.0.3.X)</div>
+<div>&nbsp;</div>
+</td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><span data-path-to-node="1,5,1,0">PHP 7.3</span></td>
+<td style="border-color: rgb(196, 199, 197); padding: 8px 12px;"><div>• <a href="https://cdnfiles.icewarp.com/patches/php/new/php-13.0.3_Windows_x86.zip" target="_blank" rel="noopener noreferrer" data-path-to-node="1,5,3,0" data-index-in-node="2">Windows</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-13.0.3.13_RHEL7_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,5,3,2" data-index-in-node="2">Red Hat 7</a> • <a href="https://cdnfiles.icewarp.com/patches/php/new/php-13.0.3.13_RHEL8_x64.tar.gz" target="_blank" rel="noopener noreferrer" data-path-to-node="1,5,3,4" data-index-in-node="2">Red Hat 8</a>
+</div></td>
+</tr>
+</tbody>
+</table></figure></div><h2 id="h_01M5HGR8AW66A7TZM4VT7DFZ5N"><strong>Installing the patched PHP</strong></h2><div id="gui.im.panels.room.main.tabs.room.list.mssg_32#border"><div id="gui.im.panels.room.main.tabs.room.list.mssg_32#body"><div>
+<h3 id="h_01M5HJAYM9XCNXC9AC6YVWBB91" data-path-to-node="3">Step 1: Stop the IceWarp Control Service</h3>
+<ul data-path-to-node="4">
+<li class="wysiwyg-list-bold" data-list-item-id="eb11aa61f06b2a57655a7a839eb5a3978">
+<p data-path-to-node="4,0,0"><strong data-path-to-node="4,0,0" data-index-in-node="0">Linux:</strong></p>
+<div data-hveid="0" data-ved="0CAAQhtANahgKEwjd-L7Srs2XAxUAAAAAHQAAAAAQhwM"><div><div><pre><code class="language-auto" role="text" data-test-id="code-content">/opt/icewarp/icewarpd.sh --stop control</code></pre></div></div></div>
+</li>
+<li class="wysiwyg-list-bold" data-list-item-id="ea1e0417569af8ed893bc059f6b030f8b">
+<p data-path-to-node="4,1,0"><strong data-path-to-node="4,1,0" data-index-in-node="0">Windows (Admin Command Prompt / PowerShell):</strong></p>
+<div data-hveid="0" data-ved="0CAAQhtANahgKEwjd-L7Srs2XAxUAAAAAHQAAAAAQiAM"><div><div><pre><code class="language-auto" role="text" data-test-id="code-content">net stop "IceWarpControl"</code></pre></div></div></div>
+</li>
+</ul>
+<h3 id="h_01M5HJAYMC3JV3PXHVQFYJH79G" data-path-to-node="6">Step 2: Backup Existing PHP Folder</h3>
+<ul data-path-to-node="7">
+<li class="wysiwyg-list-bold" data-list-item-id="e5b91321330e94704712e4dbe8a39a275">
+<p data-path-to-node="7,0,0"><strong data-path-to-node="7,0,0" data-index-in-node="0">Linux:</strong></p>
+<div data-hveid="0" data-ved="0CAAQhtANahgKEwjd-L7Srs2XAxUAAAAAHQAAAAAQiQM"><div><div><pre><code class="language-auto" role="text" data-test-id="code-content">mv /opt/icewarp/php /opt/icewarp/php-bak</code></pre></div></div></div>
+</li>
+<li class="wysiwyg-list-bold" data-list-item-id="e2d1c3eebc3628d8cecb67ddb48a10604">
+<p data-path-to-node="7,1,0"><strong data-path-to-node="7,1,0" data-index-in-node="0">Windows:&nbsp;</strong></p>
+<p data-path-to-node="7,1,0">Rename the <code data-path-to-node="10" data-index-in-node="29">php</code> directory to <code data-path-to-node="13" data-index-in-node="35">php-bak</code></p>
+</li>
+</ul>
+<h3 id="h_01M5HJPGAYSTV80DNWEXHW433J" data-path-to-node="9">Step 3: Deploy Patched PHP Folder</h3>
+<ul><li data-list-item-id="eb40e397dbbe5bb2ecb8e900fd911fb65"><p data-path-to-node="10">Copy your extracted, patched <code data-path-to-node="10" data-index-in-node="29">php</code> directory into <code data-path-to-node="10" data-index-in-node="48">[icewarp-installdir]/php</code>.</p></li></ul>
+<h3 id="h_01M5HJAYMFDKXWVVKAXXAAKKV3" data-path-to-node="12">Step 4: Restore Configuration Files</h3>
+<ul><li data-list-item-id="e3ae5a05bf0b863a07c293d288340b5ad"><p data-path-to-node="13">Copy <code data-path-to-node="13" data-index-in-node="5">php.ini</code> and <code data-path-to-node="13" data-index-in-node="17">php.user.ini</code> from <code data-path-to-node="13" data-index-in-node="35">php-bak/</code> into the new <code data-path-to-node="13" data-index-in-node="57">php/</code> folder:</p></li></ul>
+<h3 id="h_01M5HJAYMJNRCB6RWE7GCE76CT" data-path-to-node="16">Step 5: Restore Temporary Files</h3>
+<ul>
+<li data-list-item-id="e6fa78369655bc8f7cffdd2639aee7545"><p data-path-to-node="17"><strong>Linux</strong>: Copy the contents of <code data-path-to-node="17" data-index-in-node="21">php-bak/tmp/</code> into <code data-path-to-node="17" data-index-in-node="39">php/tmp/</code></p></li>
+<li data-list-item-id="eada05724f349ccb7aa78ad0f8111833b"><p data-path-to-node="17"><strong>Windows: </strong>Copy the contents of <code data-path-to-node="17" data-index-in-node="21">php-bak/temp/</code> into <code data-path-to-node="17" data-index-in-node="39">php/temp/</code></p></li>
+</ul>
+<h3 id="h_01M5HJAYMN6CQ9AYHJ73ZKN3ZP" data-path-to-node="20">Step 6: Fix File Permissions (Linux Only)</h3>
+<ul><li data-list-item-id="e00f70c874492cdf998ad08799c6ea565">
+<strong>Linux only:</strong> Run <code>chown</code> on the new <code>php</code> folder so that its ownership matches the rest of the IceWarp installation. (for example: <code data-path-to-node="23" data-index-in-node="112">chown -R icewarp:icewarp /opt/icewarp/php</code>).</li></ul>
+<h3 id="h_01M5HJAYMQ6NZ8PXVE8VE77DS4" data-path-to-node="25">Step 7: Restart the IceWarp Control Service</h3>
+<ul data-path-to-node="26">
+<li class="wysiwyg-list-bold" data-list-item-id="e7d09e334f59957dd2ea29ed7b67bbb74">
+<p data-path-to-node="26,0,0"><strong data-path-to-node="26,0,0" data-index-in-node="0">Linux:</strong></p>
+<div data-hveid="0" data-ved="0CAAQhtANahgKEwjd-L7Srs2XAxUAAAAAHQAAAAAQkAM"><div><div><pre><code class="language-auto" role="text" data-test-id="code-content">/opt/icewarp/icewarpd.sh --restart control</code></pre></div></div></div>
+</li>
+<li class="wysiwyg-list-bold" data-list-item-id="ed12412b64021a37c304e4b97ddc37977">
+<p data-path-to-node="26,1,0"><strong data-path-to-node="26,1,0" data-index-in-node="0">Windows:</strong></p>
+<div data-hveid="0" data-ved="0CAAQhtANahgKEwjd-L7Srs2XAxUAAAAAHQAAAAAQkQM"><div><div><pre><code class="language-auto" role="text" data-test-id="code-content">net stop "IceWarpControl" &amp; net start "IceWarpControl"</code></pre></div></div></div>
+</li>
+</ul>
+</div></div></div><h3 id="h_01M5HG7SGCK1RVZ0JAPHSHHYCQ">Step 8: Mitigation of Vulnerability CVE-2026-115560</h3><ul><li class="wysiwyg-list-bold" data-list-item-id="ef6c4e9f9bf8f273ecafba963495f3be0"><p data-path-to-node="47,1,0"><strong>Regarding this recently disclosed vulnerability, please apply the following configuration again in </strong><code><strong>php.ini</strong></code><strong>:</strong></p></li></ul><ol>
+<li data-list-item-id="eb6b6695f17dd702db88eb9d4a3280c5c"><p data-path-to-node="43,0,0">Backup the <code data-path-to-node="43,0,0" data-index-in-node="9">php.ini</code> file located in <code data-path-to-node="43,0,0" data-index-in-node="33">/icewarp/php/</code></p></li>
+<li data-list-item-id="e448abdffd76ca24e2076fa57d9fd53ed"><p data-path-to-node="43,0,0">Open the <code data-path-to-node="43,0,0" data-index-in-node="9">php.ini</code> file using a text editor.</p></li>
+<li data-list-item-id="eeaef72e5e3c97a477615c7ab7e8f0a28"><p data-path-to-node="43,1,0">Locate the variable stated below.</p></li>
+<li data-list-item-id="e12f22c8eda27ade4012feb1edd63fb24"><p data-path-to-node="43,2,0">If the variable is commented out (starts with a semicolon <code data-path-to-node="43,2,0" data-index-in-node="54">;</code>), <strong data-path-to-node="43,2,0" data-index-in-node="58">remove the semicolon</strong>.</p></li>
+<li data-list-item-id="e2f29e4f6b8d277a1588ca6698bde2cf9"><p data-path-to-node="43,3,0">Set the variable to the specific value</p></li>
+</ol><pre><code class="language-auto" role="text" data-test-id="code-content">session.upload_progress.enabled=0</code></pre><ul><li class="wysiwyg-list-bold" data-list-item-id="e97a89cb8df5f81223c8045c8b4c140a2">
+<strong>Create the </strong><code data-path-to-node="46" data-index-in-node="19"><strong>php.user.ini</strong></code><strong> override file:</strong>
+</li></ul><ol data-path-to-node="47">
+<li data-list-item-id="eebb415ccd7743865d679b682bfd9ecfe"><p data-path-to-node="47,0,0">In the same directory (<code data-path-to-node="47,0,0" data-index-in-node="23">/icewarp/php/</code>), create a new text file named <code data-path-to-node="47,0,0" data-index-in-node="68">php.user.ini</code>.</p></li>
+<li data-list-item-id="ef557868750bf02b7f987bfc8e0674570"><p data-path-to-node="47,1,0">Add the following lines to the file and save it:</p></li>
+</ol><div data-hveid="0" data-ved="0CAAQhtANahgKEwid4vmr1MiXAxUAAAAAHQAAAAAQ0gM"><div><div><pre><code class="language-auto" role="text" data-test-id="code-content">session.upload_progress.enabled = 0</code></pre></div></div></div><h2 id="h_01M5W3JZM2ANA1985XYVJRSBQN">&nbsp;</h2><h2 id="h_01M5W3JZM21Z9H80R864QH2FKS"><strong>Permanent fix in future releases</strong></h2><div>Future IceWarp releases will include the patched PHP by default:</div><ul>
+<li data-list-item-id="e2ea8af1bfee268c22926828a4d45d4f2">
+<strong>IceWarp 14.3.0.14</strong> and later</li>
+<li data-list-item-id="ea67c36fd1891a678af23939062f7d5a1">
+<strong>IceWarp 14.2.0.17</strong> and later</li>
+</ul><div>Customers who upgrade to these versions or newer do not need to install the patch packages separately.</div><h2 id="h_01M5HG7SGDYWZQQFF3X08HMHWS"><strong>Older versions:</strong></h2><div>IceWarp versions older than 13.0.2 The PHP project has not yet released an official patch for this branch, so no patched package can be provided.<br>As a partial measure, we continue to recommend changing the following settings in <code>php.ini</code>:</div><pre id="code_11619801606173200000"><code class="language-auto">session.upload_progress.enabled = 0
+memory_limit = -1
+post_max_size = 32M
+upload_max_filesize = 32M
+session.serialize_handler = php</code></pre><blockquote>
+<div>
+<strong>Important:</strong> These settings do <strong>not</strong> fully mitigate the vulnerabilities. Customers running older versions are strongly advised to upgrade to a newer version of IceWarp and apply the patches listed above.</div>
+<div>&nbsp;</div>
+<div><span style="color: #C72809;">!!! The changes above will limit the upload limit of files to 32 MB !!!</span></div>
+</blockquote><div>&nbsp;</div><h2 id="h_01M5HG7SGEYFNCBXP7NXG5N0K7"><strong>Recommended actions</strong></h2><h3 id="h_01M5HHNB9F996S1M3NDD1V1D75">Modify the primary <code data-path-to-node="42" data-index-in-node="27">php.ini</code> file</h3><ol>
+<li data-list-item-id="e235cb6f21839966cb9929f1a5d1b0c5c"><p data-path-to-node="43,0,0">Backup the <code data-path-to-node="43,0,0" data-index-in-node="9">php.ini</code> file located in <code data-path-to-node="43,0,0" data-index-in-node="33">/icewarp/php/</code></p></li>
+<li data-list-item-id="e4757b9784e9cb44eb753b8f25a6e2a87"><p data-path-to-node="43,0,0">Open the <code data-path-to-node="43,0,0" data-index-in-node="9">php.ini</code> file using a text editor.</p></li>
+<li data-list-item-id="e7e16c1fc67f4a46e3e3a5da24ad30319"><p data-path-to-node="43,1,0">Locate the variables stated below.</p></li>
+<li data-list-item-id="e8cf5f2b9d35df0ac6ef496f77443733c"><p data-path-to-node="43,2,0">If any of the variables are commented out (starts with a semicolon <code data-path-to-node="43,2,0" data-index-in-node="54">;</code>), <strong data-path-to-node="43,2,0" data-index-in-node="58">remove the semicolon</strong>.</p></li>
+<li data-list-item-id="e69fc415f0ff198f6b869806f48f50824"><p data-path-to-node="43,3,0">Set the variables to their specific value</p></li>
+</ol><h3 id="h_01M5FHDZR59MPPZ5A8T5NK3319" data-path-to-node="46">Create the <code data-path-to-node="46" data-index-in-node="19">php.user.ini</code> override file</h3><ol data-path-to-node="47">
+<li data-list-item-id="edfea0ae2b2bbeadc56f82306dc7568c1"><p data-path-to-node="47,0,0">In the same directory (<code data-path-to-node="47,0,0" data-index-in-node="23">/icewarp/php/</code>), create a new text file named <code data-path-to-node="47,0,0" data-index-in-node="68">php.user.ini</code>.</p></li>
+<li data-list-item-id="e51c0a5a68983fe360d9688cb79d6b0b0"><p data-path-to-node="47,1,0">Add the following lines to the file and save it:</p></li>
+</ol><div data-hveid="0" data-ved="0CAAQhtANahgKEwid4vmr1MiXAxUAAAAAHQAAAAAQ0gM"><div><div>
+<pre><code class="language-auto" role="text" data-test-id="code-content">session.upload_progress.enabled = 0
+memory_limit = -1
+post_max_size = 32M
+upload_max_filesize = 32M
+session.serialize_handler = php</code></pre>
+<blockquote>
+<p><span style="color: #C72809;">If you are already on the patched version, you can revert the changes above to the original state.</span></p>
+<p><code>session.upload_progress.enabled = 0</code> - <span style="color: #C72809;">Must remain in the files even on patched version.</span></p>
+<p>&nbsp;</p>
+</blockquote>
+</div></div></div></div>
+
+          <div class="article-attachments">
+            <ul class="attachments">
+              
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="article-footer">
+          <div class="article-share">
+  <ul class="share">
+    <li><a href="https://www.facebook.com/share.php?title=Patch+and+mitigation+of+PHP+Vulnerabilities+CVE-2026-109618%2C+CVE-2026-109619+and+CVE-2026-115560&u=https%3A%2F%2Fsupport.icewarp.com%2Fhc%2Fen-us%2Farticles%2F52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560" class="share-facebook">Facebook</a></li>
+    <li><a href="https://twitter.com/share?lang=en&text=Patch+and+mitigation+of+PHP+Vulnerabilities+CVE-2026-109618%2C+CVE-2026-109619+and+CVE-2026-115560&url=https%3A%2F%2Fsupport.icewarp.com%2Fhc%2Fen-us%2Farticles%2F52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560" class="share-twitter">Twitter</a></li>
+    <li><a href="https://www.linkedin.com/shareArticle?mini=true&source=IceWarp+Support&title=Patch+and+mitigation+of+PHP+Vulnerabilities+CVE-2026-109618%2C+CVE-2026-109619+and+CVE-2026-115560&url=https%3A%2F%2Fsupport.icewarp.com%2Fhc%2Fen-us%2Farticles%2F52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560" class="share-linkedin">LinkedIn</a></li>
+  </ul>
+
+</div>
+          
+        </div>
+        
+          <div class="article-votes">
+            <span class="article-votes-question">Was this article helpful?</span>
+            <div class="article-votes-controls" role='radiogroup'>
+              <a class="button article-vote article-vote-up" data-helper="vote" data-item="article" data-type="up" data-id="52154202993041" data-upvote-count="20" data-vote-count="31" data-vote-sum="9" data-vote-url="/hc/en-us/articles/52154202993041/vote" data-value="null" data-label="20 out of 31 found this helpful" data-selected-class="null" data-as="link" aria-selected="false" role="radio" rel="nofollow" title="Yes" href="#"></a>
+              <a class="button article-vote article-vote-down" data-helper="vote" data-item="article" data-type="down" data-id="52154202993041" data-upvote-count="20" data-vote-count="31" data-vote-sum="9" data-vote-url="/hc/en-us/articles/52154202993041/vote" data-value="null" data-label="20 out of 31 found this helpful" data-selected-class="null" data-as="link" aria-selected="false" role="radio" rel="nofollow" title="No" href="#"></a>
+            </div>
+            <small class="article-votes-count">
+              <span class="article-vote-label" data-helper="vote" data-item="article" data-type="label" data-id="52154202993041" data-upvote-count="20" data-vote-count="31" data-vote-sum="9" data-vote-url="/hc/en-us/articles/52154202993041/vote" data-value="null" data-label="20 out of 31 found this helpful">20 out of 31 found this helpful</span>
+            </small>
+          </div>
+        
+      
+        <!--<div class="article-more-questions">
+          Have more questions? <a href="/hc/en-us/requests/new">Submit a request</a>
+        </div>
+        -->
+        
+        <div class="article-return-to-top">
+          <a href="#article-container">Return to top<span class="icon-arrow-up"></span></a>
+        </div>
+      </footer>
+
+      <section class="article-relatives">
+        <div data-recent-articles></div>
+        
+  <section class="related-articles">
+    
+      <h3 class="related-articles-title">Related articles</h3>
+    
+    <ul>
+      
+        <li>
+          <a href="/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCBHXKyeWKzoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCJExvhhvLzoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJQL2hjL2VuLXVzL2FydGljbGVzLzQ3OTIzOTAyMjczMjk3LUljZVdhcnAtU2VjdXJpdHktVXBkYXRlLWZvci1FUE9TLXZlcnNpb25zBjsIVDoJcmFua2kG--988037ca7d80e6bf6c931cb5945c516668e0372c" rel="nofollow">IceWarp Security Update for EPOS versions</a>
+        </li>
+      
+        <li>
+          <a href="/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCBFspeYbJDoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCJExvhhvLzoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSI%2BL2hjL2VuLXVzL2FydGljbGVzLzM5NzAyMjUyMzE3NzEzLUljZVdhcnAtU2VjdXJpdHktVXBkYXRlBjsIVDoJcmFua2kH--1967f6efe79661bb7535e0e72c96849b29b3891b" rel="nofollow">IceWarp Security Update</a>
+        </li>
+      
+        <li>
+          <a href="/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCJFBDr2UFzoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCJExvhhvLzoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJRL2hjL2VuLXVzL2FydGljbGVzLzI1OTI3NTk0NDI2NzY5LUFkZHJlc3NpbmctdnVsbmVyYWJpbGl0eS1vZi1QSFAtb24tV2luZG93cwY7CFQ6CXJhbmtpCA%3D%3D--579b553f88c16b506612bdb01f5136e49746d543" rel="nofollow">Addressing vulnerability of PHP on Windows</a>
+        </li>
+      
+        <li>
+          <a href="/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCBGC0P1GJzoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCJExvhhvLzoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJKL2hjL2VuLXVzL2FydGljbGVzLzQzMTg1ODU5NDk0NDE3LUljZVdhcnAtRGVlcC1DYXN0bGUtRW5kLW9mLUxpZmUtRU9MBjsIVDoJcmFua2kJ--ae99edb1d2fbde74d671438710ea1b48529bf201" rel="nofollow">IceWarp Deep Castle End of Life (EOL)</a>
+        </li>
+      
+        <li>
+          <a href="/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCJFDfKsIJToYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCJExvhhvLzoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJPL2hjL2VuLXVzL2FydGljbGVzLzQwNzE5MTY3MDEzNzc3LUljZVdhcnAtSW5zdGFsbGF0aW9uLUd1aWRlLWZvci1SZWQtSGF0LTkGOwhUOglyYW5raQo%3D--c26f940ace86da673aae5bcb9cf2d896dd1ca5dd" rel="nofollow">IceWarp Installation Guide for Red Hat 9</a>
+        </li>
+      
+    </ul>
+  </section>
+
+
+      </section>
+      <div class="article-comments" id="article-comments">
+        <section class="comments">
+          <header class="comment-overview">
+            <h3 class="comment-heading">
+              Comments
+            </h3>
+            <p class="comment-callout">0 comments</p>
+            
+          </header>
+
+          <ul id="comments" class="comment-list">
+            
+          </ul>
+
+          
+
+          
+
+          <p class="comment-callout">Article is closed for comments.</p>
+        </section>
+      </div>
+    </article>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="footer">
+  <div class="footer-inner">
+    <a title="Home" href="/hc/en-us">IceWarp Help Center</a>
+
+    <div class="footer-language-selector">
+      
+        <div class="dropdown language-selector" aria-haspopup="true">
+          <a class="dropdown-toggle">
+            English (United States)
+          </a>
+          <span class="dropdown-menu dropdown-menu-end" role="menu">
+            
+              <a href="/hc/change_language/cs-cz?return_to=%2Fhc%2Fcs-cz%2Farticles%2F52154202993041-Aktualizace-a-mitigace-zranitelnost%25C3%25AD-PHP-CVE-2026-109618-CVE-2026-109619-a-CVE-2026-115560" dir="ltr" rel="nofollow" role="menuitem">
+                Čeština (Česko)
+              </a>
+            
+          </span>
+        </div>
+      
+    </div>
+  </div>
+</footer>
+
+
+
+  <!-- / -->
+
+  
+  <script src="//static.zdassets.com/hc/assets/en-us.b8b4c3f21d1beb697165.js"></script>
+  
+
+  <script type="text/javascript">
+  /*
+
+    Greetings sourcecode lurker!
+
+    This is for internal Zendesk and legacy usage,
+    we don't support or guarantee any of these values
+    so please don't build stuff on top of them.
+
+  */
+
+  HelpCenter = {};
+  HelpCenter.account = {"subdomain":"icewarp","environment":"production","name":"IceWarp Support"};
+  HelpCenter.user = {"identifier":"da39a3ee5e6b4b0d3255bfef95601890afd80709","email":null,"name":"","role":"anonymous","avatar_url":"https://assets.zendesk.com/hc/assets/default_avatar.png","is_admin":false,"external_id":null,"organizations":[],"groups":[]};
+  HelpCenter.internal = {"asset_url":"//static.zdassets.com/hc/assets/","web_widget_asset_composer_url":"https://static.zdassets.com/ekr/snippet.js","current_session":{"locale":"en-us","csrf_token":null,"shared_csrf_token":null},"usage_tracking":{"event":"article_viewed","data":"BAh7CDoLbG9jYWxlSSIKZW4tdXMGOgZFVDoPYXJ0aWNsZV9pZGwrCJExvhhvLzoKX21ldGF7DDoPYWNjb3VudF9pZGkDSiUQOhNoZWxwX2NlbnRlcl9pZGkEUz/wCzoNYnJhbmRfaWRpAxiyFToMdXNlcl9pZDA6E3VzZXJfcm9sZV9uYW1lSSIOQU5PTllNT1VTBjsGVDsASSIKZW4tdXMGOwZUOhphbm9ueW1vdXNfdHJhY2tpbmdfaWQw--8aed62dc16233c0582a506922ab4f724205340da","url":"https://support.icewarp.com/hc/activity"},"current_record_id":"52154202993041","current_record_url":"/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560","current_record_title":"Patch and mitigation of PHP Vulnerabilities CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560","current_text_direction":"ltr","current_brand_id":1421848,"current_brand_name":"IceWarp Support","current_brand_url":"https://icewarp.zendesk.com","current_brand_active":true,"current_path":"/hc/en-us/articles/52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560","show_autocomplete_breadcrumbs":true,"user_info_changing_enabled":false,"has_user_profiles_enabled":true,"has_end_user_attachments":true,"user_aliases_enabled":true,"has_anonymous_kb_voting":true,"has_multi_language_help_center":true,"show_at_mentions":true,"embeddables_config":{"embeddables_web_widget":false,"embeddables_help_center_auth_enabled":false,"embeddables_connect_ipms":false},"answer_bot_subdomain":"static","gather_plan_state":"subscribed","has_article_verification":false,"has_gather":true,"has_ckeditor":false,"has_community_enabled":true,"has_community_badges":false,"has_community_post_content_tagging":false,"has_gather_content_tags":false,"has_guide_content_tags":true,"has_user_segments":true,"has_answer_bot_web_form_enabled":false,"has_garden_modals":false,"has_auth_email_less_sso":false,"theming_cookie_key":"hc-da39a3ee5e6b4b0d3255bfef95601890afd80709-2-preview","is_preview":false,"has_search_settings_in_plan":true,"theming_api_version":1,"theming_settings":{"color_1":"rgba(67, 64, 171, 1)","color_2":"#ffffff","color_3":"#333333","color_4":"rgba(67, 64, 171, 1)","color_5":"#ffffff","font_1":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif","font_2":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif","logo":"/hc/theming_assets/01HZPPY0YAHCK8WYNCG8TZ5QKF","favicon":"/hc/theming_assets/01HZPPY12JHBJK6CZ7EDKW1Z03","homepage_background_image":"/hc/theming_assets/01HZPPY21S282EXE5W1W3WGDK3","community_background_image":"/hc/theming_assets/01HZPPY293MAGJ1V0BJ552QS57","community_image":"/hc/theming_assets/01HZPPY2FDMD82EEW2RH7SVW9G"},"has_pci_credit_card_custom_field":false,"help_center_restricted":false,"is_assuming_someone_else":false,"flash_messages":[],"user_photo_editing_enabled":true,"user_preferred_locale":"en-us","base_locale":"en-us","login_url":"https://icewarp.zendesk.com/access?locale=en-us\u0026brand_id=1421848\u0026return_to=https%3A%2F%2Fsupport.icewarp.com%2Fhc%2Fen-us%2Farticles%2F52154202993041-Patch-and-mitigation-of-PHP-Vulnerabilities-CVE-2026-109618-CVE-2026-109619-and-CVE-2026-115560","has_alternate_templates":false,"has_custom_statuses_enabled":true,"has_hc_generative_answers_setting_enabled":true,"has_suggested_initial_questions_enabled":false,"has_contentful_eap":false,"has_contentful_eap_eligible":false,"has_pdf_ingestion_eap":true,"has_pdf_ingestion_eap_eligible":true,"has_saas_management":false,"has_knowledge_category_translation_modal":false,"has_guide_service_catalog":false,"has_csat_reverse_2_scale_in_mobile":false,"has_unified_navigation":true,"has_unified_navigation_eap_access":true,"has_knowledge_locale_display_names":true,"has_csat_bet365_branding":false,"has_csat_flora":false,"has_csat_theming_integration_phase_1":false,"has_help_center_gen_search_follow_up_conversation":true,"chat_page_renderable":false,"version":"v28089","dev_mode":false};
+</script>
+
+  
+  <script src="//static.zdassets.com/hc/assets/moment-3b62525bdab669b7b17d1a9d8b5d46b4.js"></script>
+  <script src="//static.zdassets.com/hc/assets/hc_enduser-43bd7d52b00e5335ac966bab857ea142.js"></script>
+  
+  
+</body>
+</html>

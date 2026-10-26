@@ -248,7 +248,7 @@ html[data-render-effects="minimal"] .scan,
 html[data-render-effects="minimal"] .vignette { display:none }
 html[data-render-effects="minimal"] .panel.swap > * { animation:none }
 
-/* The initial screen communicates through symbols; preferences appear after entry. */
-.entry-locked .privacy-dock,.entry-locked .briefing-preferences,.entry-locked .privacy-status{display:none!important}
+/* Symbolic splash hides the settings dock; the first-visit consent bar still appears. */
+.entry-locked .privacy-dock,.entry-locked .privacy-status{display:none!important}
 .entry-library{position:fixed;left:max(20px,env(safe-area-inset-left));top:max(22px,env(safe-area-inset-top));z-index:26;display:grid;place-items:center;width:44px;height:44px;color:#9dc4d4;border:1px solid #335260;border-radius:50%;background:#081420cc}
 .entry-library:hover{color:#ffca7f;border-color:currentColor}.entry-library:focus-visible{outline:2px solid #58e0ff;outline-offset:4px}body:not(.entry-locked) .entry-library{display:none}

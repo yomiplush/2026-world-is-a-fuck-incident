@@ -20,4 +20,17 @@ Until updated, prevent untrusted Brotli from reaching decoders. Reject input bef
 
 Imperva's official Node.js build RCE demonstration does not establish successful attacks against every consumer or real-world exploitation. Cloudflare's October 25 emergency rules default to **Log**, not blocking; their precise publication time was not established, so they are additional retrieval-time information rather than a claim about the 16:34 cutoff. [Imperva](https://www.imperva.com/blog/node2shell-from-brotli-data-to-remote-code-execution/), [Cloudflare](https://developers.cloudflare.com/changelog/post/2026-10-25-emergency-waf-release/).
 
-[Detailed research](research-http2shell-2026-10-25.md) / [dedicated scene #40](https://infosec-briefing.yomiplush.dev/?lang=en#40)
+## 00:18 JST follow-up — downstream reach (primary sources)
+
+The requested cybersecuritynews write-up returned HTTP 403 at retrieval. Technical claims below are from JFrog, Microsoft, Node.js, Google CNA and Cloudflare. HTTP/2 use is not the vulnerability condition.
+
+| Consumer | What JFrog / vendor observed | Fix or verification |
+|---|---|---|
+| .NET native Brotli | `System.IO.Compression` (`BrotliStream` / `BrotliDecoder`); optional HttpClient / ASP.NET Core request decompression. Local SIGSEGV; **RCE not demonstrated**. | Runtimes **8.0.33 / 9.0.22 / 10.0.14 / 11.0.0-rc.3.26522.148**. **.NET Framework not affected**. ASP.NET / HttpClient Brotli decompression is **not default**. NativeAOT must **republish**. [announcements#494](https://github.com/dotnet/announcements/issues/494) |
+| FFmpeg → libjxl | JPEG XL `brob` box (Brotli metadata) → `BrotliDecoderDecompressStream()`. Crash with corrupted pointer **`0x414141414141`**. **RCE not demonstrated**. | libjxl **main** bumped to Brotli 1.2.1 (24 Oct). **No patched libjxl or FFmpeg release identified** at retrieval. |
+| ClickHouse | HTTP `Content-Encoding: br`, ~**23 MB** body → remote crash. | PR [#127419](https://github.com/ClickHouse/ClickHouse/pull/127419) merged 25 Oct. **Patched release treated as unshipped** at JFrog publication; later tags were not verified as user-facing before this cutoff. |
+| Apache Arrow / pyarrow | Bundled `ARROW_BROTLI_BUILD_VERSION=v1.0.9`. **534-byte** input → infinite decode loop (CPU), not a crash. | Issue [#55166](https://github.com/apache/arrow/issues/55166) **still open** at retrieval. System-linked patched Brotli is out of this pin. |
+
+Microsoft CVSS 3.1 for the .NET advisory is **8.1** (CWE-787). Google CNA remains CVSS 4.0 **9.2**. Do not collapse those scores. Cloudflare emergency WAF rules from 25 Oct still default to **Log**. Bandit HTTP/2 resource-exhaustion CVEs registered in the 00:18 window are a **separate** cluster.
+
+[00:18 collection](research-collection-2026-10-27-0018.md) / [vendor review](research-2026-10-27-0018.md) / [Detailed research](research-http2shell-2026-10-25.md) / [dedicated scene #40](https://www.infosec-briefing.net/?lang=en#40)

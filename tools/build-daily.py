@@ -29,7 +29,7 @@ def shell(path, title, description, content):
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b12">
 <title>{esc(title)} — October Incident Briefing</title><meta name="description" content="{esc(description)}"><link rel="canonical" href="{BASE}{path}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:type" content="article"><meta property="og:url" content="{BASE}{path}">
-<link rel="stylesheet" href="./update.css"><link rel="stylesheet" href="./daily.css?v=20261026"><link rel="stylesheet" href="/privacy.css?v=20261025brave"><script src="/privacy.js?v=20261025brave" defer></script></head>
+<link rel="stylesheet" href="./update.css"><link rel="stylesheet" href="./daily.css?v=20261026"><link rel="stylesheet" href="/privacy.css?v=20261027gdpr"><script src="/privacy.js?v=20261027gdpr" defer></script></head>
 <body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global" aria-label="サイト内">{anchor('./','モーションブリーフィング')} {anchor('./'+LATEST_PATH,LATEST_LABEL+' 最新まとめ')} {anchor('./update-20261026.html','10:27 朝の記録')} {anchor('./timeline.html','日付から読む')} {anchor('./tailworm.html','Tailworm特集')}</nav>
 {content}
 <footer>{anchor('./timeline.html','日付別一覧')} · {anchor(REPO+'docs/29-snapshot-20261026-1027.ja.md','調査範囲・全文・出典')} · {anchor('/privacypolicy','プライバシーポリシー')}<p>基準 2026-10-26 10:27 JST / 01:27 UTC。取得は基準後。更新後の本文を過去時点へ完全には復元できません。</p></footer></main></body></html>'''

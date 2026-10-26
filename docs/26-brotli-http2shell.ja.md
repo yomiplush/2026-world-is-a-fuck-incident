@@ -33,4 +33,17 @@ Impervaは **公式Node.js 24.22.0 / Linux arm64** でRCEを実証し、24.22.1�
 
 10/25取得時に確認したCloudflareの緊急WAF告知には受信brと `/_next/image` のルールがありますが、**既定はLog**であり自動遮断の証明にはなりません。この告知の厳密な公開時刻は今回未確定のため、16:34時点の確定情報に遡及させず追加確認として掲載します。受信ルールは外部応答の展開を修復しません。[Cloudflare公式](https://developers.cloudflare.com/changelog/post/2026-10-25-emergency-waf-release/)
 
-[調査ノート](research-http2shell-2026-10-25.md) / [前回の広域調査](25-snapshot-20261025.ja.md) / [専用画面 #40](https://infosec-briefing.yomiplush.dev/?lang=ja#40)
+## 00:18 JST追補 — 下流の到達（一次資料）
+
+依頼のあったcybersecuritynews.comの解説は取得時HTTP 403でした。以下の技術条件はJFrog、Microsoft、Node.js、Google CNA、Cloudflareに戻します。HTTP/2を使っていること自体が成立条件ではありません。
+
+| 対象 | JFrog / ベンダーが観測したこと | 対応・確認 |
+|---|---|---|
+| .NETネイティブBrotli | `System.IO.Compression`（`BrotliStream` / `BrotliDecoder`）。HttpClient・ASP.NET Coreの要求展開は任意設定。ローカルでSIGSEGV。**RCEは未実証**。 | ランタイム **8.0.33 / 9.0.22 / 10.0.14 / 11.0.0-rc.3.26522.148**。**.NET Frameworkは対象外**。ASP.NET / HttpClientのBrotli自動展開は**既定オフ**。NativeAOTは**再発行**が必要。[announcements#494](https://github.com/dotnet/announcements/issues/494) |
+| FFmpeg → libjxl | JPEG XLの `brob` 箱（Brotliメタデータ）→ `BrotliDecoderDecompressStream()`。破壊されたポインタ **`0x414141414141`** でcrash。**RCEは未実証**。 | libjxlの **main** はBrotli 1.2.1へbump（10/24）。取得時点で**修正済みlibjxl / FFmpegリリースは未確認**。 |
+| ClickHouse | HTTP `Content-Encoding: br`、約**23 MB**で遠隔crash。 | PR [#127419](https://github.com/ClickHouse/ClickHouse/pull/127419) は10/25 merge。JFrog公表時点では**修正リリース未出荷**。基準前の利用者向け出荷は未確認。 |
+| Apache Arrow / pyarrow | 同梱 `ARROW_BROTLI_BUILD_VERSION=v1.0.9`。**534バイト**入力で無限デコード（CPU）。crashではない。 | Issue [#55166](https://github.com/apache/arrow/issues/55166) は取得時点で**open**。システムリンクの修正済みBrotliはこのpinの外。 |
+
+Microsoftの.NET勧告CVSS 3.1は **8.1**（CWE-787）。Google CNAはCVSS 4.0 **9.2**。点数を同一視しません。Cloudflare 10/25緊急WAFは引き続き既定**Log**。00:18窓のBandit HTTP/2資源枯渇CVEは**別クラスタ**です。
+
+[00:18固定窓](research-collection-2026-10-27-0018.md) / [ベンダー調査](research-2026-10-27-0018.md) / [調査ノート](research-http2shell-2026-10-25.md) / [前回の広域調査](25-snapshot-20261025.ja.md) / [専用画面 #40](https://www.infosec-briefing.net/?lang=ja#40)

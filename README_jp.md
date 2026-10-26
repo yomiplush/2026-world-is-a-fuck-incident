@@ -1,19 +1,20 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA インシデント
 
-## 忙しい人向け — まず1分（2026-10-26 21:35 JST基準）
+## 忙しい人向け — まず1分（2026-10-27 00:18 JST基準）
 
-**利用している製品・サービスから確認してください。** 公開システムの更新・侵害調査、影響する鍵の失効を継続しながら、今夜の案内と既存事件の続報を整理しました。
+**利用している製品・サービスから確認してください。** 公開システムの更新・侵害調査、影響する鍵の失効を継続しながら、21:35以降の案内と既存事件の続報を整理しました。
 
-- **GMOデスクトップクラウド：** 21:00時点の第6報はFX以外のアカウントも点検対象に追加。別の安全な端末から全セッションを切断し、連携アプリ・転送設定等を確認して、**点検完了までブラウザー同期をオフに維持**してください。全接続端末への感染確定ではありません。[GMO第6報](https://group.gmo/info/alert/20261026/)
-- **npm / PyPIの対象パッケージ：** `dsh-plugin-blender-3d`、`@walknpm/todo-cli`、`@worca/app`、`netweavex`等の名前・対象版と導入履歴を照合。実行済み環境は調査してください。各勧告の動作・確認範囲は異なります。[パッケージの一次調査](docs/research-collection-2026-10-26-2135.md)
-- **Frappe Builder / Apache Camel：** Builder 1.36.1はFrappe v16.36.1以降が必要です。CamelのDoclingで外部入力が出力先へ影響する場合は、**更新後もoutputBaseDirectoryの設定が必要**です。機能と修正系列を照合してください。[条件と対処](docs/research-collection-2026-10-26-2135.md)
-- **ブラストメール / ホテルタビノス：** ブラストメールは配信先関連情報の対象が**345契約**に増え、再開時刻は未定。タビノスは一部予約に関する不審な支払メッセージを案内しています。予約内容を知る相手でも、公式窓口から確認してください。[国内の続報](docs/research-2026-10-26-2135.md)
-- **PHP / Brotli / 境界機器：** 更新と侵害調査を継続。JPCERT/CCの追記と、同梱decoder・実行中の版を確認してください。.NET NativeAOTは共有runtimeの更新だけではdecoderが置換されません。[JPCERT/CC PHP](https://www.jpcert.or.jp/at/2026/at260033.html) / [Brotli](https://www.jpcert.or.jp/at/2026/at260034.html)
-- **LiteLLM / Railway / ConnectWise / Tailscale：** 鍵・権限・利用ログの点検を継続。ConnectWiseの再開目標を再接続許可とせず、Tailwormのソース変更を配布済み修正と判断しないでください。[継続状況](docs/research-2026-10-26-2135.md) / [15言語のTailworm特集](https://www.infosec-briefing.net/tailworm)
+- **GMOデスクトップクラウド：** 23:10の第7報は、**10/27 12:00の攻撃者予告**（情報公開とランサムウェア）と、**要求には応じない**方針を説明しています。端末回収は任意協力で解析中。第6報のアカウント点検（別端末からの全セッション切断、連携・同期オフ）は続いてください。00:20の日付訂正は基準後です。[GMO第7報](https://group.gmo/info/alert/2026102602/) / [第6報](https://group.gmo/info/alert/20261026/)
+- **ConnectWise / ソフトバンク：** ConnectWise 23:00（14:00 UTC）更新はオンボーディング**準備継続**であり、既存バックアップからの復元開始報告ではありません。接続は個別手順まで無効維持。ソフトバンクは災害・避難情報を**23:17に再開**しました。キャリア再開をPHP全体の修正完了としないでください。[Trust Center](https://www.connectwise.com/company/trust/advisories) / [ソフトバンク](https://www.softbank.jp/corp/news/info/2026/20261023_01/)
+- **Brotli / HTTP2Shell：** 通称はHTTP/2でも、欠陥は **CVE-2026-111497** のC decoderです。.NETは **8.0.33 / 9.0.22 / 10.0.14**、NativeAOTは再発行。FFmpeg/libjxl・ClickHouse・Arrowは到達条件が別で、修正リリース未確認のものがあります。Bandit HTTP/2一連は別クラスタです。[Brotli追補](docs/26-brotli-http2shell.ja.md)
+- **NVD窓の境界機器・シェル：** FortiSandbox認証回避、Harbor webhook SSRF、mongoshのeMudhra CA、MCP Toolbox、Camel Saxon XXE、Mautic 7一連がReceived/Deferredで初収録。修正版をNVD本文から推定しないでください。[固定窓調査](docs/research-collection-2026-10-27-0018.md)
+- **ブラストメール / Tailscale / PAN-OS / PHP：** 345契約・再開未定は17:00のまま。Tailscale最新安定は1.104.2で、Tailworm最低修正版は未確定。PAN-OSの新しいETA削除はこの窓にありません。[ベンダー調査](docs/research-2026-10-27-0018.md) / [15言語のTailworm特集](https://www.infosec-briefing.net/tailworm)
 
-**[最新の読むレポート](https://www.infosec-briefing.net/update-20261026-2135) · [時系列の日付別一覧](https://www.infosec-briefing.net/timeline) · [構造化索引](data/2026-10-26-2135/incident-register.json) · [最新データの参照先](data/latest.json) · [このサイトについて](https://www.infosec-briefing.net/about)**
+**[最新の読むレポート](https://www.infosec-briefing.net/update-20261027-0018) · [時系列の日付別一覧](https://www.infosec-briefing.net/timeline) · [構造化索引](data/2026-10-27-0018/incident-register.json) · [最新データの参照先](data/latest.json) · [このサイトについて](https://www.infosec-briefing.net/about)**
 
-**今回の収集：** 14:56〜21:35 JST、NVD **新規99 / 更新1,434（99件重複、新規にはRejected1件を含む）**。GHSA **公開111 / modified151（111件重複）**で、公開分は**unreviewed103＋malware8**です。今回は種別と改訂の照会範囲を拡張しており、件数増加を事件増加と読み替えません。**37論点＝差分23・既存範囲補完12・公開時刻未確定の参考2**で、新規37攻撃ではありません。**169のHTTP応答記録（うち27件は変更のない過去原本への参照）をhash検証し、別枠で画面表示の補足記録1件を保存**。実取得は基準後です。発生・公表・DB登録・修正・復旧を分けて記載しています。[出典と限界](SOURCES.ja.md)
+**今回の収集：** 21:35〜00:18 JST、NVD **新規98 / 更新1,048（98件重複）**。GHSA **公開0 / modified 19**（既存reviewedの改訂）。KEVは2026.10.23版・1,756件で追加0。**20論点＝差分12・既存範囲補完6・公開時刻未確定の参考2**で、新規20攻撃ではありません。件数増加を事件増加と読み替えません。実取得は基準後です。発生・公表・DB登録・修正・復旧を分けて記載しています。[出典と限界](SOURCES.ja.md)
+
+> **前回調査 — 2026-10-26 21:35 JST：** [技術・固定窓調査](docs/research-collection-2026-10-26-2135.md) / [国内・ベンダー調査](docs/research-2026-10-26-2135.md) / [構造化索引](data/2026-10-26-2135/incident-register.json)。GMO第6報、ブラストメール345、JPCERT PHP/Brotli、npm/PyPI malware。14:56〜21:35 JSTはNVD新規99 / 更新1,434（99件重複）、GHSA公開111 / modified151。差分23・範囲補完12・参考2群。実取得は基準後。
 
 > **前回調査 — 2026-10-26 14:56 JST：** [技術・固定窓調査](docs/research-collection-2026-10-26-1456.md) / [国内・ベンダー調査](docs/research-2026-10-26-1456.md) / [構造化索引](data/2026-10-26-1456/incident-register.json)。PAN-OS追加hotfix、.NET BrotliとNativeAOT、認証・ローカルAPI条件、国内停止範囲と端末の段階配信を確認。13:01〜14:56 JSTはNVD新規8 / 更新11（8件重複）、当時の照会でGHSA新規公開0。差分7・範囲補完8・参考3群、82応答記録（過去原本参照15件を含む）。実取得は基準後。
 
@@ -45,7 +46,7 @@
 
 ## 0. 過去の要約 — 初期調査の対応表（最新は冒頭）
 
-以下は初期調査の詳細を残した記録です。現在の優先事項は冒頭の21:35 JST要約と最新レポートを参照してください。
+以下は初期調査の詳細を残した記録です。現在の優先事項は冒頭の00:18 JST要約と最新レポートを参照してください。
 （さらに広く「直近の CRITICAL」を見たい場合は [`docs/13`](docs/13-recent-criticals.ja.md)。）
 
 ### 0-1. 今日やる（すでに現実になっているもの）

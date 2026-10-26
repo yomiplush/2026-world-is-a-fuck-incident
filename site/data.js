@@ -105,12 +105,12 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全57画面を日付順に。夜のアカウント確認・パッケージ対応を2画面追加。21:35の広域調査は読むレポートへ。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全59画面を日付順に。夜のアカウント確認と、00:18の復旧状態・Brotli到達を追加。00:18の広域調査は読むレポートへ。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
-      drawerFoot: "最新レポートは10/26 21:35基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
-      asof: "2026-10-26 21:35 JST 基準",
+      drawerFoot: "最新レポートは10/27 00:18基準。画面は各日付の記録で、追補はその確認日順。実取得は基準後です。",
+      asof: "2026-10-27 00:18 JST 基準",
       lang: "JA"
     },
     en: {
@@ -120,12 +120,12 @@ window.CONTENT = {
       hintEnd: "end of briefing — tap to restart",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ONE MONTH,", coverTitleB: "15 INCIDENTS.",
-      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes and four October 26 morning scenes. 57 chronological scenes, including two evening account/package response diagrams. See the reading report for the 21:35 update. Tap to advance.",
+      coverSub: "The fifteen October incidents, in order.<br>Plus the broad updates, six Tailworm scenes, evening account checks, and two 00:18 diagrams for restoration status and Brotli reach. 59 chronological scenes. See the reading report for the 00:18 update. Tap to advance.",
       coverStart: "TAP TO BEGIN",
       coverFoot: "Sources included. ConnectWise now has primary confirmation; earlier scenes retain historical context.",
       drawerTitle: "SOURCES",
-      drawerFoot: "Latest reading report: October 26, 21:35 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
-      asof: "cutoff 2026-10-26 21:35 JST",
+      drawerFoot: "Latest reading report: October 27, 00:18 JST. Scenes retain their dated context; addenda follow their review dates. Retrieved after cutoff.",
+      asof: "cutoff 2026-10-27 00:18 JST",
       lang: "EN"
     }
   },
@@ -2977,6 +2977,78 @@ window.CONTENT.scenes.push(...[
         "If an affected release ran, isolate the environment and revoke reachable credentials from a safe device; assess rebuilding under the advisory",
         "Two separate PROBABLY_PENTEST classifications do not establish the same observed harm",
         "<a href=\"./update-20261026-2135.html#npm-worca\">Package conditions and response (Japanese) →</a>"
+      ]
+    }
+  }
+]);
+
+/* 00:18 JST review: stable scene links 58–59. Closing stays last via chronology.js. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "night-restore-status",
+    "stamp": "10.27 · 00:18 JST",
+    "metric": null,
+    "visual": { "type": "restoreStatus" },
+    "cue": "blip",
+    "sources": [
+      { "name": "ConnectWise Trust Center（14:00 UTC）", "url": "https://www.connectwise.com/company/trust/advisories" },
+      { "name": "GMO第7報（23:10 JST）", "url": "https://group.gmo/info/alert/2026102602/" },
+      { "name": "ソフトバンク緊急速報の再開", "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/" }
+    ],
+    "ja": {
+      "kicker": "00:18 UPDATE · 復旧と予告",
+      "title": "準備継続、予告、配信再開は別の状態。",
+      "lede": "ConnectWiseの23:00更新はオンボーディング準備の継続です。GMO第7報の12:00は攻撃者予告。ソフトバンクは災害・避難情報を23:17に再開しました。図は状態の模式図です。",
+      "points": [
+        "ConnectWise：既存バックアップからの復元開始報告ではない。<b>個別手順まで接続は無効</b>",
+        "GMO：要求には応じない。第6報のアカウント点検は続く。00:20訂正は基準後",
+        "ソフトバンク再開は当該メール経路。PHP全体の修正完了ではない",
+        "<a href=\"./update-20261027-0018.html#connectwise-1400\">00:18の読むレポートへ →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "00:18 UPDATE · RESTORE VS RESUME",
+      "title": "Preparation, a threat deadline, and a resumed alert path.",
+      "lede": "ConnectWise’s 14:00 UTC post continues onboarding preparation. GMO’s 12:00 time is an attacker deadline. SoftBank resumed disaster alerts at 23:17 JST. Schematic only.",
+      "points": [
+        "ConnectWise: not a report that partner restores started. <b>Keep connections disabled</b> until service-specific instructions",
+        "GMO: they will not pay. Keep the sixth notice’s account checks. The 00:20 correction is after cutoff",
+        "SoftBank’s resume is that carrier path, not a PHP-ecosystem close",
+        "<a href=\"./update-20261027-0018.html#connectwise-1400\">00:18 reading report (Japanese) →</a>"
+      ]
+    }
+  },
+  {
+    "id": "brotli-reach",
+    "stamp": "10.27 · 00:18 JST",
+    "metric": null,
+    "visual": { "type": "brotliReach" },
+    "cue": "blip",
+    "sources": [
+      { "name": "JFrog Brotli2Shell", "url": "https://research.jfrog.com/post/brotli2shell-beyond-node2shell-and-http2shell/" },
+      { "name": "dotnet/announcements#494", "url": "https://github.com/dotnet/announcements/issues/494" },
+      { "name": "Cloudflare emergency WAF", "url": "https://developers.cloudflare.com/changelog/post/2026-10-25-emergency-waf-release/" }
+    ],
+    "ja": {
+      "kicker": "00:18 UPDATE · BROTLI REACH",
+      "title": "HTTP/2という名前でも、欠陥はdecoder。",
+      "lede": "HTTP2Shell / Node2Shell / Brotli2Shellは同じCVE-2026-111497です。到達経路はHTTP応答、.NET API、JPEG XL、ClickHouse、Parquetで異なります。図は到達の模式図です。",
+      "points": [
+        ".NETは修正ランタイムへ。<b>NativeAOTは再発行</b>。ASP.NET / HttpClientのbr展開は既定オフ",
+        "FFmpeg/libjxl・ClickHouse・ArrowはRCE実証なし。修正リリース未確認のものを未修正として扱う",
+        "Cloudflare緊急WAFは既定Log。Bandit HTTP/2一連は別クラスタ",
+        "<a href=\"./update-20261027-0018.html#brotli-jfrog-reach\">下流の到達と対策 →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "00:18 UPDATE · BROTLI REACH",
+      "title": "The name says HTTP/2. The bug is the decoder.",
+      "lede": "HTTP2Shell, Node2Shell and Brotli2Shell are CVE-2026-111497. Reach differs across HTTP responses, .NET APIs, JPEG XL, ClickHouse and Parquet. Schematic only.",
+      "points": [
+        "Patch .NET runtimes; <b>republish NativeAOT</b>. ASP.NET / HttpClient Brotli decompression is off by default",
+        "FFmpeg/libjxl, ClickHouse and Arrow had no demonstrated RCE; treat unreleased fixes as unpatched",
+        "Cloudflare emergency WAF still defaults to Log. Bandit’s HTTP/2 cluster is separate",
+        "<a href=\"./update-20261027-0018.html#brotli-jfrog-reach\">Reachability and actions (Japanese) →</a>"
       ]
     }
   }
