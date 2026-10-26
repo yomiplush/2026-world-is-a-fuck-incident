@@ -22,6 +22,8 @@
 
 **10月25日 23:18 JST基準。** 接続を許可した後のSSH転送・Unix権限、headscale、conn25、Serve/Funnelを機能別に確認。研究者の実験室報告とベンダー応答を分け、今日の暫定対策を整理しました。**1.104.2はTailworm修正版とは確認できません。**
 
+**ページ上部のプルダウンで12言語に切り替えられます。**
+
 **[特集を読む](https://infosec-briefing.yomiplush.dev/tailworm.html) · [6画面のモーション特集](https://infosec-briefing.yomiplush.dev/?lang=ja#41) · [リポジトリの詳細・出典](docs/27-tailworm.ja.md)**
 
 > **前回調査 — 2026-10-25 23:18 JST基準:** [夜間の広域調査](docs/28-snapshot-20261025-2318.ja.md)。ConnectWiseの23:00更新、Snipe-IT・Parse Server・YesWiki・rclone・vLLM等を補完。固定窓NVD新規87件/更新87件は同じCVE集合（合算不可）、GHSA16件、17フィードを収集。[取得記録](data/2026-10-25-2318/collection-summary.json) / [構造化索引](data/2026-10-25-2318/incident-register.json) / [読むレポート](https://infosec-briefing.yomiplush.dev/update-20261025-2318.html)。サイトは**49画面**。実取得は基準後で、未記載の編集時刻は未確定。以下の過去時点の記述は最新調査で上書きします。

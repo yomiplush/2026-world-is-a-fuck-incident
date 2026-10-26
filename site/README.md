@@ -388,3 +388,21 @@ live under `data/2026-10-25-2318/`; reproduce the fixed cutoff collection with
 `python3 tools/build-daily.py` generates the latest report, date archive and ten static dated pages from `data/2026-10-26-1027/daily-record.json`. No network or dependencies. All reading content and date navigation work without JavaScript; only the existing privacy preferences script is included. The existing lock/audio loading contract is retained. The four new motion scenes distinguish evidence/attribution, the .NET socket repair, embedded PHP and dated records. JA/EN copy; other locales fall back to English with the current cutoff.
 
 `node tests/daily.mjs` checks the ten-day reading journey without JS, source links, date state, four widths, current entry and scene #49. The existing browser suite checks all 53 scenes and renderer combinations. Run CDP/browser tests sequentially because they share a browser tab. Source notes and collection manifest are under `docs/` and `data/2026-10-26-1027/`; use `python3 tools/intel/snapshot-1027.py` for a fixed-window re-fetch with current revisions.
+
+## Tailworm reading-page languages
+
+`tailworm.html` is the Japanese static page; `tailworm.<code>.html` provides each
+of the other eleven complete translations. The native select uses the same
+consent-managed preference as the motion briefing. `?lang=` takes precedence;
+explicit translated paths keep their language, and the default entrance can
+follow the saved or browser language. Section hashes survive language changes.
+Without JavaScript, full translated pages and an expandable language-link list
+remain available. Arabic uses RTL layout, while commands retain LTR direction.
+
+Edit `content/tailworm/<code>.json` and the shared
+`tools/templates/tailworm.html.template`, then run `python3 tools/build-tailworm.py`.
+The generator checks complete keys and unchanged HTML/source URLs, renders all
+12 pages and updates their sitemap alternates. These translations retain the
+historical October25,23:18JST findings; translating is not a new security review.
+Run `CDP_PORT=9237 node tests/tailworm-locales.mjs` with the local CDP setup for
+language navigation, mobile/desktop layouts, storage consent and no-JS reading.
