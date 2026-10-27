@@ -14,7 +14,7 @@
       const active = document.activeElement;
       if (active?.matches('input,textarea,[contenteditable]') ||
           (active?.matches('select') && ['ArrowUp','ArrowDown'].includes(event.key))) return;
-      const scope = document.querySelector('.briefing-preferences:not([hidden])') ||
+      const scope = document.querySelector('dialog[open]') || document.querySelector('.briefing-preferences:not([hidden])') ||
         document.querySelector('.drawer.open') || document;
       const candidates = Array.from(scope.querySelectorAll('a[href],button:not(:disabled),select:not(:disabled),[tabindex="0"]')).filter(el => {
         const r = el.getBoundingClientRect();

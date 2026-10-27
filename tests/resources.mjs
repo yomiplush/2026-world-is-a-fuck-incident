@@ -30,6 +30,8 @@ try {
  assert.equal(await count(),0,'source drawer must pause animation');
  await run("document.getElementById('btn-close').click()");
  assert.ok(await count()>0,'closing drawer must resume');
+ // Global shortcuts intentionally leave focused native controls alone.
+ await run('document.activeElement.blur();true');
  // A trusted key starts audio. Visibility changes preserve user intent and time.
  await key('m');await pause(150);assert.equal(await run('AUDIO.on'),true);
  const before=await run('__drawTime');

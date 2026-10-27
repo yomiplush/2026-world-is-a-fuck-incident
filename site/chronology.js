@@ -10,8 +10,15 @@
     return stamp.replace(/ · /g, ' ').replace(' JST', '');
   }
   const scenes = original.slice().sort((a, b) => dateKey(a).localeCompare(dateKey(b)));
+  const chapters = Array.from({ length: Math.ceil(scenes.length / 10) }, (_, index) => ({
+    index, start: index * 10, end: Math.min((index + 1) * 10, scenes.length)
+  }));
   window.BRIEFING_NAV = {
     scenes,
+    chapters,
+    chapterFor(index) {
+      return Number.isInteger(index) && index >= 0 && index < scenes.length ? chapters[Math.floor(index / 10)] : null;
+    },
     indexFor(number) { return scenes.indexOf(original[number - 1]); },
     numberFor(index) { return original.indexOf(scenes[index]) + 1; }
   };
