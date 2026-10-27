@@ -18,7 +18,9 @@ try {
   assert.equal(await run('document.querySelectorAll("#rail .chapter-button").length'),7);
   assert.equal(await run('document.querySelectorAll("#rail .scene-tick:not([hidden])").length'),10);
   assert.ok(await run('document.getElementById("rail").scrollWidth<=document.getElementById("rail").clientWidth'));
+  const squarePositions=await run('[...document.querySelectorAll("#rail .chapter-button")].map(b=>{const r=b.getBoundingClientRect(),rail=b.parentElement.getBoundingClientRect();return [r.x-rail.x,r.y-rail.y]})');
   await run('document.querySelectorAll("#rail .chapter-button")[1].click();true');
+  assert.deepEqual(await run('[...document.querySelectorAll("#rail .chapter-button")].map(b=>{const r=b.getBoundingClientRect(),rail=b.parentElement.getBoundingClientRect();return [r.x-rail.x,r.y-rail.y]})'),squarePositions,'chapter squares stay in their fixed positions');
   assert.equal(await run('!!document.querySelector("#chapter-dialog[open]")'),false);
   assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(10)'),true);
   assert.equal(await run('document.getElementById("chapter").textContent'),"BRIEFING");
@@ -43,6 +45,7 @@ try {
     assert.equal(await run('!!document.querySelector("dialog[open]")'),false);
     const selected=await run(`(()=>{const buttons=[...document.querySelectorAll('#rail .chapter-button')],active=buttons.filter(b=>b.getAttribute('aria-current')==='true');return {count:active.length,number:active[0]?.querySelector('.chapter-number').textContent,glow:active[0]&&getComputedStyle(active[0].querySelector('.chapter-square')).textShadow,oldGlow:getComputedStyle(buttons[0].querySelector('.chapter-square')).textShadow}})()`);
     assert.equal(selected.count,1,'only the current chapter is lit');
+    assert.equal(await run('getComputedStyle(document.querySelector("#rail .chapter-button[aria-current=true]")).gridRowStart'),'2','current chapter glows in the bottom row');
     assert.equal(selected.number,String(Math.floor((boundary+1)/10)+1),'highlight follows the next chapter');
     assert.notEqual(selected.glow,'none','current chapter square glows');
     assert.equal(selected.oldGlow,'none','previous chapter square returns to normal');
