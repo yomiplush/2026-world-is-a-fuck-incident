@@ -1,0 +1,1181 @@
+<!doctype html>
+  <html lang="en" data-template="post-page">
+    <head>
+      <style>
+        .be-label {
+          flex-basis: auto !important;
+        }
+
+        .be-ix-link-block .be-related-link-container {
+          width: 100% !important;
+        }
+
+        @media (min-width: 576px) {
+          .be-ix-link-block .be-related-link-container {
+            max-width: 540px !important;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .be-ix-link-block .be-related-link-container {
+            max-width: 720px !important;
+          }
+        }
+
+        @media (min-width: 992px) {
+          .be-ix-link-block .be-related-link-container {
+            max-width: 960px !important;
+          }
+        }
+
+        @media (min-width: 1200px) {
+          .be-ix-link-block .be-related-link-container {
+            max-width: 1240px !important;
+          }
+        }
+
+        @media (min-width: 1540px) {
+          .be-ix-link-block .be-related-link-container {
+            max-width: 1500px !important;
+          }
+        }
+      </style>
+      
+      
+      
+        <meta name="content-page-ref" content="AE-W5A_WkWLwkDTliFWMNCIhAR9ukwv6iLwkzrCc5qA92DXv10IEHyoJl_lDdIG27y9QyBnxBh6mxaW53QZMH06bDI7_T4yv0zxT3FlTTibzQLufsyKMxb0OPbMeiNreNGrvctuqC5K8R8YgLghkSopmNgJS2KDbi-X2Xe54Z668sYt1IOqZCBh329ze_FNE"/>
+<link rel="preconnect" href="https://api.consentjs.datagrail.io"/>
+        <link rel="preconnect" href="https://assets.adobedtm.com"/>
+        <link rel="dns-prefetch" href="https://api.consentjs.datagrail.io"/>
+        <link rel="dns-prefetch" href="https://assets.adobedtm.com"/>
+        <link rel="preload" as="script" href="https://api.consentjs.datagrail.io/e28585db-6c1b-4ad9-b61f-1dab9eda72f5/74cfb6e6-a626-4e6f-818b-7393f9374c97/consent-loader.js"/>
+        <link rel="preload" as="script" href="https://assets.adobedtm.com/b359cfb740b4/a792d4e6ffcd/launch-EN23cb8375449840dc93b13f34d935b8b9.min.js"/>
+        <link rel="preload" as="script" href="/etc/designs/fortinet/adb-target/visitorapi.min.js"/>
+        <link rel="preload" as="script" href="/etc/designs/fortinet/adb-target/at.js"/>
+        <script>
+          (function (win, doc, style, timeout) {
+            var STYLE_ID = "at-body-style";
+            function getParent() {
+              return doc.getElementsByTagName("head")[0];
+            }
+            function addStyle(parent, id, def) {
+              if (!parent) {
+                return;
+              }
+              var style = doc.createElement("style");
+              style.id = id;
+              style.innerHTML = def;
+              parent.appendChild(style);
+            }
+            function removeStyle(parent, id) {
+              if (!parent) {
+                return;
+              }
+              var style = doc.getElementById(id);
+              if (!style) {
+                return;
+              }
+              parent.removeChild(style);
+            }
+            addStyle(getParent(), STYLE_ID, style);
+            setTimeout(function () {
+              removeStyle(getParent(), STYLE_ID);
+            }, timeout);
+          })(window, document, "body {opacity: 0 !important}", 3000);
+        </script>
+      
+      
+    <meta charset="UTF-8"/>
+    <title>Fortinet Releases Security Hardening Release for Multiple Products | CISO Collective</title>
+    <meta name="keywords" content="artificial intelligence (AI),CISO Collective,AI-Driven Security Operations,artificial intelligence"/>
+    <meta name="description" content="Fortinet announces frontier AI hardening releases for a range of products including FortiOS, FortiManager, FortiAnalyzer, FortiMail, and FortiAuthenticator."/>
+    <meta name="template" content="post-page"/>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+<meta name="google-site-verification" content="tiQ03tSujT2TSsWJ6tNHiiUn8cwYVmdMQrGUCNrPQmo"/>
+
+<meta property="og:site_name" content="Fortinet Blog"/>
+<meta property="og:title" content="Fortinet Releases Security Hardening Release for Multiple Products | CISO Collective"/>
+<meta property="og:url" content="https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Fortinet announces frontier AI hardening releases for a range of products including FortiOS, FortiManager, FortiAnalyzer, FortiMail, and FortiAuthenticator.…"/>
+<meta property="og:image"/>
+
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:site" content="@Fortinet"/>
+
+<meta property="article:author" content="Carl Windsor"/>
+
+    <meta property="article:section" content="CISO Collective"/>
+
+
+    <meta property="article:published_time" content="2026-10-21T13:00:00.000Z"/>
+
+
+    <meta property="article:tag" content="artificial intelligence (AI)"/>
+
+    <meta property="article:tag" content="AI-Driven Security Operations"/>
+
+    <meta property="article:tag" content="artificial intelligence"/>
+
+
+<link rel="shortcut icon" href="/etc/designs/fortinet-blog/favicon.ico"/>
+
+<link rel="canonical" href="https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="en-us"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/de/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="de-de"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/fr/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="fr-fr"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/it/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="it-it"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/uk/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="en-gb"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/br/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="pt-br"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/lat/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="es"/>
+
+    <link rel="alternate" href="https://www.fortinet.com/jp/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" hreflang="ja-jp"/>
+
+
+
+    
+<link rel="stylesheet" href="/etc.clientlibs/fortinet-blog/clientlibs/clientlib-base.min.css" type="text/css">
+
+
+
+
+
+<!-- SEO Script -->
+
+
+
+
+<!-- DG Cookies Consent Notice start for fortinet.com -->
+
+
+<script>
+    window.DG_CONSENT_BLOCK_RELOAD = true;
+</script>
+
+
+
+
+    <!-- DataGrail Consent Script -->
+    <script type="text/javascript" src="https://api.consentjs.datagrail.io/e28585db-6c1b-4ad9-b61f-1dab9eda72f5/74cfb6e6-a626-4e6f-818b-7393f9374c97/consent-loader.js" async></script>
+    <!-- End DataGrail Consent Script -->
+
+    <script>
+        (function () {
+          const maxWait = 10000;
+          const waitTime = 100;
+          let waited = 0;
+
+          const interval = setInterval(() => {
+            if (window.DG_BANNER_API) {
+              clearInterval(interval);
+
+              if (window.DG_BANNER_API.getCategories().some(item => item.primitive === 'dg-category-marketing' && item.isEnabled)) {
+                  loadAdbTgt();
+               }
+
+              if (window.DG_BANNER_API.getCategories()) {
+                loadAdbLaunch();
+              }
+            } else if (waited >= maxWait) {
+              clearInterval(interval);
+            }
+            waited += waitTime;
+          }, waitTime);
+
+          function loadAdbLaunch() {
+            const script = document.createElement('script');
+            script.src = 'https://assets.adobedtm.com/b359cfb740b4/a792d4e6ffcd/launch-EN23cb8375449840dc93b13f34d935b8b9.min.js';
+            script.async = true;
+            document.head.appendChild(script);
+          }
+
+          function loadAdbTgt() {
+            const script = document.createElement('script');
+            script.src = '/etc/designs/fortinet/adb-target/visitorapi.min.js';
+            script.async = true;
+            document.head.appendChild(script);
+
+
+            const script1 = document.createElement('script');
+            script1.src = '/etc/designs/fortinet/adb-target/at.js';
+            script1.async = true;
+            document.head.appendChild(script1);
+
+          }
+        })();
+    </script>
+
+<!-- DG Consent Notice end for fortinet.com -->
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+      
+      
+        
+        
+<!-- be_ixf, sdk, gho-->
+<meta name="be:sdk" content="java_sdk_1.6.7" />
+<meta name="be:timer" content="60ms" />
+<meta name="be:norm_url" content="https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" />
+<meta name="be:capsule_url" content="https://ixfd1-api.bc0a.com/api/ixf/1.0.0/get_capsule/f00000000310757/01773240118" />
+<meta name="be:api_dt" content="pny_2026; pnm_08; pnd_24; pnh_07; pnmh_53; pn_epoch:1787583191769" />
+<meta name="be:mod_dt" content="pny_1969; pnm_12; pnd_31; pnh_16; pnmh_00; pn_epoch:0" />
+<meta name="be:orig_url" content="https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" />
+<meta name="be:messages" content="9" /><style>
+  .be-ix-link-block {clear:both;background-color: #000;}
+  .be-ix-link-block .be-related-link-container {    padding: 15px;padding-top: 0;margin: 0 auto;max-width: 70em;width: 92vw;}
+  .be-ix-link-block .be-related-link-container .be-label {margin: 0;color: #fff;    font-size: 2rem;
+    font-weight: 400;}
+  .be-ix-link-block .be-related-link-container .be-list {display: inline-block;list-style: none;margin: 0;padding: 0;margin-top: 5px;}
+  .be-ix-link-block .be-related-link-container .be-list .be-list-item {display: inline-block;margin-right: 20px;}
+  .be-ix-link-block .be-related-link-container .be-list .be-list-item .be-related-link{color: #fff;}
+  .be-ix-link-block .be-related-link-container .be-list .be-list-item .be-related-link:hover{opacity: .7;color: #fff;}
+  .be-ix-link-block .be-related-link-container .be-list .be-list-item:last-child {margin-right: 0;}
+  .page .be-ix-link-block {clear:both;background-color:#e6e6e6;}
+  .page .be-ix-link-block .be-related-link-container {padding-bottom: 15px;text-align: center;}
+  .page .be-ix-link-block .be-related-link-container .be-label {color: #000;font-size: 1.3rem;font-weight: 400;}
+  .page .be-ix-link-block .be-related-link-container .be-list {margin-top:0;}
+  .page .be-ix-link-block .be-related-link-container .be-list .be-list-item {margin-right: 4px;}
+  .page .be-ix-link-block .be-related-link-container .be-list .be-list-item .be-related-link{color: #000;}
+  .page .be-ix-link-block .be-related-link-container .be-list .be-list-item .be-related-link:hover{color: #000;}
+  .page .be-ix-link-block .be-related-link-container .be-list .be-list-item:not(:last-child):after {content: " | ";color: #000;}
+  @media (max-width: 767px) {
+  .be-ix-link-block .be-related-link-container{padding-bottom: 15px;}
+  .be-ix-link-block .be-related-link-container .be-label {width: 100%;}
+  .be-ix-link-block .be-related-link-container .be-list {display: block;width: 100%;}
+  .be-ix-link-block .be-related-link-container .be-list .be-list-item {display: block;margin-right: 0;}}
+  @media (min-width: 768px) {
+  .be-ix-link-block .be-related-link-container {display: flex;}
+  .be-ix-link-block .be-related-link-container .be-label {display: inline-block;flex-basis: 150px;flex-grow: 0;flex-shrink: 0;margin-right: 20px;}
+  .be-ix-link-block .be-related-link-container .be-list {width: auto;}
+  .page .be-ix-link-block .be-related-link-container .be-label {display: inline-block;flex-basis: 150px;flex-grow: 0;flex-shrink: 0;margin-right: 20px;}}
+</style>
+
+
+<script data-cfasync="false" id="marvel" data-customerid="f00000000310757" src="https://marvel-b2-cdn.bc0a.com/marvel.js"></script>
+
+        
+      
+    </head>
+    <body>
+      
+
+
+
+      
+<div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="b1-header aem-GridColumn aem-GridColumn--default--12">
+
+
+<header class="b1-header__container">
+    <div class="b1-header__logo">
+        <a href="https://www.fortinet.com/.html">
+            
+            <img class="desktop-logo" src="/content/dam/fortinet-blog/fortinet-logo-white.svg" alt="Fortinet home"/>
+            <img class="mobile-logo" src="/content/dam/fortinet-blog/fortinet-logo-white.svg" alt="Fortinet home"/>
+        </a>
+    </div>
+
+    <div class="b1-header__cta-list">
+      <a class="b1-header__cta-list-item " href="https://www.fortinet.com/blog.html">
+          <span>Blog</span>
+      </a>
+    </div>
+
+    <div class="b1-header__nav"><div class="b2-navigation">
+<style>
+
+    .b1-header__cta-list-item span, .b2-navigation__list-item, .b2-navigation__dropdown__list-item span{
+    font-size:14px!important;
+    }
+    .b2-navigation__list-item{
+        margin-left:0px!important;
+        padding: 32px 20px !important;
+    }
+
+    .b2-navigation__list{
+        margin-left:32px!important;
+    }
+
+    .b2-navigation-categories ul.navdropdown {
+        margin-left:0px!important;
+    }
+
+    @media (max-width:1023px){
+    .xf-content-height{
+    margin:0!important;
+    }
+    li.b2-navigation-categories{
+    display:flex !important;
+    flex-direction: column;
+    }
+    .b2-navigation__list ul{
+    display:none;
+    flex-direction: column;
+    margin: 0px !important;
+    }
+    .b2-navigation__list ul li a{
+    color:#fff !important;
+    }
+
+    .b2-navigation__list ul li{
+    padding: 5px 0px !important;
+    list-style-type:none;
+    }
+    }
+    @media (min-width:1025px)
+        .b1-header__nav-toggle{
+        display:none!important;
+        }
+        }
+</style>
+
+
+<div class="xfpage page basicpage">
+
+    
+
+
+
+<div class="xf-content-height">
+    
+
+
+
+
+    
+    
+    <div class="b2-navigation">
+
+
+<ul class="b2-navigation__list">
+    <li class="b2-navigation-categories">
+        <div class="b2-navigation__list-item nav-dropdown-title">Products &amp; Solutions</div>
+        <ul class="navdropdown">
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/secure-networking">
+                        <span>Secure Networking</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/unified-sase">
+                        <span>Unified SASE</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/cloud-security">
+                        <span>Cloud Security</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/security-operations">
+                        <span>Security Operations</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/operational-technology">
+                        <span>Operational Technology</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+
+    <li class="b2-navigation-categories">
+        <div class="b2-navigation__list-item nav-dropdown-title">Threat Research</div>
+        <ul class="navdropdown">
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/threat-research">
+                        <span>Threat Research</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/psirt-blogs">
+                        <span>PSIRT</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+
+    <li class="b2-navigation-categories">
+        <div class="b2-navigation__list-item nav-dropdown-title">Thought Leadership</div>
+        <ul class="navdropdown">
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/ciso-collective">
+                        <span>CISO Collective</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/industry-trends">
+                        <span>Industry Trends</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/security-architecture">
+                        <span>Security Architecture</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+
+    <li class="b2-navigation-categories">
+        <div class="b2-navigation__list-item nav-dropdown-title">Corporate</div>
+        <ul class="navdropdown">
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/business-and-technology">
+                        <span>Fortinet News &amp; Updates</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/partners">
+                        <span>Partners</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/customer-stories">
+                        <span>Customer Success Stories</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a class="b2-navigation__dropdown__list-item" href="/blog/life-at-fortinet">
+                        <span>Life at Fortinet</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+</ul>
+
+
+    
+</div>
+
+
+
+</div></div>
+
+
+<script>
+    if (window.innerWidth < 1024) {
+        const categories = document.querySelectorAll('.b2-navigation-categories');
+
+        categories.forEach(category => {
+
+          const title = category.querySelector('.nav-dropdown-title');
+          const dropdown = category.querySelector('.navdropdown');
+
+          title.addEventListener('click', () => {
+            categories.forEach(cat => {
+              const otherDropdown = cat.querySelector('.navdropdown');
+              if (otherDropdown && otherDropdown !== dropdown) {
+                otherDropdown.style.display = 'none';
+              }
+            });
+
+            if (dropdown) {
+              dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+            }
+          });
+        });
+
+         }
+
+</script>
+</div>
+</div>
+
+    <div id="blog-site-search" class="b1-header__search" aria-expanded="false"><div class="b3-searchbox">
+
+
+<form class="b3-searchbox__form" action="/blog/search" method="get">
+    <input class="b3-searchbox__input" type="text" name="q" placeholder="Search Blogs"/>
+    <button class="b3-searchbox__icon" aria-label="Search" type="submit">
+        
+    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.688 14.18l-4.075-4.075C12.36 9.06 12.8 7.78 12.8 6.4 12.8 2.87 9.93 0 6.4 0 2.87 0 0 2.87 0 6.4c0 3.53 2.87 6.4 6.4 6.4 1.38 0 2.66-.44 3.705-1.187l4.075 4.075c.207.208.48.312.753.312.274 0 .547-.104.755-.312.416-.417.416-1.093 0-1.51zM2.133 6.4c0-2.357 1.91-4.267 4.267-4.267s4.267 1.91 4.267 4.267-1.91 4.267-4.267 4.267S2.133 8.757 2.133 6.4z" fill="#fff">
+        </path>
+    </svg>
+
+    </button>
+</form>
+
+
+    
+
+</div>
+</div>
+
+    <button class="b1-header__search-toggle" aria-controls="blog-site-search" aria-label="Search">
+        
+    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.688 14.18l-4.075-4.075C12.36 9.06 12.8 7.78 12.8 6.4 12.8 2.87 9.93 0 6.4 0 2.87 0 0 2.87 0 6.4c0 3.53 2.87 6.4 6.4 6.4 1.38 0 2.66-.44 3.705-1.187l4.075 4.075c.207.208.48.312.753.312.274 0 .547-.104.755-.312.416-.417.416-1.093 0-1.51zM2.133 6.4c0-2.357 1.91-4.267 4.267-4.267s4.267 1.91 4.267 4.267-1.91 4.267-4.267 4.267S2.133 8.757 2.133 6.4z">
+        </path>
+    </svg>
+
+        <div class="b1-header__search-toggle-close">
+            <span class="b1-header__search-toggle-close-line"></span>
+            <span class="b1-header__search-toggle-close-line"></span>
+        </div>
+    </button>
+
+    <div class="b1-header__nav-toggle" aria-hidden="true">
+        <span class="b1-header__nav-toggle-line"></span>
+        <span class="b1-header__nav-toggle-line"></span>
+        <span class="b1-header__nav-toggle-line"></span>
+    </div>
+</header>
+
+    
+
+</div>
+<section class="b4-hero aem-GridColumn aem-GridColumn--default--12">
+
+
+    
+    <div class="product-hero generic-dark">
+        <div class="b4-hero__text text-container">
+            <div class="left-shape"><div class="left-line"></div></div>
+            <div class="row banner ">
+                <div class="col-lg-8 col-8 col-sm-12">
+                    <div class="section-content">
+
+
+                        <a><p class="b4-hero__kicker"></p></a>
+                        
+                        
+                        
+
+                        <h1 class="b4-hero__headline">Fortinet Releases Security Hardening Release for Multiple Products</h1>
+                        <p class="b4-hero__subtitle">Preparing for the forthcoming security hardening releases, including frontier AI fixes and how this will change the release process going forward</p>
+                        
+
+                    </div>
+                </div>
+                <div class="d-lg-block d-none col-lg-4 col-4 col-sm-12">
+                    <div class="section-aside">
+
+                        <div class="line" id="line-1"></div>
+                        <div class="right-dots">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="hero-banner-dots" data-name="hero-banner-dots" viewBox="0 0 525.6 211.74">
+                                <g>
+                                    <rect class="cls-1" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="51.82" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="103.65" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="155.47" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="207.3" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="259.12" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="310.95" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="362.77" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="414.6" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="466.42" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="518.25" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="51.82" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="103.65" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="155.47" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="207.3" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="259.12" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="310.95" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="362.77" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="414.6" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="466.42" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="518.25" y="51.18" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="51.82" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="103.65" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="155.47" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="207.3" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="259.12" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="310.95" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="362.77" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="414.6" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="466.42" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="518.25" y="102.36" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="51.82" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="103.65" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="155.47" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="207.3" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="259.12" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="310.95" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="362.77" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="414.6" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="466.42" y="153.53" width="7.35" height="7.03"/>
+                                    <rect class="cls-1" x="518.25" y="153.53" width="7.35" height="7.03"/>
+                                </g>
+                            </svg>
+                            <div class="right-line"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<section class="b15-blog-meta aem-GridColumn aem-GridColumn--default--12">
+
+<div class="b15-blog-meta__container text-container">
+    <span>By </span>
+
+    <span class="b15-blog-meta__author">
+
+        
+					
+
+                        
+
+                                  
+                                      
+                                            
+                                              <a href="/blog/search?author=Carl+Windsor">Carl Windsor</a>
+                                          
+                                          
+                                           
+                                      
+                                  
+                          
+                    
+        
+    </span>
+    <span class="b15-blog-meta__">
+        
+
+              </span>
+
+
+
+    <span class="b15-blog-meta__date"> | October 21, 2026</span>
+</div>
+</section>
+<div class="responsivegrid aem-GridColumn aem-GridColumn--default--12">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="C875-Disclaimer aem-GridColumn aem-GridColumn--default--12">
+
+</div>
+<div class="raw-import aem-GridColumn aem-GridColumn--default--12">
+<div class="text-container"><style>
+table.details-tbl tr th
+{
+overflow-wrap: anywhere;
+padding: 4px;
+border: 1px solid #000;
+background: #c00000;
+color: #FFFFFF;
+text-align: left;
+}
+
+table.details-tbl tr td
+{
+overflow-wrap: anywhere;
+padding: 4px;
+border: 1px solid #000;
+vertical-align: top;
+}
+table.call-out tr td
+{
+border: 1px solid rgb(50,62,72);
+padding: 40px;
+padding-left: 80px;
+padding-right: 80px;
+vertical-align: middle;
+text-align: center;
+}
+</style></div>
+</div>
+<div class="cmp cmp-text aem-GridColumn aem-GridColumn--default--12">
+  <p>On October 22, 2026, Fortinet will release a coordinated set of security updates for FortiOS, FortiManager, and FortiAnalyzer following recent releases from FortiMail and FortiAuthenticator. We strongly urge every customer to plan and promptly complete these upgrades as soon as the releases are available, prioritizing internet-facing devices.</p>
+<p>These releases include fixes to address vulnerabilities identified through our <a href="/blog/ciso-collective/update-on-fortinet-use-of-frontier-ai" title="frontier AI-assisted security testing program" aria-label="frontier AI-assisted security testing program">frontier AI-assisted security testing program</a>. Fortinet would like to thank Anthropic, OpenAI, Google, and SpaceX for their collaboration throughout this process.</p>
+<h2>What makes this release different</h2>
+<p>Fortinet has integrated frontier AI models into our product security testing process. These models analyze code paths, protocol handling, and configuration logic at a depth and speed that traditional fuzzing and manual review cannot match.</p>
+<p>This work has helped surface vulnerabilities more efficiently than conventional methods, allowing us to proactively fix them before they may be found and exploited by malicious actors. This is our secure-by-design commitment in practice: finding and closing weaknesses at the source.</p>
+<p>We are also being transparent about one implication. The same class of AI capability is becoming available to attackers, particularly as open weight models improve. The window between disclosure and exploitation continues to shrink, and we expect it to keep shrinking.</p>
+<h2>Why you should upgrade immediately</h2>
+<p>We recommend customers treat this release as a priority change rather than a routine maintenance cycle. Four factors drive this urgency:</p>
+<ol><li><b>Criticality of fixes: </b>These releases include critical and high-severity fixes.<b></b></li><li><b>Faster weaponization:</b> AI tools can now help adversaries reverse-engineer patches and build working exploits in hours or days, rather than weeks.</li><li><b>Patch diffing risk: </b>Once updates are public, the fixes themselves reveal where changes were made, exposing a potential system weakness. Unpatched devices then become easier targets for attackers.<b></b></li><li><b>Chaining of vulnerabilities: </b>AI has the ability to link seemingly unrelated lower severity vulnerabilities together to achieve a more severe, exploitable vulnerability.<b></b></li></ol>
+<p>Our recommendation is to apply temporary mitigations, including limiting exposure by managing devices out of band, moving resources behind VPN or SASE where feasible, and applying virtual patches until the patching can be prioritized.</p>
+
+
+</div>
+<div class="cmp cmp-text aem-GridColumn aem-GridColumn--default--12">
+  <p><b>Affected products and fixed versions</b></p>
+<center><table class="details-tbl" border="1" cellspacing="0" cellpadding="0" width="80%"><tbody><tr><th width="31%">Product</th><th width="23%">Affected Versions</th><th width="23%">Fixed Version</th><th width="23%">Availability</th></tr><tr><td>FortiOS 8.0</td><td>8.0.0–8.0.1</td><td>8.0.2 or above</td><td>October 22</td></tr><tr><td>FortiOS 7.6</td><td>7.6.0–7.6.7</td><td>7.6.8 or above</td><td>October 22</td></tr><tr><td>FortiOS 7.4</td><td>7.4.0–7.4.12</td><td>7.4.13 or above</td><td>October 22</td></tr><tr><td>FortiOS 7.2</td><td>7.2.0–7.2.13</td><td>7.2.14 or above</td><td>October 22</td></tr></tbody></table>
+</center>
+<p> </p>
+<center><table class="details-tbl" border="1" cellspacing="0" cellpadding="0" width="80%"><tbody><tr><th width="31%">Product</th><th width="23%">Affected Versions</th><th width="23%">Fixed Version</th><th width="23%">Availability</th></tr><tr><td>FortiManager 8.0</td><td>8.0.0–8.0.1</td><td>8.0.2 or above</td><td>October 22</td></tr><tr><td>FortiManager 7.6</td><td>7.6.0–7.6.7</td><td>7.6.8 or above</td><td>October 22</td></tr><tr><td>FortiManager 7.4</td><td>7.4.0–7.4.11</td><td>7.4.12 or above</td><td>October 22</td></tr><tr><td>FortiManager 7.2</td><td>7.2.0–7.2.12</td><td>7.2.13 or above</td><td>October 22</td></tr></tbody></table>
+</center>
+<p> </p>
+<center><table class="details-tbl" border="1" cellspacing="0" cellpadding="0" width="80%"><tbody><tr><th width="31%">Product</th><th width="23%">Affected Versions</th><th width="23%">Fixed Version</th><th width="23%">Availability</th></tr><tr><td>FortiAnalyzer 8.0</td><td>8.0.0–8.0.1</td><td>8.0.2 or above</td><td>October 22</td></tr><tr><td>FortiAnalyzer 7.6</td><td>7.6.0–7.6.7</td><td>7.6.8 or above</td><td>October 22</td></tr><tr><td>FortiAnalyzer 7.4</td><td>7.4.0–7.4.11</td><td>7.4.12 or above</td><td>October 22</td></tr><tr><td>FortiAnalyzer 7.2</td><td>7.2.0–7.2.12</td><td>7.2.13 or above</td><td>October 22</td></tr></tbody></table>
+</center>
+<p> </p>
+<center><table class="details-tbl" border="1" cellspacing="0" cellpadding="0" width="80%"><tbody><tr><th width="31%">Product</th><th width="23%">Affected Versions</th><th width="23%">Fixed Version</th><th width="23%">Availability</th></tr><tr><td>FortiMail 8.0</td><td>8.0.0–8.0.1</td><td>8.0.2 or above</td><td>Today</td></tr><tr><td>FortiMail 7.6</td><td>7.6.0–7.6.6</td><td>7.6.7 or above</td><td>Today</td></tr><tr><td>FortiMail 7.4</td><td>7.4.0–7.4.8</td><td>7.4.9 or above</td><td>Today</td></tr><tr><td>FortiMail 7.2</td><td>7.2.0–7.2.9</td><td>Upgrade to 7.4 branch or later</td><td>Today</td></tr></tbody></table>
+</center>
+<p> </p>
+<center><table class="details-tbl" border="1" cellspacing="0" cellpadding="0" width="80%"><tbody><tr><th width="31%">Product</th><th width="23%">Affected Versions</th><th width="23%">Fixed Version</th><th width="23%">Availability</th></tr><tr><td>FortiAuthenticator 8.0</td><td>8.0.0–8.0.3</td><td>8.0.4 or above</td><td>Today</td></tr><tr><td>FortiAuthenticator 6.6</td><td>6.6.0–6.6.10</td><td>6.6.11 or above</td><td>Today</td></tr></tbody></table>
+</center>
+
+
+</div>
+<div class="cmp cmp-text aem-GridColumn aem-GridColumn--default--12">
+  <p>Note that public advisories will be made available at the next Patch Tuesday on November 10 as part of Fortinet’s ongoing commitment to responsible transparency while balancing customer security. The advisories will be published on the <a href="https://www.fortiguard.com/psirt" target="_blank" title="Fortinet Product Security Incident Response Team (PSIRT) page" aria-label="Fortinet Product Security Incident Response Team (PSIRT) page" rel="noopener noreferrer">Fortinet Product Security Incident Response Team (PSIRT) page.</a></p>
+<ul><li>FortiSASE will be automatically updated prior to the release on October 22.</li><li>FortiManager Cloud releases will be available for update by October 22 but may require manual update.  </li><li>Updates for public cloud instances are in the process of being pushed out via the relevant cloud partners. Please follow their standard releases process.</li></ul>
+<h2>What to do, starting today</h2>
+<p>Prepare today so you can upgrade as soon as these releases are published on October 22.</p>
+<ul><li><b>Inventory:</b> Identify every FortiManager device and FortiOS instance, prioritizing those that are exposed to the internet</li><li><b>Schedule maintenance windows:</b> Prioritize change windows for October 22–23 for internet-facing systems</li><li><b>Back up configurations:</b> Save current configurations before upgrading</li><li><b>Monitor:</b> Watch logs for unusual administrative access or unapproved configuration changes before and after patching</li></ul>
+<p>If you cannot upgrade immediately, reduce exposure in the interim by:</p>
+<ul><li>Restricting administrative interfaces (HTTPS, SSH) to trusted IP addresses or disable them on external interfaces</li><li>Ensuring FortiManager administration is not reachable from the internet</li><li>Following best practices, which include:<ul><li>Using strong unique credentials</li><li>Enforcing MFA for all administrator accounts</li></ul>
+</li></ul>
+<p>These steps reduce risk but do not replace the need for a timely upgrade.</p>
+<h2>Our commitment</h2>
+<p>We believe customers are best protected when vendors proactively find and fix vulnerabilities and disclose them responsibly. Using frontier AI in our own testing is another way we stay ahead of attackers using the same tools. We will continue to apply these methods across the Fortinet portfolio and share our findings with customers in the spirit of security transparency.</p>
+<p>Thank you for acting quickly. For upgrade assistance, contact Fortinet Technical Support or your account team. Subscribe to <a href="https://www.fortiguard.com/psirt" target="_blank" title="FortiGuard PSIRT advisories" aria-label="FortiGuard PSIRT advisories" rel="noopener noreferrer">FortiGuard PSIRT advisories</a> for release-day details.</p>
+<center><p> </p>
+<p><i style="">- Carl Windsor, Chief Information Security Officer, Fortinet</i></p>
+<p> </p>
+<table class="call-out" cellpadding="1" cellspacing="0" border="1"><tbody><tr><td><p><i><b><a title="Global CISO Collective" aria-label="Global CISO Collective" href="https://global.fortinet.com/lp-en-wc-2026Q4-ciso-collective?lsci&#61;701Pr00000valFjIAI&amp;meeting_offer__c&#61;&amp;UID&#61;ftnt-3346-563028" target="_blank" rel="noopener noreferrer">Join</a> Carl Windsor on Wednesday, December 9 at 8 a.m. PT | 11 a.m. ET | 4 p.m. GMT for the next Fortinet Global CISO Collective, our quarterly conversation built by and for CISOs.</b></i></p>
+</td></tr></tbody></table>
+</center>
+<p><a></a><a href="/content/dam/fortinet/assets/solutions/fortinet-ai-enabled-security.pdf" target="_blank" title="The Cyber Implications of Frontier Cyber Models for Organizations and Customers" aria-label="The Cyber Implications of Frontier Cyber Models for Organizations and Customers" rel="noopener noreferrer"><b>Learn</b></a> how to prepare for AI enabled cyber events</p>
+
+
+</div>
+
+    
+</div>
+</div>
+<div class="b16-blog-tags aem-GridColumn aem-GridColumn--default--12">
+
+
+
+  <div class="b16-blog-tags__container text-container" style="display:none">
+    <span class="b16-blog-tags__headline">Tags:</span>
+    <p class="b16-blog-tags__tag-links">
+      <a href="https://www.fortinet.com/blog/tags-search.html?tag=artificialintelligence(ai)">artificial intelligence (AI)</a>, 
+    
+      <a href="https://www.fortinet.com/blog/tags-search.html?tag=ai-driven-security-operations">AI-Driven Security Operations</a>, 
+    
+      <a href="https://www.fortinet.com/blog/tags-search.html?tag=artificial-intelligence">artificial intelligence</a>
+    </p>
+  </div>
+
+</div>
+<section class="b12-related aem-GridColumn aem-GridColumn--default--12">
+
+
+<div class="b12-related__container text-container">
+    
+    
+    <h3>Related Posts</h3>
+    <div class="b12-related__posts">
+        
+        
+        <a href="/blog/ciso-collective/security-implications-of-quantum-computing" class="b12-related__post b12-related__post-0">
+            <div class="b12-related__image" style="background-image:url(/content/dam/fortinet-blog/article-heros/quantum-security-ciso-collective-blog-thumbnail.jpg.thumb.319.319.png);">
+                <img class="ratio" alt="The Security Implications of Quantum Computing: What CISOs Need to Know" aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAQAAAAe/WZNAAAADklEQVR42mNkgAJGDAYAAFEABCaLYqoAAAAASUVORK5CYII="/>
+            </div>
+            <div class="b12-related__text">
+                <p class="b12-related__category">
+                    CISO Collective
+                </p>
+                <h5 class="b12-related__title">The Security Implications of Quantum Computing: What CISOs Need to Know</h5>
+            </div>
+        </a>
+    
+    
+        
+        
+        <a href="/blog/business-and-technology/cisa-secure-by-design-pledge-in-practice" class="b12-related__post b12-related__post-1">
+            <div class="b12-related__image" style="background-image:url(/content/dam/fortinet-blog/article-heros/cisa-sbd-thumbnail.jpg.thumb.319.319.png);">
+                <img class="ratio" alt="The CISA Secure by Design Pledge in Practice: A Year in Review" aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAQAAAAe/WZNAAAADklEQVR42mNkgAJGDAYAAFEABCaLYqoAAAAASUVORK5CYII="/>
+            </div>
+            <div class="b12-related__text">
+                <p class="b12-related__category">
+                    Fortinet News &amp; Updates
+                </p>
+                <h5 class="b12-related__title">The CISA Secure by Design Pledge in Practice: A Year in Review</h5>
+            </div>
+        </a>
+    
+    
+        
+        
+        <a href="/blog/business-and-technology/fortinet-ai-the-next-generation-of-cloud-security" class="b12-related__post b12-related__post-2">
+            <div class="b12-related__image" style="background-image:url(/content/dam/fortinet-blog/article-heros/fortinet-ai-gen-cloud-security.jpg.thumb.319.319.png);">
+                <img class="ratio" alt="Fortinet + AI: The Next Generation of Cloud Security" aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAQAAAAe/WZNAAAADklEQVR42mNkgAJGDAYAAFEABCaLYqoAAAAASUVORK5CYII="/>
+            </div>
+            <div class="b12-related__text">
+                <p class="b12-related__category">
+                    Fortinet News &amp; Updates
+                </p>
+                <h5 class="b12-related__title">Fortinet &#43; AI: The Next Generation of Cloud Security</h5>
+            </div>
+        </a>
+    
+    </div>
+</div>
+
+</section>
+<div class="b13-comment-section aem-GridColumn aem-GridColumn--default--12">
+
+
+<div class="b13-comment-section__container text-container">
+
+
+  
+  
+ </div>
+</div>
+<div class="b6-footer aem-GridColumn aem-GridColumn--default--12">
+
+
+  
+
+  <div class="b6-footer__container text-container">
+    <div class="b6-footer__footer-info">
+      <div class="b6-footer__logo">
+        <a href="https://www.fortinet.com/.html" target="_blank">
+          <img src="/content/dam/fortinet-blog/fortinet-logo-white.svg" alt="Fortinet"/>
+        </a>
+      </div>
+      <div class="b6-footer__social-footer">
+        <ul>
+          
+            <li class="social-icon linkedin">
+              <a href="https://www.linkedin.com/company/fortinet" target="_blank">
+                
+    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.934 15.835H12.55v-5.712c0-.897-1.008-1.64-1.905-1.64s-1.48.743-1.48 1.64v5.712H5.78V5.68h3.385v1.693c.558-.905 1.996-1.49 2.96-1.49 2.116 0 3.81 1.727 3.81 3.817v6.135zm-11.846 0H.703V5.68h3.385v10.155zM2.395.605c.935 0 1.693.757 1.693 1.69 0 .936-.758 1.694-1.693 1.694S.703 3.23.703 2.29C.703 1.36 1.46.6 2.395.6z" fill-opacity=".8" fill="#fff" fill-rule="evenodd"></path>
+    </svg>
+
+              </a>
+            </li>
+          
+            <li class="social-icon twitter">
+              <a href="https://www.x.com/Fortinet" target="_blank">
+                
+    <svg width="1200" height="1227" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+    </svg>
+
+              </a>
+            </li>
+          
+            <li class="social-icon youtube">
+              <a href="https://www.youtube.com/channel/UCJHo4AuVomwMRzgkA5DQEOA?sub_confirmation=1" target="_blank">
+                
+    <svg viewBox="0 0 18 14" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.472 11.027V3.412L12.55 7.22l-5.08 3.806zM15.934.787C15.426.62 12.294.45 9.164.45c-3.13 0-6.26.16-6.77.322-1.32.44-1.69 3.4-1.69 6.447 0 3.03.37 6 1.69 6.43.51.17 3.64.33 6.77.33 3.13 0 6.262-.16 6.77-.33 1.32-.43 1.692-3.4 1.692-6.44 0-3.047-.372-6-1.692-6.43z" fill-opacity=".8" fill="#fff" fill-rule="evenodd"></path>
+    </svg>
+
+              </a>
+            </li>
+          
+            <li class="social-icon instagram">
+              <a href="https://www.instagram.com/fortinet/" target="_blank">
+                
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path class="st0" d="M16,3.7c4,0,4.5,0,6.1,0.1c1.5,0.1,2.3,0.3,2.8,0.5c0.7,0.3,1.2,0.6,1.7,1.1c0.5,0.5,0.8,1,1.1,1.7
+          c0.2,0.5,0.4,1.3,0.5,2.8c0.1,1.6,0.1,2.1,0.1,6.1s0,4.5-0.1,6.1c-0.1,1.5-0.3,2.3-0.5,2.8c-0.3,0.7-0.6,1.2-1.1,1.7
+          c-0.5,0.5-1,0.8-1.7,1.1c-0.5,0.2-1.3,0.4-2.8,0.5c-1.6,0.1-2.1,0.1-6.1,0.1s-4.5,0-6.1-0.1c-1.5-0.1-2.3-0.3-2.8-0.5
+          c-0.7-0.3-1.2-0.6-1.7-1.1c-0.5-0.5-0.8-1-1.1-1.7c-0.2-0.5-0.4-1.3-0.5-2.8C3.7,20.5,3.7,20,3.7,16s0-4.5,0.1-6.1
+          c0.1-1.5,0.3-2.3,0.5-2.8C4.6,6.5,4.9,6,5.4,5.4c0.5-0.5,1-0.8,1.7-1.1c0.5-0.2,1.3-0.4,2.8-0.5C11.5,3.7,12,3.7,16,3.7 M16,1
+          c-4.1,0-4.6,0-6.2,0.1C8.2,1.2,7.1,1.4,6.2,1.8c-1,0.4-1.8,0.9-2.7,1.7C2.7,4.4,2.2,5.2,1.8,6.2c-0.4,1-0.6,2-0.7,3.6
+          C1,11.4,1,11.9,1,16c0,4.1,0,4.6,0.1,6.2c0.1,1.6,0.3,2.7,0.7,3.6c0.4,1,0.9,1.8,1.7,2.7c0.8,0.8,1.7,1.3,2.7,1.7
+          c1,0.4,2,0.6,3.6,0.7C11.4,31,11.9,31,16,31s4.6,0,6.2-0.1c1.6-0.1,2.7-0.3,3.6-0.7c1-0.4,1.8-0.9,2.7-1.7c0.8-0.8,1.3-1.7,1.7-2.7
+          c0.4-1,0.6-2,0.7-3.6C31,20.6,31,20.1,31,16s0-4.6-0.1-6.2c-0.1-1.6-0.3-2.7-0.7-3.6c-0.4-1-0.9-1.8-1.7-2.7
+          c-0.8-0.8-1.7-1.3-2.7-1.7c-1-0.4-2-0.6-3.6-0.7C20.6,1,20.1,1,16,1L16,1z" fill-opacity=".8" fill="#fff" fill-rule="evenodd"></path>
+        <path class="st0" d="M16,8.3c-4.3,0-7.7,3.4-7.7,7.7s3.4,7.7,7.7,7.7s7.7-3.4,7.7-7.7S20.3,8.3,16,8.3z M16,21c-2.8,0-5-2.2-5-5
+          s2.2-5,5-5s5,2.2,5,5S18.8,21,16,21z" fill-opacity=".8" fill="#fff" fill-rule="evenodd"></path>
+        <circle class="st0" cx="24" cy="8" r="1.8" fill-opacity=".8" fill="#fff" fill-rule="evenodd"></circle>
+    </svg>
+
+              </a>
+            </li>
+          
+            <li class="social-icon facebook">
+              <a href="https://www.facebook.com/fortinet" target="_blank">
+                
+    <svg viewBox="0 0 9 18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.934.758v3.385H7.24c-.583 0-.845.685-.845 1.27v2.114h2.54v3.385h-2.54v6.77H3.01v-6.77H.472V7.527H3.01V4.143c0-1.87 1.516-3.385 3.385-3.385h2.54z" fill-opacity=".8" fill="#fff" fill-rule="evenodd"></path>
+    </svg>
+
+              </a>
+            </li>
+          
+            <li class="social-icon rss">
+              <a href="https://www.fortinet.com/rss-feeds.html" target="_blank">
+                
+    <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.072 17.68c-1.27 0-2.37-1.1-2.37-2.368 0-1.27 1.1-2.37 2.37-2.37s2.37 1.1 2.37 2.37-1.016 2.37-2.37 2.37zM.702.76v2.538c7.955 0 14.386 6.43 14.386 14.385h2.538C17.626 8.336 10.05.76.703.76zm0 5.162V8.46c5.078 0 9.224 4.146 9.224 9.223h2.54c0-6.514-5.248-11.76-11.763-11.76z" fill-opacity=".8" fill="#fff" fill-rule="evenodd"></path>
+    </svg>
+
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="b6-footer__footer-links">
+      
+        <div class="b6-footer__footer-links-column">
+          <h4 class="b6-footer__header">News &amp; Articles</h4>
+          <ul>
+            
+              <li>
+                <a href="/corporate/about-us/newsroom/press-releases" target="_blank">News Releases</a>
+              </li>
+            
+              <li>
+                <a href="/corporate/about-us/newsroom/news" target="_blank">News Articles</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+        <div class="b6-footer__footer-links-column">
+          <h4 class="b6-footer__header">Security Research</h4>
+          <ul>
+            
+              <li>
+                <a href="/fortiguard/threat-intelligence/threat-research" target="_self">Threat Research</a>
+              </li>
+            
+              <li>
+                <a href="https://fortiguard.com/" target="_blank">FortiGuard Labs</a>
+              </li>
+            
+              <li>
+                <a href="/fortiguard/threat-intelligence/threat-map" target="_self">Threat Map</a>
+              </li>
+            
+              <li>
+                <a href="/solutions/ransomware" target="_self">Ransomware Prevention</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+        <div class="b6-footer__footer-links-column">
+          <h4 class="b6-footer__header">Connect With Us</h4>
+          <ul>
+            
+              <li>
+                <a href="https://community.fortinet.com/" target="_blank">Fortinet Community</a>
+              </li>
+            
+              <li>
+                <a href="/partners/partner-program/become-a-fortinet-partner" target="_blank">Partner Portal</a>
+              </li>
+            
+              <li>
+                <a href="https://investor.fortinet.com/" target="_blank">Investor Relations</a>
+              </li>
+            
+              <li>
+                <a href="/corporate/about-us/product-certifications" target="_blank">Product Certifications</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+        <div class="b6-footer__footer-links-column">
+          <h4 class="b6-footer__header">Company</h4>
+          <ul>
+            
+              <li>
+                <a href="/corporate/about-us/about-us" target="_blank">About Us</a>
+              </li>
+            
+              <li>
+                <a href="/corporate/about-us/executive-management" target="_self">Exec Mgmt</a>
+              </li>
+            
+              <li>
+                <a href="/corporate/careers" target="_self">Careers</a>
+              </li>
+            
+              <li>
+                <a href="/nse-training" target="_self">Training</a>
+              </li>
+            
+              <li>
+                <a href="/corporate/about-us/events" target="_self">Events</a>
+              </li>
+            
+              <li>
+                <a href="/corporate/about-us/industry-awards" target="_self">Industry Awards</a>
+              </li>
+            
+              <li>
+                <a href="/corporate/about-us/corporate-social-responsibility" target="_self">Social Responsibility</a>
+              </li>
+            
+              <li>
+                <a href="/resources/cyberglossary" target="_self">CyberGlossary</a>
+              </li>
+            
+              <li>
+                <a href="/sitemap" target="_self">Sitemap</a>
+              </li>
+            
+              <li>
+                <a href="/sitemap/blog" target="_self">Blog Sitemap</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+        <div class="b6-footer__footer-links-column">
+          <h4 class="b6-footer__header"></h4>
+          <ul>
+            
+          </ul>
+        </div>
+      
+      
+    </div>
+    <div class="b6-footer__copyright">
+      <div class="b6-footer__copyright-info">
+        <p class="b6-footer__copyright-text">Copyright © 2026 Fortinet, Inc. All Rights Reserved</p>
+        
+          <a class="b6-footer__copyright-link" href="/corporate/about-us/legal" target="_blank">Terms of Services</a>
+        
+          <a class="b6-footer__copyright-link" href="/corporate/about-us/privacy" target="_blank">Privacy Policy</a>
+        
+        <span class="ot-ftnt-cookie-settings"> | <a href="#" onclick="window.DG_BANNER_API.showLayer('categories-layer')">Cookie Settings</a></span>
+          
+      </div>
+
+
+    </div>
+  </div>
+
+<!-- Launch COnfiguration -->
+
+
+<!-- END Launch COnfiguration --></div>
+
+    
+</div>
+</div>
+
+
+      
+    
+    
+    
+    
+<script src="/etc.clientlibs/fortinet-blog/clientlibs/clientlib-base.min.js"></script>
+
+
+
+
+
+    
+
+
+      
+
+      <!-- BE IXF: The following <div> block needs to be placed in the location where the link block will be displayed
+    BE IXF: For your website, the location is above/below ...-->
+      
+        <div class="be-ix-link-block">
+          <div class="be-related-link-container container">
+            <div class="be-label" style="flex-basis: auto">
+              FORTINET: Cybersecurity everywhere you need it
+            </div>
+          </div>
+        </div>
+        <div class="be-ix-link-block">
+          <div class="be-related-link-container container"><div class="be-label">Also of Interest:</div><ul class="be-list"><li class="be-list-item"><a class="be-related-link" href="https://www.fortinet.com/blog/psirt-blogs/analysis-of-reported-credential-compromise-of-fortigate-devices">What is Fortibleed?</a></li><li class="be-list-item"><a class="be-related-link" href="https://www.fortinet.com/blog/industry-trends/paying-ransomware">Pay Ransomware Settlements?</a></li><li class="be-list-item"><a class="be-related-link" href="https://www.fortinet.com/blog/life-at-fortinet">Life at Fortinet</a></li><li class="be-list-item"><a class="be-related-link" href="https://www.fortinet.com/blog/psirt-blogs">Fortinet CVE Analysis</a></li></ul> </div>
+<!--
+   be_sdkms_pub:link-block; link-block_1.0.0.0; bodystr;
+   be_sdkms_date_modified:pn_tstr:Mon Aug 24 14:53:11 UTC 2026; pn_epoch:1787583191769;
+   be_sdkms_timer: 0;
+-->
+
+          
+        </div>
+      
+      <!-- BE IXF: Footer End -->
+    </body>
+  </html>
+

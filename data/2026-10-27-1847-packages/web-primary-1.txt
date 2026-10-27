@@ -1,0 +1,553 @@
+Vulnerabilities in Supermicro BMC firmware, October 26, 2026 (1) | Supermicro (https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1)
+citeturn11view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1","lineno":null}); Total lines: 532
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: Welcome
+L3: 
+L4:   * Sign In
+L5:   * Create Account
+L6:   * Reset Password
+L7:   * Manage Account
+L8:   * Manage Email preferences
+L9:   * Sign Out
+L10: 
+L11: 【1†Image: Close】
+L12: 
+L13: 
+L14: 
+L15: 
+L16: 
+L17: Vulnerabilities in Supermicro BMC firmware, October 26, 2026 (1)
+L18: 
+L19: ### Vulnerability Disclosure:
+L20: 
+L21: The purpose of this disclosure is to communicate the potential vulnerabilities affecting Supermicro products that were reported by an external researcher.
+L22: ### Acknowledgement:
+L23: 
+L24: Supermicro would like to acknowledge the work done by runZero researchers to discover potential vulnerabilities in Supermicro BMC Firmware.
+L25: ### Summary:
+L26: 
+L27: Eight security issues have been discovered in select supermicro boards. These issues may affect Supermicro BMC Firmware.
+L28: 
+L29: CVE ID  | Severity  | Issue Type  | Description
+L30: --- | --- | --- | ---
+L31: 
+L32:   * CVE-2026-18449
+L33:  | High  | SMCRAKP Fixed Key  | The SMCRAKP implementation used by the BMC contains a hardcoded key, which may allow an attacker to crack a password hash.7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
+L34:   * CVE-2026-18450
+L35:  | Critical  | Unprotected IPMI Commands Accepted on Active RMCP+ Sessions  | The BMC does not correctly enforce integrity and encryption requirements for IPMI commands. An attacker may be able to craft packets that execute arbitrary commands on an active session.9.8 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+L36:   * CVE-2026-18451
+L37:  | Low  | Predictable Time-Seeded Launch Token Allows KVM Session Hijacking  | The HTML5 KVM-over-IP console authenticates with a token returned by the web interface. Weaknesses in token generation may allow an attacker to guess the session token and take control of the KVM session.3.1 CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N
+L38:   * CVE-2026-65219
+L39:  | High  | Unordered RAKP Message 3 Grants an IPMI Session  | A flaw in the BMC RAKP+ implementation may allow an attacker to send a request followed by a specially crafted RAKP message and establish an RMCP+ session, which could then be used to execute commands.7.4 CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N
+L40:   * CVE-2026-65220
+L41:  | High  | Privilege escalation  | A logic flaw in the BMC IPMI implementation may allow an attacker to send specially crafted RAKP+ messages and escalate an account to administrator privileges.8.8 CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+L42:   * CVE-2026-65210
+L43:  | Medium  | Arbitrary File Access  | This issue may allow an authenticated IPMI Administrator to read arbitrary files from the BMC filesystem, disclosing material well beyond the intended IPMI management role.4.9 CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
+L44:   * CVE-2026-65211
+L45:  | High  | Critical Privilege Escalation and Arbitrary Access  | This issue may allow an authenticated IPMI Administrator to read and write arbitrary BMC physical memory and thereby execute code on the BMC operating system.7.2 CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+L46:   * CVE-2026-65213
+L47:  | Medium  | Arbitrary Command Execution with Superuser Privileges  | This issue may allow an IPMI authenticated administrator to execute commands as the operating system root user on the BMC 6.6 CVSS:3.1:/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H
+L48: Affected Products
+L49: Motherboard  | BMC FW Version with the Fix
+L50: --- | ---
+L51: MBD-X13DEG-QT  | 01.08.16
+L52: MBD-X13SET-GC  | 01.08.16
+L53: MBD-X13SET-G  | 01.08.16
+L54: MBD-X13QEH+  | 01.08.16
+L55: MBD-X13DEG-R  | 01.13.11
+L56: MBD-X13DDW-A  | 01.13.09
+L57: MBD-X13DAI-T  | 01.08.18
+L58: MBD-X13DEI-T  | 01.09.15
+L59: MBD-X13DEI  | 01.09.15
+L60: MBD-X13DGU  | 01.13.13
+L61: MBD-X13SEI-TF  | 01.13.11
+L62: MBD-X13SEI-F  | 01.13.11
+L63: MBD-X13SEW-TF  | 01.13.11
+L64: MBD-X13SEW-F  | 01.13.11
+L65: MBD-X13DEG-OA  | 01.13.13
+L66: MBD-X13SCH-LN4F  | 01.09.06
+L67: MBD-X13SCH-F  | 01.09.06
+L68: MBD-X13SCL-F  | 01.14.01
+L69: MBD-X13SCH-SYS  | 01.09.06
+L70: MBD-X13SCD-F  | 01.03.10
+L71: MBD-X13SCL-IF  | 01.14.01
+L72: MBD-H13SVW-NT  | 01.08.07
+L73: MBD-H13SVW-N  | 01.08.07
+L74: MBD-H13SSL-NT  | 01.09.08
+L75: MBD-H13SSL-N  | 01.09.08
+L76: MBD-H13DSG-O-CPU  | 01.13.07
+L77: MBD-H13DSH  | 01.09.08
+L78: MBD-H13SSW  | 01.09.07
+L79: MBD-H13SST-GC  | 01.09.07
+L80: MBD-H13SST-G  | 01.09.07
+L81: MBD-H13SAE-MF  | 01.09.04
+L82: MBD-H13SRD-F  | 01.05.11
+L83: MBD-H13SRE-F  | 01.05.11
+L84: MBD-H13SRA-F  | 01.05.08
+L85: MBD-H13SRA-TF  | 01.05.08
+L86: MBD-X13SEB-TF  | 01.08.04
+L87: MBD-H14SSL-N  | 01.07.05.05
+L88: MBD-H14SSL-NT  | 01.07.05.05
+L89: MBD-H14SST-GE  | 01.07.04.02
+L90: MBD-H14DSG-O-CPU  | 01.07.05.04
+L91: MBD-H14SST-G  | 01.07.04.02
+L92: MBD-H14DSH  | 01.07.05.04
+L93: MBD-H14SRV-HLN4F  | 01.07.01.06
+L94: MBD-H12DSU-iNR  | 01.04.13
+L95: MBD-H12DGO-6  | 01.06.05
+L96: MBD-H12SSW-iNR  | 01.08.08
+L97: MBD-H12SSL-NT  | 01.08.05
+L98: MBD-H12SSL-CT  | 01.08.05
+L99: MBD-H12SSL-C  | 01.08.05
+L100: MBD-H12SSL-i  | 01.08.05
+L101: MBD-H12DSG-Q-CPU6  | 01.06.05
+L102: MBD-H12SSW-NTR  | 03.10.51
+L103: MBD-H12DSG-O-CPU  | 01.08.08
+L104: MBD-X12DGO-6  | 01.09.07
+L105: MBD-X12DSC-6  | 01.15.01
+L106: MBD-X12DGU  | TBD
+L107: MBD-X12SPT-GC  | 1.07.05
+L108: MBD-X12SPT-G  | 1.07.05
+L109: MBD-H12DSi-NT6  | 01.06.37
+L110: MBD-H12DSi-N6  | 01.06.37
+L111: MBD-H12SSW-AN6  | 01.06.37
+L112: MBD-H12SSFR-AN6  | 01.06.37
+L113: MBD-H12DGQ-NT6  | 01.06.36
+L114: MBD-X12SPO-NTF  | 01.07.27
+L115: MBD-X12DPG-QT6  | 01.07.24
+L116: MBD-X12DPG-U6  | 01.08.19
+L117: MBD-X12DAI-N6  | 01.08.22
+L118: MBD-X12SPi-TF  | 01.07.27
+L119: MBD-X12SPW-TF  | 01.07.28
+L120: MBD-X12SPO-F  | 01.07.27
+L121: MBD-X12DPU-6  | 01.08.24
+L122: MBD-X12DPi-NT6  | 01.08.20
+L123: MBD-X12DPi-N6  | 01.08.20
+L124: MBD-X12SPM-LN6TF  | 01.07.27
+L125: MBD-X12SPZ-SPLN6F  | 01.15.06
+L126: MBD-X12SPL-F  | 01.07.28
+L127: MBD-X12DPL-NT6  | 01.07.27
+L128: MBD-X12DPL-i6  | 01.07.27
+L129: MBD-X12SPZ-LN4F  | 01.15.06
+L130: MBD-X12SPED-F  | 01.07.27
+L131: MBD-X12DPG-QBT6  | 01.05.40
+L132: MBD-X12DHM-6  | 01.08.20
+L133: MBD-X12DPG-AR  | 01.07.26
+L134: MBD-X12DPFR-AN6  | 01.08.21
+L135: MBD-X12DDW-A6  | 01.08.20
+L136: MBD-X12SPW-TF-001  | 01.07.28
+L137: MBD-X12SPM-LN4F  | 01.07.27
+L138: MBD-X12SPL-LN4F  | 01.07.28
+L139: MBD-X12DSC-A6  | 01.07.27
+L140: MBD-X12SPW-F  | 01.07.28
+L141: MBD-X12SPM-TF  | 01.07.27
+L142: MBD-X13SAZ-F  | 01.09.09
+L143: MBD-X13SAE-F  | 01.04.23
+L144: MBD-X13SWA-TF  | 01.09.09
+L145: MBD-X13SRA-TF  | 01.09.09
+L146: MBD-X12STH-SYS  | 01.06.18
+L147: MBD-X12STE-F  | 01.06.18
+L148: MBD-X12STL-F  | 01.06.18
+L149: MBD-X12STD-F  | 01.06.18
+L150: MBD-X12SDV-4C-SPT4F  | 01.11.07
+L151: MBD-X12SDV-14C-SPT8F  | 01.11.07
+L152: MBD-X12SDV-10C-SPT4F  | 01.11.07
+L153: MBD-X12SDV-8C-SPT4F  | 01.11.07
+L154: MBD-X12SDV-10C-SP6F  | 01.11.07
+L155: MBD-X12SDV-8CE-SP4F  | 01.11.07
+L156: MBD-X12SDV-8C-SP6F  | 01.11.07
+L157: MBD-X12SDV-4C-SP6F  | 01.11.07
+L158: MBD-X12SDV-20C-SPT8F  | 01.11.07
+L159: MBD-X12SDV-16C-SPT8F  | 01.11.07
+L160: MBD-X12SDV-8C-SPT8F  | 01.11.07
+--------------------------------------------------------------------------------
+CVE-2026-2270: StatefulSet and ControllerRevision write permissions allow cross-namespace pod creation · Issue #142097 · kubernetes/kubernetes · GitHub (https://github.com/kubernetes/kubernetes/issues/142097)
+citeturn11view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://github.com/kubernetes/kubernetes/issues/142097","lineno":null}); Total lines: 325
+L0: 【0†Skip to content】
+L1: ## Navigation Menu
+L2: 
+L3: 【1†Sign in】
+L4: 
+L5: Appearance settings
+L6: 
+L7:   * Platform
+L8: 
+L9:     * AI CODE CREATION
+L10:       * 【2†GitHub CopilotWrite better code with AI】
+L11:       * 【3†GitHub Copilot appDirect agents from issue to merge】
+L12:       * 【4†MCP RegistryIntegrate external tools】
+L13: 
+L14:     * DEVELOPER WORKFLOWS
+L15:       * 【5†ActionsAutomate any workflow】
+L16:       * 【6†CodespacesInstant dev environments】
+L17:       * 【7†IssuesPlan and track work】
+L18:       * 【8†Code ReviewManage code changes】
+L19:       * 【9†Code QualityEnforce quality at merge】
+L20:     * APPLICATION SECURITY
+L21:       * 【10†GitHub Advanced SecurityFind and fix vulnerabilities】
+L22:       * 【11†Code securitySecure your code as you build】
+L23:       * 【12†Secret protectionStop leaks before they start】
+L24: 
+L25:     * EXPLORE
+L26:       * 【13†Why GitHub】
+L27:       * 【14†Documentation†docs.github.com】
+L28:       * 【15†Blog†github.blog】
+L29:       * 【16†Changelog†github.blog】
+L30:       * 【17†Marketplace】
+L31: 
+L32: 【18†View all features】
+L33: 
+L34:   * Solutions
+L35:     * BY COMPANY SIZE
+L36:       * 【19†Enterprises】
+L37:       * 【20†Small and medium teams】
+L38:       * 【21†Startups】
+L39:       * 【22†Nonprofits】
+L40: 
+L41:     * BY USE CASE
+L42:       * 【23†App Modernization】
+L43:       * 【24†DevSecOps】
+L44:       * 【25†DevOps】
+L45:       * 【26†CI/CD】
+L46:       * 【27†View all use cases】
+L47: 
+L48:     * BY INDUSTRY
+L49:       * 【28†Healthcare】
+L50:       * 【29†Financial services】
+L51:       * 【30†Manufacturing】
+L52:       * 【31†Government】
+L53:       * 【32†See all industries】
+L54: 
+L55: 【33†View all solutions】
+L56: 
+L57:   * Resources
+L58:     * EXPLORE BY TOPIC
+L59:       * 【34†AI】
+L60:       * 【35†Software Development】
+L61:       * 【36†DevOps】
+L62:       * 【37†Security】
+L63:       * 【38†View all topics】
+L64: 
+L65:     * EXPLORE BY TYPE
+L66:       * 【39†Customer stories】
+L67:       * 【40†Events & webinars】
+L68:       * 【41†Ebooks & reports】
+L69:       * 【42†Business insights】
+L70:       * 【43†GitHub Skills†skills.github.com】
+L71:     * SUPPORT & SERVICES
+L72:       * 【14†Documentation†docs.github.com】
+L73:       * 【44†Customer support†support.github.com】
+L74:       * 【45†Community forum】
+L75:       * 【46†Trust center】
+L76:       * 【47†Partners】
+L77: 
+L78: 【48†View all resources】
+L79: 
+L80:   * Open Source
+L81: 
+L82:     * COMMUNITY
+L83:       * 【49†GitHub SponsorsFund open source developers】
+L84:     * PROGRAMS
+L85:       * 【50†Security Lab†securitylab.github.com】
+L86:       * 【51†Maintainer Community†maintainers.github.com】
+L87:       * 【52†GitHub Stars†stars.github.com】
+L88:       * 【53†Archive Program†archiveprogram.github.com】
+L89: 
+L90:     * REPOSITORIES
+L91:       * 【54†Topics】
+L92:       * 【55†Trending】
+L93:       * 【56†Collections】
+L94: 
+L95:   * Enterprise
+L96: 
+L97:     * ENTERPRISE SOLUTIONS
+L98:       * 【19†Enterprise platformAI-powered developer platform】
+L99:     * AVAILABLE ADD-ONS
+L100:       * 【10†GitHub Advanced SecurityEnterprise-grade security features】
+L101:       * 【57†Copilot for BusinessEnterprise-grade AI features】
+L102:       * 【58†Premium SupportEnterprise-grade 24/7 support】
+L103: 
+L104:   * 【59†Pricing】
+L105: 
+L106: Search`/`
+L107: 
+L108: 【1†Sign in】
+L109: 
+L110: 【60†Sign up】
+L111: 
+L112: Appearance settings
+L113: You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert
+L114: 
+L115:   1. 【61†kubernetes】
+L116:   2. 【62†kubernetes】
+L117: ## Repository navigation
+L118: 
+L119:   *   * 【62†Code】
+L120:   * 【63†Issues1.9k (1.9k)】
+L121:   * 【64†Pull requests1.4k (1.4k)】
+L122:   * 【65†Actions】
+L123:   * 【66†Projects】
+L124:   * 【67†Security and quality】
+L125:   * 【68†Insights】
+L126: 
+L127: More items
+L128: # CVE-2026-2270: StatefulSet and ControllerRevision write permissions allow cross-namespace pod creation #142097
+L129: 
+L130: New issue
+L131: 
+L132: Copy link
+L133: 
+L134: New issue
+L135: 
+L136: Copy link
+L137: 
+L138: Closed
+L139: 
+L140: Closed
+L141: 
+L142: 【69†CVE-2026-2270: StatefulSet and ControllerRevision write permissions allow cross-namespace pod creation】#142097
+L143: 
+L144: Copy link
+L145: 
+L146: Labels
+L147: 【70†area/security】【71†committee/security-responseDenotes an issue or PR intended to be handled by the product security committee.】Denotes an issue or PR intended to be handled by the product security committee.【72†kind/bugCategorizes issue or PR as related to a bug.】Categorizes issue or PR as related to a bug.【73†needs-triageIndicates an issue or PR lacks a `triage/foo` label and requires one.】Indicates an issue or PR lacks a `triage/foo` label and requires one.【74†official-cve-feedIssues or PRs related to CVEs officially announced by Security Response Committee (SRC)】Issues or PRs related to CVEs officially announced by Security Response Committee (SRC)
+L148: ## Description
+L149: 
+L150: 【75†natherz97】
+L151: 
+L152: opened 【76†on Sep 14, 2026】
+L153: 
+L154: Issue body actions
+L155: 
+L156: CVSS Rating: 【77†CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N†www.first.org】 - Medium (5.9)
+L157: A confused deputy attack exists in the StatefulSet controller that allows a user with namespace-scoped write permissions on StatefulSet and ControllerRevision objects to create a cross-namespace pod. An attacker exploiting this vulnerability would have full control over the resulting pod’s metadata and specification, including namespace selection.
+L158: Note that the cross-namespace pod will be immediately deleted by the garbage collector unless the attacker is able to construct a valid StatefulSet OwnerReference. This would require referencing the UID of an existing StatefulSet in the victim’s namespace.
+L159: #### Affected Versions
+L160: 
+L161: kube-controller-manager: <= v1.34.11
+L162: kube-controller-manager: <= v1.35.8
+L163: kube-controller-manager: <= v1.36.4
+L164: kube-controller-manager: = v1.37.0
+L165: 
+L166: ### How do I mitigate this vulnerability?
+L167: 
+L168: This issue can be mitigated by upgrading to a fixed kube-controller-manager version. The fixed versions are patched to ensure that only the spec field in StatefulSets will be restored from ControllerRevisions.
+L169: #### Fixed Versions
+L170: 
+L171: kube-controller-manager: >= v1.34.12
+L172: kube-controller-manager: >= v1.35.9
+L173: kube-controller-manager: >= v1.36.5
+L174: kube-controller-manager: >= v1.37.1
+L175: 
+L176: If you find evidence that this vulnerability has been exploited, please contact security@kubernetes.io
+L177: #### Acknowledgements
+L178: 
+L179: This vulnerability was reported by ImanOracle.
+L180: 
+L181: The issue was fixed and coordinated by:
+L182: 
+L183: Maciej Szulik 【78†@soltysh】
+L184: Filip Křepinský 【79†@atiratree】
+L185: Verónica López 【80†@Verolop】
+L186: Jeremy Rickard 【81†@jeremyrickard】
+L187: Nathan Herz 【75†@natherz97】
+L188: 
+--------------------------------------------------------------------------------
+CVE-2026-76654: Subpath symlinking on Windows nodes permits NTLM coercion · Issue #142098 · kubernetes/kubernetes · GitHub (https://github.com/kubernetes/kubernetes/issues/142098)
+citeturn11view2 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://github.com/kubernetes/kubernetes/issues/142098","lineno":null}); Total lines: 318
+L0: 【0†Skip to content】
+L1: ## Navigation Menu
+L2: 
+L3: 【1†Sign in】
+L4: 
+L5: Appearance settings
+L6: 
+L7:   * Platform
+L8: 
+L9:     * AI CODE CREATION
+L10:       * 【2†GitHub CopilotWrite better code with AI】
+L11:       * 【3†GitHub Copilot appDirect agents from issue to merge】
+L12:       * 【4†MCP RegistryIntegrate external tools】
+L13: 
+L14:     * DEVELOPER WORKFLOWS
+L15:       * 【5†ActionsAutomate any workflow】
+L16:       * 【6†CodespacesInstant dev environments】
+L17:       * 【7†IssuesPlan and track work】
+L18:       * 【8†Code ReviewManage code changes】
+L19:       * 【9†Code QualityEnforce quality at merge】
+L20:     * APPLICATION SECURITY
+L21:       * 【10†GitHub Advanced SecurityFind and fix vulnerabilities】
+L22:       * 【11†Code securitySecure your code as you build】
+L23:       * 【12†Secret protectionStop leaks before they start】
+L24: 
+L25:     * EXPLORE
+L26:       * 【13†Why GitHub】
+L27:       * 【14†Documentation†docs.github.com】
+L28:       * 【15†Blog†github.blog】
+L29:       * 【16†Changelog†github.blog】
+L30:       * 【17†Marketplace】
+L31: 
+L32: 【18†View all features】
+L33: 
+L34:   * Solutions
+L35:     * BY COMPANY SIZE
+L36:       * 【19†Enterprises】
+L37:       * 【20†Small and medium teams】
+L38:       * 【21†Startups】
+L39:       * 【22†Nonprofits】
+L40: 
+L41:     * BY USE CASE
+L42:       * 【23†App Modernization】
+L43:       * 【24†DevSecOps】
+L44:       * 【25†DevOps】
+L45:       * 【26†CI/CD】
+L46:       * 【27†View all use cases】
+L47: 
+L48:     * BY INDUSTRY
+L49:       * 【28†Healthcare】
+L50:       * 【29†Financial services】
+L51:       * 【30†Manufacturing】
+L52:       * 【31†Government】
+L53:       * 【32†See all industries】
+L54: 
+L55: 【33†View all solutions】
+L56: 
+L57:   * Resources
+L58:     * EXPLORE BY TOPIC
+L59:       * 【34†AI】
+L60:       * 【35†Software Development】
+L61:       * 【36†DevOps】
+L62:       * 【37†Security】
+L63:       * 【38†View all topics】
+L64: 
+L65:     * EXPLORE BY TYPE
+L66:       * 【39†Customer stories】
+L67:       * 【40†Events & webinars】
+L68:       * 【41†Ebooks & reports】
+L69:       * 【42†Business insights】
+L70:       * 【43†GitHub Skills†skills.github.com】
+L71:     * SUPPORT & SERVICES
+L72:       * 【14†Documentation†docs.github.com】
+L73:       * 【44†Customer support†support.github.com】
+L74:       * 【45†Community forum】
+L75:       * 【46†Trust center】
+L76:       * 【47†Partners】
+L77: 
+L78: 【48†View all resources】
+L79: 
+L80:   * Open Source
+L81: 
+L82:     * COMMUNITY
+L83:       * 【49†GitHub SponsorsFund open source developers】
+L84:     * PROGRAMS
+L85:       * 【50†Security Lab†securitylab.github.com】
+L86:       * 【51†Maintainer Community†maintainers.github.com】
+L87:       * 【52†GitHub Stars†stars.github.com】
+L88:       * 【53†Archive Program†archiveprogram.github.com】
+L89: 
+L90:     * REPOSITORIES
+L91:       * 【54†Topics】
+L92:       * 【55†Trending】
+L93:       * 【56†Collections】
+L94: 
+L95:   * Enterprise
+L96: 
+L97:     * ENTERPRISE SOLUTIONS
+L98:       * 【19†Enterprise platformAI-powered developer platform】
+L99:     * AVAILABLE ADD-ONS
+L100:       * 【10†GitHub Advanced SecurityEnterprise-grade security features】
+L101:       * 【57†Copilot for BusinessEnterprise-grade AI features】
+L102:       * 【58†Premium SupportEnterprise-grade 24/7 support】
+L103: 
+L104:   * 【59†Pricing】
+L105: 
+L106: Search`/`
+L107: 
+L108: 【1†Sign in】
+L109: 
+L110: 【60†Sign up】
+L111: 
+L112: Appearance settings
+L113: You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert
+L114: 
+L115:   1. 【61†kubernetes】
+L116:   2. 【62†kubernetes】
+L117: ## Repository navigation
+L118: 
+L119:   *   * 【62†Code】
+L120:   * 【63†Issues1.9k (1.9k)】
+L121:   * 【64†Pull requests1.4k (1.4k)】
+L122:   * 【65†Actions】
+L123:   * 【66†Projects】
+L124:   * 【67†Security and quality】
+L125:   * 【68†Insights】
+L126: 
+L127: More items
+L128: # CVE-2026-76654: Subpath symlinking on Windows nodes permits NTLM coercion #142098
+L129: 
+L130: New issue
+L131: 
+L132: Copy link
+L133: 
+L134: New issue
+L135: 
+L136: Copy link
+L137: 
+L138: Closed
+L139: 
+L140: Closed
+L141: 
+L142: 【69†CVE-2026-76654: Subpath symlinking on Windows nodes permits NTLM coercion】#142098
+L143: 
+L144: Copy link
+L145: 
+L146: Labels
+L147: 【70†area/security】【71†committee/security-responseDenotes an issue or PR intended to be handled by the product security committee.】Denotes an issue or PR intended to be handled by the product security committee.【72†kind/bugCategorizes issue or PR as related to a bug.】Categorizes issue or PR as related to a bug.【73†needs-triageIndicates an issue or PR lacks a `triage/foo` label and requires one.】Indicates an issue or PR lacks a `triage/foo` label and requires one.【74†official-cve-feedIssues or PRs related to CVEs officially announced by Security Response Committee (SRC)】Issues or PRs related to CVEs officially announced by Security Response Committee (SRC)
+L148: ## Description
+L149: 
+L150: 【75†natherz97】
+L151: 
+L152: opened 【76†on Sep 14, 2026】
+L153: 
+L154: Issue body actions
+L155: 
+L156: CVSS Rating: 【77†CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:H/I:N/A:N†www.first.org】 - Medium (5.8)
+L157: An NTLM coercion vulnerability exists on Windows nodes when the subPath supplied in a pod's volumeMounts is set to a symbolic link that points to an attacker-controlled network share. When a kubelet resolves symlinks, it does not reject a target that resolves to a UNC path. As a result, the kubelet will transparently attempt to authenticate to the share using NTLM.
+L158: This allows an attacker to obtain the NetNTLMv2 hash of the account under which the kubelet is running. An attacker could then attempt to crack the hash to retrieve the corresponding password or relay it to impersonate the node, if the node is domain-joined.
+L159: #### Affected Versions
+L160: 
+L161: kubelet: <= v1.34.11
+L162: kubelet: <= v1.35.8
+L163: kubelet: <= v1.36.4
+L164: kubelet: = v1.37.0
+L165: 
+L166: ### How do I mitigate this vulnerability?
+L167: 
+L168: This issue can be mitigated by upgrading to a fixed kubelet version. The fixed versions update kubelet to refuse UNC symlink targets on Windows.
+L169: 
+L170: #### Fixed Versions
+L171: 
+L172: kubelet: >= v1.34.12
+L173: kubelet: >= v1.35.9
+L174: kubelet: >= v1.36.5
+L175: kubelet: >= v1.37.1
+L176: 
+L177: If you find evidence that this vulnerability has been exploited, please contact security@kubernetes.io
+L178: #### Acknowledgements
+L179: 
+L180: This vulnerability was reported by the Kubernetes Third-Party Security Audit subproject, OSTIF, and Shielder.
+L181: 
+L182: The issue was fixed and coordinated by:
+L183: 
+L184: Yuanliang Zhang 【78†@zylxjtu】
+L185: Verónica López 【79†@Verolop】
+L186: Jeremy Rickard 【80†@jeremyrickard】
+L187: Nathan Herz 【75†@natherz97】
+L188: 
+L189: Reactions are currently unavailable
+--------------------------------------------------------------------------------
+Internal Error ()
+citeturn11view3 [wordlim: 200] Source: open({"ref_id":"https://fortiguard.fortinet.com/psirt/FG-IR-26-181","lineno":null}); Total lines: 1
+L0: Failed to fetch https://fortiguard.fortinet.com/psirt/FG-IR-26-181: (403) Forbidden
+

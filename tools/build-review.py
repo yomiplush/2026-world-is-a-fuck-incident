@@ -52,7 +52,12 @@ def main(path):
     content += '<section id="evidence"><h2>収集範囲・重複・限界</h2><div class="evidence-counts">' + ''.join(
         f'<div><strong>{value:,}</strong><span>{esc(label)}</span></div>' for label, value in stats) + '</div>'
     ghsa_note = (f'GHSA新規公開{counts["ghsa"]}件（unreviewed{counts.get("ghsa_unreviewed",0)}、malware{counts.get("ghsa_malware",0)}）、改訂{counts.get("ghsa_modified",0)}件。reviewed・unreviewed・malwareを区別し、公開と改訂の重複を台帳で確認してください。' if 'ghsa_modified' in counts else 'GHSAは新規公開窓のみで、既存情報の改訂を含む全変化が0という意味ではありません。')
-    content += f'<p>NVD新規{counts["nvd_published"]}件は改訂{counts["nvd_modified"]}件に全件重複。{esc(ghsa_note)}KEVは{record["kev"]["catalog_version"]}版・{record["kev"]["count"]:,}件で、前回原本と同一。非掲載を悪用不存在の証明にはしません。{counts["verified_response_records"]}応答のうち{counts["deduplicated_previous_references"]}件は過去原本への参照で重複保存を避けています。</p>'
+    overlap = counts.get('published_modified_overlap', 0)
+    nvd_note = ('全件重複' if overlap == counts['nvd_published'] else f'{overlap}件重複')
+    kev = record['kev']
+    kev_note = ('前回原本と同一' if kev.get('same_bytes') else
+                '前回保存原本に差分：' + ' / '.join(kev.get('added_ids', [])))
+    content += f'<p>NVD新規{counts["nvd_published"]}件は改訂{counts["nvd_modified"]}件に{esc(nvd_note)}。{esc(ghsa_note)}KEVは{kev["catalog_version"]}版・{kev["count"]:,}件で、{esc(kev_note)}。収録・原本差分は攻撃開始時刻とは別です。非掲載を悪用不存在の証明にはしません。{counts["verified_response_records"]}応答のうち{counts["deduplicated_previous_references"]}件は過去原本への参照で重複保存を避けています。</p>'
     content += '<ul>' + ''.join(f'<li>{esc(c)}</li>' for c in record['caveats']) + '</ul>'
     links = [path.relative_to(ROOT).as_posix(), f'data/{stamp}/collection-summary.json',
              f'data/{stamp}-vendors/collection-summary.json', f'docs/research-collection-{stamp}.md',
