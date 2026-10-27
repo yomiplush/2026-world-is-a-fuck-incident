@@ -1,0 +1,1416 @@
+[
+  {
+    "id": "CVE-2026-2270",
+    "published": "2026-10-26T23:17:00.010",
+    "modified": "2026-10-27T00:17:19.210",
+    "status": "Received",
+    "description": "A confused deputy attack exists in the StatefulSet controller that allows a user with namespace-scoped write permissions on StatefulSet and ControllerRevision objects to create a cross-namespace pod. An attacker exploiting this vulnerability would have full control over the resulting pod’s metadata and specification, including namespace selection. Note that the cross-namespace pod will be immediately deleted by the garbage collector unless the attacker is able to construct a valid StatefulSet OwnerReference. This would require referencing the UID of an existing StatefulSet in the victim’s namespace.",
+    "references": [
+      {
+        "url": "https://github.com/kubernetes/kubernetes/issues/142097",
+        "source": "jordan@liggitt.net"
+      },
+      {
+        "url": "https://groups.google.com/g/kubernetes-security-announce/c/wv0iV-Rcmj4",
+        "source": "jordan@liggitt.net"
+      },
+      {
+        "url": "http://www.openwall.com/lists/oss-security/2026/09/23/35",
+        "source": "af854a3a-2127-422b-91ae-364da2661108"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "jordan@liggitt.net",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N",
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "HIGH",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 0.7,
+          "impactScore": 5.2
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-76654",
+    "published": "2026-10-26T23:17:09.750",
+    "modified": "2026-10-27T00:17:34.407",
+    "status": "Received",
+    "description": "An NTLM coercion vulnerability exists on Windows nodes when the subPath supplied in a pod's volumeMounts is set to a symbolic link that points to an attacker-controlled network share. When a kubelet resolves symlinks, it does not reject a target that resolves to a UNC path. As a result, the kubelet will transparently attempt to authenticate to the share using NTLM. This allows an attacker to obtain the NetNTLMv2 hash of the account under which the kubelet is running. An attacker could then attempt to crack the hash to retrieve the corresponding password or relay it to impersonate the node, if the node is domain-joined.",
+    "references": [
+      {
+        "url": "https://github.com/kubernetes/kubernetes/issues/142098",
+        "source": "jordan@liggitt.net"
+      },
+      {
+        "url": "https://groups.google.com/g/kubernetes-security-announce/c/Wkv04IFzW8g",
+        "source": "jordan@liggitt.net"
+      },
+      {
+        "url": "http://www.openwall.com/lists/oss-security/2026/09/23/36",
+        "source": "af854a3a-2127-422b-91ae-364da2661108"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "jordan@liggitt.net",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:H/I:N/A:N",
+            "baseScore": 5.8,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "HIGH",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "CHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 1.3,
+          "impactScore": 4.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-111422",
+    "published": "2026-10-27T00:17:09.197",
+    "modified": "2026-10-27T01:19:03.627",
+    "status": "Received",
+    "description": "In apache-airflow-providers-ssh before 7.0.1, SSHRemoteJobOperator quoted the values of its templated `environment` parameter only once, although they are placed inside an already-quoted wrapper script, so shell syntax such as `$(...)` in a value was executed on the remote SSH host. In a Dag that passes trigger-time input such as `params` or `dag_run.conf` into `environment`, a user who can trigger that Dag but cannot author Dags could run arbitrary commands on the remote host as the SSH connection's user. Users are advised to upgrade apache-airflow-providers-ssh to 7.0.1 or later.",
+    "references": [
+      {
+        "url": "https://airflow.apache.org/docs/apache-airflow-providers-ssh/7.0.1/changelog.html",
+        "source": "security@apache.org"
+      },
+      {
+        "url": "https://github.com/apache/airflow/pull/74810",
+        "source": "security@apache.org"
+      },
+      {
+        "url": "https://lists.apache.org/thread/k159xrq1tbgmkvl24j63g12qh0mczk79",
+        "source": "security@apache.org"
+      },
+      {
+        "url": "http://www.openwall.com/lists/oss-security/2026/10/26/20",
+        "source": "af854a3a-2127-422b-91ae-364da2661108"
+      }
+    ],
+    "metrics": {}
+  },
+  {
+    "id": "CVE-2026-116802",
+    "published": "2026-10-27T00:17:11.637",
+    "modified": "2026-10-27T00:17:11.637",
+    "status": "Received",
+    "description": "DOMPurify before 3.4.17 contains a cross-site scripting vulnerability that allows attackers to bypass the SMIL attributeName=href guard when PARSER_MEDIA_TYPE is application/xhtml+xml, because transformCaseFunc does not lowercase attribute names. Attackers can submit SVG with an animate or set element using attributeName=\"href\" and a javascript: entry in values to execute script when users click the sanitized link.",
+    "references": [
+      {
+        "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-c6gr-qvv4-5v3f",
+        "source": "disclosure@vulncheck.com"
+      },
+      {
+        "url": "https://www.vulncheck.com/advisories/dompurify-before-3.4.17-xss-via-smil-attributename-guard-bypass-in-xhtml-mode",
+        "source": "disclosure@vulncheck.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 5.1,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "NONE",
+            "privilegesRequired": "NONE",
+            "userInteraction": "ACTIVE",
+            "vulnConfidentialityImpact": "NONE",
+            "vulnIntegrityImpact": "NONE",
+            "vulnAvailabilityImpact": "NONE",
+            "subConfidentialityImpact": "LOW",
+            "subIntegrityImpact": "LOW",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "NOT_DEFINED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ],
+      "cvssMetricV31": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "REQUIRED",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 2.7
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-116803",
+    "published": "2026-10-27T00:17:11.913",
+    "modified": "2026-10-27T00:17:11.913",
+    "status": "Received",
+    "description": "DOMPurify before 3.4.17 contains a cross-site scripting vulnerability that allows attackers to keep event handlers armed when an IN_PLACE hook removes a parent or sibling node. Attacker markup in detached subtrees is never walked or neutralized, so handlers like img onerror fire after sanitize() returns, causing DOM XSS.",
+    "references": [
+      {
+        "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-mrv2-3pqr-j5jr",
+        "source": "disclosure@vulncheck.com"
+      },
+      {
+        "url": "https://www.vulncheck.com/advisories/dompurify-before-3.4.17-dom-xss-via-in-place-hook-detached-subtrees",
+        "source": "disclosure@vulncheck.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 5.1,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "NONE",
+            "privilegesRequired": "NONE",
+            "userInteraction": "ACTIVE",
+            "vulnConfidentialityImpact": "NONE",
+            "vulnIntegrityImpact": "NONE",
+            "vulnAvailabilityImpact": "NONE",
+            "subConfidentialityImpact": "LOW",
+            "subIntegrityImpact": "LOW",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "NOT_DEFINED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ],
+      "cvssMetricV31": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "REQUIRED",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 2.7
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-116804",
+    "published": "2026-10-27T00:17:12.193",
+    "modified": "2026-10-27T00:17:12.193",
+    "status": "Received",
+    "description": "DOMPurify from 3.4.4 before 3.4.17 contains a SAFE_FOR_TEMPLATES bypass that lets attackers preserve template expressions in attached shadow roots when using RETURN_DOM, RETURN_DOM_FRAGMENT, or IN_PLACE modes. Attackers can split expressions across text nodes separated by disallowed elements, which merge after removal and are evaluated by downstream template engines for cross-site scripting.",
+    "references": [
+      {
+        "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cg2g-xh64-v4q7",
+        "source": "disclosure@vulncheck.com"
+      },
+      {
+        "url": "https://www.vulncheck.com/advisories/dompurify-from-3.4.4-before-3.4.17-safe-for-templates-bypass-via-shadow-root-content",
+        "source": "disclosure@vulncheck.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 5.1,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "NONE",
+            "privilegesRequired": "NONE",
+            "userInteraction": "ACTIVE",
+            "vulnConfidentialityImpact": "NONE",
+            "vulnIntegrityImpact": "NONE",
+            "vulnAvailabilityImpact": "NONE",
+            "subConfidentialityImpact": "LOW",
+            "subIntegrityImpact": "LOW",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "NOT_DEFINED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ],
+      "cvssMetricV31": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "REQUIRED",
+            "scope": "CHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 2.7
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-116843",
+    "published": "2026-10-27T01:19:07.730",
+    "modified": "2026-10-27T01:19:07.730",
+    "status": "Received",
+    "description": "Mistral Vibe before 3.0.3 contains a remote code execution vulnerability that allows attackers to run commands by defining git filter drivers in an untrusted repository's .git/config. When started with --worktree, git worktree add applies .gitattributes and runs filter smudge, clean, or process commands before the trusted-folder check, executing attacker commands with user privileges.",
+    "references": [
+      {
+        "url": "https://github.com/mistralai/mistral-vibe/blob/v2.24.1/vibe/core/worktree.py#L303-L317",
+        "source": "disclosure@vulncheck.com"
+      },
+      {
+        "url": "https://github.com/mistralai/mistral-vibe/commit/7bb48f213ac677f943d5c791199ed3dddf302f00",
+        "source": "disclosure@vulncheck.com"
+      },
+      {
+        "url": "https://github.com/mistralai/mistral-vibe/issues/997",
+        "source": "disclosure@vulncheck.com"
+      },
+      {
+        "url": "https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3",
+        "source": "disclosure@vulncheck.com"
+      },
+      {
+        "url": "https://www.vulncheck.com/advisories/mistral-vibe-before-3.0.3-rce-via-git-filter-drivers-in-worktree-mode",
+        "source": "disclosure@vulncheck.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 8.7,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "NONE",
+            "privilegesRequired": "NONE",
+            "userInteraction": "PASSIVE",
+            "vulnConfidentialityImpact": "HIGH",
+            "vulnIntegrityImpact": "HIGH",
+            "vulnAvailabilityImpact": "HIGH",
+            "subConfidentialityImpact": "NONE",
+            "subIntegrityImpact": "NONE",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "NOT_DEFINED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ],
+      "cvssMetricV31": [
+        {
+          "source": "disclosure@vulncheck.com",
+          "type": "Primary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "REQUIRED",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 5.9
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-117468",
+    "published": "2026-10-27T06:17:24.527",
+    "modified": "2026-10-27T06:17:24.527",
+    "status": "Received",
+    "description": "Psono Server versions 5.3.5 through 7.2.3 used a permission class that did not enforce token write scope when claiming a device code. An authenticated remote attacker holding a restricted API key-derived session could claim an attacker-controlled device code and obtain a full read-write session valid for up to 365 days, bypassing the original token's scope and lifetime restrictions. This did not bypass two-factor authentication or directly disclose plaintext secrets.",
+    "references": [
+      {
+        "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/blob/master/advisories/CVE-2026-117468.md",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/views/device_code_claim.py",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/commit/19ed5a192c704fece1645d946b6f4c36045bacbe",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "fdf66990-8419-4c8c-8848-ec15d75773b4",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 3.6
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-117469",
+    "published": "2026-10-27T06:17:24.683",
+    "modified": "2026-10-27T06:17:24.683",
+    "status": "Received",
+    "description": "Psono Server (CE & EE) versions 1.0.0 through 7.2.3 did not enforce the direction of file-transfer credentials on file-repository operations. An authenticated remote attacker with read-only access to a file could present a download transfer to the upload endpoint, obtain a signed upload URL for an attacker-selected object key, and append a chunk to the owner's file. Exploitation could upload or overwrite repository objects and consume storage, subject to transfer size, chunk-count, and lifetime limits.",
+    "references": [
+      {
+        "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/blob/master/advisories/CVE-2026-117469.md",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/serializers/file_repository_upload.py",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/commit/64753b19bd8d03cfbed20db575f4dccb220d9ca4",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "fdf66990-8419-4c8c-8848-ec15d75773b4",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "LOW",
+            "availabilityImpact": "LOW"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 2.5
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-117470",
+    "published": "2026-10-27T06:17:24.867",
+    "modified": "2026-10-27T06:17:24.867",
+    "status": "Received",
+    "description": "Psono Server CE & EE versions 3.1.0 through 7.2.3 did not consume a stored WebAuthn challenge after assertion verification. An unauthenticated remote attacker who possessed the user's password and one captured valid WebAuthn assertion could replay that assertion with separate login tokens while the stored challenge remained unchanged, bypassing the WebAuthn second factor. The attack required capture of a valid assertion and did not itself disclose plaintext secrets.",
+    "references": [
+      {
+        "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/blob/master/advisories/CVE-2026-117470.md",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/serializers/webauthn_verify.py",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/commit/9c9a7f1701535df63370340dcc80210737dc495d",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "fdf66990-8419-4c8c-8848-ec15d75773b4",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N",
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "HIGH",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 2.2,
+          "impactScore": 4.2
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-117471",
+    "published": "2026-10-27T06:17:25.020",
+    "modified": "2026-10-27T06:17:25.020",
+    "status": "Received",
+    "description": "Psono Server CE && EE versions 0.1.0 through 7.2.3 accepted a user-controlled host when configuring a personal Duo device and passed it to the Duo client without an allowlist or explicit timeout. An authenticated remote attacker could cause the server to connect to selected hosts over HTTPS on port 443 and distinguish failure modes, providing an internal DNS and service-reachability oracle. Connections still required TLS certificate validation, and the flaw did not provide arbitrary protocol or port access. Unresponsive targets could also occupy a server worker until the operating-system timeout.",
+    "references": [
+      {
+        "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/blob/master/advisories/CVE-2026-117471.md",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/serializers/new_duo.py",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/commit/4059830475744791f3d3a1daa4e1603aea5549ed",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "fdf66990-8419-4c8c-8848-ec15d75773b4",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "LOW"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 2.5
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-117472",
+    "published": "2026-10-27T06:17:25.153",
+    "modified": "2026-10-27T06:17:25.153",
+    "status": "Received",
+    "description": "Psono Server CE && EE versions 4.0.33 through 7.2.3 compared the request path for the bulk-secret-read endpoint with a hard-coded unprefixed path. In deployments configured with URL_PREFIX, the comparison failed and the POST request was authorized using write scope instead of read scope. An authenticated remote attacker with an unusual read-disabled, write-enabled API key could therefore retrieve encrypted secret data and nonces through the prefixed bulk-secret-read endpoint despite lacking read permission. The default configuration without URL_PREFIX was not affected.",
+    "references": [
+      {
+        "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/blob/master/advisories/CVE-2026-117472.md",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/permissions.py",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/commit/5638d4be806af7d1dea03f7cad3927aa2bd19cf4",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      },
+      {
+        "url": "https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4",
+        "source": "fdf66990-8419-4c8c-8848-ec15d75773b4"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "fdf66990-8419-4c8c-8848-ec15d75773b4",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 1.4
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-105946",
+    "published": "2026-10-27T07:16:31.860",
+    "modified": "2026-10-27T07:16:31.860",
+    "status": "Received",
+    "description": "Out-of-bounds read in the QAuthenticator NTLM authentication handling in the Qt Network module in Qt Group Qt allows remote attackers to obtain sensitive information (heap memory contents) or cause a denial of service (application crash) via a crafted NTLM challenge sent by a malicious server or proxy, when an application using QNetworkAccessManager or QTcpSocket authenticates with NTLM.",
+    "references": [
+      {
+        "url": "https://codereview.qt-project.org/c/qt/qtbase/+/744448",
+        "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3"
+      },
+      {
+        "url": "https://codereview.qt-project.org/c/qt/qtbase/+/745457",
+        "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3"
+      },
+      {
+        "url": "https://codereview.qt-project.org/c/qt/qtbase/+/745464",
+        "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3"
+      },
+      {
+        "url": "https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products#CVE-2026-105946:",
+        "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:N/VA:H/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "PRESENT",
+            "privilegesRequired": "NONE",
+            "userInteraction": "ACTIVE",
+            "vulnConfidentialityImpact": "HIGH",
+            "vulnIntegrityImpact": "NONE",
+            "vulnAvailabilityImpact": "HIGH",
+            "subConfidentialityImpact": "NONE",
+            "subIntegrityImpact": "NONE",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "PROOF_OF_CONCEPT",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-106174",
+    "published": "2026-10-27T07:16:32.040",
+    "modified": "2026-10-27T07:16:32.040",
+    "status": "Received",
+    "description": "A improper locking vulnerability in Fortinet FortiOS 8.0.0, FortiOS 7.6.4 through 7.6.6 may allow an unauthenticated attacker with network access to the device to cause a denial of service of the HTTPS management interface via crafted HTTP requests.",
+    "references": [
+      {
+        "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-181",
+        "source": "psirt@fortinet.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "psirt@fortinet.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "NONE",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "HIGH"
+          },
+          "exploitabilityScore": 3.9,
+          "impactScore": 3.6
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-107472",
+    "published": "2026-10-27T08:16:52.660",
+    "modified": "2026-10-27T08:16:52.660",
+    "status": "Received",
+    "description": "An out-of-bounds read vulnerability in the QTextCodec TSCII encoding of the Qt 5 Compatibility APIs module (Qt Core in Qt 5 and earlier) impacts Qt. Applications that convert text to the TSCII encoding through QTextCodec may read memory outside the input buffer, which can cause the application to crash or misinterpret the data.",
+    "references": [
+      {
+        "url": "https://codereview.qt-project.org/c/qt/qt5compat/+/762021",
+        "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3"
+      },
+      {
+        "url": "https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products#CVE-2026-107472:",
+        "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "a59d8014-47c4-4630-ab43-e1b13cbe58e3",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:U/V:X/RE:L/U:Green",
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "LOCAL",
+            "attackComplexity": "LOW",
+            "attackRequirements": "NONE",
+            "privilegesRequired": "NONE",
+            "userInteraction": "PASSIVE",
+            "vulnConfidentialityImpact": "NONE",
+            "vulnIntegrityImpact": "NONE",
+            "vulnAvailabilityImpact": "HIGH",
+            "subConfidentialityImpact": "NONE",
+            "subIntegrityImpact": "NONE",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "UNREPORTED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "USER",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "LOW",
+            "providerUrgency": "GREEN"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-111459",
+    "published": "2026-10-27T08:16:52.953",
+    "modified": "2026-10-27T08:16:52.953",
+    "status": "Received",
+    "description": "An improper certificate validation vulnerability exists in Moxa Remote Connect Suite (MRC Client). Under certain conditions, an unauthenticated attacker with on-path access to the communication between the MRC Client and its server could impersonate a trusted server and conduct a man-in-the-middle attack, potentially compromising the confidentiality and integrity of communications.",
+    "references": [
+      {
+        "url": "https://www.moxa.com/en/support/product-support/security-advisory/mpsa-269510-cve-2026-111459-cve-2026-111460-cve-2026-111461-vulnerabilities-in-moxa-remote-connect-suite-mrc-client",
+        "source": "psirt@moxa.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "psirt@moxa.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 7.6,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "PRESENT",
+            "privilegesRequired": "NONE",
+            "userInteraction": "PASSIVE",
+            "vulnConfidentialityImpact": "HIGH",
+            "vulnIntegrityImpact": "HIGH",
+            "vulnAvailabilityImpact": "NONE",
+            "subConfidentialityImpact": "NONE",
+            "subIntegrityImpact": "NONE",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "NOT_DEFINED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-111460",
+    "published": "2026-10-27T08:16:53.110",
+    "modified": "2026-10-27T08:16:53.110",
+    "status": "Received",
+    "description": "A hard-coded cryptographic key vulnerability exists in the OnCell G3150A-LTE Series. Under certain conditions, an unauthenticated remote attacker could obtain shared cryptographic key material and use it to impersonate affected devices that have not regenerated their cryptographic keys, potentially compromising the confidentiality and integrity of management communications.",
+    "references": [
+      {
+        "url": "https://www.moxa.com/en/support/product-support/security-advisory/mpsa-269510-cve-2026-111459-cve-2026-111460-cve-2026-111461-vulnerabilities-in-moxa-remote-connect-suite-mrc-client",
+        "source": "psirt@moxa.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "psirt@moxa.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 7.7,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "PRESENT",
+            "privilegesRequired": "NONE",
+            "userInteraction": "PASSIVE",
+            "vulnConfidentialityImpact": "HIGH",
+            "vulnIntegrityImpact": "HIGH",
+            "vulnAvailabilityImpact": "HIGH",
+            "subConfidentialityImpact": "NONE",
+            "subIntegrityImpact": "NONE",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "NOT_DEFINED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-111461",
+    "published": "2026-10-27T08:16:53.260",
+    "modified": "2026-10-27T08:16:53.260",
+    "status": "Received",
+    "description": "An OS command injection vulnerability exists in OnCell G3150A-LTE Series. When the SMS management functionality is enabled and configured, a remote attacker with the required privileges could exploit insufficient input validation in the SMS management functionality to execute arbitrary commands on the affected device.",
+    "references": [
+      {
+        "url": "https://www.moxa.com/en/support/product-support/security-advisory/mpsa-269510-cve-2026-111459-cve-2026-111460-cve-2026-111461-vulnerabilities-in-moxa-remote-connect-suite-mrc-client",
+        "source": "psirt@moxa.com"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV40": [
+        {
+          "source": "psirt@moxa.com",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "4.0",
+            "vectorString": "CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "attackRequirements": "PRESENT",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "vulnConfidentialityImpact": "HIGH",
+            "vulnIntegrityImpact": "HIGH",
+            "vulnAvailabilityImpact": "HIGH",
+            "subConfidentialityImpact": "NONE",
+            "subIntegrityImpact": "NONE",
+            "subAvailabilityImpact": "NONE",
+            "exploitMaturity": "NOT_DEFINED",
+            "confidentialityRequirement": "NOT_DEFINED",
+            "integrityRequirement": "NOT_DEFINED",
+            "availabilityRequirement": "NOT_DEFINED",
+            "modifiedAttackVector": "NOT_DEFINED",
+            "modifiedAttackComplexity": "NOT_DEFINED",
+            "modifiedAttackRequirements": "NOT_DEFINED",
+            "modifiedPrivilegesRequired": "NOT_DEFINED",
+            "modifiedUserInteraction": "NOT_DEFINED",
+            "modifiedVulnConfidentialityImpact": "NOT_DEFINED",
+            "modifiedVulnIntegrityImpact": "NOT_DEFINED",
+            "modifiedVulnAvailabilityImpact": "NOT_DEFINED",
+            "modifiedSubConfidentialityImpact": "NOT_DEFINED",
+            "modifiedSubIntegrityImpact": "NOT_DEFINED",
+            "modifiedSubAvailabilityImpact": "NOT_DEFINED",
+            "Safety": "NOT_DEFINED",
+            "Automatable": "NOT_DEFINED",
+            "Recovery": "NOT_DEFINED",
+            "valueDensity": "NOT_DEFINED",
+            "vulnerabilityResponseEffort": "NOT_DEFINED",
+            "providerUrgency": "NOT_DEFINED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-16521",
+    "published": "2026-10-27T08:16:53.443",
+    "modified": "2026-10-27T08:16:53.443",
+    "status": "Received",
+    "description": "An OS command injection vulnerability exists because of insufficient input filtering. An attacker can inject a command payload into a BMC function; the payload may execute when the related service is restarted.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_2",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "baseScore": 7.2,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 5.9
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-18449",
+    "published": "2026-10-27T08:16:53.583",
+    "modified": "2026-10-27T08:16:53.583",
+    "status": "Received",
+    "description": "The BMC does not correctly enforce integrity and encryption requirements for IPMI commands. An attacker may be able to craft packets that execute arbitrary commands on an active session.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 3.9,
+          "impactScore": 3.6
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-18450",
+    "published": "2026-10-27T08:16:53.710",
+    "modified": "2026-10-27T08:16:53.710",
+    "status": "Received",
+    "description": "The BMC does not correctly enforce integrity and encryption requirements for IPMI commands. An attacker may be able to craft packets that execute arbitrary commands on an active session.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "baseScore": 9.8,
+            "baseSeverity": "CRITICAL",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH"
+          },
+          "exploitabilityScore": 3.9,
+          "impactScore": 5.9
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-18451",
+    "published": "2026-10-27T08:16:53.827",
+    "modified": "2026-10-27T08:16:53.827",
+    "status": "Received",
+    "description": "The HTML5 KVM-over-IP console authenticates with a token returned by the web interface. Weaknesses in token generation may allow an attacker to guess the session token and take control of the KVM session.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N",
+            "baseScore": 3.1,
+            "baseSeverity": "LOW",
+            "attackVector": "NETWORK",
+            "attackComplexity": "HIGH",
+            "privilegesRequired": "NONE",
+            "userInteraction": "REQUIRED",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "LOW",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 1.6,
+          "impactScore": 1.4
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-65210",
+    "published": "2026-10-27T08:16:54.240",
+    "modified": "2026-10-27T08:16:54.240",
+    "status": "Received",
+    "description": "This issue may allow an authenticated IPMI Administrator to read arbitrary files from the BMC filesystem, disclosing material well beyond the intended IPMI management role.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+            "baseScore": 4.9,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "NONE",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 3.6
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-65219",
+    "published": "2026-10-27T08:16:54.363",
+    "modified": "2026-10-27T08:16:54.363",
+    "status": "Received",
+    "description": "A flaw in the BMC RAKP+ implementation may allow an attacker to send a request followed by a specially crafted RAKP message and establish an RMCP+ session, which could then be used to execute commands.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "HIGH",
+            "privilegesRequired": "NONE",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "NONE"
+          },
+          "exploitabilityScore": 2.2,
+          "impactScore": 5.2
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-65220",
+    "published": "2026-10-27T08:16:54.487",
+    "modified": "2026-10-27T08:16:54.487",
+    "status": "Received",
+    "description": "A logic flaw in the BMC IPMI implementation may allow an attacker to send specially crafted RAKP+ messages and escalate an account to administrator privileges.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH"
+          },
+          "exploitabilityScore": 2.8,
+          "impactScore": 5.9
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-65211",
+    "published": "2026-10-27T09:16:33.400",
+    "modified": "2026-10-27T09:16:33.400",
+    "status": "Received",
+    "description": "This issue may allow an authenticated IPMI Administrator to read and write arbitrary BMC physical memory and thereby execute code on the BMC operating system.",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "baseScore": 7.2,
+            "baseSeverity": "HIGH",
+            "attackVector": "NETWORK",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH"
+          },
+          "exploitabilityScore": 1.2,
+          "impactScore": 5.9
+        }
+      ]
+    }
+  },
+  {
+    "id": "CVE-2026-65213",
+    "published": "2026-10-27T09:16:34.503",
+    "modified": "2026-10-27T09:16:34.503",
+    "status": "Received",
+    "description": "This issue may allow an IPMI authenticated administrator to execute commands as the operating system root user on the BMC",
+    "references": [
+      {
+        "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1",
+        "source": "def9a96e-e099-41a9-bfac-30fd4f82c411"
+      }
+    ],
+    "metrics": {
+      "cvssMetricV31": [
+        {
+          "source": "def9a96e-e099-41a9-bfac-30fd4f82c411",
+          "type": "Secondary",
+          "cvssData": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "baseScore": 6.6,
+            "baseSeverity": "MEDIUM",
+            "attackVector": "NETWORK",
+            "attackComplexity": "HIGH",
+            "privilegesRequired": "HIGH",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH"
+          },
+          "exploitabilityScore": 0.7,
+          "impactScore": 5.9
+        }
+      ]
+    }
+  }
+]

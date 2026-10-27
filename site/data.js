@@ -105,7 +105,7 @@ window.CONTENT = {
       hintEnd: "最後です。タップで最初に戻ります",
       coverKicker: "INCIDENT BRIEFING · 2026-10",
       coverTitleA: "ひと月で、", coverTitleB: "15件。",
-      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全61画面を日付順に。夜のアカウント確認と、00:18の復旧状態・Brotli到達を追加。07:47のConsul・sandbox対策を追加。広域調査は読むレポートへ。タップで進みます。音が出ます。",
+      coverSub: "2026年10月に重なった15件を、時系列で。<br>Apache・カーネルと10-23追記に加え、10-24広域調査、10-25追補、Tailworm大特集6画面と10-26朝の4画面。全65画面を日付順に。夜のアカウント確認と、00:18の復旧状態・Brotli到達を追加。07:47のConsul・sandbox対策と18:47の確認状態・出荷・MPC・package対策を追加。広域調査は読むレポートへ。タップで進みます。音が出ます。",
       coverStart: "TAP TO BEGIN",
       coverFoot: "出典付き。ConnectWiseは10/25調査で一次確認。古い場面は当時の記録です。",
       drawerTitle: "出典 / SOURCES",
@@ -3128,6 +3128,179 @@ window.CONTENT.scenes.push(...[
         "Verify the fix in <b>1.52.0</b> or later, and review published ports and authentication settings",
         "For previously reachable environments, investigate logs and separately revoke and reissue exposed secrets",
         "<a href=\"./update-20261027-0747.html#openhands-sdk\">Conditions and primary sources (Japanese) →</a>"
+      ]
+    }
+  }
+]);
+
+/* 18:47 JST review: stable scene numbers62–65; closing remains last. */
+window.CONTENT.review = {"cutoff": "2026-10-27T09:47:00Z", "label": "2026-10-27 18:47 JST", "report": "/update-20261027-1847"};
+window.CONTENT.scenes.push(...[
+  {
+    "id": "evening-disclosure",
+    "stamp": "10.27 · 18:47 JST",
+    "metric": null,
+    "visual": {
+      "type": "disclosureState"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GMO第10報",
+        "url": "https://group.gmo/info/alert/2026102703/"
+      },
+      {
+        "name": "GMO第11報",
+        "url": "https://group.gmo/info/alert/2026102704/"
+      },
+      {
+        "name": "GMO第9報",
+        "url": "https://group.gmo/info/alert/2026102702/"
+      }
+    ],
+    "ja": {
+      "kicker": "18:47 UPDATE · EVIDENCE STATES",
+      "title": "公開の確認と、内容の確認は別。",
+      "lede": "GMOは12:30に会社・顧客の情報と称するものの公開を確認。内容は検証中、13:55時点のランサムウェア攻撃は未確認です。図は確認状態の模式図です。",
+      "points": [
+        "解析完了端末からマルウェア未確認という説明を、<b>全端末の安全確認</b>へ広げない",
+        "公式の端末隔離と、別の信頼できる端末からのアカウント保護を確認",
+        "公開情報へのアクセス・転載・誘導リンク拡散を控え、便乗フィッシングに注意",
+        "<a href=\"./update-20261027-1847.html#gmo-publication\">第8〜11報と対応を読む →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "18:47 UPDATE · EVIDENCE STATES",
+      "title": "Publication confirmed. Contents still under review.",
+      "lede": "GMO confirmed publication of purported company and customer information at 12:30 JST. Contents remain under review; ransomware was unconfirmed at 13:55 JST. This is a schematic of evidence states.",
+      "points": [
+        "No malware in completed endpoint analyses is <b>not clearance of every device</b>",
+        "Follow official isolation instructions and protect accounts from a separate trusted device",
+        "Avoid accessing or redistributing alleged data and links; watch for opportunistic phishing",
+        "<a href=\"./update-20261027-1847.html#gmo-publication\">Reports8–11 and actions (Japanese) →</a>"
+      ]
+    }
+  },
+  {
+    "id": "evening-release",
+    "stamp": "10.27 · 18:47 JST",
+    "metric": null,
+    "visual": {
+      "type": "releaseGates"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "PAN公式勧告",
+        "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+      },
+      {
+        "name": "PAN JSON timeline",
+        "url": "https://security.paloaltonetworks.com/json/CVE-2026-109618"
+      }
+    ],
+    "ja": {
+      "kicker": "18:47 UPDATE · RELEASE GATES",
+      "title": "予定のままの版と、出荷済みの版。",
+      "lede": "PAN-OSのPHP対策は系列別に進行。CVE-2026-109618 / CVE-2026-109619のKEV原本差分も確認しました。図は出荷と適用・調査を分ける模式図です。",
+      "points": [
+        "<b>10.2.13-h27 / 10.2.16-h12</b>を09:10 JSTに出荷済みと確認",
+        "<b>12.1.7-h11 / 12.2.4-h1</b>を13:03 JSTに出荷済みと確認。別系列のETAは別に照合",
+        "修正提供、手元の機器への適用、侵入痕跡の調査は別の作業",
+        "<a href=\"./update-20261027-1847.html#pan-hotfix\">系列別の出荷状態とKEV留保 →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "18:47 UPDATE · RELEASE GATES",
+      "title": "Planned releases and shipped fixes are different states.",
+      "lede": "PAN-OS PHP fixes are branch-specific. Saved KEV evidence also changed for CVE-2026-109618 / CVE-2026-109619. This schematic separates release, deployment and investigation.",
+      "points": [
+        "<b>10.2.13-h27 / 10.2.16-h12</b> confirmed released at 09:10 JST",
+        "<b>12.1.7-h11 / 12.2.4-h1</b> confirmed released at 13:03 JST; check remaining branch ETAs separately",
+        "A shipped fix, deployment on your device and investigation of prior compromise are separate tasks",
+        "<a href=\"./update-20261027-1847.html#pan-hotfix\">Branch releases and KEV caveats (Japanese) →</a>"
+      ]
+    }
+  },
+  {
+    "id": "evening-threshold",
+    "stamp": "10.27 · 18:47 JST",
+    "metric": null,
+    "visual": {
+      "type": "thresholdShares"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "JVNVU#90547696",
+        "url": "https://jvn.jp/vu/JVNVU90547696/index.html"
+      },
+      {
+        "name": "CERT VU#701544",
+        "url": "https://kb.cert.org/vuls/id/701544"
+      }
+    ],
+    "ja": {
+      "kicker": "18:47 UPDATE · MPC BOUNDARY",
+      "title": "1 partyのshareは、完全な秘密鍵ではない。",
+      "lede": "Fireblocks mpc-libのCVE-2026-90975。descendant shareとchain codeから、そのpartyのancestor shareへ届く可能性。threshold層は残ります。図は条件の模式図です。",
+      "points": [
+        "BIP32 hardened derivationを、<b>share階層の完全な隔離</b>として信用しない",
+        "chain codeを秘密として保護し、watch-only情報から配布しない",
+        "CERT本文では修正未提供。leaf share侵害時は同じpartyの階層を調査",
+        "<a href=\"./update-20261027-1847.html#fireblocks-share-boundary\">成立条件と暫定緩和を読む →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "18:47 UPDATE · MPC BOUNDARY",
+      "title": "One party’s share is not the complete private key.",
+      "lede": "Fireblocks mpc-lib CVE-2026-90975 can expose that party’s ancestor share from a descendant share and chain code. The threshold layer remains. This is a conditions schematic.",
+      "points": [
+        "Do not treat BIP32 hardened derivation as <b>complete isolation of the share hierarchy</b>",
+        "Protect chain codes as secrets; do not distribute them through watch-only information",
+        "CERT reports no vendor fix. Investigate the same party’s hierarchy after a leaf-share compromise",
+        "<a href=\"./update-20261027-1847.html#fireblocks-share-boundary\">Conditions and temporary mitigations (Japanese) →</a>"
+      ]
+    }
+  },
+  {
+    "id": "evening-package",
+    "stamp": "10.27 · 18:47 JST",
+    "metric": null,
+    "visual": {
+      "type": "eveningPackageResponse"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GHSA悪性package報告",
+        "url": "https://github.com/advisories/GHSA-2w7v-jwxh-w7wc"
+      },
+      {
+        "name": "GHSA悪性package報告",
+        "url": "https://github.com/advisories/GHSA-5crq-52j9-fc74"
+      }
+    ],
+    "ja": {
+      "kicker": "18:47 UPDATE · PACKAGE RESPONSE",
+      "title": "削除する前に、実行した環境を確認。",
+      "lede": "npmとPyPIに特定版の悪性package報告。図は導入履歴・隔離・secret失効の対応経路で、実被害の観測図ではありません。",
+      "points": [
+        "npm <b>@camera.ui/camera-ui-nvr-windows-amd64 1.6.1</b>：GHSA-2w7v-jwxh-w7wc",
+        "PyPI <b>h13t0ry-hello-demo 0.1.0</b>：GHSA-5crq-52j9-fc74。import時reverse shell報告",
+        "lockfile・CI・実行履歴を照合。該当環境を隔離し、別の安全な端末からsecretを失効・再発行",
+        "<a href=\"./update-20261027-1847.html#malware-camera-ui\">対象packageと対応を読む →</a>"
+      ]
+    },
+    "en": {
+      "kicker": "18:47 UPDATE · PACKAGE RESPONSE",
+      "title": "Check the execution environment before declaring cleanup.",
+      "lede": "Specific npm and PyPI releases have malicious-package reports. This schematic shows inventory, isolation and secret revocation, not observed victim telemetry.",
+      "points": [
+        "npm <b>@camera.ui/camera-ui-nvr-windows-amd64 1.6.1</b>: GHSA-2w7v-jwxh-w7wc",
+        "PyPI <b>h13t0ry-hello-demo 0.1.0</b>: GHSA-5crq-52j9-fc74; reported reverse shell on import",
+        "Check lockfiles, CI and execution history. Isolate affected environments; revoke and reissue secrets from a separate safe device",
+        "<a href=\"./update-20261027-1847.html#malware-camera-ui\">Package scope and response (Japanese) →</a>"
       ]
     }
   }

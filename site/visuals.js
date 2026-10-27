@@ -840,6 +840,55 @@ window.VISUALS = (function () {
     heading(g,'OPENHANDS / AUTHENTICATE THE SANDBOX');g.flush();
   };
 
+  scenes.disclosureState = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.4,yaw:.12});
+    const states=[['PUBLICATION',C.amber],['CONTENTS',C.cyan],['RANSOMWARE',C.steel]];
+    states.forEach(([text,tone],i)=>{
+      const x=(i-1)*340;
+      node(g,[x,-40,0],text,tone,t,i,{hx:115,hy:70,hz:70});
+      label(g,[x,150,0],i===0?'CONFIRMED':i===1?'UNDER REVIEW':'UNCONFIRMED',tone,11);
+      if(i===0)ring(g,[x,-40,0],155,C.amber,'xy');
+    });
+    heading(g,'GMO / SEPARATE EVIDENCE STATES');g.flush();
+  };
+
+  scenes.releaseGates = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.5,yaw:.15});
+    [['PLAN',C.steel],['RELEASE',C.amber],['DEPLOY',C.cyan],['INVESTIGATE',C.green]].forEach(([text,tone],i)=>{
+      const x=-420+i*280;
+      node(g,[x,30,-i*35],text,tone,t,i,{hx:92,hy:42,hz:55});
+      if(i)wire(g,[x-185,30,-(i-1)*35],[x-100,30,-i*35],tone);
+      if(i===1)ring(g,[x,30,-i*35],130,C.amber,'xy');
+    });
+    label(g,[-140,220,-35],'BRANCH-SPECIFIC FIXES',C.amber,12);
+    heading(g,'A RELEASE IS NOT A COMPLETED RESPONSE');g.flush();
+  };
+
+  scenes.thresholdShares = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.4,yaw:.18});
+    node(g,[-370,130,0],'LEAF SHARE',C.amber,t,0,{hx:95,hy:38,hz:55});
+    node(g,[-370,-170,0],'ANCESTOR SHARE',C.amber,t,1,{hx:120,hy:38,hz:55});
+    flow(g,[-370,70,0],[-370,-100,0],t,C.amber,0,.13);
+    label(g,[-160,0,0],'+ CHAIN CODE',C.amber,11);
+    gate(g,[80,-30,0],C.cyan,'THRESHOLD REMAINS');
+    node(g,[390,-160,70],'OTHER PARTY',C.cyan,t,2,{hx:100,hy:38,hz:55});
+    node(g,[390,150,0],'FULL KEY',C.steel,t,3,{hx:95,hy:38,hz:55});
+    wire(g,[390,-100,70],[390,85,0],C.steel);
+    heading(g,'MPC / ONE PARTY IS NOT THE WHOLE KEY');g.flush();
+  };
+
+  scenes.eveningPackageResponse = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{pitch:.45,yaw:.18});
+    node(g,[-370,-120,0],'LOCKFILE / CI',C.cyan,t,0,{hx:115,hy:45,hz:65});
+    gate(g,[-20,-120,0],C.amber,'ISOLATE HOST');
+    flow(g,[-240,-120,0],[-60,-120,0],t,C.cyan,0,.15);
+    node(g,[350,-120,0],'EXECUTION LOGS',C.amber,t,1,{hx:120,hy:45,hz:65});
+    node(g,[0,210,0],'SEPARATE SAFE DEVICE',C.green,t,2,{hx:140,hy:38,hz:50});
+    label(g,[350,215,0],'REVOKE / REISSUE',C.green,12);
+    flow(g,[150,210,0],[310,210,0],t,C.green,.4,.12);
+    heading(g,'MALICIOUS RELEASE / CHECK EXECUTION SCOPE');g.flush();
+  };
+
   scenes.storm = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.16});
     const pts=[];
