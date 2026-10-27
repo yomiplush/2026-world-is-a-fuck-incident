@@ -1,3 +1,7 @@
+## Latest research — October27,18:47 JST
+
+[Evening report](https://www.infosec-briefing.net/update-20261027-1847),29curated topics and four new3Dscenes at stable IDs62–65. The full briefing has65scenes; closing remains original53 and plays last. Publication, index/revision time, fix shipment and exploitation are separated. Original research, saved responses and limitations are linked from the report. [Build and verification notes](../docs/site-update-2026-10-27-1847.md).
+
 ## In-app browsers, touch, Quest and Android TV
 
 `viewport.js` follows the unzoomed VisualViewport height **and offsetTop**, keeping the application, entrance, corner links, source drawer and privacy dock inside the visible area. Native pinch zoom stays enabled. Touch language selectors use 16px text to avoid iOS focus zoom. Explicit OculusBrowser/Quest browser identities receive larger pointer targets. Android TV/GoogleTV/Smart-TV/BRAVIA/SHIELD identities receive a larger reading layout on sufficiently large windows and remote navigation: left/right move between controls, up/down keep native language selection, Enter activates, and Escape closes sources. Focused article text scrolls with up/down; source links outside the drawer viewport remain reachable.

@@ -1,0 +1,1471 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+    <head>
+	<!-- YOUR META TAG, CSS/JS HERE -->
+	<title>Security Advisories</title>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"  type="text/javascript"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="csrf-token" content="721i7rjh7u1r568pe6u51no1f6">
+		<script type="text/javascript" src="https://www.cisco.com/assets/swa/j/jquery-1-12-0-min.js"></script>
+		<link rel="shortcut icon" href="https://www.cisco.com/favicon.ico" type="image/x-icon" />
+		<style>
+		/*media query changes start: varsingh*/
+        /*Tablet and iPads; */
+        
+        
+        
+		.cves {
+		    left: 0px !important;
+		    top: 47% !important;
+		    }
+        .wrapper{
+        	overflow: hidden;
+        }
+		
+		.bottom-content ul {
+      list-style-type: none;
+      margin-left: -40px !important;
+    }
+        @media (min-width: 768px) and (max-width: 1024px) {
+					#tabs {
+		         padding: 0 12px !important;
+		         width: 99%;
+		         margin-left: 3px;
+		        }
+				
+				.tabs-menu {
+		         width: 100% !important;
+		         border-bottom: 1px solid #cdcdcd !important;
+		        }
+		          
+				 #advisory-tab .advisoryAlertTable {
+		          width: 102% !important;
+		          margin: 0 0 0px -6px !important;
+		         } 
+				 
+				 div.footer-text p {
+		          width: 100%;
+		          margin-left: 0px !important;
+		        }
+				 /* .main-section-bottom .bottom-content {
+		           width: 96% !important;
+		           margin-left: 15px !important;
+		         }*/
+				 
+				   .bottom-content ul {
+		          list-style-type: none !important;
+		          margin-left: -38px !important;
+		         }  
+		 			
+		       }
+		 /*smart phones: iPhone X*/
+        @media (min-width: 320px) and (max-width: 480px) {
+				 .mainHeadSection{
+				   width: 106%;
+		           margin: 0 0 0px 0 !important;
+		           line-height: 1.9em;
+				 }
+				 
+				#tabs {
+		         padding: 0px 0px;
+		         margin-left: 6px;
+		        }
+				
+				.tabs-menu {
+		         width: 100% !important;
+		         border-bottom: 1px solid #cdcdcd !important;
+		        }
+		          
+				 #advisory-tab .advisoryAlertTable {
+		          width: 102% !important;
+		          margin: 0 0 0px -6px !important;
+		         } 
+		
+				 #advisory-tab .advisoryAlertTable .odd div, #advisory-tab .advisoryAlertTable .even div {
+		          padding: 0px 15px;
+		         }
+				 
+				 .childRow .colsChildWrap {
+		          padding: 0px 20px !important;
+		          margin: -1px 0 0 0;
+		        }
+				
+				.childRowCol1, .childRowCol0 {
+		         position: relative;
+		         margin-top: -14px;
+		        }
+				.childRowCol3, .childRowCol2, .childRowCol1 {
+		         width: 100%;
+		         margin-top: -14px;
+		        }
+				 
+				 div.footer-text p {
+		          width: 105%;
+		          margin-left: -8px !important;
+		        }
+				/*  .main-section-bottom .bottom-content {
+		           width: 95% !important;
+		           margin-left: 7px !important;
+		         } */
+				 
+         }
+
+        /*iPad Pro*/
+        @media only screen 
+         and (min-device-width: 1024px) 
+         and (max-device-width: 1366px) 
+         and (-webkit-min-device-pixel-ratio: 2) 
+         and (orientation: portrait){
+			/*  .main-section-bottom .bottom-content {
+              width: 28.7% !important;
+              float: left !important;
+              margin-right: 30px !important;
+            }*/
+            .bottom-content ul {
+             list-style-type: none !important;
+             margin-left: -12.5% !important;
+            } 
+        }
+
+
+/*iPhone5/SE*/
+@media (min-width: 320px) and (max-width: 320px) {
+		.wrapper {
+		    width: 99% !important;
+		    clear: both !important;
+		    margin-bottom: 20px !important;
+		    margin-left: -7px !important;
+		    margin-right: inherit !important;
+		}
+		
+			.mainHeadSection h1 {
+		    float: left;
+		    font-family: 'CiscoSansTTExtraLight';
+		    font-weight: 400;
+		    font-size: 30px;
+		    color: #58585b;
+		    line-height: 1.9rem !important;
+		}
+		.footer-text{
+			padding-left: 16px !important;
+		    padding-right: 13px !important;
+		}
+		/* .main-section-bottom .bottom-content {
+		    width: 90% !important;
+		    margin-left: 15px !important;
+		}*/
+		.bottom-content ul {
+		    list-style-type: none !important;
+		    margin-left: -14% !important;
+		} 
+}
+/**/
+/*media query changes end: varsingh*/
+
+@media (min-width: 320px) and (max-width: 818px){
+	.main-section-bottom .bottom-content{
+    width: 100% !important;
+    padding: 0 15px !important;
+}
+/* .bottom-content ul {
+    margin-left: -7%;
+} */
+}
+
+/* @media (min-width: 320px) and (max-width: 768px){
+.bottom-content ul {
+    margin-left: -14.5% !important;
+}
+} */
+
+ @media (min-width: 1024px) and (max-width: 1400px){
+.bottom-content ul {
+    margin-left: -10% !important;
+}
+} 
+
+ @media (min-width: 1024px) and (max-width: 1080px){
+.wrapper{
+    width: 95% !important;
+    margin-left: 1% !important;
+    margin-right: 1% !important;
+}
+}
+
+ @media (min-width: 1081px) and (max-width: 1400px){
+.wrapper{
+    width: 95% !important;
+    margin-left: 6% !important;
+    margin-right: 6% !important;
+}
+}
+
+ @media (min-width: 819px) and (max-width: 829px){
+.wrapper{
+    width: 94% !important;
+}
+} 
+.fieldCol td {
+				border-bottom: solid 1px #ddd !important; /* base/fallback border for older browsers */
+				}
+ @media (min-width: 415px) and (max-width: 767px){
+#advisory-tab .advisoryAlertTable td tbody tr td:nth-child(2) {
+        width: 22% !important;
+        text-align: left !important;
+    }
+    }
+    @media only screen and (max-width: 540px) and (min-width: 429px){
+	.bottom-content ul {
+	    list-style-type: none;
+	    margin-left: -9% !important;
+	}
+	}
+	@media only screen and (max-width: 600px) and (min-width: 541px){
+	.bottom-content ul {
+	    list-style-type: none;
+	    margin-left: -8% !important;
+	}
+	}
+	@media only screen and (max-width: 650px) and (min-width: 601px){
+	.bottom-content ul {
+	    list-style-type: none;
+	    margin-left: -7% !important;
+	}
+	}
+    
+		</style>
+		    <script type="text/javascript">
+				var paramstring = '';
+				var paramstring_tab1 ='' ;
+				var paramstring_tab2 ='' ;
+				var paramstring_tab3 ='' ;
+				 
+				$(document).ready(function () {
+				
+				$('.search-box').click(function () {
+					$('.search-options').toggle();
+				});
+				
+				$("#rowsPerPage option:eq(0)").remove(); //remove first blank option in items per page
+				
+				
+				$('.options').click(function () {
+					$('.place-holder').hide();
+
+					var d = $('.search-box').html();
+					var c = $(this).html();
+
+					//                localStorage.setItem('check-array','filetypes:'+array2+';');
+					if (d != '') {
+						$('.search-box').html(d + '&nbsp;<div class="tags-input">' + c + '<a href="javascript:void(0)" class="remove-tag">x</a></div>');
+					} else {
+						$('.search-box').append('&nbsp;<div class="tags-input">' + c + '<a href="javascript:void(0)" class="remove-tag">x</a></div>');
+					}
+					var ab = $('.search-box div.tags-input');
+
+
+				});
+				$('.search-box').on('click','.remove-tag',function (event) {
+					event.stopImmediatePropagation();
+					$(this).parent().remove();
+				});
+				
+				$(".SearchTag-icon").on("click",function(event){
+					event.preventDefault();
+					$("#keywordSearch").focus();
+				})
+				
+				$(".SearchTag-icon").on("dblclick",function(event){
+					event.preventDefault();
+					$("#keywordSearch").select();
+				});
+				
+				// code to create bookmark url to store in Browser db
+				 $(".maintabclass").on('mousedown',function(tabType){
+					 console.log('in maintabclass......');
+						var previousTab = $(".tabs-menu li.active a").attr("name") ;
+						if(previousTab == 'tab-1' ){
+								paramstring_tab1 = window.location.search;
+						}else if(previousTab == 'tab-2'){
+								paramstring_tab2 = window.location.search;
+						}
+						
+						var linkTabUrl = $(this).attr("name");
+									
+							if(linkTabUrl == 'tab-1'){
+										paramstring = paramstring_tab1;
+										reset("#~Vulnerabilities");
+										}else if(linkTabUrl == 'tab-2'){
+											paramstring = paramstring_tab2;
+											reset("#~FilterByProduct");
+							}
+										
+						
+						});
+					
+                 					
+				
+				/* $(".checkboxclass").click(function(){
+						var url = '';
+						if($("#CiscoProducts").prop("checked") == true && $("#NonCisco").prop("checked") == true){
+							url = '?product=All';
+						}else if($("#NonCisco").prop("checked") == true){
+							url = '?product=NonCisco';
+						}else if($("#CiscoProducts").prop("checked") == true){
+							url = '?product=Cisco';
+						}
+						url += "#~Vulnerabilities";
+						reset(url);
+				});	*/
+				
+				/*cve pop up for publication listing; start*/
+
+					$(window).on("load",function(){
+						if(navigator.platform === 'Macintosh' || navigator.platform === 'MacIntel' || navigator.platform ===  'MacPPC' || navigator.platform ===  'Mac68K'){
+						console.log("Mac");
+						$('#advSearchVul').css("margin-left","24px");
+						}
+						if((navigator.platform === 'Macintosh' || navigator.platform === 'MacIntel' || navigator.platform ===  'MacPPC' || navigator.platform ===  'Mac68K')&& (navigator.userAgent.indexOf("Firefox") != -1)){
+						console.log("Firefox");
+						$('#advSearchVul').css("margin-left","-70px");
+						}
+						
+					});
+					$(window).on("resize",function(){
+						$(".cves").hide();
+					});
+					
+					 $( '#advisory-tab' ).on( 'click', '.closeCVE', function (e) { 
+							e.stopPropagation();
+							e.preventDefault();
+							$(".cves").hide();				
+					});
+					
+					$( 'body' ).on( 'click', function (e) { 
+							$(".cves").hide();				
+					});
+					
+					$( '#advisory-tab' ).on( 'click', '.cves', function (e) { 
+							e.stopPropagation();
+							$(".cves").show();				
+					});
+					
+					$( '#advisory-tab' ).on( 'click', '.showCVE', function (e) { 
+						e.stopPropagation();
+						e.preventDefault();
+					var $cveparentDiv = $(this).closest("p").siblings(".cves").find(".cveParentIWidth") ;
+					var $parentDiv = $(this).closest("p").siblings(".cves") ;
+					$cveparentDiv.html("");
+					
+						var tempCVEArray = ( $(this).siblings(".cveInput").text() ).split(",");
+						var totalCVE = tempCVEArray.length;
+						var parentWidth;
+						var ColclassName ; 
+						var colWidth ;
+						var limitPerColumn = 0 ;
+						
+						if(totalCVE <= 20){
+							parentWidth = "168px !important" ;
+							limitPerColumn = 20;
+							$parentDiv.css("width",parentWidth);
+							if($(window).width() <= 768 ){
+								//	$parentDiv.css("left" , "calc(50% - 70px)" );
+							}
+							$cveparentDiv.append("<div class='oneCol col1 cvecolumn' > </div> <div class='clearfix'> </div>");
+							for(i=0;i<totalCVE;i++){
+								$cveparentDiv.find(".col1").append("<div>"+ tempCVEArray[i] +"</div>") ;
+							}					
+						}
+
+						 if(totalCVE > 20 && totalCVE <=40 ){
+							parentWidth = "306px !important" ;
+							limitPerColumn = 20;
+							$parentDiv.css("width", "306px !important");
+							
+							if($(window).width() <= 768 ){
+								//$parentDiv.css("left" , "calc(50% - 145px)" );
+							}
+							
+							$cveparentDiv.append("<div class='twoCol col1 cvecolumn' > </div> <div class='twoCol col2 cvecolumn' > </div><div class='clearfix'> </div>");
+							for(i=0;i<20;i++){
+								$cveparentDiv.find(".col1").append("<div>"+ tempCVEArray[i] +"</div>") ;
+							}
+
+							for(j=20;j<totalCVE;j++){
+								$cveparentDiv.find(".col2").append("<div>"+ tempCVEArray[j] +"</div>") ;
+							}
+						}
+
+						if($(window).width() > 768 ){
+						
+							if(totalCVE >40 && totalCVE <= 60 ){
+									parentWidth = "450px !important" ;
+									limitPerColumn = 20;
+									$cveparentDiv.append("<div class='threeCol col1 cvecolumn' > </div> <div class='threeCol col2 cvecolumn' > </div> <div class='threeCol col3 cvecolumn' > </div><div class='clearfix'> </div>");
+									
+									for(i=0;i<20;i++){
+										$cveparentDiv.find(".col1").append("<div>"+ tempCVEArray[i] +"</div>") ;
+									}
+
+									for(j=20;j<40;j++){
+										$cveparentDiv.find(".col2").append("<div>"+ tempCVEArray[j] +"</div>") ;
+									}
+
+									for(k=40;k<totalCVE;k++){
+										$cveparentDiv.find(".col3").append("<div>"+ tempCVEArray[k] +"</div>") ;
+									}
+									
+							}						
+						
+							 if(totalCVE > 60 ){
+							 
+								ColclassName = "threeCol" ;
+								colWidth = "33.33%" ;
+								limitPerColumn = parseInt( totalCVE / 3 );
+								var lim_remainder = totalCVE % 3 ;
+								var lim1 = limitPerColumn; 
+								var lim2 = 2 * limitPerColumn;;
+								var lim3 = totalCVE;
+
+								if( lim_remainder == 1  ){
+									lim1 = limitPerColumn + 1 ;
+									lim2 = limitPerColumn + lim1 ;
+								}
+								if( lim_remainder == 2  ){
+									lim1 = limitPerColumn + 1 ;
+									lim2 = limitPerColumn + lim1 + 1 ;					
+								}
+
+							
+								$cveparentDiv.append("<div class='threeCol col1 cvecolumn' > </div> <div class='threeCol col2 cvecolumn' > </div> <div class='threeCol col3 cvecolumn' > </div> <div class='clearfix'> </div>");
+								$cveparentDiv.css("overflow","auto");
+								for(i=0;i<lim1;i++){
+									$cveparentDiv.find(".col1").append("<div>"+ tempCVEArray[i] +"</div>") ;
+								}
+
+								for(j=lim1;j<lim2;j++){
+									$cveparentDiv.find(".col2").append("<div>"+ tempCVEArray[j] +"</div>") ;
+								}
+								
+								for(k=lim2;k<lim3;k++){
+									$cveparentDiv.find(".col3").append("<div>"+ tempCVEArray[k] +"</div>") ;
+								}							
+							} 
+						
+						}
+						
+						if($(window).width() <= 768 ){
+							if(totalCVE > 40 ){
+								ColclassName = "twoCol" ;
+								colWidth = "50%" ;
+								parentWidth = "300px" ;				
+								$parentDiv.css("width",parentWidth);					
+								//$parentDiv.css("left" , "calc(50% - 145px)" );
+								limitPerColumn = parseInt( totalCVE / 2 );
+								var lim_remainder = totalCVE % 2 ;
+								var lim1 = limitPerColumn; 
+								var lim2 = totalCVE;
+								if( lim_remainder == 1  ){
+									lim1 = limitPerColumn + 1 ;
+								}
+								$cveparentDiv.append("<div class='twoCol col1 cvecolumn' > </div> <div class='twoCol col2 cvecolumn' > </div> <div class='clearfix'> </div>");
+								$cveparentDiv.css("overflow","auto");
+								for(i=0;i<lim1;i++){
+									$cveparentDiv.find(".col1").append("<div>"+ tempCVEArray[i] +"</div>") ;
+								}
+
+								for(j=lim1;j<lim2;j++){
+									$cveparentDiv.find(".col2").append("<div>"+ tempCVEArray[j] +"</div>") ;
+								}
+								
+							}
+						}
+						
+							$(".cves").hide();
+							$parentDiv.slideDown(300);
+							
+							var cvwidth = 40 ;
+							$parentDiv.find(".cvecolumn").each(function(){
+								//console.log('this width:'+$(this).width());
+								cvwidth = cvwidth + $(this).width()+35;
+							});
+							//console.log('cvwidth:'+cvwidth);
+							$parentDiv.css("width",cvwidth);
+							
+							if( $(window).width() > 768  ){
+								var cveboxheight = $parentDiv.height() ;
+								var scrltop =  $parentDiv.offset().top - 50 ;
+								 $('html, body').animate({
+									scrollTop: scrltop 
+								}, 500);
+							}
+					});
+			  /*cve pop up for publication listing; end*/	
+				
+			});		
+				
+				
+
+				function rssRedirect(){
+					window.location.href='https://feeds.feedburner.com/CiscoBlogSecurity';
+				}
+
+				function reset(linkTabUrl){
+					console.log('in reset:'+linkTabUrl);
+					var urlpath = window.location.pathname;	
+                    console.log('in reset.. urlpath:'+urlpath);					
+					if(window.location.href.indexOf('#~Threats')>0){
+						console.log('in reset.. if');
+						history.replaceState({key:'value'},'title',urlpath+linkTabUrl);
+						paramstring = '';
+						paramstring_tab1 ='' ;
+						paramstring_tab2 ='' ;
+					}else{
+						console.log('in reset.. else');
+					history.replaceState({key:'value'},'title',urlpath+paramstring+linkTabUrl);
+				}
+				}
+
+			window.addEventListener("resize", resizeFunction);
+
+				// var moreText = document.getElementById("more");
+			var moreTextMob = document.getElementById("moreMob");
+			var moreTextTab = document.getElementById("moreTab");
+			var arrow = document.getElementById("arrow");
+
+			function resizeFunction(){
+				if(window.innerWidth < 768){
+					moreTextMob.style.display = "none";
+					moreTextTab.style.display = "inline";
+
+					arrow.classList.remove("fa-chevron-up");
+					 arrow.classList.add("fa-chevron-down")
+				}
+				if(window.innerWidth >= 768 && window.innerWidth < 1024 ){
+						// moreText.style.display = "none";
+					 moreTextTab.style.display = "none";
+					 moreTextMob.style.display = "inline";
+					
+					 arrow.classList.remove("fa-chevron-up");
+					 arrow.classList.add("fa-chevron-down")
+
+				}
+
+				if(window.innerWidth >= 1024 ){
+					// moreText.style.display = "none";
+					moreTextTab.style.display = "inline";
+					moreTextMob.style.display = "inline";
+
+					arrow.classList.remove("fa-chevron-up");
+					 arrow.classList.add("fa-chevron-down")
+
+				}
+
+			}
+
+			function ShowMoreAlert(arrow) {
+
+			 if(arrow.classList.contains("fa-chevron-down")){
+					arrow.classList.remove("fa-chevron-down");
+				  arrow.classList.add("fa-chevron-up")
+					// moreText.style.display = "inline";
+					
+				if(window.innerWidth < 768){
+					moreTextMob.style.display = "inline";
+					// document.getElementById("closeAlert").style.paddingBottom= "47px";
+					// document.getElementById("notice").style.paddingBottom= "47px";
+				}
+
+				if(window.innerWidth >= 768 && window.innerWidth < 1024){
+				moreTextTab.style.display = "inline";
+				}
+
+				}
+				else{
+				arrow.classList.remove("fa-chevron-up");
+				arrow.classList.add("fa-chevron-down");
+				// moreText.style.display = "none";
+			 
+				if(window.innerWidth < 768){
+					moreTextMob.style.display = "none";
+					// document.getElementById("closeAlert").style.paddingBottom= "25px";
+					// document.getElementById("notice").style.paddingBottom= "25px";
+				}
+
+				if(window.innerWidth >= 768 && window.innerWidth < 1024){
+				moreTextTab.style.display = "none";
+				}
+				}
+			}
+			function closeAlert (){
+				document.getElementById("AlertTickerId").style.display = "none";
+			}
+			
+			/* latest changes */
+			$(window).resize(function() {
+			console.log("in resize--->");
+			$('.mainHeadSection').css('color', 'red !important');
+				$('.wrapper').css('margin-left', '0px !important');
+				$('.wrapper').css('width', '100% !important');
+			});
+			/* latest changes */
+		</script>	
+        
+		     
+             <link href="https://sec.cloudapps.cisco.com/security/center/Resources/css/stylesheet.css" type="text/css" rel="stylesheet">
+             <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+             <!-- <link href="https://sec.cloudapps.cisco.com/security/center/Resources/css/FeedBack_Style.css" type="text/css" rel="stylesheet"/>-->
+            
+             <!-- Updating jquery to 3.4.0 as of AVID-3690 fixes -->
+             <script src="https://sec.cloudapps.cisco.com/security/center/Resources/js/jquery-3.5.0.js" type="application/javascript"></script>
+             <script src="https://sec.cloudapps.cisco.com/security/center/Resources/js/jquery.nicescroll.min.js" type="application/javascript"></script>
+             <script src="https://sec.cloudapps.cisco.com/security/center/Resources/js/angular.min.js"></script>
+             <script src="https://sec.cloudapps.cisco.com/security/center/Resources/js/angular-route.min.js"></script>
+             <script src="https://sec.cloudapps.cisco.com/security/center/Resources/js/module/module.js"></script>
+			<script src="https://sec.cloudapps.cisco.com/security/center/Resources/js/controllers/TabController.js"></script>
+			<script src="Resources/js/controllers/advisoryCtrl.js"></script>
+			<script src="https://sec.cloudapps.cisco.com/security/center/Resources/js/controllers/productFilter.js"></script>
+			
+			
+			
+    </head>
+    
+<!-- <script src="//www.cisco.com/etc/designs/cdc/clientlibs/responsive/js/web-component-foundation.min.js"></script>
+        <script>
+            cdc.wcAncillaryAssetAllocator.init(['cdc-template'], 'en/us', false, true, false, 'prod', true);
+        </script> -->
+      <script type="module" src="https://www.cisco.com/site/web-components/us/en/cdc-template.js"></script>
+       <script>    
+		   if (window.cdcext === undefined) { window.cdcext = {}; }
+		    cdcext.customEnvironment = 'prod';
+		    cdcext.host = 'Cisco Security Center';
+		    cdcext.locale = 'en-US';
+		
+		    if (window.cdclocale === undefined) { window.cdclocale = {}; }
+		    cdclocale.locale = 'en_us';
+		    
+	   </script>
+    </head>
+    <body style="overflow-x: hidden; margin: 0%;">
+        <cdc-template>
+
+
+
+        		
+			<div class="wrapper topHeadSection">
+			<div class="paginationSection clearfix">
+			
+			<!--<li>Home</li>
+			<li>/</li>
+			<li>Cisco Security</li>-->
+			<style>.paginationSection a {
+color: #58585b !important;
+}</style><a href="https://www.cisco.com" id="ext-gen568">Home </a> / <a href="/security/center/home.x" id="ext-gen569">Cisco Security</a> / <a href="https://sec.cloudapps.cisco.com/security/center/publicationListing.x" id="ext-gen569">Security Advisories</a>
+			
+			</div>
+
+
+			<!-- alert start in 7-jan-2019 -->
+				<!----Alert Ticker Starts-------------------------------------------------->
+			   
+			   <div class="wrapper AlertTicker" id = "AlertTickerId">
+					<div class="desktopAlert">
+						<table><tr>
+								<i class="fa fa-close" id="closeAlert" onclick = "closeAlert()" ></i>
+						 		<td><p style="font-size: 14px !important; line-height: 1.4 !important;">For additional information on Cisco&#39;s vulnerability management, disclosure cadence, and software patching strategy, see <a href="https://sec.cloudapps.cisco.com/security/center/resources/risk-based-disclosure" target="_blank" rel="noopener noreferrer nofollow"> Cisco&#39;s Transition to a Risk-Based Vulnerability Disclosure Model</a>.</p></td>
+						</tr></table>	
+					</div>
+				</div> 
+				
+			<!----Alert Ticker Ends-------------------------------------------------->
+			<!-- alert end -->
+
+				<div class="mainHeadSection clearfix">
+			<h4>Cisco Security</h4>
+			<h1>Cisco Security Advisories </h1>
+
+			</div>
+			</div>
+
+			<div class="wrapper ng-cloak" ng-app="App"  ng-cloak >
+
+				  <div class="loader" id="loader" > <img  src="https://sec.cloudapps.cisco.com/security/center/Resources/images/loader.gif"  />  </div>
+				   <div class="loader" id="loader2" > <img  src="https://sec.cloudapps.cisco.com/security/center/Resources/images/loader.gif"  />  </div>
+				   <div class="loader" id="loader3" > <img  src="https://sec.cloudapps.cisco.com/security/center/Resources/images/loader.gif"  />  </div>
+				<div class="Content-wrapper ng-cloak" ng-cloak >
+			  <div id="tabs" ng-controller="TabController as tab" >
+				<div class="tabs-menu clearfix">
+				
+					
+				  <li ng-class="{active:tab.isSet(1)}"><a class="maintabclass" href="javascript:void(0)" name="tab-1"   ng-click="tab.setTab(1)">Vulnerabilities</a></li>
+				  
+					
+				  <li ng-class="{active:tab.isSet(2)}"><a class="maintabclass" href="javascript:void(0)" name="tab-2"   ng-click="tab.setTab(2)">Filter By Product</a></li>
+				  
+				</div>
+				<div class="tab" id="advisory-tab">
+					
+					
+					
+				  <div id="tab-1" class="tabContent" ng-show="tab.isSet(1)" ng-controller="advisoryCtrl as tc" >
+				 
+				 <div class="filterSection clearfix">
+												<div class="ciscoProdCheckbox">
+													<input  style="display: !none;" class="checkboxclass"
+														type="checkbox" id="CiscoProducts" name="productType"
+														value="1,3" ng-click="resourceType()"
+														checked>
+													<label id="quickSearch" style="cursor: default;"> Quick Search</label>
+												</div>
+			<div class="filterForm"><span class="addTagInput"><a href="#" class="SearchTag-icon"  > </a> <input type="text" ng-model="keyword" ng-keyup = "FilterByKeyword($event,title)" maxlength="200" id="keywordSearch" style="padding-left: 25px;"/> <a href="#" class="clearSearchTag" ng-click="clearSearchTag($event)" > </a></span> <!--<span class="filterSecurity"><select name="select">
+							<option value="value1">Filter By Security Event</option>
+							<option value="value2" selected>High</option>
+							<option value="value3">Medium</option>
+							<option value="value3">Low</option>
+						  </select></span>--></div>
+				  <div class="row" id="advSearchVul" ><a href="/security/center/Search.x" class="" ><i> Advanced Search</i></a></div> 		
+						  
+				  </div>
+			   
+			   
+			   <div class="tableContent"  >   
+					
+						
+						         
+	<head>
+		<style>
+		  .text-center{ color: rgb(82, 82, 82);}
+	.fieldCol td {
+				border-bottom: solid 1px #ddd !important; /* base/fallback border for older browsers */
+				}
+	@media only screen and (min-width: 1027px) and (max-width: 1200px){
+	.cves{
+		left: -25px !important;
+	}
+}
+@media only screen and (min-width: 769px) and (max-width: 1026px){
+	.cves{
+		left: -139px !important;
+		top: 40% !important;
+	}
+}
+		</style>
+	</head>
+	 <table width="100%" cellspacing="0" cellpadding="0"  class="advisoryAlertTable" >      
+            
+        <thead>
+          <tr class="tableHeading">
+            <th width="50%" >Advisory</th>
+            <th width="10%" ng-click="sortData('impact')"  >Impact  <span id='sir' ng-click="getSortClass('sir')" class="sortDefault" ></span></th>
+            <th width="15%" >CVE</th>
+            <th width="15%" ng-click="sortData('lastPublished')">Last Updated <span id="last_published" ng-click="getSortClass('last_published')" class="sortDefault" ></span></th>
+            <th width="10%" >Version </th>
+          </tr>
+          </thead>
+          
+          <tr class="fieldCol">
+            <td><input type="text" placeholder="Search Advisory Name" ng-model="title"  ng-keyup = "FilterByTitle($event,title)"   /></td>
+            <td style="position: relative;">
+            <div id="svrCheckboxesDiv" ng-click="showSvrCheckboxes();">{{SeverityDrpDwnValue}}</div>
+			<div class="severityCheckboxDiv  severityFilterSection" id="severityMultiSel">				
+					<div class="severityTypeCheckbox"><input type="checkbox" id="severityAll" name="severityAll" class="selectAllTypes" value="All" checked=""><label for="severityAll" class="allTypes">&nbsp;&nbsp;All</label></div>
+					<div class="severityTypeCheckbox"><input type="checkbox" id="severityCritical" name="severityOTH" class="selectType" value="critical" checked=""><label for="severityCritical">&nbsp;&nbsp;Critical</label></div>
+					<div class="severityTypeCheckbox"><input type="checkbox" id="severityHigh" name="severityOTH" class="selectType" value="high" checked=""><label for="severityHigh">&nbsp;&nbsp;High</label></div>
+					<div class="severityTypeCheckbox"><input type="checkbox" id="severityMedium" name="severityOTH" class="selectType" value="medium" checked=""><label for="severityMedium">&nbsp;&nbsp;Medium</label></div>
+					<div class="severityTypeCheckbox"><input type="checkbox" id="severityLow" name="severityOTH" class="selectType" value="low" checked=""><label for="severityLow">&nbsp;&nbsp;Low</label></div>
+                    <div class="severityTypeCheckbox"><input type="checkbox" id="severityInformational" name="severityOTH" class="selectType" value="informational" checked=""><label for="severityInformational">&nbsp;&nbsp;Informational</label></div>
+                    
+                    <div class="bottomHr">
+					<div><span ng-click="FilterDataTableByImpact();" style="color: #009cde;"> Done </span></div>
+				    </div>					
+			</div>
+            <!--<select ng-model="securityImpactRatings" ng-change="FilterDataTableByImpact()" >
+                <option value="" >All</option>
+                 <option value="critical" selected>Critical</option>
+                <option value="high" selected>High</option>
+                <option value="medium" >Medium</option>
+                <option value="low" >Low</option>
+              </select>--->
+              </td>
+            <td><input type="text"  placeholder="Search CVE" ng-model="cves" ng-keyup = "FilterByCVE($event,cves)"   /></td>
+            <td><select  class="lpDate" ng-model="last_published" ng-change="FilterDataTableByLastDate()" >
+           		<option value="">Most Recent</option>
+                
+                	<option value="2026 Oct">2026 Oct</option>
+                
+                	<option value="2026 Sep">2026 Sep</option>
+                
+                	<option value="2026 Aug">2026 Aug</option>
+                
+                	<option value="2026 Jul">2026 Jul</option>
+                
+                	<option value="2026 Jun">2026 Jun</option>
+                
+                	<option value="2026 May">2026 May</option>
+                
+                	<option value="2026 Apr">2026 Apr</option>
+                
+                	<option value="2026 Mar">2026 Mar</option>
+                
+                	<option value="2026 Feb">2026 Feb</option>
+                
+                	<option value="2026 Jan">2026 Jan</option>
+                
+                	<option value="2025 Dec">2025 Dec</option>
+                
+                	<option value="2025 Nov">2025 Nov</option>
+                
+              </select></td>
+            <td><!--<select name="select" ng-model="searchKeyword.status" >
+                <option value="value1">All</option>
+                <option value="value2" selected>Updated</option>
+                <option value="value3">New</option>
+              </select>--> </td>
+          </tr>
+        <!--   <tr class="advisoryBorder" style="border-bottom:1px solid #e5e5e6;display: block;width: 206%;"><td colspan="5"></td></tr> -->
+          <tbody> 
+          <tr  ng-class-even="'even'" ng-class-odd="'odd'" ng-repeat="list in advisoryList" class="rowRepeat">  
+          <!-- filters -->
+          <!--<tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="list in advisoryList | filter:searchKeyword | filter:q | startFrom:currentPage*rowsPerPage | limitTo:rowsPerPage | paginate:rowsPerPage orderBy:sortColumn:reverseSort" class="rowRepeat">-->
+            <td colspan="5" ng-class="{ activeColRow: $index == activePosition }"  >
+            <table>
+            <tbody>
+            <tr ng-click="toggleDetail($index,'doaction',$event)"  ><td width="50%"><div ng-click="setPageNumber($index)" ><span class="colsIcon" ng-hide="colsIcon == $index"  ></span>
+            <span class="activeColsIcon" ng-show="activeColsIcon == $index"    ></span>
+            <span class="lockIcon" ><img  src="/security/center/Resources/images/none-cisco-products.svg" ng-if="list.id != 1 && list.id != 3" /> <img  src="/security/center/Resources/images/lock-icon.svg" ng-if="list.id == 1 " /> <img  src="/security/center/Resources/images/CiscoShield.svg" ng-if="list.id == 3 " /> </span><span class="advListItem"><a href="{{list.url}}" ng-click="preventExpand($event)" >{{list.title}}</a></span></div></td>
+            <td width="11%"   class="impactTD" ><span ng-if="list.severity"><span ng-class="list.severity"></span><span>{{list.severity}}</span></span><span ng-if="!list.severity">--</span></td>
+            <td width="15%"  style="position:relative;" > <p ng-if="list.hasOwnProperty('cve') && list.cve != '--' "     ><span > <span ng-bind="list.cve.split(',')[0] " > </span> <br> <span ng-bind="list.cve.split(',')[1] " > </span>  
+ <span class="cveSpan"  ng-if="list.cve.split(',').length > 2">
+			<a href="#" class="showCVE" ng-click="toggleDetail($index,'noaction',$event)" > ... </a>		
+			<span  class="cveInput" ng-hide="true" > {{list.cve}} </span>
+   </span> 
+   </span>   
+   </p>
+   <div class="cves" ng-click="preventExpand($event)"  >    
+		<a class="closeCVE" href="#" ng-click="closeCVEpopUp( $event)"></a>
+		<div class="cveParentIWidth" > 
+		</div>			
+   </div> 
+   </td>
+            <td width="15%"  ><span>{{list.lastPublished | date :'yyyy MMM dd' : 'UTC'}}</span></td>
+            <td width="10%" ><span  ng-if="list.version.indexOf('.') > 0">{{list.version}}</span>
+            <span ng-if="list.version.indexOf('.') == -1">{{list.version+'.0'}}</span>
+            </td>
+            </tr>
+            <tr  class="childRow" ng-show="activePosition == $index">
+            <td colspan="5"><div class="colsChildWrap clearfix">
+            	<div class="childRowCol0">
+				  <p ng-if="list.hasOwnProperty('cve') && list.cve != '--' "   ng-class= "list.cve.split(',').length > 1 ? 'mar-b5' : '' "  ><span class="colsLable">CVE:</span><span ng-class= "list.cve.split(',').length > 1 ? 'top6' : '' " > <span ng-bind="list.cve.split(',')[0] " > </span> <br> <span ng-bind="list.cve.split(',')[1] " > </span>  
+					 <span class="cveSpan"  ng-if="list.cve.split(',').length > 2">
+								<a href="#" class="showCVE" > ... </a>		
+								<span  class="cveInput" ng-hide="true" > {{list.cve}} </span>
+					   </span> 
+					   </span>   
+					   </p>
+					   <div class="cves" >    
+							<a class="closeCVE" href="#" ></a>
+							<div class="cveParentIWidth" > 
+							</div>			
+					   </div> 
+                </div>
+                <div class="childRowCol1" >
+                  <p ng-if="list.identifier && list.hasOwnProperty('identifier')" style="margin: 0 0 -18px 0;"><span class="colsLable">Publication ID:</span><span>{{ list.identifier }}</span></p>
+                  <p ng-if="list.version && list.hasOwnProperty('version')"><span class="colsLable">Version:</span>
+                  <span ng-if="list.version.indexOf('.') > 0" >{{list.version}}</span>
+                   <span ng-if="list.version.indexOf('.') == -1" >{{list.version+'.0'}}</span>
+                  </p>               
+                  <p ng-if="list.firstPublished != null  && list.hasOwnProperty('firstPublished')" style="margin-top: -12px;"><span class="colsLable">First Published:</span><span>{{ list.firstPublished |  date :'yyyy MMM dd HH:mm' : 'UTC'}} GMT</span></p>
+                </div>
+                <div class="childRowCol2">
+                  <p ng-if="list.workarounds && list.hasOwnProperty('workarounds')" style="margin-top:auto;"><span class="colsLable">Workaround:</span><span>{{ list.workarounds }} </span></p>
+                  <p ng-if="list.id != 1 && list.id != 3 && list.id != 6 && list.id != 9 && list.hasOwnProperty('affectedCiscoProducts') "><span class="colsLable">Affects Cisco Products:</span><span>{{ list.affectedCiscoProducts }}</span><span ng-if="!list.affectedCiscoProducts">No</span></p>
+                </div>
+                <div class="childRowCol3">
+                  <p ng-if="list.summary && list.hasOwnProperty('summary')" style="margin-top:auto;"><span class="colsLable">Summary:</span><span ng-bind-html="renderHtml(list.summary,list.url)"> </span></p>
+                </div>
+              </div></td>
+          </tr>
+          
+          
+             
+            </tbody>
+           
+            </table>
+            </td>
+          </tr>
+         	 <tr class="no-matches text-center" ><td colspan="5" class="text-center"> {{message}} </td></tr>
+        
+           <tfoot>
+            <tr class ="xs-hide" >
+                <td colspan="5" class="text-center"  ng-show="dataPresent" >
+                	<span class="" >Showing  {{parseInt(offset) + 1}} - {{ ( parseInt(limit) + parseInt(offset) ) < total ? ( parseInt(limit) + parseInt(offset) ) : total }} of {{ parseInt(total) }} </span>                    
+                    
+                </td>
+            </tr>
+            <tr ng-show="dataPresent" >
+            <td colspan="5"  ><div class="custom-select pagntn">Items per page:
+            <!--<select placeholder="5"  ng-model="limit" class="input-xlarge limit" ng-init="limit='20'" ng-change = "changePerPageLimit()" >
+				 <option  ng-selected="{{20 == limit}}"  value= "20" >20</option>        
+				<option  ng-selected="{{50 == limit}}"  value= "50" >50</option>    
+				<option  ng-selected="{{100 == limit}}"  value= "100" >100</option>    			 
+             </select>-->
+			 <select placeholder="5" ng-model="limit" class="input-xlarge limit" ng-change = "changePerPageLimit()" ng-options="opt for opt in ItemsPerPageChoice">
+				<option   ng-selected="{{opt == limit}}"  value= "{{ opt }}" ></option>
+			</select></div>
+            
+<div class="pagination" >
+    <span class="showPageStat" >Showing  {{parseInt(offset) + 1}} - {{ ( parseInt(limit) + parseInt(offset) ) < total ? ( parseInt(limit) + parseInt(offset) ) : total }} of {{ parseInt(total) }} </span> <span class='partition' > | </span> 
+      <button ng-click="previousPage($event)"  class="prevPage {{ currentSelectedPage == 1 ? 'disabled' : 'active'  }}"  ng-disabled = "{{ offset == 0 ? 'disabled' : ''  }}" >
+        &lt; Prev
+    </button>
+    
+   <div class="custom-select">
+            <select  class="input-xlarge currentSelectedPage" ng-model="currentSelectedPage"  ng-change="changePageNumber(currentSelectedPage)" ng-options = "opt for opt in numberOfPages" >
+                <option   ng-selected="{{opt == currentSelectedPage}}"  value= "{{ opt }}" >{{opt}}</option>
+			</select>
+     </div>             
+    
+    <button ng-click="nextPage()" class="nextPage {{ currentSelectedPage >= total/limit  ? 'disabled' : 'active'  }}" ng-disabled="{{ offset >= total/limit -1 ? 'disabled' : ''  }}" >
+        Next &gt;
+    </button>
+</div>
+	</td>
+             
+                
+            </tr>
+            </tfoot>
+          </tbody>
+        </table>
+        
+			   </div> <!--//tableContent -->
+							  
+								<h3 class="addProdText" ng-show="alertText" >Select at least one checkbox to view vulnerabilities that affect Cisco products </h3>
+								
+				  </div>
+				  
+				  
+				  
+					
+				  
+				
+				  
+				  
+					
+					
+				  
+					
+						
+						 <div id="tab-2" class="tabContent" ng-show="tab.isSet(2)" ng-controller = "productFilter as pf" >
+							
+						 <div class="remove-div text-right " > 
+							<a href="javascript:void(0)" class="removeALL text-right" ng-click ="removeAll()" > Remove All  </a>
+						 </div>
+							 <div class="poductDiv">      
+									
+								
+
+								<product ng-repeat = "product in productArray" ></product>
+								
+								<span class="row" id = "advancedSearchProductMobile"><a href="/security/center/Search.x"><i> Advanced Search</i></a></span> 		
+								
+								
+								<div class="productAdd"><a href="javascript:void(0)"   class="addIcon" ng-click="addProductDiv()"></a>
+									<span>Add a Product</span>
+								</div>
+								
+								<div class="clearfix" ></div>
+							</div>
+							
+							<div class="row" id = "advancedSearchProductDesktop"><a href="/security/center/Search.x"><i style="font-size: 14px;"> Advanced Search</i></a></div> 		
+							
+							
+							<!-- <div class="erpDiv">
+									<div class="erpFilter"> 
+									<select ng-model="erpValue" ng-change="FilterDataTableByERP()" >
+									<option value="">Filter by Security Event</option>
+									
+										<option value="ERP-75296">Cisco Event Response: September 2025 Semiannual Cisco IOS and IOS XE Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75549">Cisco Event Response: September 2025 Semiannual Cisco IOS XR Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75667">Cisco Event Response: August 2025 Semiannual Cisco FXOS and NX-OS Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75415">Cisco Event Response: August 2025 Cisco Secure Firewall ASA, Secure FMC, and Secure FTD Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75279">Cisco Event Response: May 2025 Semiannual Cisco IOS and IOS XE Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75548">Cisco Event Response: March 2025 Semiannual Cisco IOS XR Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75528">Cisco  Event Response: February 2025 Semiannual Cisco FXOS and NX-OS Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75297">Cisco Event Response: March 2026 Semiannual Cisco IOS and IOS XE Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75772">Cisco Event Response: March 2026 Semiannual Cisco IOS XR Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75736">Cisco Event Response: March 2026 Cisco Secure Firewall ASA, Secure FMC, and Secure FTD Software Security Advisory Bundled Publication</option>
+									
+										<option value="ERP-75740">Cisco Event Response: February 2026 Semiannual Cisco FXOS and NX-OS Software Security Advisory Bundled Publication</option>
+									
+								  </select>
+									</div>
+							</div> -->
+							
+							<div class="tableContent" id="tab2Content" >  
+								  <!--  <h3 class="affectedProd" ng-hide="addProdText" >Your product(s) has/have been affected  by the ERP. Please read information below.
+								  <p>   This Is An Advisory/Alert 	Name/Link And It Mignt Be Very Long, Like Really  Long For Reals You Guys So This is A Demonstration   </p>
+								   </h3>
+								   -->
+								
+									
+								            
+  
+  <!--<div class="grid1" ng-show="grid1" id="grid1" >  
+	
+	<h3 class="affectedProd"  >Your product(s) has/have been affected  by the ERP. Please read information below.
+                      <p>   This Is An Advisory/Alert 	Name/Link And It Mignt Be Very Long, Like Really  Long For Reals You Guys So This is A Demonstration   </p>
+    </h3>
+	
+
+	 <table width="100%" border="1" cellspacing="0" cellpadding="0"  class="advisoryAlertTable" >      
+            
+        <thead>
+          <tr class="tableHeading">
+            <th width="50%" >Advisory/Alert</th>
+            <th width="10%" ng-click="sortData('impact')"  >Impact  <span id='pb_sir' ng-click="getSortClass('sir')" class="sortDefault" ></span></th>
+            <th width="15%" >CVE</th>
+            <th width="15%" ng-click="sortData('lastPublished')">Last Updated <span id="pb_last_published" ng-click="getSortClass('last_published')" class="sortDefault" ></span></th>
+            <th width="10%" >Version</th>
+          </tr>
+          </thead>
+          <tr style="border-bottom:1px solid #e5e5e6;"><td colspan="5"></td></tr>
+          <tbody> 
+          <tr  ng-class-even="'even'" ng-class-odd="'odd'" ng-repeat="list in advisoryList_affected" class="rowRepeat" >   
+            <td colspan="5" ng-class="{ activeColRow: $index == activePosition }"  >
+            <table>
+            <tbody>
+            <tr ng-click="toggleDetail($index,'doaction',$event)"  ><td width="50%" ><div ng-click="setPageNumber($index)"><span class="colsIcon" ng-hide="colsIcon == $index"   ></span>
+            <span class="activeColsIcon" ng-show="activeColsIcon == $index"  ></span>
+            <span class="lockIcon" ><img  src="/security/center/Resources/images/none-cisco-products.svg" ng-if="list.id != 1 && list.id != 3" /> <img  src="/security/center/Resources/images/lock-icon.svg" ng-if="list.id == 1 " /> <img  src="/security/center/Resources/images/CiscoShield.svg.svg" ng-if="list.id == 3 " /> </span><span class="advListItem"><a href="{{list.url}}" ng-click="preventExpand($event)" >{{list.title}}</a></span></div></td>
+            <td width="10%"  class="impactTD" ><span ng-if="list.severity"><span ng-class="list.severity"></span><span>{{list.severity}}</span></span><span ng-if="!list.severity">--</span></td>
+            <td width="15%"  style="position:relative;" > <p ng-if="list.hasOwnProperty('cve') && list.cve != '--' "     ><span > <span ng-bind="list.cve.split(',')[0] " > </span> <br> <span ng-bind="list.cve.split(',')[1] " > </span>  
+ 			<span class="cveSpan"  ng-if="list.cve.split(',').length > 2">
+			<a href="#" class="showCVE" ng-click="toggleDetail($index,'noaction',$event)" > ... </a>		
+			<span  class="cveInput" ng-hide="true" > {{list.cve}} </span>	
+   </span> 
+   </span>   
+   </p>
+   <div class="cves" ng-click="preventExpand($event)"  >    
+		<a class="closeCVE" href="#" ng-click="closeCVEpopUp( $event)"></a>
+		<div class="cveParentIWidth" > 
+		</div>			
+   </div> </td>
+            <td width="15%"  ><span>{{list.lastPublished | date :'yyyy MMM dd' : 'UTC' }}</span></td>
+            <td width="10%"  ><span ng-if="list.version.indexOf('.') > 0" >{{list.version}}</span>
+                   <span ng-if="list.version.indexOf('.') == -1" >{{list.version+'.0'}}</span></td>       
+            </tr>
+            <tr  class="childRow" ng-show="activePosition == $index">
+            <td colspan="5"><div class="colsChildWrap clearfix">
+            	
+				<div class="childRowCol0">
+				  <p ng-if="list.hasOwnProperty('cve') && list.cve != '--' "   ng-class= "list.cve.split(',').length > 1 ? 'mar-b5' : '' "  ><span class="colsLable">CVE:</span><span ng-class= "list.cve.split(',').length > 1 ? 'top6' : '' " > <span ng-bind="list.cve.split(',')[0] " > </span> <br> <span ng-bind="list.cve.split(',')[1] " > </span>  
+					 <span class="cveSpan"  ng-if="list.cve.split(',').length > 2">
+								<a href="#" class="showCVE" > ... </a>		
+								<span  class="cveInput" ng-hide="true" > {{list.cve}} </span>
+					   </span> 
+					   </span>   
+					   </p>
+					   <div class="cves" >    
+							<a class="closeCVE" href="#" ></a>
+							<div class="cveParentIWidth" > 
+							</div>			
+					   </div> 
+                </div>
+				
+                <div class="childRowCol1">
+                  <p ng-if="list.identifier && list.hasOwnProperty('identifier')"><span class="colsLable">Publication ID:</span><span>{{ list.identifier }}</span></p>
+                  <p ng-if="list.version && list.hasOwnProperty('version')"><span class="colsLable">Version:</span>
+                  <span ng-if="list.version.indexOf('.') > 0" >{{list.version}}</span>
+                   <span ng-if="list.version.indexOf('.') == -1" >{{list.version+'.0'}}</span></p>
+                  <p ng-if="list.firstPublished && list.hasOwnProperty('firstPublished')"><span class="colsLable">First Published:</span><span>{{ list.firstPublished |  date :'yyyy MMM dd HH:mm' : 'UTC' }} GMT</span></p>
+                </div>
+                <div class="childRowCol2">
+                  <p ng-if="list.workarounds && list.hasOwnProperty('workarounds')"><span class="colsLable">Workaround:</span><span>{{ list.workarounds }} </span></p>
+                  <p ng-if="list.cwe && list.hasOwnProperty('cwe')"><span class="colsLable">CWE:</span><span>{{ list.cwe }}</span></p>
+                  <p ng-if="list.id != 1 && list.id != 3 && list.id != 6 && list.id != 9 && list.hasOwnProperty('affectedCiscoProducts')"><span class="colsLable">Affects Cisco Products:</span><span>{{ list.affectedCiscoProducts }}</span><span ng-if="!list.affectedCiscoProducts">No</span></p>
+                </div>
+                <div class="childRowCol3">
+                  <p ng-if="list.summary && list.hasOwnProperty('summary')"><span class="colsLable">Summary:</span><span ng-bind-html="renderHtml(list.summary,list.url)"> </span></p>
+                </div>
+              </div></td>
+          </tr>
+          
+          
+             
+            </tbody>
+           
+            </table>
+            </td>
+          </tr>
+         	 <tr class="no-matches text-center" ><td colspan="5" class="text-center"> {{message}} </td></tr>       
+          </tbody>
+        </table>
+     
+</div>	 -->
+  <style>
+  .text-center{
+	      color: rgb(82, 82, 82);
+  }
+  
+  </style>
+  <div class="grid2" ng-show="grid2" id="grid2" >  
+		
+	<!--<h3 class="affectedProd"  ng-hide="isOnlyProductSelected" > Not affected products  </h3> -->
+	
+	 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="advisoryAlertTable" >      
+            
+        <thead>
+          <tr class="tableHeading">
+            <th width="50%" >Advisory</th>
+            <th width="10%" ng-click="sortData('impact')"  >Impact  <span id='pb_sir' ng-click="getSortClass('sir')" class="sortDefault" ></span></th>
+            <th width="15%" >CVE</th>
+            <th width="15%" ng-click="sortData('lastPublished')">Last Updated <span id="pb_last_published" ng-click="getSortClass('last_published')" class="sortDefault" ></span></th>
+            <th width="10%" >Version</th>
+          </tr>
+          </thead>
+          
+          <tr class="fieldCol"  >
+		  <!--<tr class="fieldCol"  ng-show="isOnlyProductSelected" > uncomment for erp --> 
+            <td><input type="text" placeholder="Search Advisory Name" ng-model="title"  ng-keyup = "FilterByTitle($event,title)"   /></td>
+            <td ><!-- <select name="select" ng-model="securityImpactRatings" ng-change="FilterDataTableByImpact()" >
+                <option value="" >All</option>
+                 <option value="critical" selected>Critical</option>
+                <option value="high" selected>High</option>
+                <option value="medium" >Medium</option>
+                <option value="low" >Low</option>
+              </select> -->
+                <div id="prdFltSvrCheckBoxesDiv" ng-click="showPrdFltSvrCheckboxes();">{{prdFltrSvrDrpDwnValue}}</div>
+				<div class="prdFltSvrCheckboxDiv  prdFltSvrFilterSection" id="prdFltSvrMultiSel">				
+						<div class="severityTypeCheckbox"><input type="checkbox" id="prdFltSvrAll" name="prdFltSvrAll" class="selectAllTypes" value="All" checked=""><label for="prdFltSvrAll" class="allTypes">&nbsp;&nbsp;All</label></div>
+						<div class="severityTypeCheckbox"><input type="checkbox" id="prdFltSvrCritical" name="prdFltSvrOTH" class="selectType" value="critical" checked=""><label for="prdFltSvrCritical">&nbsp;&nbsp;Critical</label></div>
+						<div class="severityTypeCheckbox"><input type="checkbox" id="prdFltSvrHigh" name="prdFltSvrOTH" class="selectType" value="high" checked=""><label for="prdFltSvrHigh">&nbsp;&nbsp;High</label></div>
+						<div class="severityTypeCheckbox"><input type="checkbox" id="prdFltSvrMedium" name="prdFltSvrOTH" class="selectType" value="medium" checked=""><label for="prdFltSvrMedium">&nbsp;&nbsp;Medium</label></div>
+						<div class="severityTypeCheckbox"><input type="checkbox" id="prdFltSvrLow" name="prdFltSvrOTH" class="selectType" value="low" checked=""><label for="prdFltSvrLow">&nbsp;&nbsp;Low</label></div>
+	                    <div class="severityTypeCheckbox"><input type="checkbox" id="prdFltSvrInformational" name="prdFltSvrOTH" class="selectType" value="informational" checked=""><label for="prdFltSvrInformational">&nbsp;&nbsp;Informational</label></div>
+	                    <div class="bottomHr">
+						<div><span ng-click="FilterDataTableByImpact();" style="color: #009cde;"> Done </span></div>
+					    </div>					
+				</div>
+              
+              </td>
+            <td><input type="text"  placeholder="Search CVE" ng-model="cves" ng-keyup = "FilterByCVE($event,cves)"   /></td>
+            <td><select name="select" ng-model="last_published" ng-change="FilterDataTableByLastDate()" >
+           		<option value="">Most Recent</option>
+                
+                	<option value="2026 Oct">2026 Oct</option>
+                
+                	<option value="2026 Sep">2026 Sep</option>
+                
+                	<option value="2026 Aug">2026 Aug</option>
+                
+                	<option value="2026 Jul">2026 Jul</option>
+                
+                	<option value="2026 Jun">2026 Jun</option>
+                
+                	<option value="2026 May">2026 May</option>
+                
+                	<option value="2026 Apr">2026 Apr</option>
+                
+                	<option value="2026 Mar">2026 Mar</option>
+                
+                	<option value="2026 Feb">2026 Feb</option>
+                
+                	<option value="2026 Jan">2026 Jan</option>
+                
+                	<option value="2025 Dec">2025 Dec</option>
+                
+                	<option value="2025 Nov">2025 Nov</option>
+                
+              </select></td>
+            <td> </td>
+          </tr>
+          
+          <tbody> 
+          <tr  ng-class-even="'even'" ng-class-odd="'odd'" ng-repeat="list in advisoryList" class="rowRepeat" >  
+       
+            <td colspan="5" ng-class="{ activeColRow: $index == activePosition }"  >
+            <table>
+            <tbody>
+            <tr ng-click="toggleDetail($index,'doaction',$event)"  ><td width="50%" ><div ng-click="setPageNumber($index)"><span class="colsIcon" ng-hide="colsIcon == $index"   ></span>
+            <span class="activeColsIcon" ng-show="activeColsIcon == $index"  ></span>
+            <span class="lockIcon" ><img  src="/security/center/Resources/images/none-cisco-products.svg" ng-if="list.id != 1 && list.id != 3" /> <img  src="/security/center/Resources/images/lock-icon.svg" ng-if="list.id == 1 " /> <img  src="/security/center/Resources/images/CiscoShield.svg.svg" ng-if="list.id == 3 " /> </span><span class="advListItem"><a href="{{list.url}}" ng-click="preventExpand($event)" >{{list.title}}</a></span></div></td>
+            <td width="11%"  class="impactTD" ><span ng-if="list.severity"><span ng-class="list.severity"></span><span>{{list.severity}}</span></span><span ng-if="!list.severity">--</span></td>
+            <td width="15%"  style="position:relative;" > <p ng-if="list.hasOwnProperty('cve') && list.cve != '--' "     ><span > <span ng-bind="list.cve.split(',')[0] " > </span> <br> <span ng-bind="list.cve.split(',')[1] " > </span>  
+ 			<span class="cveSpan"  ng-if="list.cve.split(',').length > 2">
+			<a href="#" class="showCVE" ng-click="toggleDetail($index,'noaction',$event)" > ... </a>		
+				<span  class="cveInput" ng-hide="true" > {{list.cve}} </span>
+   </span> 
+   </span>   
+   </p>
+   <div class="cves" ng-click="preventExpand($event)"  >    
+		<a class="closeCVE" href="#" ng-click="closeCVEpopUp( $event)"></a>
+		<div class="cveParentIWidth" > 
+		</div>			
+   </div> </td>
+            <td width="15%"  ><span>{{list.lastPublished | date :'yyyy MMM dd' : 'UTC' }}</span></td>
+            <td width="10%"  ><span ng-if="list.version.indexOf('.') > 0" >{{list.version}}</span>
+                   <span ng-if="list.version.indexOf('.') == -1" >{{list.version+'.0'}}</span></td>       
+            </tr>
+            <tr  class="childRow" ng-show="activePosition == $index">
+            <td colspan="5"><div class="colsChildWrap clearfix">
+            	
+				<div class="childRowCol0">
+				  <p ng-if="list.hasOwnProperty('cve') && list.cve != '--' "   ng-class= "list.cve.split(',').length > 1 ? 'mar-b5' : '' "  ><span class="colsLable">CVE:</span><span ng-class= "list.cve.split(',').length > 1 ? 'top6' : '' " > <span ng-bind="list.cve.split(',')[0] " > </span> <br> <span ng-bind="list.cve.split(',')[1] " > </span>  
+					 <span class="cveSpan"  ng-if="list.cve.split(',').length > 2">
+								<a href="#" class="showCVE" > ... </a>		
+								<span  class="cveInput" ng-hide="true" > {{list.cve}} </span>	
+					   </span> 
+					   </span>   
+					   </p>
+					   <div class="cves" >    
+							<a class="closeCVE" href="#" ></a>
+							<div class="cveParentIWidth" > 
+							</div>			
+					   </div> 
+                </div>
+				
+                <div class="childRowCol1">
+                  <p ng-if="list.identifier && list.hasOwnProperty('identifier')" style=" margin-top: auto;"><span class="colsLable">Publication ID:</span><span>{{ list.identifier }}</span></p>
+                  <p ng-if="list.version && list.hasOwnProperty('version')" style=" margin-top:-15px;"><span class="colsLable">Version:</span>
+                  <span ng-if="list.version.indexOf('.') > 0" >{{list.version}}</span>
+                   <span ng-if="list.version.indexOf('.') == -1" >{{list.version+'.0'}}</span></p>
+                  <p ng-if="list.firstPublished && list.hasOwnProperty('firstPublished')" style="margin-top: -15px;"><span class="colsLable">First Published:</span><span>{{ list.firstPublished |  date :'yyyy MMM dd HH:mm' : 'UTC' }} GMT</span></p>
+                </div>
+                <div class="childRowCol2">
+                  <p ng-if="list.workarounds && list.hasOwnProperty('workarounds')" style=" margin-top: auto;"><span class="colsLable">Workaround:</span><span>{{ list.workarounds }} </span></p>
+                  <p ng-if="list.id != 1 && list.id != 3 && list.id != 6 && list.id != 9 && list.hasOwnProperty('affectedCiscoProducts')"><span class="colsLable">Affects Cisco Products:</span><span>{{ list.affectedCiscoProducts }}</span><span ng-if="!list.affectedCiscoProducts">No</span></p>
+                </div>
+                <div class="childRowCol3">
+                  <p ng-if="list.summary && list.hasOwnProperty('summary')" style="margin-top: auto;"><span class="colsLable">Summary:</span><span ng-bind-html="renderHtml(list.summary,list.url)"> </span></p>
+                </div>
+              </div></td>
+          </tr>
+                       
+            </tbody>
+           
+            </table>
+            </td>
+          </tr>
+         	 <tr class="no-matches text-center" ><td colspan="5" class="text-center"> {{message}} </td></tr>
+       
+		<tfoot>
+            <tr class ="xs-hide" >
+                <td colspan="5" class="text-center"  ng-show="dataPresent" >
+                	<span class="" >Showing  {{parseInt(offset) + 1}} - {{ ( parseInt(limit) + parseInt(offset) ) < total ? ( parseInt(limit) + parseInt(offset) ) : total }} of {{ parseInt(total) }} </span>                    
+                    
+                </td>
+            </tr>
+            <tr ng-show="dataPresent" >
+            <td colspan="5"  ><div class="custom-select pagntn">Items per page:
+              <!--<select placeholder="5"  ng-model="limit" class="input-xlarge limit" ng-init="limit='20'" ng-change = "changePerPageLimit()" >
+					 <option  ng-selected="{{20 == limit}}"  value= "20" >20</option>        
+					<option  ng-selected="{{50 == limit}}"  value= "50" >50</option>    
+					<option  ng-selected="{{100 == limit}}"  value= "100" >100</option>    			 
+			</select>-->
+			<select placeholder="5" ng-model="limit" class="input-xlarge limit" ng-change = "changePerPageLimit()" ng-options="opt for opt in ItemsPerPageChoice">
+				<option   ng-selected="{{opt == limit}}"  value= "{{ opt }}" ></option>
+			</select></div>
+            
+<div class="pagination" >
+    <span class="showPageStat" >Showing  {{parseInt(offset) + 1}} - {{ ( parseInt(limit) + parseInt(offset) ) < total ? ( parseInt(limit) + parseInt(offset) ) : total }} of {{ parseInt(total) }} </span> <span class='partition' > | </span> 
+      <button ng-click="previousPage($event)"  class="prevPage {{ currentSelectedPage == 1 ? 'disabled' : 'active'  }}"  ng-disabled = "{{ offset == 0 ? 'disabled' : ''  }}" >
+        &lt; Prev
+    </button>
+    
+   <div class="custom-select">          
+			<select  class="input-xlarge currentSelectedPage" ng-model="currentSelectedPage"  ng-change="changePageNumber(currentSelectedPage)" ng-options = "opt for opt in numberOfPages" >
+                <option   ng-selected="{{opt == currentSelectedPage}}"  value= "{{ opt }}" >{{opt}}</option>
+			</select>
+     </div>             
+    
+    <button ng-click="nextPage()" class="nextPage {{ currentSelectedPage >= total/limit  ? 'disabled' : 'active'  }}" ng-disabled="{{ offset >= total/limit -1 ? 'disabled' : ''  }}" >
+        Next &gt;
+    </button>
+</div>
+	</td>
+             
+                
+            </tr>
+            </tfoot>
+	   
+          </tbody>
+		  
+		  
+        </table>
+	</div>	 
+									
+								</div> <!--//tableContent -->
+								
+								<h3 class="addProdText" ng-show="addProdText" >Add a product to see all related advisories </h3>
+								
+								
+								 <!--delete all pop up confirmation box -->  
+							 <div class="popup-wrapper" style="" >
+							 
+								<div class="confirmation-box"  style="">
+									<span class="cancelBtn" ng-click="removeAll_Cancel($event)" > </span>
+									<h5>Do you really want to delete all products? </h5>
+										<div>
+											<button ng-click="removeAll_Confirm($event)" > OK </button>
+											<button ng-click="removeAll_Cancel($event)"  > Cancel </button>
+										</div>
+								</div>
+							</div>
+							<!--// -->
+							  </div>
+						   
+						  
+							
+					
+				  
+				
+				  
+				  
+				</div>
+			  </div>  
+			  
+			  <div class="footer-text clearfix" style="padding-left: 10px; padding-right: 10px;">
+					
+				<p> 
+					To learn about Cisco security vulnerability disclosure policies and publications, see the <a href="https://sec.cloudapps.cisco.com/security/center/resources/security_vulnerability_policy.html">Security Vulnerability Policy.</a> This document also contains instructions for obtaining fixed software and receiving security vulnerability information from Cisco.
+				</p>
+				<br><br>
+				<p> 
+					For Splunk-specific Security Advisories, including Security Hardening Release publications, and to subscribe to notifications about those, see <a href="https://advisory.splunk.com/">Splunk Security Advisories</a>.
+				</p>
+				<br><br>
+				<p> 
+					Cisco Security Advisories and other Cisco security content are provided on an "as is" basis and do not imply any kind of guarantee or warranty. Your use of the information in these publications or linked material is at your own risk. Cisco reserves the right to change or update this content without notice at any time.
+				</p>
+				
+				
+			  </div>
+			  
+			  </div>  <!--content-wrapper -->
+			  
+			  <div class="preloadImages" style="display:none;" >
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/on.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/off.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/trash-can.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/trash-can-hover.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/searchtag-icon-hover.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/searchtag-clear-icon-hover.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/caret-dark-down.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/caret-dark-up.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/caret-hover.png" />
+				<img src="https://sec.cloudapps.cisco.com/security/center/Resources/images/delete-icon.png" />
+			 </div>
+			
+
+<link href="https://sec.cloudapps.cisco.com/security/center/Resources/css/FeedBack_Style.css" type="text/css" rel="stylesheet"/>
+
+			<!-- <div id='siofeedback_tab' class='siofeedback_tab_right' tabindex='0'><a href='javascript:openNewWindow();'><div><span></span></div></a></div> -->
+			<div id='ZN_0OjF4gJD0uzMamG'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+		
+		<script>
+			function openNewWindow(){
+		//alert('deep');
+		var a='https://ciscocx.qualtrics.com/jfe/form/SV_0q7r6A02bSNGuk6?Ref='+window.location.href+'';
+		var height='325';
+		var width='550';
+		var left='420';
+		var top='400';
+		//alert('URL IS '+a)
+		//window.open(a,'_blank','width='+width+',height='+height+',left='+left+',top='+top',scrollbars=yes');
+		window.open(a,'_blank','width='+width+',height='+height+',left='+left+',top='+top+',scrollbars=yes');
+		}
+		</script>
+		
+		<script type='text/javascript'>
+(function(){var g=function(e,h,f,g){
+this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
+this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
+this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)}};
+this.start=function(){var t=this;"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",function(){t.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){t.go()}):t.go()};};
+try{(new g(100,"r","QSI_S_ZN_0OjF4gJD0uzMamG","https://zn0ojf4gjd0uzmamg-ciscocx.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_0OjF4gJD0uzMamG")).start()}catch(i){}})();
+</script>
+
+<style>
+	#QSIFeedbackButton-btn{
+			bottom: 39% !important;
+		}
+			#QSIFeedbackButton-btn:active, #QSIFeedbackButton-btn:focus {
+    outline: none !important;
+}
+	@media only screen and (max-width: 768px){
+	#QSIFeedbackButton-btn{
+			display: none !important;
+		}
+	}
+	
+	/* .QSIFeedbackButton div{
+		color:white !important;
+		background-color: #1a8ce9 !important;	
+	} */
+</style>
+		 
+			<div class="main-section-bottom">
+			<div class="bottom-content">
+<h3>Tools</h3>
+<ul>
+<li><a href="/security/center/softwarechecker.x">Cisco Software Checker</a></li>
+<li><a href="/security/center/cvr">Cisco Vulnerability  Repository</a></li>
+ <li><a href="https://bst.cloudapps.cisco.com/bugsearch/">Bug Search</a></li>
+<li><a href="https://developer.cisco.com/psirt/">Cisco PSIRT openVuln API</a></li>
+<li><a href="/security/center/cvrfListing.x">CVRF Repository</a></li>
+<li><a href="https://community.cisco.com/t5/services-blogs/update-regarding-oval-definitions-by-cisco/ba-p/3661030">OVAL  Repository</a></li>
+</ul>
+</div>
+
+<div class="bottom-content" >
+<h3>Actions</h3>
+<ul>
+<li><a href="https://software.cisco.com/download/home">Download Cisco Software</a></li>
+<li><a href="https://snort.org">Download Snort Rules</a></li>
+<li><a href="https://mycase.cloudapps.cisco.com/case">Open or Query a TAC Case</a></li>
+</ul>
+</div>
+
+<div class="bottom-content" >
+<h3>Related Links</h3>
+<ul>
+<li><a href="/security/center/erp.x?i=52">Cisco Event Responses</a></li>
+<li><a href="/security/center/securityResources.x">Cisco Policies and Processes</a></li>
+<li><a href="https://blogs.cisco.com/security">Cisco Security Blog</a></li>
+<li><a href="https://www.cisco.com/site/us/en/products/security/index.html">Security Solutions</a></li>
+</ul>
+</div>
+			</div>
+			</div>
+            
+</cdc-template>
+ <!-- GDPR cookie integration -->
+<script type="text/javascript" src="//www.cisco.com/c/dam/cdc/t/ctm.js"></script>
+    </body>
+</html>
+			

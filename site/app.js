@@ -79,7 +79,7 @@
     if (loading[code]) return loading[code];
     loading[code] = new Promise((resolve) => {
       const s = document.createElement("script");
-      s.src = "./i18n/" + code + ".js?v=20261026major";
+      s.src = "./i18n/" + code + ".js?v=202610271847";
       s.async = true;
       s.onload = () => resolve(hasLocale(code));
       s.onerror = () => { s.remove(); resolve(false); };
