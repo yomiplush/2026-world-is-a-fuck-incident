@@ -17,14 +17,12 @@
     "scene", "panel", "kicker", "stamp", "title", "lede", "points", "metric", "metric-val",
     "metric-label", "chapter", "rail", "btn-next", "btn-prev", "btn-audio", "btn-info",
     "btn-close", "lang-select", "asof", "drawer", "source-list", "cover", "btn-start",
-    "hint", "more", "drawer-title", "drawer-foot", "chapter-dialog", "chapter-dialog-title",
-    "chapter-dialog-summary", "chapter-scenes", "chapter-break", "chapter-continue", "chapter-rest", "chapter-close"
+    "hint", "more", "drawer-title", "drawer-foot"
   ].forEach((id) => {
     el[id.replace(/-([a-z])/g, (_, c) => c.toUpperCase())] = document.getElementById(id);
   });
 
   let index = 0, started = false, sceneStart = 0, last = 0;
-  let chapterRest = false, dialogChapter = 0, dialogKind = 'browse', dialogOpener = null;
   // Manual camera offset persists across scenes. Inertia carries a flick;
   // idle orbit resumes after input, and double tap restores the base angle.
   const tilt = { yaw: 0, pitch: 0 };
@@ -51,7 +49,7 @@
   });
   let layoutFrame = 0;
   function syncRuntime() {
-    const active = started && !document.hidden && !el.drawer.classList.contains("open") && !el.chapterDialog.open && !chapterRest;
+    const active = started && !document.hidden && !el.drawer.classList.contains("open");
     const now = performance.now();
     if (!active && !pausedAt) pausedAt = now;
     if (active && pausedAt) { sceneStart += now - pausedAt; pausedAt = 0; last = now; }
@@ -131,67 +129,31 @@
 
   /* ---------- chrome ---------- */
   const chapterCopy = {
-    ja: ['章', '画面', '閉じる', 'この章を終える', 'この章はここまで。', '次の章へ', 'ここで区切る'],
-    en: ['Chapter', 'screens', 'Close', 'Finish chapter', 'Chapter complete.', 'Next chapter', 'Take a break'],
-    zh: ['章节', '画面', '关闭', '结束本章', '本章结束。', '下一章', '休息一下'],
-    ko: ['장', '화면', '닫기', '이 장 마치기', '이 장은 여기까지입니다.', '다음 장', '쉬어가기'],
-    es: ['Capítulo', 'pantallas', 'Cerrar', 'Terminar capítulo', 'Capítulo terminado.', 'Siguiente capítulo', 'Descansar'],
-    fr: ['Chapitre', 'écrans', 'Fermer', 'Terminer le chapitre', 'Chapitre terminé.', 'Chapitre suivant', 'Faire une pause'],
-    de: ['Kapitel', 'Ansichten', 'Schließen', 'Kapitel abschließen', 'Kapitel abgeschlossen.', 'Nächstes Kapitel', 'Pause machen'],
-    pt: ['Capítulo', 'telas', 'Fechar', 'Concluir capítulo', 'Capítulo concluído.', 'Próximo capítulo', 'Fazer uma pausa'],
-    ru: ['Глава', 'экранов', 'Закрыть', 'Завершить главу', 'Глава завершена.', 'Следующая глава', 'Сделать перерыв'],
-    ar: ['الفصل', 'شاشات', 'إغلاق', 'إنهاء الفصل', 'اكتمل الفصل.', 'الفصل التالي', 'أخذ استراحة'],
-    hi: ['अध्याय', 'स्क्रीन', 'बंद करें', 'अध्याय समाप्त करें', 'अध्याय पूरा हुआ।', 'अगला अध्याय', 'विराम लें'],
-    id: ['Bab', 'layar', 'Tutup', 'Selesaikan bab', 'Bab selesai.', 'Bab berikutnya', 'Istirahat'],
-    uk: ['Розділ', 'екранів', 'Закрити', 'Завершити розділ', 'Розділ завершено.', 'Наступний розділ', 'Зробити перерву'],
-    pl: ['Rozdział', 'ekranów', 'Zamknij', 'Zakończ rozdział', 'Rozdział ukończony.', 'Następny rozdział', 'Zrób przerwę'],
-    sv: ['Kapitel', 'vyer', 'Stäng', 'Avsluta kapitlet', 'Kapitlet är klart.', 'Nästa kapitel', 'Ta en paus']
+    ja: ['章', '画面'],
+    en: ['Chapter', 'screens'],
+    zh: ['章节', '画面'],
+    ko: ['장', '화면'],
+    es: ['Capítulo', 'pantallas'],
+    fr: ['Chapitre', 'écrans'],
+    de: ['Kapitel', 'Ansichten'],
+    pt: ['Capítulo', 'telas'],
+    ru: ['Глава', 'экранов'],
+    ar: ['الفصل', 'شاشات'],
+    hi: ['अध्याय', 'स्क्रीन'],
+    id: ['Bab', 'layar'],
+    uk: ['Розділ', 'екранів'],
+    pl: ['Rozdział', 'ekranów'],
+    sv: ['Kapitel', 'vyer'],
   };
   const chapterWords = () => chapterCopy[lang] || chapterCopy.en;
   const chapterLabel = n => lang === 'ja' ? `第${n}章` : `${chapterWords()[0]} ${n}`;
-  const isChapterEnd = () => index === chapterFor(index).end - 1 && index < scenes.length - 1;
-
-  function renderChapterDialog() {
-    const group = chapters[dialogChapter], words = chapterWords(), checkpoint = dialogKind === 'checkpoint';
-    el.chapterDialog.lang = meta(lang).html;
-    el.chapterDialogTitle.textContent = chapterLabel(group.index + 1) + (checkpoint ? ' · ' + words[4] : '');
-    el.chapterDialogSummary.textContent = checkpoint ? `${group.end - group.start}/${group.end - group.start}` :
-      `${group.index + 1}/${chapters.length} · ${group.end - group.start} ${words[1]}`;
-    el.chapterClose.textContent = words[2];
-    el.chapterBreak.hidden = !checkpoint;
-    el.chapterScenes.hidden = checkpoint;
-    el.chapterContinue.textContent = words[5];
-    el.chapterRest.textContent = words[6];
-    el.chapterScenes.replaceChildren();
-    if (checkpoint) return;
-    for (let i = group.start; i < group.end; i++) {
-      const li = document.createElement('li'), button = document.createElement('button');
-      button.type = 'button';
-      button.setAttribute('aria-current', i === index ? 'true' : 'false');
-      button.innerHTML = `<span class="chapter-scene-number">${i - group.start + 1}</span><span><small>${escapeHtml(scenes[i].stamp)}</small>${escapeHtml(copyFor(scenes[i]).title)}</span>`;
-      button.addEventListener('click', () => go(i, i > index ? 1 : -1));
-      li.appendChild(button); el.chapterScenes.appendChild(li);
-    }
-  }
-
-  function openChapter(groupIndex, kind = 'browse') {
-    if (el.chapterDialog.open) return;
-    dialogChapter = groupIndex; dialogKind = kind;
-    dialogOpener = kind === 'checkpoint' ? el.btnNext : el.rail.children[groupIndex];
-    el.chapterDialog.returnValue = '';
-    renderChapterDialog();
-    el.chapterDialog.showModal();
-    applyChrome(); syncRuntime();
-  }
-
   function applyChrome() {
     const m = meta(lang);
     document.documentElement.lang = m.html;
     document.documentElement.dir = m.dir;
 
     const group = chapterFor(index), words = chapterWords();
-    el.chapter.textContent = `${chapterLabel(group.index + 1)} · ${index - group.start + 1}/${group.end - group.start}`;
-    el.chapter.dataset.resting = String(chapterRest);
+    el.chapter.textContent = "BRIEFING";
     el.rail.querySelectorAll('.chapter-button').forEach((button, i) => {
       const active = i === group.index;
       button.setAttribute('aria-current', active ? 'true' : 'false');
@@ -206,7 +168,6 @@
       button.setAttribute('aria-label', `${chapterLabel(group.index + 1)} · ${i + 1}/${group.end - group.start}${scene ? ' · ' + copyFor(scene).title : ''}`);
     });
     el.rail.setAttribute('aria-label', words[0]);
-    if (el.chapterDialog.open) renderChapterDialog();
     if (el.langSelect && el.langSelect.value !== lang) el.langSelect.value = lang;
     if (el.asof) el.asof.textContent = C.review ? C.review.label : ui("asof");
     el.btnAudio.textContent = `${ui("sound")} ${A.isOn && A.isOn() ? ui("on") : ui("off")}`;
@@ -222,7 +183,7 @@
     el.btnInfo.title = `${ui("sources")} (S)`;
     el.btnPrev.setAttribute("aria-label", ui("tap"));
     el.btnNext.querySelector(".next-label").textContent =
-      index === scenes.length - 1 ? ui("replay") : isChapterEnd() ? words[chapterRest ? 5 : 3] : ui("tap");
+      index === scenes.length - 1 ? ui("replay") : ui("tap");
     el.btnNext.setAttribute('aria-label', el.btnNext.querySelector('.next-label').textContent);
     el.hint.textContent = (index === scenes.length - 1 ? ui("hintEnd") : ui("hint")) +
       " · DRAG / SWIPE = 3D · 2×TAP = RESET";
@@ -390,17 +351,11 @@
   function go(i, dir) {
     if (i < 0) return;
     if (i >= scenes.length) i = 0;
-    chapterRest = false;
-    if (el.chapterDialog.open) el.chapterDialog.close('navigate');
     index = i;
     if (navigation) history.replaceState(null, '', '#' + navigation.numberFor(index));
     renderScene(index, dir == null ? 1 : dir);
   }
-  const next = () => {
-    if (el.chapterDialog.open) return;
-    if (isChapterEnd() && !chapterRest) openChapter(chapterFor(index).index, 'checkpoint');
-    else go(index + 1, 1);
-  };
+  const next = () => go(index + 1, 1);
   const prev = () => go(index - 1, -1);
 
   el.panel.addEventListener("scroll", updateMore, { passive: true });
@@ -515,7 +470,6 @@
   document.addEventListener("pointercancel", endDrag, { passive: true });
 
   window.addEventListener("keydown", (e) => {
-    if (el.chapterDialog.open) return;
     if (e.key === "Escape" && el.drawer.classList.contains("open")) {
       e.preventDefault(); toggleDrawer(); return;
     }
@@ -560,24 +514,6 @@
   el.btnInfo.addEventListener("click", (e) => { e.stopPropagation(); toggleDrawer(); });
   el.btnClose.addEventListener("click", (e) => { e.stopPropagation(); toggleDrawer(); });
   el.drawer.inert = true;
-  el.chapterClose.addEventListener('click', () => el.chapterDialog.close('dismiss'));
-  el.chapterRest.addEventListener('click', () => el.chapterDialog.close('rest'));
-  el.chapterContinue.addEventListener('click', () => {
-    el.chapterDialog.close('continue'); go(chapters[dialogChapter].end, 1);
-  });
-  el.chapterDialog.addEventListener('keydown', event => {
-    if (event.key !== 'Tab') return;
-    const controls = [...el.chapterDialog.querySelectorAll('button')].filter(button => !button.disabled && button.getClientRects().length);
-    const first = controls[0], last = controls.at(-1);
-    if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-    else if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-  });
-  el.chapterDialog.addEventListener('close', () => {
-    if (dialogKind === 'checkpoint' && !['continue', 'navigate'].includes(el.chapterDialog.returnValue)) chapterRest = true;
-    applyChrome(); syncRuntime();
-    dialogOpener?.focus({ preventScroll: true });
-  });
-
   /* ---------- start ---------- */
   function start() {
     if (started) return;
