@@ -1,0 +1,444 @@
+List of known vulnerabilities in Qt products - Qt Wiki (https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products)
+citeturn14view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products","lineno":177}); Total lines: 559
+L80:       * 【48†1.2.35 CVE-2024-39936】
+L81:       * 【49†1.2.36 CVE-2024-36048】
+L82:       * 【50†1.2.37 CVE-2024-33861】
+L83:       * 【51†1.2.38 CVE-2024-30161】
+L84:       * 【52†1.2.39 CVE-2024-25580】
+L85:       * 【53†1.2.40 CVE-2023-51714】
+L86:       * 【54†1.2.41 CVE-2023-38197】
+L94:     * 【62†1.3 Qt for MCUs】
+L95:       * 【63†1.3.1 CVE-2026-94370:】
+L96:       * 【64†1.3.2 CVE-2026-95509:】
+L97:       * 【65†1.3.3 CVE-2026-19395:】
+L98: [Input] Toggle the table of contents
+L99: # List of known vulnerabilities in Qt products
+L100: 
+L101:   * 【66†Page】
+L102:   * 【67†Discussion】
+L103: 
+L104: [Input] English
+L105: 
+L106:   * 【66†Read】
+L107:   * 【68†View source】
+L108:   * 【69†View history】
+L109: 
+L110: [Input] Tools
+L111: 
+L112: Tools
+L113: 
+L114: [Button: move to sidebar] [Button: hide]
+L115: 
+L116: Actions
+L117: 
+L118:   * 【66†Read】
+L119:   * 【68†View source】
+L120:   * 【69†View history】
+L121: 
+L122: General
+L123: 
+L124:   * 【70†What links here】
+L125:   * 【71†Related changes】
+L126:   * 【72†Special pages】
+L127:   * Printable version
+L128:   * 【73†Permanent link】
+L129:   * 【74†Page information】
+L130: 
+L131: See vulnerability disclosure process from 【75†here†www.qt.io】
+L132: # Security advisories in Qt products
+L133: 
+L134: ## Axivion
+L135: ### CVE-2026-86350
+L136: 
+L137: Because our Dashboard redistributes Apache Tomcat, we inherit CVE-2026-86350 (fixed in 11.0.26) and its criticality, since we can't rule out that the Dashboard is affected.
+L138: 
+L139: Impact: Remote Privilege Escalation. A completely unauthorized user could become able to execute requests on behalf of a Dashboard Administrator.
+L140: 
+L141: Affected versions: Axivion Dashboard: from 7.12.1 to 7.12.5 and from 7.11.7 to 7.11.8
+L142: 
+L143: Fixed: Axivion 7.11.9, 7.12.6 and 7.13.0 or later
+L144: ### CVE-2026-12593
+L145: 
+L146: CWE-862 Missing Authorization vulnerability in the Dashboard OAuth/OIDC implementation
+L147: 
+L148: Impact: Authenticated Remote Privilege escalation. Any OIDC/OAuth authenticated user can become a Dashboard Administrator. By exploiting another weakness this can also lead to arbitrary code execution on the host-system running the Dashboard in the context of the OS-User used to run the Dashboard.
+L149: Affected versions: From Axivion 7.8.5 to 7.8.12, from 7.9.0 to 7.9.12, from 7.10.0 to 7.10.10, from 7.11.0 to 7.11.6, from 7.12.0 to 7.12.1
+L150: 
+L151: Fixed: Axivion 7.9.13 and 7.10.11, 7.11.7, 7.12.2 or later
+L152: ### CVE-2026-12379
+L153: 
+L154: CWE-601 URL Redirection to Untrusted Site ('Open Redirect') vulnerability in the Dashboard OAuth/OIDC implementation
+L155: Impact: Redirection of unsuspecting users to an untrusted external site. The Dashboard's OAuth/OIDC login flow did not properly restrict the post-authentication redirect to the application's own origin, so a user who follows a crafted login link can be sent to an attacker-controlled site after authenticating against the genuine Dashboard. Because the link points at the legitimate Dashboard, this can be abused for phishing, e.g. credential or second-factor theft via a convincing look-alike page.
+L156: Affected versions: From Axivion 7.8.0 to 7.8.12, from 7.9.0 to 7.9.12, from 7.10.0 to 7.10.10, from 7.11.0 to 7.11.6, from 7.12.0 to 7.12.1
+L157: 
+L158: Fixed: Axivion 7.9.13 and 7.10.11, 7.11.7, 7.12.2 or later
+L159: ## Qt Framework
+L160: ### CVE-2026-105946:
+L161: 
+L162: Out-of-bounds read vulnerability in NTLM authentication handling impacts Qt
+L163: 
+L164: Impact: A malicious server or proxy that requests NTLM authentication can cause the application to read outside the bounds of an allocated buffer. This may disclose application heap memory contents to the remote party and may cause the application to terminate.
+L165: 
+L166: Affected versions: From Qt 6.8.0 to Qt 6.8.9, from Qt 6.9.0 to Qt 6.11.1. Affected status unknown before Qt 6.8.0
+L167: Fixed: Qt 6.11.2, Qt 6.8.10, Qt 6.12.0
+L168: ### CVE-2026-107590:
+L169: 
+L170: Out-of-bounds write vulnerability in QTextCodec iconv-based encoding impacts Qt
+L171: 
+L172: Impact: Under certain conditions, encoding text with QTextCodec may write outside an internal buffer. This can cause the application to crash and may affect data integrity.
+L173: 
+L174: Affected versions: from Qt 4.5.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2
+L175: 
+L176: Fixed: Qt 6.8.9, Qt 6.11.3, Qt 6.12.0
+L177: ### CVE-2026-107472:
+L178: 
+L179: Out-of-bounds read vulnerability in QTextCodec TSCII encoding impacts Qt
+L180: 
+L181: Impact: Applications that convert text to the TSCII encoding through QTextCodec may read memory outside the input buffer, which can cause the application to crash or misinterpret the data.
+L182: 
+L183: Affected versions: from Qt 4.0.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2
+L184: 
+L185: Fixed: Qt 6.8.9, Qt 6.11.3, Qt 6.12.0
+L186: ### CVE-2026-107157:
+L187: 
+L188: Out-of-bounds read vulnerability in QCborValue::fromCbor() impacts Qt Framework
+L189: 
+L190: Impact: Processing specially crafted input through the affected API may cause the application to crash and could potentially lead to information disclosure.
+L191: 
+L192: Affected versions: from Qt 5.12.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2 (64-bit platforms only)
+L193: 
+L194: Fixed: Qt 6.8.9, Qt 6.11.3, Qt 6.12.0
+L195: ### CVE-2026-95620:
+L196: 
+L197: Use-after-free vulnerability in QNetworkAccessManager HTTP/2 support impacts Qt
+L198: 
+L199: Impact: A malicious or compromised HTTP/2 server may cause the client application to crash, affecting availability.
+L200: 
+L201: Affected versions: From Qt 6.9.0 to Qt 6.11.2
+L202: 
+L203: Fixed: Qt 6.11.3 and Qt 6.12.0
+L204: ### CVE-2026-16762:
+L205: 
+L206: Denial-of-service vulnerability in the Qt Core QXmlStream parser (QXmlStreamReader) impacts Qt
+L207: Impact: An attacker able to supply a crafted XML document to an application using QXmlStreamReader can cause disproportionate CPU consumption during parsing, making the application unresponsive (denial of service). Exploitation requires only that the application parse attacker-influenced XML; no authentication, privileges, or user interaction beyond ingesting the input are needed.
+L208: There is no loss of confidentiality or integrity — no data disclosure, data modification, or code execution — and the impact is contained to the affected process.
+L209: Affected versions: From Qt 4.3.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1. Affected status unknown before Qt 4.3.0
+L210: 
+L211: Fixed: Qt 6.8.9, Qt 6.11.2, Qt 6.12.0
+L212: ### CVE-2026-96432:
+L213: 
+L214: Null pointer dereference vulnerability in QNetworkAccessManager impacts Qt
+L215: 
+L216: Impact: A null pointer dereference in QNetworkAccessManager lets a malicious or compromised server crash the application over HTTP/2.
+L217: 
+L218: Affected versions: From 6.8.0 to 6.8.9, from 6.9.0 to 6.11.2
+L219: 
+L220: Fixed: Qt 6.8.10, Qt 6.11.3
+L221: ### CVE-2026-105923:
+L222: 
+L223: Null-pointer dereference in QTriangulator reachable through VectorImage
+L224: 
+L225: Impact: Processing specially crafted SVG content with the VectorImage QML type can cause the application to crash, resulting in loss of availability.
+L226: 
+L227: Affected versions: From Qt 6.8.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2
+L228: 
+L229: Fixed: Qt 6.8.9, Qt 6.11.3 and Qt 6.12.0
+L230: ### CVE-2026-101201:
+L231: 
+L232: Out-of-bounds read vulnerability in JSON document parsing functionality impacts Qt Core and Qt 5 Core Compatibility APIs
+L233: 
+L234: Impact: Availability (crash due to out-of-bounds read when processing specially crafted JSON document data)
+L235: 
+L236: Affected versions: From Qt 5.0 to Qt 6.8.8, and from Qt 6.9.0 to Qt 6.11.2
+L237: 
+L238: Fixed: Qt 6.8.9 and Qt 6.11.3
+L239: ### CVE-2026-8168:
+L240: 
+L241: Denial-of-service vulnerability in the SVG parser and renderer impacts Qt
+L242: 
+L243: Impact: When a Qt application loads an SVG file containing excessively deep element nesting, the Qt SVG module traverses the document tree recursively — while resolving paint servers, detecting cycles, rendering, and destroying the internal tree — without enforcing any recursion depth limit. This exhausts the process call stack and crashes the application (denial of service).
+L244: Affected versions: From Qt 4.1.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1
+L245: 
+L246: Fixed: Qt 6.8.9, Qt 6.11.2 or Qt 6.12.0
+L247: ### CVE-2026-79680:
+L248: 
+L249: Authentication bypass vulnerability in the password authentication mechanism of the Qt VNC Server module.
+L250: 
+L251: Impact: An attacker using a specially modified VNC client that violates the RFB protocol can bypass Qt VNC Server's password authentication and gain unauthorized remote access to the shared application, compromising the confidentiality and integrity of the session.
+L252: 
+L253: Affected versions: From Qt 6.4.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2
+L254: 
+L255: Fixed: Qt 6.8.9 and Qt 6.11.3
+L256: ### CVE-2026-78253:
+L257: 
+L258: Denial-of-service (stack-exhaustion) vulnerability in QXmlStreamReader::readElementText() impacts Qt
+L259: 
+L260: Impact: Uncontrolled recursion in `QXmlStreamReader::readElementText()` in Qt Group Qt allows attackers to cause a denial of service (application crash via stack exhaustion) via a crafted XML document.
+L261: 
+L262: Affected versions: From Qt 5.10 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1
+L263: 
+L264: Fixed: Qt 6.8.9 and Qt 6.11.2
+L265: ### CVE-2026-79616:
+L266: 
+L267: Out-of-bounds read vulnerability in Context2D.path and PathSvg.path properties impacts Qt Quick
+L268: 
+L269: Impact: Out-of-bounds read while parsing untrusted SVG path strings in Qt Quick's Context2D.path / PathSvg.path
+L270: 
+L271: Affected versions: From Qt 5.10 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1
+L272: 
+L273: Fixed: Qt 6.8.9 and Qt 6.11.2
+L274: ### CVE-2026-76151:
+L275: 
+L276: Out-of-bounds read (buffer over-read) vulnerability in HTTP Cache-Control response header parsing impacts Qt Framework (QtNetwork module)
+L277: 
+L278: Impact: QNetworkAccessManager crashes on excessively large Cache-Control header values returned by an untrusted HTTP server, causing denial of service on 64-bit builds.
+L279: 
+L280: Affected versions: From Qt 6.0.0 to 6.8.9, From 6.9.0 to 6.11.1
+L281: 
+L282: Fixed: Qt 6.8.9 and Qt 6.11.2
+L283: ### CVE-2026-19248:
+L284: 
+L285: Unbounded recursion vulnerability in the QDomNode destructor of Qt XML impacts Qt
+L286: 
+L287: Impact: QDomDocument XML parsing is vulnerable to a remotely-triggerable denial-of-service crash when processing untrusted input.
+L288: 
+L289: Affected versions: from Qt 2.2.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.1
+L290: 
+L291: Fixed: Qt 6.8.9 and Qt 6.11.2
+L292: ### CVE-2026-13326
+L293: 
+L294: Out-of-bounds read and integer underflow vulnerability in QNdefNfcTextRecord impacts Qt NFC module
+L295: 
+L296: Impact: An out-of-bounds read in Qt NFC's language code length parsing allows a physically proximate attacker to cause a denial of service or limited memory disclosure via a crafted NFC tag.
+L297: 
+L298: Affected versions: from Qt 5.2.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.10.3, from Qt 6.11.0 to Qt 6.11.1
+L299: 
+L300: Fixed: Qt 6.8.9 and Qt 6.11.2
+L301: ### CVE-2026-11573
+L302: 
+L303: Uncontrolled recursion in QDomDocument/QDomNode serialization causes stack exhaustion (QtXml)
+L304: 
+L305: Impact: Uncontrolled recursion in Qt's QDomDocument serialization (QtXml) lets deeply nested untrusted XML crash the app via stack exhaustion (DoS only).
+L306: 
+L307: Affected versions: from 2.2.0 to 6.8.1
+L308: 
+L309: Fixed: Qt 6.8.2 and Qt 6.9.0
+L310: ### CVE-2026-15037
+L311: 
+L312: XML injection vulnerability in QDom comment, CDATA and processing-instruction serialization
+L313: 
+L314: Impact: Improper output neutralization (XML injection) in QDom comment, CDATA, and processing-instruction serialization in Qt XML from 4.0.0 through 6.11 allows untrusted text serialized by an application into those nodes to inject arbitrary XML markup, because the node terminators are not escaped under the default InvalidDataPolicy (AcceptInvalidChars).
+L315: Affected versions: From Qt 4.0.0 before Qt 6.12.0
+L316: 
+L317: Fixed: Qt 6.12.0
+L318: ### CVE-2026-9499
+L319: 
+L320: Buffer read overflow in QTextCodec::codecForName()
+L321: 
+L322: Impact: Passing a non-NUL-terminated QByteArray (for example, one created with QByteArray::fromRawData()) to QTextCodec::codecForName() can cause the codec-name matching routine to read past the end of the buffer, resulting in an incorrect codec match or, in the worst case, an application crash (denial of service).
+L323: 
+L324: Affected versions: From Qt 4.0.0 to 6.8.7, from 6.9.0 to 6.11.0.
+L325: 
+L326: Fixed: Qt 6.8.8 and 6.11.1
+L327: ### CVE-2026-6210
+L328: 
+L329: Type confusion and heap-buffer-overflow vulnerability in Qt SVG marker handling
+L330: 
+L331: Impact: A type confusion vulnerability in Qt SVG allows an attacker to cause an application crash via a crafted SVG image.
+L332: 
+L333: Affected versions: From Qt 6.7.0 before 6.8.8, from 6.9.0 before 6.11.1.
+L334: 
+L335: Fixed: Qt 6.8.8 and 6.11.1
+L336: ### CVE-2025-14576
+L337: 
+L338: QML Code Injection in VectorImage Component in Qt declarative module
+L339: 
+L340: Impact: Insufficient validation of node IDs in Qt SVG module allows arbitrary QML/JavaScript code injection when loading malicious SVG files through the VectorImage component in Qt Quick. While QML execution is typically more restricted than native code execution, this could still lead to denial of service, information disclosure, or other impacts depending on the application's privilege level and data access.
+--------------------------------------------------------------------------------
+ (https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117469.md)
+citeturn14view1 [wordlim: 200] Crawled: today; Content type: text/plain; Source: open({"ref_id":"https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117469.md","lineno":null}); Total lines: 43
+L0: # CVE-2026-117469: File-transfer type confusion permits unauthorized repository writes in Psono Server
+L1: 
+L2: * **Publication date:** 2026-10-27
+L3: * **Last updated:** 2026-10-27
+L4: * **CVE ID:** CVE-2026-117469
+L5: * **Affected product:** Psono
+L6: * **Affected modules:** Psono Server Community Edition and Psono Server Enterprise Edition
+L7: * **Affected versions:** 1.0.0 through 7.2.3
+L8: * **Fixed version:** 7.2.4
+L9: * **Severity:** Medium
+L10: ## Summary
+L11: 
+L12: Psono Server did not enforce the direction of file-transfer credentials on file-repository operations. An authenticated attacker with read-only access to a file could present a download transfer to the upload endpoint and perform repository writes.
+L13: 
+L14: The issue affected both Psono Server Community Edition and Psono Server Enterprise Edition where external file repositories were used.
+L15: ## Impact
+L16: 
+L17: A successful attacker could obtain a signed upload URL for an attacker-selected object key and append a chunk to the file owner's external repository. This could upload or overwrite repository objects, consume storage, and disrupt stored files. The impact was bounded by the transfer's size, chunk-count, and 12-hour lifetime limits, but fresh download transfers made the attack repeatable.
+L18: * **CVSS v3.1 base score:** 5.4 (Medium)
+L19: * **CVSS vector:** `CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L`
+L20: * **Weakness:** CWE-862, Missing Authorization
+L21: ## Remediation
+L22: 
+L23: Upgrade Psono Server Community Edition and Psono Server Enterprise Edition to version 7.2.4 or later.
+L24: 
+L25: ## Workaround
+L26: 
+L27: If an immediate upgrade is not possible, disable external file repositories or block the file-repository upload endpoint until the upgrade can be applied. Blocking the endpoint prevents legitimate repository uploads.
+L28: ## Timeline
+L29: 
+L30: * **2026-07-29 18:10 GMT+2:** Vulnerability reported to esaqa GmbH.
+L31: * **2026-07-30 09:32 GMT+2:** Vendor fix implemented.
+L32: * **2026-07-30 15:16 GMT+2:** Psono 7.2.4 released with the fix.
+L33: 
+L34: ## Acknowledgements
+L35: 
+L36: This vulnerability was reported by Ryan Chaplin.
+L37: ## References
+L38: 
+L39: * [Psono Server source repository](https://gitlab.com/esaqa/psono/psono-server)
+L40: * [Affected source in Psono 7.2.3](https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/serializers/file_repository_upload.py)
+L41: * [Vendor fix](https://gitlab.com/esaqa/psono/psono-server/-/commit/64753b19bd8d03cfbed20db575f4dccb220d9ca4)
+L42: * [Psono 7.2.4 release](https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4)
+--------------------------------------------------------------------------------
+ (https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117470.md)
+citeturn14view2 [wordlim: 200] Crawled: today; Content type: text/plain; Source: open({"ref_id":"https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117470.md","lineno":null}); Total lines: 44
+L0: # CVE-2026-117470: WebAuthn assertion replay permits second-factor bypass in Psono Server
+L1: 
+L2: * **Publication date:** 2026-10-27
+L3: * **Last updated:** 2026-10-27
+L4: * **CVE ID:** CVE-2026-117470
+L5: * **Affected product:** Psono
+L6: * **Affected modules:** Psono Server Community Edition and Psono Server Enterprise Edition
+L7: * **Affected versions:** 3.1.0 through 7.2.3
+L8: * **Fixed version:** 7.2.4
+L9: * **Severity:** Medium
+L10: ## Summary
+L11: 
+L12: Psono Server did not consume a stored WebAuthn challenge after assertion verification. An attacker who possessed a user's password and one captured valid WebAuthn assertion could replay that assertion with separate login tokens while the challenge remained unchanged.
+L13: 
+L14: The issue affected both Psono Server Community Edition and Psono Server Enterprise Edition where WebAuthn two-factor authentication was enabled.
+L15: ## Impact
+L16: 
+L17: Successful exploitation bypassed the WebAuthn second factor and granted account access. Capturing a valid assertion required a compromised or malicious client, browser extension, or server-side request logging. The vulnerability did not itself disclose plaintext secrets.
+L18: 
+L19: * **CVSS v3.1 base score:** 6.5 (Medium)
+L20: * **CVSS vector:** `CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N`
+L21: * **Weakness:** CWE-294, Authentication Bypass by Capture-replay
+L22: ## Remediation
+L23: 
+L24: Upgrade Psono Server Community Edition and Psono Server Enterprise Edition to version 7.2.4 or later.
+L25: 
+L26: ## Workaround
+L27: 
+L28: No complete server-side workaround is available. If an immediate upgrade is not possible, disable WebAuthn and require another supported second factor until the upgrade can be applied.
+L29: ## Timeline
+L30: 
+L31: * **2026-07-29 18:10 GMT+2:** Vulnerability reported to esaqa GmbH.
+L32: * **2026-07-30 09:49 GMT+2:** Vendor fix implemented.
+L33: * **2026-07-30 15:16 GMT+2:** Psono 7.2.4 released with the fix.
+L34: 
+L35: ## Acknowledgements
+L36: 
+L37: This vulnerability was reported by Ryan Chaplin.
+L38: ## References
+L39: 
+L40: * [Psono Server source repository](https://gitlab.com/esaqa/psono/psono-server)
+L41: * [Affected source in Psono 7.2.3](https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/serializers/webauthn_verify.py)
+L42: * [Vendor fix](https://gitlab.com/esaqa/psono/psono-server/-/commit/9c9a7f1701535df63370340dcc80210737dc495d)
+L43: * [Psono 7.2.4 release](https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4)
+--------------------------------------------------------------------------------
+ (https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117471.md)
+citeturn14view3 [wordlim: 200] Crawled: today; Content type: text/plain; Source: open({"ref_id":"https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117471.md","lineno":null}); Total lines: 43
+L0: # CVE-2026-117471: User-controlled Duo host permits authenticated SSRF in Psono Server
+L1: 
+L2: * **Publication date:** 2026-10-27
+L3: * **Last updated:** 2026-10-27
+L4: * **CVE ID:** CVE-2026-117471
+L5: * **Affected product:** Psono
+L6: * **Affected modules:** Psono Server Community Edition and Psono Server Enterprise Edition
+L7: * **Affected versions:** 0.1.0 through 7.2.3
+L8: * **Fixed version:** 7.2.4
+L9: * **Severity:** Medium
+L10: ## Summary
+L11: 
+L12: Psono Server accepted a user-controlled host when configuring a personal Duo device and passed it to the Duo client without a host allowlist or explicit timeout. An authenticated attacker could induce outbound HTTPS connections to selected hosts.
+L13: 
+L14: The issue affected both Psono Server Community Edition and Psono Server Enterprise Edition where personal Duo configuration was available.
+L15: ## Impact
+L16: 
+L17: Differences in DNS, connection, TLS, and Duo API failures provided an internal DNS and port-443 service-reachability oracle. Unresponsive targets could also occupy a server worker until the operating-system timeout. The Duo client required HTTPS on port 443 and validated TLS certificates, so the vulnerability did not provide arbitrary protocol or port access and could not reach plain-HTTP cloud metadata services.
+L18: * **CVSS v3.1 base score:** 5.4 (Medium)
+L19: * **CVSS vector:** `CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L`
+L20: * **Weakness:** CWE-918, Server-Side Request Forgery (SSRF)
+L21: ## Remediation
+L22: 
+L23: Upgrade Psono Server Community Edition and Psono Server Enterprise Edition to version 7.2.4 or later.
+L24: 
+L25: ## Workaround
+L26: 
+L27: If an immediate upgrade is not possible, prevent users from configuring personal Duo hosts and restrict server egress on port 443 to approved Duo domains. System-wide Duo configuration with an administrator-controlled host is not affected by the user-controlled-host path.
+L28: ## Timeline
+L29: 
+L30: * **2026-07-29 18:10 GMT+2:** Vulnerability reported to esaqa GmbH.
+L31: * **2026-07-30 10:07 GMT+2:** Vendor fix implemented.
+L32: * **2026-07-30 15:16 GMT+2:** Psono 7.2.4 released with the fix.
+L33: 
+L34: ## Acknowledgements
+L35: 
+L36: This vulnerability was reported by Ryan Chaplin.
+L37: ## References
+L38: 
+L39: * [Psono Server source repository](https://gitlab.com/esaqa/psono/psono-server)
+L40: * [Affected source in Psono 7.2.3](https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/serializers/new_duo.py)
+L41: * [Vendor fix](https://gitlab.com/esaqa/psono/psono-server/-/commit/4059830475744791f3d3a1daa4e1603aea5549ed)
+L42: * [Psono 7.2.4 release](https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4)
+--------------------------------------------------------------------------------
+ (https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117472.md)
+citeturn14view4 [wordlim: 200] Crawled: today; Content type: text/plain; Source: open({"ref_id":"https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117472.md","lineno":null}); Total lines: 45
+L0: # CVE-2026-117472: URL prefix handling permits API key read-scope bypass in Psono Server
+L1: 
+L2: * **Publication date:** 2026-10-27
+L3: * **Last updated:** 2026-10-27
+L4: * **CVE ID:** CVE-2026-117472
+L5: * **Affected product:** Psono
+L6: * **Affected modules:** Psono Server Community Edition and Psono Server Enterprise Edition
+L7: * **Affected versions:** 4.0.33 through 7.2.3
+L8: * **Fixed version:** 7.2.4
+L9: * **Severity:** Medium
+L10: ## Summary
+L11: 
+L12: Psono Server compared the bulk-secret-read request path with a hard-coded unprefixed path. In deployments configured with `URL_PREFIX`, this comparison failed and the POST request was authorized using write scope instead of read scope.
+L13: 
+L14: The issue affected both Psono Server Community Edition and Psono Server Enterprise Edition. Deployments without `URL_PREFIX` were not affected.
+L15: ## Impact
+L16: 
+L17: An authenticated attacker with a read-disabled, write-enabled API key could retrieve encrypted secret data and nonces through the prefixed bulk-secret-read endpoint despite lacking read permission. Write-only API keys are supported but unusual, and the vulnerability did not disclose plaintext secret contents.
+L18: 
+L19: * **CVSS v3.1 base score:** 4.3 (Medium)
+L20: * **CVSS vector:** `CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N`
+L21: * **Weakness:** CWE-863, Incorrect Authorization
+L22: ## Remediation
+L23: 
+L24: Upgrade Psono Server Community Edition and Psono Server Enterprise Edition to version 7.2.4 or later.
+L25: 
+L26: ## Workaround
+L27: 
+L28: If an immediate upgrade is not possible, remove the `URL_PREFIX` configuration or avoid issuing API keys with read disabled and write enabled until the upgrade can be applied.
+L29: 
+L30: ## Timeline
+L31: 
+L32: * **2026-07-29 18:10 GMT+2:** Vulnerability reported to esaqa GmbH.
+L33: * **2026-07-30 10:29 GMT+2:** Vendor fix implemented.
+L34: * **2026-07-30 15:16 GMT+2:** Psono 7.2.4 released with the fix.
+L35: ## Acknowledgements
+L36: 
+L37: This vulnerability was reported by Ryan Chaplin.
+L38: 
+L39: ## References
+L40: 
+L41: * [Psono Server source repository](https://gitlab.com/esaqa/psono/psono-server)
+L42: * [Affected source in Psono 7.2.3](https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/permissions.py)
+L43: * [Vendor fix](https://gitlab.com/esaqa/psono/psono-server/-/commit/5638d4be806af7d1dea03f7cad3927aa2bd19cf4)
+L44: * [Psono 7.2.4 release](https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4)
+

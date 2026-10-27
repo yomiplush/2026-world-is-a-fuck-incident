@@ -22,12 +22,12 @@ try {
  await cdp('Emulation.setScriptExecutionDisabled',{value:true});
  for(const [width,height] of [[320,480],[390,844],[601,700],[768,1024],[844,350],[1440,900]]){
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<950});
-  for(const path of ['/database','/update-20261027-0747','/timeline','/database.en','/languages','/briefing']){
+  for(const path of ['/database','/update-20261027-1847','/timeline','/database.en','/languages','/briefing']){
    await open(path,'document.readyState==="complete" && !!document.querySelector("h1")');
    assert.ok(await run('document.documentElement.scrollWidth<=innerWidth'),path+' horizontal overflow at '+width);
-   if(path==='/database')assert.equal(await run('document.querySelectorAll("article").length'),23);
+   if(path==='/database')assert.equal(await run('document.querySelectorAll("article").length'),29);
    if(path==='/database.en')assert.ok(await run('!!document.querySelector(".archive-notice")'),'older translations must identify their date');
-   if(path==='/briefing')assert.equal(await run('document.querySelectorAll("article").length'),61);
+   if(path==='/briefing')assert.equal(await run('document.querySelectorAll("article").length'),65);
    if(path==='/timeline')assert.ok(await run(`Array.from(document.querySelectorAll('.day-card')).every(e=>{const t=e.querySelector('time').getBoundingClientRect(),d=e.querySelector('div').getBoundingClientRect();return t.right<=d.left})`),'timeline date overlaps heading');
   }
  }
@@ -35,10 +35,10 @@ try {
  const fs=await import('node:fs');
  for(const [width,height] of [[390,844],[1440,900]]){
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<950});
-  for(const [name,path,ready] of [['report','/update-20261027-0747','document.readyState==="complete" && !!window.PRIVACY'],['motion','/?lang=ja&still=1#60','window.__booted===true']]){
+  for(const [name,path,ready] of [['report','/update-20261027-1847','document.readyState==="complete" && !!window.PRIVACY'],['motion','/?lang=ja&still=1#62','window.__booted===true']]){
    await open(path,ready);await run('document.getElementById("privacy-reject")?.click();true');
-   const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/infosec-0747-'+name+'-'+width+'.png',Buffer.from(shot.data,'base64'));
+   const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/infosec-1847-'+name+'-'+width+'.png',Buffer.from(shot.data,'base64'));
   }
  }
- console.log('36 static reading checks: public23-topic data, archived translations,61-scene transcript and non-overlapping timeline at6sizes passed withoutJS');
+ console.log('36 static reading checks: public29-topic data, archived translations,65-scene transcript and non-overlapping timeline at6sizes passed withoutJS');
 }finally{await cdp('Emulation.setScriptExecutionDisabled',{value:false});ws.close()}

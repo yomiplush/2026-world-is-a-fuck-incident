@@ -1,6 +1,15 @@
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
-## Latest review — 2026-10-27 07:47 JST
+## Latest review — 2026-10-27 18:47 JST
+
+**[Current report](https://www.infosec-briefing.net/update-20261027-1847) · [Research database](https://www.infosec-briefing.net/database) · [Four new motion diagrams](https://www.infosec-briefing.net/?lang=en#62)**
+
+GMO reports8–11, branch-specific PAN-OS releases, GROWI, MPC share boundaries, Kubernetes, AI/dependency and BMC advisories, and two malicious-package reports.29 editorial topics, not29 new incidents. NVD89 published/192 modified; GHSA127 published/181 modified, with overlap documented.146 response records verified. Retrieval began after the requested cutoff.
+
+[Primary research](docs/research-2026-10-27-1847.md) · [Collection and limitations](docs/research-collection-2026-10-27-1847.md) · [Structured register](data/2026-10-27-1847/incident-register.json) · [Latest pointer](data/latest.json)
+
+
+## Previous review — 2026-10-27 07:47 JST
 
 **[Current reading report](https://www.infosec-briefing.net/update-20261027-0747) · [Research database](https://www.infosec-briefing.net/database) · [Two response diagrams](https://www.infosec-briefing.net/?lang=en#60)**
 

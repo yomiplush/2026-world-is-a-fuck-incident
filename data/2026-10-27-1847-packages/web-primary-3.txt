@@ -1,0 +1,447 @@
+List of known vulnerabilities in Qt products - Qt Wiki (https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products)
+citeturn13view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products","lineno":null}); Total lines: 559
+L0: 【0†Jump to content】
+L1: 
+L2: [Input] Main menu
+L3: 
+L4: Main menu
+L5: 
+L6: [Button: move to sidebar] [Button: hide]
+L7: 
+L8: Navigation
+L9: 
+L10:   * 【1†Main page】
+L11:   * 【2†Recent changes】
+L12:   * 【3†Random page】
+L13:   * 【4†Help about MediaWiki†www.mediawiki.org】
+L14: 
+L15: 【1†Qt Wiki】
+L16: 
+L17: 【5†Search】
+L18: 
+L19: [Input: Search Qt Wiki]
+L20: 
+L21: [Input]
+L22: 
+L23: [Button: Search]
+L24: 
+L25: [Input] Appearance
+L26: 
+L27: Appearance
+L28: 
+L29: [Button: move to sidebar] [Button: hide]
+L30: 
+L31:   * 【6†Sign in】
+L32: 
+L33: [Input] Personal tools
+L34: 
+L35:   * 【6†Sign in】
+L36: ## Contents
+L37: 
+L38: [Button: move to sidebar] [Button: hide]
+L39:   * 【7†Beginning】
+L40:   * 【8†1 Security advisories in Qt products】 Toggle Security advisories in Qt products subsection
+L41:     * 【9†1.1 Axivion】
+L42:       * 【10†1.1.1 CVE-2026-86350】
+L43:       * 【11†1.1.2 CVE-2026-12593】
+L44:       * 【12†1.1.3 CVE-2026-12379】
+L45:     * 【13†1.2 Qt Framework】
+L46:       * 【14†1.2.1 CVE-2026-105946:】
+L47:       * 【15†1.2.2 CVE-2026-107590:】
+L48:       * 【16†1.2.3 CVE-2026-107472:】
+L49:       * 【17†1.2.4 CVE-2026-107157:】
+L50:       * 【18†1.2.5 CVE-2026-95620:】
+L51:       * 【19†1.2.6 CVE-2026-16762:】
+L52:       * 【20†1.2.7 CVE-2026-96432:】
+L53:       * 【21†1.2.8 CVE-2026-105923:】
+L54:       * 【22†1.2.9 CVE-2026-101201:】
+L55:       * 【23†1.2.10 CVE-2026-8168:】
+L56:       * 【24†1.2.11 CVE-2026-79680:】
+L57:       * 【25†1.2.12 CVE-2026-78253:】
+L58:       * 【26†1.2.13 CVE-2026-79616:】
+L59:       * 【27†1.2.14 CVE-2026-76151:】
+L60:       * 【28†1.2.15 CVE-2026-19248:】
+L61:       * 【29†1.2.16 CVE-2026-13326】
+L62:       * 【30†1.2.17 CVE-2026-11573】
+L63:       * 【31†1.2.18 CVE-2026-15037】
+L64:       * 【32†1.2.19 CVE-2026-9499】
+L65:       * 【33†1.2.20 CVE-2026-6210】
+L66:       * 【34†1.2.21 CVE-2025-14576】
+L67:       * 【35†1.2.22 CVE-2025-14575】
+L68:       * 【36†1.2.23 CVE-2025-12385】
+L69:       * 【37†1.2.24 CVE-2025-10729】
+L70:       * 【38†1.2.25 CVE-2025-10728】
+L71:       * 【39†1.2.26 CVE-2025-6338】
+L72:       * 【40†1.2.27 CVE-2025-5992】
+L73:       * 【41†1.2.28 CVE-2025-5991】
+L74:       * 【42†1.2.29 CVE-2025-5683】
+L75:       * 【43†1.2.30 CVE-2025-5455】
+L76:       * 【44†1.2.31 CVE-2025-4211】
+L77:       * 【45†1.2.32 CVE-2025-3512】
+L78:       * 【46†1.2.33 CVE-2025-30348】
+L79:       * 【47†1.2.34 CVE-2025-23050】
+L80:       * 【48†1.2.35 CVE-2024-39936】
+L81:       * 【49†1.2.36 CVE-2024-36048】
+L82:       * 【50†1.2.37 CVE-2024-33861】
+L83:       * 【51†1.2.38 CVE-2024-30161】
+L84:       * 【52†1.2.39 CVE-2024-25580】
+L85:       * 【53†1.2.40 CVE-2023-51714】
+L86:       * 【54†1.2.41 CVE-2023-38197】
+L87:       * 【55†1.2.42 CVE-2023-45872】
+L88:       * 【56†1.2.43 CVE-2023-43114】
+L89:       * 【57†1.2.44 CVE-2023-32763】
+L90:       * 【58†1.2.45 CVE-2023-37369】
+L91:       * 【59†1.2.46 CVE-2023-34410】
+L92:       * 【60†1.2.47 CVE-2023-33285】
+L93:       * 【61†1.2.48 CVE-2023-32762】
+L94:     * 【62†1.3 Qt for MCUs】
+L95:       * 【63†1.3.1 CVE-2026-94370:】
+L96:       * 【64†1.3.2 CVE-2026-95509:】
+L97:       * 【65†1.3.3 CVE-2026-19395:】
+L98: [Input] Toggle the table of contents
+L99: # List of known vulnerabilities in Qt products
+L100: 
+L101:   * 【66†Page】
+L102:   * 【67†Discussion】
+L103: 
+L104: [Input] English
+L105: 
+L106:   * 【66†Read】
+L107:   * 【68†View source】
+L108:   * 【69†View history】
+L109: 
+L110: [Input] Tools
+L111: 
+L112: Tools
+L113: 
+L114: [Button: move to sidebar] [Button: hide]
+L115: 
+L116: Actions
+L117: 
+L118:   * 【66†Read】
+L119:   * 【68†View source】
+L120:   * 【69†View history】
+L121: 
+L122: General
+L123: 
+L124:   * 【70†What links here】
+L125:   * 【71†Related changes】
+L126:   * 【72†Special pages】
+L127:   * Printable version
+L128:   * 【73†Permanent link】
+L129:   * 【74†Page information】
+L130: 
+L131: See vulnerability disclosure process from 【75†here†www.qt.io】
+L132: # Security advisories in Qt products
+L133: 
+L134: ## Axivion
+L135: ### CVE-2026-86350
+L136: 
+L137: Because our Dashboard redistributes Apache Tomcat, we inherit CVE-2026-86350 (fixed in 11.0.26) and its criticality, since we can't rule out that the Dashboard is affected.
+L138: 
+L139: Impact: Remote Privilege Escalation. A completely unauthorized user could become able to execute requests on behalf of a Dashboard Administrator.
+L140: 
+L141: Affected versions: Axivion Dashboard: from 7.12.1 to 7.12.5 and from 7.11.7 to 7.11.8
+L142: 
+L143: Fixed: Axivion 7.11.9, 7.12.6 and 7.13.0 or later
+L144: ### CVE-2026-12593
+L145: 
+L146: CWE-862 Missing Authorization vulnerability in the Dashboard OAuth/OIDC implementation
+L147: 
+L148: Impact: Authenticated Remote Privilege escalation. Any OIDC/OAuth authenticated user can become a Dashboard Administrator. By exploiting another weakness this can also lead to arbitrary code execution on the host-system running the Dashboard in the context of the OS-User used to run the Dashboard.
+L149: Affected versions: From Axivion 7.8.5 to 7.8.12, from 7.9.0 to 7.9.12, from 7.10.0 to 7.10.10, from 7.11.0 to 7.11.6, from 7.12.0 to 7.12.1
+L150: 
+L151: Fixed: Axivion 7.9.13 and 7.10.11, 7.11.7, 7.12.2 or later
+L152: ### CVE-2026-12379
+L153: 
+L154: CWE-601 URL Redirection to Untrusted Site ('Open Redirect') vulnerability in the Dashboard OAuth/OIDC implementation
+L155: Impact: Redirection of unsuspecting users to an untrusted external site. The Dashboard's OAuth/OIDC login flow did not properly restrict the post-authentication redirect to the application's own origin, so a user who follows a crafted login link can be sent to an attacker-controlled site after authenticating against the genuine Dashboard. Because the link points at the legitimate Dashboard, this can be abused for phishing, e.g. credential or second-factor theft via a convincing look-alike page.
+L156: Affected versions: From Axivion 7.8.0 to 7.8.12, from 7.9.0 to 7.9.12, from 7.10.0 to 7.10.10, from 7.11.0 to 7.11.6, from 7.12.0 to 7.12.1
+L157: 
+L158: Fixed: Axivion 7.9.13 and 7.10.11, 7.11.7, 7.12.2 or later
+L159: ## Qt Framework
+L160: ### CVE-2026-105946:
+L161: 
+L162: Out-of-bounds read vulnerability in NTLM authentication handling impacts Qt
+L163: 
+L164: Impact: A malicious server or proxy that requests NTLM authentication can cause the application to read outside the bounds of an allocated buffer. This may disclose application heap memory contents to the remote party and may cause the application to terminate.
+L165: 
+L166: Affected versions: From Qt 6.8.0 to Qt 6.8.9, from Qt 6.9.0 to Qt 6.11.1. Affected status unknown before Qt 6.8.0
+L167: Fixed: Qt 6.11.2, Qt 6.8.10, Qt 6.12.0
+L168: ### CVE-2026-107590:
+L169: 
+L170: Out-of-bounds write vulnerability in QTextCodec iconv-based encoding impacts Qt
+L171: 
+L172: Impact: Under certain conditions, encoding text with QTextCodec may write outside an internal buffer. This can cause the application to crash and may affect data integrity.
+L173: 
+L174: Affected versions: from Qt 4.5.0 to Qt 6.8.8, from Qt 6.9.0 to Qt 6.11.2
+L175: 
+L176: Fixed: Qt 6.8.9, Qt 6.11.3, Qt 6.12.0
+--------------------------------------------------------------------------------
+ (https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117468.md)
+citeturn13view1 [wordlim: 200] Crawled: today; Content type: text/plain; Source: open({"ref_id":"https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117468.md","lineno":null}); Total lines: 44
+L0: # CVE-2026-117468: Device-code claim permits restricted token escalation in Psono Server
+L1: 
+L2: * **Publication date:** 2026-10-27
+L3: * **Last updated:** 2026-10-27
+L4: * **CVE ID:** CVE-2026-117468
+L5: * **Affected product:** Psono
+L6: * **Affected modules:** Psono Server Community Edition and Psono Server Enterprise Edition
+L7: * **Affected versions:** 5.3.5 through 7.2.3
+L8: * **Fixed version:** 7.2.4
+L9: * **Severity:** Medium
+L10: ## Summary
+L11: 
+L12: Psono Server used a permission class that did not enforce token write scope when claiming a device code. An authenticated attacker holding a restricted API key-derived session could claim an attacker-controlled device code and obtain a full read-write session valid for up to 365 days.
+L13: 
+L14: The issue affected both Psono Server Community Edition and Psono Server Enterprise Edition. It did not bypass two-factor authentication or directly disclose plaintext secrets.
+L15: ## Impact
+L16: 
+L17: The vulnerability bypassed the original API key session's scope and lifetime restrictions. A successful attacker could retain long-term account access and modify encrypted secrets and shares despite starting with a read-only, short-lived session.
+L18: 
+L19: * **CVSS v3.1 base score:** 6.5 (Medium)
+L20: * **CVSS vector:** `CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N`
+L21: * **Weakness:** CWE-269, Improper Privilege Management
+L22: ## Remediation
+L23: 
+L24: Upgrade Psono Server Community Edition and Psono Server Enterprise Edition to version 7.2.4 or later.
+L25: 
+L26: ## Workaround
+L27: 
+L28: If an immediate upgrade is not possible, block device-code claim requests at the reverse proxy or disable device pairing until the upgrade can be applied. Blocking this endpoint prevents legitimate device pairing.
+L29: ## Timeline
+L30: 
+L31: * **2026-07-29 18:10 GMT+2:** Vulnerability reported to esaqa GmbH.
+L32: * **2026-07-30 09:13 GMT+2:** Vendor fix implemented.
+L33: * **2026-07-30 15:16 GMT+2:** Psono 7.2.4 released with the fix.
+L34: 
+L35: ## Acknowledgements
+L36: 
+L37: This vulnerability was reported by Ryan Chaplin.
+L38: ## References
+L39: 
+L40: * [Psono Server source repository](https://gitlab.com/esaqa/psono/psono-server)
+L41: * [Affected source in Psono 7.2.3](https://gitlab.com/esaqa/psono/psono-server/-/blob/v7.2.3/psono/restapi/views/device_code_claim.py)
+L42: * [Vendor fix](https://gitlab.com/esaqa/psono/psono-server/-/commit/19ed5a192c704fece1645d946b6f4c36045bacbe)
+L43: * [Psono 7.2.4 release](https://gitlab.com/esaqa/psono/psono-server/-/releases/v7.2.4)
+--------------------------------------------------------------------------------
+Vulnerabilities in Supermicro BMC firmware, October 26, 2026 (2) | Supermicro (https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_2)
+citeturn13view2 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_2","lineno":null}); Total lines: 487
+L0: 【0†iframe†www.googletagmanager.com】
+L1: 
+L2: Welcome
+L3: 
+L4:   * Sign In
+L5:   * Create Account
+L6:   * Reset Password
+L7:   * Manage Account
+L8:   * Manage Email preferences
+L9:   * Sign Out
+L10: 
+L11: 【1†Image: Close】
+L12: 
+L13: 
+L14: 
+L15: 
+L16: 
+L17: Vulnerabilities in Supermicro BMC firmware, October 26, 2026 (2)
+L18: 
+L19: ### Vulnerability Disclosure:
+L20: 
+L21: The purpose of this disclosure is to communicate the potential vulnerabilities affecting Supermicro products that were reported by an external researcher.
+L22: ### Acknowledgement:
+L23: 
+L24: Supermicro would like to acknowledge the work done by Jihye Lee, an independent security researcher at Korea University, to discover potential vulnerabilities in Supermicro BMC Firmware.
+L25: ### Summary:
+L26: 
+L27: Eight security issues have been discovered in select supermicro boards. These issues may affect Supermicro BMC Firmware.
+L28: 
+L29: CVE ID  | Severity  | Issue Type  | Description
+L30: --- | --- | --- | ---
+L31:   * CVE-2026-16521
+L32:  | High  | Command Injection vulnerability in syslog feature  | An OS command injection vulnerability exists because of insufficient input filtering. An attacker can inject a command payload into a BMC function; the payload may execute when the related service is restarted.7.2 CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+L33: Affected Products
+L34: Motherboard  | BMC FW Version with the Fix
+L35: --- | ---
+L36: MBD-X13DEG-QT  | 01.08.16
+L37: MBD-X13SET-GC  | 01.08.16
+L38: MBD-X13SET-G  | 01.08.16
+L39: MBD-X13QEH+  | 01.08.16
+L40: MBD-X13DEG-R  | 01.13.11
+L41: MBD-X13DDW-A  | 01.13.09
+L42: MBD-X13DAI-T  | 01.08.18
+L43: MBD-X13DEI-T  | 01.09.15
+L44: MBD-X13DEI  | 01.09.15
+L45: MBD-X13DGU  | 01.13.13
+L46: MBD-X13SEI-TF  | 01.13.11
+L47: MBD-X13SEI-F  | 01.13.11
+L48: MBD-X13SEW-TF  | 01.13.11
+L49: MBD-X13SEW-F  | 01.13.11
+L50: MBD-X13DEG-OA  | 01.13.13
+L51: MBD-X13SCH-LN4F  | 01.09.06
+L52: MBD-X13SCH-F  | 01.09.06
+L53: MBD-X13SCL-F  | 01.14.01
+L54: MBD-X13SCH-SYS  | 01.09.06
+L55: MBD-X13SCD-F  | 01.03.10
+L56: MBD-X13SCL-IF  | 01.14.01
+L57: MBD-H13SVW-NT  | 01.08.07
+L58: MBD-H13SVW-N  | 01.08.07
+L59: MBD-H13SSL-NT  | 01.09.08
+L60: MBD-H13SSL-N  | 01.09.08
+L61: MBD-H13DSG-O-CPU  | 01.13.07
+L62: MBD-H13DSH  | 01.09.08
+L63: MBD-H13SSW  | 01.09.07
+L64: MBD-H13SST-GC  | 01.09.07
+L65: MBD-H13SST-G  | 01.09.07
+L66: MBD-H13SAE-MF  | 01.09.04
+L67: MBD-H13SRD-F  | 01.05.11
+L68: MBD-H13SRE-F  | 01.05.11
+L69: MBD-H13SRA-F  | 01.05.08
+L70: MBD-H13SRA-TF  | 01.05.08
+L71: MBD-X13SEB-TF  | 01.08.04
+L72: MBD-H14SSL-N  | 01.07.05.05
+L73: MBD-H14SSL-NT  | 01.07.05.05
+L74: MBD-H14SST-GE  | 01.07.04.02
+L75: MBD-H14DSG-O-CPU  | 01.07.05.04
+L76: MBD-H14SST-G  | 01.07.04.02
+L77: MBD-H14DSH  | 01.07.05.04
+L78: MBD-H14SRV-HLN4F  | 01.07.01.06
+L79: MBD-H12DSU-iNR  | 01.04.13
+L80: MBD-H12DGO-6  | 01.06.05
+L81: MBD-H12SSW-iNR  | 01.08.08
+L82: MBD-H12SSL-NT  | 01.08.05
+L83: MBD-H12SSL-CT  | 01.08.05
+L84: MBD-H12SSL-C  | 01.08.05
+L85: MBD-H12SSL-i  | 01.08.05
+L86: MBD-H12DSG-Q-CPU6  | 01.06.05
+L87: MBD-H12SSW-NTR  | 03.10.51
+L88: MBD-H12DSG-O-CPU  | 01.08.08
+L89: MBD-X12DGO-6  | 01.09.07
+L90: MBD-X12DSC-6  | 01.15.01
+L91: MBD-X12DGU  | TBD
+L92: MBD-X12SPT-GC  | 1.07.05
+L93: MBD-X12SPT-G  | 1.07.05
+L94: MBD-H12DSi-NT6  | 01.06.37
+L95: MBD-H12DSi-N6  | 01.06.37
+L96: MBD-H12SSW-AN6  | 01.06.37
+L97: MBD-H12SSFR-AN6  | 01.06.37
+L98: MBD-H12DGQ-NT6  | 01.06.36
+L99: MBD-X12SPO-NTF  | 01.07.27
+L100: MBD-X12DPG-QT6  | 01.07.24
+L101: MBD-X12DPG-U6  | 01.08.19
+L102: MBD-X12DAI-N6  | 01.08.22
+L103: MBD-X12SPi-TF  | 01.07.27
+L104: MBD-X12SPW-TF  | 01.07.28
+L105: MBD-X12SPO-F  | 01.07.27
+L106: MBD-X12DPU-6  | 01.08.24
+L107: MBD-X12DPi-NT6  | 01.08.20
+L108: MBD-X12DPi-N6  | 01.08.20
+L109: MBD-X12SPM-LN6TF  | 01.07.27
+L110: MBD-X12SPZ-SPLN6F  | 01.15.06
+L111: MBD-X12SPL-F  | 01.07.28
+L112: MBD-X12DPL-NT6  | 01.07.27
+L113: MBD-X12DPL-i6  | 01.07.27
+L114: MBD-X12SPZ-LN4F  | 01.15.06
+L115: MBD-X12SPED-F  | 01.07.27
+L116: MBD-X12DPG-QBT6  | 01.05.40
+L117: MBD-X12DHM-6  | 01.08.20
+L118: MBD-X12DPG-AR  | 01.07.26
+L119: MBD-X12DPFR-AN6  | 01.08.21
+L120: MBD-X12DDW-A6  | 01.08.20
+L121: MBD-X12SPW-TF-001  | 01.07.28
+L122: MBD-X12SPM-LN4F  | 01.07.27
+L123: MBD-X12SPL-LN4F  | 01.07.28
+L124: MBD-X12DSC-A6  | 01.07.27
+L125: MBD-X12SPW-F  | 01.07.28
+L126: MBD-X12SPM-TF  | 01.07.27
+L127: MBD-X13SAZ-F  | 01.09.09
+L128: MBD-X13SAE-F  | 01.04.23
+L129: MBD-X13SWA-TF  | 01.09.09
+L130: MBD-X13SRA-TF  | 01.09.09
+L131: MBD-X12STH-SYS  | 01.06.18
+L132: MBD-X12STE-F  | 01.06.18
+L133: MBD-X12STL-F  | 01.06.18
+L134: MBD-X12STD-F  | 01.06.18
+L135: MBD-X12SDV-4C-SPT4F  | 01.11.07
+L136: MBD-X12SDV-14C-SPT8F  | 01.11.07
+L137: MBD-X12SDV-10C-SPT4F  | 01.11.07
+L138: MBD-X12SDV-8C-SPT4F  | 01.11.07
+L139: MBD-X12SDV-10C-SP6F  | 01.11.07
+L140: MBD-X12SDV-8CE-SP4F  | 01.11.07
+L141: MBD-X12SDV-8C-SP6F  | 01.11.07
+L142: MBD-X12SDV-4C-SP6F  | 01.11.07
+L143: MBD-X12SDV-20C-SPT8F  | 01.11.07
+L144: MBD-X12SDV-16C-SPT8F  | 01.11.07
+L145: MBD-X12SDV-8C-SPT8F  | 01.11.07
+L146: MBD-X12SDV-4C-SPT8F  | 01.11.07
+L147: MBD-X12SDV-10CR-SP6F  | 01.11.07
+L148: MBD-X12STL-IF  | 01.06.18
+L149: MBD-X12STH-LN4F  | 01.06.18
+L150: MBD-X12STH-F  | 01.06.18
+L151: MBD-M12SWA-TF  | 01.06.34
+L152: MBD-X12SCZ-TLN4F  | 01.08.10
+L153: MBD-X12SCZ-QF  | 01.08.10
+L154: MBD-X12SCZ-F  | 01.08.10
+L155: MBD-X12SCA-F  | 01.16.01
+L156: MBD-A3SSV-24C-SPLN10F  | 01.08.09
+L157: MBD-A3SPI-4C-LN6PF-01  | 01.05.34
+L158: MBD-A3SSV-8C-SPLN10F  | 01.08.09
+L159: MBD-A3SSV-16C-SPLN10F  | 01.08.09
+L160: MBD-A3SPI-8C-LN6PF-01  | 01.05.34
+L161: MBD-A3SPI-8C-LN6PF  | 01.05.34
+L162: MBD-A3SPI-8C-HLN4F  | 01.05.34
+L163: MBD-A3SPI-4C-LN6PF  | 01.05.34
+L164: MBD-A3SPI-4C-HLN4F  | 01.05.34
+L165: MBD-X12SPG-NF  | 01.05.36
+L166: MBD-X12SPA-TF  | 01.15.03
+L167: MBD-X12QCH+  | 01.05.35
+L168: MBD-H12SSW-NTL  | 03.10.51
+L169: MBD-H12SSW-iNL  | 03.10.51
+L170: MBD-H12SSW-iN  | 03.10.51
+L171: MBD-H12DST-B  | 03.10.51
+L172: MBD-H12SST-PS  | 03.10.51
+L173: MBD-H12DSU-iN  | 03.10.51
+L174: MBD-H12SSW-NT  | 03.10.51
+L175: MBD-H11SSL-i  | 01.52.26
+L176: MBD-H11DSI-NT  | 01.52.26
+L177: MBD-H11DST-B  | 01.52.26
+L178: MBD-H11SSL-C  | 01.52.26
+L179: MBD-H11DSU-iN  | 01.52.26
+L180: MBD-H11SSW-NT  | 01.52.26
+L181: MBD-H11SSW-iN  | 01.52.26
+L182: MBD-H11SSL-NC  | 01.52.26
+L183: MBD-H11DSi  | 01.52.26
+L184: MBD-M11SDV-8C-LN4F  | 03.17.07
+L185: MBD-M11SDV-4C-LN4F  | 03.17.07
+L186: MBD-M11SDV-4CT-LN4F  | 03.17.07
+L187: MBD-M11SDV-8CT-LN4F  | 03.17.07
+L188: MBD-M11SDV-8C+-LN4F  | 03.17.07
+L189: MBD-X11SCM-LN8F  | 01.74.26
+L190: MBD-X11DPH-T  | 01.74.26
+L191: MBD-X11SDW-14CN-TP13F+  | 03.75.35
+L192: MBD-X11SDW-14CNT-TP13F  | 03.75.35
+L193: MBD-X11SDS-14C  | 03.75.35
+L194: MBD-X11SDS-12C  | 03.75.35
+L195: MBD-X11SCZ-F  | 01.74.26
+L196: MBD-X11DPI-NT  | 01.74.26
+L197: MBD-X11SDW-16C-TP13F  | 03.75.35
+L198: MBD-X11DPX-T  | 01.74.26
+L199: MBD-X11QPL  | 03.75.35
+L200: MBD-X11QPH+  | 01.74.26
+L201: MBD-X11DDW-NT  | 01.74.26
+L202: MBD-X11SPL-F  | 01.74.26
+L203: MBD-X11SPH-nCTF  | 01.74.26
+L204: MBD-X11DPG-OT-CPU  | 01.74.26
+L205: MBD-X11SDV-8C-TP8F  | 01.74.26
+L206: MBD-X11DPU  | 01.74.26
+L207: MBD-X11DDW-L  | 01.74.26
+L208: MBD-X11DPU-V  | 01.74.26
+L209: MBD-X11DPU-XLL  | 01.74.26
+L210: MBD-X11DPU-Z+  | 03.75.35
+L211: MBD-X11DPT-B  | 01.74.26
+L212: MBD-X11DPT-BR  | 01.74.26
+--------------------------------------------------------------------------------
+Internal Error ()
+citeturn13view3 [wordlim: 200] Source: open({"ref_id":"https://lists.apache.org/thread/k159xrq1tbgmkvl24j63g12qh0mczk79","lineno":null}); Total lines: 1
+L0: URL https://lists.apache.org/thread/k159xrq1tbgmkvl24j63g12qh0mczk79 is not accessible via this tool.
+

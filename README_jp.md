@@ -1,3 +1,13 @@
+# 最新調査：2026-10-27 18:47 JST
+
+**[読むレポート](https://www.infosec-briefing.net/update-20261027-1847) · [追加4画面のモーション](https://www.infosec-briefing.net/?lang=ja#62) · [調査データ](https://www.infosec-briefing.net/database)**
+
+GMO第8〜11報、PAN-OSの系列別出荷、GROWI・Fireblocks・Kubernetes・AI/依存package・BMC等を29の論点に整理。新規被害29件ではありません。GMOは公開確認と内容の真正性を分け、端末隔離・二次被害対策を確認。更新は実配備と侵害調査、悪性packageは実行環境とsecret失効まで点検します。
+
+[一次調査](docs/research-2026-10-27-1847.md) · [収集・重複・限界](docs/research-collection-2026-10-27-1847.md) · [構造化記録](data/2026-10-27-1847/incident-register.json)
+
+以下は過去の基準時刻の記録です。
+
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA インシデント
 
 ## 最新の確認 — 2026-10-27 07:47 JST
