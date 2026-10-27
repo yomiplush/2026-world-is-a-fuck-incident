@@ -41,6 +41,11 @@ try {
     await run('document.getElementById("btn-next").click();true');
     assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor('+(boundary+1)+')'),true);
     assert.equal(await run('!!document.querySelector("dialog[open]")'),false);
+    const selected=await run(`(()=>{const buttons=[...document.querySelectorAll('#rail .chapter-button')],active=buttons.filter(b=>b.getAttribute('aria-current')==='true');return {count:active.length,number:active[0]?.querySelector('.chapter-number').textContent,glow:active[0]&&getComputedStyle(active[0].querySelector('.chapter-square')).textShadow,oldGlow:getComputedStyle(buttons[0].querySelector('.chapter-square')).textShadow}})()`);
+    assert.equal(selected.count,1,'only the current chapter is lit');
+    assert.equal(selected.number,String(Math.floor((boundary+1)/10)+1),'highlight follows the next chapter');
+    assert.notEqual(selected.glow,'none','current chapter square glows');
+    assert.equal(selected.oldGlow,'none','previous chapter square returns to normal');
   }
   assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true);
  }
