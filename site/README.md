@@ -1,3 +1,21 @@
+## In-app browsers, touch, Quest and Android TV
+
+`viewport.js` follows the unzoomed VisualViewport height **and offsetTop**, keeping the application, entrance, corner links, source drawer and privacy dock inside the visible area. Native pinch zoom stays enabled. Touch language selectors use 16px text to avoid iOS focus zoom. Explicit OculusBrowser/Quest browser identities receive larger pointer targets. Android TV/GoogleTV/Smart-TV/BRAVIA/SHIELD identities receive a larger reading layout on sufficiently large windows and remote navigation: left/right move between controls, up/down keep native language selection, Enter activates, and Escape closes sources. Focused article text scrolls with up/down; source links outside the drawer viewport remain reachable.
+
+Motion language loading follows the last selection, including switching back while another language downloads. Failed downloads can be retried, and selection retains keyboard focus. Split diagrams follow the actual side occupied by the text panel, including RTL layouts.
+
+With `python3 tools/serve.py 8096` and a dedicated Chrome CDP session on port9238:
+
+```sh
+CDP_PORT=9238 node tests/inapp-language-regressions.mjs
+CDP_PORT=9238 node tests/devices.mjs
+CDP_PORT=9238 node tests/inapp.mjs
+CDP_PORT=9238 node tests/language-select.mjs
+CDP_PORT=9238 node tests/responsive-reading.mjs
+```
+
+Device tests emulate user agents, touch, CSS viewport sizes (320–3840px), locale changes and remote key events. They do not establish physical X iOS/Android, Quest or Android TV browser compatibility; those still require on-device checks. Existing locales may fall back to English for newer scenes.
+
 ## Native language dropdowns
 
 Motion and Tailworm offer 15 major languages, including Ukrainian, Polish and Swedish, through native dropdowns. The searchable dialog and200+language expansion have been removed. `content/site-languages.json` owns the bounded language list. Ukrainian, Polish and Swedish cover all 57 motion scenes, Tailworm prose and the current 37-topic database. Other existing motion locales may retain English fallback for some later scenes.
