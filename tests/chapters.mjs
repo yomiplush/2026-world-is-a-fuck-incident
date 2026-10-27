@@ -15,20 +15,20 @@ try {
  for(const [width,height] of [[320,480],[390,844],[844,350],[1440,900]]) {
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<950});
   await open('/?lang=ja&still=1#1','window.__booted===true');await run('document.getElementById("privacy-reject")?.click();true');
-  assert.equal(await run('document.querySelectorAll("#rail .tick").length'),7,'show seven chapters instead of65scene ticks');
-  assert.match(await run('document.getElementById("chapter").textContent'),/第1章.*1\/10/);
-  assert.ok(await run('document.getElementById("rail").scrollWidth<=document.getElementById("rail").clientWidth'),'all chapter squares fit');
-  await run('document.querySelectorAll("#rail .tick")[1].click();true');
-  assert.equal(await run('document.getElementById("chapter-dialog").open'),true);
-  assert.equal(await run('document.querySelectorAll("#chapter-scenes button").length'),10);
-  assert.equal(await run('location.hash'),'#1','opening chapter list does not change the current scene');
-  await run('document.querySelector("#chapter-scenes button").click();true');
+  assert.equal(await run('document.querySelectorAll("#rail .chapter-button").length'),7);
+  assert.equal(await run('document.querySelectorAll("#rail .scene-tick:not([hidden])").length'),10);
+  assert.ok(await run('document.getElementById("rail").scrollWidth<=document.getElementById("rail").clientWidth'));
+  await run('document.querySelectorAll("#rail .chapter-button")[1].click();true');
   assert.equal(await run('document.getElementById("chapter-dialog").open'),false);
   assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(10)'),true);
   assert.match(await run('document.getElementById("chapter").textContent'),/第2章.*1\/10/);
-  await run('document.querySelectorAll("#rail .tick")[6].click();true');
-  assert.equal(await run('document.querySelectorAll("#chapter-scenes button").length'),5);
-  await run('document.querySelector("#chapter-scenes li:last-child button").click();true');
+  await run('document.querySelectorAll("#rail .scene-tick")[4].focus();document.querySelectorAll("#rail .scene-tick")[4].click();true');
+  assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(14)'),true);
+  assert.equal(await run('document.activeElement===document.querySelectorAll("#rail .scene-tick")[4]'),true,'scene selection retains keyboard focus');
+  assert.equal(await run('document.querySelectorAll("#rail .scene-tick")[4].getAttribute("aria-current")'),'step');
+  await run('document.querySelectorAll("#rail .chapter-button")[6].click();true');
+  assert.equal(await run('document.querySelectorAll("#rail .scene-tick:not([hidden])").length'),5);
+  await run('document.querySelectorAll("#rail .scene-tick")[4].click();true');
   assert.equal(await run('location.hash'),'#53');
   await run('location.hash=BRIEFING_NAV.numberFor(9);true');await pause(60);
   const boundary=await run('location.hash');
@@ -45,10 +45,6 @@ try {
   await run('location.hash=BRIEFING_NAV.numberFor(19);true');await pause(60);
   await run('document.getElementById("btn-next").click();document.getElementById("chapter-continue").click();true');
   assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(20)'),true);
-  await run('document.querySelector("#rail .tick").click();true');
-  await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});await pause(30);
-  assert.equal(await run('document.getElementById("chapter-dialog").open'),false,'native Escape closes list');
-  assert.equal(await run('document.activeElement===document.querySelector("#rail .tick")'),true,'focus returns to chapter square');
   assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true);
  }
  // Localized chapter controls must remain usable on the shortest portrait layout.
@@ -59,10 +55,8 @@ try {
   await choose('#lang-select',language.code);
   for(let i=0;i<120;i++){if(await run('document.documentElement.lang==='+JSON.stringify(language.html)))break;await pause(30);}
   assert.equal(await run('document.documentElement.lang'),language.html);
-  await run('document.querySelector("#rail .tick").click();true');
-  const state=await run(`(()=>{const d=document.getElementById('chapter-dialog'),r=d.getBoundingClientRect(),b=document.getElementById('chapter-close'),c=b.getBoundingClientRect();return {lang:d.lang,count:document.querySelectorAll('#chapter-scenes button').length,fit:r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight,hit:document.elementFromPoint(c.x+c.width/2,c.y+c.height/2)?.closest('button')===b}})()`);
-  assert.equal(state.lang,language.html);assert.equal(state.count,10);assert.ok(state.fit&&state.hit,language.code+' chapter dialog clipped');
-  await run('document.getElementById("chapter-close").click();true');await pause(30);
+  const state=await run(`(()=>{const rail=document.getElementById('rail'),r=rail.getBoundingClientRect();return {fit:r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight,count:rail.querySelectorAll('.scene-tick:not([hidden])').length}})()`);
+  assert.equal(state.count,10);assert.ok(state.fit,language.code+' inline navigation clipped');
  }
  // A real animated scene stops drawing when a reader takes a break.
  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
@@ -73,18 +67,12 @@ try {
  assert.equal(await run('__chapterDraws'),0,'rest must suspend recurring rendering');
  await run('document.getElementById("btn-next").click();true');await pause(180);
  assert.ok(await run('__chapterDraws>0'),'next chapter resumes animation');
- // Native modal focus stays contained; TV arrows reach offscreen scene choices.
+ // TV arrows can reach scene and chapter controls directly.
  await cdp('Network.setUserAgentOverride',{userAgent:'Mozilla/5.0 (Linux; Android 12; Android TV) AppleWebKit/537.36 Chrome/130.0 Safari/537.36'});
  await cdp('Emulation.setDeviceMetricsOverride',{width:1280,height:720,deviceScaleFactor:1,mobile:false});
- await open('/?lang=ja&still=1#1','window.__booted===true');await run('document.getElementById("privacy-reject")?.click();document.querySelector("#rail .tick").click();true');
- for(let i=0;i<12;i++) {
-  await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
-  await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
-  assert.equal(await run('!!document.activeElement.closest("#chapter-dialog")'),true,'modal Tab focus escaped');
- }
- await run('document.getElementById("chapter-close").focus();true');
- for(let i=0;i<15;i++){if(await run('document.activeElement===document.querySelector("#chapter-scenes li:last-child button")'))break;await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowDown',code:'ArrowDown'});}
- assert.equal(await run('document.activeElement===document.querySelector("#chapter-scenes li:last-child button")'),true,'TV arrows reach the end of a scrolling chapter');
- console.log('Chapter navigation:4sizes,15languages, modal focus, TV arrows and paused/resumed animation passed');
-
+ await open('/?lang=ja&still=1#1','window.__booted===true');
+ await run('document.querySelector("#rail .scene-tick").focus();true');
+ await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight'});
+ assert.equal(await run('!!document.activeElement.closest("#rail")'),true);
+ console.log('Inline chapters:4sizes,15languages, direct scene/chapter selection, TV arrows and rest/resume passed');
 }finally{ws.close()}

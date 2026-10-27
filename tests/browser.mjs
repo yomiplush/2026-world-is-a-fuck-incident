@@ -27,7 +27,7 @@ async function open(lang, width, height, args = 'still=1#1') {
   await cdp('Page.navigate', { url: `http://127.0.0.1:8096/?qa=${Date.now()}&lang=${lang}&${args}` });
   for (let i = 0; i < 60; i++) {
     await pause(60);
-    if (args === '' ? await run("window.ENTRY && ENTRY.state === 'locked'") : await run('window.__booted === true && document.documentElement.lang === (window.LANGUAGES || []).find(l => l.code === ' + JSON.stringify(lang) + ')?.html')) return;
+    if (args === '' ? await run("window.ENTRY && ENTRY.state === 'locked'") : await run('window.__booted === true && typeof window.__drawErr !== "undefined" && document.documentElement.lang === (window.LANGUAGES || []).find(l => l.code === ' + JSON.stringify(lang) + ')?.html')) return;
   }
   throw Error('Boot timeout: ' + lang);
 }
