@@ -61,6 +61,7 @@
   /* ---------- locales ---------- */
   const LOCALES = {};          // code -> { ui, scenes } for lazily loaded languages
   const loading = {};          // code -> Promise<boolean>
+  let languageRequest = 0;
 
   window.registerLocale = function (code, data) {
     LOCALES[code] = data;
@@ -81,8 +82,12 @@
       s.src = "./i18n/" + code + ".js?v=20261026major";
       s.async = true;
       s.onload = () => resolve(hasLocale(code));
-      s.onerror = () => resolve(false);
+      s.onerror = () => { s.remove(); resolve(false); };
       document.head.appendChild(s);
+    });
+    loading[code] = loading[code].then(ok => {
+      if (!ok) delete loading[code];
+      return ok;
     });
     return loading[code];
   }
@@ -138,7 +143,7 @@
       `${lang === "ja" ? "各画面は記載時点の記録です。最新の条件・対策は読むレポートで確認してください。" : "Scenes retain their dated context. Check the latest reading report for current conditions and actions."}<br><a href="./timeline.html">日付別 / Daily record</a> · <a href="${C.review ? C.review.report : "./database"}">${C.review ? C.review.label : "Latest report"}</a><br><a href="https://github.com/yomiplush/2026-world-is-a-fuck-incident" target="_blank" rel="noopener">調査資料・ソースコード / Research repository</a>`;
     el.btnAudio.title = `${ui("sound")} (M)`;
     el.btnInfo.title = ui("sources");
-    el.langSelect.title = `${ui("sources")} · L`;
+    el.langSelect.title = "Language / 言語 · L";
     el.btnAudio.title = `${ui("sound")} (M)`;
     el.btnInfo.title = `${ui("sources")} (S)`;
     el.btnPrev.setAttribute("aria-label", ui("tap"));
@@ -149,8 +154,10 @@
   }
 
   async function setLang(code, opts) {
+    const request = ++languageRequest;
     if (!LANGS.some((l) => l.code === code)) code = "en";
     const ok = await (hasLocale(code) ? Promise.resolve(true) : loadLocale(code));
+    if (request !== languageRequest) return;
     lang = ok ? code : "en";
     if (el.langSelect) el.langSelect.value = lang;
     if (window.PRIVACY) window.PRIVACY.setLanguage(lang);
@@ -232,8 +239,10 @@
     const top = header.getBoundingClientRect().bottom + 14;
     const split = splitLayout.matches, w = window.innerWidth, h = window.innerHeight;
     const rtl = document.documentElement.dir === "rtl";
-    const left = split ? (rtl ? 16 : box.right + 24) : 10;
-    const right = split ? (rtl ? box.left - 24 : w - 16) : w - 10;
+    // Place the drawing opposite the actual panel, including RTL grid placement.
+    const panelOnLeft = box.left + box.width / 2 < w / 2;
+    const left = split ? (panelOnLeft ? box.right + 24 : 16) : 10;
+    const right = split ? (panelOnLeft ? w - 16 : box.left - 24) : w - 10;
     const bottom = footer.getBoundingClientRect().top - 12;
     const landscape = !split && w > h;
     // The translucent copy surface reveals the diagram beneath stacked layouts.
@@ -324,8 +333,7 @@
   el.langSelect.addEventListener("change", (e) => {
     e.stopPropagation();
     const want = el.langSelect.value;
-    if (want === lang) return;
-    setLang(want).then(() => el.langSelect.blur());
+    setLang(want);
   });
 
   /* ---------- input ---------- */
@@ -429,6 +437,9 @@
   document.addEventListener("pointercancel", endDrag, { passive: true });
 
   window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && el.drawer.classList.contains("open")) {
+      e.preventDefault(); toggleDrawer(); return;
+    }
     if (e.defaultPrevented || e.target.closest("a,button,input,select,textarea,[contenteditable]")) return;
     if (!started) return;
     if (e.key === " " || e.key === "ArrowRight" || e.key === "Enter") {
@@ -462,11 +473,14 @@
   function toggleDrawer() {
     const open = el.drawer.classList.toggle("open");
     el.drawer.setAttribute("aria-hidden", open ? "false" : "true");
+    el.drawer.inert = !open;
+    (open ? el.btnClose : el.btnInfo).focus({ preventScroll: true });
     syncRuntime();
     if (open) A.sfx("blip");
   }
   el.btnInfo.addEventListener("click", (e) => { e.stopPropagation(); toggleDrawer(); });
   el.btnClose.addEventListener("click", (e) => { e.stopPropagation(); toggleDrawer(); });
+  el.drawer.inert = true;
 
   /* ---------- start ---------- */
   function start() {
@@ -568,7 +582,9 @@
   // if the chosen language is lazy, load it and re-render in place
   if (!hasLocale(lang)) {
     const wanted = lang;
+    const request = languageRequest;
     loadLocale(wanted).then((ok) => {
+      if (request !== languageRequest) return;
       if (ok && wanted === lang) { applyChrome(); renderScene(index, 0, true, true); }
       else if (!ok) setLang("en", { silent: true });
     });

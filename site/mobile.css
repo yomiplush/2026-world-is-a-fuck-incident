@@ -6,9 +6,10 @@
 .hud-left { min-width:0 }
 .chapter { min-width:0; overflow:hidden; text-overflow:ellipsis }
 .panel { min-height:0; background:rgba(8,17,27,.64); text-shadow:0 2px 5px #000 }
-body #app { height:var(--app-height,100dvh) }
-#stage,.cover { bottom:auto; height:var(--app-height,100dvh) }
-.drawer { inset-block-end:auto; height:var(--app-height,100dvh) }
+body #app { top:var(--viewport-top,0px); height:var(--app-height,100dvh) }
+#stage,.cover { top:var(--viewport-top,0px); bottom:auto; height:var(--app-height,100dvh) }
+.drawer { inset-block-start:var(--viewport-top,0px); inset-block-end:auto; height:var(--app-height,100dvh) }
+.repo-link,.patch-link { top:calc(var(--viewport-top,0px) + var(--pad) + env(safe-area-inset-top)) }
 .privacy-dock { bottom:calc(var(--viewport-bottom,0px) + max(6px,env(safe-area-inset-bottom))) }
 .briefing-preferences { max-height:calc(var(--app-height,100dvh) - 80px); bottom:calc(var(--viewport-bottom,0px) + max(52px,env(safe-area-inset-bottom) + 44px)) }
 .rail { display:flex; overflow-x:auto; gap:4px; padding:2px 0; scrollbar-width:thin; overscroll-behavior-x:contain }
@@ -27,6 +28,31 @@ body #app { height:var(--app-height,100dvh) }
   .drawer-head .chip { min-width:72px }
   .more { position:static; text-align:start; font-size:10px }
   .privacy-dock a,.privacy-dock button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:6px 8px }
+}
+
+/* Avoid iOS focus zoom when opening the native language picker. */
+@media (pointer:coarse), (hover:none) {
+  body #app .langselect { font-size:16px; min-height:44px }
+  .chip,.navbtn,.tick { min-height:44px }
+}
+html[data-device="quest"] .langselect,
+html[data-device="quest"] .chip,
+html[data-device="quest"] .navbtn { min-height:48px; font-size:16px }
+html[data-device="quest"] .tick { min-height:44px }
+
+/* TV browser CSS pixels vary with resolution; keep short/small windows usable. */
+html[data-device="tv"] :is(button,a,select,.panel):focus-visible { outline:4px solid var(--amber); outline-offset:4px }
+html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-size:16px }
+@media (min-width:1100px) and (min-height:700px) {
+  html[data-device="tv"] { --pad:clamp(32px,4vw,96px) }
+  html[data-device="tv"] #app { padding-bottom:80px }
+  html[data-device="tv"] .panel { width:min(44vw,760px); padding:20px }
+  html[data-device="tv"] .lede,
+  html[data-device="tv"] .points li { font-size:clamp(18px,1.2vw,26px); line-height:1.7 }
+  html[data-device="tv"] h1#title { font-size:clamp(32px,2.5vw,56px) }
+  html[data-device="tv"] .drawer { width:min(720px,70vw) }
+  html[data-device="tv"] #source-list li { font-size:18px }
+  html[data-device="tv"] .privacy-dock :is(a,button) { font-size:16px; min-height:44px }
 }
 
 @media (max-width:600px) {
