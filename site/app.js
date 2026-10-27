@@ -157,8 +157,8 @@
     el.rail.querySelectorAll('.chapter-button').forEach((button, i) => {
       const active = i === group.index;
       button.setAttribute('aria-current', active ? 'true' : 'false');
-      button.style.gridRow = i === 0 ? '1' : '2';
-      button.style.gridColumn = i === 0 ? '1 / 3' : `${(i - 1) * 2 + 1} / span 2`;
+      button.style.gridRow = '1';
+      button.style.gridColumn = String(i + 1);
       button.setAttribute('aria-label', `${chapterLabel(i + 1)} / ${chapters.length} · ${chapters[i].end - chapters[i].start} ${words[1]}`);
     });
     el.rail.querySelectorAll('.scene-tick').forEach((button, i) => {
@@ -548,7 +548,7 @@
     for (let i = 0; i < 10; i++) {
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'scene-tick';
-      b.style.gridColumn = String(i + 3);
+      b.style.gridColumn = String(i + 9);
       b.innerHTML = '<span aria-hidden="true">│</span>';
       b.addEventListener('click', e => {
         e.stopPropagation();
