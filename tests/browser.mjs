@@ -100,7 +100,7 @@ try {
             more:!document.getElementById('more').hidden,overflow:panel.scrollHeight>panel.clientHeight+2};
         })()`);
         assert.equal(state.error,null,`${lang} scene ${i+1} draw error`);
-        assert.equal(state.rail,sceneCount);assert.ok(state.title);assert.ok(state.sources>0);
+        assert.equal(state.rail,Math.ceil(sceneCount/10));assert.ok(state.title);assert.ok(state.sources>0);
         assert.ok(state.docWidth<=width+1,`${lang} horizontal overflow`);
         assert.ok(state.panelBottom<=state.footerTop+2,`${lang} panel overlaps footer`);
         if(state.overflow)assert.ok(state.more,`${lang} missing scroll affordance`);
@@ -108,7 +108,7 @@ try {
           await pause(30);const shot=await cdp('Page.captureScreenshot',{format:'png'});
           fs.writeFileSync(`${artifactDir}/${lang}-${width}-${i+1}.png`,Buffer.from(shot.data,'base64'));
         }
-        await run("document.getElementById('btn-next').click()"); await pause(20);
+        await run("document.getElementById('btn-next').click(); if(document.getElementById('chapter-dialog').open)document.getElementById('chapter-continue').click()"); await pause(20);
       }
       console.log(`${lang} ${width}x${height}: all ${sceneCount} scenes, copy, sources, layout passed`);
     }
@@ -122,7 +122,7 @@ try {
     await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:1150,y:345,button:'left',clickCount:1});
     await pause(400);
     assert.ok(await run('VISUALS.getTilt().yaw > .2'),'drag did not rotate camera');
-    await run("document.getElementById('btn-next').click()"); await pause(150);
+    await run("document.getElementById('btn-next').click(); if(document.getElementById('chapter-dialog').open)document.getElementById('chapter-continue').click()"); await pause(150);
     assert.ok(await run('VISUALS.getTilt().yaw > .2'),'camera angle lost after navigation');
     await run("document.getElementById('btn-info').click()");
     assert.equal(await run("document.getElementById('drawer').getAttribute('aria-hidden')"),'false');
@@ -162,7 +162,7 @@ try {
     for(const lang of ['zh','ko','es','fr','de','pt','ru','hi','id']){
       await open(lang,390,844);await pause(120);
       assert.equal(await run("document.getElementById('lang-select').value"),lang);
-      assert.equal(await run("document.querySelectorAll('.tick').length"),sceneCount);
+      assert.equal(await run("document.querySelectorAll('.tick').length"),Math.ceil(sceneCount/10));
       assert.equal(await run('window.__drawErr'),null);
     }
     assert.deepEqual(errors,[],'browser exceptions');
