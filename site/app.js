@@ -157,8 +157,8 @@
     el.rail.querySelectorAll('.chapter-button').forEach((button, i) => {
       const active = i === group.index;
       button.setAttribute('aria-current', active ? 'true' : 'false');
-      button.style.gridRow = active ? '1' : '2';
-      button.style.gridColumn = active ? '1 / 3' : `${(i < group.index ? i : i - 1) * 2 + 1} / span 2`;
+      button.style.gridRow = i === 0 ? '1' : '2';
+      button.style.gridColumn = i === 0 ? '1 / 3' : `${(i - 1) * 2 + 1} / span 2`;
       button.setAttribute('aria-label', `${chapterLabel(i + 1)} / ${chapters.length} · ${chapters[i].end - chapters[i].start} ${words[1]}`);
     });
     el.rail.querySelectorAll('.scene-tick').forEach((button, i) => {
