@@ -146,6 +146,13 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
 .chapter-number { font:10px/1 var(--mono) }
 .chapter-rail .tick[aria-current="true"] { color:var(--amber); border-color:var(--amber); background:#ffb54512 }
 .chapter-rail .tick:hover { color:var(--cyan); background:#58e0ff12 }
+.chapter-rail .chapter-button[aria-current="true"] {
+  color:var(--amber); border-color:var(--amber); background:#ffb54520;
+  box-shadow:0 0 12px #ffb54524, inset 0 0 8px #ffb54510;
+}
+.chapter-rail .chapter-button[aria-current="true"] .chapter-square {
+  text-shadow:0 0 6px #ffb545cc, 0 0 14px #ffb54566;
+}
 .chapter-rail .scene-tick {
   grid-row:1; min-width:0; width:100%; height:44px; padding:0;
   border:0; border-radius:4px; color:var(--dim); background:transparent;
