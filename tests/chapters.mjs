@@ -19,9 +19,9 @@ try {
   assert.equal(await run('document.querySelectorAll("#rail .scene-tick:not([hidden])").length'),10);
   assert.ok(await run('document.getElementById("rail").scrollWidth<=document.getElementById("rail").clientWidth'));
   await run('document.querySelectorAll("#rail .chapter-button")[1].click();true');
-  assert.equal(await run('document.getElementById("chapter-dialog").open'),false);
+  assert.equal(await run('!!document.querySelector("#chapter-dialog[open]")'),false);
   assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(10)'),true);
-  assert.match(await run('document.getElementById("chapter").textContent'),/第2章.*1\/10/);
+  assert.equal(await run('document.getElementById("chapter").textContent'),"BRIEFING");
   await run('document.querySelectorAll("#rail .scene-tick")[4].focus();document.querySelectorAll("#rail .scene-tick")[4].click();true');
   assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(14)'),true);
   assert.equal(await run('document.activeElement===document.querySelectorAll("#rail .scene-tick")[4]'),true,'scene selection retains keyboard focus');
@@ -31,20 +31,17 @@ try {
   await run('document.querySelectorAll("#rail .scene-tick")[4].click();true');
   assert.equal(await run('location.hash'),'#53');
   await run('location.hash=BRIEFING_NAV.numberFor(9);true');await pause(60);
-  const boundary=await run('location.hash');
   await run('document.getElementById("btn-next").click();true');
-  assert.equal(await run('document.getElementById("chapter-dialog").open'),true,'pause at the chapter boundary');
-  assert.equal(await run('location.hash'),boundary);
-  await run('document.getElementById("chapter-rest").click();true');await pause(50);
-  assert.equal(await run('document.getElementById("chapter-dialog").open'),false);
-  assert.equal(await run('location.hash'),boundary,'rest does not advance the scene');
-  assert.equal(await run('document.getElementById("chapter").dataset.resting'),'true');
-  assert.equal(await run('document.getElementById("btn-next").getAttribute("aria-label")===document.querySelector("#btn-next .next-label").textContent'),true,'resume accessible name matches visible action');
-  await run('document.getElementById("btn-next").click();true');
-  assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(10)'),true,'resume at the next chapter');
-  await run('location.hash=BRIEFING_NAV.numberFor(19);true');await pause(60);
-  await run('document.getElementById("btn-next").click();document.getElementById("chapter-continue").click();true');
-  assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(20)'),true);
+  assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(10)'),true,'next crosses chapter boundary in one action');
+  assert.equal(await run('!!document.querySelector("dialog[open]")'),false,'no navigation popup');
+  await run('document.getElementById("btn-prev").click();true');
+  assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(9)'),true,'previous crosses back directly');
+  for(const boundary of [19,29,39,49,59]) {
+    await run('location.hash=BRIEFING_NAV.numberFor('+boundary+');true');await pause(60);
+    await run('document.getElementById("btn-next").click();true');
+    assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor('+(boundary+1)+')'),true);
+    assert.equal(await run('!!document.querySelector("dialog[open]")'),false);
+  }
   assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true);
  }
  // Localized chapter controls must remain usable on the shortest portrait layout.
@@ -55,18 +52,16 @@ try {
   await choose('#lang-select',language.code);
   for(let i=0;i<120;i++){if(await run('document.documentElement.lang==='+JSON.stringify(language.html)))break;await pause(30);}
   assert.equal(await run('document.documentElement.lang'),language.html);
+  assert.equal(await run('document.getElementById("chapter").textContent'),'BRIEFING');
   const state=await run(`(()=>{const rail=document.getElementById('rail'),r=rail.getBoundingClientRect();return {fit:r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight,count:rail.querySelectorAll('.scene-tick:not([hidden])').length}})()`);
   assert.equal(state.count,10);assert.ok(state.fit,language.code+' inline navigation clipped');
  }
- // A real animated scene stops drawing when a reader takes a break.
- await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
- const boundaryNumber=await run('BRIEFING_NAV.numberFor(9)');
- await open('/?lang=ja#'+boundaryNumber,'window.__booted===true');
- await run('document.getElementById("privacy-reject")?.click();window.__chapterDraws=0;window.originalChapterDraw=VISUALS.draw;VISUALS.draw=(...args)=>{__chapterDraws++;return originalChapterDraw(...args)};document.getElementById("btn-next").click();document.getElementById("chapter-rest").click();true');
- await pause(80);await run('window.__chapterDraws=0;true');await pause(250);
- assert.equal(await run('__chapterDraws'),0,'rest must suspend recurring rendering');
- await run('document.getElementById("btn-next").click();true');await pause(180);
- assert.ok(await run('__chapterDraws>0'),'next chapter resumes animation');
+ // Keyboard navigation uses the same seamless chapter boundary.
+ await open('/?lang=ja&still=1#1','window.__booted===true');
+ await run('location.hash=BRIEFING_NAV.numberFor(9);document.activeElement.blur();true');await pause(60);
+ await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight'});
+ assert.equal(await run('location.hash==="#"+BRIEFING_NAV.numberFor(10)'),true);
+ assert.equal(await run('!!document.querySelector("dialog[open]")'),false);
  // TV arrows can reach scene and chapter controls directly.
  await cdp('Network.setUserAgentOverride',{userAgent:'Mozilla/5.0 (Linux; Android 12; Android TV) AppleWebKit/537.36 Chrome/130.0 Safari/537.36'});
  await cdp('Emulation.setDeviceMetricsOverride',{width:1280,height:720,deviceScaleFactor:1,mobile:false});
@@ -74,5 +69,5 @@ try {
  await run('document.querySelector("#rail .scene-tick").focus();true');
  await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',code:'ArrowRight'});
  assert.equal(await run('!!document.activeElement.closest("#rail")'),true);
- console.log('Inline chapters:4sizes,15languages, direct scene/chapter selection, TV arrows and rest/resume passed');
+ console.log('Inline chapters:4sizes,15languages, direct scene/chapter selection, TV arrows and seamless chapter boundaries passed');
 }finally{ws.close()}
