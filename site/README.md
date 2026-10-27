@@ -1,3 +1,9 @@
+## Ten-scene chapters
+
+Motion navigation shows one numbered square per ten chronological scenes (currently seven squares for65scenes). A square opens a native modal with that chapter's scene choices; the header shows chapter-local progress. At a chapter boundary, the reader explicitly chooses the next chapter or takes a break. Breaks suspend recurring Canvas rendering; the next action continues into the following chapter. The final chapter retains the replay action. Sound preferences are preserved. No new storage is used.
+
+Existing numeric scene links still identify the same content, independently of chapter grouping. Chapter controls are localized for all15languages, with keyboard focus containment/restoration and TV directional navigation. Run `node tests/chapters.test.cjs` and `CDP_PORT=9238 node tests/chapters.mjs` with the normal local server/CDP setup. The latter covers four sizes,15languages, stable links, pause/resume rendering and TV focus. Existing full-scene and device/resource regressions were also run.
+
 ## Latest research — October27,18:47 JST
 
 [Evening report](https://www.infosec-briefing.net/update-20261027-1847),29curated topics and four new3Dscenes at stable IDs62–65. The full briefing has65scenes; closing remains original53 and plays last. Publication, index/revision time, fix shipment and exploitation are separated. Original research, saved responses and limitations are linked from the report. [Build and verification notes](../docs/site-update-2026-10-27-1847.md).
