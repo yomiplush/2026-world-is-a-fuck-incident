@@ -25,7 +25,7 @@ const agents={
 };
 try {
  await cdp('Page.enable');await cdp('Network.enable');await cdp('Network.setCacheDisabled',{cacheDisabled:true});
- for(const [device,sizes] of [['phone',[[320,480],[390,480],[390,844],[844,350],[768,1024],[1024,768]]],['quest',[[600,600],[900,700],[1280,720],[1920,1080]]],['tv',[[960,540],[1280,720],[1920,1080],[3840,2160]]]]) {
+ for(const [device,sizes] of [['phone',[[320,480],[360,640],[390,480],[390,844],[412,915],[844,350],[600,960],[768,1024],[810,1080],[1024,768],[1024,1366],[1180,820]]],['quest',[[600,600],[900,700],[1280,720],[1920,1080]]],['tv',[[960,540],[1280,720],[1920,1080],[3840,2160]]]]) {
   await cdp('Network.setUserAgentOverride',{userAgent:agents[device]});
   await cdp('Emulation.setTouchEmulationEnabled',{enabled:device!=='tv'});
   for(const [width,height] of sizes) {
@@ -45,6 +45,10 @@ try {
      if(getComputedStyle(document.getElementById('lang-select')).fontSize!=='16px')bad.push('language text too small');
      return bad;
     })()`);
+    if(device==='phone') {
+     const touchBad=await run(`(()=>{const bad=[],panel=document.getElementById('panel'),p=panel.getBoundingClientRect();for(const selector of ['.lede','.points li']){const e=document.querySelector(selector);if(e&&parseFloat(getComputedStyle(e).fontSize)<16)bad.push(selector+' text below16px')}for(const id of ['btn-next','btn-prev','btn-info','btn-audio','lang-select']){const r=document.getElementById(id).getBoundingClientRect();if(r.height<48)bad.push(id+' touch height below48px')}if(innerWidth>=600&&innerWidth<1100&&innerHeight>innerWidth&&(p.width>681||p.width<innerWidth*.6))bad.push('tablet portrait reading width');return bad})()`);
+     bad.push(...touchBad);
+    }
     failures.push(...bad.map(x=>device+' '+width+'x'+height+' '+lang+': '+x));
    }
    const shot=await cdp('Page.captureScreenshot',{format:'png'});
@@ -52,5 +56,5 @@ try {
   }
  }
  assert.deepEqual(failures,[]);
- console.log('42 touch/tablet/Quest/TV viewport-locale layouts: hit targets, readable language control, panel, overflow and canvas passed');
+ console.log('60 touch/tablet/Quest/TV viewport-locale layouts: hit targets, readable language control, panel, overflow and canvas passed');
 }finally{ws.close()}

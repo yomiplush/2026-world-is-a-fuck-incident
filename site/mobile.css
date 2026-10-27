@@ -173,3 +173,29 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
   display:block; width:1px; height:22px; margin:auto;
   overflow:hidden; background:currentColor; font-size:0;
 }
+
+/* Touch reading sizes stay legible even in short in-app viewports. */
+@media (pointer:coarse), (max-width:600px) {
+  html:not([data-device="quest"]):not([data-device="tv"]) .panel .lede,
+  html:not([data-device="quest"]):not([data-device="tv"]) .panel .points li {
+    font-size:16px; line-height:1.8;
+  }
+  html:not([data-device="quest"]):not([data-device="tv"]) body #app :is(.chip,.langselect,.navbtn) {
+    min-height:48px;
+  }
+  html:not([data-device="quest"]):not([data-device="tv"]) .hud-bottom .nav {
+    display:grid; grid-template-columns:1fr 2fr; gap:12px;
+  }
+  html:not([data-device="quest"]):not([data-device="tv"]) .hud-bottom .navbtn {
+    min-width:48px; padding:12px 16px;
+  }
+}
+
+/* Portrait tablets keep a comfortable line length and show more of each report. */
+@media (pointer:coarse) and (min-width:600px) and (max-width:1099px) and (orientation:portrait) {
+  html:not([data-device="quest"]):not([data-device="tv"]) .panel {
+    width:min(100%,680px); justify-self:center; max-height:min(60dvh,100%); padding:20px;
+  }
+  html:not([data-device="quest"]):not([data-device="tv"]) .panel .lede { font-size:17px }
+  html:not([data-device="quest"]):not([data-device="tv"]) .hud-bottom .nav { min-width:180px }
+}
