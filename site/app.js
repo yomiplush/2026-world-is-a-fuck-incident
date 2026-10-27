@@ -192,10 +192,18 @@
     const group = chapterFor(index), words = chapterWords();
     el.chapter.textContent = `${chapterLabel(group.index + 1)} · ${index - group.start + 1}/${group.end - group.start}`;
     el.chapter.dataset.resting = String(chapterRest);
-    [...el.rail.children].forEach((button, i) => {
-      button.setAttribute('aria-current', i === group.index ? 'true' : 'false');
-      button.setAttribute('aria-expanded', String(el.chapterDialog.open && i === dialogChapter));
+    el.rail.querySelectorAll('.chapter-button').forEach((button, i) => {
+      const active = i === group.index;
+      button.setAttribute('aria-current', active ? 'true' : 'false');
+      button.style.gridRow = active ? '1' : '2';
+      button.style.gridColumn = active ? '1 / 3' : `${(i < group.index ? i : i - 1) * 2 + 1} / span 2`;
       button.setAttribute('aria-label', `${chapterLabel(i + 1)} / ${chapters.length} · ${chapters[i].end - chapters[i].start} ${words[1]}`);
+    });
+    el.rail.querySelectorAll('.scene-tick').forEach((button, i) => {
+      button.hidden = i >= group.end - group.start;
+      button.setAttribute('aria-current', index === group.start + i ? 'step' : 'false');
+      const scene = scenes[group.start + i];
+      button.setAttribute('aria-label', `${chapterLabel(group.index + 1)} · ${i + 1}/${group.end - group.start}${scene ? ' · ' + copyFor(scene).title : ''}`);
     });
     el.rail.setAttribute('aria-label', words[0]);
     if (el.chapterDialog.open) renderChapterDialog();
@@ -590,21 +598,29 @@
 
   function buildRail() {
     el.rail.innerHTML = "";
-    el.rail.style.setProperty('--chapter-count', chapters.length);
     chapters.forEach((group, i) => {
       const b = document.createElement("button");
-      b.className = "tick";
+      b.className = "tick chapter-button";
       b.type = "button";
       b.innerHTML = `<span class="chapter-square" aria-hidden="true">■</span><span class="chapter-number" aria-hidden="true">${i + 1}</span>`;
-      b.setAttribute('aria-haspopup', 'dialog');
-      b.setAttribute('aria-controls', 'chapter-dialog');
-      b.setAttribute("aria-current", i === 0 ? "true" : "false");
       b.addEventListener("click", (e) => {
         e.stopPropagation();
-        openChapter(i);
+        if (chapterFor(index).index !== i) go(group.start, i > chapterFor(index).index ? 1 : -1);
       });
       el.rail.appendChild(b);
     });
+    for (let i = 0; i < 10; i++) {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'scene-tick';
+      b.style.gridColumn = String(i + 3);
+      b.innerHTML = '<span aria-hidden="true">│</span>';
+      b.addEventListener('click', e => {
+        e.stopPropagation();
+        const target = chapterFor(index).start + i;
+        if (target < chapterFor(index).end) go(target, target >= index ? 1 : -1);
+      });
+      el.rail.appendChild(b);
+    }
   }
 
   if (!scenes.length || !C.ui.en) {
