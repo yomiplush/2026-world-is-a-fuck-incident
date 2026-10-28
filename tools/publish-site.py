@@ -10,6 +10,15 @@ from datetime import datetime, timezone
 from email.utils import format_datetime
 from html.parser import HTMLParser
 from pathlib import Path
+import importlib.util
+
+def sibling(name):
+    spec=importlib.util.spec_from_file_location(name,Path(__file__).with_name(name+".py"))
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    return module
+
+impact_pages=sibling("impact_pages")
+advisory_details=sibling("advisory_details")
 from urllib.parse import urlsplit, urlunsplit
 import xml.etree.ElementTree as ET
 
@@ -58,7 +67,7 @@ class Info(HTMLParser):
         if self.in_title:self.title+=data
 
 def shell(title,description,body):
-    return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{esc(title)} | Infosec Briefing</title><meta name="description" content="{esc(description)}"><link rel="stylesheet" href="/update.css"><link rel="stylesheet" href="/daily.css"><link rel="stylesheet" href="/privacy.css"><script defer src="/privacy.js"></script></head><body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global"><a href="/">モーション</a><a href="{esc(clean_url(LATEST['site_report']))}">最新レポート</a><a href="/database">調査データ</a><a href="/timeline">日付別</a><a href="/about">編集方針</a></nav>{body}</main></body></html>'''
+    return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{esc(title)} | Infosec Briefing</title><meta name="description" content="{esc(description)}"><link rel="stylesheet" href="/update.css"><link rel="stylesheet" href="/daily.css"><link rel="stylesheet" href="/privacy.css"><script defer src="/privacy.js"></script></head><body><a class="skip" href="#content">本文へ</a><main id="content"><nav class="global"><a href="/">モーション</a><a href="{esc(clean_url(LATEST['site_report']))}">最新レポート</a><a href="/database">調査データ</a><a href="/impact">現実への影響</a><a href="/timeline">日付別</a><a href="/about">編集方針</a></nav>{body}</main></body></html>'''
 
 def language_select(rows,current,label):
     options=''.join(f'<option value="{esc(row["url"])}" data-code="{esc(row["code"])}"'+(' selected' if row['code']==current else '')+f'>{esc(row["native"])}</option>' for row in rows)
@@ -80,13 +89,13 @@ def extra_pages():
     register=json.loads((ROOT/'data'/LATEST['incident_register']).read_text())
     cutoff=datetime.fromisoformat(LATEST['cutoff_jst']).strftime('%Y-%m-%d %H:%M JST')
     kinds={'delta':'今回確認した登録・勧告の更新','scope-complement':'既存事案の対応・条件の補完','reference-only':'公開時刻などが未確定の参考情報'}
-    body=f'<header><p class="kicker">RESEARCH DATABASE</p><h1>インシデント・脆弱性の調査データ</h1><p class="intro">影響条件と対策を、一次資料へ戻って確認できる一覧です。</p><p class="date">最新の調査基準：{esc(cutoff)}。論点の数は新しい被害事件の件数ではありません。</p><p><a href="{esc(clean_url(LATEST["site_report"]))}">忙しい人向けの最新レポート →</a> · <a href="/about">収集・編集方針</a> · <a href="/feed.xml">更新RSS</a></p></header>'
+    body=impact_pages.tabs('database')+f'<header><p class="kicker">RESEARCH DATABASE</p><h1>インシデント・脆弱性の調査データ</h1><p class="intro">影響条件と対策を、一次資料へ戻って確認できる一覧です。</p><p class="date">最新の調査基準：{esc(cutoff)}。論点の数は新しい被害事件の件数ではありません。</p><p><a href="{esc(clean_url(LATEST["site_report"]))}">忙しい人向けの最新レポート →</a> · <a href="/about">収集・編集方針</a> · <a href="/feed.xml">更新RSS</a></p></header>'
     for kind,label in kinds.items():
         rows=[r for r in register['records'] if r['kind']==kind]
         body+=f'<section><h2>{label} · {len(rows)}論点</h2>'
         for row in rows:
             sources=' / '.join(f'<a href="{esc(s["url"])}">{esc(s["name"])}</a>' for s in row['sources'])
-            body+=f'<article id="{esc(row["id"])}"><p class="event-type">{esc(row["time"])}</p><h3>{esc(row["title"])}</h3><p>{esc(row["body"])}</p><p class="action"><strong>確認すること：</strong>{esc(row["action"])}</p><p class="sources">{sources}</p></article>'
+            body+=f'<article id="{esc(row["id"])}"><p class="event-type">{esc(row["time"])}</p><h3>{esc(row["title"])}</h3><p>{esc(row["body"])}</p><p class="action"><strong>確認すること：</strong>{esc(row["action"])}</p>{advisory_details.render(row,esc)}<p class="sources">{sources}</p></article>'
         body+='</section>'
     body+='<section><h2>機械可読データと取得原本</h2><p>JSONの条件・留保もあわせて確認してください。網羅的な全世界の被害統計ではありません。</p><ul>'
     for key in ('incident_register','collection_summary','vendor_summary'):
@@ -107,6 +116,7 @@ def extra_pages():
     (SITE/'data/latest.json').write_text(json.dumps(public,ensure_ascii=False,indent=2)+'\n')
     body=body.replace('</header>',language_select(database_choices(),'ja','言語')+'</header>',1)
     (SITE/'database.html').write_text(shell('インシデント・脆弱性の調査データと対策一覧','一次資料付きの調査データ。影響条件、対策、修正・復旧の状態を確認し、時刻別のJSONと取得原本へ戻れます。',body))
+    if LATEST.get('impact_register'):impact_pages.build(ROOT,LATEST,shell,esc)
     (SITE/'404.html').write_text(shell('ページが見つかりません','ページが見つかりません。最新レポート、日付別の記録、調査データからお探しください。','<header><p class="kicker">404 / NOT FOUND</p><h1>ページが見つかりません。</h1><p>URLが変わったか、このページは公開されていません。</p><p><a href="/database">調査データから探す</a> · <a href="/timeline">日付から読む</a> · <a href="/">トップへ</a></p></header>').replace('</head>','<meta name="robots" content="noindex,follow"></head>'))
 
 def root_reading(text):
@@ -138,7 +148,7 @@ def metadata(file,text):
     if relative!='404.html':
         text=re.sub(r'<meta\b[^>]*name=["\']robots["\'][^>]*>','',text,flags=re.I)
     is_root=relative=='index.html';is_article=relative.startswith(('update-','tailworm'))
-    webpage_type='AboutPage' if relative=='about.html' else ('CollectionPage' if relative in ('database.html','timeline.html') else 'WebPage')
+    webpage_type='AboutPage' if relative=='about.html' else ('CollectionPage' if relative in ('database.html','timeline.html','impact.html') else 'WebPage')
     org={'@type':'Person','@id':BASE+'about#operator','name':CONFIG['operator'],'url':CONFIG['operator_url']}
     webpage={'@type':webpage_type,'@id':url+'#page','url':url,'name':info.title,'description':info.description,'inLanguage':info.language,'isPartOf':{'@id':BASE+'#website'}}
     graph=[{'@type':'WebSite','@id':BASE+'#website','url':BASE,'name':CONFIG['name'],'alternateName':CONFIG['alternate_name'],'publisher':{'@id':org['@id']}},org,webpage]
