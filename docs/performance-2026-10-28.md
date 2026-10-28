@@ -82,3 +82,14 @@ Browser tests use Chromium with emulated dimensions, hints, API availability and
 CPU throttling. They do not certify physical Safari, Quest, Android TV hardware,
 all embedded webviews, or actual energy savings. Unsupported layouts get a
 readable transcript rather than a promise that animation works everywhere.
+
+## Release verification
+
+Runtime source commit: `bc946a2`. Deployed to the existing production project
+`2026-incident-briefing`, release `ab644869`. The public HTML and asset manifest
+at https://www.infosec-briefing.net/ reference this release; all four core asset
+SHA-256 hashes match the local tested files. Production compatibility checks
+passed at6×CPU throttling, including initialization retry and transcript routes.
+The public site also passed all325 language/scene checks and corrupt-locale
+rejection/retry. Both cached pre-bundle HTML and the previous release loader
+were replayed locally against current source and booted successfully.
