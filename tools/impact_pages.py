@@ -6,11 +6,11 @@ LABELS = {'confirmed-impact': '実被害・業務影響を確認',
           'exploitation-confirmed': '悪用確認・被害規模は不明',
           'potential': '影響の可能性・範囲は未確定'}
 
-def tabs(active):
+def tabs(active, lang="ja"):
     links = []
-    for key, title in [('database', '調査データ'), ('impact', '現実世界への影響')]:
+    for key, title in [('database', 'Research database' if lang=='en' else '調査データ'), ('impact', 'Real-world impacts' if lang=='en' else '現実世界への影響')]:
         current = ' aria-current="page"' if active == key else ''
-        links.append(f'<a href="/{key}"{current}>{title}</a>')
+        links.append(f'<a href="/{key}{".en" if lang=="en" else ""}"{current}>{title}</a>')
     return '<nav class="research-tabs" aria-label="調査の表示切り替え">'+''.join(links)+'</nav>'
 
 def build(root, latest, shell, esc):

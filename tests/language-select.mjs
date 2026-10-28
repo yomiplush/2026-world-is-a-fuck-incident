@@ -33,7 +33,7 @@ try{
  }
  assert.equal(requests.some(u=>/language-(?:picker|core|catalog)/.test(new URL(u).pathname)),false,'removed assets must not be requested');
  assert.equal(requests.some(u=>new URL(u).hostname==='translate.google.com'),false);
- await open('/languages');assert.equal(await run('document.querySelectorAll("select[data-language-navigation]").length'),3);assert.equal(await run('document.querySelector("select").options.length'),16);assert.equal(await run('document.body.textContent.includes("249")'),false);
+ await open('/languages');assert.equal(await run('document.querySelectorAll("select[data-language-navigation]").length'),4);assert.equal(await run('document.querySelector("section select").options.length'),16);assert.equal(await run('document.body.textContent.includes("249")'),false);
  const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/incident-native-languages.png',Buffer.from(shot.data,'base64'));
  console.log('Native15-language dropdowns:4sizes, lazy Ukrainian/Polish/Swedish motion,37-record databases, Tailworm navigation, keyboard isolation, consent and no search dialog/external translator passed');
 }finally{ws.close()}

@@ -1,0 +1,3 @@
+# Reading languages and X in-app layout
+
+Deliver complete source-matched English translations with native Japanese/English selectors across reading reports, dates, impact, about, timeline and policy. Preserve existing translated database/Tailworm pages and use their available languages. Store text-keyed translations locally; preserve numbers/identifiers/links; do not publish partial pages or fallback text. Translation tasks are disjoint JSON dictionaries; root handles parser/build/navigation and viewport CSS. Tests: missing/changed-number rejection, no-JS language links, URL/canonical/hreflang, small/X viewports, visualViewport toolbar offsets and safe areas. Build, bounded review, normal push/deploy and live checks. No paid service introduced.
