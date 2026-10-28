@@ -16,3 +16,7 @@ Validation:
 These are Chromium emulations of screen dimensions, touch, user agents, safe areas and visualViewport changes. Actual X app / WKWebView hardware testing was not available.
 
 Production build and all25Python tests passed, as did all12Node regression suites. Initial delivery stays at3requests with49,985bytes of initial assets; motion code is205,684bytes (74,973gzip).
+
+Published runtime commit: `764c7f7302618e4cee7c32d11d8802e1249b83d4`; Cloudflare Pages production deployment `462476b5` (https://462476b5.2026-incident-briefing.pages.dev). Production HTML plus both current and retained previous boot/motion/CSS assets match local files byte for byte (7URLs).
+
+The complete text-toggle browser suite also passed against https://www.infosec-briefing.net/ after publication, including the X-style viewport/safe-area/rotation and pinch-zoom assertions.
