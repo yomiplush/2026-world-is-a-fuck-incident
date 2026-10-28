@@ -279,7 +279,31 @@ chip appears until you reach the end. The phone/tablet portrait panel uses trans
 so the diagram remains visible underneath. Text scroll does not rotate the camera; each scene
 resets to the top of its own text. The language preference survives scene changes.
 
-## Languages (12)
+## Current motion language availability
+
+The motion selector enables English, Japanese, Ukrainian, Polish and Swedish:
+each has copy for all 65 scenes. Ten other languages retain their existing
+18-scene translations, but appear disabled with an incomplete-translation label
+and coverage count. Reading pages and Tailworm keep their separate language lists.
+
+`node tools/check-motion-locales.cjs --write` audits the current source and locale
+assets and updates the compact availability table in `data.js`. The language-page
+builder runs this automatically. A locale becomes selectable when all scene/UI
+fields are present, its prose differs from the English source and technical
+identifiers and source links match. This validates coverage and structure, not
+independent human review of translation quality. Run the command without
+`--write` to detect stale availability after editing scenes or translations.
+
+The runtime rejects incomplete or corrupt assets and keeps the current language
+on a failed request. Reselecting retries. Initial links to incomplete languages
+show an explanation in an available language without overwriting the preference.
+No external translation API or additional translation fee is involved.
+
+Checks: `node tests/languages.test.cjs`; with the local server on port 8096 and
+Chrome CDP on 9238, `node tests/locale-loading.mjs` checks failure/retry and all
+325 scene/language combinations.
+
+## Historical language implementation (12)
 
 English, 日本語, 中文（简体）, 한국어, Español, Français, Deutsch, Português, Русский,
 العربية, हिन्दी, Bahasa Indonesia.

@@ -84,7 +84,7 @@ try {
     console.log(`${renderReport.length} render combinations: unique scenes, animation, tilt, reduced motion passed`);
     const sceneCount = await run('CONTENT.scenes.length');
     assert.equal(sceneCount,65,'Historical and18:47 evening scenes must be present');
-    for (const [lang, width, height] of [['ja',390,844],['en',1440,900],['ar',390,844],['ja',844,390],['ja',320,568],['en',375,667],['ja',768,1024],['en',1024,768],['ja',1280,800],['en',1920,1080]]) {
+    for (const [lang, width, height] of [['ja',390,844],['en',1440,900],['uk',390,844],['ja',844,390],['ja',320,568],['en',375,667],['ja',768,1024],['en',1024,768],['ja',1280,800],['en',1920,1080]]) {
       await open(lang,width,height);
       const layout=await run(`(() => {const c=document.getElementById('scene').getBoundingClientRect(),p=document.getElementById('panel'),b=p.getBoundingClientRect(),a=document.getElementById('repo-link'),r=a.getBoundingClientRect();return {canvasBottom:c.bottom,panelTop:b.top,brave:document.documentElement.dataset.browser==="brave",canvasVisible:getComputedStyle(document.getElementById("scene")).visibility!=="hidden",bg:getComputedStyle(p).backgroundImage,bgc:getComputedStyle(p).backgroundColor,opacity:getComputedStyle(p).opacity,href:a.href,svg:!!a.querySelector('svg'),right:r.right,top:r.top}})()`);
       assert.equal(layout.href,'https://github.com/yomiplush/2026-world-is-a-fuck-incident');
@@ -159,14 +159,14 @@ try {
     assert.equal(await run("document.getElementById('scene').toDataURL()===window.__stillSnapshot"),true,'OS reduced-motion change did not freeze Canvas');
     await cdp('Emulation.setEmulatedMedia',{features:[]});
     // Every lazy locale must load and preserve all scene navigation entries.
-    for(const lang of ['zh','ko','es','fr','de','pt','ru','hi','id']){
+    for(const lang of ['uk','pl','sv']){
       await open(lang,390,844);await pause(120);
       assert.equal(await run("document.getElementById('lang-select').value"),lang);
       assert.equal(await run("document.querySelectorAll('.tick').length"),Math.ceil(sceneCount/10));
       assert.equal(await run('window.__drawErr'),null);
     }
     assert.deepEqual(errors,[],'browser exceptions');
-    console.log('Pointer input, camera retention/reset, keyboard, audio, OS motion preference, 12 locales: passed; no browser exceptions');
-    fs.writeFileSync(`${artifactDir}/verification.json`,JSON.stringify({renderCombinations:renderReport.length,uiSceneChecks:sceneCount*10,locales:12,errors},null,2));
+    console.log('Pointer input, camera retention/reset, keyboard, audio, OS motion preference, 5 complete locales: passed; no browser exceptions');
+    fs.writeFileSync(`${artifactDir}/verification.json`,JSON.stringify({renderCombinations:renderReport.length,uiSceneChecks:sceneCount*10,locales:5,errors},null,2));
   }
 } finally { ws.close(); }
