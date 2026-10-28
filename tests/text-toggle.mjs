@@ -13,8 +13,9 @@ async function ready(path){for(let i=0;i<100;i++){await pause(50);try{if(await r
 async function loaded(path){for(let i=0;i<120;i++){await pause(40);try{if(await run(`location.pathname===${JSON.stringify(path)} && document.readyState==='complete' && !!document.querySelector('select[data-language-navigation]')`))return;}catch(e){if(e.code!==-32000)throw e;}}throw Error('Not ready: '+path);}
 
 async function openMotion(lang='ja'){
- await cdp('Page.navigate',{url:origin+'/?lang='+lang+'&still=1&toggle-qa='+Date.now()+'#57'});
- for(let n=0;n<180;n++){await pause(50);if(await run('window.__booted===true')){await run('document.getElementById("privacy-reject")?.click();true');await pause(120);return;}}
+ const target=origin+'/?lang='+lang+'&still=1&toggle-qa='+Date.now()+'#57';
+ await cdp('Page.navigate',{url:target});
+ for(let n=0;n<180;n++){await pause(50);if(await run('location.href==='+JSON.stringify(target)+' && document.readyState==="complete" && window.__booted===true')){await run('document.getElementById("privacy-reject")?.click();true');await pause(120);return;}}
  throw Error('Motion failed to load');
 }
 async function usable(ids){

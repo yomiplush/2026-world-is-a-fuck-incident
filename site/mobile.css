@@ -253,3 +253,22 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
   .hud-bottom .hint { display:none }
   .hud-bottom .more { font-size:9px; line-height:12px }
 }
+
+/* Reuse the mobile corner slot for one settings icon, freeing the bottom dock. */
+@media (max-width:600px), (max-height:560px) and (max-width:950px) {
+  .motion-privacy.privacy-dock {
+    top:calc(var(--viewport-top,0px) + var(--pad) + env(safe-area-inset-top));
+    right:calc(var(--pad) + env(safe-area-inset-right)); bottom:auto; left:auto;
+    width:46px; height:46px; padding:0; gap:0; border-radius:4px; z-index:26;
+  }
+  .motion-privacy.privacy-dock > a,.motion-privacy .privacy-settings-text { display:none }
+  .motion-privacy .privacy-cookie-icon { display:block; font-size:22px; line-height:1 }
+  .motion-privacy #privacy-settings { flex:0 0 44px; width:44px; height:44px; min-height:44px; padding:0; border:0 }
+  .motion-page:not(.entry-locked) :is(.repo-link,.patch-link) { display:none }
+  .motion-page:not(.entry-locked) .hud-top { padding-right:52px }
+  html body.motion-page #app { padding-bottom:calc(12px + env(safe-area-inset-bottom)) }
+  .motion-page .briefing-preferences {
+    bottom:calc(var(--viewport-bottom,0px) + max(12px,env(safe-area-inset-bottom)));
+    max-height:calc(var(--app-height,100dvh) - 24px);
+  }
+}
