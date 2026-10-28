@@ -1,12 +1,12 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-test('evening review keeps the requested cutoff across database, motion and dated report',()=>{
+test('historical evening report keeps its cutoff and scenes while current review advances',()=>{
  const latest=JSON.parse(fs.readFileSync('data/latest.json','utf8'));
- assert.equal(latest.cutoff,'2026-10-27T09:47:00Z');
- const record=JSON.parse(fs.readFileSync('data/'+latest.incident_register,'utf8'));
+ const record=JSON.parse(fs.readFileSync('data/2026-10-27-1847/incident-register.json','utf8'));
+ assert.equal(record.cutoff,'2026-10-27T09:47:00Z');
  const scope={window:{}};vm.runInNewContext(fs.readFileSync('site/data.js','utf8'),scope);
  assert.equal(scope.window.CONTENT.review.cutoff,latest.cutoff);
- assert.equal(record.cutoff,latest.cutoff);
- assert.equal(scope.window.CONTENT.review.report,'/update-20261027-1847');
+ assert.notEqual(record.cutoff,latest.cutoff);
+ assert.equal(scope.window.CONTENT.review.report,new URL(latest.site_report).pathname);
  for(const id of ['evening-disclosure','evening-release','evening-threshold','evening-package']){
   const scene=scope.window.CONTENT.scenes.find(s=>s.id===id);
   assert.ok(scene?.ja.title&&scene?.en.title&&scene?.sources.length,'missing authored evening scene '+id);

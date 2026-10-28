@@ -3134,7 +3134,7 @@ window.CONTENT.scenes.push(...[
 ]);
 
 /* 18:47 JST review: stable scene numbers62–65; closing remains last. */
-window.CONTENT.review = {"cutoff": "2026-10-27T09:47:00Z", "label": "2026-10-27 18:47 JST", "report": "/update-20261027-1847"};
+window.CONTENT.review = {"cutoff": "2026-10-28T04:18:44Z", "label": "2026-10-28 13:18 JST", "report": "/update-20261028-1318"};
 window.CONTENT.scenes.push(...[
   {
     "id": "evening-disclosure",

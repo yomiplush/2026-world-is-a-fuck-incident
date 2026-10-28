@@ -4,3 +4,17 @@
 .language-select-control label{display:grid;gap:6px;font:14px/1.6 system-ui,sans-serif}
 .language-select-control select{width:100%;min-height:44px;padding:8px 12px;border:1px solid #405b6c;border-radius:5px;background:#0c1a28;color:#edf5fc;font:16px/1.4 system-ui,sans-serif}
 .language-select-control select:focus-visible{outline:2px solid #ffb545;outline-offset:3px}
+
+/* Native links keep the research views usable without JavaScript. */
+.research-tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid #496272;margin:0 0 32px}
+.research-tabs a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 20px;border:1px solid #496272;border-radius:8px 8px 0 0;text-decoration:none;color:#e4ebf2;box-sizing:border-box}
+.research-tabs a[aria-current="page"]{background:#ffbd69;color:#070b12;border-color:#ffbd69;font-weight:700}
+.research-tabs a:focus-visible,.impact-index a:focus-visible{outline:3px solid #58e0ff;outline-offset:3px}
+.impact-index{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0}
+.impact-index a{padding:10px 14px;border:1px solid #496272;border-radius:5px;text-decoration:none;min-height:44px;box-sizing:border-box}
+.impact-card dl{margin:20px 0}.impact-card dt{font-size:13px;font-weight:700;color:#84dce8;margin-top:18px}.impact-card dd{margin:6px 0 0;line-height:1.9}
+@media(max-width:420px){.research-tabs a{flex:1;padding:10px 8px;font-size:14px}.impact-index{display:block}.impact-index a{display:block;margin:8px 0}}
+@media print{.research-tabs,.impact-index{display:none}.impact-card dt{color:black}}
+.entry-impact{position:fixed;left:76px;top:max(22px,env(safe-area-inset-top));z-index:26;padding:10px 14px;min-height:44px;box-sizing:border-box;border:1px solid #496272;border-radius:5px;background:#0c1a28;color:#e4ebf2;text-decoration:none;font:13px/1.7 system-ui,sans-serif}
+body:not(.entry-locked) .entry-impact{display:none}
+details{margin:20px 0;padding:14px;border:1px solid #29414e;border-radius:5px}summary{cursor:pointer;min-height:32px;line-height:1.8}details code{overflow-wrap:anywhere}details h4{margin-bottom:8px}

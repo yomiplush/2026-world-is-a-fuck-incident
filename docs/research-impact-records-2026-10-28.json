@@ -1,0 +1,195 @@
+{
+  "cutoff": "2026-10-28T04:18:44Z",
+  "note": "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",
+  "records": [
+    {
+      "id": "idcf-real-impact",
+      "title": "IDCFクラウド：495企業・自治体の停止・暗号化",
+      "confirmed": "東日本リージョン1の4ゾーンでVM停止・暗号化。206顧客のバックアップ取り出しが可能と確認。最大71社のポータル登録情報へ不正照会、最大4件のパスワード不正変更。",
+      "unknown": "206は復旧完了数ではない。VM内部のデータ外部流出はなかったと会社は説明し、登録情報の持出痕跡も未確認。全顧客の最終復旧日・総損失は未公表。",
+      "response": "パスワードをリセット。代替環境移行とバックアップ取り出しを支援。",
+      "status": "confirmed-impact",
+      "category": "availability",
+      "sources": [
+        {
+          "name": "IDCF第7報・10月27日",
+          "url": "https://www.idcf.jp/news/topics/20261027001/"
+        }
+      ],
+      "event_date": "2026-10-07",
+      "source_date": "2026-10-27"
+    },
+    {
+      "id": "infoq-real-impact",
+      "title": "infoQ：89万4,082件の持出しとポイント不正交換",
+      "confirmed": "個人情報894,082件の持出しを確定。不正交換611件、計2,869,500円。10月3日からサービス停止し、依頼調査の一部にも影響。",
+      "unknown": "当初の最大948,498件は確定被害数ではない。脆弱性のCVE、最終復旧日、補填完了総額は本文から未確定。",
+      "response": "全会員パスワード無効化。不正交換ポイントの全額補填方針。同じパスワードを使う他サービスも変更。",
+      "status": "confirmed-impact",
+      "category": "financial",
+      "sources": [
+        {
+          "name": "infoQ第2報・10月14日",
+          "url": "https://gmo-research.ai/pressroom/notice/notice-20261014"
+        }
+      ],
+      "event_date": "2026-10-03",
+      "source_date": "2026-10-14"
+    },
+    {
+      "id": "gmo-real-impact",
+      "title": "お名前.com：業務環境の停止と情報持出し",
+      "confirmed": "10月21日からサービス停止。顧客情報の外部持出しを確認。10月28日04:00頃に犯人サイトのドメイン停止を確認。",
+      "unknown": "公開内容の真正性・被害人数・不正取引の総額は未確定。ドメイン停止は情報の全回収やサービス復旧を意味しない。",
+      "response": "現行基盤をそのまま再開せず代替サービスを案内する方針。確認された不正取引の実現損失補償と特別お見舞金を公表。",
+      "status": "confirmed-impact",
+      "category": "availability",
+      "sources": [
+        {
+          "name": "GMO第4報",
+          "url": "https://group.gmo/info/alert/20261024/"
+        },
+        {
+          "name": "GMO第12報",
+          "url": "https://group.gmo/info/alert/2026102705/"
+        },
+        {
+          "name": "GMO第13報・10月28日11時",
+          "url": "https://group.gmo/info/alert/20261028/"
+        }
+      ],
+      "event_date": "2026-10-21",
+      "source_date": "2026-10-28"
+    },
+    {
+      "id": "atlink-real-impact",
+      "title": "アットリンク：患者予約・周辺サービス停止",
+      "confirmed": "10月14日深夜から停止。9月下旬〜10月中旬のDB情報取得と個人情報漏えいを確認。28日12:30時点も患者アプリ・Web予約等は停止。",
+      "unknown": "漏えい対象数、全機能の再開日は調査・確認中。一部医療機関でのβテスト開始は一般提供の再開ではない。",
+      "response": "侵入経路遮断・関連認証情報無効化。予約変更は医療機関へ直接連絡。再開時にパスワードを新設定。",
+      "status": "confirmed-impact",
+      "category": "availability",
+      "sources": [
+        {
+          "name": "メドレー調査案内",
+          "url": "https://www.medley.jp/notice/20261015.html"
+        },
+        {
+          "name": "アットリンク調査状況",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスに関する調査状況/"
+        },
+        {
+          "name": "運営状況・10月28日12時30分",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/"
+        }
+      ],
+      "event_date": "2026-10-14",
+      "source_date": "2026-10-28"
+    },
+    {
+      "id": "aiiku-atlink-impact",
+      "title": "愛育病院：予防接種・産後ケアの予約に支障",
+      "confirmed": "アットリンク停止により小児科予防接種予約、小児科産後デイケア予約、診療呼出機能が利用不可。他のWeb予約システムは通常利用可能。",
+      "unknown": "診療全面停止や生命への被害はこの発表では確認されない。独立した別攻撃ではなくアットリンク事件の利用者側の影響例。",
+      "response": "病院の代替予約案内を確認し、必要な手続きは病院へ直接問い合わせる。",
+      "status": "confirmed-impact",
+      "category": "availability",
+      "sources": [
+        {
+          "name": "愛育病院・10月23日更新",
+          "url": "https://www.aiiku.net/news/news-3482/"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "atlink-real-impact"
+    },
+    {
+      "id": "railway-real-impact",
+      "title": "Railway：ビルド・デプロイ中断、新規登録停止",
+      "confirmed": "build/deploy中断とdashboard/API/CLI/supportの利用不能期間があった。10月27日15:19 UTC時点で新規登録停止継続。既存顧客のdeployは稼働継続と説明。",
+      "unknown": "最大1.85%・約100,000workspacesは環境変数の潜在的影響範囲で確定漏えい人数ではない。鍵失効通知だけで侵害確定とはしない。",
+      "response": "保存secretを失効・再発行しGitHubやregistry監査を実施。次回status予定10月28日16:00 UTCは今回基準より後。",
+      "status": "confirmed-impact",
+      "category": "availability",
+      "sources": [
+        {
+          "name": "Railway一次報告",
+          "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+        },
+        {
+          "name": "Railway status",
+          "url": "https://status.railway.com/"
+        }
+      ],
+      "event_date": "2026-10-20",
+      "source_date": "2026-10-27"
+    },
+    {
+      "id": "piccoma-blastmail-impact",
+      "title": "ピッコマ：宛先100万2,404件が流出",
+      "confirmed": "メールマガジン1回分の宛先1,002,404件のメールアドレス流出を確認。メールマガジン停止。",
+      "unknown": "宛先件数であり世界全体やブラストメール全顧客の被害数ではない。ピッコマ本体・パスワード・購入情報は影響なし、通常利用可能と説明。",
+      "response": "個別通知・当局報告と送信元認証設定変更。なりすましメールに注意。",
+      "status": "confirmed-impact",
+      "category": "privacy",
+      "sources": [
+        {
+          "name": "ピッコマ第1報・10月24日",
+          "url": "https://jp.piccoma.com/web/notice_detail/7503"
+        }
+      ],
+      "source_date": "2026-10-24",
+      "parent_incident": "blastmail"
+    },
+    {
+      "id": "environment-blastmail-impact",
+      "title": "環境省：関連メールマガジンの配信・管理停止",
+      "confirmed": "関連6メールマガジンで配信・管理作業ができない状況。10月21日00:30管理画面/API停止、01:00頃配信停止。",
+      "unknown": "配信先情報の漏えいは未確認。ピッコマの確認結果を環境省分に一般化しない。対象件数は未記載。",
+      "response": "事業者の調査を踏まえて漏えい有無を確認。再開時期未定と案内。",
+      "status": "confirmed-impact",
+      "category": "availability",
+      "sources": [
+        {
+          "name": "環境省・10月23日",
+          "url": "https://www.env.go.jp/press/press_05784.html"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "blastmail"
+    },
+    {
+      "id": "studio-real-impact",
+      "title": "Studio：情報取得可能状態と通知・鍵更新負担",
+      "confirmed": "9月30日〜10月1日の侵入、10月14日まで外部取得可能状態。復号鍵も読み出され、フォーム内容やAPIキー等が知られた可能性。",
+      "unknown": "情報の実取得は未確認。対象件数と二次被害は調査中。改ざん・削除は未確認。",
+      "response": "経路修正・鍵更新。外部APIキーは発行元で失効。10月28日00:30更新は連名報告受付の11月上旬開始予定で、本人通知は別対応。",
+      "status": "potential",
+      "category": "privacy",
+      "sources": [
+        {
+          "name": "Studio公式ポータル",
+          "url": "https://studio.design/ja/security/notice/2026-10-incident"
+        }
+      ],
+      "source_date": "2026-10-28"
+    },
+    {
+      "id": "yotsuya-itsuaki-impact",
+      "title": "四谷メディカルキューブ：旧予約データの漏えい",
+      "confirmed": "旧委託予約システム「いつあき」の9月21〜22日の侵入で予約データ不正取得。氏名・電話番号・メールアドレスの漏えい確認。",
+      "unknown": "生年月日・性別・予約追加項目は調査中。件数未公表。2025年3月以降の現行予約システムと電子カルテへの影響、二次被害は未確認。",
+      "response": "ファインズが対象者へ順次連絡。病院は当局報告と再発防止・詳細調査を求め、便乗連絡に注意を案内。",
+      "status": "confirmed-impact",
+      "category": "privacy",
+      "sources": [
+        {
+          "name": "四谷メディカルキューブ・10月20日",
+          "url": "https://www.mcube.jp/news/20261020.html"
+        }
+      ],
+      "event_date": "2026-09-21",
+      "source_date": "2026-10-20"
+    }
+  ]
+}

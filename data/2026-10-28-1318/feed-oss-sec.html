@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Wed, 28 Oct 2026 02:15:04 GMT</pubDate>
+    <lastBuildDate>Wed, 28 Oct 2026 02:15:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>Re: Information for Python users regarding eMudhra / emSign CA certificate security incident</title>
+    <link>https://seclists.org/oss-sec/2026/q4/410</link>
+    <description>&lt;p&gt;Posted by Kevin Riggle on Oct 27&lt;/p&gt;The discuss.python.org conversation on that issue has long since moved&lt;br&gt;
+on, so asking here:&lt;br&gt;
+&lt;br&gt;
+The macOS remediation advice on the official vuln page at&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://emudhra.we-have-a-problem.com/#macos-curl&quot;&gt;https://emudhra.we-have-a-problem.com/#macos-curl&lt;/a&gt; lists remediation&lt;br&gt;
+instructions which it is claimed address this, with instructions to&lt;br&gt;
+set a PIP_CERT environment variable in a sitecustomize.py file.&lt;br&gt;
+&lt;br&gt;
+echo &amp;apos;import os; os.environ.setdefault(&amp;quot;PIP_CERT&amp;quot;,...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 02:14:39 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/410</guid>
+  </item>
+  <item>
+    <title>CVE-2025-60475: GPAC/MP4Box: Global Buffer Overflow Read in gf_ac4_parser_bs on crafted AC-4 stream</title>
+    <link>https://seclists.org/oss-sec/2026/q4/409</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Oct 27&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  gpac/gpac prior to fix commit (see References)&lt;br&gt;
+CVE:       CVE-2025-60475&lt;br&gt;
+CWE:       CWE-125 (Out-of-bounds Read)&lt;br&gt;
+CVSS 3.1:  Not assessed&lt;br&gt;
+Reporter:  sigdevel &amp;lt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://infosec.exchange/@sigdevel&quot;&gt;https://infosec.exchange/@sigdevel&lt;/a&gt;&amp;gt;&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  The gf_ac4_parser_bs() function in GPAC&amp;apos;s AC-4 parser&lt;br&gt;
+  (media_tools/av_parsers.c:16140) accesses AC4_SAMPLE_DELTA_TABLE_48&lt;br&gt;
+  using a frame_rate_index read from the input stream without proper...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 02:12:15 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/409</guid>
+  </item>
+  <item>
+    <title>Three TLS Bugs in GoAhead web server prior to 6.1.1</title>
+    <link>https://seclists.org/oss-sec/2026/q4/408</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 27&lt;/p&gt;EmbedThis GoAhead is an embeddable web server available under GPL or&lt;br&gt;
+commercial license (see &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/embedthis/goahead&quot;&gt;https://github.com/embedthis/goahead&lt;/a&gt; ).&lt;br&gt;
+&lt;br&gt;
+It can be compiled against a choice of TLS backends.&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://foxio.io/blog/choose-your-backend-three-tls-bugs-in-goahead&quot;&gt;https://foxio.io/blog/choose-your-backend-three-tls-bugs-in-goahead&lt;/a&gt;&lt;br&gt;
+discloses vulnerabilities in the GoAhead code for three of those&lt;br&gt;
+backends: OpenSSL, LibreSSL, and Mbed TLS.&lt;br&gt;
+&lt;br&gt;
+The TLDR section on that page says:&lt;br&gt;
+&lt;br&gt;
+The web page then goes into much further detail...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 00:19:38 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/408</guid>
+  </item>
+
+
+  <item>
+    <title>Vulnerabilities in golang.org/x/net</title>
+    <link>https://seclists.org/oss-sec/2026/q4/407</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 27&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [security] Vulnerabilities in golang.org/x/net&lt;br&gt;
+Date:   Tue, 27 Oct 2026 19:53:49 +0000&lt;br&gt;
+From:   announce () golang org&lt;br&gt;
+To:     golang-nuts () googlegroups com&lt;br&gt;
+&lt;br&gt;
+Hello gophers,&lt;br&gt;
+&lt;br&gt;
+We have tagged version v0.62.0 of golang.org/x/net in order to address the &lt;br&gt;
+following security issues:&lt;br&gt;
+&lt;br&gt;
+   * html: avoid quadratic complexity when coalescing text nodes&lt;br&gt;
+&lt;br&gt;
+     When coalescing adjacent text nodes in addText...&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:55:05 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/407</guid>
+  </item>
+  <item>
+    <title>Godot 3.x/4.x: remote crash via DTLS receive-callback heap buffer overflow</title>
+    <link>https://seclists.org/oss-sec/2026/q4/406</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Oct 27&lt;/p&gt;A remote denial-of-service vulnerability in Godot&amp;apos;s DTLS networking&lt;br&gt;
+was publicly disclosed on 2026-10-27 [1].&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+Godot 3.2.2 through 4.7.2 and current master (source inspection per&lt;br&gt;
+tag). Runtime-confirmed on the official 4.7-stable Windows release&lt;br&gt;
+template. DTLS is opt-in; the DTLS-over-ENet configuration exists from&lt;br&gt;
+4.0 onward, the raw PacketPeerDTLS path from 3.2.2.&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+The DTLS receive callback...&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:18:04 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/406</guid>
+  </item>
+  <item>
+    <title>Godot 4.x: remote client crash via multiplayer spawn packet sync_len overflow</title>
+    <link>https://seclists.org/oss-sec/2026/q4/405</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Oct 27&lt;/p&gt;A remote denial-of-service vulnerability in Godot 4.x multiplayer was&lt;br&gt;
+publicly disclosed on 2026-10-27 [1].&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+Godot 4.0.0 through 4.7.2 and current master (vulnerable check&lt;br&gt;
+introduced in commit 32a62af648, 2022-10-03). Runtime-confirmed on the&lt;br&gt;
+official 4.7-stable Windows binary.&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+The spawn-packet bounds check in&lt;br&gt;
+SceneReplicationInterface::on_spawn_receive&lt;br&gt;
+(modules/multiplayer/scene_replication_interface.cpp:586)...&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:16:15 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/405</guid>
+  </item>
+  <item>
+    <title>Multiple vulnerabilities in samtools &lt;= 1.24</title>
+    <link>https://seclists.org/oss-sec/2026/q4/404</link>
+    <description>&lt;p&gt;Posted by Robert Davies on Oct 27&lt;/p&gt;Multiple vulnerabilities, listed below, have been disclosed in the samtools&lt;br&gt;
+package.  These have all been fixed in a new release 1.25 and have also been&lt;br&gt;
+pack-ported to versions 1.24.1, 1.23.3, 1.22.4 and 1.21.3&lt;br&gt;
+&lt;br&gt;
+We do not yet have CVE numbers for these as our CVE assigning authority,&lt;br&gt;
+GitHub, has a long backlog.  Therefore we are linking to the GitHub pages as&lt;br&gt;
+these will be updated automatically once the CVEs have been assigned.&lt;br&gt;
+&lt;br&gt;
+Contents&lt;br&gt;
+========...&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:14:22 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/404</guid>
+  </item>
+  <item>
+    <title>Multiple vulnerabilities in HTSlib &lt;= 1.24</title>
+    <link>https://seclists.org/oss-sec/2026/q4/403</link>
+    <description>&lt;p&gt;Posted by Robert Davies on Oct 27&lt;/p&gt;Multiple vulnerabilities, listed below, have been disclosed in the HTSlib&lt;br&gt;
+package.  These have all been fixed in a new release 1.25 and have also been&lt;br&gt;
+pack-ported to versions 1.24.1, 1.23.3, 1.22.4 and 1.21.3&lt;br&gt;
+&lt;br&gt;
+We do not yet have CVE numbers for these as our CVE assigning authority,&lt;br&gt;
+GitHub, has a long backlog.  Therefore we are linking to the GitHub pages as&lt;br&gt;
+these will be updated automatically once the CVEs have been assigned.&lt;br&gt;
+&lt;br&gt;
+Contents&lt;br&gt;
+========...&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:12:21 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/403</guid>
+  </item>
+  <item>
+    <title>Re: Fwd: X.Org Security Advisory: multiple security issues in X.Org X client libraries</title>
+    <link>https://seclists.org/oss-sec/2026/q4/402</link>
+    <description>&lt;p&gt;Posted by Emilio Pozuelo Monfort on Oct 27&lt;/p&gt;Hi Alan,&lt;br&gt;
+&lt;br&gt;
+Some of these (CVE-2026-109089, CVE-2026-109090, CVE-2026-109088) are still &lt;br&gt;
+marked as RESERVED in MITRE, with no information published (e.g. [1]). Do you &lt;br&gt;
+know why?&lt;br&gt;
+&lt;br&gt;
+Cheers,&lt;br&gt;
+Emilio&lt;br&gt;
+&lt;br&gt;
+[1] &lt;a  rel=&quot;nofollow&quot; href=&quot;https://www.cve.org/CVERecord?id=CVE-2026-109090&quot;&gt;https://www.cve.org/CVERecord?id=CVE-2026-109090&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:10:12 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/402</guid>
+  </item>
+  <item>
+    <title>Re: PHP 5.4.23 (custom 5.4-5.6) backported patch for PHP2Shell OOM vulnerability (CVE-2026-109618)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/401</link>
+    <description>&lt;p&gt;Posted by Demi Marie Obenour on Oct 27&lt;/p&gt;Anyone willing to do that would have uninstalled old PHP long ago.&lt;br&gt;
+&lt;br&gt;
+Of course, the real problem is that such an old version of PHP&lt;br&gt;
+is installed in the first place.  If one can&amp;apos;t get rid of it, (a)&lt;br&gt;
+ensure that nothing can connect to it that one wouldn&amp;apos;t trust with&lt;br&gt;
+shell access on the server and (b) consider modernizing it.&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:08:10 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/401</guid>
+  </item>
+  <item>
+    <title>Seccomp denylist bypass via 32-bit syscall argument truncation</title>
+    <link>https://seclists.org/oss-sec/2026/q4/400</link>
+    <description>&lt;p&gt;Posted by Ricardo Branco on Oct 27&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+I am writing to share details regarding a seccomp filter bypass pattern&lt;br&gt;
+affecting several projects (including containerd, Podman, systemd, and&lt;br&gt;
+QEMU) that rely on denylists for system call argument inspection.&lt;br&gt;
+&lt;br&gt;
+The issue stems from an evaluation mismatch between seccomp-bpf and the&lt;br&gt;
+Linux kernel when 32-bit integer arguments are passed via 64-bit CPU&lt;br&gt;
+registers on 64-bit architectures.&lt;br&gt;
+&lt;br&gt;
+Vulnerability Details&lt;br&gt;
+=====================&lt;br&gt;
+&lt;br&gt;
+Many...&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 21:06:04 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/400</guid>
+  </item>
+  <item>
+    <title>Re: Fwd: X.Org Security Advisory: multiple security issues in X.Org X client libraries</title>
+    <link>https://seclists.org/oss-sec/2026/q4/399</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 27&lt;/p&gt;I don&amp;apos;t know of any specific reason - I&amp;apos;ve asked our team members who got the&lt;br&gt;
+CVEs assigned to let the CNA know that they can make them public now, assuming&lt;br&gt;
+this step hasn&amp;apos;t been completed yet.&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 15:33:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/399</guid>
+  </item>
+  <item>
+    <title>Re: PHP 5.4.23 (custom 5.4-5.6) backported patch for PHP2Shell OOM vulnerability (CVE-2026-109618)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/398</link>
+    <description>&lt;p&gt;Posted by Peter Wolanin on Oct 26&lt;/p&gt;The PPA we use &lt;a  rel=&quot;nofollow&quot; href=&quot;https://launchpad.net/~ondrej/+archive/ubuntu/php&quot;&gt;https://launchpad.net/~ondrej/+archive/ubuntu/php&lt;/a&gt; had a PHP&lt;br&gt;
+5.6 back port the same day. Have you compared your patch to other patches?&lt;br&gt;
+&lt;br&gt;
+Peter&lt;br&gt;</description>
+    <pubDate>Tue, 27 Oct 2026 00:42:53 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/398</guid>
+  </item>
+
+
+  <item>
+    <title>CVE-2026-111422: Apache Airflow SSH provider: SSHRemoteJobOperator: `environment` values are executed as shell on the remote host</title>
+    <link>https://seclists.org/oss-sec/2026/q4/397</link>
+    <description>&lt;p&gt;Posted by Hussein Awala on Oct 26&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Airflow SSH provider 4.3.0 before 7.0.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+In apache-airflow-providers-ssh before 7.0.1, SSHRemoteJobOperator quoted the values of its templated `environment` &lt;br&gt;
+parameter only once, although they are placed inside an already-quoted wrapper script, so shell syntax such as `$(...)` &lt;br&gt;
+in a value was executed on the remote SSH host. In a Dag that passes trigger-time input such as `params` or...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 23:06:11 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/397</guid>
+  </item>
+  <item>
+    <title>Godot 4.x: arbitrary code execution via .po translation file Plural-Forms header</title>
+    <link>https://seclists.org/oss-sec/2026/q4/396</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Oct 26&lt;/p&gt;A code-execution vulnerability in Godot 4.x translation loading was&lt;br&gt;
+publicly disclosed on 2026-10-26 [1].&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+Godot 4.1.0 through 4.7.2. Runtime-confirmed on the official 4.7-stable&lt;br&gt;
+export. No equivalent path found in 3.5.&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+The .po loader stores the file&amp;apos;s Plural-Forms header without validating it&lt;br&gt;
+against the GNU gettext grammar (core/io/translation_loader_po.cpp:232). At&lt;br&gt;
+the first plural lookup the header is...&lt;br&gt;</description>
+    <pubDate>Mon, 26 Oct 2026 21:31:35 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/396</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

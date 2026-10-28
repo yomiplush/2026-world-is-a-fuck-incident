@@ -3,6 +3,7 @@
 Usage: python3 tools/build-review.py data/2026-10-26-1456/incident-register.json
 """
 import importlib.util
+import advisory_details
 import json
 import re
 import sys
@@ -20,7 +21,7 @@ def article(row):
               'prior-scope': '既存の問題・対応範囲の補完', 'timestamp-unconfirmed': '基準時刻以前の公開は未確定'}
     sources = ' / '.join(anchor(s['url'], s['name']) for s in row['sources'])
     return f'''<article id="{esc(row['id'])}"><p class="event-type">{esc(row['time'])} · {esc(labels[row['certainty']])}</p>
-<h3>{esc(row['title'])}</h3><p>{esc(row['body'])}</p><p class="action"><strong>確認すること</strong>{esc(row['action'])}</p><p class="sources">{sources}</p></article>'''
+<h3>{esc(row['title'])}</h3><p>{esc(row['body'])}</p><p class="action"><strong>確認すること</strong>{esc(row['action'])}</p>{advisory_details.render(row,esc)}<p class="sources">{sources}</p></article>'''
 
 
 def main(path):
@@ -37,7 +38,7 @@ def main(path):
 <p class="intro">{esc(report['intro'])}</p><p class="date">対象：{esc(report['cutoff_jst_label'])}。差分窓：{esc(report['window_jst'])}。<br>実取得は{esc(report['retrieved_jst'])}。日付のみの同日続報は参考枠です。</p>
 <div class="report-links">{anchor('#quick','忙しい人向け →')}{anchor('#delta','登録・勧告更新 →')}{anchor('#continuity','既存事件の対応補完 →')}{anchor(motion_path,motion_label)}{anchor('./timeline.html','日付順の記録 →')}</div></header>
 <section id="quick"><h2>忙しい人向け：使っているものだけ。</h2><div class="priority-grid">{quick}</div></section>
-<aside><strong>修正の提供と、展開・復旧を分けます。</strong><p>公開サービスの更新・侵害調査と、漏れた鍵や権限の失効は継続。配布済みのパッチ、段階配信、復旧目標を同じ状態にしません。Tailwormの最低修正版は今回も未確定。ConnectWiseの個別案内前に接続を再許可しないでください。</p>{anchor('./update-20261026.html','朝の21群・条件別の継続対応表 →')}</aside>'''
+<aside><strong>修正の提供と、展開・復旧を分けます。</strong><p>{esc(report.get("continuity_note", "公開サービスの更新・侵害調査と、漏れた鍵や権限の失効は継続。配布済みのパッチ、段階配信、復旧目標を同じ状態にしません。Tailwormの最低修正版は今回も未確定。ConnectWiseの個別案内前に接続を再許可しないでください。"))}</p>{anchor('./update-20261026.html','朝の21群・条件別の継続対応表 →')}</aside>'''
     descriptions = {
         'delta': ('delta', '差分窓の登録・勧告更新', 'DB収録・改訂や勧告の更新時刻で整理しています。攻撃の開始時刻や、新たに発生した被害件数ではありません。'),
         'scope-complement': ('continuity', '既存事案の対策と条件の補足', '既公表資料の条件、修正・配置方法、業務影響を補完。今回の時間帯に起きた新しい侵害として数え直していません。'),
