@@ -3,7 +3,7 @@
   'use strict';
   const KEY = 'briefing-consent', LANGUAGE = 'briefing-lang';
   const VERSION = 1, LIFETIME = 180 * 24 * 60 * 60 * 1000;
-  const japanese = (new URLSearchParams(location.search).get('lang') || navigator.language || '').startsWith('ja');
+  const japanese = (new URLSearchParams(location.search).get('lang') || document.documentElement.lang || navigator.language || '').startsWith('ja');
   const copy = japanese ? {
     title: 'Cookieの利用について',
     body: 'このサイトが独自に置く任意Cookieはありません。任意の保存は表示言語の記憶だけです。同意するまで保存せず、拒否してもすべての内容を閲覧できます。解析・広告用Cookieは導入していません。',

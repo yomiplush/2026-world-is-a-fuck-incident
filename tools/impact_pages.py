@@ -100,6 +100,11 @@ def publish_locales(pub):
     root=pub.ROOT;latest=pub.LATEST
     catalog=json.loads((root/'content/site-languages.json').read_text())['languages']
     ready={row['code']:locale_package(root,latest,row['code'])for row in catalog}
+    # Remove retired catalog languages as well as stale active translations.
+    import re
+    for path in list((root/'site').glob('impact.*.html'))+list((root/'site/data').glob('impact.*.json')):
+        match=re.match(r'impact\.([a-z]{2})\.',path.name)
+        if match and match[1] not in ready:path.unlink(missing_ok=True)
     # Never leave obsolete translations reachable or indexed after a source change.
     for code,item in ready.items():
         if code=='ja' or item:continue

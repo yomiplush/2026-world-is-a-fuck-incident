@@ -33,7 +33,7 @@ class TranslationMemory(unittest.TestCase):
      if field not in ('title','body','action','time'):self.assertEqual(original[field],translated[field])
  def test_locales_are_explicitly_incomplete_until_real_data_exists(self):
   p=ROOT/'data/translations/2026-10-26-2135/manifest.json';manifest=json.loads(p.read_text())
-  self.assertEqual(manifest['target_count'],len(json.loads((ROOT/'content/site-languages.json').read_text())['languages']))
+  self.assertEqual(manifest['target_count'],len(manifest['languages'])) # Historical catalog remains an immutable archive.
   for code,row in manifest['languages'].items():
    if row['status']in('source','translated'):
     package=json.loads((ROOT/row['file']).read_text());self.assertEqual(package['source_hash'],manifest['source_hash']);self.assertTrue(package['strings'])

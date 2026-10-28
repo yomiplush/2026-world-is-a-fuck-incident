@@ -30,7 +30,7 @@ GMOの00:20訂正、Railwayの復旧更新、Appleの端末更新、Consulの認
 - **ConnectWise / ソフトバンク：** ConnectWise 23:00（14:00 UTC）更新はオンボーディング**準備継続**であり、既存バックアップからの復元開始報告ではありません。接続は個別手順まで無効維持。ソフトバンクは災害・避難情報を**23:17に再開**しました。キャリア再開をPHP全体の修正完了としないでください。[Trust Center](https://www.connectwise.com/company/trust/advisories) / [ソフトバンク](https://www.softbank.jp/corp/news/info/2026/20261023_01/)
 - **Brotli / HTTP2Shell：** 通称はHTTP/2でも、欠陥は **CVE-2026-111497** のC decoderです。.NETは **8.0.33 / 9.0.22 / 10.0.14**、NativeAOTは再発行。FFmpeg/libjxl・ClickHouse・Arrowは到達条件が別で、修正リリース未確認のものがあります。Bandit HTTP/2一連は別クラスタです。[Brotli追補](docs/26-brotli-http2shell.ja.md)
 - **NVD窓の境界機器・シェル：** FortiSandbox認証回避、Harbor webhook SSRF、mongoshのeMudhra CA、MCP Toolbox、Camel Saxon XXE、Mautic 7一連がReceived/Deferredで初収録。修正版をNVD本文から推定しないでください。[固定窓調査](docs/research-collection-2026-10-27-0018.md)
-- **ブラストメール / Tailscale / PAN-OS / PHP：** 345契約・再開未定は17:00のまま。Tailscale最新安定は1.104.2で、Tailworm最低修正版は未確定。PAN-OSの新しいETA削除はこの窓にありません。[ベンダー調査](docs/research-2026-10-27-0018.md) / [15言語のTailworm特集](https://www.infosec-briefing.net/tailworm)
+- **ブラストメール / Tailscale / PAN-OS / PHP：** 345契約・再開未定は17:00のまま。Tailscale最新安定は1.104.2で、Tailworm最低修正版は未確定。PAN-OSの新しいETA削除はこの窓にありません。[ベンダー調査](docs/research-2026-10-27-0018.md) / [日本語・EnglishのTailworm特集](https://www.infosec-briefing.net/tailworm)
 
 **[最新の読むレポート](https://www.infosec-briefing.net/update-20261027-0018) · [時系列の日付別一覧](https://www.infosec-briefing.net/timeline) · [構造化索引](data/2026-10-27-0018/incident-register.json) · [最新データの参照先](data/latest.json) · [このサイトについて](https://www.infosec-briefing.net/about)**
 
@@ -50,7 +50,7 @@ GMOの00:20訂正、Railwayの復旧更新、Appleの端末更新、Consulの認
 
 **10月25日 23:18 JST基準。** 接続を許可した後のSSH転送・Unix権限、headscale、conn25、Serve/Funnelを機能別に確認。研究者の実験室報告とベンダー応答を分け、今日の暫定対策を整理しました。**1.104.2はTailworm修正版とは確認できません。**
 
-**ページ上部のプルダウンで15言語に切り替えられます。**
+**サイトは日本語とEnglishの2言語に対応しています。ページ上部のプルダウンで切り替えられます。**
 
 **[特集を読む](https://infosec-briefing.yomiplush.dev/tailworm.html) · [6画面のモーション特集](https://infosec-briefing.yomiplush.dev/?lang=ja#41) · [リポジトリの詳細・出典](docs/27-tailworm.ja.md)**
 
