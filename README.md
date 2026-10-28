@@ -23,7 +23,7 @@ The dated sections below retain their historical context.
 
 **忙しい人向け（日本語・10/27 00:18 JST）：** 公開システムの更新・侵害調査と鍵の失効を継続し、GMO第7報（12:00は攻撃者予告）、ConnectWiseの準備継続、Brotli下流の到達条件を確認してください。**[日本語の1分要約](README_jp.md)**
 
-**Languages:** [Choose a language](https://www.infosec-briefing.net/languages). Motion and Tailworm use native dropdowns for 15 major languages, including Ukrainian, Polish and Swedish. [Stored database translations and maintenance](docs/translations/README.md).
+**Languages:** [Choose a language](https://www.infosec-briefing.net/languages). The website supports Japanese and English, including the motion briefing, reading pages, database and Tailworm feature. [Stored database translations and maintenance](docs/translations/README.md).
 
 ## For busy readers — one minute (2026-10-27 00:18 JST cutoff)
 
@@ -33,7 +33,7 @@ The dated sections below retain their historical context.
 - **ConnectWise / SoftBank:** the 14:00 UTC Trust Center post is **continued preparation** for phased onboarding, not a report that partners started restores. Keep affected connections disabled. SoftBank resumed disaster/evacuation alerts at **23:17 JST**; that is the carrier path, not a PHP-ecosystem close. [Trust Center](https://www.connectwise.com/company/trust/advisories) / [SoftBank](https://www.softbank.jp/corp/news/info/2026/20261023_01/)
 - **Brotli / HTTP2Shell:** the names refer to **CVE-2026-111497**, a C decoder out-of-bounds write, not an HTTP/2 protocol bug. .NET patches are **8.0.33 / 9.0.22 / 10.0.14**; NativeAOT must be republished. FFmpeg/libjxl, ClickHouse and Arrow have separate reachability; some patched releases were not identified. Bandit’s HTTP/2 cluster is separate. [Brotli follow-up](docs/26-brotli-http2shell.md)
 - **NVD window:** FortiSandbox auth bypass, Harbor webhook SSRF, mongosh eMudhra CAs, MCP Toolbox, Camel Saxon XXE and Mautic 7 landed as Received/Deferred. Do not invent fix versions from NVD text. [Collection notes](docs/research-collection-2026-10-27-0018.md)
-- **Blastmail / Tailscale / PAN-OS / PHP:** Blastmail remains 345 contracts, restart unknown. Tailscale’s latest stable is still 1.104.2; a Tailworm minimum fix is still not established. PAN-OS had no new ETA removals in this window. [Vendor review](docs/research-2026-10-27-0018.md) / [15-language Tailworm feature](https://www.infosec-briefing.net/tailworm)
+- **Blastmail / Tailscale / PAN-OS / PHP:** Blastmail remains 345 contracts, restart unknown. Tailscale’s latest stable is still 1.104.2; a Tailworm minimum fix is still not established. PAN-OS had no new ETA removals in this window. [Vendor review](docs/research-2026-10-27-0018.md) / [Japanese/English Tailworm feature](https://www.infosec-briefing.net/tailworm)
 
 **[日本語の1分要約](README_jp.md) · [Latest reading report (Japanese)](https://www.infosec-briefing.net/update-20261027-0018) · [Chronological archive](https://www.infosec-briefing.net/timeline) · [Structured register](data/2026-10-27-0018/incident-register.json) · [Dataset pointer](data/latest.json) · [About this project](https://www.infosec-briefing.net/about)**
 

@@ -6,6 +6,7 @@ import subprocess
 import sys
 ROOT=Path(__file__).resolve().parents[1]
 def run(name,*args):subprocess.run([sys.executable,str(ROOT/'tools'/name),*args],cwd=ROOT,check=True)
+run('prune-site-locales.py')
 run('build-daily.py')
 run('build-noon.py')
 for p in sorted((ROOT/'data').glob('*/incident-register.json')):

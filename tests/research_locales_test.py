@@ -9,7 +9,7 @@ class Page(HTMLParser):
   if tag=='html':self.lang=a.get('lang');self.direction=a.get('dir')
   if tag=='option':self.options.append(a)
 class ResearchLocales(unittest.TestCase):
- def test_both_views_offer_the_same_current_fifteen_languages(self):
+ def test_both_views_offer_the_same_two_supported_languages(self):
   catalog=json.loads((ROOT/'content/site-languages.json').read_text())['languages'];latest=json.loads((ROOT/'data/latest.json').read_text())
   for row in catalog:
    code=row['code'];suffix='' if code=='ja' else '.'+code
