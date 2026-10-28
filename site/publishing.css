@@ -27,3 +27,6 @@ body>main:not(#app){padding-left:max(24px,env(safe-area-inset-left));padding-rig
 .table-scroll{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 @media(max-width:600px){body>main:not(#app){padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}}
 @media(pointer:coarse),(max-width:600px){summary{min-height:44px}.privacy-dock a,.privacy-dock button{display:inline-flex;align-items:center;min-height:44px}}
+/* Keep version constraints and identifiers readable inside RTL research pages. */
+html[dir="rtl"] details code{direction:ltr;unicode-bidi:isolate;display:inline-block}
+html[dir="rtl"] .research-tabs a{text-align:center}

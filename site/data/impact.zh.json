@@ -1,0 +1,341 @@
+{
+  "cutoff": "2026-10-28T04:18:44Z",
+  "records": [
+    {
+      "id": "idcf-real-impact",
+      "title": "IDCF云：495家企业及地方政府遭遇停机与加密",
+      "confirmed": "东日本区域1的4可用区出现VM停机及被加密。已确认206家客户可提取备份。最多71家企业的门户注册信息遭非法查询，最多4个密码遭非法更改。",
+      "unknown": "206并非已完成恢复的数量。公司表示，VM内部数据未外泄，也尚未发现注册信息被带出的痕迹。尚未公布所有客户的最终恢复日期及总损失。",
+      "response": "已重置密码。协助迁移至替代环境并提取备份。",
+      "status": "confirmed-impact",
+      "category": "业务、医疗及服务中断",
+      "sources": [
+        {
+          "name": "IDCF第7報・10月27日",
+          "url": "https://www.idcf.jp/news/topics/20261027001/"
+        }
+      ],
+      "event_date": "2026-10-07",
+      "source_date": "2026-10-27",
+      "as_of": "资料更新：2026-10-27",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "infoq-real-impact",
+      "title": "infoQ：89万4,082条信息被带出，积分遭非法兑换",
+      "confirmed": "已确认894,082条个人信息被带出。非法兑换611笔，共计2,869,500日元。自10月3日起暂停服务，部分受委托开展的调查也受到影响。",
+      "unknown": "最初公布的最多948,498条并非已确认的受损数量。根据正文，尚无法确定漏洞的CVE、最终恢复日期及已完成补偿的总金额。",
+      "response": "已使所有会员密码失效。计划全额补偿被非法兑换的积分。在其他服务中使用相同密码的用户也应更改密码。",
+      "status": "confirmed-impact",
+      "category": "已确认的资金影响",
+      "sources": [
+        {
+          "name": "infoQ第2報・10月14日",
+          "url": "https://gmo-research.ai/pressroom/notice/notice-20261014"
+        }
+      ],
+      "event_date": "2026-10-03",
+      "source_date": "2026-10-14",
+      "as_of": "资料更新：2026-10-14",
+      "total_loss_jpy": null,
+      "reported_financial_impact": {
+        "amount": 2869500,
+        "currency": "JPY",
+        "unit": "unauthorized point exchanges",
+        "count": 611,
+        "is_total_incident_loss": false
+      }
+    },
+    {
+      "id": "gmo-real-impact",
+      "title": "お名前.com：业务环境停用与信息被带出",
+      "confirmed": "自10月21日起暂停服务。已确认客户信息被带至外部。10月28日04:00左右，确认攻击者网站的域名已被停用。",
+      "unknown": "公开内容的真实性、受害人数及非法交易总金额尚未确定。域名停用并不意味着信息已全部收回或服务已恢复。",
+      "response": "计划引导用户使用替代服务，不直接重启现有基础设施。已公布对已确认非法交易造成的实际损失进行赔偿，并发放特别慰问金。",
+      "status": "confirmed-impact",
+      "category": "业务、医疗及服务中断",
+      "sources": [
+        {
+          "name": "GMO第4報",
+          "url": "https://group.gmo/info/alert/20261024/"
+        },
+        {
+          "name": "GMO第12報",
+          "url": "https://group.gmo/info/alert/2026102705/"
+        },
+        {
+          "name": "GMO第13報・10月28日11時",
+          "url": "https://group.gmo/info/alert/20261028/"
+        }
+      ],
+      "event_date": "2026-10-21",
+      "source_date": "2026-10-28",
+      "as_of": "资料更新：2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "atlink-real-impact",
+      "title": "Atlink：患者预约及相关服务中断",
+      "confirmed": "自10月14日深夜起中断。已确认9月下旬至10月中旬期间数据库信息被获取，并发生个人信息泄露。截至28日12:30，患者应用、网页预约等仍处于停用状态。",
+      "unknown": "泄露涉及的数量及全部功能的恢复日期仍在调查、核实中。部分医疗机构开始β测试，并不意味着已恢复面向所有用户的服务。",
+      "response": "已阻断入侵路径，并使相关身份验证信息失效。预约变更需直接联系医疗机构。恢复服务时需设置新密码。",
+      "status": "confirmed-impact",
+      "category": "业务、医疗及服务中断",
+      "sources": [
+        {
+          "name": "メドレー調査案内",
+          "url": "https://www.medley.jp/notice/20261015.html"
+        },
+        {
+          "name": "アットリンク調査状況",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスに関する調査状況/"
+        },
+        {
+          "name": "運営状況・10月28日12時30分",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/"
+        }
+      ],
+      "event_date": "2026-10-14",
+      "source_date": "2026-10-28",
+      "as_of": "资料更新：2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "aiiku-atlink-impact",
+      "title": "爱育医院：疫苗接种与产后护理预约受阻",
+      "confirmed": "因Atlink停用，儿科疫苗接种预约、儿科产后日间护理预约及就诊叫号功能无法使用。其他网页预约系统可正常使用。",
+      "unknown": "本次公告未确认诊疗全面停止或出现危及生命的损害。这是Atlink事件对用户端影响的案例，并非另一起独立攻击。",
+      "response": "查看医院提供的替代预约指引，所需手续请直接向医院咨询。",
+      "status": "confirmed-impact",
+      "category": "业务、医疗及服务中断",
+      "sources": [
+        {
+          "name": "愛育病院・10月23日更新",
+          "url": "https://www.aiiku.net/news/news-3482/"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "atlink-real-impact",
+      "as_of": "资料更新：2026-10-23",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "railway-real-impact",
+      "title": "Railway：构建与部署中断，新用户注册暂停",
+      "confirmed": "曾出现构建与部署中断，以及仪表板、API、CLI和支持服务无法使用的时段。截至10月27日15:19 UTC，新用户注册仍处于暂停状态。公司表示，现有客户已部署的服务持续运行。",
+      "unknown": "最多1.85%、约100,000个workspace是环境变量可能受影响的范围，并非已确认的信息泄露人数。仅收到密钥撤销通知，并不足以确认已遭入侵。",
+      "response": "已撤销并重新签发存储的secret，并对GitHub及镜像仓库开展审计。下次状态更新计划时间为10月28日16:00 UTC，晚于本次基准时间。",
+      "status": "confirmed-impact",
+      "category": "业务、医疗及服务中断",
+      "sources": [
+        {
+          "name": "Railway一次報告",
+          "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+        },
+        {
+          "name": "Railway status",
+          "url": "https://status.railway.com/"
+        }
+      ],
+      "event_date": "2026-10-20",
+      "source_date": "2026-10-27",
+      "as_of": "资料更新：2026-10-27",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "piccoma-blastmail-impact",
+      "title": "Piccoma：100万2,404个收件地址泄露",
+      "confirmed": "已确认1次电子邮件简报的1,002,404个收件邮箱地址泄露。已暂停发送电子邮件简报。",
+      "unknown": "该数字为收件地址数量，并非全球范围或Blastmail全部客户的受害数量。公司表示，Piccoma主服务、密码及购买信息未受影响，可正常使用。",
+      "response": "已逐一通知、向主管部门报告，并更改发件人身份验证设置。请警惕冒充邮件。",
+      "status": "confirmed-impact",
+      "category": "个人信息与秘密信息",
+      "sources": [
+        {
+          "name": "ピッコマ第1報・10月24日",
+          "url": "https://jp.piccoma.com/web/notice_detail/7503"
+        }
+      ],
+      "source_date": "2026-10-24",
+      "parent_incident": "blastmail",
+      "as_of": "资料更新：2026-10-24",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "environment-blastmail-impact",
+      "title": "环境省：相关电子邮件简报的发送与管理暂停",
+      "confirmed": "相关6份电子邮件简报无法进行发送及管理。10月21日00:30管理界面及API停用，01:00左右停止发送。",
+      "unknown": "尚未确认收件人信息泄露。不能将Piccoma的确认结果套用于环境省。未注明涉及数量。",
+      "response": "将根据服务商的调查确认是否发生泄露。已告知恢复时间尚未确定。",
+      "status": "confirmed-impact",
+      "category": "业务、医疗及服务中断",
+      "sources": [
+        {
+          "name": "環境省・10月23日",
+          "url": "https://www.env.go.jp/press/press_05784.html"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "blastmail",
+      "as_of": "资料更新：2026-10-23",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "studio-real-impact",
+      "title": "Studio：信息处于可被获取状态，带来通知与密钥更新负担",
+      "confirmed": "9月30日至10月1日期间遭入侵，直至10月14日仍处于外部可获取信息的状态。解密密钥也被读取，表单内容及API密钥等可能已被获知。",
+      "unknown": "尚未确认信息被实际获取。涉及数量及次生损害仍在调查中。尚未确认遭篡改或删除。",
+      "response": "已修复入侵路径并更新密钥。外部API密钥需在签发方处撤销。10月28日00:30的更新称，计划于11月上旬开始受理联名报告，向本人发出通知则另行处理。",
+      "status": "potential",
+      "category": "个人信息与秘密信息",
+      "sources": [
+        {
+          "name": "Studio公式ポータル",
+          "url": "https://studio.design/ja/security/notice/2026-10-incident"
+        }
+      ],
+      "source_date": "2026-10-28",
+      "as_of": "资料更新：2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "yotsuya-itsuaki-impact",
+      "title": "四谷Medical Cube：旧预约数据泄露",
+      "confirmed": "旧委托预约系统“いつあき”于9月21日至22日遭入侵，预约数据被非法获取。已确认姓名、电话号码及电子邮箱地址泄露。",
+      "unknown": "出生日期、性别及预约附加项目是否涉及仍在调查中。未公布数量。尚未确认2025年3月起使用的现行预约系统及电子病历受到影响，也未确认次生损害。",
+      "response": "Fines正陆续联系相关人员。医院已向主管部门报告，并要求防止再次发生及开展详细调查，同时提醒警惕借此事件实施的冒充联系。",
+      "status": "confirmed-impact",
+      "category": "个人信息与秘密信息",
+      "sources": [
+        {
+          "name": "四谷メディカルキューブ・10月20日",
+          "url": "https://www.mcube.jp/news/20261020.html"
+        }
+      ],
+      "event_date": "2026-09-21",
+      "source_date": "2026-10-20",
+      "as_of": "资料更新：2026-10-20",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "connectwise-real-impact",
+      "title": "ConnectWise：备份恢复、监控与管理功能受阻",
+      "confirmed": "已确认应用程序凭据遭未经授权访问，并发生服务中断。备份存储、归档访问、恢复以及SaaS监控与管理功能受阻。",
+      "unknown": "尚未公布客户数量、损失金额及全面恢复时间。分阶段恢复的准备工作已完成，并不代表已确认开始恢复操作。",
+      "response": "截至10月27日14:30 UTC，仍在等待第三方验证。在收到单独通知前，应保持相关连接处于禁用状态。",
+      "status": "confirmed-impact",
+      "category": "备份与业务连续性",
+      "as_of": "10/27 14:30 UTC更新",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "ConnectWise Trust Center",
+          "url": "https://www.connectwise.com/company/trust/advisories"
+        }
+      ]
+    },
+    {
+      "id": "litellm-distribution-impact",
+      "title": "LiteLLM：恶意软件包被分发，带来环境重建负担",
+      "confirmed": "10月21日，恶意1.107.0及容器已被实际分发，确认发布基础设施遭入侵。",
+      "unknown": "尚未公布是否所有用户的密钥均已泄露、受害组织数量及被盗总金额。不沿用3月另一起事件的损害统计。",
+      "response": "排查是否部署了受影响版本，隔离并重建环境。撤销并重新签发当时可被访问的密钥。执行简单更新操作前，应检查启动钩子再次执行的风险。",
+      "status": "confirmed-impact",
+      "category": "软件供应链",
+      "as_of": "10/21事件 / 10/23分析",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "LiteLLM公式事件報告",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+        },
+        {
+          "name": "公式攻撃連鎖分析",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+        }
+      ]
+    },
+    {
+      "id": "brotli-exploitation",
+      "title": "Brotli：已确认遭利用，下游产品受损总数不明",
+      "confirmed": "CISA KEV已将CVE-2026-111497收录为已知遭利用的漏洞。",
+      "unknown": "本目录未提供具体使用组织、人数、实际损失金额或首次攻击时间。不能仅凭已部署该软件就断定已遭入侵。",
+      "response": "核查各产品及版本分支的修复信息，并在更新之外另行排查入侵迹象。核对下游产品内嵌版本及受支持版本。",
+      "status": "exploitation-confirmed",
+      "category": "已遭利用的漏洞",
+      "as_of": "KEV 2026.10.27版",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "commerce-exploitation",
+      "title": "Adobe Commerce：现有修复的优先级提高",
+      "confirmed": "CISA KEV已将CVE-2026-48356收录为已知遭利用的漏洞。",
+      "unknown": "本目录未提供具体使用组织、人数、实际损失金额或首次攻击时间。不能仅凭已部署该软件就断定已遭入侵。",
+      "response": "核查各产品及版本分支的修复信息，并在更新之外另行排查入侵迹象。核对下游产品内嵌版本及受支持版本。",
+      "status": "exploitation-confirmed",
+      "category": "已遭利用的漏洞",
+      "as_of": "KEV 2026.10.27版",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "php-exploitation",
+      "title": "PHP：确认遭利用不等于所有网站均已遭入侵",
+      "confirmed": "CISA KEV已将CVE-2026-109618 / CVE-2026-109619收录为已知遭利用的漏洞。",
+      "unknown": "本目录未提供具体使用组织、人数、实际损失金额或首次攻击时间。不能仅凭已部署该软件就断定已遭入侵。",
+      "response": "核查各产品及版本分支的修复信息，并在更新之外另行排查入侵迹象。核对下游产品内嵌版本及受支持版本。",
+      "status": "exploitation-confirmed",
+      "category": "已遭利用的漏洞",
+      "as_of": "KEV 2026.10.27版",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "fireblocks-potential",
+      "title": "Fireblocks mpc-lib：密钥份额层级存在风险，尚未确认实际盗窃",
+      "confirmed": "CERT公布了一项问题：可能通过后代份额和链码获取同一参与方的祖先份额或根份额。",
+      "unknown": "资料未记载实际资产被盗或受害客户数量。不能据此认定可单独获得满足门限要求的转账密钥。",
+      "response": "尚未提供修复版本。应将链码作为秘密加以保护，并排查整个密钥份额层级。",
+      "status": "potential",
+      "category": "加密资产与密钥管理",
+      "as_of": "10/27 14:45 UTC修订",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CERT VU701544",
+          "url": "https://kb.cert.org/vuls/id/701544"
+        }
+      ]
+    }
+  ],
+  "cutoff_jst": "2026-10-28T13:18:44+09:00",
+  "caveats": [
+    "所选案例。parent_incident表示同一次入侵对用户端的影响，不应作为独立事件合计。potential表示尚未确认信息被实际获取。",
+    "这是经一手资料核实的案例列表，并非全球损害统计，也不代表本次新增事件数量。",
+    "区分发生、公布、更新及获取时间，金额、人数与记录数量均保留来源使用的单位。总损失未公布，不等于0日元。",
+    "获取的资料为基准时间之后的当前修订版。无法完整还原动态页面过去的全部表述。",
+    "同一基础设施对用户端的影响案例通过parent_incident关联。请勿将其作为重复事件合计。"
+  ],
+  "locale": "zh",
+  "translation": {
+    "source_hash": "dd28e03d66ec83eb9d35d9fdd166fc715d536bf69571b6c8d967c4bfa88d1722",
+    "register_hash": "4c3a9feaf3ca00e56d5b162f47c98fe2e735367ead09a9883655b6f1ff46e9b5",
+    "human_reviewed": false
+  }
+}

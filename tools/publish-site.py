@@ -180,12 +180,12 @@ def metadata(file,text):
     schema=json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     tags.append('<script type="application/ld+json">'+schema+'</script>')
     text=text.replace('</head>','<!-- publication:start -->\n'+'\n'.join(tags)+'\n<!-- publication:end -->\n</head>')
-    if not is_root and relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html'):
+    if not is_root and relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html') and not relative.startswith('impact.'):
         text=re.sub(r'<!-- editorial:start -->.*?<!-- editorial:end -->','',text,flags=re.S)
         credit='<footer class="editorial-credit"><p>編集・調査：<a href="/about">YomiPlush / Infosec Briefing</a> · <a href="/about">編集方針・訂正窓口</a> · <a href="/database">調査データ</a> · <a href="/feed.xml">RSS</a></p></footer>'
         text=text.replace('</body>','<!-- editorial:start -->'+credit+'<!-- editorial:end --></body>')
     text=re.sub(r'<!-- language-nav:start -->.*?<!-- language-nav:end -->','',text,flags=re.S)
-    if relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html'):
+    if relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html') and not relative.startswith('impact.'):
         nav='<a href="/languages">言語 / Languages</a>'
         if is_root:
             text=text.replace('<nav aria-label="読む資料">','<nav aria-label="読む資料"><!-- language-nav:start -->'+nav+' · <!-- language-nav:end -->',1)
@@ -226,7 +226,8 @@ def main():
     root.write_text(root_reading(root.read_text()))
     pages=sorted(SITE.rglob('*.html'))
     for file in pages:file.write_text(metadata(file,file.read_text()))
-    article_languages.publish(__import__('types').SimpleNamespace(metadata=metadata,clean_url=clean_url,language_select=language_select,BASE=BASE))
+    article_languages.publish(__import__('types').SimpleNamespace(metadata=metadata,clean_url=clean_url,language_select=language_select,BASE=BASE,impact_en=bool(impact_pages.locale_package(ROOT,LATEST,"en"))))
+    impact_pages.publish_locales(__import__('types').SimpleNamespace(ROOT=ROOT,LATEST=LATEST,BASE=BASE,shell=shell,esc=esc,metadata=metadata,language_select=language_select))
     pages=sorted(SITE.rglob('*.html'))
     discovery(pages)
     print(f'Published metadata, clean canonicals, structured data, RSS and sitemap for{len(pages)-1}indexable pages')

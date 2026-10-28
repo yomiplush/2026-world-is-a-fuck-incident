@@ -1,0 +1,341 @@
+{
+  "cutoff": "2026-10-28T04:18:44Z",
+  "records": [
+    {
+      "id": "idcf-real-impact",
+      "title": "IDCF Cloud: penghentian layanan dan enkripsi pada 495 perusahaan serta pemerintah daerah",
+      "confirmed": "VM berhenti dan dienkripsi di zona 4 pada region Jepang Timur 1. Pengambilan cadangan milik 206 pelanggan dipastikan dapat dilakukan. Informasi pendaftaran portal milik hingga 71 perusahaan diakses tanpa izin, dan hingga 4 kata sandi diubah tanpa izin.",
+      "unknown": "206 bukan jumlah yang telah selesai dipulihkan. Perusahaan menjelaskan bahwa tidak ada data dari dalam VM yang bocor ke luar, dan belum ditemukan jejak pengambilan informasi pendaftaran. Tanggal pemulihan akhir seluruh pelanggan dan total kerugian belum diumumkan.",
+      "response": "Kata sandi direset. Perusahaan membantu migrasi ke lingkungan pengganti dan pengambilan cadangan.",
+      "status": "confirmed-impact",
+      "category": "Terhentinya operasional, layanan medis, dan layanan lainnya",
+      "sources": [
+        {
+          "name": "IDCF第7報・10月27日",
+          "url": "https://www.idcf.jp/news/topics/20261027001/"
+        }
+      ],
+      "event_date": "2026-10-07",
+      "source_date": "2026-10-27",
+      "as_of": "Pembaruan sumber: 2026-10-27",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "infoq-real-impact",
+      "title": "infoQ: pengambilan 89 puluh ribu ditambah 4,082 catatan dan penukaran poin tanpa izin",
+      "confirmed": "Pengambilan 894,082 catatan informasi pribadi telah dipastikan. Terdapat 611 penukaran tanpa izin dengan total 2,869,500 yen. Layanan dihentikan sejak tanggal 3 bulan 10, dan sebagian survei yang dipesan juga terdampak.",
+      "unknown": "Angka awal maksimum 948,498 catatan bukan jumlah kerugian yang telah dipastikan. CVE kerentanan, tanggal pemulihan akhir, dan total kompensasi yang telah dibayarkan belum dapat dipastikan dari isi sumber.",
+      "response": "Kata sandi seluruh anggota dinonaktifkan. Ada kebijakan untuk mengganti seluruh poin yang ditukarkan tanpa izin. Ubah juga kata sandi di layanan lain yang menggunakan kata sandi sama.",
+      "status": "confirmed-impact",
+      "category": "Dampak finansial yang terkonfirmasi",
+      "sources": [
+        {
+          "name": "infoQ第2報・10月14日",
+          "url": "https://gmo-research.ai/pressroom/notice/notice-20261014"
+        }
+      ],
+      "event_date": "2026-10-03",
+      "source_date": "2026-10-14",
+      "as_of": "Pembaruan sumber: 2026-10-14",
+      "total_loss_jpy": null,
+      "reported_financial_impact": {
+        "amount": 2869500,
+        "currency": "JPY",
+        "unit": "unauthorized point exchanges",
+        "count": 611,
+        "is_total_incident_loss": false
+      }
+    },
+    {
+      "id": "gmo-real-impact",
+      "title": "Onamae.com: terhentinya lingkungan operasional dan pengambilan informasi",
+      "confirmed": "Layanan dihentikan sejak tanggal 21 bulan 10. Pengambilan informasi pelanggan ke luar telah dikonfirmasi. Penonaktifan domain situs pelaku dikonfirmasi sekitar pukul 04:00 pada tanggal 28 bulan 10.",
+      "unknown": "Keaslian konten yang dipublikasikan, jumlah korban, dan total nilai transaksi tanpa izin belum dipastikan. Penonaktifan domain tidak berarti seluruh informasi telah ditarik kembali atau layanan telah pulih.",
+      "response": "Perusahaan berencana mengarahkan pengguna ke layanan pengganti tanpa langsung mengoperasikan kembali infrastruktur yang ada. Perusahaan mengumumkan kompensasi atas kerugian yang telah terealisasi dari transaksi tanpa izin yang terkonfirmasi serta santunan khusus.",
+      "status": "confirmed-impact",
+      "category": "Terhentinya operasional, layanan medis, dan layanan lainnya",
+      "sources": [
+        {
+          "name": "GMO第4報",
+          "url": "https://group.gmo/info/alert/20261024/"
+        },
+        {
+          "name": "GMO第12報",
+          "url": "https://group.gmo/info/alert/2026102705/"
+        },
+        {
+          "name": "GMO第13報・10月28日11時",
+          "url": "https://group.gmo/info/alert/20261028/"
+        }
+      ],
+      "event_date": "2026-10-21",
+      "source_date": "2026-10-28",
+      "as_of": "Pembaruan sumber: 2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "atlink-real-impact",
+      "title": "Atlink: terhentinya reservasi pasien dan layanan terkait",
+      "confirmed": "Layanan terhenti sejak larut malam tanggal 14 bulan 10. Pengambilan informasi basis data dari akhir bulan 9 hingga pertengahan bulan 10 serta kebocoran informasi pribadi telah dikonfirmasi. Pada tanggal 28 pukul 12:30, aplikasi pasien, reservasi web, dan layanan lainnya masih terhenti.",
+      "unknown": "Jumlah data yang bocor dan tanggal pengoperasian kembali seluruh fungsi masih diselidiki dan dikonfirmasi. Dimulainya uji beta di sebagian fasilitas medis bukan berarti layanan untuk umum telah dibuka kembali.",
+      "response": "Jalur penyusupan diblokir dan informasi autentikasi terkait dinonaktifkan. Untuk mengubah reservasi, hubungi fasilitas medis secara langsung. Tetapkan kata sandi baru saat layanan dibuka kembali.",
+      "status": "confirmed-impact",
+      "category": "Terhentinya operasional, layanan medis, dan layanan lainnya",
+      "sources": [
+        {
+          "name": "メドレー調査案内",
+          "url": "https://www.medley.jp/notice/20261015.html"
+        },
+        {
+          "name": "アットリンク調査状況",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスに関する調査状況/"
+        },
+        {
+          "name": "運営状況・10月28日12時30分",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/"
+        }
+      ],
+      "event_date": "2026-10-14",
+      "source_date": "2026-10-28",
+      "as_of": "Pembaruan sumber: 2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "aiiku-atlink-impact",
+      "title": "Rumah Sakit Aiiku: gangguan reservasi vaksinasi dan perawatan pascapersalinan",
+      "confirmed": "Akibat terhentinya Atlink, reservasi vaksinasi pediatri, reservasi layanan perawatan siang pascapersalinan di bagian pediatri, dan fungsi pemanggilan pasien tidak dapat digunakan. Sistem reservasi web lainnya dapat digunakan seperti biasa.",
+      "unknown": "Pengumuman ini tidak mengonfirmasi penghentian seluruh layanan medis atau dampak terhadap nyawa. Ini adalah contoh dampak insiden Atlink pada pihak pengguna, bukan serangan terpisah yang berdiri sendiri.",
+      "response": "Periksa panduan reservasi alternatif dari rumah sakit dan tanyakan langsung kepada rumah sakit mengenai prosedur yang diperlukan.",
+      "status": "confirmed-impact",
+      "category": "Terhentinya operasional, layanan medis, dan layanan lainnya",
+      "sources": [
+        {
+          "name": "愛育病院・10月23日更新",
+          "url": "https://www.aiiku.net/news/news-3482/"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "atlink-real-impact",
+      "as_of": "Pembaruan sumber: 2026-10-23",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "railway-real-impact",
+      "title": "Railway: build dan deployment terputus, pendaftaran baru dihentikan",
+      "confirmed": "Terdapat periode ketika build/deploy terputus dan dashboard/API/CLI/layanan dukungan tidak dapat digunakan. Hingga tanggal 27 bulan 10 pukul 15:19 UTC, pendaftaran baru masih dihentikan. Perusahaan menjelaskan bahwa deployment pelanggan yang sudah ada tetap berjalan.",
+      "unknown": "Maksimum 1.85% atau sekitar 100,000 workspace adalah cakupan potensi dampak pada variabel lingkungan, bukan jumlah orang yang datanya dipastikan bocor. Pemberitahuan pencabutan kunci saja tidak dianggap sebagai konfirmasi kompromi.",
+      "response": "Secret yang tersimpan dicabut dan diterbitkan ulang, serta audit GitHub dan registry dilakukan. Pembaruan status berikutnya yang dijadwalkan pada tanggal 28 bulan 10 pukul 16:00 UTC berada setelah waktu acuan kali ini.",
+      "status": "confirmed-impact",
+      "category": "Terhentinya operasional, layanan medis, dan layanan lainnya",
+      "sources": [
+        {
+          "name": "Railway一次報告",
+          "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+        },
+        {
+          "name": "Railway status",
+          "url": "https://status.railway.com/"
+        }
+      ],
+      "event_date": "2026-10-20",
+      "source_date": "2026-10-27",
+      "as_of": "Pembaruan sumber: 2026-10-27",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "piccoma-blastmail-impact",
+      "title": "Piccoma: kebocoran 100 puluh ribu ditambah 2,404 alamat tujuan",
+      "confirmed": "Kebocoran 1,002,404 alamat email tujuan dari 1 pengiriman buletin email telah dikonfirmasi. Pengiriman buletin email dihentikan.",
+      "unknown": "Angka ini adalah jumlah alamat tujuan, bukan jumlah korban di seluruh dunia atau di seluruh pelanggan blastmail. Perusahaan menjelaskan bahwa layanan inti Piccoma, kata sandi, dan informasi pembelian tidak terdampak, serta layanan dapat digunakan seperti biasa.",
+      "response": "Pemberitahuan individual, pelaporan kepada pihak berwenang, dan perubahan pengaturan autentikasi pengirim dilakukan. Waspadai email yang menyamar sebagai pihak lain.",
+      "status": "confirmed-impact",
+      "category": "Informasi pribadi dan informasi rahasia",
+      "sources": [
+        {
+          "name": "ピッコマ第1報・10月24日",
+          "url": "https://jp.piccoma.com/web/notice_detail/7503"
+        }
+      ],
+      "source_date": "2026-10-24",
+      "parent_incident": "blastmail",
+      "as_of": "Pembaruan sumber: 2026-10-24",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "environment-blastmail-impact",
+      "title": "Kementerian Lingkungan Hidup Jepang: pengiriman dan pengelolaan buletin email terkait terhenti",
+      "confirmed": "Pengiriman dan pengelolaan 6 buletin email terkait tidak dapat dilakukan. Pada tanggal 21 bulan 10 pukul 00:30, antarmuka admin/API berhenti, dan pengiriman berhenti sekitar pukul 01:00.",
+      "unknown": "Kebocoran informasi penerima belum dikonfirmasi. Hasil konfirmasi terkait Piccoma tidak boleh digeneralisasi ke data Kementerian Lingkungan Hidup. Jumlah yang terdampak tidak disebutkan.",
+      "response": "Ada atau tidaknya kebocoran diperiksa berdasarkan penyelidikan penyedia layanan. Waktu pengoperasian kembali dinyatakan belum ditentukan.",
+      "status": "confirmed-impact",
+      "category": "Terhentinya operasional, layanan medis, dan layanan lainnya",
+      "sources": [
+        {
+          "name": "環境省・10月23日",
+          "url": "https://www.env.go.jp/press/press_05784.html"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "blastmail",
+      "as_of": "Pembaruan sumber: 2026-10-23",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "studio-real-impact",
+      "title": "Studio: informasi dapat diambil, disertai beban pemberitahuan dan penggantian kunci",
+      "confirmed": "Penyusupan terjadi dari tanggal 30 bulan 9 hingga tanggal 1 bulan 10, dan informasi dapat diambil dari luar hingga tanggal 14 bulan 10. Kunci dekripsi juga dibaca, sehingga isi formulir, kunci API, dan informasi lainnya mungkin telah diketahui.",
+      "unknown": "Pengambilan informasi secara nyata belum dikonfirmasi. Jumlah yang terdampak dan kerugian lanjutan masih diselidiki. Perubahan tanpa izin dan penghapusan belum dikonfirmasi.",
+      "response": "Jalur akses diperbaiki dan kunci diganti. Cabut kunci API eksternal melalui penerbitnya. Pembaruan tanggal 28 bulan 10 pukul 00:30 menyatakan bahwa penerimaan laporan bersama dijadwalkan dimulai pada awal bulan 11; pemberitahuan kepada individu ditangani secara terpisah.",
+      "status": "potential",
+      "category": "Informasi pribadi dan informasi rahasia",
+      "sources": [
+        {
+          "name": "Studio公式ポータル",
+          "url": "https://studio.design/ja/security/notice/2026-10-incident"
+        }
+      ],
+      "source_date": "2026-10-28",
+      "as_of": "Pembaruan sumber: 2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "yotsuya-itsuaki-impact",
+      "title": "Yotsuya Medical Cube: kebocoran data reservasi lama",
+      "confirmed": "Data reservasi diambil tanpa izin melalui penyusupan pada tanggal 21–22 bulan 9 ke sistem reservasi lama yang dialihdayakan, Itsuaki. Kebocoran nama, nomor telepon, dan alamat email telah dikonfirmasi.",
+      "unknown": "Tanggal lahir, jenis kelamin, dan isian tambahan reservasi masih diselidiki. Jumlah data belum diumumkan. Dampak terhadap sistem reservasi yang digunakan sejak bulan 3 tahun 2025 dan rekam medis elektronik, serta kerugian lanjutan, belum dikonfirmasi.",
+      "response": "Fines menghubungi pihak terdampak secara bertahap. Rumah sakit melaporkan kepada pihak berwenang, meminta pencegahan kejadian berulang dan penyelidikan terperinci, serta mengimbau kewaspadaan terhadap kontak yang memanfaatkan insiden ini.",
+      "status": "confirmed-impact",
+      "category": "Informasi pribadi dan informasi rahasia",
+      "sources": [
+        {
+          "name": "四谷メディカルキューブ・10月20日",
+          "url": "https://www.mcube.jp/news/20261020.html"
+        }
+      ],
+      "event_date": "2026-09-21",
+      "source_date": "2026-10-20",
+      "as_of": "Pembaruan sumber: 2026-10-20",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "connectwise-real-impact",
+      "title": "ConnectWise: gangguan pada pemulihan cadangan serta fungsi pemantauan dan pengelolaan",
+      "confirmed": "Akses tanpa izin ke kredensial aplikasi dan terputusnya layanan telah dikonfirmasi. Penyimpanan cadangan, akses arsip, pemulihan, serta fungsi pemantauan dan pengelolaan SaaS terganggu.",
+      "unknown": "Jumlah pelanggan, nilai kerugian, dan waktu pemulihan menyeluruh belum diumumkan. Selesainya persiapan pemulihan bertahap tidak mengonfirmasi bahwa proses pemulihan data telah dimulai.",
+      "response": "Hingga tanggal 27 bulan 10 pukul 14:30 UTC, verifikasi pihak ketiga masih ditunggu. Pertahankan koneksi terdampak dalam keadaan nonaktif hingga menerima panduan individual.",
+      "status": "confirmed-impact",
+      "category": "Cadangan dan kelangsungan operasional",
+      "as_of": "Diperbarui 10/27 pukul 14:30 UTC",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "ConnectWise Trust Center",
+          "url": "https://www.connectwise.com/company/trust/advisories"
+        }
+      ]
+    },
+    {
+      "id": "litellm-distribution-impact",
+      "title": "LiteLLM: distribusi paket berbahaya dan beban pembangunan ulang lingkungan",
+      "confirmed": "Pada tanggal 21 bulan 10, 1.107.0 dan container berbahaya benar-benar didistribusikan, dan kompromi infrastruktur rilis telah dikonfirmasi.",
+      "unknown": "Kebocoran kunci seluruh pengguna, jumlah organisasi terdampak, dan total nilai pencurian belum diumumkan. Statistik kerugian dari insiden lain pada bulan 3 tidak digunakan kembali.",
+      "response": "Periksa instalasi terdampak, lalu isolasi dan bangun ulang lingkungannya. Cabut dan terbitkan ulang kunci yang dapat dijangkau. Sebelum sekadar menjalankan pembaruan, periksa risiko dijalankannya kembali startup hook.",
+      "status": "confirmed-impact",
+      "category": "Rantai pasok perangkat lunak",
+      "as_of": "Insiden 10/21 / Analisis 10/23",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "LiteLLM公式事件報告",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+        },
+        {
+          "name": "公式攻撃連鎖分析",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+        }
+      ]
+    },
+    {
+      "id": "brotli-exploitation",
+      "title": "Brotli: eksploitasi terkonfirmasi, total korban pada produk hilir belum diketahui",
+      "confirmed": "CISA KEV mencantumkan CVE-2026-111497 sebagai kerentanan yang diketahui telah dieksploitasi.",
+      "unknown": "Katalog ini tidak memberikan informasi tentang organisasi pengguna tertentu, jumlah orang, nilai kerugian nyata, atau waktu serangan pertama. Penggunaan perangkat lunak ini saja tidak membuktikan bahwa kompromi telah terjadi.",
+      "response": "Periksa perbaikan untuk setiap produk dan lini versi, serta periksa tanda-tanda kompromi secara terpisah dari pembaruan. Cocokkan versi yang disematkan dalam produk hilir dengan versi yang didukung.",
+      "status": "exploitation-confirmed",
+      "category": "Kerentanan yang telah dieksploitasi",
+      "as_of": "KEV edisi 2026.10.27",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "commerce-exploitation",
+      "title": "Adobe Commerce: prioritas perbaikan yang sudah tersedia meningkat",
+      "confirmed": "CISA KEV mencantumkan CVE-2026-48356 sebagai kerentanan yang diketahui telah dieksploitasi.",
+      "unknown": "Katalog ini tidak memberikan informasi tentang organisasi pengguna tertentu, jumlah orang, nilai kerugian nyata, atau waktu serangan pertama. Penggunaan perangkat lunak ini saja tidak membuktikan bahwa kompromi telah terjadi.",
+      "response": "Periksa perbaikan untuk setiap produk dan lini versi, serta periksa tanda-tanda kompromi secara terpisah dari pembaruan. Cocokkan versi yang disematkan dalam produk hilir dengan versi yang didukung.",
+      "status": "exploitation-confirmed",
+      "category": "Kerentanan yang telah dieksploitasi",
+      "as_of": "KEV edisi 2026.10.27",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "php-exploitation",
+      "title": "PHP: konfirmasi eksploitasi berbeda dari kompromi seluruh situs",
+      "confirmed": "CISA KEV mencantumkan CVE-2026-109618 / CVE-2026-109619 sebagai kerentanan yang diketahui telah dieksploitasi.",
+      "unknown": "Katalog ini tidak memberikan informasi tentang organisasi pengguna tertentu, jumlah orang, nilai kerugian nyata, atau waktu serangan pertama. Penggunaan perangkat lunak ini saja tidak membuktikan bahwa kompromi telah terjadi.",
+      "response": "Periksa perbaikan untuk setiap produk dan lini versi, serta periksa tanda-tanda kompromi secara terpisah dari pembaruan. Cocokkan versi yang disematkan dalam produk hilir dengan versi yang didukung.",
+      "status": "exploitation-confirmed",
+      "category": "Kerentanan yang telah dieksploitasi",
+      "as_of": "KEV edisi 2026.10.27",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "fireblocks-potential",
+      "title": "Fireblocks mpc-lib: risiko pada hierarki share kunci, pencurian nyata belum dikonfirmasi",
+      "confirmed": "CERT memublikasikan masalah yang memungkinkan share leluhur/akar dari pihak yang sama diturunkan dari share turunan dan chain code.",
+      "unknown": "Sumber tidak menyebutkan pencurian aset yang benar-benar terjadi atau jumlah pelanggan terdampak. Tidak dapat disimpulkan bahwa masalah ini saja menghasilkan kunci transfer yang memenuhi ambang batas.",
+      "response": "Versi perbaikan belum tersedia. Lindungi chain code sebagai informasi rahasia dan periksa seluruh hierarki share kunci.",
+      "status": "potential",
+      "category": "Aset kripto dan pengelolaan kunci",
+      "as_of": "Direvisi 10/27 pukul 14:45 UTC",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CERT VU701544",
+          "url": "https://kb.cert.org/vuls/id/701544"
+        }
+      ]
+    }
+  ],
+  "cutoff_jst": "2026-10-28T13:18:44+09:00",
+  "caveats": [
+    "Kasus pilihan. parent_incident menunjukkan dampak pada pihak pengguna dari kompromi yang sama dan tidak dijumlahkan sebagai insiden terpisah. potential berarti pengambilan nyata belum dikonfirmasi.",
+    "Ini adalah daftar kasus yang telah diperiksa melalui sumber primer, bukan statistik kerugian di seluruh dunia. Ini bukan jumlah insiden baru pada periode ini.",
+    "Waktu kejadian, publikasi, pembaruan, dan pengambilan sumber dibedakan, sementara nilai uang, jumlah orang, dan jumlah catatan tetap menggunakan satuan dari sumber. Total kerugian yang belum diumumkan tidak dianggap 0 yen.",
+    "Sumber yang diambil merupakan revisi terkini setelah waktu acuan. Seluruh isi terdahulu pada halaman dinamis tidak dapat direkonstruksi sepenuhnya.",
+    "Contoh dampak pada pihak pengguna dari infrastruktur yang sama dihubungkan melalui parent_incident. Jangan menjumlahkannya sebagai insiden yang terpisah dan tumpang tindih."
+  ],
+  "locale": "id",
+  "translation": {
+    "source_hash": "dd28e03d66ec83eb9d35d9fdd166fc715d536bf69571b6c8d967c4bfa88d1722",
+    "register_hash": "4c3a9feaf3ca00e56d5b162f47c98fe2e735367ead09a9883655b6f1ff46e9b5",
+    "human_reviewed": false
+  }
+}

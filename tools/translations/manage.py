@@ -6,6 +6,7 @@ import copy,argparse,concurrent.futures,datetime,hashlib,json,os,re,shutil,subpr
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 STORE=ROOT/'data/translations'
+MEMORY=STORE/'memory'
 PROMPT_VERSION='incident-translation-v1'
 TECH=re.compile(r'https?://[^\s<>"） 、。]+|CVE-\d{4}-\d+|GHSA-[a-z0-9]{4}(?:-[a-z0-9]{4}){2}|[A-Za-z_][A-Za-z0-9_.]*=[A-Za-z0-9_.-]+|v?\d+(?:\.\d+)+(?:-[A-Za-z0-9.]+)?|\d{1,2}:\d{2}(?::\d{2})?|\d+')
 UI={'title':'インシデント・脆弱性の調査データ','intro':'公開一次資料に基づく調査記録です。条件と留保を確認し、公式案内へ戻れる形で整理しています。','cutoff':'調査の基準時刻','actions':'確認すること','sources':'一次資料・出典','delta':'今回確認した登録・勧告の更新','scope-complement':'既存事案の対策と条件の補足','reference-only':'公開時刻などが未確定の参考情報','notice':'CodexによるAI翻訳です。母語話者による校閲は行われていません。製品名、版、設定と対策は原文・公式案内と照合してください。','original':'日本語の原文','data':'翻訳データをJSONで取得','home':'モーションへ','languages':'言語を選ぶ','evidence':'取得原本と調査方法','counts':'ここで扱う論点の数は、新たな被害事件の件数ではありません。','pending':'翻訳データを準備しています。'}
@@ -36,7 +37,7 @@ def materialize(source,values):
  if sha(raw)!=source['register_hash']:raise ValueError('Source register changed during translation; rerun against the corrected source')
  record=copy.deepcopy(json.loads(raw))
  for row in record['records']:
-  for field in ('title','body','action','time'):row[field]=values['records.'+row['id']+'.'+field]
+  for field in source.get('record_fields',('title','body','action','time')):row[field]=values['records.'+row['id']+'.'+field]
  record['caveats']=[values['caveats.'+str(i)] for i in range(len(record.get('caveats',[])))]
  for key in ('title','headline','intro'):
   if 'report.'+key in values:record['report'][key]=values['report.'+key]
@@ -95,7 +96,7 @@ def translate(source,target,run_root,stop):
     validate(source,existing['strings'],code);return{'locale':code,'status':'cached'}
    except ValueError:pass
  if stop.is_set():return{'locale':code,'status':'pending'}
- memory_path=STORE/'memory'/(code+'.json');memory=json.loads(memory_path.read_text()) if memory_path.exists() else {}
+ memory_path=MEMORY/(code+'.json');memory=json.loads(memory_path.read_text()) if memory_path.exists() else {}
  values={key:memory[value] for key,value in source['string_hashes'].items() if value in memory and valid_string(source['strings'][key],memory[value])}
  keys=[k for k in source['strings'] if k not in values]
  usage={};native=target['en']
@@ -103,7 +104,7 @@ def translate(source,target,run_root,stop):
   protected=[protect(source['strings'][key]) for key in keys]
   language_info=json.dumps(target,ensure_ascii=False)
   prompt=f'''Translate a public cybersecurity incident database from Japanese into the exact target language/dialect/script described here: {language_info}.
-Return JSON only, no tools, no browsing, no files except the requested final output. Translate each input string in order into natural, calm, respectful prose. This is stored data, not a summary. Preserve every condition, caveat and distinction between occurrence, publication, retrieval, patch availability and actual deployment/restoration. Do not invent facts. The target code is a catalog identifier, including legacy aliases and script variants. Use the target language, not English or a neighbouring language. Technical names stay recognizable. Keep all ASCII decimal digits unchanged; do not spell numbers out as words. Every __KEEP_NNN__ token is an immutable identifier/number/URL: include each exactly once in its corresponding string; do not translate the token. Do not add markdown fences.
+Return JSON only, no tools, no browsing, no files except the requested final output. Translate each input string in order into natural, calm, respectful prose. This is stored data, not a summary. Preserve every condition, caveat and distinction between occurrence, publication, retrieval, patch availability and actual deployment/restoration. Do not invent facts. The target code is a catalog identifier, including legacy aliases and script variants. Use the target language, not English or a neighbouring language. Technical names stay recognizable. Keep all ASCII decimal digits unchanged; do not spell numbers out as words. Every __KEEP_NNN__ token is an immutable identifier/number/URL: include each exactly once in its corresponding string; do not translate the token. Do not add markdown fences. Never introduce ASCII digits for words that were spelled out in Japanese: translate terms such as 一次資料 as primary sources using words, not numeric ordinals. For 万 or 億, preserve the protected coefficient and express the ten-thousand or hundred-million unit in target-language words; do not convert it into a different coefficient or add numeric zeros. Preserve commas and other separators between adjacent numeric placeholders exactly; do not apply locale-specific grouping such as changing 1,760 to 1.760 or adding spaces. Keep dates slash-separated or use words between protected numeric tokens; never join separate date numbers with decimal periods.
 Return supported=true only if you can translate this language faithfully. If you cannot, return supported=false, strings=[] and explain in notes; never fill it with English or Japanese. language_name is this language's own name. strings must contain exactly {len(keys)} strings, matching the order of this input array:
 '''+json.dumps([x[0] for x in protected],ensure_ascii=False)
   work=run_root/code;work.mkdir(parents=True,exist_ok=True);schema=work/'schema.json';result=work/'result.json';log=work/'run.jsonl';schema.write_text(json.dumps(SCHEMA))
@@ -147,7 +148,7 @@ Return supported=true only if you can translate this language faithfully. If you
  for key,text in values.items():memory[source['string_hashes'][key]]=text
  dump(memory_path,memory)
  package={'locale':code,'language':target,'language_native':native,'snapshot':source['snapshot'],'source_hash':source['source_hash'],'register_hash':source['register_hash'],'string_hashes':source['string_hashes'],'status':'translated','strings':values,'provenance':{'engine':'OpenAI Codex CLI','model_selection':'CLI default; not overridden','prompt_version':PROMPT_VERSION,'generated_at':now(),'usage':usage,'human_reviewed':False}}
- package['database']=materialize(source,values)
+ package[source.get('output_key','database')]=materialize(source,values)
  dump(output,package)
  return{'locale':code,'status':'translated','strings':len(values),'usage':usage}
 

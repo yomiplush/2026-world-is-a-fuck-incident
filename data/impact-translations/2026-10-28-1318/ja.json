@@ -1,0 +1,487 @@
+{
+  "locale": "ja",
+  "language": {
+    "code": "ja",
+    "native": "日本語",
+    "html": "ja",
+    "dir": "ltr",
+    "en": "Japanese",
+    "ja": "日本語"
+  },
+  "snapshot": "2026-10-28-1318",
+  "source_hash": "dd28e03d66ec83eb9d35d9fdd166fc715d536bf69571b6c8d967c4bfa88d1722",
+  "register_hash": "4c3a9feaf3ca00e56d5b162f47c98fe2e735367ead09a9883655b6f1ff46e9b5",
+  "status": "source",
+  "strings": {
+    "ui.title": "現実世界への影響 — 業務停止・情報流出・金銭被害",
+    "ui.description": "一次資料で確認された医療予約・クラウド・個人情報・金銭への影響。実被害、悪用確認、未確定のリスクを分け、復旧状況と対策を整理。",
+    "ui.headline": "画面の向こうで、何が止まり、何が失われたのか。",
+    "ui.intro": "医療予約、仕事の基盤、個人情報、お金。一次資料で確認できた現実の影響と、まだ分かっていないことを一覧にします。",
+    "ui.cutoff": "調査基準",
+    "ui.date_note": "発生期間は事案ごとに異なります。今回初めて起きた事件だけの一覧ではありません。",
+    "ui.download": "出典付きJSONをダウンロード",
+    "ui.about": "情報の読み方・編集方針",
+    "ui.guide_title": "深刻さは、確認された生活・業務への影響から読みます。",
+    "ui.guide_body": "CVSSは脆弱性の技術的な深刻度で、実損額や被害者数ではありません。不明はゼロにせず、補償の上限を被害総額にせず、人数・宛先・組織・workspaceを合算しません。",
+    "ui.jump": "確認状況から移動",
+    "ui.confirmed-impact": "実被害・業務影響を確認",
+    "ui.exploitation-confirmed": "悪用確認・被害規模は不明",
+    "ui.potential": "影響の可能性・範囲は未確定",
+    "ui.examples": "事例",
+    "ui.confirmed": "確認できた影響",
+    "ui.unknown": "分かっていないこと",
+    "ui.response": "復旧・利用者が確認すること",
+    "ui.sources": "一次資料",
+    "ui.limitations": "この一覧の限界",
+    "ui.database_link": "脆弱性ごとの影響条件と修正を確認 →",
+    "ui.database_tab": "調査データ",
+    "ui.impact_tab": "現実世界への影響",
+    "ui.home": "モーションへ",
+    "ui.language": "言語を選ぶ",
+    "ui.original": "日本語の原文",
+    "ui.notice": "CodexによるAI翻訳です。母語話者による校閲は行われていません。製品名、版、設定と対策は原文・公式案内と照合してください。",
+    "ui.advisory_versions": "勧告別：対象バージョンと修正版",
+    "ui.affected": "対象",
+    "ui.fixed": "修正版",
+    "ui.no_fix": "修正版の記載なし",
+    "records.idcf-real-impact.title": "IDCFクラウド：495企業・自治体の停止・暗号化",
+    "records.idcf-real-impact.confirmed": "東日本リージョン1の4ゾーンでVM停止・暗号化。206顧客のバックアップ取り出しが可能と確認。最大71社のポータル登録情報へ不正照会、最大4件のパスワード不正変更。",
+    "records.idcf-real-impact.unknown": "206は復旧完了数ではない。VM内部のデータ外部流出はなかったと会社は説明し、登録情報の持出痕跡も未確認。全顧客の最終復旧日・総損失は未公表。",
+    "records.idcf-real-impact.response": "パスワードをリセット。代替環境移行とバックアップ取り出しを支援。",
+    "records.idcf-real-impact.category": "業務・医療・サービス停止",
+    "records.idcf-real-impact.as_of": "資料更新：2026-10-27",
+    "records.infoq-real-impact.title": "infoQ：89万4,082件の持出しとポイント不正交換",
+    "records.infoq-real-impact.confirmed": "個人情報894,082件の持出しを確定。不正交換611件、計2,869,500円。10月3日からサービス停止し、依頼調査の一部にも影響。",
+    "records.infoq-real-impact.unknown": "当初の最大948,498件は確定被害数ではない。脆弱性のCVE、最終復旧日、補填完了総額は本文から未確定。",
+    "records.infoq-real-impact.response": "全会員パスワード無効化。不正交換ポイントの全額補填方針。同じパスワードを使う他サービスも変更。",
+    "records.infoq-real-impact.category": "確認された金銭影響",
+    "records.infoq-real-impact.as_of": "資料更新：2026-10-14",
+    "records.gmo-real-impact.title": "お名前.com：業務環境の停止と情報持出し",
+    "records.gmo-real-impact.confirmed": "10月21日からサービス停止。顧客情報の外部持出しを確認。10月28日04:00頃に犯人サイトのドメイン停止を確認。",
+    "records.gmo-real-impact.unknown": "公開内容の真正性・被害人数・不正取引の総額は未確定。ドメイン停止は情報の全回収やサービス復旧を意味しない。",
+    "records.gmo-real-impact.response": "現行基盤をそのまま再開せず代替サービスを案内する方針。確認された不正取引の実現損失補償と特別お見舞金を公表。",
+    "records.gmo-real-impact.category": "業務・医療・サービス停止",
+    "records.gmo-real-impact.as_of": "資料更新：2026-10-28",
+    "records.atlink-real-impact.title": "アットリンク：患者予約・周辺サービス停止",
+    "records.atlink-real-impact.confirmed": "10月14日深夜から停止。9月下旬〜10月中旬のDB情報取得と個人情報漏えいを確認。28日12:30時点も患者アプリ・Web予約等は停止。",
+    "records.atlink-real-impact.unknown": "漏えい対象数、全機能の再開日は調査・確認中。一部医療機関でのβテスト開始は一般提供の再開ではない。",
+    "records.atlink-real-impact.response": "侵入経路遮断・関連認証情報無効化。予約変更は医療機関へ直接連絡。再開時にパスワードを新設定。",
+    "records.atlink-real-impact.category": "業務・医療・サービス停止",
+    "records.atlink-real-impact.as_of": "資料更新：2026-10-28",
+    "records.aiiku-atlink-impact.title": "愛育病院：予防接種・産後ケアの予約に支障",
+    "records.aiiku-atlink-impact.confirmed": "アットリンク停止により小児科予防接種予約、小児科産後デイケア予約、診療呼出機能が利用不可。他のWeb予約システムは通常利用可能。",
+    "records.aiiku-atlink-impact.unknown": "診療全面停止や生命への被害はこの発表では確認されない。独立した別攻撃ではなくアットリンク事件の利用者側の影響例。",
+    "records.aiiku-atlink-impact.response": "病院の代替予約案内を確認し、必要な手続きは病院へ直接問い合わせる。",
+    "records.aiiku-atlink-impact.category": "業務・医療・サービス停止",
+    "records.aiiku-atlink-impact.as_of": "資料更新：2026-10-23",
+    "records.railway-real-impact.title": "Railway：ビルド・デプロイ中断、新規登録停止",
+    "records.railway-real-impact.confirmed": "build/deploy中断とdashboard/API/CLI/supportの利用不能期間があった。10月27日15:19 UTC時点で新規登録停止継続。既存顧客のdeployは稼働継続と説明。",
+    "records.railway-real-impact.unknown": "最大1.85%・約100,000workspacesは環境変数の潜在的影響範囲で確定漏えい人数ではない。鍵失効通知だけで侵害確定とはしない。",
+    "records.railway-real-impact.response": "保存secretを失効・再発行しGitHubやregistry監査を実施。次回status予定10月28日16:00 UTCは今回基準より後。",
+    "records.railway-real-impact.category": "業務・医療・サービス停止",
+    "records.railway-real-impact.as_of": "資料更新：2026-10-27",
+    "records.piccoma-blastmail-impact.title": "ピッコマ：宛先100万2,404件が流出",
+    "records.piccoma-blastmail-impact.confirmed": "メールマガジン1回分の宛先1,002,404件のメールアドレス流出を確認。メールマガジン停止。",
+    "records.piccoma-blastmail-impact.unknown": "宛先件数であり世界全体やブラストメール全顧客の被害数ではない。ピッコマ本体・パスワード・購入情報は影響なし、通常利用可能と説明。",
+    "records.piccoma-blastmail-impact.response": "個別通知・当局報告と送信元認証設定変更。なりすましメールに注意。",
+    "records.piccoma-blastmail-impact.category": "個人情報・秘密情報",
+    "records.piccoma-blastmail-impact.as_of": "資料更新：2026-10-24",
+    "records.environment-blastmail-impact.title": "環境省：関連メールマガジンの配信・管理停止",
+    "records.environment-blastmail-impact.confirmed": "関連6メールマガジンで配信・管理作業ができない状況。10月21日00:30管理画面/API停止、01:00頃配信停止。",
+    "records.environment-blastmail-impact.unknown": "配信先情報の漏えいは未確認。ピッコマの確認結果を環境省分に一般化しない。対象件数は未記載。",
+    "records.environment-blastmail-impact.response": "事業者の調査を踏まえて漏えい有無を確認。再開時期未定と案内。",
+    "records.environment-blastmail-impact.category": "業務・医療・サービス停止",
+    "records.environment-blastmail-impact.as_of": "資料更新：2026-10-23",
+    "records.studio-real-impact.title": "Studio：情報取得可能状態と通知・鍵更新負担",
+    "records.studio-real-impact.confirmed": "9月30日〜10月1日の侵入、10月14日まで外部取得可能状態。復号鍵も読み出され、フォーム内容やAPIキー等が知られた可能性。",
+    "records.studio-real-impact.unknown": "情報の実取得は未確認。対象件数と二次被害は調査中。改ざん・削除は未確認。",
+    "records.studio-real-impact.response": "経路修正・鍵更新。外部APIキーは発行元で失効。10月28日00:30更新は連名報告受付の11月上旬開始予定で、本人通知は別対応。",
+    "records.studio-real-impact.category": "個人情報・秘密情報",
+    "records.studio-real-impact.as_of": "資料更新：2026-10-28",
+    "records.yotsuya-itsuaki-impact.title": "四谷メディカルキューブ：旧予約データの漏えい",
+    "records.yotsuya-itsuaki-impact.confirmed": "旧委託予約システム「いつあき」の9月21〜22日の侵入で予約データ不正取得。氏名・電話番号・メールアドレスの漏えい確認。",
+    "records.yotsuya-itsuaki-impact.unknown": "生年月日・性別・予約追加項目は調査中。件数未公表。2025年3月以降の現行予約システムと電子カルテへの影響、二次被害は未確認。",
+    "records.yotsuya-itsuaki-impact.response": "ファインズが対象者へ順次連絡。病院は当局報告と再発防止・詳細調査を求め、便乗連絡に注意を案内。",
+    "records.yotsuya-itsuaki-impact.category": "個人情報・秘密情報",
+    "records.yotsuya-itsuaki-impact.as_of": "資料更新：2026-10-20",
+    "records.connectwise-real-impact.title": "ConnectWise：バックアップ復元・監視・管理機能に支障",
+    "records.connectwise-real-impact.confirmed": "application credentialsへの不正アクセスとサービス中断を確認。backup保存・archive access・restore、SaaS監視と管理機能に支障。",
+    "records.connectwise-real-impact.unknown": "顧客数・損害額・全面復旧日時は未公表。段階復旧の準備完了はrestore開始の確認ではない。",
+    "records.connectwise-real-impact.response": "10月27日14:30 UTC時点で第三者検証待ち。個別案内まで対象接続を無効に保つ。",
+    "records.connectwise-real-impact.category": "バックアップ・業務継続",
+    "records.connectwise-real-impact.as_of": "10/27 14:30 UTC更新",
+    "records.litellm-distribution-impact.title": "LiteLLM：悪性packageの配布と環境再構築の負担",
+    "records.litellm-distribution-impact.confirmed": "10月21日に悪性1.107.0とcontainerが実配布され、release基盤の侵害を確認。",
+    "records.litellm-distribution-impact.unknown": "全利用者の鍵流出・被害組織数・総盗難額は未公表。3月の別事件の被害統計を流用しない。",
+    "records.litellm-distribution-impact.response": "対象導入を調べ、環境を隔離・再構築。到達可能だった鍵を失効・再発行。単純な更新操作の前にstartup hook再実行の危険を確認。",
+    "records.litellm-distribution-impact.category": "ソフトウェア供給網",
+    "records.litellm-distribution-impact.as_of": "10/21事件 / 10/23分析",
+    "records.brotli-exploitation.title": "Brotli：悪用確認、下流製品の被害総数は不明",
+    "records.brotli-exploitation.confirmed": "CISA KEVがCVE-2026-111497を既知悪用の脆弱性として収録。",
+    "records.brotli-exploitation.unknown": "個別の利用組織・人数・実損額や最初の攻撃時刻はこのcatalogでは不明。導入しているだけで侵害済みとは断定しない。",
+    "records.brotli-exploitation.response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
+    "records.brotli-exploitation.category": "悪用された脆弱性",
+    "records.brotli-exploitation.as_of": "KEV2026.10.27版",
+    "records.commerce-exploitation.title": "Adobe Commerce：既存修正の優先度が上昇",
+    "records.commerce-exploitation.confirmed": "CISA KEVがCVE-2026-48356を既知悪用の脆弱性として収録。",
+    "records.commerce-exploitation.unknown": "個別の利用組織・人数・実損額や最初の攻撃時刻はこのcatalogでは不明。導入しているだけで侵害済みとは断定しない。",
+    "records.commerce-exploitation.response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
+    "records.commerce-exploitation.category": "悪用された脆弱性",
+    "records.commerce-exploitation.as_of": "KEV2026.10.27版",
+    "records.php-exploitation.title": "PHP：悪用確認と全サイトの侵害は別",
+    "records.php-exploitation.confirmed": "CISA KEVがCVE-2026-109618 / CVE-2026-109619を既知悪用の脆弱性として収録。",
+    "records.php-exploitation.unknown": "個別の利用組織・人数・実損額や最初の攻撃時刻はこのcatalogでは不明。導入しているだけで侵害済みとは断定しない。",
+    "records.php-exploitation.response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
+    "records.php-exploitation.category": "悪用された脆弱性",
+    "records.php-exploitation.as_of": "KEV2026.10.27版",
+    "records.fireblocks-potential.title": "Fireblocks mpc-lib：鍵share階層の危険、実盗難は未確認",
+    "records.fireblocks-potential.confirmed": "CERTはdescendant shareとchain codeから同じpartyのancestor/root shareへ到達し得る問題を公表。",
+    "records.fireblocks-potential.unknown": "資料に実際の資産盗難・被害顧客数の記載なし。単独でthresholdを満たす送金鍵が得られるとはいえない。",
+    "records.fireblocks-potential.response": "修正版は未提供。chain codeを秘密として保護し、鍵shareの階層全体を調査。",
+    "records.fireblocks-potential.category": "暗号資産・鍵管理",
+    "records.fireblocks-potential.as_of": "10/27 14:45 UTC改訂",
+    "caveats.0": "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",
+    "caveats.1": "世界全体の被害統計ではなく、一次資料を確認した事例の一覧です。今回の新規事件数ではありません。",
+    "caveats.2": "発生・公表・更新・取得時刻を分け、金額・人数・件数は出典の単位を保持します。総損失の未公表を0円とはしません。",
+    "caveats.3": "資料取得は基準時刻後の現行改訂。動的ページの過去の全記述は完全復元できません。",
+    "caveats.4": "同一基盤の利用者側の影響例はparent_incidentで関連付けています。重複する事件として合算しないでください。"
+  },
+  "impact": {
+    "cutoff": "2026-10-28T04:18:44Z",
+    "records": [
+      {
+        "id": "idcf-real-impact",
+        "title": "IDCFクラウド：495企業・自治体の停止・暗号化",
+        "confirmed": "東日本リージョン1の4ゾーンでVM停止・暗号化。206顧客のバックアップ取り出しが可能と確認。最大71社のポータル登録情報へ不正照会、最大4件のパスワード不正変更。",
+        "unknown": "206は復旧完了数ではない。VM内部のデータ外部流出はなかったと会社は説明し、登録情報の持出痕跡も未確認。全顧客の最終復旧日・総損失は未公表。",
+        "response": "パスワードをリセット。代替環境移行とバックアップ取り出しを支援。",
+        "status": "confirmed-impact",
+        "category": "業務・医療・サービス停止",
+        "sources": [
+          {
+            "name": "IDCF第7報・10月27日",
+            "url": "https://www.idcf.jp/news/topics/20261027001/"
+          }
+        ],
+        "event_date": "2026-10-07",
+        "source_date": "2026-10-27",
+        "as_of": "資料更新：2026-10-27",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "infoq-real-impact",
+        "title": "infoQ：89万4,082件の持出しとポイント不正交換",
+        "confirmed": "個人情報894,082件の持出しを確定。不正交換611件、計2,869,500円。10月3日からサービス停止し、依頼調査の一部にも影響。",
+        "unknown": "当初の最大948,498件は確定被害数ではない。脆弱性のCVE、最終復旧日、補填完了総額は本文から未確定。",
+        "response": "全会員パスワード無効化。不正交換ポイントの全額補填方針。同じパスワードを使う他サービスも変更。",
+        "status": "confirmed-impact",
+        "category": "確認された金銭影響",
+        "sources": [
+          {
+            "name": "infoQ第2報・10月14日",
+            "url": "https://gmo-research.ai/pressroom/notice/notice-20261014"
+          }
+        ],
+        "event_date": "2026-10-03",
+        "source_date": "2026-10-14",
+        "as_of": "資料更新：2026-10-14",
+        "total_loss_jpy": null,
+        "reported_financial_impact": {
+          "amount": 2869500,
+          "currency": "JPY",
+          "unit": "unauthorized point exchanges",
+          "count": 611,
+          "is_total_incident_loss": false
+        }
+      },
+      {
+        "id": "gmo-real-impact",
+        "title": "お名前.com：業務環境の停止と情報持出し",
+        "confirmed": "10月21日からサービス停止。顧客情報の外部持出しを確認。10月28日04:00頃に犯人サイトのドメイン停止を確認。",
+        "unknown": "公開内容の真正性・被害人数・不正取引の総額は未確定。ドメイン停止は情報の全回収やサービス復旧を意味しない。",
+        "response": "現行基盤をそのまま再開せず代替サービスを案内する方針。確認された不正取引の実現損失補償と特別お見舞金を公表。",
+        "status": "confirmed-impact",
+        "category": "業務・医療・サービス停止",
+        "sources": [
+          {
+            "name": "GMO第4報",
+            "url": "https://group.gmo/info/alert/20261024/"
+          },
+          {
+            "name": "GMO第12報",
+            "url": "https://group.gmo/info/alert/2026102705/"
+          },
+          {
+            "name": "GMO第13報・10月28日11時",
+            "url": "https://group.gmo/info/alert/20261028/"
+          }
+        ],
+        "event_date": "2026-10-21",
+        "source_date": "2026-10-28",
+        "as_of": "資料更新：2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "atlink-real-impact",
+        "title": "アットリンク：患者予約・周辺サービス停止",
+        "confirmed": "10月14日深夜から停止。9月下旬〜10月中旬のDB情報取得と個人情報漏えいを確認。28日12:30時点も患者アプリ・Web予約等は停止。",
+        "unknown": "漏えい対象数、全機能の再開日は調査・確認中。一部医療機関でのβテスト開始は一般提供の再開ではない。",
+        "response": "侵入経路遮断・関連認証情報無効化。予約変更は医療機関へ直接連絡。再開時にパスワードを新設定。",
+        "status": "confirmed-impact",
+        "category": "業務・医療・サービス停止",
+        "sources": [
+          {
+            "name": "メドレー調査案内",
+            "url": "https://www.medley.jp/notice/20261015.html"
+          },
+          {
+            "name": "アットリンク調査状況",
+            "url": "https://at-link.net/information/アットリンクへの不正アクセスに関する調査状況/"
+          },
+          {
+            "name": "運営状況・10月28日12時30分",
+            "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/"
+          }
+        ],
+        "event_date": "2026-10-14",
+        "source_date": "2026-10-28",
+        "as_of": "資料更新：2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "aiiku-atlink-impact",
+        "title": "愛育病院：予防接種・産後ケアの予約に支障",
+        "confirmed": "アットリンク停止により小児科予防接種予約、小児科産後デイケア予約、診療呼出機能が利用不可。他のWeb予約システムは通常利用可能。",
+        "unknown": "診療全面停止や生命への被害はこの発表では確認されない。独立した別攻撃ではなくアットリンク事件の利用者側の影響例。",
+        "response": "病院の代替予約案内を確認し、必要な手続きは病院へ直接問い合わせる。",
+        "status": "confirmed-impact",
+        "category": "業務・医療・サービス停止",
+        "sources": [
+          {
+            "name": "愛育病院・10月23日更新",
+            "url": "https://www.aiiku.net/news/news-3482/"
+          }
+        ],
+        "source_date": "2026-10-23",
+        "parent_incident": "atlink-real-impact",
+        "as_of": "資料更新：2026-10-23",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "railway-real-impact",
+        "title": "Railway：ビルド・デプロイ中断、新規登録停止",
+        "confirmed": "build/deploy中断とdashboard/API/CLI/supportの利用不能期間があった。10月27日15:19 UTC時点で新規登録停止継続。既存顧客のdeployは稼働継続と説明。",
+        "unknown": "最大1.85%・約100,000workspacesは環境変数の潜在的影響範囲で確定漏えい人数ではない。鍵失効通知だけで侵害確定とはしない。",
+        "response": "保存secretを失効・再発行しGitHubやregistry監査を実施。次回status予定10月28日16:00 UTCは今回基準より後。",
+        "status": "confirmed-impact",
+        "category": "業務・医療・サービス停止",
+        "sources": [
+          {
+            "name": "Railway一次報告",
+            "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+          },
+          {
+            "name": "Railway status",
+            "url": "https://status.railway.com/"
+          }
+        ],
+        "event_date": "2026-10-20",
+        "source_date": "2026-10-27",
+        "as_of": "資料更新：2026-10-27",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "piccoma-blastmail-impact",
+        "title": "ピッコマ：宛先100万2,404件が流出",
+        "confirmed": "メールマガジン1回分の宛先1,002,404件のメールアドレス流出を確認。メールマガジン停止。",
+        "unknown": "宛先件数であり世界全体やブラストメール全顧客の被害数ではない。ピッコマ本体・パスワード・購入情報は影響なし、通常利用可能と説明。",
+        "response": "個別通知・当局報告と送信元認証設定変更。なりすましメールに注意。",
+        "status": "confirmed-impact",
+        "category": "個人情報・秘密情報",
+        "sources": [
+          {
+            "name": "ピッコマ第1報・10月24日",
+            "url": "https://jp.piccoma.com/web/notice_detail/7503"
+          }
+        ],
+        "source_date": "2026-10-24",
+        "parent_incident": "blastmail",
+        "as_of": "資料更新：2026-10-24",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "environment-blastmail-impact",
+        "title": "環境省：関連メールマガジンの配信・管理停止",
+        "confirmed": "関連6メールマガジンで配信・管理作業ができない状況。10月21日00:30管理画面/API停止、01:00頃配信停止。",
+        "unknown": "配信先情報の漏えいは未確認。ピッコマの確認結果を環境省分に一般化しない。対象件数は未記載。",
+        "response": "事業者の調査を踏まえて漏えい有無を確認。再開時期未定と案内。",
+        "status": "confirmed-impact",
+        "category": "業務・医療・サービス停止",
+        "sources": [
+          {
+            "name": "環境省・10月23日",
+            "url": "https://www.env.go.jp/press/press_05784.html"
+          }
+        ],
+        "source_date": "2026-10-23",
+        "parent_incident": "blastmail",
+        "as_of": "資料更新：2026-10-23",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "studio-real-impact",
+        "title": "Studio：情報取得可能状態と通知・鍵更新負担",
+        "confirmed": "9月30日〜10月1日の侵入、10月14日まで外部取得可能状態。復号鍵も読み出され、フォーム内容やAPIキー等が知られた可能性。",
+        "unknown": "情報の実取得は未確認。対象件数と二次被害は調査中。改ざん・削除は未確認。",
+        "response": "経路修正・鍵更新。外部APIキーは発行元で失効。10月28日00:30更新は連名報告受付の11月上旬開始予定で、本人通知は別対応。",
+        "status": "potential",
+        "category": "個人情報・秘密情報",
+        "sources": [
+          {
+            "name": "Studio公式ポータル",
+            "url": "https://studio.design/ja/security/notice/2026-10-incident"
+          }
+        ],
+        "source_date": "2026-10-28",
+        "as_of": "資料更新：2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "yotsuya-itsuaki-impact",
+        "title": "四谷メディカルキューブ：旧予約データの漏えい",
+        "confirmed": "旧委託予約システム「いつあき」の9月21〜22日の侵入で予約データ不正取得。氏名・電話番号・メールアドレスの漏えい確認。",
+        "unknown": "生年月日・性別・予約追加項目は調査中。件数未公表。2025年3月以降の現行予約システムと電子カルテへの影響、二次被害は未確認。",
+        "response": "ファインズが対象者へ順次連絡。病院は当局報告と再発防止・詳細調査を求め、便乗連絡に注意を案内。",
+        "status": "confirmed-impact",
+        "category": "個人情報・秘密情報",
+        "sources": [
+          {
+            "name": "四谷メディカルキューブ・10月20日",
+            "url": "https://www.mcube.jp/news/20261020.html"
+          }
+        ],
+        "event_date": "2026-09-21",
+        "source_date": "2026-10-20",
+        "as_of": "資料更新：2026-10-20",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "connectwise-real-impact",
+        "title": "ConnectWise：バックアップ復元・監視・管理機能に支障",
+        "confirmed": "application credentialsへの不正アクセスとサービス中断を確認。backup保存・archive access・restore、SaaS監視と管理機能に支障。",
+        "unknown": "顧客数・損害額・全面復旧日時は未公表。段階復旧の準備完了はrestore開始の確認ではない。",
+        "response": "10月27日14:30 UTC時点で第三者検証待ち。個別案内まで対象接続を無効に保つ。",
+        "status": "confirmed-impact",
+        "category": "バックアップ・業務継続",
+        "as_of": "10/27 14:30 UTC更新",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "ConnectWise Trust Center",
+            "url": "https://www.connectwise.com/company/trust/advisories"
+          }
+        ]
+      },
+      {
+        "id": "litellm-distribution-impact",
+        "title": "LiteLLM：悪性packageの配布と環境再構築の負担",
+        "confirmed": "10月21日に悪性1.107.0とcontainerが実配布され、release基盤の侵害を確認。",
+        "unknown": "全利用者の鍵流出・被害組織数・総盗難額は未公表。3月の別事件の被害統計を流用しない。",
+        "response": "対象導入を調べ、環境を隔離・再構築。到達可能だった鍵を失効・再発行。単純な更新操作の前にstartup hook再実行の危険を確認。",
+        "status": "confirmed-impact",
+        "category": "ソフトウェア供給網",
+        "as_of": "10/21事件 / 10/23分析",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "LiteLLM公式事件報告",
+            "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+          },
+          {
+            "name": "公式攻撃連鎖分析",
+            "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+          }
+        ]
+      },
+      {
+        "id": "brotli-exploitation",
+        "title": "Brotli：悪用確認、下流製品の被害総数は不明",
+        "confirmed": "CISA KEVがCVE-2026-111497を既知悪用の脆弱性として収録。",
+        "unknown": "個別の利用組織・人数・実損額や最初の攻撃時刻はこのcatalogでは不明。導入しているだけで侵害済みとは断定しない。",
+        "response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
+        "status": "exploitation-confirmed",
+        "category": "悪用された脆弱性",
+        "as_of": "KEV2026.10.27版",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "commerce-exploitation",
+        "title": "Adobe Commerce：既存修正の優先度が上昇",
+        "confirmed": "CISA KEVがCVE-2026-48356を既知悪用の脆弱性として収録。",
+        "unknown": "個別の利用組織・人数・実損額や最初の攻撃時刻はこのcatalogでは不明。導入しているだけで侵害済みとは断定しない。",
+        "response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
+        "status": "exploitation-confirmed",
+        "category": "悪用された脆弱性",
+        "as_of": "KEV2026.10.27版",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "php-exploitation",
+        "title": "PHP：悪用確認と全サイトの侵害は別",
+        "confirmed": "CISA KEVがCVE-2026-109618 / CVE-2026-109619を既知悪用の脆弱性として収録。",
+        "unknown": "個別の利用組織・人数・実損額や最初の攻撃時刻はこのcatalogでは不明。導入しているだけで侵害済みとは断定しない。",
+        "response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
+        "status": "exploitation-confirmed",
+        "category": "悪用された脆弱性",
+        "as_of": "KEV2026.10.27版",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "fireblocks-potential",
+        "title": "Fireblocks mpc-lib：鍵share階層の危険、実盗難は未確認",
+        "confirmed": "CERTはdescendant shareとchain codeから同じpartyのancestor/root shareへ到達し得る問題を公表。",
+        "unknown": "資料に実際の資産盗難・被害顧客数の記載なし。単独でthresholdを満たす送金鍵が得られるとはいえない。",
+        "response": "修正版は未提供。chain codeを秘密として保護し、鍵shareの階層全体を調査。",
+        "status": "potential",
+        "category": "暗号資産・鍵管理",
+        "as_of": "10/27 14:45 UTC改訂",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CERT VU701544",
+            "url": "https://kb.cert.org/vuls/id/701544"
+          }
+        ]
+      }
+    ],
+    "cutoff_jst": "2026-10-28T13:18:44+09:00",
+    "caveats": [
+      "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",
+      "世界全体の被害統計ではなく、一次資料を確認した事例の一覧です。今回の新規事件数ではありません。",
+      "発生・公表・更新・取得時刻を分け、金額・人数・件数は出典の単位を保持します。総損失の未公表を0円とはしません。",
+      "資料取得は基準時刻後の現行改訂。動的ページの過去の全記述は完全復元できません。",
+      "同一基盤の利用者側の影響例はparent_incidentで関連付けています。重複する事件として合算しないでください。"
+    ]
+  },
+  "provenance": {
+    "engine": "Japanese original"
+  }
+}

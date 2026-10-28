@@ -30,7 +30,7 @@ class ArticleLanguages(unittest.TestCase):
    path=ROOT/'site'/relative;en=path.with_name(path.stem+'.en.html')
    self.assertTrue(en.is_file(),relative)
    text=en.read_text();head=Head(text)
-   self.assertIn('<html lang="en">',text)
+   self.assertRegex(text,r'<html\b[^>]*lang="en"')
    self.assertIn('select data-language-navigation',text)
    self.assertEqual(len(head.alternates.get('ja',[])),1,relative)
    self.assertEqual(len(head.alternates.get('en',[])),1,relative)
