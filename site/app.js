@@ -29,7 +29,7 @@
   [
     "scene", "panel", "kicker", "stamp", "title", "lede", "points", "metric", "metric-val",
     "metric-label", "chapter", "rail", "btn-next", "btn-prev", "btn-audio", "btn-info",
-    "btn-close", "lang-select", "asof", "drawer", "source-list", "cover", "btn-start",
+    "btn-text", "btn-close", "lang-select", "asof", "drawer", "source-list", "cover", "btn-start",
     "hint", "more", "drawer-title", "drawer-foot"
   ].forEach((id) => {
     el[id.replace(/-([a-z])/g, (_, c) => c.toUpperCase())] = document.getElementById(id);
@@ -201,7 +201,24 @@
   };
   const chapterWords = () => chapterCopy[lang] || chapterCopy.en;
   const chapterLabel = n => lang === 'ja' ? `第${n}章` : `${chapterWords()[0]} ${n}`;
+  // Keep this small control translated even when a motion locale is incomplete.
+  const textToggleLabels = {
+    en: ['Hide text', 'Show text'], ja: ['本文を隠す', '本文を表示'],
+    zh: ['隐藏文字', '显示文字'], ko: ['본문 숨기기', '본문 표시'],
+    es: ['Ocultar texto', 'Mostrar texto'], fr: ['Masquer le texte', 'Afficher le texte'],
+    de: ['Text ausblenden', 'Text anzeigen'], pt: ['Ocultar texto', 'Mostrar texto'],
+    ru: ['Скрыть текст', 'Показать текст'], ar: ['إخفاء النص', 'إظهار النص'],
+    hi: ['पाठ छिपाएँ', 'पाठ दिखाएँ'], id: ['Sembunyikan teks', 'Tampilkan teks'],
+    uk: ['Сховати текст', 'Показати текст'], pl: ['Ukryj tekst', 'Pokaż tekst'],
+    sv: ['Dölj text', 'Visa text']
+  };
+  function updateTextToggle() {
+    el.btnText.textContent = (textToggleLabels[lang] || textToggleLabels.en)[el.panel.hidden ? 1 : 0];
+    el.btnText.setAttribute('aria-expanded', String(!el.panel.hidden));
+    el.btnText.hidden = false;
+  }
   function applyChrome() {
+    updateTextToggle();
     const m = meta(lang);
     document.documentElement.lang = m.html;
     document.documentElement.dir = m.dir;
@@ -335,7 +352,7 @@
     updateMore();
     const box = el.panel.getBoundingClientRect();
     const top = header.getBoundingClientRect().bottom + 14;
-    const split = splitLayout.matches, w = window.innerWidth, h = window.innerHeight;
+    const split = splitLayout.matches && !el.panel.hidden, w = window.innerWidth, h = window.innerHeight;
     const rtl = document.documentElement.dir === "rtl";
     // Place the drawing opposite the actual panel, including RTL grid placement.
     const panelOnLeft = box.left + box.width / 2 < w / 2;
@@ -346,14 +363,14 @@
     // The translucent copy surface reveals the diagram beneath stacked layouts.
     visualViewport = { x: left, y: top, width: Math.max(80, right - left), height: Math.max(80, bottom - top),
       anchorX: landscape ? (rtl ? .28 : .72) : .5,
-      anchorY: split || landscape ? .5 : .30 };
+      anchorY: split || landscape || el.panel.hidden ? .5 : .30 };
     renderer.resize(visualViewport);
   }
   function updateMore() {
     const p = el.panel;
     const over = p.scrollHeight - p.clientHeight > 2;
     const atEnd = p.scrollTop + p.clientHeight >= p.scrollHeight - 2;
-    if (el.more) el.more.hidden = !(over && !atEnd);
+    if (el.more) el.more.hidden = !(over && !atEnd && !p.hidden);
     p.classList.toggle("scrollable", over);
   }
 
@@ -420,6 +437,12 @@
   const next = () => go(index + 1, 1);
   const prev = () => go(index - 1, -1);
 
+  el.btnText.addEventListener('click', (event) => {
+    event.stopPropagation();
+    el.panel.hidden = !el.panel.hidden;
+    updateTextToggle();
+    resize();
+  });
   el.panel.addEventListener("scroll", updateMore, { passive: true });
   el.btnNext.addEventListener("click", (e) => { e.stopPropagation(); next(); });
   el.btnPrev.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
