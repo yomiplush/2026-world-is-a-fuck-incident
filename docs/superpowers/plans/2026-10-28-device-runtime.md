@@ -47,6 +47,6 @@ platform features are handled at the entry, media-listener and audio seams.
   checks, all Node/Python suites and browser entry/language/adaptive/resources/
   device/compatibility checks sequentially on the shared tab. Capture sizes and
   request counts in `docs/performance-2026-10-28.md`.
-- [ ] 6. Request a bounded read-only code review, resolve important findings,
+- [x] 6. Request a bounded read-only code review, resolve important findings,
   verify clean output and source/build parity. Commit and push the reviewed
   change, deploy the existing production project, and repeat public-URL checks.
