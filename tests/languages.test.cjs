@@ -5,6 +5,18 @@ test('native dropdown offers only the configured major languages including Ukrai
  const data=content();assert.equal(catalog.length,15);assert.deepEqual(Array.from(data.LANGUAGES,r=>r.code),catalog.map(r=>r.code));assert.equal(catalog.find(r=>r.code==='uk').native,'Українська');
  const page=fs.readFileSync(path.join(root,'site/index.html'),'utf8');assert.ok(!page.includes('language-picker'));assert.ok(!page.includes('language-dialog'));
 });
+test('motion dropdown availability matches the current translations and scene count',()=>{
+ const data=content();
+ assert.ok(data.MOTION_LOCALE_STATUS,'generated motion translation status is required');
+ const {audit}=require('../tools/check-motion-locales.cjs');
+ assert.deepEqual(JSON.parse(JSON.stringify(data.MOTION_LOCALE_STATUS)),audit(root));
+ assert.deepEqual(Object.keys(data.MOTION_LOCALE_STATUS).filter(code=>data.MOTION_LOCALE_STATUS[code].ready),['en','ja','uk','pl','sv']);
+ for(const code of ['zh','ko','es','fr','de','pt','ru','ar','hi','id']){
+  assert.equal(data.MOTION_LOCALE_STATUS[code].ready,false);
+  assert.equal(data.MOTION_LOCALE_STATUS[code].translated,18);
+  assert.equal(data.MOTION_LOCALE_STATUS[code].total,data.CONTENT.scenes.length);
+ }
+});
 for(const code of ['uk','pl','sv'])test(code+' motion copy covers every actual scene and UI key without an English scene fallback',()=>{
  const data=content();let locale;const scope={window:{registerLocale:(registered,value)=>{assert.equal(registered,code);locale=value}}};vm.createContext(scope);vm.runInContext(fs.readFileSync(path.join(root,'site/i18n',code+'.js'),'utf8'),scope);
  assert.deepEqual(Object.keys(locale.scenes).sort(),Array.from(data.CONTENT.scenes,r=>r.id).sort());

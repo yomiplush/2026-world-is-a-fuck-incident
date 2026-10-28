@@ -28,6 +28,7 @@ data_path=SITE/'data.js';data_text=data_path.read_text()
 app_languages=[{key:row[key] for key in ('code','native','html','dir')} for row in source['languages']]
 data_text=re.sub(r'window.LANGUAGES = \[.*?\n\];','window.LANGUAGES = '+json.dumps(app_languages,ensure_ascii=False,indent=2)+';',data_text,count=1,flags=re.S)
 data_path.write_text(data_text)
+subprocess.run(['node',str(ROOT/'tools/check-motion-locales.cjs'),'--write'],cwd=ROOT,check=True)
 export=json.loads(subprocess.check_output(['node',str(ROOT/'tools/export-briefing.cjs')],cwd=ROOT))
 scene_count=len(export['scenes']);language_count=len(source['languages'])
 # Only validated, source-matched packages become public pages.

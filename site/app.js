@@ -61,16 +61,49 @@
   });
 
   /* ---------- locales ---------- */
-  const LOCALES = {};          // code -> { ui, scenes } for lazily loaded languages
-  const loading = {};          // code -> Promise<boolean>
+  const LOCALES = Object.create(null); // Validated lazy translations only.
+  const loading = Object.create(null); // code -> Promise<boolean>
   let languageRequest = 0;
 
+  function validLocale(data) {
+    if (!data || !data.ui || !data.scenes || Array.isArray(data.scenes)) return false;
+    if (!Object.keys(C.ui.en).every(key => typeof data.ui[key] === 'string')) return false;
+    return scenes.every(scene => {
+      const copy = data.scenes[scene.id];
+      return copy && typeof copy.title === 'string' && copy.title.trim() &&
+        typeof copy.kicker === 'string' && typeof copy.lede === 'string' &&
+        Array.isArray(copy.points) && copy.points.length === scene.en.points.length &&
+        copy.points.every(point => typeof point === 'string') &&
+        (!scene.metric || typeof copy.metric === 'string');
+    });
+  }
+
   window.registerLocale = function (code, data) {
-    LOCALES[code] = data;
+    if (LANGS.some(locale => locale.code === code) && validLocale(data)) LOCALES[code] = data;
   };
 
   function meta(code) {
     return LANGS.find((l) => l.code === code) || LANGS[0];
+  }
+
+  function available(code) {
+    return window.MOTION_LOCALE_STATUS?.[code]?.ready === true || code === 'ja' || code === 'en';
+  }
+
+  function languageError(code, incomplete) {
+    const messages = {
+      en: ['Translation is incomplete. Choose an available language.', 'Translation could not be loaded. Select the language again to retry.'],
+      ja: ['翻訳準備中です。選択可能な言語を選んでください。', '翻訳を読み込めませんでした。言語をもう一度選択してください。'],
+      uk: ['Переклад неповний. Виберіть доступну мову.', 'Не вдалося завантажити переклад. Виберіть мову ще раз.'],
+      pl: ['Tłumaczenie jest niepełne. Wybierz dostępną wersję językową.', 'Nie udało się wczytać tłumaczenia. Wybierz język ponownie.'],
+      sv: ['Översättningen är ofullständig. Välj ett tillgängligt språk.', 'Översättningen kunde inte läsas in. Välj språket igen.']
+    };
+    const coverage = window.MOTION_LOCALE_STATUS?.[code];
+    el.langSelect.value = lang;
+    el.langSelect.removeAttribute('aria-busy');
+    el.langSelect.setAttribute('aria-invalid', 'true');
+    el.hint.setAttribute('role', 'status');
+    el.hint.textContent = `${meta(code).native}${incomplete && coverage ? ` (${coverage.translated}/${coverage.total})` : ''}: ${(messages[lang] || messages.en)[incomplete ? 0 : 1]}`;
   }
 
   function hasLocale(code) {
@@ -83,8 +116,15 @@
       const s = document.createElement("script");
       s.src = "./i18n/" + code + ".js?v=202610271847";
       s.async = true;
-      s.onload = () => resolve(hasLocale(code));
-      s.onerror = () => { s.remove(); resolve(false); };
+      const finish = ok => {
+        clearTimeout(timer);
+        s.onload = s.onerror = null;
+        s.remove();
+        resolve(ok);
+      };
+      const timer = setTimeout(() => finish(false), 15000);
+      s.onload = () => finish(hasLocale(code));
+      s.onerror = () => finish(false);
       document.head.appendChild(s);
     });
     loading[code] = loading[code].then(ok => {
@@ -192,9 +232,17 @@
   async function setLang(code, opts) {
     const request = ++languageRequest;
     if (!LANGS.some((l) => l.code === code)) code = "en";
+    if (!available(code)) { languageError(code, true); return; }
+    el.langSelect.setAttribute('aria-busy', 'true');
     const ok = await (hasLocale(code) ? Promise.resolve(true) : loadLocale(code));
     if (request !== languageRequest) return;
-    lang = ok ? code : "en";
+    el.langSelect.removeAttribute('aria-busy');
+    if (!ok) {
+      languageError(code, false);
+      return;
+    }
+    el.langSelect.removeAttribute('aria-invalid');
+    lang = code;
     if (el.langSelect) el.langSelect.value = lang;
     if (window.PRIVACY) window.PRIVACY.setLanguage(lang);
     try {
@@ -484,8 +532,9 @@
     } else if (e.key === "s" || e.key === "S") {
       toggleDrawer();
     } else if (e.key === "l" || e.key === "L") {
-      const at = LANGS.findIndex((l) => l.code === lang);
-      setLang(LANGS[(at + 1) % LANGS.length].code);
+      const supported = LANGS.filter(locale => available(locale.code));
+      const at = supported.findIndex((l) => l.code === lang);
+      setLang(supported[(at + 1) % supported.length].code);
     } else if (e.key === "Escape") {
       el.drawer.classList.remove("open");
       el.drawer.setAttribute("aria-hidden", "true");
@@ -527,7 +576,11 @@
   /* ---------- boot ---------- */
   function buildLanguageSelect() {
     el.langSelect.innerHTML = LANGS.map(
-      (l) => `<option value="${l.code}"${l.code === lang ? " selected" : ""}>${escapeHtml(l.native)}</option>`
+      (l) => {
+        const coverage = window.MOTION_LOCALE_STATUS?.[l.code];
+        const pending = available(l.code) ? '' : ` — 翻訳準備中 / incomplete${coverage ? ` (${coverage.translated}/${coverage.total})` : ''}`;
+        return `<option value="${l.code}"${l.code === lang ? " selected" : ""}${available(l.code) ? '' : ' disabled'}>${escapeHtml(l.native + pending)}</option>`;
+      }
     ).join("");
     el.langSelect.value = lang;
   }
@@ -570,7 +623,9 @@
     return;
   }
 
-  lang = pickLang();
+  const initialLang = pickLang();
+  // Never label English fallback text as the requested, still-loading locale.
+  lang = hasLocale(initialLang) ? initialLang : ((navigator.language || '').startsWith('ja') ? 'ja' : 'en');
   if (new URLSearchParams(location.search).get("still") === "1") {
     document.body.classList.add("still");
   }
@@ -621,15 +676,7 @@
   })();
 
   // if the chosen language is lazy, load it and re-render in place
-  if (!hasLocale(lang)) {
-    const wanted = lang;
-    const request = languageRequest;
-    loadLocale(wanted).then((ok) => {
-      if (request !== languageRequest) return;
-      if (ok && wanted === lang) { applyChrome(); renderScene(index, 0, true, true); }
-      else if (!ok) setLang("en", { silent: true });
-    });
-  }
+  if (initialLang !== lang) setLang(initialLang, { silent: true });
 
   if (new URLSearchParams(location.search).get("debug") === "1") {
     setTimeout(function () {
