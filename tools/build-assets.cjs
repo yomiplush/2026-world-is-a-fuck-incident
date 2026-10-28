@@ -16,7 +16,7 @@ function javascript(name,files,define={},target='es2015') {
  return asset(name,result.code);
 }
 const locales={};
-for(const file of fs.readdirSync(path.join(site,'i18n')).filter(file=>file.endsWith('.js')).sort()) {
+for(const file of (fs.existsSync(path.join(site,'i18n'))?fs.readdirSync(path.join(site,'i18n')):[]).filter(file=>file.endsWith('.js')).sort()) {
  const code=file.slice(0,-3);locales[code]='./'+javascript('locale-'+code,['i18n/'+file]);
 }
 const motion=javascript('motion',['data.js','chronology.js','render.js','rig3d.js','visuals.js','app.js'],{
@@ -31,6 +31,8 @@ const css=asset('shell',esbuild.transformSync(cssSource,{loader:'css',minify:tru
 const current={platform,boot,motion,css,...Object.fromEntries(Object.entries(locales).map(([code,file])=>['locale-'+code,file.slice(2)]))};
 const manifestFile=path.join(directory,'manifest.json');
 const previous=fs.existsSync(manifestFile)?JSON.parse(fs.readFileSync(manifestFile,'utf8')):{};
+// Retired locales must not survive through the previous-generation cache.
+for(const generation of ['current','previous'])if(previous[generation])for(const key of Object.keys(previous[generation]))if(key.startsWith('locale-')&&!Object.hasOwn(locales,key.slice(7)))delete previous[generation][key];
 const manifest={current,previous:JSON.stringify(current)===JSON.stringify(previous.current)?(previous.previous||{}):(previous.current||{}),sources};
 let html=fs.readFileSync(path.join(site,'index.html'),'utf8');
 html=html.replace(/<!-- runtime-assets:start -->[\s\S]*?<!-- runtime-assets:end -->\s*/g,'')

@@ -50,7 +50,7 @@ def prepare():
  missing={k:v for k,v in allstrings.items() if not valid(v,memory.get(k))}
  output={'source_hash':key(json.dumps(allstrings,ensure_ascii=False,sort_keys=True)),'strings':allstrings,'pages':pages}
  (STORE/'source.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n')
- (STORE/'en.json').write_text(json.dumps({'locale':'en','strings':{k:memory[k] for k in allstrings if valid(allstrings[k],memory.get(k))},'note':'AI translation; not reviewed by a native speaker.'},ensure_ascii=False,indent=2)+'\n')
+ (STORE/'en.json').write_text(json.dumps({'locale':'en','strings':{**(json.loads(current.read_text()).get('strings',{}) if current.exists() else {}),**{k:memory[k] for k in allstrings if valid(allstrings[k],memory.get(k))}},'note':'AI translation; not reviewed by a native speaker.'},ensure_ascii=False,indent=2)+'\n')
  # Disjoint missing string sets; globally shared text is translated only once.
  groups=[{}, {}, {}]
  for n,(k,v) in enumerate(sorted(missing.items(),key=lambda x:len(x[1]),reverse=True)):

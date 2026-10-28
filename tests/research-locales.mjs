@@ -37,7 +37,7 @@ try{
   }
  }
  await open('/impact');
- await run("document.querySelector('select[data-language-navigation]').value='/impact.ar';document.querySelector('select[data-language-navigation]').dispatchEvent(new Event('change',{bubbles:true}));true");await waitPath('/impact.ar');assert.equal(await run('document.documentElement.dir'),'rtl');
- const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/impact-ar-844.png',Buffer.from(shot.data,'base64'));
- console.log('15locales x3viewport widths:16impact cases,65database topics, locale-preserving tabs, expandedversiondetails and ArabicRTL passed.');
+ await run("document.querySelector('select[data-language-navigation]').value='/impact.en';document.querySelector('select[data-language-navigation]').dispatchEvent(new Event('change',{bubbles:true}));true");await waitPath('/impact.en');assert.equal(await run('document.documentElement.lang'),'en');
+ const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/impact-en-844.png',Buffer.from(shot.data,'base64'));
+ console.log('2locales x3viewport widths:16impact cases,65database topics, locale-preserving tabs, expandedversiondetails and English navigation passed.');
 }finally{ws.close();}
