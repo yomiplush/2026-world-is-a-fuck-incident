@@ -5,7 +5,7 @@
 .hud-top { direction:ltr }
 .hud-left { min-width:0 }
 .chapter { min-width:0; overflow:hidden; text-overflow:ellipsis }
-.panel { min-height:0; background:rgba(8,17,27,.64); text-shadow:0 2px 5px #000 }
+.panel { min-height:0; background:rgba(8,17,27,.56); text-shadow:0 2px 5px #000 }
 body #app { top:var(--viewport-top,0px); height:var(--app-height,100dvh) }
 #stage,.cover { top:var(--viewport-top,0px); bottom:auto; height:var(--app-height,100dvh) }
 .drawer { inset-block-start:var(--viewport-top,0px); inset-block-end:auto; height:var(--app-height,100dvh) }
@@ -119,7 +119,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
   .hud-right .langwrap { flex:1; min-width:44px }
   .langselect { width:100%; max-width:none }
   .hud-right .chip { flex-shrink:0 }
-  .panel { max-height:min(45dvh,100%); background:rgba(8,17,27,.64); text-shadow:0 2px 5px #000 }
+  .panel { max-height:min(45dvh,100%); background:rgba(8,17,27,.56); text-shadow:0 2px 5px #000 }
 }
 
 @media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
@@ -128,7 +128,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
   .hud-right { flex:1; min-width:0 }
   .hud-right .langwrap { flex:1; min-width:44px }
   .langselect { width:100%; max-width:none }
-  .panel { max-height:100%; background:rgba(8,17,27,.64) }
+  .panel { max-height:100%; background:rgba(8,17,27,.56) }
 }
 
 /* One square per ten-scene chapter, with no horizontal navigation strip. */
@@ -235,7 +235,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
   body:not(.entry-locked) .patch-link { right:calc(10px + env(safe-area-inset-right)) }
   .panel, .compact-viewport .panel {
     max-height:min(calc(var(--app-height,100dvh) * .6),100%); padding:10px 12px;
-    background:rgba(8,17,27,.94); text-shadow:none;
+    background:rgba(8,17,27,.56); text-shadow:0 1px 3px #000,0 2px 8px #000;
   }
   html:not([data-device="quest"]):not([data-device="tv"]) .panel :is(.lede,.points li) {
     font-size:14px; line-height:1.55;
