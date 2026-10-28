@@ -1,0 +1,633 @@
+{
+  "locale": "ko",
+  "language": {
+    "code": "ko",
+    "native": "한국어",
+    "html": "ko",
+    "dir": "ltr",
+    "en": "Korean",
+    "ja": "韓国語"
+  },
+  "language_native": "한국어",
+  "snapshot": "2026-10-28-1318",
+  "source_hash": "dd28e03d66ec83eb9d35d9fdd166fc715d536bf69571b6c8d967c4bfa88d1722",
+  "register_hash": "4c3a9feaf3ca00e56d5b162f47c98fe2e735367ead09a9883655b6f1ff46e9b5",
+  "string_hashes": {
+    "ui.title": "f4bdddf327a4230b7e8f1c96bfd4cf944f0d420f2e1fc6f61c6bac048b7f0d62",
+    "ui.description": "f6e7c6ea5fd70661a4c903579548c5b89896ef5b11a6347e4763655f6d741d35",
+    "ui.headline": "eea912a69ebb760129793f1ef1d9dd4c803585759a0564a3218a610879d7bfb1",
+    "ui.intro": "6d57b140310128caa5575dede821974a86559f97d4c93839d2f96c8749a22852",
+    "ui.cutoff": "12047c3574966e74820d399e2688387f7166ead0a05fe8c82d7b649fb6dc544a",
+    "ui.date_note": "78f02a747796f9ecdaf1ffb123718922037ba8562c69bff846a949a0e10df0df",
+    "ui.download": "b298cde0d0a44ccd33c43a540fdefaa35b0e2888f2d28650cfcb79da7afbd46c",
+    "ui.about": "8be3bf5ff102267ab0bc6e5c6c1b084931c2b330bc4a786e82cd81133de127c0",
+    "ui.guide_title": "8f3ad757384b80c3c9b48a6bcfdb146d4b77d78942152d987531a0b40b279729",
+    "ui.guide_body": "a2389396651d13850bf924f161eb5186f6c2ec95dbcdec7f5a141e863dce313a",
+    "ui.jump": "307637d3d9fcf486120ad553904b3c617ef453db2e4518bf72c287c6224c5853",
+    "ui.confirmed-impact": "54ddc42570b531378fd8ad6c06f1cd511d79507b25d0b44b6d8bd1f6f6f5ea6e",
+    "ui.exploitation-confirmed": "49db56db72704433d141168c65ef1fbcdc7731ef74b0307872ed8f4793505026",
+    "ui.potential": "245c84c34b210a6929b7c90b5de6e8f5634c73eb6ecb1db6ab9467f50e5468c1",
+    "ui.examples": "5246f30e79e595bd561ef6f7b2d0e2b43bd6d6a7c45f83cf89b9c6def081f75b",
+    "ui.confirmed": "f387bfa9c7747e0f2cd021d87a055445bff20235d1d148fc5a20e49e3be1d8d5",
+    "ui.unknown": "1191ddf52effd70faa03c742bd376b92bfc550641aca5ec3794b40b92a30d7d4",
+    "ui.response": "47e6489ce406eb962c269cf7a30c4b2928ec799a4e922881274dd776d42f8b87",
+    "ui.sources": "871e7988fb61a3d970aa0b3b93814efddb149ce50942c3b549ff97a14e4e4d6f",
+    "ui.limitations": "9b7cf62df0d3f77eeb085e7341a9123558758085481805809ee7e74ea94cd187",
+    "ui.database_link": "62bf36cd1cfbaa00f77aafa85c34041d0f7c46c917936b0312bf177545f965fe",
+    "ui.database_tab": "dab7738122b76281e8503f0774f51ea68a275c10ed840cee63a705da04bc0012",
+    "ui.impact_tab": "a55a9a20c9cf084c6682875d15c1727d381c5dae611014e5d6e12b1707e7b67d",
+    "ui.home": "f109578971d6a45d0822844efc41ded0cf437c2e1e876ea2519cbbb9dbc12f87",
+    "ui.language": "2191b209745deedcb25dc4acbbab8273ac7159575dd94c2170b24998e46a2d29",
+    "ui.original": "e8fc20d01f7577c9e02b0eafdd1fb27a5633123f9ac86833b370bc7c8d5fea9f",
+    "ui.notice": "58caa3c4eeff2c6afefb59c8edea1d100788a6947a2c7560e7a91ecbf21e4638",
+    "ui.advisory_versions": "4cda72e33005f3e7d6278c49c4898a4fb9c4f2670068c748a92054578bde15b8",
+    "ui.affected": "b8e1cf9f8949d8a3956aa15f742a3984fd8329284eca4bad6148bd0125d90026",
+    "ui.fixed": "336f5df2f1027b2afaf3995ada76d8f9f39f798723d4f9fd31167aa9a9b0e6fa",
+    "ui.no_fix": "de37e07b673bc6e77a600585e41ddb076eda4c1e9c0243b55230755aab36bcde",
+    "records.idcf-real-impact.title": "ea8faee8ee8765acaa4c6f7b404cdc8ec86424d97252a73e90308fc57899408b",
+    "records.idcf-real-impact.confirmed": "0cd24d02a44276dec04eee76731cc49dc5b5f1f7e814408c1e2493e67b15505d",
+    "records.idcf-real-impact.unknown": "342eeb40d3f06959d93f579e839b636b197c205ac96f796735cbe4c7129190ee",
+    "records.idcf-real-impact.response": "f10697b48c044d4d656113c4a091eb8418a7749c5f732ab2d10d350640f21f05",
+    "records.idcf-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.idcf-real-impact.as_of": "5fda8fd67417d21bc13e048427eb020e7071f5331ded383a77faf08634ed65f2",
+    "records.infoq-real-impact.title": "611c4f05bf4067e53dc318bb6de63a96e447ab39ccb9845b6764df9729b9b527",
+    "records.infoq-real-impact.confirmed": "d53919a84eec2cc30b560ab21e2dfd593c6fa9efc7c77df7e26f4c725928b822",
+    "records.infoq-real-impact.unknown": "a5b68cbe6ed9244ace8fba2f333dd04077d42c5f8a1c0ee87f8bb58d2111d2cc",
+    "records.infoq-real-impact.response": "66462945048000072fd52c63753c4f1cd096ca6e3732464042b26e9e0388f67b",
+    "records.infoq-real-impact.category": "b6d93de50ffb132d0ff6c53f5db57a4664eb2dd6c7fce9034f31021ef5b72b7d",
+    "records.infoq-real-impact.as_of": "823b4cf2e911c83381cb97344d4fa9039671c37dc952e0c0aa3a8ad6c3bcc680",
+    "records.gmo-real-impact.title": "85524d542dbf5618005f8d1d24606d13d1168478089384b54a256698aabe56db",
+    "records.gmo-real-impact.confirmed": "774ca54848634f13512c0e8197d234a91b650f3a6b75160bd6578d1e6cd3e7b3",
+    "records.gmo-real-impact.unknown": "dd47b94e3466a0ec4a6d96ad6a1ebd1789fdc4f2aa7591e063c7d48bea342e7f",
+    "records.gmo-real-impact.response": "61fd1fb656a1cecfa4046ac279769af54216039bc17caf6d5b93a0c4b27a4662",
+    "records.gmo-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.gmo-real-impact.as_of": "32c3d0ea680c15ac4f179409ff75dae52702d66cf14948c095f8f42039e9dc61",
+    "records.atlink-real-impact.title": "1898db92bce9baf8c6d228e033daeb4a881d6fb05937af89bb4ffe49634d5e48",
+    "records.atlink-real-impact.confirmed": "c4083070207a929cda1997c4fae3a6668c324cefe922ba39869d922d52374142",
+    "records.atlink-real-impact.unknown": "362d561ec1be0ecd2ee23f38ea53df60476d24b30b49d782fe2e400f416415cf",
+    "records.atlink-real-impact.response": "727f892ab9231fead2c7c702ea6a1843b8695b07eecfce3c69e503733301018b",
+    "records.atlink-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.atlink-real-impact.as_of": "32c3d0ea680c15ac4f179409ff75dae52702d66cf14948c095f8f42039e9dc61",
+    "records.aiiku-atlink-impact.title": "0e1472846d6dd927924889db279eb0b2be31506d25fdf0cb68978084fd053276",
+    "records.aiiku-atlink-impact.confirmed": "f45cc0f04986b38fa6b2651701e73d8e32a31ec5cf5a6b5c9f16a47f71ed03ac",
+    "records.aiiku-atlink-impact.unknown": "7476456529e74b071474d2b8c31a4231b14abe8ec52af871e56f6ae47549f6c6",
+    "records.aiiku-atlink-impact.response": "514bd3db38d9f864ee3c285571fd98558def066569cd91488bdaff79f3974a45",
+    "records.aiiku-atlink-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.aiiku-atlink-impact.as_of": "426c4d41c58e681ffe574d5eec50f904f388fa31e9b1619664d0fcb7701d7882",
+    "records.railway-real-impact.title": "28724beb34fa2a9fb0e0e0e24b76fd97da5a5755c6ef207b9a3813545acdde1b",
+    "records.railway-real-impact.confirmed": "66cd1b8e44c55ed68fbd00c47c8dcca34f6fb915219042d35b4a8be3c7b7d985",
+    "records.railway-real-impact.unknown": "895d338d3a3f05b97b2d54b250fc9aec04f64a8e2b78d0c37e9e6fa3733463d9",
+    "records.railway-real-impact.response": "2257739189183fcb562cc6e3dfc197e6435f4cb4d2b225d4c3e45978f3bf485f",
+    "records.railway-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.railway-real-impact.as_of": "5fda8fd67417d21bc13e048427eb020e7071f5331ded383a77faf08634ed65f2",
+    "records.piccoma-blastmail-impact.title": "2cd84056248dace71c5c066a141ddc92deadb7097fe800edca1f98791ecf7512",
+    "records.piccoma-blastmail-impact.confirmed": "f362bac737ee84d2011e7888779581b579c1e411e4622cbcb2bdbff24ba7e06f",
+    "records.piccoma-blastmail-impact.unknown": "7d087d107f0e24c7d0b12936de546bb49cadb8c0324b5d4c0f9ffd9ca41ac801",
+    "records.piccoma-blastmail-impact.response": "a666600f9e9fad0eb55c25fcaa578b0db9efcedb844ca8891bd7899201f6dc51",
+    "records.piccoma-blastmail-impact.category": "f87e870bbe9c9b1b2024eb83b00b0ca71b95a974abdaa64ad19f2c0d7e5ff069",
+    "records.piccoma-blastmail-impact.as_of": "658a4b84ab335481346f6ca3ae16d3e3f580c0a6bbd0827b3f8be31fe6f4f4b6",
+    "records.environment-blastmail-impact.title": "0d79b3584e890c294783f3c4916988fc5081fdf41af278bda1730111f075c03a",
+    "records.environment-blastmail-impact.confirmed": "f86bffcfb8f3ce19e3c8ca6b5301c50453b49eeef745e613cf066138e00099be",
+    "records.environment-blastmail-impact.unknown": "1e60c4791196d8a4c15dc67c451979e4f09ceb678f97f8721b3a6cc76813a630",
+    "records.environment-blastmail-impact.response": "d444b358a84b9ada8cd495f7d734a24f7bea1e809fb308b5c1033685cf1671d4",
+    "records.environment-blastmail-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.environment-blastmail-impact.as_of": "426c4d41c58e681ffe574d5eec50f904f388fa31e9b1619664d0fcb7701d7882",
+    "records.studio-real-impact.title": "54a69048336bafaa085e38de8a596a6c566d1136540208177a8053c697461219",
+    "records.studio-real-impact.confirmed": "ea526da31d58ae9c30794edcac52a4c801036d0bd48bf28d93f58e3a763b9578",
+    "records.studio-real-impact.unknown": "cb0fe671fecf2842f29a55b43276fd391ef052dcbb6f5a6add89d41541a50eb2",
+    "records.studio-real-impact.response": "0cdc5cc0f2a072ca9978d7fb84fe3fbfecdb7e2f8054f8e0dee3269b406a4087",
+    "records.studio-real-impact.category": "f87e870bbe9c9b1b2024eb83b00b0ca71b95a974abdaa64ad19f2c0d7e5ff069",
+    "records.studio-real-impact.as_of": "32c3d0ea680c15ac4f179409ff75dae52702d66cf14948c095f8f42039e9dc61",
+    "records.yotsuya-itsuaki-impact.title": "9749da670da96ebe26a9b0eac5b614052ab7a9eb6f4c950061cf8d8e610fb00b",
+    "records.yotsuya-itsuaki-impact.confirmed": "fce9638098bfdd49fae427429d30ef4a487db3bb7cf2b9b412fa2aa2ca0fadf4",
+    "records.yotsuya-itsuaki-impact.unknown": "2b6d397232e788811c75107b10f7b9e6b79afe49950eb2c9a49c934b8d88b821",
+    "records.yotsuya-itsuaki-impact.response": "92469339a593d32f8005f22ad6c3078db816ee6cf615be64b828294b0d414933",
+    "records.yotsuya-itsuaki-impact.category": "f87e870bbe9c9b1b2024eb83b00b0ca71b95a974abdaa64ad19f2c0d7e5ff069",
+    "records.yotsuya-itsuaki-impact.as_of": "f1ffd7982eb730729468d2a3cec6effe0e6378cc78ccd43c17c2577c3111d8ac",
+    "records.connectwise-real-impact.title": "8defd495847775b23b11fd1f8505f1fd969d9e8e623f9f9cd03684c71452f54e",
+    "records.connectwise-real-impact.confirmed": "ce492ac6ec3eac6c0a86ce5766e750396efa7900fb75a3eeb6e490562bdca02a",
+    "records.connectwise-real-impact.unknown": "3a89773a144aa6209ae98155b8efb383cf4705e25820c93e8b38e2b854164c68",
+    "records.connectwise-real-impact.response": "5a6dad1961a6cbb9ff92d5e9a306a78da255e86b1dec1057e7fc247f0005c240",
+    "records.connectwise-real-impact.category": "03422f2332276b0fa79f9f647e9e1386e9a8ddae50a20baabac86f36e8807e43",
+    "records.connectwise-real-impact.as_of": "dd2ff9c6789303a492cbda376a4ad8d1fed643755b09aac3ea13ae6d010ba736",
+    "records.litellm-distribution-impact.title": "41fd2999306c5e92756f65408f4000975105a1e102e18dc931d36edf173b4a4a",
+    "records.litellm-distribution-impact.confirmed": "d1839fb644ec2797adc6e89877d6021f5cb2cba130e87a2ac743611d289c7949",
+    "records.litellm-distribution-impact.unknown": "7b10563d184f0c58c23f3d4694a980768ae4ebee030cf9b475521f6f034551c0",
+    "records.litellm-distribution-impact.response": "c1ab69f61602df81960254da38e8ea3465306c1611ccbc4c63beb612a0ba9a5e",
+    "records.litellm-distribution-impact.category": "fedbddddc55cce4fa4f24adc71958de2cc12bd5193bf2b3a9edb228b9ad4a785",
+    "records.litellm-distribution-impact.as_of": "1e2662f44f84d67e5f12ebba1de3e9bcfc98d6c778afb1911972658abd0ceab7",
+    "records.brotli-exploitation.title": "a16fe19205ff478ff3204cbed0167523ea5582668ee7fc578051c2d658573e58",
+    "records.brotli-exploitation.confirmed": "abcf67923e47b57d274eff52ef1943e3af239bab5f011596c45a9f2e2d065609",
+    "records.brotli-exploitation.unknown": "e7072812b82520ab6afe2ff6d716e11b9f658293c113ffe953da76bc66289e04",
+    "records.brotli-exploitation.response": "8eb57a018bc021aba9a7c85d924b2498956a64129ef8a96a73ce8e88154efa18",
+    "records.brotli-exploitation.category": "8b9a8cb9cdba4badb0cebdfbed01a30698eded13983e04b26cb53e38bb8d14c6",
+    "records.brotli-exploitation.as_of": "e2dd31628a8f9c2230a07dba2c1ec2c489a69108e8c653e29c697b86cb8550cb",
+    "records.commerce-exploitation.title": "f1a94de99b60a8be0745f0bcbd9d8fb1bb0bc139bbd19a0f48cb934493958894",
+    "records.commerce-exploitation.confirmed": "a9d004e7ad47150e12c63502720e22ac9dcdd4de895df71ba5be4eca47f6fc3e",
+    "records.commerce-exploitation.unknown": "e7072812b82520ab6afe2ff6d716e11b9f658293c113ffe953da76bc66289e04",
+    "records.commerce-exploitation.response": "8eb57a018bc021aba9a7c85d924b2498956a64129ef8a96a73ce8e88154efa18",
+    "records.commerce-exploitation.category": "8b9a8cb9cdba4badb0cebdfbed01a30698eded13983e04b26cb53e38bb8d14c6",
+    "records.commerce-exploitation.as_of": "e2dd31628a8f9c2230a07dba2c1ec2c489a69108e8c653e29c697b86cb8550cb",
+    "records.php-exploitation.title": "b93f5a57c60ab7840e8bd6c9eacbc08ef20f5bd0b4d6d8e55f3f44e20edbd9ec",
+    "records.php-exploitation.confirmed": "1006d31a8f56ef2cc26ba91512048e047e5f0348510f0335fb661322144f32f9",
+    "records.php-exploitation.unknown": "e7072812b82520ab6afe2ff6d716e11b9f658293c113ffe953da76bc66289e04",
+    "records.php-exploitation.response": "8eb57a018bc021aba9a7c85d924b2498956a64129ef8a96a73ce8e88154efa18",
+    "records.php-exploitation.category": "8b9a8cb9cdba4badb0cebdfbed01a30698eded13983e04b26cb53e38bb8d14c6",
+    "records.php-exploitation.as_of": "e2dd31628a8f9c2230a07dba2c1ec2c489a69108e8c653e29c697b86cb8550cb",
+    "records.fireblocks-potential.title": "8d3d13a72922c0db8c91cc3b551b49c658e7a649f6e84fa7975714534fea816b",
+    "records.fireblocks-potential.confirmed": "839b5015f75ce95f9da46ee6ebc15bff306559f48a8ddc3dd9052cf699295411",
+    "records.fireblocks-potential.unknown": "43be4ffbf347c22a84c9e7be787237860f24d2510bebbbd12096c31b8f477109",
+    "records.fireblocks-potential.response": "1c57a703f707295372d28f14160ac035757901f6a9fd6aae548e73de2ecf910b",
+    "records.fireblocks-potential.category": "c7d798b9709800b25c5ffe0a97d1f3abd727e92ccbb914bcc7c7929de7a70a56",
+    "records.fireblocks-potential.as_of": "6c6594d1450028805e0414b355edf623b85f072af565f708c3595e6ec2d1b8cd",
+    "caveats.0": "ffdfdd93b34e4ddedd4dcbb16e3c0541ceaeb12b9ebefd42069de21b85062725",
+    "caveats.1": "29d53787e4e2cc974ad5cab1ddf74a5c4ccb4eaea44aeba9b3fc5d572ff3d3c7",
+    "caveats.2": "47c8de097542c28311b80e80453265e65c3194be1fadb0a7a64bebd57ff1ba16",
+    "caveats.3": "0fc03b0104e07179c9d94b8f9175ffd1d9d5f286199ac389f3b859a2b1b0684e",
+    "caveats.4": "d8e2f07f1b1e68e554db8eb1d354e5313629ab268dd0e119355fcd91550f72ed"
+  },
+  "status": "translated",
+  "strings": {
+    "ui.title": "현실 세계에 미친 영향 — 업무 중단·정보 유출·금전 피해",
+    "ui.description": "일차 자료로 확인된 의료 예약·클라우드·개인정보·금전상의 영향. 실제 피해, 악용이 확인된 사례, 아직 확정되지 않은 위험을 구분하고 복구 현황과 대책을 정리합니다.",
+    "ui.headline": "화면 너머에서 무엇이 멈추고 무엇이 사라졌을까요.",
+    "ui.intro": "의료 예약, 업무 기반, 개인정보, 돈. 일차 자료로 확인할 수 있었던 실제 영향과 아직 밝혀지지 않은 사항을 목록으로 정리합니다.",
+    "ui.cutoff": "조사 기준",
+    "ui.date_note": "발생 기간은 사안마다 다릅니다. 이번에 처음 발생한 사건만 모은 목록은 아닙니다.",
+    "ui.download": "출처가 포함된 JSON 다운로드",
+    "ui.about": "정보를 읽는 방법·편집 방침",
+    "ui.guide_title": "심각성은 확인된 일상생활·업무 영향을 바탕으로 판단합니다.",
+    "ui.jump": "확인 상태별로 이동",
+    "ui.confirmed-impact": "실제 피해·업무 영향 확인",
+    "ui.exploitation-confirmed": "악용 확인·피해 규모 불명",
+    "ui.potential": "영향 가능성·범위 미확정",
+    "ui.examples": "사례",
+    "ui.confirmed": "확인된 영향",
+    "ui.unknown": "아직 밝혀지지 않은 사항",
+    "ui.response": "복구·이용자 확인 사항",
+    "ui.sources": "일차 자료",
+    "ui.limitations": "이 목록의 한계",
+    "ui.database_link": "취약점별 영향 조건과 수정 사항 확인 →",
+    "ui.database_tab": "조사 데이터",
+    "ui.impact_tab": "현실 세계에 미친 영향",
+    "ui.home": "모션으로 이동",
+    "ui.language": "언어 선택",
+    "ui.original": "일본어 원문",
+    "ui.notice": "Codex를 이용한 AI 번역입니다. 모어 화자의 교열은 이루어지지 않았습니다. 제품명, 버전, 설정과 대응은 원문·공식 안내와 대조하세요.",
+    "ui.advisory_versions": "권고별: 대상 버전과 수정 버전",
+    "ui.affected": "대상",
+    "ui.fixed": "수정 버전",
+    "ui.no_fix": "수정 버전 기재 없음",
+    "records.idcf-real-impact.title": "IDCF 클라우드: 495개 기업·지자체의 시스템 중단·암호화",
+    "records.idcf-real-impact.confirmed": "동일본 리전 1의 4 존에서 VM이 중단되고 암호화되었습니다. 206개 고객의 백업을 추출할 수 있는 것으로 확인되었습니다. 최대 71개사의 포털 등록 정보에 대한 무단 조회와 최대 4건의 비밀번호 무단 변경이 있었습니다.",
+    "records.idcf-real-impact.unknown": "206은 복구 완료 수가 아닙니다. 회사는 VM 내부 데이터의 외부 유출은 없었다고 설명했으며, 등록 정보를 반출한 흔적도 확인되지 않았습니다. 전체 고객의 최종 복구일과 총손실은 공개되지 않았습니다.",
+    "records.idcf-real-impact.response": "비밀번호를 초기화했습니다. 대체 환경으로의 이전과 백업 추출을 지원합니다.",
+    "records.idcf-real-impact.category": "업무·의료·서비스 중단",
+    "records.idcf-real-impact.as_of": "자료 업데이트: 2026-10-27",
+    "records.infoq-real-impact.title": "infoQ: 89만 4,082건 반출 및 포인트 부정 교환",
+    "records.infoq-real-impact.confirmed": "개인정보 894,082건의 반출이 확정되었습니다. 부정 교환은 611건, 총 2,869,500엔입니다. 10월 3일부터 서비스를 중단했으며, 의뢰받은 조사의 일부에도 영향이 있었습니다.",
+    "records.infoq-real-impact.unknown": "당초 제시된 최대 948,498건은 확정된 피해 건수가 아닙니다. 취약점의 CVE, 최종 복구일, 보전이 완료된 총액은 본문만으로 확정할 수 없습니다.",
+    "records.infoq-real-impact.response": "모든 회원의 비밀번호를 무효화했습니다. 부정 교환된 포인트는 전액 보전할 방침입니다. 같은 비밀번호를 사용하는 다른 서비스의 비밀번호도 변경해야 합니다.",
+    "records.infoq-real-impact.category": "확인된 금전적 영향",
+    "records.infoq-real-impact.as_of": "자료 업데이트: 2026-10-14",
+    "records.gmo-real-impact.title": "오나마에.com: 업무 환경 중단 및 정보 반출",
+    "records.gmo-real-impact.confirmed": "10월 21일부터 서비스가 중단되었습니다. 고객 정보의 외부 반출이 확인되었습니다. 10월 28일 04:00경 범인 사이트의 도메인이 정지된 것을 확인했습니다.",
+    "records.gmo-real-impact.unknown": "공개된 내용의 진위, 피해 인원, 부정 거래 총액은 미확정입니다. 도메인 정지가 정보의 전량 회수나 서비스 복구를 의미하지는 않습니다.",
+    "records.gmo-real-impact.response": "기존 기반을 그대로 재가동하지 않고 대체 서비스를 안내할 방침입니다. 확인된 부정 거래로 발생한 실현 손실의 보상과 특별 위로금 지급을 발표했습니다.",
+    "records.gmo-real-impact.category": "업무·의료·서비스 중단",
+    "records.gmo-real-impact.as_of": "자료 업데이트: 2026-10-28",
+    "records.atlink-real-impact.title": "앳링크: 환자 예약·관련 서비스 중단",
+    "records.atlink-real-impact.confirmed": "10월 14일 심야부터 중단되었습니다. 9월 하순부터 10월 중순 사이의 DB 정보 취득과 개인정보 유출이 확인되었습니다. 28일 12:30 시점에도 환자 앱·웹 예약 등은 중단 상태였습니다.",
+    "records.atlink-real-impact.unknown": "유출 대상 수와 전체 기능의 재개일은 조사·확인 중입니다. 일부 의료기관에서의 β 테스트 시작은 일반 제공 재개를 의미하지 않습니다.",
+    "records.atlink-real-impact.response": "침입 경로를 차단하고 관련 인증 정보를 무효화했습니다. 예약 변경은 의료기관에 직접 연락해야 합니다. 재개 시 비밀번호를 새로 설정해야 합니다.",
+    "records.atlink-real-impact.category": "업무·의료·서비스 중단",
+    "records.atlink-real-impact.as_of": "자료 업데이트: 2026-10-28",
+    "records.aiiku-atlink-impact.title": "아이이쿠 병원: 예방접종·산후 관리 예약에 차질",
+    "records.aiiku-atlink-impact.confirmed": "앳링크 중단으로 소아과 예방접종 예약, 소아과 산후 데이케어 예약, 진료 호출 기능을 이용할 수 없습니다. 다른 웹 예약 시스템은 정상적으로 이용할 수 있습니다.",
+    "records.aiiku-atlink-impact.unknown": "이 발표에서 진료 전면 중단이나 생명에 대한 피해는 확인되지 않았습니다. 별개의 독립적인 공격이 아니라 앳링크 사건이 이용자 측에 미친 영향 사례입니다.",
+    "records.aiiku-atlink-impact.response": "병원의 대체 예약 안내를 확인하고, 필요한 절차는 병원에 직접 문의해야 합니다.",
+    "records.aiiku-atlink-impact.category": "업무·의료·서비스 중단",
+    "records.aiiku-atlink-impact.as_of": "자료 업데이트: 2026-10-23",
+    "records.railway-real-impact.title": "Railway: 빌드·배포 중단, 신규 가입 중지",
+    "records.railway-real-impact.confirmed": "빌드·배포 중단과 대시보드/API/CLI/지원 기능을 이용할 수 없는 기간이 있었습니다. 10월 27일 15:19 UTC 시점에도 신규 가입 중지가 계속되었습니다. 기존 고객의 배포된 서비스는 계속 가동 중이라고 설명했습니다.",
+    "records.railway-real-impact.unknown": "최대 1.85%·약 100,000개 워크스페이스는 환경 변수에 대한 잠재적 영향 범위이며, 확정된 유출 인원이 아닙니다. 키 폐기 알림만으로 침해가 확정되었다고 판단하지 않습니다.",
+    "records.railway-real-impact.response": "저장된 시크릿을 폐기·재발급하고 GitHub 및 레지스트리 감사를 실시했습니다. 다음 상태 안내 예정 시각인 10월 28일 16:00 UTC는 이번 기준 시각 이후입니다.",
+    "records.railway-real-impact.category": "업무·의료·서비스 중단",
+    "records.railway-real-impact.as_of": "자료 업데이트: 2026-10-27",
+    "records.piccoma-blastmail-impact.title": "픽코마: 수신처 100만 2,404건 유출",
+    "records.piccoma-blastmail-impact.confirmed": "이메일 뉴스레터 1회분의 수신처 1,002,404건에 해당하는 이메일 주소 유출이 확인되었습니다. 이메일 뉴스레터 발송을 중단했습니다.",
+    "records.piccoma-blastmail-impact.unknown": "이는 수신처 건수이며, 전 세계 또는 blastmail 전체 고객의 피해 수가 아닙니다. 픽코마 본체·비밀번호·구매 정보에는 영향이 없으며 정상 이용이 가능하다고 설명했습니다.",
+    "records.piccoma-blastmail-impact.response": "개별 통지·관계 당국 보고 및 발신자 인증 설정 변경을 실시했습니다. 사칭 이메일에 주의해야 합니다.",
+    "records.piccoma-blastmail-impact.category": "개인정보·기밀 정보",
+    "records.piccoma-blastmail-impact.as_of": "자료 업데이트: 2026-10-24",
+    "records.environment-blastmail-impact.title": "환경성: 관련 이메일 뉴스레터 발송·관리 중단",
+    "records.environment-blastmail-impact.confirmed": "관련 이메일 뉴스레터 6개의 발송·관리 작업을 할 수 없는 상황입니다. 10월 21일 00:30에 관리 화면/API가 중단되었고, 01:00경 발송이 중단되었습니다.",
+    "records.environment-blastmail-impact.unknown": "수신처 정보 유출은 확인되지 않았습니다. 픽코마의 확인 결과를 환경성에도 일반화하지 않습니다. 대상 건수는 기재되어 있지 않습니다.",
+    "records.environment-blastmail-impact.response": "사업자의 조사를 바탕으로 유출 여부를 확인합니다. 재개 시기는 미정이라고 안내했습니다.",
+    "records.environment-blastmail-impact.category": "업무·의료·서비스 중단",
+    "records.environment-blastmail-impact.as_of": "자료 업데이트: 2026-10-23",
+    "records.studio-real-impact.title": "Studio: 정보 취득이 가능한 상태 및 통지·키 갱신 부담",
+    "records.studio-real-impact.confirmed": "9월 30일부터 10월 1일까지 침입이 있었으며, 10월 14일까지 외부에서 정보를 취득할 수 있는 상태였습니다. 복호화 키도 읽혔으며, 폼 내용이나 API 키 등이 알려졌을 가능성이 있습니다.",
+    "records.studio-real-impact.unknown": "정보가 실제로 취득되었는지는 확인되지 않았습니다. 대상 건수와 후속 피해는 조사 중입니다. 변조·삭제 여부는 확인되지 않았습니다.",
+    "records.studio-real-impact.response": "침입 경로를 수정하고 키를 갱신했습니다. 외부 API 키는 발급처에서 폐기해야 합니다. 10월 28일 00:30 업데이트에 따르면 공동 명의 보고 접수는 11월 상순에 시작할 예정이며, 정보주체 통지는 별도로 진행합니다.",
+    "records.studio-real-impact.category": "개인정보·기밀 정보",
+    "records.studio-real-impact.as_of": "자료 업데이트: 2026-10-28",
+    "records.yotsuya-itsuaki-impact.title": "요쓰야 메디컬 큐브: 이전 예약 데이터 유출",
+    "records.yotsuya-itsuaki-impact.confirmed": "이전에 위탁 운영하던 예약 시스템 ‘이쓰아키’에 9월 21일부터 22일까지 침입이 발생해 예약 데이터가 무단 취득되었습니다. 성명·전화번호·이메일 주소의 유출이 확인되었습니다.",
+    "records.yotsuya-itsuaki-impact.unknown": "생년월일·성별·예약 시 추가 입력 항목은 조사 중입니다. 건수는 공개되지 않았습니다. 2025년 3월 이후의 현행 예약 시스템과 전자의무기록에 미친 영향 및 후속 피해는 확인되지 않았습니다.",
+    "records.yotsuya-itsuaki-impact.response": "파인즈가 대상자에게 순차적으로 연락합니다. 병원은 관계 당국 보고와 재발 방지·상세 조사를 요청하고, 사건을 빙자한 연락에 주의하도록 안내했습니다.",
+    "records.yotsuya-itsuaki-impact.category": "개인정보·기밀 정보",
+    "records.yotsuya-itsuaki-impact.as_of": "자료 업데이트: 2026-10-20",
+    "records.connectwise-real-impact.title": "ConnectWise: 백업 복원·모니터링·관리 기능에 차질",
+    "records.connectwise-real-impact.confirmed": "애플리케이션 인증 정보에 대한 무단 접근과 서비스 중단이 확인되었습니다. 백업 저장·아카이브 접근·복원, SaaS 모니터링 및 관리 기능에 차질이 발생했습니다.",
+    "records.connectwise-real-impact.unknown": "고객 수·손해액·전면 복구 일시는 공개되지 않았습니다. 단계적 복구 준비가 완료되었다는 것은 복원이 시작되었음을 확인한 것과 다릅니다.",
+    "records.connectwise-real-impact.response": "10월 27일 14:30 UTC 기준으로 제삼자 검증을 기다리고 있습니다. 개별 안내가 있을 때까지 해당 연결을 비활성화한 상태로 유지합니다.",
+    "records.connectwise-real-impact.category": "백업·업무 연속성",
+    "records.connectwise-real-impact.as_of": "10/27 14:30 UTC 업데이트",
+    "records.litellm-distribution-impact.title": "LiteLLM: 악성 패키지 배포 및 환경 재구축 부담",
+    "records.litellm-distribution-impact.confirmed": "10월 21일 악성 1.107.0 및 컨테이너가 실제로 배포되었으며, 릴리스 기반의 침해가 확인되었습니다.",
+    "records.litellm-distribution-impact.unknown": "전체 이용자의 키 유출 여부·피해 조직 수·총도난액은 공개되지 않았습니다. 3월에 발생한 별도 사건의 피해 통계를 가져다 쓰지 않습니다.",
+    "records.litellm-distribution-impact.response": "대상 소프트웨어의 도입 여부를 조사하고 환경을 격리·재구축해야 합니다. 접근 가능했던 키를 폐기·재발급해야 합니다. 단순 업데이트 작업에 앞서 시작 훅이 다시 실행될 위험을 확인해야 합니다.",
+    "records.litellm-distribution-impact.category": "소프트웨어 공급망",
+    "records.litellm-distribution-impact.as_of": "10/21 사건 / 10/23 분석",
+    "records.brotli-exploitation.title": "Brotli: 악용 확인, 하위 제품의 총피해 규모는 불명",
+    "records.brotli-exploitation.confirmed": "CISA KEV가 CVE-2026-111497을 악용이 확인된 취약점으로 등재했습니다.",
+    "records.brotli-exploitation.unknown": "개별 이용 조직·인원·실제 손실액이나 최초 공격 시각은 이 카탈로그에서 확인할 수 없습니다. 도입했다는 사실만으로 이미 침해되었다고 단정하지 않습니다.",
+    "records.brotli-exploitation.response": "제품별·계열별 수정 사항을 확인하고, 업데이트와 별도로 침해 징후를 조사해야 합니다. 하위 제품에 내장된 버전과 지원 대상 버전을 대조해야 합니다.",
+    "records.brotli-exploitation.category": "악용된 취약점",
+    "records.brotli-exploitation.as_of": "KEV 2026.10.27판",
+    "records.commerce-exploitation.title": "Adobe Commerce: 기존 수정 사항의 적용 우선순위 상승",
+    "records.commerce-exploitation.confirmed": "CISA KEV가 CVE-2026-48356을 악용이 확인된 취약점으로 등재했습니다.",
+    "records.commerce-exploitation.unknown": "개별 이용 조직·인원·실제 손실액이나 최초 공격 시각은 이 카탈로그에서 확인할 수 없습니다. 도입했다는 사실만으로 이미 침해되었다고 단정하지 않습니다.",
+    "records.commerce-exploitation.response": "제품별·계열별 수정 사항을 확인하고, 업데이트와 별도로 침해 징후를 조사해야 합니다. 하위 제품에 내장된 버전과 지원 대상 버전을 대조해야 합니다.",
+    "records.commerce-exploitation.category": "악용된 취약점",
+    "records.commerce-exploitation.as_of": "KEV 2026.10.27판",
+    "records.php-exploitation.title": "PHP: 악용 확인과 전체 사이트 침해는 별개",
+    "records.php-exploitation.confirmed": "CISA KEV가 CVE-2026-109618 / CVE-2026-109619을 악용이 확인된 취약점으로 등재했습니다.",
+    "records.php-exploitation.unknown": "개별 이용 조직·인원·실제 손실액이나 최초 공격 시각은 이 카탈로그에서 확인할 수 없습니다. 도입했다는 사실만으로 이미 침해되었다고 단정하지 않습니다.",
+    "records.php-exploitation.response": "제품별·계열별 수정 사항을 확인하고, 업데이트와 별도로 침해 징후를 조사해야 합니다. 하위 제품에 내장된 버전과 지원 대상 버전을 대조해야 합니다.",
+    "records.php-exploitation.category": "악용된 취약점",
+    "records.php-exploitation.as_of": "KEV 2026.10.27판",
+    "records.fireblocks-potential.title": "Fireblocks mpc-lib: 키 지분 계층의 위험, 실제 도난은 미확인",
+    "records.fireblocks-potential.confirmed": "CERT는 하위 지분(descendant share)과 체인 코드(chain code)로부터 동일 참여자(party)의 상위/루트 지분(ancestor/root share)에 도달할 수 있는 문제를 공개했습니다.",
+    "records.fireblocks-potential.unknown": "자료에는 실제 자산 도난이나 피해 고객 수가 기재되어 있지 않습니다. 이것만으로 임계값(threshold)을 충족하는 송금 키를 얻을 수 있다고 볼 수는 없습니다.",
+    "records.fireblocks-potential.response": "수정 버전은 아직 제공되지 않았습니다. 체인 코드를 비밀로 보호하고 키 지분의 전체 계층을 조사해야 합니다.",
+    "records.fireblocks-potential.category": "암호자산·키 관리",
+    "records.fireblocks-potential.as_of": "10/27 14:45 UTC 개정",
+    "caveats.0": "선정된 사례입니다. parent_incident는 동일 침해가 이용자 측에 미친 영향을 나타내므로 별도 사건으로 합산하지 않습니다. potential은 실제 취득이 확인되지 않았음을 나타냅니다.",
+    "caveats.1": "전 세계 피해 통계가 아니라, 일차 자료를 확인한 사례의 목록입니다. 이번에 새로 발생한 사건의 수가 아닙니다.",
+    "caveats.2": "발생·공표·업데이트·자료 취득 시각을 구분하고, 금액·인원·건수는 출처의 단위를 유지합니다. 공개되지 않은 총손실을 0엔으로 처리하지 않습니다.",
+    "caveats.3": "취득한 자료는 기준 시각 이후의 현행 개정본입니다. 동적 페이지의 과거 모든 내용을 완전히 복원할 수는 없습니다.",
+    "caveats.4": "동일 기반의 이용자 측 영향 사례는 parent_incident로 연결했습니다. 중복된 사건으로 합산하지 마세요.",
+    "ui.guide_body": "CVSS는 취약점의 기술적 심각도를 나타내며, 실제 손실액이나 피해자 수를 의미하지 않습니다. 알 수 없는 값은 영으로 처리하지 않고, 보상 한도를 총피해액으로 간주하지 않으며, 인원수·수신처·조직·워크스페이스를 합산하지 않습니다."
+  },
+  "provenance": {
+    "engine": "OpenAI Codex CLI",
+    "model_selection": "CLI default; not overridden",
+    "prompt_version": "incident-translation-v1",
+    "generated_at": "2026-10-28T05:57:27.265375+00:00",
+    "usage": {
+      "input_tokens": 19363,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 104,
+      "reasoning_output_tokens": 0
+    },
+    "human_reviewed": false
+  },
+  "impact": {
+    "cutoff": "2026-10-28T04:18:44Z",
+    "records": [
+      {
+        "id": "idcf-real-impact",
+        "title": "IDCF 클라우드: 495개 기업·지자체의 시스템 중단·암호화",
+        "confirmed": "동일본 리전 1의 4 존에서 VM이 중단되고 암호화되었습니다. 206개 고객의 백업을 추출할 수 있는 것으로 확인되었습니다. 최대 71개사의 포털 등록 정보에 대한 무단 조회와 최대 4건의 비밀번호 무단 변경이 있었습니다.",
+        "unknown": "206은 복구 완료 수가 아닙니다. 회사는 VM 내부 데이터의 외부 유출은 없었다고 설명했으며, 등록 정보를 반출한 흔적도 확인되지 않았습니다. 전체 고객의 최종 복구일과 총손실은 공개되지 않았습니다.",
+        "response": "비밀번호를 초기화했습니다. 대체 환경으로의 이전과 백업 추출을 지원합니다.",
+        "status": "confirmed-impact",
+        "category": "업무·의료·서비스 중단",
+        "sources": [
+          {
+            "name": "IDCF第7報・10月27日",
+            "url": "https://www.idcf.jp/news/topics/20261027001/"
+          }
+        ],
+        "event_date": "2026-10-07",
+        "source_date": "2026-10-27",
+        "as_of": "자료 업데이트: 2026-10-27",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "infoq-real-impact",
+        "title": "infoQ: 89만 4,082건 반출 및 포인트 부정 교환",
+        "confirmed": "개인정보 894,082건의 반출이 확정되었습니다. 부정 교환은 611건, 총 2,869,500엔입니다. 10월 3일부터 서비스를 중단했으며, 의뢰받은 조사의 일부에도 영향이 있었습니다.",
+        "unknown": "당초 제시된 최대 948,498건은 확정된 피해 건수가 아닙니다. 취약점의 CVE, 최종 복구일, 보전이 완료된 총액은 본문만으로 확정할 수 없습니다.",
+        "response": "모든 회원의 비밀번호를 무효화했습니다. 부정 교환된 포인트는 전액 보전할 방침입니다. 같은 비밀번호를 사용하는 다른 서비스의 비밀번호도 변경해야 합니다.",
+        "status": "confirmed-impact",
+        "category": "확인된 금전적 영향",
+        "sources": [
+          {
+            "name": "infoQ第2報・10月14日",
+            "url": "https://gmo-research.ai/pressroom/notice/notice-20261014"
+          }
+        ],
+        "event_date": "2026-10-03",
+        "source_date": "2026-10-14",
+        "as_of": "자료 업데이트: 2026-10-14",
+        "total_loss_jpy": null,
+        "reported_financial_impact": {
+          "amount": 2869500,
+          "currency": "JPY",
+          "unit": "unauthorized point exchanges",
+          "count": 611,
+          "is_total_incident_loss": false
+        }
+      },
+      {
+        "id": "gmo-real-impact",
+        "title": "오나마에.com: 업무 환경 중단 및 정보 반출",
+        "confirmed": "10월 21일부터 서비스가 중단되었습니다. 고객 정보의 외부 반출이 확인되었습니다. 10월 28일 04:00경 범인 사이트의 도메인이 정지된 것을 확인했습니다.",
+        "unknown": "공개된 내용의 진위, 피해 인원, 부정 거래 총액은 미확정입니다. 도메인 정지가 정보의 전량 회수나 서비스 복구를 의미하지는 않습니다.",
+        "response": "기존 기반을 그대로 재가동하지 않고 대체 서비스를 안내할 방침입니다. 확인된 부정 거래로 발생한 실현 손실의 보상과 특별 위로금 지급을 발표했습니다.",
+        "status": "confirmed-impact",
+        "category": "업무·의료·서비스 중단",
+        "sources": [
+          {
+            "name": "GMO第4報",
+            "url": "https://group.gmo/info/alert/20261024/"
+          },
+          {
+            "name": "GMO第12報",
+            "url": "https://group.gmo/info/alert/2026102705/"
+          },
+          {
+            "name": "GMO第13報・10月28日11時",
+            "url": "https://group.gmo/info/alert/20261028/"
+          }
+        ],
+        "event_date": "2026-10-21",
+        "source_date": "2026-10-28",
+        "as_of": "자료 업데이트: 2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "atlink-real-impact",
+        "title": "앳링크: 환자 예약·관련 서비스 중단",
+        "confirmed": "10월 14일 심야부터 중단되었습니다. 9월 하순부터 10월 중순 사이의 DB 정보 취득과 개인정보 유출이 확인되었습니다. 28일 12:30 시점에도 환자 앱·웹 예약 등은 중단 상태였습니다.",
+        "unknown": "유출 대상 수와 전체 기능의 재개일은 조사·확인 중입니다. 일부 의료기관에서의 β 테스트 시작은 일반 제공 재개를 의미하지 않습니다.",
+        "response": "침입 경로를 차단하고 관련 인증 정보를 무효화했습니다. 예약 변경은 의료기관에 직접 연락해야 합니다. 재개 시 비밀번호를 새로 설정해야 합니다.",
+        "status": "confirmed-impact",
+        "category": "업무·의료·서비스 중단",
+        "sources": [
+          {
+            "name": "メドレー調査案内",
+            "url": "https://www.medley.jp/notice/20261015.html"
+          },
+          {
+            "name": "アットリンク調査状況",
+            "url": "https://at-link.net/information/アットリンクへの不正アクセスに関する調査状況/"
+          },
+          {
+            "name": "運営状況・10月28日12時30分",
+            "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/"
+          }
+        ],
+        "event_date": "2026-10-14",
+        "source_date": "2026-10-28",
+        "as_of": "자료 업데이트: 2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "aiiku-atlink-impact",
+        "title": "아이이쿠 병원: 예방접종·산후 관리 예약에 차질",
+        "confirmed": "앳링크 중단으로 소아과 예방접종 예약, 소아과 산후 데이케어 예약, 진료 호출 기능을 이용할 수 없습니다. 다른 웹 예약 시스템은 정상적으로 이용할 수 있습니다.",
+        "unknown": "이 발표에서 진료 전면 중단이나 생명에 대한 피해는 확인되지 않았습니다. 별개의 독립적인 공격이 아니라 앳링크 사건이 이용자 측에 미친 영향 사례입니다.",
+        "response": "병원의 대체 예약 안내를 확인하고, 필요한 절차는 병원에 직접 문의해야 합니다.",
+        "status": "confirmed-impact",
+        "category": "업무·의료·서비스 중단",
+        "sources": [
+          {
+            "name": "愛育病院・10月23日更新",
+            "url": "https://www.aiiku.net/news/news-3482/"
+          }
+        ],
+        "source_date": "2026-10-23",
+        "parent_incident": "atlink-real-impact",
+        "as_of": "자료 업데이트: 2026-10-23",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "railway-real-impact",
+        "title": "Railway: 빌드·배포 중단, 신규 가입 중지",
+        "confirmed": "빌드·배포 중단과 대시보드/API/CLI/지원 기능을 이용할 수 없는 기간이 있었습니다. 10월 27일 15:19 UTC 시점에도 신규 가입 중지가 계속되었습니다. 기존 고객의 배포된 서비스는 계속 가동 중이라고 설명했습니다.",
+        "unknown": "최대 1.85%·약 100,000개 워크스페이스는 환경 변수에 대한 잠재적 영향 범위이며, 확정된 유출 인원이 아닙니다. 키 폐기 알림만으로 침해가 확정되었다고 판단하지 않습니다.",
+        "response": "저장된 시크릿을 폐기·재발급하고 GitHub 및 레지스트리 감사를 실시했습니다. 다음 상태 안내 예정 시각인 10월 28일 16:00 UTC는 이번 기준 시각 이후입니다.",
+        "status": "confirmed-impact",
+        "category": "업무·의료·서비스 중단",
+        "sources": [
+          {
+            "name": "Railway一次報告",
+            "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+          },
+          {
+            "name": "Railway status",
+            "url": "https://status.railway.com/"
+          }
+        ],
+        "event_date": "2026-10-20",
+        "source_date": "2026-10-27",
+        "as_of": "자료 업데이트: 2026-10-27",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "piccoma-blastmail-impact",
+        "title": "픽코마: 수신처 100만 2,404건 유출",
+        "confirmed": "이메일 뉴스레터 1회분의 수신처 1,002,404건에 해당하는 이메일 주소 유출이 확인되었습니다. 이메일 뉴스레터 발송을 중단했습니다.",
+        "unknown": "이는 수신처 건수이며, 전 세계 또는 blastmail 전체 고객의 피해 수가 아닙니다. 픽코마 본체·비밀번호·구매 정보에는 영향이 없으며 정상 이용이 가능하다고 설명했습니다.",
+        "response": "개별 통지·관계 당국 보고 및 발신자 인증 설정 변경을 실시했습니다. 사칭 이메일에 주의해야 합니다.",
+        "status": "confirmed-impact",
+        "category": "개인정보·기밀 정보",
+        "sources": [
+          {
+            "name": "ピッコマ第1報・10月24日",
+            "url": "https://jp.piccoma.com/web/notice_detail/7503"
+          }
+        ],
+        "source_date": "2026-10-24",
+        "parent_incident": "blastmail",
+        "as_of": "자료 업데이트: 2026-10-24",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "environment-blastmail-impact",
+        "title": "환경성: 관련 이메일 뉴스레터 발송·관리 중단",
+        "confirmed": "관련 이메일 뉴스레터 6개의 발송·관리 작업을 할 수 없는 상황입니다. 10월 21일 00:30에 관리 화면/API가 중단되었고, 01:00경 발송이 중단되었습니다.",
+        "unknown": "수신처 정보 유출은 확인되지 않았습니다. 픽코마의 확인 결과를 환경성에도 일반화하지 않습니다. 대상 건수는 기재되어 있지 않습니다.",
+        "response": "사업자의 조사를 바탕으로 유출 여부를 확인합니다. 재개 시기는 미정이라고 안내했습니다.",
+        "status": "confirmed-impact",
+        "category": "업무·의료·서비스 중단",
+        "sources": [
+          {
+            "name": "環境省・10月23日",
+            "url": "https://www.env.go.jp/press/press_05784.html"
+          }
+        ],
+        "source_date": "2026-10-23",
+        "parent_incident": "blastmail",
+        "as_of": "자료 업데이트: 2026-10-23",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "studio-real-impact",
+        "title": "Studio: 정보 취득이 가능한 상태 및 통지·키 갱신 부담",
+        "confirmed": "9월 30일부터 10월 1일까지 침입이 있었으며, 10월 14일까지 외부에서 정보를 취득할 수 있는 상태였습니다. 복호화 키도 읽혔으며, 폼 내용이나 API 키 등이 알려졌을 가능성이 있습니다.",
+        "unknown": "정보가 실제로 취득되었는지는 확인되지 않았습니다. 대상 건수와 후속 피해는 조사 중입니다. 변조·삭제 여부는 확인되지 않았습니다.",
+        "response": "침입 경로를 수정하고 키를 갱신했습니다. 외부 API 키는 발급처에서 폐기해야 합니다. 10월 28일 00:30 업데이트에 따르면 공동 명의 보고 접수는 11월 상순에 시작할 예정이며, 정보주체 통지는 별도로 진행합니다.",
+        "status": "potential",
+        "category": "개인정보·기밀 정보",
+        "sources": [
+          {
+            "name": "Studio公式ポータル",
+            "url": "https://studio.design/ja/security/notice/2026-10-incident"
+          }
+        ],
+        "source_date": "2026-10-28",
+        "as_of": "자료 업데이트: 2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "yotsuya-itsuaki-impact",
+        "title": "요쓰야 메디컬 큐브: 이전 예약 데이터 유출",
+        "confirmed": "이전에 위탁 운영하던 예약 시스템 ‘이쓰아키’에 9월 21일부터 22일까지 침입이 발생해 예약 데이터가 무단 취득되었습니다. 성명·전화번호·이메일 주소의 유출이 확인되었습니다.",
+        "unknown": "생년월일·성별·예약 시 추가 입력 항목은 조사 중입니다. 건수는 공개되지 않았습니다. 2025년 3월 이후의 현행 예약 시스템과 전자의무기록에 미친 영향 및 후속 피해는 확인되지 않았습니다.",
+        "response": "파인즈가 대상자에게 순차적으로 연락합니다. 병원은 관계 당국 보고와 재발 방지·상세 조사를 요청하고, 사건을 빙자한 연락에 주의하도록 안내했습니다.",
+        "status": "confirmed-impact",
+        "category": "개인정보·기밀 정보",
+        "sources": [
+          {
+            "name": "四谷メディカルキューブ・10月20日",
+            "url": "https://www.mcube.jp/news/20261020.html"
+          }
+        ],
+        "event_date": "2026-09-21",
+        "source_date": "2026-10-20",
+        "as_of": "자료 업데이트: 2026-10-20",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "connectwise-real-impact",
+        "title": "ConnectWise: 백업 복원·모니터링·관리 기능에 차질",
+        "confirmed": "애플리케이션 인증 정보에 대한 무단 접근과 서비스 중단이 확인되었습니다. 백업 저장·아카이브 접근·복원, SaaS 모니터링 및 관리 기능에 차질이 발생했습니다.",
+        "unknown": "고객 수·손해액·전면 복구 일시는 공개되지 않았습니다. 단계적 복구 준비가 완료되었다는 것은 복원이 시작되었음을 확인한 것과 다릅니다.",
+        "response": "10월 27일 14:30 UTC 기준으로 제삼자 검증을 기다리고 있습니다. 개별 안내가 있을 때까지 해당 연결을 비활성화한 상태로 유지합니다.",
+        "status": "confirmed-impact",
+        "category": "백업·업무 연속성",
+        "as_of": "10/27 14:30 UTC 업데이트",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "ConnectWise Trust Center",
+            "url": "https://www.connectwise.com/company/trust/advisories"
+          }
+        ]
+      },
+      {
+        "id": "litellm-distribution-impact",
+        "title": "LiteLLM: 악성 패키지 배포 및 환경 재구축 부담",
+        "confirmed": "10월 21일 악성 1.107.0 및 컨테이너가 실제로 배포되었으며, 릴리스 기반의 침해가 확인되었습니다.",
+        "unknown": "전체 이용자의 키 유출 여부·피해 조직 수·총도난액은 공개되지 않았습니다. 3월에 발생한 별도 사건의 피해 통계를 가져다 쓰지 않습니다.",
+        "response": "대상 소프트웨어의 도입 여부를 조사하고 환경을 격리·재구축해야 합니다. 접근 가능했던 키를 폐기·재발급해야 합니다. 단순 업데이트 작업에 앞서 시작 훅이 다시 실행될 위험을 확인해야 합니다.",
+        "status": "confirmed-impact",
+        "category": "소프트웨어 공급망",
+        "as_of": "10/21 사건 / 10/23 분석",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "LiteLLM公式事件報告",
+            "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+          },
+          {
+            "name": "公式攻撃連鎖分析",
+            "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+          }
+        ]
+      },
+      {
+        "id": "brotli-exploitation",
+        "title": "Brotli: 악용 확인, 하위 제품의 총피해 규모는 불명",
+        "confirmed": "CISA KEV가 CVE-2026-111497을 악용이 확인된 취약점으로 등재했습니다.",
+        "unknown": "개별 이용 조직·인원·실제 손실액이나 최초 공격 시각은 이 카탈로그에서 확인할 수 없습니다. 도입했다는 사실만으로 이미 침해되었다고 단정하지 않습니다.",
+        "response": "제품별·계열별 수정 사항을 확인하고, 업데이트와 별도로 침해 징후를 조사해야 합니다. 하위 제품에 내장된 버전과 지원 대상 버전을 대조해야 합니다.",
+        "status": "exploitation-confirmed",
+        "category": "악용된 취약점",
+        "as_of": "KEV 2026.10.27판",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "commerce-exploitation",
+        "title": "Adobe Commerce: 기존 수정 사항의 적용 우선순위 상승",
+        "confirmed": "CISA KEV가 CVE-2026-48356을 악용이 확인된 취약점으로 등재했습니다.",
+        "unknown": "개별 이용 조직·인원·실제 손실액이나 최초 공격 시각은 이 카탈로그에서 확인할 수 없습니다. 도입했다는 사실만으로 이미 침해되었다고 단정하지 않습니다.",
+        "response": "제품별·계열별 수정 사항을 확인하고, 업데이트와 별도로 침해 징후를 조사해야 합니다. 하위 제품에 내장된 버전과 지원 대상 버전을 대조해야 합니다.",
+        "status": "exploitation-confirmed",
+        "category": "악용된 취약점",
+        "as_of": "KEV 2026.10.27판",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "php-exploitation",
+        "title": "PHP: 악용 확인과 전체 사이트 침해는 별개",
+        "confirmed": "CISA KEV가 CVE-2026-109618 / CVE-2026-109619을 악용이 확인된 취약점으로 등재했습니다.",
+        "unknown": "개별 이용 조직·인원·실제 손실액이나 최초 공격 시각은 이 카탈로그에서 확인할 수 없습니다. 도입했다는 사실만으로 이미 침해되었다고 단정하지 않습니다.",
+        "response": "제품별·계열별 수정 사항을 확인하고, 업데이트와 별도로 침해 징후를 조사해야 합니다. 하위 제품에 내장된 버전과 지원 대상 버전을 대조해야 합니다.",
+        "status": "exploitation-confirmed",
+        "category": "악용된 취약점",
+        "as_of": "KEV 2026.10.27판",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "fireblocks-potential",
+        "title": "Fireblocks mpc-lib: 키 지분 계층의 위험, 실제 도난은 미확인",
+        "confirmed": "CERT는 하위 지분(descendant share)과 체인 코드(chain code)로부터 동일 참여자(party)의 상위/루트 지분(ancestor/root share)에 도달할 수 있는 문제를 공개했습니다.",
+        "unknown": "자료에는 실제 자산 도난이나 피해 고객 수가 기재되어 있지 않습니다. 이것만으로 임계값(threshold)을 충족하는 송금 키를 얻을 수 있다고 볼 수는 없습니다.",
+        "response": "수정 버전은 아직 제공되지 않았습니다. 체인 코드를 비밀로 보호하고 키 지분의 전체 계층을 조사해야 합니다.",
+        "status": "potential",
+        "category": "암호자산·키 관리",
+        "as_of": "10/27 14:45 UTC 개정",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CERT VU701544",
+            "url": "https://kb.cert.org/vuls/id/701544"
+          }
+        ]
+      }
+    ],
+    "cutoff_jst": "2026-10-28T13:18:44+09:00",
+    "caveats": [
+      "선정된 사례입니다. parent_incident는 동일 침해가 이용자 측에 미친 영향을 나타내므로 별도 사건으로 합산하지 않습니다. potential은 실제 취득이 확인되지 않았음을 나타냅니다.",
+      "전 세계 피해 통계가 아니라, 일차 자료를 확인한 사례의 목록입니다. 이번에 새로 발생한 사건의 수가 아닙니다.",
+      "발생·공표·업데이트·자료 취득 시각을 구분하고, 금액·인원·건수는 출처의 단위를 유지합니다. 공개되지 않은 총손실을 0엔으로 처리하지 않습니다.",
+      "취득한 자료는 기준 시각 이후의 현행 개정본입니다. 동적 페이지의 과거 모든 내용을 완전히 복원할 수는 없습니다.",
+      "동일 기반의 이용자 측 영향 사례는 parent_incident로 연결했습니다. 중복된 사건으로 합산하지 마세요."
+    ]
+  }
+}

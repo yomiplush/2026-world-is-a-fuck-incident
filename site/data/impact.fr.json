@@ -1,0 +1,341 @@
+{
+  "cutoff": "2026-10-28T04:18:44Z",
+  "records": [
+    {
+      "id": "idcf-real-impact",
+      "title": "IDCF Cloud : interruption et chiffrement touchant 495 entreprises et collectivités locales",
+      "confirmed": "Arrêt et chiffrement de VM dans la zone 4 de la région Est du Japon 1. La possibilité de récupérer les sauvegardes de 206 clients a été confirmée. Consultation non autorisée des informations enregistrées sur le portail de jusqu’à 71 entreprises et modification non autorisée de jusqu’à 4 mots de passe.",
+      "unknown": "206 ne correspond pas au nombre de rétablissements achevés. L’entreprise indique qu’aucune donnée interne aux VM n’a été exfiltrée et qu’aucune trace d’exfiltration des informations enregistrées n’a été confirmée. La date de rétablissement définitif pour l’ensemble des clients et les pertes totales n’ont pas été publiées.",
+      "response": "Réinitialisation des mots de passe. Assistance à la migration vers des environnements de remplacement et à la récupération des sauvegardes.",
+      "status": "confirmed-impact",
+      "category": "Interruptions d’activité, de soins et de services",
+      "sources": [
+        {
+          "name": "IDCF第7報・10月27日",
+          "url": "https://www.idcf.jp/news/topics/20261027001/"
+        }
+      ],
+      "event_date": "2026-10-07",
+      "source_date": "2026-10-27",
+      "as_of": "Mise à jour de la source : 2026-10-27",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "infoq-real-impact",
+      "title": "infoQ : exfiltration de 89 dizaines de milliers et 4,082 enregistrements et conversion frauduleuse de points",
+      "confirmed": "Exfiltration de 894,082 enregistrements de données personnelles confirmée. 611 conversions frauduleuses, pour un total de 2,869,500 yens. Service interrompu depuis le 3 du mois 10, avec des répercussions sur certaines enquêtes commandées.",
+      "unknown": "Le maximum initial de 948,498 enregistrements ne constitue pas un nombre confirmé de données compromises. Le CVE de la vulnérabilité, la date de rétablissement définitif et le montant total des indemnisations effectivement versées ne sont pas établis dans le texte.",
+      "response": "Invalidation des mots de passe de tous les membres. Engagement à restituer intégralement les points convertis frauduleusement. Modifier également le mot de passe des autres services où le même est utilisé.",
+      "status": "confirmed-impact",
+      "category": "Conséquences financières confirmées",
+      "sources": [
+        {
+          "name": "infoQ第2報・10月14日",
+          "url": "https://gmo-research.ai/pressroom/notice/notice-20261014"
+        }
+      ],
+      "event_date": "2026-10-03",
+      "source_date": "2026-10-14",
+      "as_of": "Mise à jour de la source : 2026-10-14",
+      "total_loss_jpy": null,
+      "reported_financial_impact": {
+        "amount": 2869500,
+        "currency": "JPY",
+        "unit": "unauthorized point exchanges",
+        "count": 611,
+        "is_total_incident_loss": false
+      }
+    },
+    {
+      "id": "gmo-real-impact",
+      "title": "Onamae.com : interruption de l’environnement de travail et exfiltration d’informations",
+      "confirmed": "Service interrompu depuis le 21 du mois 10. Exfiltration d’informations clients confirmée. Suspension du domaine du site des auteurs confirmée vers 04:00 le 28 du mois 10.",
+      "unknown": "L’authenticité des contenus publiés, le nombre de personnes touchées et le montant total des transactions frauduleuses restent incertains. La suspension du domaine ne signifie ni la récupération de toutes les informations ni le rétablissement du service.",
+      "response": "L’entreprise prévoit d’orienter les utilisateurs vers des services de remplacement sans remettre en service l’infrastructure actuelle telle quelle. Elle a annoncé l’indemnisation des pertes réalisées liées aux transactions frauduleuses confirmées ainsi qu’un versement exceptionnel de soutien.",
+      "status": "confirmed-impact",
+      "category": "Interruptions d’activité, de soins et de services",
+      "sources": [
+        {
+          "name": "GMO第4報",
+          "url": "https://group.gmo/info/alert/20261024/"
+        },
+        {
+          "name": "GMO第12報",
+          "url": "https://group.gmo/info/alert/2026102705/"
+        },
+        {
+          "name": "GMO第13報・10月28日11時",
+          "url": "https://group.gmo/info/alert/20261028/"
+        }
+      ],
+      "event_date": "2026-10-21",
+      "source_date": "2026-10-28",
+      "as_of": "Mise à jour de la source : 2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "atlink-real-impact",
+      "title": "At Link : interruption des réservations des patients et des services associés",
+      "confirmed": "Interruption depuis la nuit du 14 du mois 10. Accès aux informations de la base de données entre la fin du mois 9 et la mi-10 et fuite de données personnelles confirmés. Au 28 à 12:30, l’application des patients, les réservations Web et d’autres fonctions restaient indisponibles.",
+      "unknown": "Le nombre de données concernées par la fuite et la date de reprise de toutes les fonctions font encore l’objet d’investigations et de vérifications. Le début de tests bêta dans certains établissements médicaux ne constitue pas une reprise de la mise à disposition générale.",
+      "response": "Blocage de la voie d’intrusion et invalidation des identifiants associés. Contacter directement l’établissement médical pour modifier une réservation. Définir un nouveau mot de passe lors de la reprise.",
+      "status": "confirmed-impact",
+      "category": "Interruptions d’activité, de soins et de services",
+      "sources": [
+        {
+          "name": "メドレー調査案内",
+          "url": "https://www.medley.jp/notice/20261015.html"
+        },
+        {
+          "name": "アットリンク調査状況",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスに関する調査状況/"
+        },
+        {
+          "name": "運営状況・10月28日12時30分",
+          "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/"
+        }
+      ],
+      "event_date": "2026-10-14",
+      "source_date": "2026-10-28",
+      "as_of": "Mise à jour de la source : 2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "aiiku-atlink-impact",
+      "title": "Hôpital Aiiku : perturbation des réservations de vaccinations et de soins postnataux",
+      "confirmed": "L’arrêt d’At Link rend indisponibles les réservations de vaccinations pédiatriques, les réservations de soins postnataux de jour en pédiatrie et la fonction d’appel des patients. Les autres systèmes de réservation Web restent normalement utilisables.",
+      "unknown": "Cette annonce ne confirme ni un arrêt complet des soins ni des atteintes à la vie humaine. Il s’agit d’un exemple de conséquences de l’incident At Link pour un établissement utilisateur, et non d’une attaque distincte.",
+      "response": "Consulter les modalités de réservation de remplacement proposées par l’hôpital et le contacter directement pour les démarches nécessaires.",
+      "status": "confirmed-impact",
+      "category": "Interruptions d’activité, de soins et de services",
+      "sources": [
+        {
+          "name": "愛育病院・10月23日更新",
+          "url": "https://www.aiiku.net/news/news-3482/"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "atlink-real-impact",
+      "as_of": "Mise à jour de la source : 2026-10-23",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "railway-real-impact",
+      "title": "Railway : interruption des builds et des déploiements, suspension des inscriptions",
+      "confirmed": "Des interruptions des builds et des déploiements ainsi que des périodes d’indisponibilité du tableau de bord, de l’API, de la CLI et de l’assistance ont eu lieu. Au 27 du mois 10 à 15:19 UTC, les nouvelles inscriptions restaient suspendues. L’entreprise indique que les déploiements des clients existants continuaient de fonctionner.",
+      "unknown": "Le maximum de 1.85 % et les quelque 100,000 espaces de travail correspondent au périmètre potentiellement concerné pour les variables d’environnement, et non à un nombre confirmé de personnes dont les données ont fuité. Une notification de révocation de clé ne suffit pas à confirmer une compromission.",
+      "response": "Révoquer et renouveler les secrets enregistrés, et auditer GitHub et les registres. Le prochain point de situation prévu le 28 du mois 10 à 16:00 UTC est postérieur à l’heure de référence de cette recherche.",
+      "status": "confirmed-impact",
+      "category": "Interruptions d’activité, de soins et de services",
+      "sources": [
+        {
+          "name": "Railway一次報告",
+          "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+        },
+        {
+          "name": "Railway status",
+          "url": "https://status.railway.com/"
+        }
+      ],
+      "event_date": "2026-10-20",
+      "source_date": "2026-10-27",
+      "as_of": "Mise à jour de la source : 2026-10-27",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "piccoma-blastmail-impact",
+      "title": "Piccoma : fuite de 100 dizaines de milliers et 2,404 adresses de destinataires",
+      "confirmed": "Fuite confirmée de 1,002,404 adresses électroniques de destinataires correspondant à 1 envois de lettres d’information. Envoi de la lettre d’information suspendu.",
+      "unknown": "Il s’agit d’un nombre de destinataires, et non d’un bilan mondial ou du nombre de victimes parmi tous les clients de Blastmail. L’entreprise indique que le service principal Piccoma, les mots de passe et les informations d’achat ne sont pas touchés et que le service reste normalement utilisable.",
+      "response": "Notifications individuelles, signalement aux autorités et modification des paramètres d’authentification de l’expéditeur. Rester vigilant face aux courriels usurpant une identité.",
+      "status": "confirmed-impact",
+      "category": "Données personnelles et informations confidentielles",
+      "sources": [
+        {
+          "name": "ピッコマ第1報・10月24日",
+          "url": "https://jp.piccoma.com/web/notice_detail/7503"
+        }
+      ],
+      "source_date": "2026-10-24",
+      "parent_incident": "blastmail",
+      "as_of": "Mise à jour de la source : 2026-10-24",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "environment-blastmail-impact",
+      "title": "Ministère de l’Environnement : interruption de l’envoi et de la gestion de lettres d’information associées",
+      "confirmed": "L’envoi et la gestion de 6 lettres d’information associées sont impossibles. Le 21 du mois 10, arrêt de l’interface d’administration et de l’API à 00:30, puis arrêt des envois vers 01:00.",
+      "unknown": "Aucune fuite d’informations sur les destinataires n’est confirmée. Les constatations concernant Piccoma ne doivent pas être généralisées aux lettres du ministère de l’Environnement. Aucun nombre d’enregistrements concernés n’est indiqué.",
+      "response": "Vérification de l’existence éventuelle d’une fuite à partir de l’enquête du prestataire. La date de reprise est annoncée comme indéterminée.",
+      "status": "confirmed-impact",
+      "category": "Interruptions d’activité, de soins et de services",
+      "sources": [
+        {
+          "name": "環境省・10月23日",
+          "url": "https://www.env.go.jp/press/press_05784.html"
+        }
+      ],
+      "source_date": "2026-10-23",
+      "parent_incident": "blastmail",
+      "as_of": "Mise à jour de la source : 2026-10-23",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "studio-real-impact",
+      "title": "Studio : informations accessibles de l’extérieur et charge liée aux notifications et au renouvellement des clés",
+      "confirmed": "Intrusion du 30 du mois 9 au 1 du mois 10, avec des informations accessibles de l’extérieur jusqu’au 14 du mois 10. Les clés de déchiffrement ont également été lues ; le contenu des formulaires, les clés API et d’autres informations ont donc pu être connus.",
+      "unknown": "L’acquisition effective des informations n’est pas confirmée. Le nombre d’enregistrements concernés et les dommages secondaires font l’objet d’une enquête. Aucune modification ni suppression n’a été confirmée.",
+      "response": "Correction de la voie d’accès et renouvellement des clés. Révoquer les clés API externes auprès de leur émetteur. La mise à jour du 28 du mois 10 à 00:30 prévoit le début de la réception des signalements conjoints au début du mois 11 ; la notification des personnes concernées fait l’objet d’une procédure distincte.",
+      "status": "potential",
+      "category": "Données personnelles et informations confidentielles",
+      "sources": [
+        {
+          "name": "Studio公式ポータル",
+          "url": "https://studio.design/ja/security/notice/2026-10-incident"
+        }
+      ],
+      "source_date": "2026-10-28",
+      "as_of": "Mise à jour de la source : 2026-10-28",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "yotsuya-itsuaki-impact",
+      "title": "Yotsuya Medical Cube : fuite d’anciennes données de réservation",
+      "confirmed": "Acquisition non autorisée de données de réservation lors d’une intrusion, du 21 au 22 du mois 9, dans l’ancien système de réservation externalisé « Itsuaki ». Fuite de noms, de numéros de téléphone et d’adresses électroniques confirmée.",
+      "unknown": "Les dates de naissance, le sexe et les champs supplémentaires des réservations font encore l’objet d’investigations. Aucun nombre d’enregistrements n’a été publié. Aucune incidence sur le système de réservation actuel utilisé depuis le mois 3 de l’année 2025, ni sur les dossiers médicaux électroniques, et aucun dommage secondaire n’ont été confirmés.",
+      "response": "Fines contacte progressivement les personnes concernées. L’hôpital a demandé un signalement aux autorités, des mesures de prévention et une enquête approfondie, et appelle à la vigilance face aux communications frauduleuses exploitant l’incident.",
+      "status": "confirmed-impact",
+      "category": "Données personnelles et informations confidentielles",
+      "sources": [
+        {
+          "name": "四谷メディカルキューブ・10月20日",
+          "url": "https://www.mcube.jp/news/20261020.html"
+        }
+      ],
+      "event_date": "2026-09-21",
+      "source_date": "2026-10-20",
+      "as_of": "Mise à jour de la source : 2026-10-20",
+      "total_loss_jpy": null
+    },
+    {
+      "id": "connectwise-real-impact",
+      "title": "ConnectWise : perturbation de la restauration des sauvegardes, de la surveillance et de l’administration",
+      "confirmed": "Accès non autorisé aux identifiants des applications et interruptions de service confirmés. Perturbations du stockage des sauvegardes, de l’accès aux archives et de la restauration, ainsi que des fonctions de surveillance et d’administration SaaS.",
+      "unknown": "Le nombre de clients, le montant des dommages et la date et l’heure du rétablissement complet n’ont pas été publiés. L’achèvement des préparatifs d’une reprise progressive ne confirme pas le début des restaurations.",
+      "response": "Au 27 du mois 10 à 14:30 UTC, la validation par un tiers était encore attendue. Maintenir les connexions concernées désactivées jusqu’à réception d’instructions individuelles.",
+      "status": "confirmed-impact",
+      "category": "Sauvegardes et continuité d’activité",
+      "as_of": "Mise à jour du 10/27 à 14:30 UTC",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "ConnectWise Trust Center",
+          "url": "https://www.connectwise.com/company/trust/advisories"
+        }
+      ]
+    },
+    {
+      "id": "litellm-distribution-impact",
+      "title": "LiteLLM : diffusion de paquets malveillants et charge liée à la reconstruction des environnements",
+      "confirmed": "Le 21 du mois 10, le paquet malveillant 1.107.0 et des conteneurs malveillants ont effectivement été distribués ; la compromission de l’infrastructure de publication a été confirmée.",
+      "unknown": "La fuite des clés de l’ensemble des utilisateurs, le nombre d’organisations touchées et le montant total dérobé n’ont pas été publiés. Ne pas reprendre les statistiques de dommages d’un autre incident survenu au mois 3.",
+      "response": "Rechercher les installations concernées, isoler et reconstruire les environnements. Révoquer et renouveler les clés qui étaient accessibles. Avant une simple mise à jour, vérifier le risque de réexécution du hook de démarrage.",
+      "status": "confirmed-impact",
+      "category": "Chaîne d’approvisionnement logicielle",
+      "as_of": "Incident du 10/21 / analyse du 10/23",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "LiteLLM公式事件報告",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+        },
+        {
+          "name": "公式攻撃連鎖分析",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+        }
+      ]
+    },
+    {
+      "id": "brotli-exploitation",
+      "title": "Brotli : exploitation confirmée, bilan des dommages dans les produits en aval inconnu",
+      "confirmed": "Le catalogue KEV de la CISA répertorie CVE-2026-111497 comme vulnérabilité dont l’exploitation est connue.",
+      "unknown": "Ce catalogue ne précise pas les organisations utilisatrices touchées, le nombre de personnes concernées, les pertes réelles ni l’heure de la première attaque. La seule présence du logiciel ne permet pas de conclure à une compromission.",
+      "response": "Vérifier les correctifs par produit et par branche de versions, et rechercher les signes de compromission indépendamment de la mise à jour. Comparer les versions intégrées aux produits en aval avec les versions prises en charge.",
+      "status": "exploitation-confirmed",
+      "category": "Vulnérabilité exploitée",
+      "as_of": "Édition KEV 2026.10.27",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "commerce-exploitation",
+      "title": "Adobe Commerce : priorité accrue pour les correctifs existants",
+      "confirmed": "Le catalogue KEV de la CISA répertorie CVE-2026-48356 comme vulnérabilité dont l’exploitation est connue.",
+      "unknown": "Ce catalogue ne précise pas les organisations utilisatrices touchées, le nombre de personnes concernées, les pertes réelles ni l’heure de la première attaque. La seule présence du logiciel ne permet pas de conclure à une compromission.",
+      "response": "Vérifier les correctifs par produit et par branche de versions, et rechercher les signes de compromission indépendamment de la mise à jour. Comparer les versions intégrées aux produits en aval avec les versions prises en charge.",
+      "status": "exploitation-confirmed",
+      "category": "Vulnérabilité exploitée",
+      "as_of": "Édition KEV 2026.10.27",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "php-exploitation",
+      "title": "PHP : une exploitation confirmée ne signifie pas que tous les sites sont compromis",
+      "confirmed": "Le catalogue KEV de la CISA répertorie CVE-2026-109618 / CVE-2026-109619 comme vulnérabilités dont l’exploitation est connue.",
+      "unknown": "Ce catalogue ne précise pas les organisations utilisatrices touchées, le nombre de personnes concernées, les pertes réelles ni l’heure de la première attaque. La seule présence du logiciel ne permet pas de conclure à une compromission.",
+      "response": "Vérifier les correctifs par produit et par branche de versions, et rechercher les signes de compromission indépendamment de la mise à jour. Comparer les versions intégrées aux produits en aval avec les versions prises en charge.",
+      "status": "exploitation-confirmed",
+      "category": "Vulnérabilité exploitée",
+      "as_of": "Édition KEV 2026.10.27",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CISA公式KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "fireblocks-potential",
+      "title": "Fireblocks mpc-lib : risque lié à la hiérarchie des parts de clé, aucun vol effectif confirmé",
+      "confirmed": "Le CERT a publié un problème permettant potentiellement de retrouver, à partir d’une part descendante et du code de chaîne, une part ancêtre ou racine appartenant au même participant.",
+      "unknown": "La source ne mentionne ni vol effectif d’actifs ni nombre de clients touchés. Cela ne permet pas d’affirmer qu’une clé de transfert satisfaisant à elle seule le seuil requis peut être obtenue.",
+      "response": "Aucune version corrigée n’est disponible. Protéger le code de chaîne comme un secret et examiner toute la hiérarchie des parts de clé.",
+      "status": "potential",
+      "category": "Cryptoactifs et gestion des clés",
+      "as_of": "Révision du 10/27 à 14:45 UTC",
+      "total_loss_jpy": null,
+      "sources": [
+        {
+          "name": "CERT VU701544",
+          "url": "https://kb.cert.org/vuls/id/701544"
+        }
+      ]
+    }
+  ],
+  "cutoff_jst": "2026-10-28T13:18:44+09:00",
+  "caveats": [
+    "Sélection de cas. parent_incident désigne les conséquences d’une même compromission pour ses utilisateurs et ne doit pas être compté comme un incident distinct. potential signifie que l’acquisition effective des informations n’est pas confirmée.",
+    "Il s’agit d’une liste de cas vérifiés à partir de sources primaires, et non de statistiques mondiales sur les dommages. Elle ne représente pas le nombre de nouveaux incidents de la période étudiée.",
+    "Les heures de survenue, de publication, de mise à jour et de consultation sont distinguées ; les montants et les nombres de personnes ou d’enregistrements conservent les unités des sources. L’absence de publication des pertes totales n’est pas assimilée à 0 yens.",
+    "Les sources consultées correspondent à leurs versions révisées actuelles, récupérées après l’heure de référence. Il n’est pas possible de reconstituer intégralement tous les anciens contenus des pages dynamiques.",
+    "Les exemples de conséquences pour les utilisateurs d’une même infrastructure sont reliés par parent_incident. Veuillez ne pas les additionner comme s’il s’agissait d’incidents distincts."
+  ],
+  "locale": "fr",
+  "translation": {
+    "source_hash": "dd28e03d66ec83eb9d35d9fdd166fc715d536bf69571b6c8d967c4bfa88d1722",
+    "register_hash": "4c3a9feaf3ca00e56d5b162f47c98fe2e735367ead09a9883655b6f1ff46e9b5",
+    "human_reviewed": false
+  }
+}

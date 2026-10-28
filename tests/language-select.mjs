@@ -26,7 +26,7 @@ try{
   await open('/tailworm.uk','!!window.TAILWORM_LANGUAGE_READY');assert.equal(await run('document.getElementById("lang-select").value'),'uk');assert.equal(await run('!!document.querySelector("dialog,.language-picker-button")'),false);
   await choose('#lang-select','ja');for(let i=0;i<100;i++){await pause(30);if(await run('document.documentElement.dataset.locale==="ja" && !!window.TAILWORM_LANGUAGE_READY'))break;}assert.equal(await run('document.documentElement.dataset.locale'),'ja');
   for(const code of ['uk','pl','sv']){
-   await open('/database.'+code,'!!document.querySelector("select[data-language-navigation]")');assert.equal(await run('document.documentElement.lang'),code);assert.equal(await run('document.querySelectorAll("article").length'),37);assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,'database overflow '+code);
+   await open('/database.'+code,'!!document.querySelector("select[data-language-navigation]")');assert.equal(await run('document.documentElement.lang'),code);assert.equal(await run('document.querySelectorAll("article").length'),65);assert.equal(await run('document.documentElement.scrollWidth<=innerWidth'),true,'database overflow '+code);
   }
   await choose('select[data-language-navigation]','/database.fr');for(let i=0;i<100;i++){await pause(30);if(await run('document.documentElement.lang==="fr"'))break;}assert.equal(await run('document.documentElement.lang'),'fr');
 
@@ -35,5 +35,5 @@ try{
  assert.equal(requests.some(u=>new URL(u).hostname==='translate.google.com'),false);
  await open('/languages');assert.equal(await run('document.querySelectorAll("select[data-language-navigation]").length'),4);assert.equal(await run('document.querySelector("section select").options.length'),16);assert.equal(await run('document.body.textContent.includes("249")'),false);
  const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/incident-native-languages.png',Buffer.from(shot.data,'base64'));
- console.log('Native15-language dropdowns:4sizes, lazy Ukrainian/Polish/Swedish motion,37-record databases, Tailworm navigation, keyboard isolation, consent and no search dialog/external translator passed');
+ console.log('Native15-language dropdowns:4sizes, lazy Ukrainian/Polish/Swedish motion,65-record databases, Tailworm navigation, keyboard isolation, consent and no search dialog/external translator passed');
 }finally{ws.close()}

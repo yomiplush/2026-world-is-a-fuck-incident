@@ -95,6 +95,7 @@ def publish(pub):
  if (site/'briefing.en.html').exists():ready[site/'briefing.html']=site/'briefing.en.html'
  routes={pub.clean_url('/'+a.relative_to(site).as_posix()):pub.clean_url('/'+b.relative_to(site).as_posix())for a,b in ready.items()}
  routes.update({'/database':'/database.en','/tailworm':'/tailworm.en'})
+ if getattr(pub,'impact_en',False):routes['/impact']='/impact.en'
  for original,translated in ready.items():
   choices=[{'url':pub.clean_url('/'+original.relative_to(site).as_posix()),'code':'ja','native':'日本語','html':'ja'},
            {'url':pub.clean_url('/'+translated.relative_to(site).as_posix()),'code':'en','native':'English','html':'en'}]

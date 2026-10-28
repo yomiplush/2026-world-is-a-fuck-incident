@@ -1,0 +1,633 @@
+{
+  "locale": "pl",
+  "language": {
+    "code": "pl",
+    "native": "Polski",
+    "html": "pl",
+    "dir": "ltr",
+    "en": "Polish",
+    "ja": "ポーランド語"
+  },
+  "language_native": "Polski",
+  "snapshot": "2026-10-28-1318",
+  "source_hash": "dd28e03d66ec83eb9d35d9fdd166fc715d536bf69571b6c8d967c4bfa88d1722",
+  "register_hash": "4c3a9feaf3ca00e56d5b162f47c98fe2e735367ead09a9883655b6f1ff46e9b5",
+  "string_hashes": {
+    "ui.title": "f4bdddf327a4230b7e8f1c96bfd4cf944f0d420f2e1fc6f61c6bac048b7f0d62",
+    "ui.description": "f6e7c6ea5fd70661a4c903579548c5b89896ef5b11a6347e4763655f6d741d35",
+    "ui.headline": "eea912a69ebb760129793f1ef1d9dd4c803585759a0564a3218a610879d7bfb1",
+    "ui.intro": "6d57b140310128caa5575dede821974a86559f97d4c93839d2f96c8749a22852",
+    "ui.cutoff": "12047c3574966e74820d399e2688387f7166ead0a05fe8c82d7b649fb6dc544a",
+    "ui.date_note": "78f02a747796f9ecdaf1ffb123718922037ba8562c69bff846a949a0e10df0df",
+    "ui.download": "b298cde0d0a44ccd33c43a540fdefaa35b0e2888f2d28650cfcb79da7afbd46c",
+    "ui.about": "8be3bf5ff102267ab0bc6e5c6c1b084931c2b330bc4a786e82cd81133de127c0",
+    "ui.guide_title": "8f3ad757384b80c3c9b48a6bcfdb146d4b77d78942152d987531a0b40b279729",
+    "ui.guide_body": "a2389396651d13850bf924f161eb5186f6c2ec95dbcdec7f5a141e863dce313a",
+    "ui.jump": "307637d3d9fcf486120ad553904b3c617ef453db2e4518bf72c287c6224c5853",
+    "ui.confirmed-impact": "54ddc42570b531378fd8ad6c06f1cd511d79507b25d0b44b6d8bd1f6f6f5ea6e",
+    "ui.exploitation-confirmed": "49db56db72704433d141168c65ef1fbcdc7731ef74b0307872ed8f4793505026",
+    "ui.potential": "245c84c34b210a6929b7c90b5de6e8f5634c73eb6ecb1db6ab9467f50e5468c1",
+    "ui.examples": "5246f30e79e595bd561ef6f7b2d0e2b43bd6d6a7c45f83cf89b9c6def081f75b",
+    "ui.confirmed": "f387bfa9c7747e0f2cd021d87a055445bff20235d1d148fc5a20e49e3be1d8d5",
+    "ui.unknown": "1191ddf52effd70faa03c742bd376b92bfc550641aca5ec3794b40b92a30d7d4",
+    "ui.response": "47e6489ce406eb962c269cf7a30c4b2928ec799a4e922881274dd776d42f8b87",
+    "ui.sources": "871e7988fb61a3d970aa0b3b93814efddb149ce50942c3b549ff97a14e4e4d6f",
+    "ui.limitations": "9b7cf62df0d3f77eeb085e7341a9123558758085481805809ee7e74ea94cd187",
+    "ui.database_link": "62bf36cd1cfbaa00f77aafa85c34041d0f7c46c917936b0312bf177545f965fe",
+    "ui.database_tab": "dab7738122b76281e8503f0774f51ea68a275c10ed840cee63a705da04bc0012",
+    "ui.impact_tab": "a55a9a20c9cf084c6682875d15c1727d381c5dae611014e5d6e12b1707e7b67d",
+    "ui.home": "f109578971d6a45d0822844efc41ded0cf437c2e1e876ea2519cbbb9dbc12f87",
+    "ui.language": "2191b209745deedcb25dc4acbbab8273ac7159575dd94c2170b24998e46a2d29",
+    "ui.original": "e8fc20d01f7577c9e02b0eafdd1fb27a5633123f9ac86833b370bc7c8d5fea9f",
+    "ui.notice": "58caa3c4eeff2c6afefb59c8edea1d100788a6947a2c7560e7a91ecbf21e4638",
+    "ui.advisory_versions": "4cda72e33005f3e7d6278c49c4898a4fb9c4f2670068c748a92054578bde15b8",
+    "ui.affected": "b8e1cf9f8949d8a3956aa15f742a3984fd8329284eca4bad6148bd0125d90026",
+    "ui.fixed": "336f5df2f1027b2afaf3995ada76d8f9f39f798723d4f9fd31167aa9a9b0e6fa",
+    "ui.no_fix": "de37e07b673bc6e77a600585e41ddb076eda4c1e9c0243b55230755aab36bcde",
+    "records.idcf-real-impact.title": "ea8faee8ee8765acaa4c6f7b404cdc8ec86424d97252a73e90308fc57899408b",
+    "records.idcf-real-impact.confirmed": "0cd24d02a44276dec04eee76731cc49dc5b5f1f7e814408c1e2493e67b15505d",
+    "records.idcf-real-impact.unknown": "342eeb40d3f06959d93f579e839b636b197c205ac96f796735cbe4c7129190ee",
+    "records.idcf-real-impact.response": "f10697b48c044d4d656113c4a091eb8418a7749c5f732ab2d10d350640f21f05",
+    "records.idcf-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.idcf-real-impact.as_of": "5fda8fd67417d21bc13e048427eb020e7071f5331ded383a77faf08634ed65f2",
+    "records.infoq-real-impact.title": "611c4f05bf4067e53dc318bb6de63a96e447ab39ccb9845b6764df9729b9b527",
+    "records.infoq-real-impact.confirmed": "d53919a84eec2cc30b560ab21e2dfd593c6fa9efc7c77df7e26f4c725928b822",
+    "records.infoq-real-impact.unknown": "a5b68cbe6ed9244ace8fba2f333dd04077d42c5f8a1c0ee87f8bb58d2111d2cc",
+    "records.infoq-real-impact.response": "66462945048000072fd52c63753c4f1cd096ca6e3732464042b26e9e0388f67b",
+    "records.infoq-real-impact.category": "b6d93de50ffb132d0ff6c53f5db57a4664eb2dd6c7fce9034f31021ef5b72b7d",
+    "records.infoq-real-impact.as_of": "823b4cf2e911c83381cb97344d4fa9039671c37dc952e0c0aa3a8ad6c3bcc680",
+    "records.gmo-real-impact.title": "85524d542dbf5618005f8d1d24606d13d1168478089384b54a256698aabe56db",
+    "records.gmo-real-impact.confirmed": "774ca54848634f13512c0e8197d234a91b650f3a6b75160bd6578d1e6cd3e7b3",
+    "records.gmo-real-impact.unknown": "dd47b94e3466a0ec4a6d96ad6a1ebd1789fdc4f2aa7591e063c7d48bea342e7f",
+    "records.gmo-real-impact.response": "61fd1fb656a1cecfa4046ac279769af54216039bc17caf6d5b93a0c4b27a4662",
+    "records.gmo-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.gmo-real-impact.as_of": "32c3d0ea680c15ac4f179409ff75dae52702d66cf14948c095f8f42039e9dc61",
+    "records.atlink-real-impact.title": "1898db92bce9baf8c6d228e033daeb4a881d6fb05937af89bb4ffe49634d5e48",
+    "records.atlink-real-impact.confirmed": "c4083070207a929cda1997c4fae3a6668c324cefe922ba39869d922d52374142",
+    "records.atlink-real-impact.unknown": "362d561ec1be0ecd2ee23f38ea53df60476d24b30b49d782fe2e400f416415cf",
+    "records.atlink-real-impact.response": "727f892ab9231fead2c7c702ea6a1843b8695b07eecfce3c69e503733301018b",
+    "records.atlink-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.atlink-real-impact.as_of": "32c3d0ea680c15ac4f179409ff75dae52702d66cf14948c095f8f42039e9dc61",
+    "records.aiiku-atlink-impact.title": "0e1472846d6dd927924889db279eb0b2be31506d25fdf0cb68978084fd053276",
+    "records.aiiku-atlink-impact.confirmed": "f45cc0f04986b38fa6b2651701e73d8e32a31ec5cf5a6b5c9f16a47f71ed03ac",
+    "records.aiiku-atlink-impact.unknown": "7476456529e74b071474d2b8c31a4231b14abe8ec52af871e56f6ae47549f6c6",
+    "records.aiiku-atlink-impact.response": "514bd3db38d9f864ee3c285571fd98558def066569cd91488bdaff79f3974a45",
+    "records.aiiku-atlink-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.aiiku-atlink-impact.as_of": "426c4d41c58e681ffe574d5eec50f904f388fa31e9b1619664d0fcb7701d7882",
+    "records.railway-real-impact.title": "28724beb34fa2a9fb0e0e0e24b76fd97da5a5755c6ef207b9a3813545acdde1b",
+    "records.railway-real-impact.confirmed": "66cd1b8e44c55ed68fbd00c47c8dcca34f6fb915219042d35b4a8be3c7b7d985",
+    "records.railway-real-impact.unknown": "895d338d3a3f05b97b2d54b250fc9aec04f64a8e2b78d0c37e9e6fa3733463d9",
+    "records.railway-real-impact.response": "2257739189183fcb562cc6e3dfc197e6435f4cb4d2b225d4c3e45978f3bf485f",
+    "records.railway-real-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.railway-real-impact.as_of": "5fda8fd67417d21bc13e048427eb020e7071f5331ded383a77faf08634ed65f2",
+    "records.piccoma-blastmail-impact.title": "2cd84056248dace71c5c066a141ddc92deadb7097fe800edca1f98791ecf7512",
+    "records.piccoma-blastmail-impact.confirmed": "f362bac737ee84d2011e7888779581b579c1e411e4622cbcb2bdbff24ba7e06f",
+    "records.piccoma-blastmail-impact.unknown": "7d087d107f0e24c7d0b12936de546bb49cadb8c0324b5d4c0f9ffd9ca41ac801",
+    "records.piccoma-blastmail-impact.response": "a666600f9e9fad0eb55c25fcaa578b0db9efcedb844ca8891bd7899201f6dc51",
+    "records.piccoma-blastmail-impact.category": "f87e870bbe9c9b1b2024eb83b00b0ca71b95a974abdaa64ad19f2c0d7e5ff069",
+    "records.piccoma-blastmail-impact.as_of": "658a4b84ab335481346f6ca3ae16d3e3f580c0a6bbd0827b3f8be31fe6f4f4b6",
+    "records.environment-blastmail-impact.title": "0d79b3584e890c294783f3c4916988fc5081fdf41af278bda1730111f075c03a",
+    "records.environment-blastmail-impact.confirmed": "f86bffcfb8f3ce19e3c8ca6b5301c50453b49eeef745e613cf066138e00099be",
+    "records.environment-blastmail-impact.unknown": "1e60c4791196d8a4c15dc67c451979e4f09ceb678f97f8721b3a6cc76813a630",
+    "records.environment-blastmail-impact.response": "d444b358a84b9ada8cd495f7d734a24f7bea1e809fb308b5c1033685cf1671d4",
+    "records.environment-blastmail-impact.category": "fe0c37207cd9782ca3b9c5fcbc42f173a04259bd824ba2d3a0d8cd5abbdd52ca",
+    "records.environment-blastmail-impact.as_of": "426c4d41c58e681ffe574d5eec50f904f388fa31e9b1619664d0fcb7701d7882",
+    "records.studio-real-impact.title": "54a69048336bafaa085e38de8a596a6c566d1136540208177a8053c697461219",
+    "records.studio-real-impact.confirmed": "ea526da31d58ae9c30794edcac52a4c801036d0bd48bf28d93f58e3a763b9578",
+    "records.studio-real-impact.unknown": "cb0fe671fecf2842f29a55b43276fd391ef052dcbb6f5a6add89d41541a50eb2",
+    "records.studio-real-impact.response": "0cdc5cc0f2a072ca9978d7fb84fe3fbfecdb7e2f8054f8e0dee3269b406a4087",
+    "records.studio-real-impact.category": "f87e870bbe9c9b1b2024eb83b00b0ca71b95a974abdaa64ad19f2c0d7e5ff069",
+    "records.studio-real-impact.as_of": "32c3d0ea680c15ac4f179409ff75dae52702d66cf14948c095f8f42039e9dc61",
+    "records.yotsuya-itsuaki-impact.title": "9749da670da96ebe26a9b0eac5b614052ab7a9eb6f4c950061cf8d8e610fb00b",
+    "records.yotsuya-itsuaki-impact.confirmed": "fce9638098bfdd49fae427429d30ef4a487db3bb7cf2b9b412fa2aa2ca0fadf4",
+    "records.yotsuya-itsuaki-impact.unknown": "2b6d397232e788811c75107b10f7b9e6b79afe49950eb2c9a49c934b8d88b821",
+    "records.yotsuya-itsuaki-impact.response": "92469339a593d32f8005f22ad6c3078db816ee6cf615be64b828294b0d414933",
+    "records.yotsuya-itsuaki-impact.category": "f87e870bbe9c9b1b2024eb83b00b0ca71b95a974abdaa64ad19f2c0d7e5ff069",
+    "records.yotsuya-itsuaki-impact.as_of": "f1ffd7982eb730729468d2a3cec6effe0e6378cc78ccd43c17c2577c3111d8ac",
+    "records.connectwise-real-impact.title": "8defd495847775b23b11fd1f8505f1fd969d9e8e623f9f9cd03684c71452f54e",
+    "records.connectwise-real-impact.confirmed": "ce492ac6ec3eac6c0a86ce5766e750396efa7900fb75a3eeb6e490562bdca02a",
+    "records.connectwise-real-impact.unknown": "3a89773a144aa6209ae98155b8efb383cf4705e25820c93e8b38e2b854164c68",
+    "records.connectwise-real-impact.response": "5a6dad1961a6cbb9ff92d5e9a306a78da255e86b1dec1057e7fc247f0005c240",
+    "records.connectwise-real-impact.category": "03422f2332276b0fa79f9f647e9e1386e9a8ddae50a20baabac86f36e8807e43",
+    "records.connectwise-real-impact.as_of": "dd2ff9c6789303a492cbda376a4ad8d1fed643755b09aac3ea13ae6d010ba736",
+    "records.litellm-distribution-impact.title": "41fd2999306c5e92756f65408f4000975105a1e102e18dc931d36edf173b4a4a",
+    "records.litellm-distribution-impact.confirmed": "d1839fb644ec2797adc6e89877d6021f5cb2cba130e87a2ac743611d289c7949",
+    "records.litellm-distribution-impact.unknown": "7b10563d184f0c58c23f3d4694a980768ae4ebee030cf9b475521f6f034551c0",
+    "records.litellm-distribution-impact.response": "c1ab69f61602df81960254da38e8ea3465306c1611ccbc4c63beb612a0ba9a5e",
+    "records.litellm-distribution-impact.category": "fedbddddc55cce4fa4f24adc71958de2cc12bd5193bf2b3a9edb228b9ad4a785",
+    "records.litellm-distribution-impact.as_of": "1e2662f44f84d67e5f12ebba1de3e9bcfc98d6c778afb1911972658abd0ceab7",
+    "records.brotli-exploitation.title": "a16fe19205ff478ff3204cbed0167523ea5582668ee7fc578051c2d658573e58",
+    "records.brotli-exploitation.confirmed": "abcf67923e47b57d274eff52ef1943e3af239bab5f011596c45a9f2e2d065609",
+    "records.brotli-exploitation.unknown": "e7072812b82520ab6afe2ff6d716e11b9f658293c113ffe953da76bc66289e04",
+    "records.brotli-exploitation.response": "8eb57a018bc021aba9a7c85d924b2498956a64129ef8a96a73ce8e88154efa18",
+    "records.brotli-exploitation.category": "8b9a8cb9cdba4badb0cebdfbed01a30698eded13983e04b26cb53e38bb8d14c6",
+    "records.brotli-exploitation.as_of": "e2dd31628a8f9c2230a07dba2c1ec2c489a69108e8c653e29c697b86cb8550cb",
+    "records.commerce-exploitation.title": "f1a94de99b60a8be0745f0bcbd9d8fb1bb0bc139bbd19a0f48cb934493958894",
+    "records.commerce-exploitation.confirmed": "a9d004e7ad47150e12c63502720e22ac9dcdd4de895df71ba5be4eca47f6fc3e",
+    "records.commerce-exploitation.unknown": "e7072812b82520ab6afe2ff6d716e11b9f658293c113ffe953da76bc66289e04",
+    "records.commerce-exploitation.response": "8eb57a018bc021aba9a7c85d924b2498956a64129ef8a96a73ce8e88154efa18",
+    "records.commerce-exploitation.category": "8b9a8cb9cdba4badb0cebdfbed01a30698eded13983e04b26cb53e38bb8d14c6",
+    "records.commerce-exploitation.as_of": "e2dd31628a8f9c2230a07dba2c1ec2c489a69108e8c653e29c697b86cb8550cb",
+    "records.php-exploitation.title": "b93f5a57c60ab7840e8bd6c9eacbc08ef20f5bd0b4d6d8e55f3f44e20edbd9ec",
+    "records.php-exploitation.confirmed": "1006d31a8f56ef2cc26ba91512048e047e5f0348510f0335fb661322144f32f9",
+    "records.php-exploitation.unknown": "e7072812b82520ab6afe2ff6d716e11b9f658293c113ffe953da76bc66289e04",
+    "records.php-exploitation.response": "8eb57a018bc021aba9a7c85d924b2498956a64129ef8a96a73ce8e88154efa18",
+    "records.php-exploitation.category": "8b9a8cb9cdba4badb0cebdfbed01a30698eded13983e04b26cb53e38bb8d14c6",
+    "records.php-exploitation.as_of": "e2dd31628a8f9c2230a07dba2c1ec2c489a69108e8c653e29c697b86cb8550cb",
+    "records.fireblocks-potential.title": "8d3d13a72922c0db8c91cc3b551b49c658e7a649f6e84fa7975714534fea816b",
+    "records.fireblocks-potential.confirmed": "839b5015f75ce95f9da46ee6ebc15bff306559f48a8ddc3dd9052cf699295411",
+    "records.fireblocks-potential.unknown": "43be4ffbf347c22a84c9e7be787237860f24d2510bebbbd12096c31b8f477109",
+    "records.fireblocks-potential.response": "1c57a703f707295372d28f14160ac035757901f6a9fd6aae548e73de2ecf910b",
+    "records.fireblocks-potential.category": "c7d798b9709800b25c5ffe0a97d1f3abd727e92ccbb914bcc7c7929de7a70a56",
+    "records.fireblocks-potential.as_of": "6c6594d1450028805e0414b355edf623b85f072af565f708c3595e6ec2d1b8cd",
+    "caveats.0": "ffdfdd93b34e4ddedd4dcbb16e3c0541ceaeb12b9ebefd42069de21b85062725",
+    "caveats.1": "29d53787e4e2cc974ad5cab1ddf74a5c4ccb4eaea44aeba9b3fc5d572ff3d3c7",
+    "caveats.2": "47c8de097542c28311b80e80453265e65c3194be1fadb0a7a64bebd57ff1ba16",
+    "caveats.3": "0fc03b0104e07179c9d94b8f9175ffd1d9d5f286199ac389f3b859a2b1b0684e",
+    "caveats.4": "d8e2f07f1b1e68e554db8eb1d354e5313629ab268dd0e119355fcd91550f72ed"
+  },
+  "status": "translated",
+  "strings": {
+    "ui.title": "Wpływ na rzeczywisty świat — przestoje w działalności, wycieki informacji i straty finansowe",
+    "ui.description": "Potwierdzone w źródłach pierwotnych skutki dla rezerwacji medycznych, usług chmurowych, danych osobowych i finansów. Rozróżniamy rzeczywiste szkody, potwierdzone wykorzystanie podatności i nieustalone ryzyko oraz przedstawiamy stan przywracania działania i środki zaradcze.",
+    "ui.headline": "Co przestało działać i co utracono po drugiej stronie ekranu?",
+    "ui.intro": "Rezerwacje medyczne, infrastruktura pracy, dane osobowe, pieniądze. Zestawiamy rzeczywiste skutki potwierdzone w źródłach pierwotnych oraz kwestie, które pozostają nieznane.",
+    "ui.cutoff": "Kryteria analizy",
+    "ui.date_note": "Okres wystąpienia różni się zależnie od incydentu. To nie jest lista wyłącznie incydentów, które wydarzyły się po raz pierwszy w tym okresie.",
+    "ui.download": "Pobierz JSON ze źródłami",
+    "ui.about": "Jak czytać informacje i zasady redakcyjne",
+    "ui.guide_title": "Wagę zdarzeń oceniamy na podstawie potwierdzonego wpływu na życie codzienne i działalność.",
+    "ui.guide_body": "CVSS określa techniczną wagę podatności, a nie rzeczywistą kwotę strat ani liczbę poszkodowanych. Wartości nieznanych nie traktujemy jako zera, limitów rekompensaty jako łącznych strat, a liczby osób, adresatów, organizacji i przestrzeni roboczych nie sumujemy.",
+    "ui.jump": "Przejdź według stanu potwierdzenia",
+    "ui.confirmed-impact": "Potwierdzone szkody lub wpływ na działalność",
+    "ui.exploitation-confirmed": "Potwierdzone wykorzystanie podatności, nieznana skala szkód",
+    "ui.potential": "Możliwy wpływ, nieustalony zakres",
+    "ui.examples": "Przypadek",
+    "ui.confirmed": "Potwierdzony wpływ",
+    "ui.unknown": "Czego nie wiadomo",
+    "ui.response": "Przywracanie działania i kwestie do sprawdzenia przez użytkowników",
+    "ui.sources": "Źródła pierwotne",
+    "ui.limitations": "Ograniczenia tego zestawienia",
+    "ui.database_link": "Sprawdź warunki wystąpienia skutków i poprawki dla poszczególnych podatności →",
+    "ui.database_tab": "Dane z analizy",
+    "ui.impact_tab": "Wpływ na rzeczywisty świat",
+    "ui.home": "Przejdź do animowanego przeglądu",
+    "ui.language": "Wybierz język",
+    "ui.original": "Japoński oryginał",
+    "ui.notice": "To tłumaczenie AI wykonane przez Codex; nie zostało sprawdzone przez rodzimego użytkownika języka. Porównaj nazwy produktów, wersje, ustawienia i działania z oryginałem oraz oficjalnymi wskazówkami.",
+    "ui.advisory_versions": "Według komunikatów: wersje objęte podatnością i wersje z poprawkami",
+    "ui.affected": "Wersje objęte podatnością",
+    "ui.fixed": "Wersja z poprawką",
+    "ui.no_fix": "Nie wskazano wersji z poprawką",
+    "records.idcf-real-impact.title": "IDCF Cloud: przestoje i szyfrowanie w 495 przedsiębiorstwach i jednostkach samorządu",
+    "records.idcf-real-impact.confirmed": "Zatrzymanie i zaszyfrowanie maszyn wirtualnych w strefie 4 regionu Japonia Wschodnia 1. Potwierdzono możliwość pobrania kopii zapasowych przez 206 klientów. Nieuprawnione odczyty danych rejestracyjnych w portalu dotyczących maksymalnie 71 firm oraz maksymalnie 4 nieuprawnionych zmian haseł.",
+    "records.idcf-real-impact.unknown": "206 nie oznacza liczby zakończonych przywróceń działania. Firma podaje, że dane wewnątrz maszyn wirtualnych nie wyciekły na zewnątrz; nie potwierdzono też śladów wyniesienia danych rejestracyjnych. Nie opublikowano daty ostatecznego przywrócenia działania wszystkim klientom ani łącznych strat.",
+    "records.idcf-real-impact.response": "Zresetowano hasła. Zapewniono wsparcie przy migracji do środowisk zastępczych i pobieraniu kopii zapasowych.",
+    "records.idcf-real-impact.category": "Przestoje w działalności, opiece medycznej i usługach",
+    "records.idcf-real-impact.as_of": "Aktualizacja źródła: 2026-10-27",
+    "records.infoq-real-impact.confirmed": "Potwierdzono wyniesienie 894,082 rekordów danych osobowych. Odnotowano 611 nieuprawnionych wymian punktów na łączną kwotę 2,869,500 jenów. Usługę wstrzymano od dnia 3 miesiąca 10; wpłynęło to również na część zleconych badań.",
+    "records.infoq-real-impact.unknown": "Początkowo podawane maksimum 948,498 rekordów nie jest potwierdzoną liczbą rekordów objętych szkodą. Z treści nie można ustalić identyfikatora CVE podatności, daty ostatecznego przywrócenia działania ani łącznej kwoty wypłaconych rekompensat.",
+    "records.infoq-real-impact.response": "Unieważniono hasła wszystkich członków. Zapowiedziano pełną rekompensatę za punkty wymienione bez uprawnienia. Należy zmienić hasła również w innych usługach, w których używano tego samego hasła.",
+    "records.infoq-real-impact.category": "Potwierdzone skutki finansowe",
+    "records.infoq-real-impact.as_of": "Aktualizacja źródła: 2026-10-14",
+    "records.gmo-real-impact.title": "Onamae.com: zatrzymanie środowiska operacyjnego i wyniesienie informacji",
+    "records.gmo-real-impact.confirmed": "Usługę wstrzymano od dnia 21 miesiąca 10. Potwierdzono wyniesienie danych klientów na zewnątrz. Około 04:00 dnia 28 miesiąca 10 potwierdzono wyłączenie domeny witryny sprawców.",
+    "records.gmo-real-impact.unknown": "Autentyczność opublikowanych treści, liczba poszkodowanych i łączna wartość nieuprawnionych transakcji pozostają nieustalone. Wyłączenie domeny nie oznacza odzyskania wszystkich informacji ani przywrócenia usługi.",
+    "records.gmo-real-impact.response": "Przyjęto zasadę kierowania użytkowników do usług zastępczych bez ponownego uruchamiania obecnej infrastruktury w dotychczasowej postaci. Ogłoszono rekompensatę zrealizowanych strat z potwierdzonych nieuprawnionych transakcji oraz specjalne świadczenie pomocowe.",
+    "records.gmo-real-impact.category": "Przestoje w działalności, opiece medycznej i usługach",
+    "records.gmo-real-impact.as_of": "Aktualizacja źródła: 2026-10-28",
+    "records.atlink-real-impact.title": "Atlink: wstrzymanie rezerwacji pacjentów i usług powiązanych",
+    "records.atlink-real-impact.confirmed": "Działanie wstrzymano późną nocą dnia 14 miesiąca 10. Potwierdzono pozyskanie informacji z bazy danych i wyciek danych osobowych w okresie od końca miesiąca 9 do połowy miesiąca 10. Według stanu na 12:30 dnia 28 aplikacja pacjenta, rezerwacje internetowe i inne funkcje nadal nie działały.",
+    "records.atlink-real-impact.unknown": "Liczba rekordów objętych wyciekiem i data wznowienia wszystkich funkcji są nadal badane i ustalane. Rozpoczęcie testów beta w niektórych placówkach medycznych nie oznacza wznowienia powszechnej dostępności.",
+    "records.atlink-real-impact.response": "Zablokowano drogę włamania i unieważniono powiązane dane uwierzytelniające. W sprawie zmiany rezerwacji należy kontaktować się bezpośrednio z placówką medyczną. Po wznowieniu działania należy ustawić nowe hasło.",
+    "records.atlink-real-impact.category": "Przestoje w działalności, opiece medycznej i usługach",
+    "records.atlink-real-impact.as_of": "Aktualizacja źródła: 2026-10-28",
+    "records.aiiku-atlink-impact.title": "Szpital Aiiku: utrudnienia w rezerwacji szczepień i opieki poporodowej",
+    "records.aiiku-atlink-impact.confirmed": "Wskutek zatrzymania Atlink niedostępne są rezerwacje szczepień pediatrycznych, rezerwacje pediatrycznej dziennej opieki poporodowej oraz funkcja wywoływania pacjentów na wizytę. Pozostałe internetowe systemy rezerwacji działają normalnie.",
+    "records.aiiku-atlink-impact.unknown": "Ten komunikat nie potwierdza całkowitego wstrzymania świadczeń medycznych ani szkód zagrażających życiu. Jest to przykład wpływu incydentu Atlink na jego użytkowników, a nie odrębny atak.",
+    "records.aiiku-atlink-impact.response": "Należy sprawdzić szpitalne instrukcje dotyczące alternatywnych sposobów rezerwacji, a w sprawie wymaganych formalności kontaktować się bezpośrednio ze szpitalem.",
+    "records.aiiku-atlink-impact.category": "Przestoje w działalności, opiece medycznej i usługach",
+    "records.aiiku-atlink-impact.as_of": "Aktualizacja źródła: 2026-10-23",
+    "records.railway-real-impact.title": "Railway: przerwy w budowaniu i wdrażaniu oraz wstrzymanie nowych rejestracji",
+    "records.railway-real-impact.confirmed": "Wystąpiły przerwy w budowaniu i wdrażaniu oraz okres niedostępności panelu, API, CLI i wsparcia. Według stanu na 15:19 UTC dnia 27 miesiąca 10 nowe rejestracje nadal były wstrzymane. Podano, że wdrożenia istniejących klientów nadal działały.",
+    "records.railway-real-impact.unknown": "Maksymalnie 1.85% i około 100,000 przestrzeni roboczych to potencjalny zakres wpływu na zmienne środowiskowe, a nie potwierdzona liczba osób objętych wyciekiem. Samo powiadomienie o unieważnieniu klucza nie stanowi potwierdzenia naruszenia.",
+    "records.railway-real-impact.response": "Unieważniono i ponownie wydano zapisane sekrety oraz przeprowadzono audyty GitHub i rejestrów. Kolejna aktualizacja statusu, zaplanowana na 16:00 UTC dnia 28 miesiąca 10, przypada po czasie odniesienia tego zestawienia.",
+    "records.railway-real-impact.category": "Przestoje w działalności, opiece medycznej i usługach",
+    "records.railway-real-impact.as_of": "Aktualizacja źródła: 2026-10-27",
+    "records.piccoma-blastmail-impact.confirmed": "Potwierdzono wyciek 1,002,404 adresów e-mail odbiorców z 1 wysyłek newslettera. Wstrzymano newsletter.",
+    "records.piccoma-blastmail-impact.unknown": "Jest to liczba adresów odbiorców, a nie liczba poszkodowanych na świecie ani wśród wszystkich klientów Blastmail. Podano, że sama usługa Piccoma, hasła i informacje o zakupach nie zostały dotknięte incydentem i można normalnie korzystać z usługi.",
+    "records.piccoma-blastmail-impact.response": "Wysłano indywidualne powiadomienia, zgłoszono incydent organom i zmieniono ustawienia uwierzytelniania nadawcy. Należy uważać na wiadomości podszywające się pod inne podmioty.",
+    "records.piccoma-blastmail-impact.category": "Dane osobowe i informacje poufne",
+    "records.piccoma-blastmail-impact.as_of": "Aktualizacja źródła: 2026-10-24",
+    "records.environment-blastmail-impact.title": "Ministerstwo Środowiska: wstrzymanie wysyłki i zarządzania powiązanymi newsletterami",
+    "records.environment-blastmail-impact.confirmed": "Niemożliwe jest wysyłanie i obsługiwanie 6 powiązanych newsletterów. Panel administracyjny i API zatrzymano o 00:30 dnia 21 miesiąca 10, a wysyłkę około 01:00.",
+    "records.environment-blastmail-impact.unknown": "Nie potwierdzono wycieku danych odbiorców. Nie należy przenosić ustaleń dotyczących Piccoma na Ministerstwo Środowiska. Nie podano liczby objętych rekordów.",
+    "records.environment-blastmail-impact.response": "Trwa ustalanie, czy doszło do wycieku, na podstawie dochodzenia usługodawcy. Poinformowano, że termin wznowienia nie jest ustalony.",
+    "records.environment-blastmail-impact.category": "Przestoje w działalności, opiece medycznej i usługach",
+    "records.environment-blastmail-impact.as_of": "Aktualizacja źródła: 2026-10-23",
+    "records.studio-real-impact.title": "Studio: możliwość pozyskania informacji oraz obciążenie związane z powiadomieniami i wymianą kluczy",
+    "records.studio-real-impact.confirmed": "Włamanie nastąpiło od dnia 30 miesiąca 9 do dnia 1 miesiąca 10, a możliwość pozyskania informacji z zewnątrz utrzymywała się do dnia 14 miesiąca 10. Odczytano także klucze deszyfrujące, więc treści formularzy, klucze API i inne dane mogły zostać poznane.",
+    "records.studio-real-impact.unknown": "Nie potwierdzono faktycznego pozyskania informacji. Liczba objętych rekordów i szkody wtórne są badane. Nie potwierdzono modyfikacji ani usunięcia danych.",
+    "records.studio-real-impact.response": "Usunięto drogę dostępu i wymieniono klucze. Zewnętrzne klucze API należy unieważnić u ich wystawców. Aktualizacja z dnia 28 miesiąca 10 o 00:30 zapowiada rozpoczęcie przyjmowania wspólnych zgłoszeń na początku miesiąca 11; powiadomienia osób, których dane dotyczą, są odrębnym działaniem.",
+    "records.studio-real-impact.category": "Dane osobowe i informacje poufne",
+    "records.studio-real-impact.as_of": "Aktualizacja źródła: 2026-10-28",
+    "records.yotsuya-itsuaki-impact.title": "Yotsuya Medical Cube: wyciek dawnych danych rezerwacyjnych",
+    "records.yotsuya-itsuaki-impact.confirmed": "Podczas włamania w dniach 21–22 miesiąca 9 do dawnego zewnętrznego systemu rezerwacji Itsuaki nieuprawnienie pozyskano dane rezerwacyjne. Potwierdzono wyciek imion i nazwisk, numerów telefonów oraz adresów e-mail.",
+    "records.yotsuya-itsuaki-impact.unknown": "Trwa badanie, czy wyciekły daty urodzenia, płeć i dodatkowe pola rezerwacji. Nie opublikowano liczby rekordów. Nie potwierdzono wpływu na obecny system rezerwacji używany od miesiąca 3 roku 2025 ani na elektroniczną dokumentację medyczną, a także szkód wtórnych.",
+    "records.yotsuya-itsuaki-impact.response": "Firma Fines stopniowo kontaktuje się z osobami objętymi incydentem. Szpital zgłosił incydent organom, zażądał działań zapobiegających powtórzeniu i szczegółowego dochodzenia oraz zalecił ostrożność wobec kontaktów wykorzystujących ten incydent.",
+    "records.yotsuya-itsuaki-impact.category": "Dane osobowe i informacje poufne",
+    "records.yotsuya-itsuaki-impact.as_of": "Aktualizacja źródła: 2026-10-20",
+    "records.connectwise-real-impact.title": "ConnectWise: utrudnienia w odtwarzaniu kopii zapasowych, monitorowaniu i zarządzaniu",
+    "records.connectwise-real-impact.confirmed": "Potwierdzono nieuprawniony dostęp do danych uwierzytelniających aplikacji i przerwy w świadczeniu usług. Utrudnienia dotyczą zapisywania kopii zapasowych, dostępu do archiwów, odtwarzania oraz monitorowania i zarządzania SaaS.",
+    "records.connectwise-real-impact.unknown": "Nie opublikowano liczby klientów, wartości szkód ani daty i godziny pełnego przywrócenia działania. Zakończenie przygotowań do etapowego przywracania nie potwierdza rozpoczęcia odtwarzania.",
+    "records.connectwise-real-impact.response": "Według stanu na 14:30 UTC dnia 27 miesiąca 10 oczekiwano na weryfikację przez podmiot trzeci. Połączenia objęte incydentem należy pozostawić wyłączone do otrzymania indywidualnych instrukcji.",
+    "records.connectwise-real-impact.category": "Kopie zapasowe i ciągłość działania",
+    "records.connectwise-real-impact.as_of": "Aktualizacja 10/27 o 14:30 UTC",
+    "records.litellm-distribution-impact.title": "LiteLLM: dystrybucja złośliwych pakietów i obciążenie związane z odbudową środowiska",
+    "records.litellm-distribution-impact.confirmed": "Dnia 21 miesiąca 10 faktycznie rozpowszechniono złośliwe 1.107.0 i kontener oraz potwierdzono naruszenie infrastruktury publikowania wydań.",
+    "records.litellm-distribution-impact.unknown": "Nie opublikowano informacji o wycieku kluczy wszystkich użytkowników, liczbie poszkodowanych organizacji ani łącznej skradzionej kwocie. Nie należy wykorzystywać statystyk szkód z odrębnego incydentu z miesiąca 3.",
+    "records.litellm-distribution-impact.response": "Należy sprawdzić instalacje objęte incydentem oraz odizolować i odbudować środowisko. Unieważnić i ponownie wydać klucze, do których mógł istnieć dostęp. Przed zwykłą aktualizacją sprawdzić ryzyko ponownego wykonania mechanizmu startup hook.",
+    "records.litellm-distribution-impact.category": "Łańcuch dostaw oprogramowania",
+    "records.litellm-distribution-impact.as_of": "Incydent 10/21 / analiza 10/23",
+    "records.brotli-exploitation.title": "Brotli: potwierdzone wykorzystanie podatności, nieznana łączna liczba poszkodowanych w produktach zależnych",
+    "records.brotli-exploitation.confirmed": "CISA KEV umieściła CVE-2026-111497 w katalogu podatności o potwierdzonym wykorzystaniu.",
+    "records.brotli-exploitation.unknown": "Ten katalog nie podaje konkretnych organizacji korzystających z produktu, liczby osób, rzeczywistych strat ani czasu pierwszego ataku. Samo zainstalowanie produktu nie oznacza, że doszło już do naruszenia.",
+    "records.brotli-exploitation.response": "Należy sprawdzić poprawki dla poszczególnych produktów i linii wersji oraz niezależnie od aktualizacji zbadać oznaki naruszenia. Porównać wersje osadzone w produktach zależnych z wersjami objętymi wsparciem.",
+    "records.brotli-exploitation.category": "Wykorzystane podatności",
+    "records.brotli-exploitation.as_of": "KEV, wydanie 2026.10.27",
+    "records.commerce-exploitation.title": "Adobe Commerce: wzrost priorytetu istniejących poprawek",
+    "records.commerce-exploitation.confirmed": "CISA KEV umieściła CVE-2026-48356 w katalogu podatności o potwierdzonym wykorzystaniu.",
+    "records.commerce-exploitation.unknown": "Ten katalog nie podaje konkretnych organizacji korzystających z produktu, liczby osób, rzeczywistych strat ani czasu pierwszego ataku. Samo zainstalowanie produktu nie oznacza, że doszło już do naruszenia.",
+    "records.commerce-exploitation.response": "Należy sprawdzić poprawki dla poszczególnych produktów i linii wersji oraz niezależnie od aktualizacji zbadać oznaki naruszenia. Porównać wersje osadzone w produktach zależnych z wersjami objętymi wsparciem.",
+    "records.commerce-exploitation.category": "Wykorzystane podatności",
+    "records.commerce-exploitation.as_of": "KEV, wydanie 2026.10.27",
+    "records.php-exploitation.title": "PHP: potwierdzone wykorzystanie podatności nie oznacza naruszenia wszystkich witryn",
+    "records.php-exploitation.confirmed": "CISA KEV umieściła CVE-2026-109618 / CVE-2026-109619 w katalogu podatności o potwierdzonym wykorzystaniu.",
+    "records.php-exploitation.unknown": "Ten katalog nie podaje konkretnych organizacji korzystających z produktu, liczby osób, rzeczywistych strat ani czasu pierwszego ataku. Samo zainstalowanie produktu nie oznacza, że doszło już do naruszenia.",
+    "records.php-exploitation.response": "Należy sprawdzić poprawki dla poszczególnych produktów i linii wersji oraz niezależnie od aktualizacji zbadać oznaki naruszenia. Porównać wersje osadzone w produktach zależnych z wersjami objętymi wsparciem.",
+    "records.php-exploitation.category": "Wykorzystane podatności",
+    "records.php-exploitation.as_of": "KEV, wydanie 2026.10.27",
+    "records.fireblocks-potential.title": "Fireblocks mpc-lib: zagrożenie w hierarchii udziałów klucza, faktyczna kradzież niepotwierdzona",
+    "records.fireblocks-potential.confirmed": "CERT opublikował informację o problemie umożliwiającym potencjalnie wyprowadzenie udziału przodka lub udziału głównego tego samego uczestnika z udziału potomnego i kodu łańcucha.",
+    "records.fireblocks-potential.unknown": "Źródło nie podaje informacji o faktycznej kradzieży aktywów ani liczbie poszkodowanych klientów. Nie można stwierdzić, że samo to pozwala uzyskać klucz do przelewów spełniający wymagany próg.",
+    "records.fireblocks-potential.response": "Wersja z poprawką nie jest jeszcze dostępna. Należy chronić kod łańcucha jako informację poufną i zbadać całą hierarchię udziałów klucza.",
+    "records.fireblocks-potential.category": "Kryptoaktywa i zarządzanie kluczami",
+    "records.fireblocks-potential.as_of": "Rewizja 10/27 o 14:45 UTC",
+    "caveats.0": "Wybrane przypadki. parent_incident oznacza wpływ tego samego naruszenia na użytkowników i nie należy go doliczać jako odrębnego incydentu. potential oznacza brak potwierdzenia faktycznego pozyskania informacji.",
+    "caveats.1": "To lista przypadków zweryfikowanych w źródłach pierwotnych, a nie światowe statystyki szkód. Nie jest to liczba nowych incydentów w tym okresie.",
+    "caveats.2": "Rozróżniamy czas wystąpienia, publikacji, aktualizacji i pozyskania źródła, a kwoty, liczby osób i rekordów zachowujemy w jednostkach użytych w źródłach. Nieopublikowanych łącznych strat nie przedstawiamy jako 0 jenów.",
+    "caveats.3": "Pozyskane materiały przedstawiają aktualne rewizje z czasu po momencie odniesienia. Nie można w pełni odtworzyć wszystkich wcześniejszych treści stron dynamicznych.",
+    "caveats.4": "Przykłady wpływu na użytkowników tej samej infrastruktury powiązano za pomocą parent_incident. Nie należy ich sumować jako odrębnych incydentów.",
+    "records.infoq-real-impact.title": "infoQ: wyniesienie 89 dziesiątek tysięcy 4,082 rekordów oraz nieuprawniona wymiana punktów",
+    "records.piccoma-blastmail-impact.title": "Piccoma (ピッコマ): wyciek 100 dziesiątek tysięcy 2,404 adresów odbiorców"
+  },
+  "provenance": {
+    "engine": "OpenAI Codex CLI",
+    "model_selection": "CLI default; not overridden",
+    "prompt_version": "incident-translation-v1",
+    "generated_at": "2026-10-28T05:54:19.585206+00:00",
+    "usage": {
+      "input_tokens": 19354,
+      "cached_input_tokens": 17920,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 199,
+      "reasoning_output_tokens": 88
+    },
+    "human_reviewed": false
+  },
+  "impact": {
+    "cutoff": "2026-10-28T04:18:44Z",
+    "records": [
+      {
+        "id": "idcf-real-impact",
+        "title": "IDCF Cloud: przestoje i szyfrowanie w 495 przedsiębiorstwach i jednostkach samorządu",
+        "confirmed": "Zatrzymanie i zaszyfrowanie maszyn wirtualnych w strefie 4 regionu Japonia Wschodnia 1. Potwierdzono możliwość pobrania kopii zapasowych przez 206 klientów. Nieuprawnione odczyty danych rejestracyjnych w portalu dotyczących maksymalnie 71 firm oraz maksymalnie 4 nieuprawnionych zmian haseł.",
+        "unknown": "206 nie oznacza liczby zakończonych przywróceń działania. Firma podaje, że dane wewnątrz maszyn wirtualnych nie wyciekły na zewnątrz; nie potwierdzono też śladów wyniesienia danych rejestracyjnych. Nie opublikowano daty ostatecznego przywrócenia działania wszystkim klientom ani łącznych strat.",
+        "response": "Zresetowano hasła. Zapewniono wsparcie przy migracji do środowisk zastępczych i pobieraniu kopii zapasowych.",
+        "status": "confirmed-impact",
+        "category": "Przestoje w działalności, opiece medycznej i usługach",
+        "sources": [
+          {
+            "name": "IDCF第7報・10月27日",
+            "url": "https://www.idcf.jp/news/topics/20261027001/"
+          }
+        ],
+        "event_date": "2026-10-07",
+        "source_date": "2026-10-27",
+        "as_of": "Aktualizacja źródła: 2026-10-27",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "infoq-real-impact",
+        "title": "infoQ: wyniesienie 89 dziesiątek tysięcy 4,082 rekordów oraz nieuprawniona wymiana punktów",
+        "confirmed": "Potwierdzono wyniesienie 894,082 rekordów danych osobowych. Odnotowano 611 nieuprawnionych wymian punktów na łączną kwotę 2,869,500 jenów. Usługę wstrzymano od dnia 3 miesiąca 10; wpłynęło to również na część zleconych badań.",
+        "unknown": "Początkowo podawane maksimum 948,498 rekordów nie jest potwierdzoną liczbą rekordów objętych szkodą. Z treści nie można ustalić identyfikatora CVE podatności, daty ostatecznego przywrócenia działania ani łącznej kwoty wypłaconych rekompensat.",
+        "response": "Unieważniono hasła wszystkich członków. Zapowiedziano pełną rekompensatę za punkty wymienione bez uprawnienia. Należy zmienić hasła również w innych usługach, w których używano tego samego hasła.",
+        "status": "confirmed-impact",
+        "category": "Potwierdzone skutki finansowe",
+        "sources": [
+          {
+            "name": "infoQ第2報・10月14日",
+            "url": "https://gmo-research.ai/pressroom/notice/notice-20261014"
+          }
+        ],
+        "event_date": "2026-10-03",
+        "source_date": "2026-10-14",
+        "as_of": "Aktualizacja źródła: 2026-10-14",
+        "total_loss_jpy": null,
+        "reported_financial_impact": {
+          "amount": 2869500,
+          "currency": "JPY",
+          "unit": "unauthorized point exchanges",
+          "count": 611,
+          "is_total_incident_loss": false
+        }
+      },
+      {
+        "id": "gmo-real-impact",
+        "title": "Onamae.com: zatrzymanie środowiska operacyjnego i wyniesienie informacji",
+        "confirmed": "Usługę wstrzymano od dnia 21 miesiąca 10. Potwierdzono wyniesienie danych klientów na zewnątrz. Około 04:00 dnia 28 miesiąca 10 potwierdzono wyłączenie domeny witryny sprawców.",
+        "unknown": "Autentyczność opublikowanych treści, liczba poszkodowanych i łączna wartość nieuprawnionych transakcji pozostają nieustalone. Wyłączenie domeny nie oznacza odzyskania wszystkich informacji ani przywrócenia usługi.",
+        "response": "Przyjęto zasadę kierowania użytkowników do usług zastępczych bez ponownego uruchamiania obecnej infrastruktury w dotychczasowej postaci. Ogłoszono rekompensatę zrealizowanych strat z potwierdzonych nieuprawnionych transakcji oraz specjalne świadczenie pomocowe.",
+        "status": "confirmed-impact",
+        "category": "Przestoje w działalności, opiece medycznej i usługach",
+        "sources": [
+          {
+            "name": "GMO第4報",
+            "url": "https://group.gmo/info/alert/20261024/"
+          },
+          {
+            "name": "GMO第12報",
+            "url": "https://group.gmo/info/alert/2026102705/"
+          },
+          {
+            "name": "GMO第13報・10月28日11時",
+            "url": "https://group.gmo/info/alert/20261028/"
+          }
+        ],
+        "event_date": "2026-10-21",
+        "source_date": "2026-10-28",
+        "as_of": "Aktualizacja źródła: 2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "atlink-real-impact",
+        "title": "Atlink: wstrzymanie rezerwacji pacjentów i usług powiązanych",
+        "confirmed": "Działanie wstrzymano późną nocą dnia 14 miesiąca 10. Potwierdzono pozyskanie informacji z bazy danych i wyciek danych osobowych w okresie od końca miesiąca 9 do połowy miesiąca 10. Według stanu na 12:30 dnia 28 aplikacja pacjenta, rezerwacje internetowe i inne funkcje nadal nie działały.",
+        "unknown": "Liczba rekordów objętych wyciekiem i data wznowienia wszystkich funkcji są nadal badane i ustalane. Rozpoczęcie testów beta w niektórych placówkach medycznych nie oznacza wznowienia powszechnej dostępności.",
+        "response": "Zablokowano drogę włamania i unieważniono powiązane dane uwierzytelniające. W sprawie zmiany rezerwacji należy kontaktować się bezpośrednio z placówką medyczną. Po wznowieniu działania należy ustawić nowe hasło.",
+        "status": "confirmed-impact",
+        "category": "Przestoje w działalności, opiece medycznej i usługach",
+        "sources": [
+          {
+            "name": "メドレー調査案内",
+            "url": "https://www.medley.jp/notice/20261015.html"
+          },
+          {
+            "name": "アットリンク調査状況",
+            "url": "https://at-link.net/information/アットリンクへの不正アクセスに関する調査状況/"
+          },
+          {
+            "name": "運営状況・10月28日12時30分",
+            "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/"
+          }
+        ],
+        "event_date": "2026-10-14",
+        "source_date": "2026-10-28",
+        "as_of": "Aktualizacja źródła: 2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "aiiku-atlink-impact",
+        "title": "Szpital Aiiku: utrudnienia w rezerwacji szczepień i opieki poporodowej",
+        "confirmed": "Wskutek zatrzymania Atlink niedostępne są rezerwacje szczepień pediatrycznych, rezerwacje pediatrycznej dziennej opieki poporodowej oraz funkcja wywoływania pacjentów na wizytę. Pozostałe internetowe systemy rezerwacji działają normalnie.",
+        "unknown": "Ten komunikat nie potwierdza całkowitego wstrzymania świadczeń medycznych ani szkód zagrażających życiu. Jest to przykład wpływu incydentu Atlink na jego użytkowników, a nie odrębny atak.",
+        "response": "Należy sprawdzić szpitalne instrukcje dotyczące alternatywnych sposobów rezerwacji, a w sprawie wymaganych formalności kontaktować się bezpośrednio ze szpitalem.",
+        "status": "confirmed-impact",
+        "category": "Przestoje w działalności, opiece medycznej i usługach",
+        "sources": [
+          {
+            "name": "愛育病院・10月23日更新",
+            "url": "https://www.aiiku.net/news/news-3482/"
+          }
+        ],
+        "source_date": "2026-10-23",
+        "parent_incident": "atlink-real-impact",
+        "as_of": "Aktualizacja źródła: 2026-10-23",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "railway-real-impact",
+        "title": "Railway: przerwy w budowaniu i wdrażaniu oraz wstrzymanie nowych rejestracji",
+        "confirmed": "Wystąpiły przerwy w budowaniu i wdrażaniu oraz okres niedostępności panelu, API, CLI i wsparcia. Według stanu na 15:19 UTC dnia 27 miesiąca 10 nowe rejestracje nadal były wstrzymane. Podano, że wdrożenia istniejących klientów nadal działały.",
+        "unknown": "Maksymalnie 1.85% i około 100,000 przestrzeni roboczych to potencjalny zakres wpływu na zmienne środowiskowe, a nie potwierdzona liczba osób objętych wyciekiem. Samo powiadomienie o unieważnieniu klucza nie stanowi potwierdzenia naruszenia.",
+        "response": "Unieważniono i ponownie wydano zapisane sekrety oraz przeprowadzono audyty GitHub i rejestrów. Kolejna aktualizacja statusu, zaplanowana na 16:00 UTC dnia 28 miesiąca 10, przypada po czasie odniesienia tego zestawienia.",
+        "status": "confirmed-impact",
+        "category": "Przestoje w działalności, opiece medycznej i usługach",
+        "sources": [
+          {
+            "name": "Railway一次報告",
+            "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+          },
+          {
+            "name": "Railway status",
+            "url": "https://status.railway.com/"
+          }
+        ],
+        "event_date": "2026-10-20",
+        "source_date": "2026-10-27",
+        "as_of": "Aktualizacja źródła: 2026-10-27",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "piccoma-blastmail-impact",
+        "title": "Piccoma (ピッコマ): wyciek 100 dziesiątek tysięcy 2,404 adresów odbiorców",
+        "confirmed": "Potwierdzono wyciek 1,002,404 adresów e-mail odbiorców z 1 wysyłek newslettera. Wstrzymano newsletter.",
+        "unknown": "Jest to liczba adresów odbiorców, a nie liczba poszkodowanych na świecie ani wśród wszystkich klientów Blastmail. Podano, że sama usługa Piccoma, hasła i informacje o zakupach nie zostały dotknięte incydentem i można normalnie korzystać z usługi.",
+        "response": "Wysłano indywidualne powiadomienia, zgłoszono incydent organom i zmieniono ustawienia uwierzytelniania nadawcy. Należy uważać na wiadomości podszywające się pod inne podmioty.",
+        "status": "confirmed-impact",
+        "category": "Dane osobowe i informacje poufne",
+        "sources": [
+          {
+            "name": "ピッコマ第1報・10月24日",
+            "url": "https://jp.piccoma.com/web/notice_detail/7503"
+          }
+        ],
+        "source_date": "2026-10-24",
+        "parent_incident": "blastmail",
+        "as_of": "Aktualizacja źródła: 2026-10-24",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "environment-blastmail-impact",
+        "title": "Ministerstwo Środowiska: wstrzymanie wysyłki i zarządzania powiązanymi newsletterami",
+        "confirmed": "Niemożliwe jest wysyłanie i obsługiwanie 6 powiązanych newsletterów. Panel administracyjny i API zatrzymano o 00:30 dnia 21 miesiąca 10, a wysyłkę około 01:00.",
+        "unknown": "Nie potwierdzono wycieku danych odbiorców. Nie należy przenosić ustaleń dotyczących Piccoma na Ministerstwo Środowiska. Nie podano liczby objętych rekordów.",
+        "response": "Trwa ustalanie, czy doszło do wycieku, na podstawie dochodzenia usługodawcy. Poinformowano, że termin wznowienia nie jest ustalony.",
+        "status": "confirmed-impact",
+        "category": "Przestoje w działalności, opiece medycznej i usługach",
+        "sources": [
+          {
+            "name": "環境省・10月23日",
+            "url": "https://www.env.go.jp/press/press_05784.html"
+          }
+        ],
+        "source_date": "2026-10-23",
+        "parent_incident": "blastmail",
+        "as_of": "Aktualizacja źródła: 2026-10-23",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "studio-real-impact",
+        "title": "Studio: możliwość pozyskania informacji oraz obciążenie związane z powiadomieniami i wymianą kluczy",
+        "confirmed": "Włamanie nastąpiło od dnia 30 miesiąca 9 do dnia 1 miesiąca 10, a możliwość pozyskania informacji z zewnątrz utrzymywała się do dnia 14 miesiąca 10. Odczytano także klucze deszyfrujące, więc treści formularzy, klucze API i inne dane mogły zostać poznane.",
+        "unknown": "Nie potwierdzono faktycznego pozyskania informacji. Liczba objętych rekordów i szkody wtórne są badane. Nie potwierdzono modyfikacji ani usunięcia danych.",
+        "response": "Usunięto drogę dostępu i wymieniono klucze. Zewnętrzne klucze API należy unieważnić u ich wystawców. Aktualizacja z dnia 28 miesiąca 10 o 00:30 zapowiada rozpoczęcie przyjmowania wspólnych zgłoszeń na początku miesiąca 11; powiadomienia osób, których dane dotyczą, są odrębnym działaniem.",
+        "status": "potential",
+        "category": "Dane osobowe i informacje poufne",
+        "sources": [
+          {
+            "name": "Studio公式ポータル",
+            "url": "https://studio.design/ja/security/notice/2026-10-incident"
+          }
+        ],
+        "source_date": "2026-10-28",
+        "as_of": "Aktualizacja źródła: 2026-10-28",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "yotsuya-itsuaki-impact",
+        "title": "Yotsuya Medical Cube: wyciek dawnych danych rezerwacyjnych",
+        "confirmed": "Podczas włamania w dniach 21–22 miesiąca 9 do dawnego zewnętrznego systemu rezerwacji Itsuaki nieuprawnienie pozyskano dane rezerwacyjne. Potwierdzono wyciek imion i nazwisk, numerów telefonów oraz adresów e-mail.",
+        "unknown": "Trwa badanie, czy wyciekły daty urodzenia, płeć i dodatkowe pola rezerwacji. Nie opublikowano liczby rekordów. Nie potwierdzono wpływu na obecny system rezerwacji używany od miesiąca 3 roku 2025 ani na elektroniczną dokumentację medyczną, a także szkód wtórnych.",
+        "response": "Firma Fines stopniowo kontaktuje się z osobami objętymi incydentem. Szpital zgłosił incydent organom, zażądał działań zapobiegających powtórzeniu i szczegółowego dochodzenia oraz zalecił ostrożność wobec kontaktów wykorzystujących ten incydent.",
+        "status": "confirmed-impact",
+        "category": "Dane osobowe i informacje poufne",
+        "sources": [
+          {
+            "name": "四谷メディカルキューブ・10月20日",
+            "url": "https://www.mcube.jp/news/20261020.html"
+          }
+        ],
+        "event_date": "2026-09-21",
+        "source_date": "2026-10-20",
+        "as_of": "Aktualizacja źródła: 2026-10-20",
+        "total_loss_jpy": null
+      },
+      {
+        "id": "connectwise-real-impact",
+        "title": "ConnectWise: utrudnienia w odtwarzaniu kopii zapasowych, monitorowaniu i zarządzaniu",
+        "confirmed": "Potwierdzono nieuprawniony dostęp do danych uwierzytelniających aplikacji i przerwy w świadczeniu usług. Utrudnienia dotyczą zapisywania kopii zapasowych, dostępu do archiwów, odtwarzania oraz monitorowania i zarządzania SaaS.",
+        "unknown": "Nie opublikowano liczby klientów, wartości szkód ani daty i godziny pełnego przywrócenia działania. Zakończenie przygotowań do etapowego przywracania nie potwierdza rozpoczęcia odtwarzania.",
+        "response": "Według stanu na 14:30 UTC dnia 27 miesiąca 10 oczekiwano na weryfikację przez podmiot trzeci. Połączenia objęte incydentem należy pozostawić wyłączone do otrzymania indywidualnych instrukcji.",
+        "status": "confirmed-impact",
+        "category": "Kopie zapasowe i ciągłość działania",
+        "as_of": "Aktualizacja 10/27 o 14:30 UTC",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "ConnectWise Trust Center",
+            "url": "https://www.connectwise.com/company/trust/advisories"
+          }
+        ]
+      },
+      {
+        "id": "litellm-distribution-impact",
+        "title": "LiteLLM: dystrybucja złośliwych pakietów i obciążenie związane z odbudową środowiska",
+        "confirmed": "Dnia 21 miesiąca 10 faktycznie rozpowszechniono złośliwe 1.107.0 i kontener oraz potwierdzono naruszenie infrastruktury publikowania wydań.",
+        "unknown": "Nie opublikowano informacji o wycieku kluczy wszystkich użytkowników, liczbie poszkodowanych organizacji ani łącznej skradzionej kwocie. Nie należy wykorzystywać statystyk szkód z odrębnego incydentu z miesiąca 3.",
+        "response": "Należy sprawdzić instalacje objęte incydentem oraz odizolować i odbudować środowisko. Unieważnić i ponownie wydać klucze, do których mógł istnieć dostęp. Przed zwykłą aktualizacją sprawdzić ryzyko ponownego wykonania mechanizmu startup hook.",
+        "status": "confirmed-impact",
+        "category": "Łańcuch dostaw oprogramowania",
+        "as_of": "Incydent 10/21 / analiza 10/23",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "LiteLLM公式事件報告",
+            "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
+          },
+          {
+            "name": "公式攻撃連鎖分析",
+            "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+          }
+        ]
+      },
+      {
+        "id": "brotli-exploitation",
+        "title": "Brotli: potwierdzone wykorzystanie podatności, nieznana łączna liczba poszkodowanych w produktach zależnych",
+        "confirmed": "CISA KEV umieściła CVE-2026-111497 w katalogu podatności o potwierdzonym wykorzystaniu.",
+        "unknown": "Ten katalog nie podaje konkretnych organizacji korzystających z produktu, liczby osób, rzeczywistych strat ani czasu pierwszego ataku. Samo zainstalowanie produktu nie oznacza, że doszło już do naruszenia.",
+        "response": "Należy sprawdzić poprawki dla poszczególnych produktów i linii wersji oraz niezależnie od aktualizacji zbadać oznaki naruszenia. Porównać wersje osadzone w produktach zależnych z wersjami objętymi wsparciem.",
+        "status": "exploitation-confirmed",
+        "category": "Wykorzystane podatności",
+        "as_of": "KEV, wydanie 2026.10.27",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "commerce-exploitation",
+        "title": "Adobe Commerce: wzrost priorytetu istniejących poprawek",
+        "confirmed": "CISA KEV umieściła CVE-2026-48356 w katalogu podatności o potwierdzonym wykorzystaniu.",
+        "unknown": "Ten katalog nie podaje konkretnych organizacji korzystających z produktu, liczby osób, rzeczywistych strat ani czasu pierwszego ataku. Samo zainstalowanie produktu nie oznacza, że doszło już do naruszenia.",
+        "response": "Należy sprawdzić poprawki dla poszczególnych produktów i linii wersji oraz niezależnie od aktualizacji zbadać oznaki naruszenia. Porównać wersje osadzone w produktach zależnych z wersjami objętymi wsparciem.",
+        "status": "exploitation-confirmed",
+        "category": "Wykorzystane podatności",
+        "as_of": "KEV, wydanie 2026.10.27",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "php-exploitation",
+        "title": "PHP: potwierdzone wykorzystanie podatności nie oznacza naruszenia wszystkich witryn",
+        "confirmed": "CISA KEV umieściła CVE-2026-109618 / CVE-2026-109619 w katalogu podatności o potwierdzonym wykorzystaniu.",
+        "unknown": "Ten katalog nie podaje konkretnych organizacji korzystających z produktu, liczby osób, rzeczywistych strat ani czasu pierwszego ataku. Samo zainstalowanie produktu nie oznacza, że doszło już do naruszenia.",
+        "response": "Należy sprawdzić poprawki dla poszczególnych produktów i linii wersji oraz niezależnie od aktualizacji zbadać oznaki naruszenia. Porównać wersje osadzone w produktach zależnych z wersjami objętymi wsparciem.",
+        "status": "exploitation-confirmed",
+        "category": "Wykorzystane podatności",
+        "as_of": "KEV, wydanie 2026.10.27",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CISA公式KEV",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          }
+        ]
+      },
+      {
+        "id": "fireblocks-potential",
+        "title": "Fireblocks mpc-lib: zagrożenie w hierarchii udziałów klucza, faktyczna kradzież niepotwierdzona",
+        "confirmed": "CERT opublikował informację o problemie umożliwiającym potencjalnie wyprowadzenie udziału przodka lub udziału głównego tego samego uczestnika z udziału potomnego i kodu łańcucha.",
+        "unknown": "Źródło nie podaje informacji o faktycznej kradzieży aktywów ani liczbie poszkodowanych klientów. Nie można stwierdzić, że samo to pozwala uzyskać klucz do przelewów spełniający wymagany próg.",
+        "response": "Wersja z poprawką nie jest jeszcze dostępna. Należy chronić kod łańcucha jako informację poufną i zbadać całą hierarchię udziałów klucza.",
+        "status": "potential",
+        "category": "Kryptoaktywa i zarządzanie kluczami",
+        "as_of": "Rewizja 10/27 o 14:45 UTC",
+        "total_loss_jpy": null,
+        "sources": [
+          {
+            "name": "CERT VU701544",
+            "url": "https://kb.cert.org/vuls/id/701544"
+          }
+        ]
+      }
+    ],
+    "cutoff_jst": "2026-10-28T13:18:44+09:00",
+    "caveats": [
+      "Wybrane przypadki. parent_incident oznacza wpływ tego samego naruszenia na użytkowników i nie należy go doliczać jako odrębnego incydentu. potential oznacza brak potwierdzenia faktycznego pozyskania informacji.",
+      "To lista przypadków zweryfikowanych w źródłach pierwotnych, a nie światowe statystyki szkód. Nie jest to liczba nowych incydentów w tym okresie.",
+      "Rozróżniamy czas wystąpienia, publikacji, aktualizacji i pozyskania źródła, a kwoty, liczby osób i rekordów zachowujemy w jednostkach użytych w źródłach. Nieopublikowanych łącznych strat nie przedstawiamy jako 0 jenów.",
+      "Pozyskane materiały przedstawiają aktualne rewizje z czasu po momencie odniesienia. Nie można w pełni odtworzyć wszystkich wcześniejszych treści stron dynamicznych.",
+      "Przykłady wpływu na użytkowników tej samej infrastruktury powiązano za pomocą parent_incident. Nie należy ich sumować jako odrębnych incydentów."
+    ]
+  }
+}
