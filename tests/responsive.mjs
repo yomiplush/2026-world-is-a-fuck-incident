@@ -22,7 +22,7 @@ try {
  await cdp('Page.enable'); await cdp('Network.enable'); await cdp('Network.setCacheDisabled',{cacheDisabled:true});
  for (const [width,height] of [[320,480],[360,640],[600,700],[601,700],[640,480],[700,700],[768,1024],[900,600],[1024,768],[1100,700],[1440,900]]) {
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<950});
-  for(const lang of ['ja','en','de','ru','ar','uk']) {
+  for(const lang of ['ja','en','pl','sv','uk']) {
    await open('/?lang='+lang+'&still=1#57','window.__booted===true');
    await run('document.getElementById("privacy-reject")?.click();true');
    const result=await run(`(()=>{

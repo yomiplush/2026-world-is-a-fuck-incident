@@ -1,5 +1,18 @@
 /* Controller: scene state, languages (lazy-loaded), DOM text, canvas loop, input, audio. */
-(function () {
+(function initController() {
+  // A cached pre-bundle entry script can load this current source directly.
+  if (!window.PLATFORM) {
+    const support = document.createElement('script');
+    support.src = './platform.js';
+    support.onload = () => { support.remove(); initController(); };
+    support.onerror = () => {
+      const requested = (location.search.match(/[?&]lang=([^&#]*)/) || [])[1] || navigator.language || '';
+      location.replace(requested.indexOf('ja') === 0 ? '/briefing' : '/briefing.en');
+    };
+    document.head.appendChild(support);
+    return;
+  }
+  if (!window.PLATFORM.essential()) return;
   const C = window.CONTENT || { ui: {}, scenes: [] };
   const navigation = window.BRIEFING_NAV;
   const scenes = navigation ? navigation.scenes : (C.scenes || []);
@@ -37,13 +50,13 @@
   window.__tilt = { tilt, tiltTarget, vel };
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   let lang = "en";
-  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const motionPreference = window.PLATFORM.media("(prefers-reduced-motion: reduce)");
   const still = new URLSearchParams(location.search).get("still") === "1";
   let reduced = motionPreference.matches || still;
   let visualViewport = null;
   let pausedAt = 0;
   const header = document.querySelector(".hud-top"), footer = document.querySelector(".hud-bottom");
-  const splitLayout = window.matchMedia("(min-width: 1100px), (min-width: 900px) and (min-height: 561px) and (min-aspect-ratio: 6/5)");
+  const splitLayout = window.PLATFORM.media("(min-width: 1100px), (min-width: 900px) and (min-height: 561px) and (min-aspect-ratio: 6/5)");
   const renderer = window.RENDER.create({ canvas: el.scene, draw: drawFrame, step: stepCamera,
     onBudget(budget) { document.documentElement.dataset.renderEffects = budget.effects; }
   });
@@ -55,7 +68,7 @@
     if (active && pausedAt) { sceneStart += now - pausedAt; pausedAt = 0; last = now; }
     renderer.configure({ active, animated: !reduced, interactive: !!drag || holding });
   }
-  motionPreference.addEventListener("change", (event) => {
+  const stopMotionWatch = window.PLATFORM.watchMedia(motionPreference, (event) => {
     reduced = event.matches || still;
     syncRuntime(); renderer.invalidate();
   });
@@ -114,7 +127,8 @@
     if (loading[code]) return loading[code];
     loading[code] = new Promise((resolve) => {
       const s = document.createElement("script");
-      s.src = "./i18n/" + code + ".js?v=202610271847";
+      s.src = typeof BRIEFING_LOCALE_FILES !== 'undefined' ? BRIEFING_LOCALE_FILES[code] :
+        "./i18n/" + code + ".js?v=202610271847";
       s.async = true;
       const finish = ok => {
         clearTimeout(timer);
@@ -719,7 +733,7 @@
     if (layoutFrame) { cancelAnimationFrame(layoutFrame); layoutFrame = 0; }
     renderer.configure({ active: false });
     if (A.setVisible) A.setVisible(false);
-    if (!event.persisted) { renderer.dispose(); A.dispose(); }
+    if (!event.persisted) { stopMotionWatch(); renderer.dispose(); A.dispose(); }
   });
   window.addEventListener("pageshow", () => {
     resize();

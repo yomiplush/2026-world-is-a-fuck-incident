@@ -95,17 +95,17 @@ window.RIG3D = (function () {
     return c;
   }
   /* world → camera space (y points down: -y is up the screen) */
-  function rot(c, x, y, z) {
+  function project(c, x, y, z, w, h) {
     basis(c);
     const x1 = x * c.cy - z * c.sy, z1 = x * c.sy + z * c.cy;
-    return [x1, y * c.cp - z1 * c.sp, y * c.sp + z1 * c.cp];
+    const y1 = y * c.cp - z1 * c.sp, z2 = y * c.sp + z1 * c.cp;
+    const s = c.f / (c.f + z2 + c.dist);
+    return [w * (c.centerX == null ? .5 : c.centerX) + x1 * s, h * (c.centerY == null ? .5 : c.centerY) + y1 * s, s];
   }
-  function project(c, x, y, z, w, h) {
-    const p = rot(c, x, y, z);
-    const s = c.f / (c.f + p[2] + c.dist);
-    return [w * (c.centerX == null ? .5 : c.centerX) + p[0] * s, h * (c.centerY == null ? .5 : c.centerY) + p[1] * s, s];
+  function depth(c, x, y, z) {
+    basis(c);
+    return y * c.sp + (x * c.sy + z * c.cy) * c.cp;
   }
-  function depth(c, x, y, z) { return rot(c, x, y, z)[2]; }
   /* camera-space normal → diffuse brightness for one face */
   function brightness(c, n) {
     basis(c);
@@ -413,31 +413,31 @@ window.RIG3D = (function () {
           const overlaps = (box) => occupied.some(b => box.x < b.x + b.w + 3 && box.x + box.w + 3 > b.x && box.y < b.y + b.h + 3 && box.y + box.h + 3 > b.y);
           let box;
           // Find the closest free location; all labels keep their world anchor.
-          const candidates = [[0, 0]];
-          for (let r = 1; r <= 10; r++) {
-            candidates.push([0, -r * (bh + 5)], [0, r * (bh + 5)]);
-            if (r <= 3) candidates.push([-r * (bw + 8), 0], [r * (bw + 8), 0]);
-            for (const dx of [-bw / 2 - 8, bw / 2 + 8]) {
-              candidates.push([dx, -r * (bh + 5)], [dx, r * (bh + 5)]);
-            }
-          }
-          for (const [dx, dy] of candidates) {
+          function tryPosition(dx, dy) {
+            if (box) return;
             const nx = clamp(origin[0] + dx, bw / 2 + 8, w - bw / 2 - 8);
             const ny = clamp(origin[1] + dy, bh / 2 + 8, h - bh / 2 - 8);
             const candidate = { x: nx - bw / 2, y: ny - bh / 2, w: bw, h: bh };
-            if (!overlaps(candidate)) { x = nx; y = ny; box = candidate; break; }
+            if (!overlaps(candidate)) { x = nx; y = ny; box = candidate; }
+          }
+          tryPosition(0, 0);
+          for (let r = 1; r <= 10 && !box; r++) {
+            const dy = r * (bh + 5), dx = bw / 2 + 8;
+            tryPosition(0, -dy); tryPosition(0, dy);
+            if (r <= 3) { tryPosition(-r * (bw + 8), 0); tryPosition(r * (bw + 8), 0); }
+            tryPosition(-dx, -dy); tryPosition(-dx, dy);
+            tryPosition(dx, -dy); tryPosition(dx, dy);
           }
           if (!box) {
-            const positions = [];
+            let bestDistance = Infinity;
+            const columns = [origin[0], bw / 2 + 8, w / 2, w - bw / 2 - 8];
             for (let ny = bh / 2 + 8; ny <= h - bh / 2 - 8; ny += 4) {
-              for (const nx of [origin[0], bw / 2 + 8, w / 2, w - bw / 2 - 8]) {
-                positions.push({ x: nx, y: ny, distance: Math.hypot(nx - origin[0], ny - origin[1]) });
+              for (const nx of columns) {
+                const distance = Math.hypot(nx - origin[0], ny - origin[1]);
+                if (distance >= bestDistance) continue;
+                const candidate = { x: nx - bw / 2, y: ny - bh / 2, w: bw, h: bh };
+                if (!overlaps(candidate)) { x = nx; y = ny; box = candidate; bestDistance = distance; }
               }
-            }
-            positions.sort((a, b) => a.distance - b.distance);
-            for (const p of positions) {
-              const candidate = { x: p.x - bw / 2, y: p.y - bh / 2, w: bw, h: bh };
-              if (!overlaps(candidate)) { x = p.x; y = p.y; box = candidate; break; }
             }
           }
           box = box || { x: x - bw / 2, y: y - bh / 2, w: bw, h: bh };

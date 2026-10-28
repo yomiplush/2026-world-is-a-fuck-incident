@@ -1,3 +1,26 @@
+## Building the optimized site
+
+Run `npm ci` once, then `npm run build` after changing content or source modules.
+This generates reading pages and metadata first, then compressed, content-hashed
+JavaScript/CSS assets. Deploy the complete `site/` directory. Do not upload only
+the editable JavaScript files: the HTML intentionally uses the generated assets.
+`npm run check:assets` detects stale output before deployment.
+
+The small ES5 platform guard routes devices without essential APIs or CSS Grid
+to the full static transcript. ES2015 entry code loads only on capable devices;
+the motion bundle and streamed music remain deferred until the entrance gesture
+(or an explicit scene/static link). Legacy media listeners and audio failures
+are handled without blocking navigation. Actual browser support also depends on
+layout and platform features, not only the JavaScript syntax target.
+
+Generated assets retain one previous generation for already open documents;
+editable source and older source URLs remain available. The development-only
+esbuild package is never downloaded by a visitor. No third-party translation,
+tracking or runtime framework was added. See the [measurement report](../docs/performance-2026-10-28.md).
+
+Current motion availability remains five complete translations; historical
+implementation notes below may describe older language/fallback behavior.
+
 ## Ten-scene chapters
 
 Motion navigation shows one numbered square per ten chronological scenes (currently seven squares for65scenes). A square opens a native modal with that chapter's scene choices; the header shows chapter-local progress. At a chapter boundary, the reader explicitly chooses the next chapter or takes a break. Breaks suspend recurring Canvas rendering; the next action continues into the following chapter. The final chapter retains the replay action. Sound preferences are preserved. No new storage is used.
