@@ -2,8 +2,9 @@
 .briefing-preferences,.privacy-dock,.privacy-status{box-sizing:border-box;font-family:system-ui,-apple-system,"Hiragino Sans",sans-serif;direction:ltr;text-align:left}
 .briefing-preferences[hidden]{display:none!important}
 .briefing-preferences{
-  position:fixed;z-index:120;inset:auto 0 0 0;width:100%;max-width:none;
-  max-height:min(70dvh,calc(100dvh - 12px));overflow:auto;
+  position:fixed;z-index:120;bottom:0;left:0;right:0;inset:auto 0 0 0;width:100%;max-width:none;
+  max-height:70vh;max-height:min(70dvh,calc(100dvh - 12px));overflow:auto;
+  padding:18px 20px 16px;
   padding:18px max(20px,env(safe-area-inset-right)) calc(16px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));
   background:#0b121af5;color:#e6eef6;border:0;border-top:1px solid #4a5663;
   border-radius:16px 16px 0 0;box-shadow:0 -18px 48px #0008;backdrop-filter:blur(16px);

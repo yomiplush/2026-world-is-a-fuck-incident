@@ -1,16 +1,32 @@
 /* A language-independent lock, and the only loader for the briefing.
    Before a gesture: no scene data, renderer, Canvas allocation or music fetch.
    Deep links/static exports go straight to the requested briefing. */
-(function () {
+(function initEntry() {
   'use strict';
+  // Previous HTML may still request this editable URL after a deployment.
+  // Keep that route working even though new HTML loads a separate guard.
+  if (!window.PLATFORM) {
+    const support = document.createElement('script');
+    support.src = './platform.js';
+    support.onload = () => { support.remove(); initEntry(); };
+    support.onerror = () => {
+      const requested = (location.search.match(/[?&]lang=([^&#]*)/) || [])[1] || navigator.language || '';
+      location.replace(requested.indexOf('ja') === 0 ? '/briefing' : '/briefing.en');
+    };
+    document.head.appendChild(support);
+    return;
+  }
+  if (!window.PLATFORM.essential()) return;
   const cover = document.getElementById('cover');
   const button = document.getElementById('btn-start');
   const query = new URLSearchParams(location.search);
   const deep = Number((location.hash.match(/(\d+)/) || [])[1] || query.get('scene'));
   const bypass = query.get('still') === '1' || deep > 0;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const files = ['data.js?v=20261028locales', 'chronology.js?v=20261027seamless', 'render.js?v=20261026adaptive', 'rig3d.js?v=20261026adaptive', 'visuals.js?v=202610271847', 'app.js?v=20261028locales'];
+  const reduced = window.PLATFORM.media('(prefers-reduced-motion: reduce)');
+  const files = typeof BRIEFING_MOTION_FILE !== 'undefined' ? [BRIEFING_MOTION_FILE] :
+    ['data.js?v=20261028devices', 'chronology.js?v=20261027seamless', 'render.js?v=20261028devices', 'rig3d.js?v=20261028devices', 'visuals.js?v=202610271847', 'app.js?v=20261028devices'];
   const loaded = new Map(), preloads = [];
+  let failedInitializations = 0;
   let motionTimer = 0;
   let state = bypass ? 'loading' : 'locked', start = null, pending = null;
   let resolveReady;
@@ -19,12 +35,18 @@
   button.setAttribute('aria-label', japanese ? '解錠してブリーフィングを開く' : 'Unlock the briefing');
   button.disabled = false;
 
+  function scriptURL(file) {
+    // A rejected script can remain in the document's preload cache. An
+    // initialization retry must request fresh bytes instead of replaying it.
+    return './' + file + (failedInitializations
+      ? (file.includes('?') ? '&' : '?') + 'entry-retry=' + failedInitializations : '');
+  }
   function script(file) {
     if (loaded.has(file)) return loaded.get(file);
     const promise = new Promise((resolve, reject) => {
       const s = document.createElement('script');
-      s.src = './' + file; s.async = false;
-      s.onload = resolve;
+      s.src = scriptURL(file); s.async = false;
+      s.onload = () => { s.remove(); resolve(); };
       s.onerror = () => { s.remove(); loaded.delete(file); reject(new Error('Unable to load ' + file)); };
       document.head.appendChild(s);
     });
@@ -33,16 +55,27 @@
   }
   function prepare() {
     if (pending) return pending;
+    try {
+      if (!document.getElementById('scene').getContext('2d')) throw new Error('Canvas unavailable');
+    } catch (_) {
+      location.replace(window.PLATFORM.readingURL());
+      return new Promise(() => {});
+    }
     // Fetch in parallel, execute in dependency order. This also makes retries
     // stop at the failed dependency instead of running a half-loaded app.
     for (const file of files) {
       const link = document.createElement('link');
-      link.rel = 'preload'; link.as = 'script'; link.href = './' + file;
+      link.rel = 'preload'; link.as = 'script'; link.href = scriptURL(file);
       document.head.appendChild(link); preloads.push(link);
     }
+    const cleanup = () => { preloads.splice(0).forEach(link => link.remove()); };
     pending = files.reduce((chain, file) => chain.then(() => script(file)), Promise.resolve())
-      .then(() => connected)
-      .finally(() => { preloads.splice(0).forEach(link => link.remove()); });
+      .then(() => {
+        // A downloaded script may still fail parsing or initialization. Do not
+        // wait forever for an application that never registered its callback.
+        if (!start) { loaded.clear(); failedInitializations++; throw new Error('Briefing initialization failed'); }
+        return connected;
+      }).then(value => { cleanup(); return value; }, error => { cleanup(); throw error; });
     return pending;
   }
   function visibility() {

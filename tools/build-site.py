@@ -14,3 +14,4 @@ for p in sorted((ROOT/'data').glob('*/incident-register.json')):
 run('build-tailworm.py')
 run('build-languages.py')
 run('publish-site.py')
+subprocess.run(['node',str(ROOT/'tools/build-assets.cjs')],cwd=ROOT,check=True)

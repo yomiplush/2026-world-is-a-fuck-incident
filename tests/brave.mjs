@@ -24,7 +24,7 @@ try {
  assert.equal(await run('document.documentElement.dataset.browser'),'brave','Brave compatibility mode must activate automatically');
  for(const [width,height] of [[320,480],[390,844],[601,700],[844,390],[1024,768],[1440,900]]){
   await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<950});
-  for(const lang of ['ja','de','ar'])for(const scene of [18,60,61]){
+  for(const lang of ['ja','pl','sv'])for(const scene of [18,60,61]){
    await open('/?lang='+lang+'&still=1#'+scene,'window.__booted===true');
    await run('document.getElementById("privacy-reject")?.click();true');
    const state=await run(`(()=>{const p=document.getElementById('panel').getBoundingClientRect(),c=document.getElementById('scene').getBoundingClientRect(),f=document.querySelector('.hud-bottom').getBoundingClientRect();return {panel:p.toJSON(),canvas:c.toJSON(),footer:f.top,width:document.documentElement.scrollWidth,split:matchMedia('(min-width: 1100px), (min-width: 900px) and (min-height: 561px) and (min-aspect-ratio: 6/5)').matches,diagramVisible:getComputedStyle(document.getElementById('scene')).visibility!=='hidden',error:window.__drawErr}})()`);

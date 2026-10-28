@@ -52,7 +52,7 @@ try {
   await cdp('Page.enable');
   await cdp('Network.enable');
   await cdp('Network.setCacheDisabled', {cacheDisabled: true});
-  await cdp('Fetch.enable', {patterns: [{urlPattern: '*/i18n/sv.js*'}]});
+  await cdp('Fetch.enable', {patterns: [{urlPattern: '*/i18n/sv.js*'}, {urlPattern: '*/assets/locale-sv-*'}]});
   await open('?lang=ja&still=1#56');
   assert.deepEqual(await run('Array.from(document.getElementById("lang-select").options).filter(option=>!option.disabled).map(option=>option.value)'), ['en','ja','uk','pl','sv']);
   assert.equal(await run('document.querySelector("#lang-select option[value=fr]").textContent.includes("18/65")'), true);
@@ -65,7 +65,7 @@ try {
   await open('?lang=fr&still=1#56');
   assert.equal(await run('document.getElementById("lang-select").value === "fr"'), false);
   assert.equal(await run('document.getElementById("panel").lang === document.documentElement.lang'), true);
-  assert.equal(await run('performance.getEntriesByType("resource").some(entry=>entry.name.includes("/i18n/fr.js"))'), false);
+  assert.equal(await run('performance.getEntriesByType("resource").some(entry=>(entry.name.includes("/i18n/fr.js")||entry.name.includes("/assets/locale-fr-")))'), false);
   assert.equal(await run('document.getElementById("hint").textContent.includes("18/65")'), true);
   for (const corrupt of [
     'window.registerLocale("sv", {ui:{},scenes:{}});',

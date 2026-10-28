@@ -30,7 +30,7 @@ try {
   await cdp('Emulation.setTouchEmulationEnabled',{enabled:device!=='tv'});
   for(const [width,height] of sizes) {
    await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:device==='phone'});
-   for(const lang of ['ja','de','ar']) {
+   for(const lang of ['ja','pl','sv']) {
     await open('/?lang='+lang+'&still=1#56','window.__booted===true && document.documentElement.lang==='+JSON.stringify(lang));
     await run('document.getElementById("privacy-reject")?.click();true');
     const bad=await run(`(()=>{

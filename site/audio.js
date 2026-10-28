@@ -7,8 +7,14 @@ window.AUDIO = (function () {
 
   const noiseCache = new Map();
   const voices = new Set();
+  const hints = window.navigator || {};
+  const light = !!((hints.hardwareConcurrency && hints.hardwareConcurrency <= 2) ||
+    (hints.deviceMemory && hints.deviceMemory <= 2) || hints.connection?.saveData);
+  function settle(operation) {
+    try { const pending = operation(); if (pending && pending.catch) pending.catch(() => {}); } catch (_) {}
+  }
   function retain(source) {
-    if (voices.size >= 48) {
+    if (voices.size >= (light ? 12 : 48)) {
       const oldest = voices.values().next().value;
       try { oldest.stop(); } catch (_) { /* already ended */ }
       voices.delete(oldest);
@@ -18,13 +24,13 @@ window.AUDIO = (function () {
   function playback() {
     if (!A.ready) return;
     if (A.on && A.visible) {
-      A.ctx.resume().catch(() => {});
-      if (A.track.paused) A.track.play().catch(() => {});
+      settle(() => A.ctx.resume());
+      if (A.track.paused) settle(() => A.track.play());
     } else {
       for (const source of voices) { try { source.stop(); } catch (_) { /* already ended */ } }
       voices.clear();
       A.track.pause();
-      A.ctx.suspend().catch(() => {});
+      settle(() => A.ctx.suspend());
     }
   }
   A.setVisible = function (visible) { A.visible = visible; playback(); };
@@ -32,8 +38,9 @@ window.AUDIO = (function () {
   /* ---------------- setup ---------------- */
   function makeIR(ctx, seconds, decay) {
     const rate = ctx.sampleRate, len = Math.floor(rate * seconds);
-    const buf = ctx.createBuffer(2, len, rate);
-    for (let ch = 0; ch < 2; ch++) {
+    const channels = light ? 1 : 2;
+    const buf = ctx.createBuffer(channels, len, rate);
+    for (let ch = 0; ch < channels; ch++) {
       const d = buf.getChannelData(ch);
       for (let i = 0; i < len; i++) {
         const t = i / len;
@@ -61,39 +68,41 @@ window.AUDIO = (function () {
       return;
     }
     const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return;
-    const ctx = A.ctx = new AC();
+    if (!AC) { A.on = false; return; }
+    try {
+      const ctx = A.ctx = new AC();
 
-    const comp = ctx.createDynamicsCompressor();
-    comp.threshold.value = -20; comp.knee.value = 24;
-    comp.ratio.value = 4; comp.attack.value = 0.006; comp.release.value = 0.25;
+      const comp = ctx.createDynamicsCompressor();
+      comp.threshold.value = -20; comp.knee.value = 24;
+      comp.ratio.value = 4; comp.attack.value = 0.006; comp.release.value = 0.25;
 
-    A.master = ctx.createGain(); A.master.gain.value = 0.9;
-    A.master.connect(comp); comp.connect(ctx.destination);
+      A.master = ctx.createGain(); A.master.gain.value = 0.9;
+      A.master.connect(comp); comp.connect(ctx.destination);
 
-    A.verb = ctx.createConvolver();
-    A.verb.buffer = makeIR(ctx, 2.4, 3.0);
-    const verbGain = ctx.createGain(); verbGain.gain.value = 0.30;
-    A.verb.connect(verbGain); verbGain.connect(A.master);
+      A.verb = ctx.createConvolver();
+      A.verb.buffer = makeIR(ctx, light ? .75 : 2.4, 3.0);
+      const verbGain = ctx.createGain(); verbGain.gain.value = 0.30;
+      A.verb.connect(verbGain); verbGain.connect(A.master);
 
-    A.music = ctx.createGain(); A.music.gain.value = 0.0;   // faded in below
-    A.music.connect(A.master);
-    // Keep the mastered recording dry; reverb remains on synthesized SFX.
+      A.music = ctx.createGain(); A.music.gain.value = 0.0;   // faded in below
+      A.music.connect(A.master);
+      // Keep the mastered recording dry; reverb remains on synthesized SFX.
 
-    A.sfxBus = ctx.createGain(); A.sfxBus.gain.value = 0.55;
-    A.sfxBus.connect(A.master);
-    const sfxVerb = ctx.createGain(); sfxVerb.gain.value = 0.5;
-    A.sfxBus.connect(sfxVerb); sfxVerb.connect(A.verb);
+      A.sfxBus = ctx.createGain(); A.sfxBus.gain.value = 0.55;
+      A.sfxBus.connect(A.master);
+      const sfxVerb = ctx.createGain(); sfxVerb.gain.value = 0.5;
+      A.sfxBus.connect(sfxVerb); sfxVerb.connect(A.verb);
 
-    A.ready = true;
-    const track = A.track = new Audio();
-    track.preload = "none";
-    track.loop = true;
-    track.src = track.canPlayType('audio/ogg; codecs="opus"')
-      ? "./audio/infosec.opus" : "./audio/infosec.mp3";
-    ctx.createMediaElementSource(track).connect(A.music);
-    playback();
-    A.music.gain.setTargetAtTime(0.42, ctx.currentTime, 1.2);
+      const track = A.track = new Audio();
+      track.preload = "none";
+      track.loop = true;
+      track.src = track.canPlayType('audio/ogg; codecs="opus"')
+        ? "./audio/infosec.opus" : "./audio/infosec.mp3";
+      ctx.createMediaElementSource(track).connect(A.music);
+      A.ready = true;
+      playback();
+      A.music.gain.setTargetAtTime(0.42, ctx.currentTime, 1.2);
+    } catch (_) { A.on = false; release(); }
   };
 
   /* ---------------- primitives ---------------- */
@@ -190,14 +199,16 @@ window.AUDIO = (function () {
     return A.on;
   };
 
-  A.dispose = function () {
-    if (!A.ready) return;
-    A.setVisible(false);
-    A.track.removeAttribute("src"); A.track.load();
-    A.ctx.close().catch(() => {});
+  function release() {
+    if (A.track) settle(() => { A.track.pause(); A.track.removeAttribute("src"); A.track.load(); });
+    if (A.ctx) settle(() => A.ctx.close());
     noiseCache.clear(); voices.clear();
     A.ready = false;
     A.ctx = A.master = A.music = A.sfxBus = A.verb = A.track = null;
+  }
+  A.dispose = function () {
+    A.setVisible(false);
+    release();
   };
   A.isOn = () => A.on;
 

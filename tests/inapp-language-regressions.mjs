@@ -18,21 +18,22 @@ try {
  await run('document.getElementById("privacy-reject")?.click();true');
  // A toolbar/keyboard can pan the visual viewport as well as shrink it.
  await run(`Object.defineProperties(visualViewport,{height:{configurable:true,value:480},offsetTop:{configurable:true,value:60}});visualViewport.dispatchEvent(new Event('resize'));true`);
+ await pause(80);
  const offset=await run(`(()=>{const a=document.getElementById('app').getBoundingClientRect(),d=document.querySelector('.privacy-dock').getBoundingClientRect();return {top:a.top,bottom:a.bottom,dockBottom:d.bottom}})()`);
  if(offset.top!==60||offset.bottom!==540||offset.dockBottom>540)failures.push('visual viewport offset ignored: '+JSON.stringify(offset));
  await run('delete visualViewport.height;delete visualViewport.offsetTop;visualViewport.dispatchEvent(new Event("resize"));true');
  // Hold a real locale script until a later language has already been selected.
- await run(`window.originalAppend=document.head.appendChild;document.head.appendChild=function(s){if(s.tagName==='SCRIPT'&&s.src.includes('/i18n/de.js')){window.heldLocale=s;return s}return originalAppend.call(this,s)};true`);
- await choose('#lang-select','de');await choose('#lang-select','ja');
+ await run(`window.originalAppend=document.head.appendChild;document.head.appendChild=function(s){if(s.tagName==='SCRIPT'&&(s.src.includes('/i18n/uk.js')||s.src.includes('/assets/locale-uk-'))){window.heldLocale=s;return s}return originalAppend.call(this,s)};true`);
+ await choose('#lang-select','uk');await choose('#lang-select','ja');
  await run('document.head.appendChild=originalAppend;document.head.appendChild(heldLocale);true');
  await pause(500);
  if(await run('document.documentElement.lang')!=='ja')failures.push('a stale locale request overwrote the last selection');
  // A locale download failure must allow selecting the same language again.
  await open('/?lang=ja&still=1#56','window.__booted===true');
- await run(`window.originalAppend=document.head.appendChild;document.head.appendChild=function(s){if(s.tagName==='SCRIPT'&&s.src.includes('/i18n/fr.js')){queueMicrotask(()=>s.onerror());return s}return originalAppend.call(this,s)};true`);
- await choose('#lang-select','fr');await pause(50);
- await run('document.head.appendChild=originalAppend;true');await choose('#lang-select','fr');await pause(500);
- if(await run('document.documentElement.lang')!=='fr')failures.push('failed locale download cannot be retried');
+ await run(`window.originalAppend=document.head.appendChild;document.head.appendChild=function(s){if(s.tagName==='SCRIPT'&&(s.src.includes('/i18n/sv.js')||s.src.includes('/assets/locale-sv-'))){queueMicrotask(()=>s.onerror());return s}return originalAppend.call(this,s)};true`);
+ await choose('#lang-select','sv');await pause(50);
+ await run('document.head.appendChild=originalAppend;true');await choose('#lang-select','sv');await pause(500);
+ if(await run('document.documentElement.lang')!=='sv')failures.push('failed locale download cannot be retried');
  // Native controls must retain focus for a TV remote / keyboard.
  await open('/?lang=ja&still=1#56','window.__booted===true');
  await run('document.getElementById("lang-select").focus();true');await choose('#lang-select','en');await pause(50);

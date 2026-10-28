@@ -58,9 +58,9 @@ try{
  assert.equal(await run('getComputedStyle(document.getElementById("briefing-preferences")).display!=="none"'),true,'saved choices must be reopenable from settings');
  await run('document.getElementById("privacy-accept").click();true');
  assert.equal(await run('PRIVACY.getChoice()'),true);
- await run('document.getElementById("lang-select").value="de";document.getElementById("lang-select").dispatchEvent(new Event("change"));true');await pause(180);
- assert.equal(await run('localStorage.getItem("briefing-lang")'),'de','consent must gate real preference storage');
- await open('/?still=1#1');assert.equal(await run('document.documentElement.lang'),'de');
+ await run('document.getElementById("lang-select").value="sv";document.getElementById("lang-select").dispatchEvent(new Event("change"));true');await pause(180);
+ assert.equal(await run('localStorage.getItem("briefing-lang")'),'sv','consent must gate real preference storage');
+ await open('/?still=1#1');assert.equal(await run('document.documentElement.lang'),'sv');
  await open('/privacypolicy/');
  assert.equal(await run('PRIVACY.getChoice()'),true,'policy page must share the same consent state');
  assert.ok(await run(`Array.from(document.links).some(a=>a.href==='mailto:contact@yomiplush.dev')`));

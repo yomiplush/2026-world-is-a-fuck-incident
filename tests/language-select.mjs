@@ -11,7 +11,7 @@ try{
   await open('/?lang=ja&still=1#56','window.__booted===true');
   assert.equal(await run('document.getElementById("lang-select").options.length'),15);
   assert.equal(await run('!!document.querySelector("dialog,.language-picker-button,.language-select-enhanced")'),false,'search dialog must be removed');
-  assert.equal(await run('performance.getEntriesByType("resource").some(r=>r.name.includes("/i18n/uk.js"))'),false,'Ukrainian remains lazy');
+  assert.equal(await run('performance.getEntriesByType("resource").some(r=>(r.name.includes("/i18n/uk.js")||r.name.includes("/assets/locale-uk-")))'),false,'Ukrainian remains lazy');
   await run('document.getElementById("privacy-reject")?.click();true');
   for(const code of ['uk','pl','sv']){
    await choose('#lang-select',code);

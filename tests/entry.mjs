@@ -10,7 +10,7 @@ const pause=ms=>new Promise(r=>setTimeout(r,ms));
 try {
  await cdp('Page.enable');await cdp('Network.enable');await cdp('Network.setCacheDisabled',{cacheDisabled:true});
  await cdp('Page.navigate',{url:'http://127.0.0.1:8096/?entry-test='+Date.now()});await pause(300);
- const heavy=await run("performance.getEntriesByType('resource').filter(r=>/\\/(data|rig3d|visuals|app|render)\\.js/.test(r.name)).length");
+ const heavy=await run("performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/motion-')||/\\/(data|rig3d|visuals|app|render)\\.js/.test(r.name)).length");
  assert.equal(heavy,0,'locked entrance must defer the briefing engine and data');
  assert.equal(await run("document.querySelectorAll('#cover .cover-title,#cover .cover-sub').length"),0,'entrance must use symbols instead of visible copy');
  assert.equal(await run("!!document.querySelector('#btn-start svg')"),true);
@@ -47,7 +47,7 @@ try {
  assert.equal(await run("document.getElementById('title').textContent"),title,'GitHub activation must not advance scenes');
  await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
  await cdp('Page.navigate',{url:'http://127.0.0.1:8096/?entry-retry='+Date.now()});await pause(200);
- await cdp('Network.setBlockedURLs',{urls:['*data.js*']});await key('Enter');await waitState('failed');
+ await cdp('Network.setBlockedURLs',{urls:['*data.js*','*assets/motion-*']});await key('Enter');await waitState('failed');
  assert.equal(await run("document.getElementById('btn-start').disabled"),false,'load failure must permit retry');
  await cdp('Network.setBlockedURLs',{urls:[]});await key('Enter');await waitState('ready');
  assert.equal(await run('window.__booted'),true);

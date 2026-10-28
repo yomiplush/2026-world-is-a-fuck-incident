@@ -1,0 +1,10 @@
+{
+  "name": "infosec-briefing-site",
+  "private": true,
+  "scripts": {
+    "build": "python3 tools/build-site.py",
+    "build:assets": "node tools/build-assets.cjs",
+    "check:assets": "node tools/build-assets.cjs --check"
+  },
+  "devDependencies": { "esbuild": "0.28.2" }
+}
