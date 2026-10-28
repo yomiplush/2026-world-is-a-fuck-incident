@@ -1,0 +1,1257 @@
+{
+  "locale": "ar",
+  "language": {
+    "code": "ar",
+    "native": "العربية",
+    "html": "ar",
+    "dir": "rtl",
+    "en": "Arabic",
+    "ja": "アラビア語"
+  },
+  "snapshot": "2026-10-27-1847",
+  "source_hash": "72dbf6f7149982995732f90ce12f06761fc3a4e51dd73919a484432f0ddf3597",
+  "register_hash": "6e5c699865bd2c98d3bb650f64b3506424a7a38c08181aabf211e0bfa850b8b4",
+  "string_hashes": {
+    "records.gmo-publication.title": "88d67b559bea45e50a56830203f2cc58c7b1aabda00e912f06de231c3fda84b9",
+    "records.gmo-publication.body": "70a034481c329f95c2e944edd99ac09c35959231a619fbc811958d98b56a44e7",
+    "records.gmo-publication.action": "f443481f3ecf4d258c758d839cb5517f4adab4d023b18400713c45d9c856f458",
+    "records.gmo-publication.time": "3dc9df0a89d4404b5b3644afa2b695134b81962120153c29217efa13669f7755",
+    "records.gmo-endpoint-isolation.title": "0d4a1c988015aa7b12d5b053cb87be36fc72b6ce67eddae6c9bf8d0590c37cb4",
+    "records.gmo-endpoint-isolation.body": "8eb4b1b44be900b7b0f6621364951ef4aa6c65b56e90d14f771d3f8c17605ffb",
+    "records.gmo-endpoint-isolation.action": "1d472d70a339189fa3c882ee79cc70512da74c7935c1b5c5ed5b73a7ceae6af3",
+    "records.gmo-endpoint-isolation.time": "2e02e90609b6bb6cbd36c81b68c7c89f9729b71f4271efe26fa4da6f2e2846d1",
+    "records.railway-registration.title": "088c9292b346b6c2caf0e0857c4ad8eb3c9439f07aefd07b832a92128ea4a00f",
+    "records.railway-registration.body": "4dc866fdf890e74b86b14eff9b064b7114e05ee368faedce8d85badb392de550",
+    "records.railway-registration.action": "1c68878d7bf39da209f3d5e3ef6a3b4cb71c1fa48cc5a682ea84b2c459e5c86d",
+    "records.railway-registration.time": "01361fd9126de43a4f8f6455dd8080b7fd0e7f801514b893e8c0cd60510d08e4",
+    "records.pan-hotfix.title": "49f75d8245b6bcc3dd7548dceef58473727c4897b05db162964d8da79b50277f",
+    "records.pan-hotfix.body": "28bb4c1ee3379306087412d29d6cad6a9e24bd0cfe3de1160075cba67d8e6cc5",
+    "records.pan-hotfix.action": "8b462c93bc73ffd08b539d925fc533fa8f01a8baabd3007e10ecc14440130256",
+    "records.pan-hotfix.time": "d54814d6c69dce83de9217ef2434323384327db0f86d4701a8ac0b2274ca5a2f",
+    "records.kev-php.title": "ad23079078750cd56ec88ee86622ec79984fce5c0603819e6b8cf86ada41112c",
+    "records.kev-php.body": "bed054bfb05316164bc95815faa5eff25bf4019adb39403aaad4b2d91a0487e0",
+    "records.kev-php.action": "a5fa6f8049541674b399e06cb56bee4f78c20767e4713c15641a2c922dd28f87",
+    "records.kev-php.time": "753af8152aac9695ff19ee23a92332682a6681413f1bd5e4de52d17a7306d4e6",
+    "records.growi-authorization.title": "b8cd83fd04297abb524de6ea81bffd25f346db0a1f98c78e2af46ae5d0e288dc",
+    "records.growi-authorization.body": "1f0b9f23996b1623cd7c01d23bf575912c8d12bda37e0fa6d559d19f23477774",
+    "records.growi-authorization.action": "c28a52a05ac72f37c5725fc7c8d4d8d73ef97833b14cf8e1ebc9140c943652a6",
+    "records.growi-authorization.time": "17b521c144dcbfc8beb4817233a5269d22bd62afd1e279ffbcb11a6b5e85fcee",
+    "records.sleipnir-android.title": "74ae8506c25ce2b3cdd6cca53e069586a0dce48f928c0d1b48495768f1c00d34",
+    "records.sleipnir-android.body": "df3c6c4b0bdc9b038cea86f96d6ba01f1f33263b30d978d98dcfad2a56594c0a",
+    "records.sleipnir-android.action": "284e449c251eb97e2a0aa72c1f7b7bf863acb1b52decffe03d76391ac6003407",
+    "records.sleipnir-android.time": "03ce4dcbc8f13ab578ad7324ada7dd202daf2c337d42620461d49a1b0f86dd73",
+    "records.fireblocks-share-boundary.title": "c3864f9f327ac1c32266490626772604fb045dee48a4dcd37dc90ada03c4d1e0",
+    "records.fireblocks-share-boundary.body": "2d7ba34fa9740804032b839684c17571510a5a25063869fa1199cbcce8b6e43e",
+    "records.fireblocks-share-boundary.action": "8e5b0438015aafddc76419d7debe70b1844ef3a945d3c4737b8be08f2d5b1bc6",
+    "records.fireblocks-share-boundary.time": "12248016f0043bcab1374abb7a2a9e03382cee777c8af6ffbde7308ffa9aa67e",
+    "records.vsomeip-resource-limit.title": "599ede2a71e1562a5eb673f4f39592a5c6d2fdf6c099a67a6d679402b930ace3",
+    "records.vsomeip-resource-limit.body": "8b740836929a37f1da1cae3168dc547f8e5d066c413086cfecec0893bcdd6dfa",
+    "records.vsomeip-resource-limit.action": "b710061dd79c1b51d6daf49547b6d22b07024e059811d3fa7a918fb4e81558f0",
+    "records.vsomeip-resource-limit.time": "59bd3635b3a6affdcc29348d9682a666e4a202f17583d3bd8091c4ea2083e14e",
+    "records.mendix-saml.title": "ecfe2c9d587ce69f546c9cb58aaf5eaf83479ed83a6826139abcff05a606af1c",
+    "records.mendix-saml.body": "89db3afdd74152e4e08c387f61bd46d1bd3017aa9b6f57c2dcf44252ab4c1301",
+    "records.mendix-saml.action": "65bf4a5f46a01498ac20dd3ac6b4878e11bc2059131b9eddecf56693e5de0cca",
+    "records.mendix-saml.time": "0483e2d08013a4cb9e70922e0bd3f33f52d6c96e60e59818e05bf42246f3cd7d",
+    "records.kubernetes-boundaries.title": "ee51e20cd2b0380cbf4e2e1e138199954cfd9984ff98c79f3d8666ea7f01f876",
+    "records.kubernetes-boundaries.body": "f2ed59f5dcb249583c8a2605227bc81657288bfad3e3280264bb619ee3321f41",
+    "records.kubernetes-boundaries.action": "85a2a8f4be25c13f85eddd4e65eec36bea78eaa155501023125c52ee16a3cd7d",
+    "records.kubernetes-boundaries.time": "0642931d48b93cc7f3a99578ffa6383f337307a87f5858c9471f5ab868fc126f",
+    "records.airflow-ssh.title": "b66dcdeb84d931188818a4e63b2c35b8d111b4bbc6191a643e97240f74d14761",
+    "records.airflow-ssh.body": "844e82f78750f32abbfd5e72ec83b8314f973aa62cd7f3ae82e0b6061642625c",
+    "records.airflow-ssh.action": "1e9756bc55ca531fd88f5c47ef113964d9c1d4c67c453f842b0a0c16d8ebc4bf",
+    "records.airflow-ssh.time": "4b2b8bc59d5e302654a9f4db796d2234e1bfbe43528526aa3041e2627ea65c42",
+    "records.dompurify-modes.title": "801337e0bcf87b3d207fb189899acd1ff274c9b47cb552e8d5b9824f305a3eab",
+    "records.dompurify-modes.body": "1cbabdf9101834d0d18f0c8d6f87e082fafa28ef08dda1b9ffa13ba5c8a4ad5f",
+    "records.dompurify-modes.action": "ebb3a82a35515a4f9b7a951c4c8254005c95a7b7ee0c2f674411c28b1ffc8663",
+    "records.dompurify-modes.time": "ec863fcc95f12e3a578d7f11cfa48f88abf0c3c2993f6436112d26695d1fff6a",
+    "records.mistral-worktree.title": "7da4962edc42c62c82dcde22070a112d70e48d0e9c6e5907c42e76f61a9f5e89",
+    "records.mistral-worktree.body": "b210dcdc588ddf82908e3cab9530da0748f3d63926224d0cb409a407563ff6f7",
+    "records.mistral-worktree.action": "7bd67568d985a9c19c21ea9e1f587dd1e8772e52ea552ea1ed6d96bf04b1d61f",
+    "records.mistral-worktree.time": "ebb98f4a110cd13e906acdb3f66c30fa5e04e3f2e6889a8d237da38a6b10048e",
+    "records.psono-permissions.title": "7194457e4d543fa76d39013b524aba5daeb95cd3e292d3a03a1b4e3ac330e60e",
+    "records.psono-permissions.body": "c76961b40ff262d1107d0d480448cf1d57da599c23ea781a4e1c391e7b0204b8",
+    "records.psono-permissions.action": "e6ec29af3d1628a83f732c487c7708c7387bf2dc05d22ebabc5a6edb4e80b7a4",
+    "records.psono-permissions.time": "e75a77beaf100cc59f95d1c952110fc47bb124be104a42d6ae5a2e724398572c",
+    "records.qt-codecs.title": "a096b5fc91bb5bbb76910deac49f52038fbdc8e246a0e9f86ba97beaed74a882",
+    "records.qt-codecs.body": "830cd57c1ea2c83481d253a8b1691720fb166a94347b4c7a1fd30d4893252de1",
+    "records.qt-codecs.action": "468be00e30ad548e4b8b39e3b0e76160d822f8994fee690166e51890d524d348",
+    "records.qt-codecs.time": "1189d9e24b1d055e40946e5082c21ac55b8090981d659f2adc8eec37850a4c66",
+    "records.supermicro-bmc.title": "eafa01383e67f55011629f32f48b858bb334949be0df8b51ff8416d3c005ad8d",
+    "records.supermicro-bmc.body": "ee8a135778e90f1f14aa23e5b8ab082c49a90cadf8b200b570b60efface32912",
+    "records.supermicro-bmc.action": "0a87132508da3e69d572938e907c7ec18083939a3ae7c919033bb139a7cea5a9",
+    "records.supermicro-bmc.time": "39eaddaaca86e4f4551c11b25b36daeacacf152aa2a4b6aad717a834ee140764",
+    "records.fortios-management.title": "cc1716274de1a0a9bbba17db6c24bda398124e57b0365729ef02a11aaa194814",
+    "records.fortios-management.body": "9306b67f38eee70390776a41a614fc95531bd48f6d08da8981c3ed8d1bd901bf",
+    "records.fortios-management.action": "d9fec0d50954f0a8604ec0875acfb4ecd5c588d70cd3e74a723b7b3ab4c98e6c",
+    "records.fortios-management.time": "4c81f8bbec0da0e4bb0f020eb3716d7761d0fa4222c4997346251296d3b99fa5",
+    "records.moxa-conditions.title": "8d9fbae275fc35cf12b2f39f1f59aeb805a0b30bd2c09a05ef9926d6786e7515",
+    "records.moxa-conditions.body": "d7fdc30b2aa34a410b380c27c5b56d2f5d985786253164afc8682bd337ec99b0",
+    "records.moxa-conditions.action": "af83c1fce56b24576f926e5cccbe500ce872144a55fc4fb1c19568abe36b736f",
+    "records.moxa-conditions.time": "4905838e97f803ccfdf4be2c00e7d1c65837b85eb4d095adf535c6a5d0fa76bb",
+    "records.malware-camera-ui.title": "8e7ecc9e38e0f5ac4f1ba0face92ee088e5817a17af0f6e9d2a09a1dc94803bd",
+    "records.malware-camera-ui.body": "9f896d74579af24ae82e9099a8eefff56a5d636187cd892d3ae438975ef9a0a7",
+    "records.malware-camera-ui.action": "b0803ef4ffeba8db41505d79c3c727b47d58cc1a670f2b517950ebecabdfc990",
+    "records.malware-camera-ui.time": "25e09c5b43127eaf3d8b6f14891b23d1d8b860a42ab774d58b0b6b4bba207e4d",
+    "records.malware-pypi.title": "bde6ff817a6101b6f998f62ff32014d2b0fcd4b0e90812b6ee34b23219c38596",
+    "records.malware-pypi.body": "aff3fe40ddaa118d46164aba29407bfcdefab634eea8f4ca55582f95ac24c387",
+    "records.malware-pypi.action": "2a579007394237788d3e96b5388ed659fc7ec6838f20adb25bcaa974e2a95dee",
+    "records.malware-pypi.time": "234e717ab7fb9801e06f6ccc22b7aa312490cf13f7620d8962fde8d0d04ce590",
+    "records.openpanel-isolation.title": "0bcdf178dfa80a3408c084744605958ff4f041aeffd9f4f2f9d8e0b829e38ff7",
+    "records.openpanel-isolation.body": "1175e56b8ea6958f86605a378bff44f554c73572c57de11967cf20c358b77ecc",
+    "records.openpanel-isolation.action": "34532b89e2ee17b6bde7fff70d1dbc268db349c5a89bd01c724fbb4537fdca9c",
+    "records.openpanel-isolation.time": "1eff66005c0ce70e6e26ec75644021d9bb4d0973fc4f673e33ef3a6b8180c447",
+    "records.yeswiki-signature.title": "f7e9ec361ba5ea7bfe57a3652faff0ee667df5e2598103412cd63db47e38bc89",
+    "records.yeswiki-signature.body": "20263669d43c6a6d89ea0ec5387256c0b1e1ffcbe3c5583717a563eb8ee8756a",
+    "records.yeswiki-signature.action": "7ef36a21e68b43aded6cfa1fcc31b392f8f6868e394590efc8fa3e9662cfc6ba",
+    "records.yeswiki-signature.time": "39d4086fd33f0c627b65c01ca02cfbc704996ef7afe8c874b5a638f00e781ad2",
+    "records.llama-gguf.title": "4f2a4b2423e34b87bda0be47a5c4646bd7f25dc344e72b9fbce349078ed1a6d3",
+    "records.llama-gguf.body": "914a8a00f0c5a3123b58f5b0064fe635bfb7fce2d7cda485c8a7a8890bbbebc1",
+    "records.llama-gguf.action": "f50f70fe7f8d7e427c766e6f8dfc15d27549431555414ea9eace2b517affe341",
+    "records.llama-gguf.time": "cfa6b683138ecb76742fa5074be279432377ba3747b7d031489661959db85754",
+    "records.wordpress-payments.title": "5028505b5a8c9f80540aa3c429b767d1c037ede89294f2d66d7eee27153518c5",
+    "records.wordpress-payments.body": "260192f99e27a7fed12bc452daeb9d5068f067618c324a27959a92dc68db6a9f",
+    "records.wordpress-payments.action": "e31a4191d65187c9e39c90c41d6f12a39e38f152d234084472e8b4c047bffc70",
+    "records.wordpress-payments.time": "24e0af0cf6e9979fc2faab6622df8142c8c98b8873718339a7926969c95ba089",
+    "records.argilla-xss.title": "0bfd20c5d90d505e34c6460a1b571b61d62a1bce7be01fb1f9f2c3382d3d37b8",
+    "records.argilla-xss.body": "2919d4131eeadddaf37a7c1d74a88863013ed387acd136650a91668f4320cd0a",
+    "records.argilla-xss.action": "d8085648825a1b9605a19674a9224971ea4d5af45cb069c15d4466dc908c4243",
+    "records.argilla-xss.time": "512a338a3b08302a3c2df7b5f34b453facda6131a67eb26da5a73f5682fe9365",
+    "records.rapidjson-regex.title": "13a7974205844eb43dc48c0e2b9c617cee05b13a9649202cf7a68c549052a6b4",
+    "records.rapidjson-regex.body": "8eaeffd4ee5e0f1594836632c9c72a628b19f54ad786381626b373eeb9c55d65",
+    "records.rapidjson-regex.action": "fe08985effcb8bc2a391b9e640b058a9b9c2b2dfee992849aa07c5f2111eaaa0",
+    "records.rapidjson-regex.time": "ebb98f4a110cd13e906acdb3f66c30fa5e04e3f2e6889a8d237da38a6b10048e",
+    "records.msrc-index-revisions.title": "0a62529deeffc9032417b006c1491738ceedaeee3c1a69a3a4f999c6973932a8",
+    "records.msrc-index-revisions.body": "858c335549c177a74039b910930894dd7dcfe3acc0d80b10c16ec5bcbdbe55be",
+    "records.msrc-index-revisions.action": "ae9f5284c29061c319f84f026d85931f4675e0358bb6670744b53637e97cb367",
+    "records.msrc-index-revisions.time": "8cb0e8d8114f8479532b11a4810220803bbea86eea3ec4b3840c41ae66623aef",
+    "records.continuing-response.title": "c3be6ee3a7620db423a7d10560df6c6e6ac7f6de7b2b5cbd432ef20a425eeb8a",
+    "records.continuing-response.body": "14bd80e0b43e618dcaaebaf51f80a172e1131e7127198bb50f082c51217db8e1",
+    "records.continuing-response.action": "1d18cb364dd6f82c562f27736fbaec4988f93c1650f686d46f80b9c4acddf289",
+    "records.continuing-response.time": "5753b542d275f4b4a8dea117ef3047a0ff51670c9e5f7686c86f99b4139fa4d9",
+    "caveats.0": "1d94f0b21aa351c2126484b30ca9f0593b9cc8edcd4d7675af7ac998c4af8ea4",
+    "caveats.1": "a126cdae02d3e7925d9a711a5cb91944ee11e56e861c8c39acd5ec72898c94aa",
+    "caveats.2": "52eb11f0fb24b62305172920929c6ccf75a5dc26a45bbec07377e57fde24ee58",
+    "caveats.3": "d9154fbde79503304fc9a071886b18bedca9d09ee202c0c541187b23beefaf3c",
+    "caveats.4": "5e5c59ab1c617e01f1c6fbee687392e5d117544a8bd0c0f19fc7d915a5fdaaa7",
+    "caveats.5": "fd6ba0e0d974b7ff4ca8ffe80efd59f2bcb97e0eb118f202806972c9a48f4bc0",
+    "caveats.6": "51c2a114eabad54d2ec8e084c94e455ff87fb5fe374e83518d165fdbdd9fadd0",
+    "caveats.7": "b3a687ffdcc8cfa587f5f5fd2f81ab272a9b18e2b94f09b1f87e76f45d4056bf",
+    "caveats.8": "bc9b4d1a65162e53499257eba37b4181478164b2b9d2da3307b6b4b23e53021e",
+    "caveats.9": "f6ad653d44a4babca5b2a6b634eac14a6970fa4b0c77218beb25e6652b6627cc",
+    "report.title": "cb05fc8a48b48078a5148753f458531b8a078a22c0bbbf4e877e89dffdce4990",
+    "report.headline": "4c76675fa18b561a48c252c5f6cd5bf76326a1a7f102dcbe67b3059fc7c092c0",
+    "report.intro": "4c57895c453dcc0a901f404887ba30c3f2fdfddf8af9e69bece23c3253a0570b",
+    "quick.0.title": "5394f02c9c0e018c69272a257d6bd81c08d5b57241af3a9a2773e36b81aa002f",
+    "quick.0.text": "5fc0319d10092554c603db344303b6309cc176d29ffd18f1fe53ffa83c5b69df",
+    "quick.0.label": "3b15c51bd594464fa39e93356fa6c359d63d7a3124614d6a9765375bef31e126",
+    "quick.1.title": "7d84ac26900d69d6edc7b20c89f0c236a448a634db4d9ca12a581428d5047c02",
+    "quick.1.text": "d3af0c75dc96a06dc83b864b4d033a63c8f82cdcb3006c3cacfc4f4a9dd218bc",
+    "quick.1.label": "f45271e9f5f7ff096f0c717cd6cb903b245f579d6edc9c59c22d857c76399071",
+    "quick.2.title": "04760a5874f20f1a86c6653d113c9fd9342408981665af167177ed49a0c3ad9a",
+    "quick.2.text": "f357cb268e0bb6166295a93f2cce44ae588426d3259598e428bc0f1d23ff2f1c",
+    "quick.2.label": "3b085daabe636ba4cb10fe31a43b544889ad626f264ca23f5a7182cc3d7928be",
+    "quick.3.title": "8579e638779b30fad50b8b6400b38150834d96ce99ba27d1fcb11dcb33a06793",
+    "quick.3.text": "8f0f9e4614627c40dc462d3eb78e1eee7b31b370f3b470c7e6f46076f2404a76",
+    "quick.3.label": "9095a098f6f269968429d5a967b04b4fbb939e7dbdd6e8bb251f007d005898d7",
+    "ui.title": "c589afd85a653859c675603d873b89a2ec72704a908f9fe532956589276d6ea1",
+    "ui.intro": "8bc1411fd2df3f6f0ad0fdbd6a6d7ed5ba9b0c63f0bd91fbea0f04dd4b859fda",
+    "ui.cutoff": "30bffe1d8c0fefe3ad569045a850f06ea6dd8810b558c34de1f71d4df906a9e6",
+    "ui.actions": "7e155300cecf74323a1e9ffcde23987947c1aa0b2a3e797fd3a50ad82939d62d",
+    "ui.sources": "835c47be68ea833b08692f4fd81b08923cc237d4aa02e12951d1352e9c23bd71",
+    "ui.delta": "9adc14b6e164efe8327f724c20a7ccfb1e6afa553360fe699d5169498751dd53",
+    "ui.scope-complement": "40eb64185c871529b368a52dec2a5da371f082fd0ceede57744418e9e7bded29",
+    "ui.reference-only": "438c048773567ac03e23a2d37bcda0cfd91b904736e75680507be0efb1859685",
+    "ui.notice": "58caa3c4eeff2c6afefb59c8edea1d100788a6947a2c7560e7a91ecbf21e4638",
+    "ui.original": "e8fc20d01f7577c9e02b0eafdd1fb27a5633123f9ac86833b370bc7c8d5fea9f",
+    "ui.data": "2039bbd338a139da69fcdd7b37a2f1dc83dbc2efbf17c2f52fdbb96e895837f3",
+    "ui.home": "f109578971d6a45d0822844efc41ded0cf437c2e1e876ea2519cbbb9dbc12f87",
+    "ui.languages": "2191b209745deedcb25dc4acbbab8273ac7159575dd94c2170b24998e46a2d29",
+    "ui.evidence": "688f77c246c750e5858f1d0b04381beb642d641a043603b7510db8deb1a16da5",
+    "ui.counts": "7d6c2976cecf20cd4587cd6ae65583534f56cbdecabad2b9104cd7a7a8357fe2",
+    "ui.pending": "7673fe83755b580dddf493fe3091b7687e3df01dd8c4268344bf707912eb1790"
+  },
+  "status": "translated",
+  "strings": {
+    "records.gmo-publication.title": "الكائنات المعدلة وراثيًا: التمييز بين المنشورات الموثقة والمحتوى الموثق والهجمات.",
+    "records.gmo-publication.body": "يشير التقرير رقم 10 إلى تأكيد نشر مواد يُزعم أنها تتعلق بالشركة وعملائها في 12:30 . ويخضع محتواه للمراجعة وقد يكون غير دقيق. ولم يتم تأكيد وقوع هجوم ببرامج الفدية حتى تاريخ 13:55 . كما أن بيان التقرير رقم 9 الذي ينص على عدم العثور على برامج ضارة على الأجهزة التي اكتمل تحليلها، لا يؤكد سلامة جميع الأجهزة.",
+    "records.gmo-publication.action": "بعد الإبلاغ عن 11 ، يُرجى الامتناع عن الوصول إلى المعلومات المُفصحة أو إعادة نشرها أو توزيع روابط تُوجه الآخرين إليها. في حال الوصول إليها مُسبقًا، يُرجى مراجعة الإرشادات الرسمية للفحص الكامل، وعدم الاستجابة لطلبات كلمات المرور أو رموز المصادقة أو الأموال.",
+    "records.gmo-publication.time": "12:30 تأكيد / 13:55 معلومات معلنة للجمهور / 14:55 تقرير متابعة JST",
+    "records.gmo-endpoint-isolation.title": "الكائنات المعدلة وراثيًا: عزل الجهاز وحماية الحساب حسب ترتيب التنفيذ",
+    "records.gmo-endpoint-isolation.body": "بالإضافة إلى استمرار التحقيق وترتيبات التعاون، يطلب التقرير رقم 8 من العملاء إجراء نسخ احتياطي للبيانات، وفصل الاتصال بالشبكة، وإيقاف تشغيل أجهزة الكمبيوتر، وفصل كابلات الطاقة المتصلة بها. تم تصحيح عنوان التقرير رقم 9 إلى 11:59 ، لكن قسم تاريخه لا يزال يشير إلى 11:52 ، مما يُحدث تضاربًا في تواريخ النشر الأولية.",
+    "records.gmo-endpoint-isolation.action": "راجع الإرشادات الرسمية الخاصة باستخدامك، وقم بعمل نسخ احتياطية وعزل الجهاز وفقًا للتعليمات. احمِ حساباتك من جهاز موثوق آخر، ولا تقم باستعادة مزامنة المتصفح أو الاتصالات قبل اكتمال التحقيق.",
+    "records.gmo-endpoint-isolation.time": "09:58 اعتبارًا من / 10:56 إضافة/تصحيح JST",
+    "records.railway-registration.title": "السكك الحديدية: لا تزال التسجيلات الجديدة معلقة؛ ولم يُحدد موعد استئنافها.",
+    "records.railway-registration.body": "لم يتغير الوضع الرسمي منذ الفحص السابق، ويؤكد صراحةً أن هذا ليس حادثًا أمنيًا إضافيًا. ويشير إلى أن التسجيلات الجديدة لا تزال معلقة حرصًا على ضمان موثوقية الخدمة للعملاء الحاليين، ولا يمكن تحديد موعد لاستئنافها. يتطابق نص المدونة مع النص الأصلي السابق.",
+    "records.railway-registration.action": "ينبغي على المستخدمين المتأثرين الاستمرار في إلغاء/إعادة إصدار الأسرار المخزنة ومراجعة GitHub والسجلات. لا تعتبر استعادة الخدمة ضمانًا لسلامة المفاتيح القديمة. التحديث المجدول التالي في توقيت اليابان 10/28 00:00 ) سيكون بعد الموعد النهائي.",
+    "records.railway-registration.time": "12:22 JST ( 03:22 UTC status)",
+    "records.pan-hotfix.title": "PAN-OS: تم تأكيد شحن التحديثات العاجلة 4 لسلسلة 10.2 و 12.1 و 12.2 .",
+    "records.pan-hotfix.body": "أزال ملف JSON الخاص بتوصيات PHP مواعيد التفعيل المتوقعة للفروع 10.2.13-h27 / 10.2.16-h12 في 09:10 والفروع 12.1.7-h11 / 12.2.4-h1 في 13:03 لأنها صدرت. أما الفروع الأخرى، بما فيها 11.2.13-h4 ، فتحتفظ بمواعيد التفعيل المتوقعة. ولا يُعد تحديث موجز RSS وحده تأكيدًا جديدًا على وجود ثغرة أمنية.",
+    "records.pan-hotfix.action": "قم بمطابقة سلسلة نظام التشغيل PAN-OS والميزات المتأثرة المستخدمة مع التحديثات الرسمية. تحقق من التواريخ المخططة مقابل التوافر الفعلي، وقم بتنفيذ التحديثات والتحقيق في الثغرات الأمنية. لا تستخدم رقم إصدار من سلسلة أخرى كإصدار ثابت شامل.",
+    "records.pan-hotfix.time": "09:10 / 13:03 بتوقيت اليابان (الجدول الزمني الرسمي)",
+    "records.kev-php.title": "2 اختلافات PHP في ملف KEV الأصلي المحفوظ، منفصلة عن أوقات بدء الهجوم",
+    "records.kev-php.body": "CISA KEV هي النسخة 2026.10.26 مع مدخلات 1 و__ 758 . أُضيفت ثغرات PHP CVEs 2 منذ النسخة الأصلية المحفوظة سابقًا؛ forensicTriage مُفعّل، وknownRansomwareCampaignUse غير معروف. يسبق تاريخ إصدار الكتالوج هذه النافذة، بينما يقع التحديث الرسمي على Git ضمنها، لذا لا يمكن ببساطة مساواة هذه التواريخ بوقت النشر الأصلي.",
+    "records.kev-php.action": "أعطِ الأولوية للإصلاحات الرسمية لـ PHP والمنتجات المدمجة، وتحقق من آثار الاختراق وبيانات الاعتماد الحالية. يُساعد تضمين KEV في تحديد أولويات الاستغلال المعروف، ولكنه لا يُثبت عدد الضحايا الجدد أو وجود برامج فدية مؤكدة في هذه الفترة.",
+    "records.kev-php.time": "10:13 JST تاريخ إصدار التزام Git / الكتالوج هو 07:24 JST",
+    "records.growi-authorization.title": "GROWI: حدود صلاحيات عرض المراجعات والتحرير المتزامن",
+    "records.growi-authorization.body": "تتجاوز ميزتا CVE-2026-105272 و 109848 صلاحيات الوصول إلى المحتوى والتعليقات باستخدام معرّفات المراجعات المعروفة لصفحات أخرى، بالإضافة إلى مدخلات أخرى. أما في 115624 ، فيتحقق التحرير التعاوني من صلاحية العرض فقط، مما يسمح للضيوف غير المصادق عليهم بتعديل المسودات على الصفحات العامة. هذا لا يعني أن الضيوف يحفظون المراجعات مباشرةً؛ إذ يمكن دمج التغييرات عندما يقوم محرر معتمد بحفظها لاحقًا.",
+    "records.growi-authorization.action": "قم بالتحديث إلى GROWI 8.0.7 أو إصدار أحدث. يُعدّ منع وصول الضيوف إجراءً مؤقتًا للضيوف غير المصادق عليهم فقط، ولا يوفر حماية كاملة ضد المستخدمين المسجلين الذين لديهم صلاحية القراءة فقط. راجع مسودات الصفحات العامة قبل حفظها.",
+    "records.growi-authorization.time": "14:18 إصدار مطوري JST / 15:00 JST JVN",
+    "records.sleipnir-android.title": "Sleipnir Android: احذر من أشرطة العناوين المزيفة",
+    "records.sleipnir-android.body": "CVE-2026-109434 هو ثغرة انتحال واجهة المستخدم في تطبيق Sleipnir Mobile لنظام Android، وهي موجودة في الإصدار 3.9.0 . قد يؤدي تصفح صفحة مُصممة خصيصًا إلى عمليات تصيد احتيالي عبر شريط عنوان مزيف أو واجهة مشابهة. أعلن المطور عن 3.9.0 في 10/15 ؛ وهذا ليس تحديثًا جديدًا اليوم.",
+    "records.sleipnir-android.action": "قم بتحديث نظام أندرويد إلى الإصدار 3.9.0 أو أحدث، وتحقق من النطاق وكيفية الخروج من وضع ملء الشاشة. لا تعمم هذا على إصدارات ويندوز/آي أو إس.",
+    "records.sleipnir-android.time": "12:00 JST JVN (الشحنات المعدلة هي 10 / 15 )",
+    "records.fireblocks-share-boundary.title": "Fireblocks mpc-lib: تختلف حصص الأجداد للطرف 1 عن المفتاح الخاص الكامل",
+    "records.fireblocks-share-boundary.body": "يتضمن CVE-2026-90975 الرجوع إلى الصفر عند غياب سر الأصل أثناء عملية الاشتقاق المحصنة لـ BIP 32 . قد يتمكن المهاجم الذي يحصل على حصة توقيع فرعية ورمز سلسلة من الوصول إلى حصة سلف/جذر لنفس طرف MPC. تبقى طبقة العتبة قائمة، ولم يُذكر أنها تُنتج مفتاحًا خاصًا قابلًا للإنفاق بشكل مستقل. ويشير نص CERT إلى عدم توفر أي حل.",
+    "records.fireblocks-share-boundary.action": "احمِ رموز السلسلة كأسرار، ولا تُوزّعها عبر مفاتيح عامة موسّعة للمراقبة فقط أو وسائل مماثلة. لا تعتبر الاشتقاق المُحصّن ضمانًا للعزل بين المشاركات؛ فإذا تم اختراق مشاركة طرفية، فافحص التسلسل الهرمي الكامل لتلك المشاركة. لا تستخدم أرقام الإصدارات الثابتة غير المؤكدة لاتخاذ قرارات النشر.",
+    "records.fireblocks-share-boundary.time": "10:30 JST JVN (مراجعة الشهادة هي 07:45 JST)",
+    "records.vsomeip-resource-limit.title": "COVESA vsomeip: تقييد تخصيص الذاكرة قبل الاستلام",
+    "records.vsomeip-resource-limit.body": "CVE-2026-91141 هو هجوم حجب الخدمة (DoS) يستهدف نقاط نهاية TCP الموثوقة في 3.7.3 والإصدارات الأقدم، والتي تُخصص مخزنًا مؤقتًا بالحجم المُعلن قبل تأكيد الاستلام. افتراضيًا، يُمكن تحديد ما يصل إلى 4 جيجابايت تقريبًا لكل اتصال. تُستثنى التكوينات ذات حدود الحجم الصريحة؛ وقد تتأثر أيضًا العملاء المتصلون بخوادم خبيثة.",
+    "records.vsomeip-resource-limit.action": "قم بالتحديث إلى الإصدار 3.7.4 أو أحدث. في حال تعذر التحديث، حدد قيودًا مناسبة مثل max-payload-size-reliable، وقيد الوصول إلى الأجهزة الموثوقة فقط. لا تعتبر شحنة 7/6 من 3.7.4 إصلاحًا جديدًا أو هجومًا تم رصده اليوم.",
+    "records.vsomeip-resource-limit.time": "10:30 JST JVN (التصحيحات: 7 / 6 )",
+    "records.mendix-saml.title": "Mendix SAML: إعادة فحص سلسلة الإصدارات التي تحتوي على إصلاحات سابقة غير مكتملة",
+    "records.mendix-saml.body": "يوضح SSA-__ 887643 في 1.1 على 10/26 أن الإصدار المُصلح السابق لـ CVE-2026-80465 كان غير مكتمل. CVE-2026-89209 في SSA-__ 137528 هو تجاوز لمصادقة تسجيل الدخول الموحد (SSO) يبدأه موفر الهوية (IdP) عن طريق إعادة تشغيل تأكيد SAML صالح. إدخالات JVN الجديدة 20 والمُحدثة 22 هي تراكمية لشهر أكتوبر (شهر 10 )، وليست 42 حوادث جديدة اليوم.",
+    "records.mendix-saml.action": "تحقق من كل سلسلة على حدة: وحدة SAML 3.6.29 أو أحدث لـ Mendix 9 ، و__ 4.2.4 أو أحدث لـ 10/11 . ميّز بين إصدار المنتج الرئيسي وإصدار الوحدة. يتمثل الحل المؤقت لـ 89209 في تعطيل تسجيل الدخول الموحد المُبادر من موفر الهوية (IdP). لم يتم التأكد من أن وقت نشر المورّد يقع ضمن النطاق الزمني المحدد.",
+    "records.mendix-saml.time": "10:15 تحديث تجميعي JST JVN / المورد 10 / 26 التاريخ فقط",
+    "records.kubernetes-boundaries.title": "Kubernetes: حدود مساحة الاسم وWindows NTLM بشكل منفصل",
+    "records.kubernetes-boundaries.body": "CVE-2026-2270 هو وكيل مُربك يُنشئ وحدات Pod عبر مساحات أسماء مختلفة من خلال الوصول للكتابة على مستوى مساحة الاسم إلى StatefulSet وControllerRevision. تتطلب وحدات Pod الدائمة أيضًا شروطًا مثل مُعرّف StatefulSet الخاص بالضحية. يُثير 76654 مخاوف بشأن إمكانية كشف NetNTLMv 2 من خلال روابط UNC الرمزية الفرعية لـ kubelet في نظام Windows؛ وتختلف شروط الترحيل وانتحال الهوية باختلاف عضوية المجال وعوامل أخرى.",
+    "records.kubernetes-boundaries.action": "قم بتطبيق 1.34.12 / 1.35.9 / 1.36.5 / 1.37.1 أو أحدث للفروع المعنية باستخدام الإجراءات الرسمية. افصل أهداف تحديث مدير وحدة التحكم وأهداف تحديث kubelet لنظام Windows؛ وتحقق من أذونات الكتابة في مساحة الاسم وبروتوكول SMB الصادر من Windows. لا تعتبر هذا بمثابة أول إعلان تم الكشف عنه اليوم.",
+    "records.kubernetes-boundaries.time": "08:17 JST NVD مضمنة (أول إصدار علني من 9 / 14 )",
+    "records.airflow-ssh.title": "موفر خدمة SSH لـ Airflow: من مدخلات التشغيل إلى الصدفة البعيدة",
+    "records.airflow-ssh.body": "يؤثر CVE-2026-111422 على apache-airflow-providers-ssh قبل 7.0.1 . عندما يربط DAG المعلمات أو dag_run.conf ببيئة SSHRemoteJobOperator، يمكن لمستخدم لديه إذن تشغيل تنفيذ الأوامر كمستخدم اتصال SSH. تم التحقق من سجل CNA؛ استرجاع نص المورّد غير مكتمل.",
+    "records.airflow-ssh.action": "تحقق من الإصلاح في موفر SSH 7.0.1 أو إصدار أحدث. لا تعتمد على إصدار Airflow الأساسي فقط؛ بل افحص مخططات DAG التي تمرر مدخلات التشغيل إلى البيئة، وطبّق مبدأ أقل الامتيازات لاتصالات SSH.",
+    "records.airflow-ssh.time": "09:17 تسجيل JST NVD",
+    "records.dompurify-modes.title": "DOMPurify: تحقق من مسارات 3 في الأوضاع غير الافتراضية",
+    "records.dompurify-modes.body": "يؤثر كل من CVE-2026-116802 و 803 على الإصدارات الأقدم من 3.4.17 ؛ بينما يؤثر 804 على الإصدارات من 3.4.4 إلى 3.4.16 . تتطلب الرسوم المتحركة لـ XHTML و SVG، وفصل العقد عبر خطافات IN_PLACE، و SAFE_FOR_TEMPLATES مع مخرجات DOM وجذور الظل متطلبات مسبقة منفصلة. لا يشمل هذا وصفًا لهجمات XSS غير المشروطة في جميع الإعدادات الافتراضية.",
+    "records.dompurify-modes.action": "قم بالترقية إلى 3.4.17 أو أحدث، وتحقق من معالجة المحلل اللغوي والخطاف والقوالب. تحقق أيضًا من عمليات DOM بعد التنظيف وتقييم القوالب اللاحقة. أشر إلى التقييم المنخفض للمطور ومنشور 10/12 ، لتمييزهما عن عملية تضمين قاعدة البيانات هذه.",
+    "records.dompurify-modes.time": "09:17 JST NVD مضمنة (تم تطويرها بواسطة 10 / تم إصدارها بواسطة 12 )",
+    "records.mistral-worktree.title": "Mistral Vibe: الشروط التي يسبق فيها إنشاء شجرة العمل فحص الثقة.",
+    "records.mistral-worktree.body": "يُحدد ملف CNA الخاص بـ CVE-2026-116843 الإصدارات الأقدم من 3.0.3 . قد يؤدي تشغيل --worktree في مستودع غير موثوق به إلى استدعاء برامج تشغيل مرشح Git في .git/config قبل التحقق من الموثوقية، مما قد يؤدي إلى تشغيل أوامر بصلاحيات المستخدم المُنفِّذ. تم تأكيد إصدار مُصلَح.",
+    "records.mistral-worktree.action": "قم بالتحديث إلى الإصدار 3.0.3 أو أحدث، ولا تقم بتنفيذ إعدادات أو فلاتر Git بشكل تلقائي في مستودعات غير مألوفة. تشغيل وكيل الذكاء الاصطناعي في شجرة عمل أخرى بمفرده لا يُعدّ حاجزًا أمنيًا.",
+    "records.mistral-worktree.time": "10:19 تسجيل JST NVD",
+    "records.psono-permissions.title": "Psono: حدود مفتاح API والجهاز وWebAuthn",
+    "records.psono-permissions.body": "تؤثر CVE-2026-117468 – 117472 على CE/EE بدءًا من إصداراتها التمهيدية وحتى 7.2.3 . وتشمل هذه التعديلات تصعيد امتيازات رمز الجهاز في جلسات واجهة برمجة التطبيقات المقيدة، والتحقق من اتجاه بيانات اعتماد الملفات، وإعادة استخدام تحدي WebAuthn، وإدخال مضيف Duo، وفحوصات القراءة/الكتابة باستخدام URL_PREFIX. تتطلب مشكلة WebAuthn كلمة مرور والحصول على تأكيد صالح؛ بينما تتضمن مشكلة URL_PREFIX امتيازات خاصة لمفتاح واجهة برمجة التطبيقات وبيانات مشفرة.",
+    "records.psono-permissions.action": "تحقق من خادم Psono 7.2.4 أو أحدث، واطلع على امتيازات مفاتيح واجهة برمجة التطبيقات، ورموز الأجهزة، وURL_PREFIX، ومستودعات الملفات الخارجية. ميّز هذا الكشف الجديد عن الإصدار المُصلح الحالي 7/30 ؛ ولا تعتبره تسريبًا لخزائن البيانات كنص عادي للجميع.",
+    "records.psono-permissions.time": "15:17 JST NVD / 10 / 27 توصية (إصدار منقح 7 / 30 )",
+    "records.qt-codecs.title": "Qt: مشاكل منفصلة في مصادقة NTLM وتحويل TSCII",
+    "records.qt-codecs.body": "يكشف CVE-2026-105946 معلومات الذاكرة المخصصة ويتسبب في أعطال في Qt Network NTLM. تم إصلاح الإصدارات 6.8.0 – 6.8.9 / 6.9.0 – 6.11.1 في 6.8.10 / 6.11.2 / 6.12.0 . يؤثر 107472 على تحويل QTextCodec إلى TSCII في 4.0.0 – 6.8.8 / 6.9.0 – 6.11.2 ، وتم إصلاحه في 6.8.9 / 6.11.3 / 6.12.0 . تشير المواد المراجعة إلى أن تأثير NTLM في ملف 6.8 غير معروف.",
+    "records.qt-codecs.action": "تحقق من حزمة Qt المُضمّنة والمستخدمة من قِبل التطبيقات وواجهات برمجة التطبيقات المتأثرة، ثم طبّق الإصلاح على الفرع ذي الصلة. افحص شروط الوصول لخادم/وكيل NTLM ومدخلات TSCII بشكل منفصل؛ فوجود إصدار مُصلح لأحدهما لا يعني بالضرورة إصلاح كليهما.",
+    "records.qt-codecs.time": "16:16 / 17:16 تسجيل JST NVD",
+    "records.supermicro-bmc.title": "Supermicro BMC: فحص جلسات مستوى الإدارة والمفاتيح والصلاحيات",
+    "records.supermicro-bmc.body": "يتعلق CVE-2026-18450 بمتطلبات سلامة/تشفير غير كافية لجلسات RMCP+ النشطة. ووفقًا للمطور، يتعلق 18449 بمفتاح SMCRAKP مُضمّن في الكود وهجمات تجزئة كلمة المرور؛ راجع وصف 18450 المُكرر في NVD مع هذا التصحيح. يتعلق كل من 65219 و__ 65220 بالجلسات والصلاحيات؛ بينما تتطلب كل 65210 و__ 65211 و__ 65213 مسؤول IPMI. يتطلب حقن أمر syslog في 16521 مصادقة بصلاحيات عالية وإعادة تشغيل الخدمة ذات الصلة.",
+    "records.supermicro-bmc.action": "قم بتقييد استخدام BMC/IPMI على شبكات الإدارة الموثوقة، وتحقق من جداول البرامج الثابتة الخاصة بكل طراز. X 13 DEG-QT 01.08.16 والإصدارات المشابهة هي أمثلة خاصة بكل طراز، وليست إصدارات عامة؛ X 12 DGU قيد التحديد. لا تُعمم كل ثغرة أمنية على أنها هجوم غير مصادق عليه.",
+    "records.supermicro-bmc.time": "17:16 / 18:16 JST NVD مضمنة (تاريخ التطوير 10 / 26 )",
+    "records.fortios-management.title": "FortiOS: هجوم حجب الخدمة (DoS) على واجهة إدارة HTTPS (لم يتم التحقق من الإصدارات الثابتة).",
+    "records.fortios-management.body": "يُدرج سجل Fortinet CNA الخاص بـ CVE-2026-106174 كلاً من 8.0.0 و__ 7.6.4 و__ 7.6.6 ، ويصف هجوم حجب الخدمة (DoS) على واجهة إدارة HTTPS من قِبل مهاجم غير مصادق عليه لديه وصول إلى الشبكة. أعاد نص PSIRT الرسمي 403 ولم يكن بالإمكان استرجاعه؛ ولم يتم التحقق بشكل مستقل من الحد الأدنى للإصدار الثابت.",
+    "records.fortios-management.action": "قلّل من إمكانية الوصول إلى واجهة إدارة HTTPS، واطلب من المسؤولين التحقق من ملفات FG-IR-__ 26 - 181 للسلسلة المستخدمة. تحقق من الحد الأدنى للإصدارات الثابتة من خلال الدعم الرسمي. ميّز هذا عن إصدارات التحصين الحالية لمنتجات متعددة.",
+    "records.fortios-management.time": "16:16 تسجيل JST NVD",
+    "records.moxa-conditions.title": "موكسا: شروط CNA لـ MRC و OnCell؛ في انتظار مقارنة النص الأصلي",
+    "records.moxa-conditions.body": "يصف قانون الاتصالات المركزي (CNA) CVE-2026-111459 بأنه التحقق من صحة الشهادة في عميل MRC، 111460 بأنه انتحال هوية الجهاز باستخدام مفتاح مشترك في OnCell G 3150 A-LTE، و__ 111461 بأنه حقن أوامر إدارة الرسائل النصية القصيرة (SMS) في نفس السلسلة. لا تُسند جميع 3 إلى نفس المنتج بناءً على أسماء المنتجات في عناوين URL المرجعية فقط. لم يتسنَّ استرداد النص الرسمي، ولا تزال إصدارات البرامج الثابتة غير مُثبتة.",
+    "records.moxa-conditions.action": "تحقق من عميل MRC / OnCell كأصول منفصلة، بما في ذلك ما إذا كانت إدارة الرسائل النصية القصيرة مُفعّلة، والصلاحيات المطلوبة، ومسارات الاتصال. قيّد واجهات الإدارة وأعد تأكيد المنتجات المتأثرة والإصدارات المُصلحة مع دعم Moxa الرسمي.",
+    "records.moxa-conditions.time": "17:16 تسجيل JST NVD",
+    "records.malware-camera-ui.title": "npm: تم الإبلاغ عن إصدارات محددة من حزمة Windows camera-ui بأنها ضارة",
+    "records.malware-camera-ui.body": "يُبلغ GHSA-2w7v-jwxh-w7wc عن @camera.ui/camera-ui-nvr-windows-amd 64 1.6.1 كبرامج ضارة. حقل الإصدار المُصلح فارغ. لا تعمم هذا على أنه اختراق لجميع مكونات camera.ui غير ذات الصلة.",
+    "records.malware-camera-ui.action": "تحقق من الاسم و 1.6.1 مقابل ملفات القفل، وعناصر التكامل المستمر، وسجل التثبيت. اعزل الأجهزة التي تم تثبيت البرنامج عليها أو تشغيله عليها وفقًا للتوصيات، وألغِ/أعد إصدار الأسرار التي يمكن الوصول إليها من جهاز آمن منفصل. إزالة الحزمة وحدها لا تكفي لاستعادة النظام بعد الاختراق.",
+    "records.malware-camera-ui.time": "16:54 JST GHSA Release",
+    "records.malware-pypi.title": "PyPI: تقرير عن جلسة تحكم عن بُعد أثناء استيراد h 13 t 0 ry-hello-demo",
+    "records.malware-pypi.body": "يُشير GHSA-5crq-52j9-fc74 إلى وجود جلسة تحكم عكسية أثناء الاستيراد في h 13 t 0 ry-hello-demo 0.1.0 . لم يتم تحديد إصدار مُصلح. هذا لا يُؤكد وجود ضرر في PyPI أو في حزم أخرى.",
+    "records.malware-pypi.action": "تحقق من سجلات التثبيت والاستيراد للإصدارات المتأثرة، وفكّر في عزل بيئات التشغيل، والاحتفاظ بالسجلات، وإلغاء كلمات المرور. لا تُعِد استخدام نفس الصورة أو ذاكرة التخزين المؤقت قبل التأكد من سلامة النظام. لا تُنزّل أو تُشغّل أي حزم ضارة للتحقق منها.",
+    "records.malware-pypi.time": "15:31 JST GHSA Release",
+    "records.openpanel-isolation.title": "OpenPanel: حدود المستأجرين، وتعرض الموظفين، والأسرار",
+    "records.openpanel-isolation.body": "تغطي ثغرات CVE 14 قواعد بيانات SQL الخاصة بالمستأجرين، وWebSocket العامة، ولوحات معلومات Bull Board، وبيئات JavaScript المعزولة (Weephook)، وكشف بيانات الاعتماد أو سجلات النظام. وبينما تستخدم CNA ما دون 3.0.0 كحد فاصل، فإن بعض GHSAs الخاصة بالمطورين تحتفظ بنطاقات الالتزامات وإصدارات patched_versions فارغة، ونصوص منشوراتها قديمة. ولا يكفي الإصدار وحده لإثبات اكتمال المعالجة.",
+    "records.openpanel-isolation.action": "قيّد الوصول إلى لوحة العامل/Bull Board وWebSockets غير الضرورية، وتحقق من ملخصات الصور المثبتة، وأصلح التغييرات، وتحقق من عمليات النشر الفعلية. قم بشكل منفصل بإلغاء أسرار الاستيعاب/التكامل وتفاصيل اتصال قاعدة البيانات التي قد تكون مكشوفة، وتحقق من السجلات.",
+    "records.openpanel-isolation.time": "09:17 JST NVD مضمنة (تم تطويرها بواسطة 10 / 11 تم إصدارها سابقًا)",
+    "records.yeswiki-signature.title": "YesWiki: صلاحية التوقيع ومنع إعادة التشغيل أمران منفصلان",
+    "records.yeswiki-signature.body": "تغطي الإصدارات من CVE-2026-116820 إلى 116828 مشكلات كشف معلومات SQL، واستخدام أحرف البدل في قوائم التحكم بالوصول (ACL)، واختراق القوالب، وهجمات XSS، وإعادة إرسال التوقيعات، وهجمات SSRF التي تستهدف المسؤولين، وغيرها. في 4.6.2 والإصدارات اللاحقة، يفتقر 116825 إلى خاصية التحقق من حداثة التاريخ ومنع إعادة الإرسال، مما يسمح بإعادة إرسال طلبات ActivityPub الموقعة سابقًا والتي كانت صالحة. هذه ليست مشكلة تزوير توقيع.",
+    "records.yeswiki-signature.action": "قم بالترقية إلى YesWiki 4.7.0 أو إصدار أحدث. تحقق من حداثة البيانات وإزالة التكرارات، بالإضافة إلى التوقيعات وملكية الجهة الفاعلة، وتجنب نشر سجلات الطلبات الموقعة من خوادم بروكسي عكسية أو أنظمة مماثلة. تعامل مع هجمات SSRF التي تتطلب صلاحيات المسؤول بشكل منفصل عن هجمات XSS غير المصادق عليها.",
+    "records.yeswiki-signature.time": "09:17 JST NVD مضمنة (تم تطويرها بواسطة 10 / 12 تم إصدارها سابقًا)",
+    "records.llama-gguf.title": "llama.cpp: حدود حول ملفات النموذج ومدخلات الرموز",
+    "records.llama-gguf.body": "تتضمن مشكلات 6 عمليات قراءة خارج النطاق في إزاحات موتر GGUF ومعرفات الرموز الخاصة، وكتابات في كومة PLAMO tokenizer، وتجاوزات في شكل/حجم الأعداد الصحيحة في GGUF. حدود الإصلاح المعنية هي 2731 / 3701 / 5649 / 10261 / 11301 / 11275 . بعضها عبارة عن ثغرات أمنية جديدة (CVEs) لإصلاحات قديمة؛ لذا لا تتعامل معها على أنها 6 ثغرات تنفيذ عن بُعد جديدة اليوم.",
+    "records.llama-gguf.action": "قم بمطابقة الإصدار المستخدم مع كل عملية إصلاح، وتعامل مع ملفات GGUF غير الموثوقة في بيئات معزولة ذات صلاحيات محدودة. قيّد واجهات برمجة التطبيقات التي تقبل معرّفات الرموز العشوائية. لا تفترض أن النماذج آمنة لمجرد احتوائها على الأوزان فقط.",
+    "records.llama-gguf.time": "10:19 تسجيل JST NVD (بما في ذلك الأرقام 2024 / 2025 )",
+    "records.wordpress-payments.title": "مدفوعات WooCommerce: الأسرار الفارغة ومصداقية Webhook.",
+    "records.wordpress-payments.body": "تم الإبلاغ عن مشكلات في التحقق من صحة الإشعارات تتعلق بأسرار غير مُعينة أو فارغة في إصدارات Wompi 4.0.1 والإصدارات الأقدم، وPayex 1.2.10 والإصدارات الأقدم، وTiendaCrypto 1.2.1 والإصدارات الأقدم، وPayDunya 1.1.6 والإصدارات الأقدم. تختلف الحالات: يستخدم TiendaCrypto دائمًا مفتاحًا فارغًا، بينما تتضمن الحالات الأخرى إعدادات أولية غير مُعينة. لا يمكن لهذا التحقيق تأكيد وجود إصدارات مُصلحة بشكل قاطع.",
+    "records.wordpress-payments.action": "تحقق من الاستخدام والتكوين وتحديثات الموردين للبوابات المناسبة، وفكّر في تعطيل مسارات الإشعارات غير الآمنة. قبل الشحن، تأكد من مطابقة المعاملات مع مزود خدمة الدفع بدلاً من الاعتماد فقط على حالة الدفع. لا تفترض أن تعيين كلمة مرور سرية يحل جميع المشاكل.",
+    "records.wordpress-payments.time": "15:17 / 16:16 تسجيل JST NVD",
+    "records.argilla-xss.title": "أرجيللا: تم تخزين تقرير XSS في واجهة المستخدم الخاصة بالتعليقات التوضيحية",
+    "records.argilla-xss.body": "تُعنى الإصدارات CVE-2026-116554 – 116556 بثغرات XSS في أسماء مجموعات البيانات، وإطارات iframe للحقول المخصصة، ومعالجة حقول النصوص في الإصدار 2.8.0 والإصدارات الأقدم. وقد تم حفظ مشكلات المطورين المشار إليها من قِبل CNA، ولكن هذا الاسترجاع لا يُحدد الحد الأدنى للإصدار المُصلح.",
+    "records.argilla-xss.action": "قيّد إدخالات التعليقات/مجموعات البيانات ووجهات المشاركة، وتحقق من مشاكل المطورين مقارنةً بالإصدارات المنشورة. لا تفتح مجموعات البيانات غير الموثوقة في متصفح بصلاحيات إدارية دون شروط.",
+    "records.argilla-xss.time": "08:16 تسجيل JST NVD",
+    "records.rapidjson-regex.title": "RapidJSON: تم تمرير مدخلات غير موثوقة إلى محلل التعبيرات النمطية",
+    "records.rapidjson-regex.body": "يُشير الخطأ CVE-2026-116620 إلى قراءة خارج النطاق في مُحلل التعبيرات النمطية في RapidJSON 1.1.0 والإصدارات الأقدم. تم فحص مشكلة المطورين 2401 ، ولكن لم يتم تحديد الحد الأدنى للإصدار المُصلح. هذا لا يعني أن كل تطبيق يستخدم JSON مُعرّض للهجوم بشكل مطلق.",
+    "records.rapidjson-regex.action": "تحقق من المسارات التي تمرر فعليًا مدخلات خارجية إلى معالجة التعبيرات النمطية/المخططات، وراعِ حدود الحجم وموارد التنفيذ، والعزل، وإصلاح عمليات الالتزام. راجع أيضًا نسخ المخزون المرفقة مع المنتجات.",
+    "records.rapidjson-regex.time": "10:19 تسجيل JST NVD",
+    "records.msrc-index-revisions.title": "MSRC: أكتوبر (الشهر 10 ) تختلف تسجيلات/مراجعات CVRF عن أوقات الشحن",
+    "records.msrc-index-revisions.body": "يحتوي سجل التغييرات (CVRF) لشهر أكتوبر (الشهر 10 ) من مايكروسوفت على 35 مراجعة منشورة حديثًا و__ 7 مراجعة للإدخالات الموجودة في هذه النافذة. هذه تحديثات سجلات تتعلق بـ GitLab وWasmtime وChromium وSSL وغيرها، وليست 35 هجمات أو تصحيحات جديدة لمنتجات مايكروسوفت. يتم حفظ فهارس المراجعات الفردية مع النسخ الأصلية.",
+    "records.msrc-index-revisions.action": "تحقق من كل منتج مقابل FixedBuild وقم بتحديث سجل التحديثات بشكل فردي. لا تعيد تفسير قيم FixedBuild القديمة لمتصفح Edge وغيره على أنها الإصدارات الموصى بها حاليًا؛ راجع قنوات التوزيع الحالية وإشعارات الإصدار.",
+    "records.msrc-index-revisions.time": "تم تحديث مستند 10:46 JST ( 01:46:22 UTC)",
+    "records.continuing-response.title": "الاستجابة المستمرة: التمييز بين عمليات الاستعادة، وإصدارات معالجة CA، وإصلاحات Tailworm.",
+    "records.continuing-response.body": "يتطابق النص المحدد لبرامج ConnectWise وSoftBank وTailscale وeMudhra وFortinet مع الإصدارات المحفوظة مسبقًا. لم يتم تحديد الحد الأدنى لإصدار Tailworm الثابت. لا تعتبر معالجة CA في Tailscale v1.104.2 بمثابة إصلاح لـ Tailworm. كما لم يتم تحديث مشكلة .NET Brotli الرسمية ضمن هذه النافذة.",
+    "records.continuing-response.action": "أبقِ اتصالات ConnectWise المتأثرة معطلة حتى وصول التعليمات الفردية. ميّز بين تحديثات وإعادة تشغيل وقت التشغيل المشترك لـ .NET، وعمليات إعادة البناء/إعادة النشر المستقلة، وعمليات إعادة النشر/إعادة النشر لـ NativeAOT. لا تُثبت المصادر المتطابقة وجود تحديثات عالمية أو عدم وجود استغلال.",
+    "records.continuing-response.time": "18:49 إعادة الحصول على البيانات من JST فصاعدًا (ليست بيانات تفاضلية جديدة)",
+    "caveats.0": "الحد الفاصل هو 2026 - 10 - 27 18:47 بتوقيت اليابان. تعكس المواد المسترجعة التعديلات الحالية من 18:49 بتوقيت اليابان فصاعدًا، ولا تعيد بناء نص المنشور الأصلي بالكامل.",
+    "caveats.1": "تتداخل جميع الإدخالات المنشورة في قاعدة بيانات الثغرات الأمنية (NVD) من نوع 89 مع الإدخالات المُعدّلة من نوع 192 ، بما في ذلك الإدخال المرفوض من نوع 1 . ولا تُعدّ أوقات النشر/المراجعة أوقات بدء الهجوم أو أوقات الشحن الأولى للإصلاحات.",
+    "caveats.2": "تتضمن مجموعة GHSAs المنشورة 127 ثغرات غير مُراجعة 125 / برمجيات خبيثة 2 ) / ثغرات مُراجعة 0 ). تتداخل ثغرات CVEs في 88 مع مجموعة NVD الحالية، و 37 مع مجموعة NVD السابقة. جميع التنبيهات المنشورة 127 مُدرجة في التنبيهات المُعدّلة 181 . لا تجمع جميع المجموعات معًا لحساب عدد الحوادث.",
+    "caveats.3": "KEV هي نسخة 2026.10.26 مع إدخالات 1 و__ 758 وتغييرات إدخال PHP 2 عن النسخة الأصلية المحفوظة سابقًا. يسبق تاريخ الإصدار بداية هذه النافذة، بينما يقع التزام Git ضمن هذه النافذة. لم يتم تحديد وقت النشر الأصلي للإضافات وأوقات بدء الهجوم.",
+    "caveats.4": "يُفرّق نظام إدارة المحتوى المعدّل (GMO) بين تأكيد نشر المعلومات المزعومة والتحقق من صحتها، مع الإبقاء على البيان بأن برامج الفدية لم يتم تأكيدها في 13:55 . ولا يزال هناك تباين زمني بين تصحيح 11:59 في التقرير 9 و 11:52 في التسلسل الزمني.",
+    "caveats.5": "بالنسبة لـ Fireblocks، يجب التمييز بين حصة الأصل التي يحتفظ بها الطرف 1 والمفتاح الخاص القابل للإنفاق؛ لم يقدم البائع حلاً. لا تقم بتعيين نسخة ثابتة وهمية.",
+    "caveats.6": "تتضمن Kubernetes وDOMPurify وvsomeip وPsono وغيرها إصدارات أو إفصاحات تم إصلاحها مسبقًا. لا تعتبر جميع التسجيلات والإشعارات المحلية الحالية بمثابة ثغرات أمنية مكتشفة حديثًا أو استغلال جديد.",
+    "caveats.7": "بالنسبة لـ OpenPanel، قارن التغييرات المنشورة لأن حدود إصدارات CNA تختلف عن التغييرات والحقول المُعدّلة الفارغة في بعض ملفات GHSA الخاصة بالمطورين. بالنسبة لـ Supermicro 18449 ، أعطِ الأولوية للنص الأساسي وتجنّب الحكم على الوصف المكرر في NVD.",
+    "caveats.8": "تم تسجيل حالات فشل، بما في ذلك Fortinet PSIRT 403 ، واسترجاع غير مكتمل لنص Moxa/Apache، وعنوان URL القديم لملفات IPA 404 ، وحلقات إعادة توجيه مواد البحث. لا يُعاد تفسير حالات فشل الاسترجاع على أنها ثغرات أمنية أو تحديثات 0 .",
+    "caveats.9": "هذا عبارة عن استرجاع جميع صفحات واجهة برمجة التطبيقات والتحقق المتبادل من المصادر الأساسية المختارة، وليس إحصائيات تغطي بشكل شامل جميع الحوادث/نقاط الضعف في جميع أنحاء العالم.",
+    "report.title": "10 18:47 فحص مسائي لتحديثات الحوادث وإجراءات مكافحة الثغرات الأمنية 27",
+    "report.headline": "ما تم الكشف عنه، وما تم إصلاحه، وما زال مجهولاً.",
+    "report.intro": "نلخص المصادر الأولية والتدابير التخفيفية المشروطة التي تغطي تقارير الكائنات المعدلة وراثيًا 8 – 11 ، وحالة شحن PAN-OS، وGROWI، وSleipnir، وMPC، وKubernetes، والذكاء الاصطناعي، وBMC، والحزم الخبيثة.",
+    "quick.0.title": "مستخدمو الكائنات المعدلة وراثيًا: العزل والوقاية من الأضرار الثانوية",
+    "quick.0.text": "يجري فحص المعلومات التي يُزعم نشرها. يجب التمييز بين هذه المعلومات وبرامج الفدية غير المؤكدة، والرجوع إلى الإرشادات الرسمية لعزل الأجهزة والرسائل الفردية.",
+    "quick.0.label": "متابعة الإجراءات المتعلقة بالكائنات المعدلة وراثيًا",
+    "quick.1.title": "الخوادم العامة وأجهزة الإدارة",
+    "quick.1.text": "تحقق من التحديثات العاجلة لـ PAN-OS 4 ، و GROWI 8.0.7 ، وتحديثات Kubernetes الخاصة بالفروع، ولوحات إدارة BMC. ميّز بين الخطط، والنشر الفعلي، والتحقيق في الاختراق.",
+    "quick.1.label": "الشحن وشروط الاستخدام",
+    "quick.2.title": "المفاتيح والمصادقة والتشفير",
+    "quick.2.text": "بالنسبة لـ Fireblocks، ميّز التسلسل الهرمي للمشاركة الخاص بطرف 1 عن الحد الأدنى. بالنسبة لـ Psono وMendix وQt، تحقق أيضًا من الميزات المستخدمة وسلسلة الإصدارات الثابتة.",
+    "quick.2.label": "المعلومات السرية والتفويض",
+    "quick.3.title": "الذكاء الاصطناعي، والحزم، والمدفوعات",
+    "quick.3.text": "قم بفحص أشجار عمل Mistral Vibe، ووضع GGUF والتنظيف، والحزم الضارة المحددة، وإشعارات الدفع ذات الأسرار الفارغة بشكل منفصل.",
+    "quick.3.label": "مسار التنفيذ والتطبيق",
+    "ui.title": "بيانات البحث عن الحوادث ونقاط الضعف",
+    "ui.intro": "سجلات البحث مبنية على مصادر أولية عامة. وهي منظمة بحيث يمكنك مراجعة الشروط والتحفظات والعودة إلى التوجيهات الرسمية.",
+    "ui.cutoff": "الموعد النهائي للبحث",
+    "ui.actions": "يتأكد",
+    "ui.sources": "المصادر والمراجع الأولية",
+    "ui.delta": "تحديثات السجلات والتوصيات التي تمت مراجعتها هذه المرة",
+    "ui.scope-complement": "تدابير وشروط إضافية للحالات القائمة",
+    "ui.reference-only": "لا تزال المعلومات المرجعية المتعلقة بأوقات النشر أو غيرها من التفاصيل غير محددة.",
+    "ui.notice": "هذه ترجمة آلية بواسطة Codex، ولم يراجعها متحدث أصلي باللغة. يُرجى مطابقة أسماء المنتجات والإصدارات والإعدادات والتدابير مع النص الأصلي والإرشادات الرسمية.",
+    "ui.original": "النص الياباني الأصلي",
+    "ui.data": "قم بتنزيل بيانات الترجمة بصيغة JSON",
+    "ui.home": "الانتقال إلى الحركة",
+    "ui.languages": "اختيار اللغة",
+    "ui.evidence": "المصادر الأصلية المسترجعة وأساليب البحث",
+    "ui.counts": "إن عدد المواضيع التي تم تناولها هنا لا يمثل عدد الحوادث الجديدة التي تنطوي على ضرر.",
+    "ui.pending": "إعداد بيانات الترجمة."
+  },
+  "database": {
+    "cutoff": "2026-10-27T09:47:00Z",
+    "cutoff_jst": "2026-10-27T18:47:00+09:00",
+    "delta_start": "2026-10-26T22:47:00Z",
+    "counts": {
+      "nvd_published": 89,
+      "nvd_modified": 192,
+      "published_modified_overlap": 89,
+      "ghsa": 127,
+      "ghsa_unreviewed": 125,
+      "ghsa_reviewed": 0,
+      "ghsa_malware": 2,
+      "ghsa_modified": 181,
+      "ghsa_published_modified_overlap": 127,
+      "ghsa_current_published_overlap": 88,
+      "ghsa_previous_published_overlap": 37,
+      "record_topic_groups": 29,
+      "delta_topic_groups": 27,
+      "scope_complement_topic_groups": 2,
+      "reference_only_topic_groups": 0,
+      "nvd_rejected_records": 1,
+      "verified_response_records": 146,
+      "deduplicated_previous_references": 27
+    },
+    "kev": {
+      "catalog_version": "2026.10.26",
+      "count": 1758,
+      "same_bytes": false,
+      "added_ids": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ]
+    },
+    "caveats": [
+      "الحد الفاصل هو 2026 - 10 - 27 18:47 بتوقيت اليابان. تعكس المواد المسترجعة التعديلات الحالية من 18:49 بتوقيت اليابان فصاعدًا، ولا تعيد بناء نص المنشور الأصلي بالكامل.",
+      "تتداخل جميع الإدخالات المنشورة في قاعدة بيانات الثغرات الأمنية (NVD) من نوع 89 مع الإدخالات المُعدّلة من نوع 192 ، بما في ذلك الإدخال المرفوض من نوع 1 . ولا تُعدّ أوقات النشر/المراجعة أوقات بدء الهجوم أو أوقات الشحن الأولى للإصلاحات.",
+      "تتضمن مجموعة GHSAs المنشورة 127 ثغرات غير مُراجعة 125 / برمجيات خبيثة 2 ) / ثغرات مُراجعة 0 ). تتداخل ثغرات CVEs في 88 مع مجموعة NVD الحالية، و 37 مع مجموعة NVD السابقة. جميع التنبيهات المنشورة 127 مُدرجة في التنبيهات المُعدّلة 181 . لا تجمع جميع المجموعات معًا لحساب عدد الحوادث.",
+      "KEV هي نسخة 2026.10.26 مع إدخالات 1 و__ 758 وتغييرات إدخال PHP 2 عن النسخة الأصلية المحفوظة سابقًا. يسبق تاريخ الإصدار بداية هذه النافذة، بينما يقع التزام Git ضمن هذه النافذة. لم يتم تحديد وقت النشر الأصلي للإضافات وأوقات بدء الهجوم.",
+      "يُفرّق نظام إدارة المحتوى المعدّل (GMO) بين تأكيد نشر المعلومات المزعومة والتحقق من صحتها، مع الإبقاء على البيان بأن برامج الفدية لم يتم تأكيدها في 13:55 . ولا يزال هناك تباين زمني بين تصحيح 11:59 في التقرير 9 و 11:52 في التسلسل الزمني.",
+      "بالنسبة لـ Fireblocks، يجب التمييز بين حصة الأصل التي يحتفظ بها الطرف 1 والمفتاح الخاص القابل للإنفاق؛ لم يقدم البائع حلاً. لا تقم بتعيين نسخة ثابتة وهمية.",
+      "تتضمن Kubernetes وDOMPurify وvsomeip وPsono وغيرها إصدارات أو إفصاحات تم إصلاحها مسبقًا. لا تعتبر جميع التسجيلات والإشعارات المحلية الحالية بمثابة ثغرات أمنية مكتشفة حديثًا أو استغلال جديد.",
+      "بالنسبة لـ OpenPanel، قارن التغييرات المنشورة لأن حدود إصدارات CNA تختلف عن التغييرات والحقول المُعدّلة الفارغة في بعض ملفات GHSA الخاصة بالمطورين. بالنسبة لـ Supermicro 18449 ، أعطِ الأولوية للنص الأساسي وتجنّب الحكم على الوصف المكرر في NVD.",
+      "تم تسجيل حالات فشل، بما في ذلك Fortinet PSIRT 403 ، واسترجاع غير مكتمل لنص Moxa/Apache، وعنوان URL القديم لملفات IPA 404 ، وحلقات إعادة توجيه مواد البحث. لا يُعاد تفسير حالات فشل الاسترجاع على أنها ثغرات أمنية أو تحديثات 0 .",
+      "هذا عبارة عن استرجاع جميع صفحات واجهة برمجة التطبيقات والتحقق المتبادل من المصادر الأساسية المختارة، وليس إحصائيات تغطي بشكل شامل جميع الحوادث/نقاط الضعف في جميع أنحاء العالم."
+    ],
+    "records": [
+      {
+        "id": "gmo-publication",
+        "title": "الكائنات المعدلة وراثيًا: التمييز بين المنشورات الموثقة والمحتوى الموثق والهجمات.",
+        "time": "12:30 تأكيد / 13:55 معلومات معلنة للجمهور / 14:55 تقرير متابعة JST",
+        "body": "يشير التقرير رقم 10 إلى تأكيد نشر مواد يُزعم أنها تتعلق بالشركة وعملائها في 12:30 . ويخضع محتواه للمراجعة وقد يكون غير دقيق. ولم يتم تأكيد وقوع هجوم ببرامج الفدية حتى تاريخ 13:55 . كما أن بيان التقرير رقم 9 الذي ينص على عدم العثور على برامج ضارة على الأجهزة التي اكتمل تحليلها، لا يؤكد سلامة جميع الأجهزة.",
+        "action": "بعد الإبلاغ عن 11 ، يُرجى الامتناع عن الوصول إلى المعلومات المُفصحة أو إعادة نشرها أو توزيع روابط تُوجه الآخرين إليها. في حال الوصول إليها مُسبقًا، يُرجى مراجعة الإرشادات الرسمية للفحص الكامل، وعدم الاستجابة لطلبات كلمات المرور أو رموز المصادقة أو الأموال.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GMO第10報",
+            "url": "https://group.gmo/info/alert/2026102703/"
+          },
+          {
+            "name": "GMO第11報",
+            "url": "https://group.gmo/info/alert/2026102704/"
+          },
+          {
+            "name": "GMO第9報",
+            "url": "https://group.gmo/info/alert/2026102702/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "gmo-endpoint-isolation",
+        "title": "الكائنات المعدلة وراثيًا: عزل الجهاز وحماية الحساب حسب ترتيب التنفيذ",
+        "time": "09:58 اعتبارًا من / 10:56 إضافة/تصحيح JST",
+        "body": "بالإضافة إلى استمرار التحقيق وترتيبات التعاون، يطلب التقرير رقم 8 من العملاء إجراء نسخ احتياطي للبيانات، وفصل الاتصال بالشبكة، وإيقاف تشغيل أجهزة الكمبيوتر، وفصل كابلات الطاقة المتصلة بها. تم تصحيح عنوان التقرير رقم 9 إلى 11:59 ، لكن قسم تاريخه لا يزال يشير إلى 11:52 ، مما يُحدث تضاربًا في تواريخ النشر الأولية.",
+        "action": "راجع الإرشادات الرسمية الخاصة باستخدامك، وقم بعمل نسخ احتياطية وعزل الجهاز وفقًا للتعليمات. احمِ حساباتك من جهاز موثوق آخر، ولا تقم باستعادة مزامنة المتصفح أو الاتصالات قبل اكتمال التحقيق.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GMO第8報",
+            "url": "https://group.gmo/info/alert/20261027/"
+          },
+          {
+            "name": "GMO第9報",
+            "url": "https://group.gmo/info/alert/2026102702/"
+          },
+          {
+            "name": "GMO第6報",
+            "url": "https://group.gmo/info/alert/20261026/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "railway-registration",
+        "title": "السكك الحديدية: لا تزال التسجيلات الجديدة معلقة؛ ولم يُحدد موعد استئنافها.",
+        "time": "12:22 JST ( 03:22 UTC status)",
+        "body": "لم يتغير الوضع الرسمي منذ الفحص السابق، ويؤكد صراحةً أن هذا ليس حادثًا أمنيًا إضافيًا. ويشير إلى أن التسجيلات الجديدة لا تزال معلقة حرصًا على ضمان موثوقية الخدمة للعملاء الحاليين، ولا يمكن تحديد موعد لاستئنافها. يتطابق نص المدونة مع النص الأصلي السابق.",
+        "action": "ينبغي على المستخدمين المتأثرين الاستمرار في إلغاء/إعادة إصدار الأسرار المخزنة ومراجعة GitHub والسجلات. لا تعتبر استعادة الخدمة ضمانًا لسلامة المفاتيح القديمة. التحديث المجدول التالي في توقيت اليابان 10/28 00:00 ) سيكون بعد الموعد النهائي.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "Railway status",
+            "url": "https://status.railway.com/"
+          },
+          {
+            "name": "Railway一次報告",
+            "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "pan-hotfix",
+        "title": "PAN-OS: تم تأكيد شحن التحديثات العاجلة 4 لسلسلة 10.2 و 12.1 و 12.2 .",
+        "time": "09:10 / 13:03 بتوقيت اليابان (الجدول الزمني الرسمي)",
+        "body": "أزال ملف JSON الخاص بتوصيات PHP مواعيد التفعيل المتوقعة للفروع 10.2.13-h27 / 10.2.16-h12 في 09:10 والفروع 12.1.7-h11 / 12.2.4-h1 في 13:03 لأنها صدرت. أما الفروع الأخرى، بما فيها 11.2.13-h4 ، فتحتفظ بمواعيد التفعيل المتوقعة. ولا يُعد تحديث موجز RSS وحده تأكيدًا جديدًا على وجود ثغرة أمنية.",
+        "action": "قم بمطابقة سلسلة نظام التشغيل PAN-OS والميزات المتأثرة المستخدمة مع التحديثات الرسمية. تحقق من التواريخ المخططة مقابل التوافر الفعلي، وقم بتنفيذ التحديثات والتحقيق في الثغرات الأمنية. لا تستخدم رقم إصدار من سلسلة أخرى كإصدار ثابت شامل.",
+        "cve_ids": [
+          "CVE-2026-109618",
+          "CVE-2026-109619"
+        ],
+        "sources": [
+          {
+            "name": "PAN公式勧告",
+            "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+          },
+          {
+            "name": "PAN JSON timeline",
+            "url": "https://security.paloaltonetworks.com/json/CVE-2026-109618"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "kev-php",
+        "title": "2 اختلافات PHP في ملف KEV الأصلي المحفوظ، منفصلة عن أوقات بدء الهجوم",
+        "time": "10:13 JST تاريخ إصدار التزام Git / الكتالوج هو 07:24 JST",
+        "body": "CISA KEV هي النسخة 2026.10.26 مع مدخلات 1 و__ 758 . أُضيفت ثغرات PHP CVEs 2 منذ النسخة الأصلية المحفوظة سابقًا؛ forensicTriage مُفعّل، وknownRansomwareCampaignUse غير معروف. يسبق تاريخ إصدار الكتالوج هذه النافذة، بينما يقع التحديث الرسمي على Git ضمنها، لذا لا يمكن ببساطة مساواة هذه التواريخ بوقت النشر الأصلي.",
+        "action": "أعطِ الأولوية للإصلاحات الرسمية لـ PHP والمنتجات المدمجة، وتحقق من آثار الاختراق وبيانات الاعتماد الحالية. يُساعد تضمين KEV في تحديد أولويات الاستغلال المعروف، ولكنه لا يُثبت عدد الضحايا الجدد أو وجود برامج فدية مؤكدة في هذه الفترة.",
+        "cve_ids": [
+          "CVE-2026-109618",
+          "CVE-2026-109619"
+        ],
+        "sources": [
+          {
+            "name": "CISA公式KEV原本",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          },
+          {
+            "name": "公式Git更新",
+            "url": "https://github.com/cisagov/kev-data/commit/e7b48852252704fb12c28f1c9fc656dc99286c27"
+          }
+        ],
+        "kind": "scope-complement",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "growi-authorization",
+        "title": "GROWI: حدود صلاحيات عرض المراجعات والتحرير المتزامن",
+        "time": "14:18 إصدار مطوري JST / 15:00 JST JVN",
+        "body": "تتجاوز ميزتا CVE-2026-105272 و 109848 صلاحيات الوصول إلى المحتوى والتعليقات باستخدام معرّفات المراجعات المعروفة لصفحات أخرى، بالإضافة إلى مدخلات أخرى. أما في 115624 ، فيتحقق التحرير التعاوني من صلاحية العرض فقط، مما يسمح للضيوف غير المصادق عليهم بتعديل المسودات على الصفحات العامة. هذا لا يعني أن الضيوف يحفظون المراجعات مباشرةً؛ إذ يمكن دمج التغييرات عندما يقوم محرر معتمد بحفظها لاحقًا.",
+        "action": "قم بالتحديث إلى GROWI 8.0.7 أو إصدار أحدث. يُعدّ منع وصول الضيوف إجراءً مؤقتًا للضيوف غير المصادق عليهم فقط، ولا يوفر حماية كاملة ضد المستخدمين المسجلين الذين لديهم صلاحية القراءة فقط. راجع مسودات الصفحات العامة قبل حفظها.",
+        "cve_ids": [
+          "CVE-2026-105272",
+          "CVE-2026-109848",
+          "CVE-2026-115624"
+        ],
+        "sources": [
+          {
+            "name": "JVN#51223238",
+            "url": "https://jvn.jp/jp/JVN51223238/index.html"
+          },
+          {
+            "name": "開発元draft勧告",
+            "url": "https://github.com/growilabs/growi/security/advisories/GHSA-3v2v-8q3r-mhm4"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "sleipnir-android",
+        "title": "Sleipnir Android: احذر من أشرطة العناوين المزيفة",
+        "time": "12:00 JST JVN (الشحنات المعدلة هي 10 / 15 )",
+        "body": "CVE-2026-109434 هو ثغرة انتحال واجهة المستخدم في تطبيق Sleipnir Mobile لنظام Android، وهي موجودة في الإصدار 3.9.0 . قد يؤدي تصفح صفحة مُصممة خصيصًا إلى عمليات تصيد احتيالي عبر شريط عنوان مزيف أو واجهة مشابهة. أعلن المطور عن 3.9.0 في 10/15 ؛ وهذا ليس تحديثًا جديدًا اليوم.",
+        "action": "قم بتحديث نظام أندرويد إلى الإصدار 3.9.0 أو أحدث، وتحقق من النطاق وكيفية الخروج من وضع ملء الشاشة. لا تعمم هذا على إصدارات ويندوز/آي أو إس.",
+        "cve_ids": [
+          "CVE-2026-109434"
+        ],
+        "sources": [
+          {
+            "name": "JVN#90463048",
+            "url": "https://jvn.jp/jp/JVN90463048/index.html"
+          },
+          {
+            "name": "開発元3.9.0",
+            "url": "https://www.fenrir-inc.com/jp/news/2026/10/15/sleipnir-mobile-for-android-3-9-0/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "fireblocks-share-boundary",
+        "title": "Fireblocks mpc-lib: تختلف حصص الأجداد للطرف 1 عن المفتاح الخاص الكامل",
+        "time": "10:30 JST JVN (مراجعة الشهادة هي 07:45 JST)",
+        "body": "يتضمن CVE-2026-90975 الرجوع إلى الصفر عند غياب سر الأصل أثناء عملية الاشتقاق المحصنة لـ BIP 32 . قد يتمكن المهاجم الذي يحصل على حصة توقيع فرعية ورمز سلسلة من الوصول إلى حصة سلف/جذر لنفس طرف MPC. تبقى طبقة العتبة قائمة، ولم يُذكر أنها تُنتج مفتاحًا خاصًا قابلًا للإنفاق بشكل مستقل. ويشير نص CERT إلى عدم توفر أي حل.",
+        "action": "احمِ رموز السلسلة كأسرار، ولا تُوزّعها عبر مفاتيح عامة موسّعة للمراقبة فقط أو وسائل مماثلة. لا تعتبر الاشتقاق المُحصّن ضمانًا للعزل بين المشاركات؛ فإذا تم اختراق مشاركة طرفية، فافحص التسلسل الهرمي الكامل لتلك المشاركة. لا تستخدم أرقام الإصدارات الثابتة غير المؤكدة لاتخاذ قرارات النشر.",
+        "cve_ids": [
+          "CVE-2026-90975"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90547696",
+            "url": "https://jvn.jp/vu/JVNVU90547696/index.html"
+          },
+          {
+            "name": "CERT VU#701544",
+            "url": "https://kb.cert.org/vuls/id/701544"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "vsomeip-resource-limit",
+        "title": "COVESA vsomeip: تقييد تخصيص الذاكرة قبل الاستلام",
+        "time": "10:30 JST JVN (التصحيحات: 7 / 6 )",
+        "body": "CVE-2026-91141 هو هجوم حجب الخدمة (DoS) يستهدف نقاط نهاية TCP الموثوقة في 3.7.3 والإصدارات الأقدم، والتي تُخصص مخزنًا مؤقتًا بالحجم المُعلن قبل تأكيد الاستلام. افتراضيًا، يُمكن تحديد ما يصل إلى 4 جيجابايت تقريبًا لكل اتصال. تُستثنى التكوينات ذات حدود الحجم الصريحة؛ وقد تتأثر أيضًا العملاء المتصلون بخوادم خبيثة.",
+        "action": "قم بالتحديث إلى الإصدار 3.7.4 أو أحدث. في حال تعذر التحديث، حدد قيودًا مناسبة مثل max-payload-size-reliable، وقيد الوصول إلى الأجهزة الموثوقة فقط. لا تعتبر شحنة 7/6 من 3.7.4 إصلاحًا جديدًا أو هجومًا تم رصده اليوم.",
+        "cve_ids": [
+          "CVE-2026-91141"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90363302",
+            "url": "https://jvn.jp/vu/JVNVU90363302/index.html"
+          },
+          {
+            "name": "CERT VU#128947",
+            "url": "https://kb.cert.org/vuls/id/128947"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "mendix-saml",
+        "title": "Mendix SAML: إعادة فحص سلسلة الإصدارات التي تحتوي على إصلاحات سابقة غير مكتملة",
+        "time": "10:15 تحديث تجميعي JST JVN / المورد 10 / 26 التاريخ فقط",
+        "body": "يوضح SSA-__ 887643 في 1.1 على 10/26 أن الإصدار المُصلح السابق لـ CVE-2026-80465 كان غير مكتمل. CVE-2026-89209 في SSA-__ 137528 هو تجاوز لمصادقة تسجيل الدخول الموحد (SSO) يبدأه موفر الهوية (IdP) عن طريق إعادة تشغيل تأكيد SAML صالح. إدخالات JVN الجديدة 20 والمُحدثة 22 هي تراكمية لشهر أكتوبر (شهر 10 )، وليست 42 حوادث جديدة اليوم.",
+        "action": "تحقق من كل سلسلة على حدة: وحدة SAML 3.6.29 أو أحدث لـ Mendix 9 ، و__ 4.2.4 أو أحدث لـ 10/11 . ميّز بين إصدار المنتج الرئيسي وإصدار الوحدة. يتمثل الحل المؤقت لـ 89209 في تعطيل تسجيل الدخول الموحد المُبادر من موفر الهوية (IdP). لم يتم التأكد من أن وقت نشر المورّد يقع ضمن النطاق الزمني المحدد.",
+        "cve_ids": [
+          "CVE-2026-80465",
+          "CVE-2026-89209"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90141693",
+            "url": "https://jvn.jp/vu/JVNVU90141693/index.html"
+          },
+          {
+            "name": "SSA-887643",
+            "url": "https://cert-portal.siemens.com/productcert/html/ssa-887643.html"
+          },
+          {
+            "name": "SSA-137528",
+            "url": "https://cert-portal.siemens.com/productcert/html/ssa-137528.html"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "kubernetes-boundaries",
+        "title": "Kubernetes: حدود مساحة الاسم وWindows NTLM بشكل منفصل",
+        "time": "08:17 JST NVD مضمنة (أول إصدار علني من 9 / 14 )",
+        "body": "CVE-2026-2270 هو وكيل مُربك يُنشئ وحدات Pod عبر مساحات أسماء مختلفة من خلال الوصول للكتابة على مستوى مساحة الاسم إلى StatefulSet وControllerRevision. تتطلب وحدات Pod الدائمة أيضًا شروطًا مثل مُعرّف StatefulSet الخاص بالضحية. يُثير 76654 مخاوف بشأن إمكانية كشف NetNTLMv 2 من خلال روابط UNC الرمزية الفرعية لـ kubelet في نظام Windows؛ وتختلف شروط الترحيل وانتحال الهوية باختلاف عضوية المجال وعوامل أخرى.",
+        "action": "قم بتطبيق 1.34.12 / 1.35.9 / 1.36.5 / 1.37.1 أو أحدث للفروع المعنية باستخدام الإجراءات الرسمية. افصل أهداف تحديث مدير وحدة التحكم وأهداف تحديث kubelet لنظام Windows؛ وتحقق من أذونات الكتابة في مساحة الاسم وبروتوكول SMB الصادر من Windows. لا تعتبر هذا بمثابة أول إعلان تم الكشف عنه اليوم.",
+        "cve_ids": [
+          "CVE-2026-2270",
+          "CVE-2026-76654"
+        ],
+        "sources": [
+          {
+            "name": "Kubernetes公式2270",
+            "url": "https://github.com/kubernetes/kubernetes/issues/142097"
+          },
+          {
+            "name": "Kubernetes公式76654",
+            "url": "https://github.com/kubernetes/kubernetes/issues/142098"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "airflow-ssh",
+        "title": "موفر خدمة SSH لـ Airflow: من مدخلات التشغيل إلى الصدفة البعيدة",
+        "time": "09:17 تسجيل JST NVD",
+        "body": "يؤثر CVE-2026-111422 على apache-airflow-providers-ssh قبل 7.0.1 . عندما يربط DAG المعلمات أو dag_run.conf ببيئة SSHRemoteJobOperator، يمكن لمستخدم لديه إذن تشغيل تنفيذ الأوامر كمستخدم اتصال SSH. تم التحقق من سجل CNA؛ استرجاع نص المورّد غير مكتمل.",
+        "action": "تحقق من الإصلاح في موفر SSH 7.0.1 أو إصدار أحدث. لا تعتمد على إصدار Airflow الأساسي فقط؛ بل افحص مخططات DAG التي تمرر مدخلات التشغيل إلى البيئة، وطبّق مبدأ أقل الامتيازات لاتصالات SSH.",
+        "cve_ids": [
+          "CVE-2026-111422"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-111422",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111422"
+          },
+          {
+            "name": "Apache告知",
+            "url": "https://lists.apache.org/thread/k159xrq1tbgmkvl24j63g12qh0mczk79"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "dompurify-modes",
+        "title": "DOMPurify: تحقق من مسارات 3 في الأوضاع غير الافتراضية",
+        "time": "09:17 JST NVD مضمنة (تم تطويرها بواسطة 10 / تم إصدارها بواسطة 12 )",
+        "body": "يؤثر كل من CVE-2026-116802 و 803 على الإصدارات الأقدم من 3.4.17 ؛ بينما يؤثر 804 على الإصدارات من 3.4.4 إلى 3.4.16 . تتطلب الرسوم المتحركة لـ XHTML و SVG، وفصل العقد عبر خطافات IN_PLACE، و SAFE_FOR_TEMPLATES مع مخرجات DOM وجذور الظل متطلبات مسبقة منفصلة. لا يشمل هذا وصفًا لهجمات XSS غير المشروطة في جميع الإعدادات الافتراضية.",
+        "action": "قم بالترقية إلى 3.4.17 أو أحدث، وتحقق من معالجة المحلل اللغوي والخطاف والقوالب. تحقق أيضًا من عمليات DOM بعد التنظيف وتقييم القوالب اللاحقة. أشر إلى التقييم المنخفض للمطور ومنشور 10/12 ، لتمييزهما عن عملية تضمين قاعدة البيانات هذه.",
+        "cve_ids": [
+          "CVE-2026-116802",
+          "CVE-2026-116803",
+          "CVE-2026-116804"
+        ],
+        "sources": [
+          {
+            "name": "開発元802",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-c6gr-qvv4-5v3f"
+          },
+          {
+            "name": "開発元803",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-mrv2-3pqr-j5jr"
+          },
+          {
+            "name": "開発元804",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cg2g-xh64-v4q7"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "mistral-worktree",
+        "title": "Mistral Vibe: الشروط التي يسبق فيها إنشاء شجرة العمل فحص الثقة.",
+        "time": "10:19 تسجيل JST NVD",
+        "body": "يُحدد ملف CNA الخاص بـ CVE-2026-116843 الإصدارات الأقدم من 3.0.3 . قد يؤدي تشغيل --worktree في مستودع غير موثوق به إلى استدعاء برامج تشغيل مرشح Git في .git/config قبل التحقق من الموثوقية، مما قد يؤدي إلى تشغيل أوامر بصلاحيات المستخدم المُنفِّذ. تم تأكيد إصدار مُصلَح.",
+        "action": "قم بالتحديث إلى الإصدار 3.0.3 أو أحدث، ولا تقم بتنفيذ إعدادات أو فلاتر Git بشكل تلقائي في مستودعات غير مألوفة. تشغيل وكيل الذكاء الاصطناعي في شجرة عمل أخرى بمفرده لا يُعدّ حاجزًا أمنيًا.",
+        "cve_ids": [
+          "CVE-2026-116843"
+        ],
+        "sources": [
+          {
+            "name": "Vibe3.0.3",
+            "url": "https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3"
+          },
+          {
+            "name": "開発元修正",
+            "url": "https://github.com/mistralai/mistral-vibe/commit/7bb48f213ac677f943d5c791199ed3dddf302f00"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "psono-permissions",
+        "title": "Psono: حدود مفتاح API والجهاز وWebAuthn",
+        "time": "15:17 JST NVD / 10 / 27 توصية (إصدار منقح 7 / 30 )",
+        "body": "تؤثر CVE-2026-117468 – 117472 على CE/EE بدءًا من إصداراتها التمهيدية وحتى 7.2.3 . وتشمل هذه التعديلات تصعيد امتيازات رمز الجهاز في جلسات واجهة برمجة التطبيقات المقيدة، والتحقق من اتجاه بيانات اعتماد الملفات، وإعادة استخدام تحدي WebAuthn، وإدخال مضيف Duo، وفحوصات القراءة/الكتابة باستخدام URL_PREFIX. تتطلب مشكلة WebAuthn كلمة مرور والحصول على تأكيد صالح؛ بينما تتضمن مشكلة URL_PREFIX امتيازات خاصة لمفتاح واجهة برمجة التطبيقات وبيانات مشفرة.",
+        "action": "تحقق من خادم Psono 7.2.4 أو أحدث، واطلع على امتيازات مفاتيح واجهة برمجة التطبيقات، ورموز الأجهزة، وURL_PREFIX، ومستودعات الملفات الخارجية. ميّز هذا الكشف الجديد عن الإصدار المُصلح الحالي 7/30 ؛ ولا تعتبره تسريبًا لخزائن البيانات كنص عادي للجميع.",
+        "cve_ids": [
+          "CVE-2026-117468",
+          "CVE-2026-117469",
+          "CVE-2026-117470",
+          "CVE-2026-117471",
+          "CVE-2026-117472"
+        ],
+        "sources": [
+          {
+            "name": "Psono開発元勧告468",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117468.md"
+          },
+          {
+            "name": "Psono開発元勧告470",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117470.md"
+          },
+          {
+            "name": "Psono開発元勧告472",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117472.md"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "qt-codecs",
+        "title": "Qt: مشاكل منفصلة في مصادقة NTLM وتحويل TSCII",
+        "time": "16:16 / 17:16 تسجيل JST NVD",
+        "body": "يكشف CVE-2026-105946 معلومات الذاكرة المخصصة ويتسبب في أعطال في Qt Network NTLM. تم إصلاح الإصدارات 6.8.0 – 6.8.9 / 6.9.0 – 6.11.1 في 6.8.10 / 6.11.2 / 6.12.0 . يؤثر 107472 على تحويل QTextCodec إلى TSCII في 4.0.0 – 6.8.8 / 6.9.0 – 6.11.2 ، وتم إصلاحه في 6.8.9 / 6.11.3 / 6.12.0 . تشير المواد المراجعة إلى أن تأثير NTLM في ملف 6.8 غير معروف.",
+        "action": "تحقق من حزمة Qt المُضمّنة والمستخدمة من قِبل التطبيقات وواجهات برمجة التطبيقات المتأثرة، ثم طبّق الإصلاح على الفرع ذي الصلة. افحص شروط الوصول لخادم/وكيل NTLM ومدخلات TSCII بشكل منفصل؛ فوجود إصدار مُصلح لأحدهما لا يعني بالضرورة إصلاح كليهما.",
+        "cve_ids": [
+          "CVE-2026-105946",
+          "CVE-2026-107472"
+        ],
+        "sources": [
+          {
+            "name": "Qt公式脆弱性一覧",
+            "url": "https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "supermicro-bmc",
+        "title": "Supermicro BMC: فحص جلسات مستوى الإدارة والمفاتيح والصلاحيات",
+        "time": "17:16 / 18:16 JST NVD مضمنة (تاريخ التطوير 10 / 26 )",
+        "body": "يتعلق CVE-2026-18450 بمتطلبات سلامة/تشفير غير كافية لجلسات RMCP+ النشطة. ووفقًا للمطور، يتعلق 18449 بمفتاح SMCRAKP مُضمّن في الكود وهجمات تجزئة كلمة المرور؛ راجع وصف 18450 المُكرر في NVD مع هذا التصحيح. يتعلق كل من 65219 و__ 65220 بالجلسات والصلاحيات؛ بينما تتطلب كل 65210 و__ 65211 و__ 65213 مسؤول IPMI. يتطلب حقن أمر syslog في 16521 مصادقة بصلاحيات عالية وإعادة تشغيل الخدمة ذات الصلة.",
+        "action": "قم بتقييد استخدام BMC/IPMI على شبكات الإدارة الموثوقة، وتحقق من جداول البرامج الثابتة الخاصة بكل طراز. X 13 DEG-QT 01.08.16 والإصدارات المشابهة هي أمثلة خاصة بكل طراز، وليست إصدارات عامة؛ X 12 DGU قيد التحديد. لا تُعمم كل ثغرة أمنية على أنها هجوم غير مصادق عليه.",
+        "cve_ids": [
+          "CVE-2026-18449",
+          "CVE-2026-18450",
+          "CVE-2026-18451",
+          "CVE-2026-65210",
+          "CVE-2026-65211",
+          "CVE-2026-65213",
+          "CVE-2026-65219",
+          "CVE-2026-65220",
+          "CVE-2026-16521"
+        ],
+        "sources": [
+          {
+            "name": "Supermicro公式1",
+            "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1"
+          },
+          {
+            "name": "Supermicro公式2",
+            "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_2"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "fortios-management",
+        "title": "FortiOS: هجوم حجب الخدمة (DoS) على واجهة إدارة HTTPS (لم يتم التحقق من الإصدارات الثابتة).",
+        "time": "16:16 تسجيل JST NVD",
+        "body": "يُدرج سجل Fortinet CNA الخاص بـ CVE-2026-106174 كلاً من 8.0.0 و__ 7.6.4 و__ 7.6.6 ، ويصف هجوم حجب الخدمة (DoS) على واجهة إدارة HTTPS من قِبل مهاجم غير مصادق عليه لديه وصول إلى الشبكة. أعاد نص PSIRT الرسمي 403 ولم يكن بالإمكان استرجاعه؛ ولم يتم التحقق بشكل مستقل من الحد الأدنى للإصدار الثابت.",
+        "action": "قلّل من إمكانية الوصول إلى واجهة إدارة HTTPS، واطلب من المسؤولين التحقق من ملفات FG-IR-__ 26 - 181 للسلسلة المستخدمة. تحقق من الحد الأدنى للإصدارات الثابتة من خلال الدعم الرسمي. ميّز هذا عن إصدارات التحصين الحالية لمنتجات متعددة.",
+        "cve_ids": [
+          "CVE-2026-106174"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-106174",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106174"
+          },
+          {
+            "name": "Fortinet PSIRT（取得403）",
+            "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-181"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "moxa-conditions",
+        "title": "موكسا: شروط CNA لـ MRC و OnCell؛ في انتظار مقارنة النص الأصلي",
+        "time": "17:16 تسجيل JST NVD",
+        "body": "يصف قانون الاتصالات المركزي (CNA) CVE-2026-111459 بأنه التحقق من صحة الشهادة في عميل MRC، 111460 بأنه انتحال هوية الجهاز باستخدام مفتاح مشترك في OnCell G 3150 A-LTE، و__ 111461 بأنه حقن أوامر إدارة الرسائل النصية القصيرة (SMS) في نفس السلسلة. لا تُسند جميع 3 إلى نفس المنتج بناءً على أسماء المنتجات في عناوين URL المرجعية فقط. لم يتسنَّ استرداد النص الرسمي، ولا تزال إصدارات البرامج الثابتة غير مُثبتة.",
+        "action": "تحقق من عميل MRC / OnCell كأصول منفصلة، بما في ذلك ما إذا كانت إدارة الرسائل النصية القصيرة مُفعّلة، والصلاحيات المطلوبة، ومسارات الاتصال. قيّد واجهات الإدارة وأعد تأكيد المنتجات المتأثرة والإصدارات المُصلحة مع دعم Moxa الرسمي.",
+        "cve_ids": [
+          "CVE-2026-111459",
+          "CVE-2026-111460",
+          "CVE-2026-111461"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-111459",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111459"
+          },
+          {
+            "name": "NVD・CNA記録 CVE-2026-111460",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111460"
+          },
+          {
+            "name": "Moxa公式参照（本文取得未完）",
+            "url": "https://www.moxa.com/en/support/product-support/security-advisory/mpsa-269510-cve-2026-111459-cve-2026-111460-cve-2026-111461-vulnerabilities-in-moxa-remote-connect-suite-mrc-client"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "malware-camera-ui",
+        "title": "npm: تم الإبلاغ عن إصدارات محددة من حزمة Windows camera-ui بأنها ضارة",
+        "time": "16:54 JST GHSA Release",
+        "body": "يُبلغ GHSA-2w7v-jwxh-w7wc عن @camera.ui/camera-ui-nvr-windows-amd 64 1.6.1 كبرامج ضارة. حقل الإصدار المُصلح فارغ. لا تعمم هذا على أنه اختراق لجميع مكونات camera.ui غير ذات الصلة.",
+        "action": "تحقق من الاسم و 1.6.1 مقابل ملفات القفل، وعناصر التكامل المستمر، وسجل التثبيت. اعزل الأجهزة التي تم تثبيت البرنامج عليها أو تشغيله عليها وفقًا للتوصيات، وألغِ/أعد إصدار الأسرار التي يمكن الوصول إليها من جهاز آمن منفصل. إزالة الحزمة وحدها لا تكفي لاستعادة النظام بعد الاختراق.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GHSA悪性package報告",
+            "url": "https://github.com/advisories/GHSA-2w7v-jwxh-w7wc"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "malware-pypi",
+        "title": "PyPI: تقرير عن جلسة تحكم عن بُعد أثناء استيراد h 13 t 0 ry-hello-demo",
+        "time": "15:31 JST GHSA Release",
+        "body": "يُشير GHSA-5crq-52j9-fc74 إلى وجود جلسة تحكم عكسية أثناء الاستيراد في h 13 t 0 ry-hello-demo 0.1.0 . لم يتم تحديد إصدار مُصلح. هذا لا يُؤكد وجود ضرر في PyPI أو في حزم أخرى.",
+        "action": "تحقق من سجلات التثبيت والاستيراد للإصدارات المتأثرة، وفكّر في عزل بيئات التشغيل، والاحتفاظ بالسجلات، وإلغاء كلمات المرور. لا تُعِد استخدام نفس الصورة أو ذاكرة التخزين المؤقت قبل التأكد من سلامة النظام. لا تُنزّل أو تُشغّل أي حزم ضارة للتحقق منها.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GHSA悪性package報告",
+            "url": "https://github.com/advisories/GHSA-5crq-52j9-fc74"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "openpanel-isolation",
+        "title": "OpenPanel: حدود المستأجرين، وتعرض الموظفين، والأسرار",
+        "time": "09:17 JST NVD مضمنة (تم تطويرها بواسطة 10 / 11 تم إصدارها سابقًا)",
+        "body": "تغطي ثغرات CVE 14 قواعد بيانات SQL الخاصة بالمستأجرين، وWebSocket العامة، ولوحات معلومات Bull Board، وبيئات JavaScript المعزولة (Weephook)، وكشف بيانات الاعتماد أو سجلات النظام. وبينما تستخدم CNA ما دون 3.0.0 كحد فاصل، فإن بعض GHSAs الخاصة بالمطورين تحتفظ بنطاقات الالتزامات وإصدارات patched_versions فارغة، ونصوص منشوراتها قديمة. ولا يكفي الإصدار وحده لإثبات اكتمال المعالجة.",
+        "action": "قيّد الوصول إلى لوحة العامل/Bull Board وWebSockets غير الضرورية، وتحقق من ملخصات الصور المثبتة، وأصلح التغييرات، وتحقق من عمليات النشر الفعلية. قم بشكل منفصل بإلغاء أسرار الاستيعاب/التكامل وتفاصيل اتصال قاعدة البيانات التي قد تكون مكشوفة، وتحقق من السجلات.",
+        "cve_ids": [
+          "CVE-2026-116805",
+          "CVE-2026-116806",
+          "CVE-2026-116807",
+          "CVE-2026-116808",
+          "CVE-2026-116809",
+          "CVE-2026-116810",
+          "CVE-2026-116811",
+          "CVE-2026-116812",
+          "CVE-2026-116813",
+          "CVE-2026-116814",
+          "CVE-2026-116815",
+          "CVE-2026-116817",
+          "CVE-2026-116818",
+          "CVE-2026-116819"
+        ],
+        "sources": [
+          {
+            "name": "開発元WebSocket勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-8wr9-x797-f238"
+          },
+          {
+            "name": "開発元worker勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-r627-6vrh-65p9"
+          },
+          {
+            "name": "開発元sandbox勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-mc99-9jf5-22cq"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "yeswiki-signature",
+        "title": "YesWiki: صلاحية التوقيع ومنع إعادة التشغيل أمران منفصلان",
+        "time": "09:17 JST NVD مضمنة (تم تطويرها بواسطة 10 / 12 تم إصدارها سابقًا)",
+        "body": "تغطي الإصدارات من CVE-2026-116820 إلى 116828 مشكلات كشف معلومات SQL، واستخدام أحرف البدل في قوائم التحكم بالوصول (ACL)، واختراق القوالب، وهجمات XSS، وإعادة إرسال التوقيعات، وهجمات SSRF التي تستهدف المسؤولين، وغيرها. في 4.6.2 والإصدارات اللاحقة، يفتقر 116825 إلى خاصية التحقق من حداثة التاريخ ومنع إعادة الإرسال، مما يسمح بإعادة إرسال طلبات ActivityPub الموقعة سابقًا والتي كانت صالحة. هذه ليست مشكلة تزوير توقيع.",
+        "action": "قم بالترقية إلى YesWiki 4.7.0 أو إصدار أحدث. تحقق من حداثة البيانات وإزالة التكرارات، بالإضافة إلى التوقيعات وملكية الجهة الفاعلة، وتجنب نشر سجلات الطلبات الموقعة من خوادم بروكسي عكسية أو أنظمة مماثلة. تعامل مع هجمات SSRF التي تتطلب صلاحيات المسؤول بشكل منفصل عن هجمات XSS غير المصادق عليها.",
+        "cve_ids": [
+          "CVE-2026-116820",
+          "CVE-2026-116821",
+          "CVE-2026-116822",
+          "CVE-2026-116823",
+          "CVE-2026-116824",
+          "CVE-2026-116825",
+          "CVE-2026-116826",
+          "CVE-2026-116827",
+          "CVE-2026-116828"
+        ],
+        "sources": [
+          {
+            "name": "開発元署名replay勧告",
+            "url": "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-7m9j-h553-397x"
+          },
+          {
+            "name": "開発元ACL勧告",
+            "url": "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-q5j6-79p7-mp94"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "llama-gguf",
+        "title": "llama.cpp: حدود حول ملفات النموذج ومدخلات الرموز",
+        "time": "10:19 تسجيل JST NVD (بما في ذلك الأرقام 2024 / 2025 )",
+        "body": "تتضمن مشكلات 6 عمليات قراءة خارج النطاق في إزاحات موتر GGUF ومعرفات الرموز الخاصة، وكتابات في كومة PLAMO tokenizer، وتجاوزات في شكل/حجم الأعداد الصحيحة في GGUF. حدود الإصلاح المعنية هي 2731 / 3701 / 5649 / 10261 / 11301 / 11275 . بعضها عبارة عن ثغرات أمنية جديدة (CVEs) لإصلاحات قديمة؛ لذا لا تتعامل معها على أنها 6 ثغرات تنفيذ عن بُعد جديدة اليوم.",
+        "action": "قم بمطابقة الإصدار المستخدم مع كل عملية إصلاح، وتعامل مع ملفات GGUF غير الموثوقة في بيئات معزولة ذات صلاحيات محدودة. قيّد واجهات برمجة التطبيقات التي تقبل معرّفات الرموز العشوائية. لا تفترض أن النماذج آمنة لمجرد احتوائها على الأوزان فقط.",
+        "cve_ids": [
+          "CVE-2024-58399",
+          "CVE-2024-58400",
+          "CVE-2025-71439",
+          "CVE-2026-116816",
+          "CVE-2026-116829",
+          "CVE-2026-116840"
+        ],
+        "sources": [
+          {
+            "name": "開発元b11301",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11301"
+          },
+          {
+            "name": "開発元b10261",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10261"
+          },
+          {
+            "name": "開発元b11275",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11275"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "wordpress-payments",
+        "title": "مدفوعات WooCommerce: الأسرار الفارغة ومصداقية Webhook.",
+        "time": "15:17 / 16:16 تسجيل JST NVD",
+        "body": "تم الإبلاغ عن مشكلات في التحقق من صحة الإشعارات تتعلق بأسرار غير مُعينة أو فارغة في إصدارات Wompi 4.0.1 والإصدارات الأقدم، وPayex 1.2.10 والإصدارات الأقدم، وTiendaCrypto 1.2.1 والإصدارات الأقدم، وPayDunya 1.1.6 والإصدارات الأقدم. تختلف الحالات: يستخدم TiendaCrypto دائمًا مفتاحًا فارغًا، بينما تتضمن الحالات الأخرى إعدادات أولية غير مُعينة. لا يمكن لهذا التحقيق تأكيد وجود إصدارات مُصلحة بشكل قاطع.",
+        "action": "تحقق من الاستخدام والتكوين وتحديثات الموردين للبوابات المناسبة، وفكّر في تعطيل مسارات الإشعارات غير الآمنة. قبل الشحن، تأكد من مطابقة المعاملات مع مزود خدمة الدفع بدلاً من الاعتماد فقط على حالة الدفع. لا تفترض أن تعيين كلمة مرور سرية يحل جميع المشاكل.",
+        "cve_ids": [
+          "CVE-2026-103312",
+          "CVE-2026-103332",
+          "CVE-2026-103325",
+          "CVE-2026-103359"
+        ],
+        "sources": [
+          {
+            "name": "WPScan Wompi",
+            "url": "https://wpscan.com/vulnerability/617a62de-f7d6-461e-bbf2-db6092a3346f/"
+          },
+          {
+            "name": "WPScan TiendaCrypto",
+            "url": "https://wpscan.com/vulnerability/d19c174c-0032-4f5d-b9be-c4f690e4c8ca/"
+          },
+          {
+            "name": "WPScan PayDunya",
+            "url": "https://wpscan.com/vulnerability/d2d7c885-9525-41e0-9666-04a4a8cd183f/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "argilla-xss",
+        "title": "أرجيللا: تم تخزين تقرير XSS في واجهة المستخدم الخاصة بالتعليقات التوضيحية",
+        "time": "08:16 تسجيل JST NVD",
+        "body": "تُعنى الإصدارات CVE-2026-116554 – 116556 بثغرات XSS في أسماء مجموعات البيانات، وإطارات iframe للحقول المخصصة، ومعالجة حقول النصوص في الإصدار 2.8.0 والإصدارات الأقدم. وقد تم حفظ مشكلات المطورين المشار إليها من قِبل CNA، ولكن هذا الاسترجاع لا يُحدد الحد الأدنى للإصدار المُصلح.",
+        "action": "قيّد إدخالات التعليقات/مجموعات البيانات ووجهات المشاركة، وتحقق من مشاكل المطورين مقارنةً بالإصدارات المنشورة. لا تفتح مجموعات البيانات غير الموثوقة في متصفح بصلاحيات إدارية دون شروط.",
+        "cve_ids": [
+          "CVE-2026-116554",
+          "CVE-2026-116555",
+          "CVE-2026-116556"
+        ],
+        "sources": [
+          {
+            "name": "開発元issue5875",
+            "url": "https://github.com/argilla-io/argilla/issues/5875"
+          },
+          {
+            "name": "開発元issue5876",
+            "url": "https://github.com/argilla-io/argilla/issues/5876"
+          },
+          {
+            "name": "開発元issue5877",
+            "url": "https://github.com/argilla-io/argilla/issues/5877"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "rapidjson-regex",
+        "title": "RapidJSON: تم تمرير مدخلات غير موثوقة إلى محلل التعبيرات النمطية",
+        "time": "10:19 تسجيل JST NVD",
+        "body": "يُشير الخطأ CVE-2026-116620 إلى قراءة خارج النطاق في مُحلل التعبيرات النمطية في RapidJSON 1.1.0 والإصدارات الأقدم. تم فحص مشكلة المطورين 2401 ، ولكن لم يتم تحديد الحد الأدنى للإصدار المُصلح. هذا لا يعني أن كل تطبيق يستخدم JSON مُعرّض للهجوم بشكل مطلق.",
+        "action": "تحقق من المسارات التي تمرر فعليًا مدخلات خارجية إلى معالجة التعبيرات النمطية/المخططات، وراعِ حدود الحجم وموارد التنفيذ، والعزل، وإصلاح عمليات الالتزام. راجع أيضًا نسخ المخزون المرفقة مع المنتجات.",
+        "cve_ids": [
+          "CVE-2026-116620"
+        ],
+        "sources": [
+          {
+            "name": "RapidJSON開発元issue",
+            "url": "https://github.com/Tencent/rapidjson/issues/2401"
+          },
+          {
+            "name": "NVD・CNA記録 CVE-2026-116620",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116620"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "msrc-index-revisions",
+        "title": "MSRC: أكتوبر (الشهر 10 ) تختلف تسجيلات/مراجعات CVRF عن أوقات الشحن",
+        "time": "تم تحديث مستند 10:46 JST ( 01:46:22 UTC)",
+        "body": "يحتوي سجل التغييرات (CVRF) لشهر أكتوبر (الشهر 10 ) من مايكروسوفت على 35 مراجعة منشورة حديثًا و__ 7 مراجعة للإدخالات الموجودة في هذه النافذة. هذه تحديثات سجلات تتعلق بـ GitLab وWasmtime وChromium وSSL وغيرها، وليست 35 هجمات أو تصحيحات جديدة لمنتجات مايكروسوفت. يتم حفظ فهارس المراجعات الفردية مع النسخ الأصلية.",
+        "action": "تحقق من كل منتج مقابل FixedBuild وقم بتحديث سجل التحديثات بشكل فردي. لا تعيد تفسير قيم FixedBuild القديمة لمتصفح Edge وغيره على أنها الإصدارات الموصى بها حاليًا؛ راجع قنوات التوزيع الحالية وإشعارات الإصدار.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "MSRC公式10月CVRF",
+            "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct"
+          },
+          {
+            "name": "MSRC update API",
+            "url": "https://api.msrc.microsoft.com/cvrf/v3.0/updates"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "continuing-response",
+        "title": "الاستجابة المستمرة: التمييز بين عمليات الاستعادة، وإصدارات معالجة CA، وإصلاحات Tailworm.",
+        "time": "18:49 إعادة الحصول على البيانات من JST فصاعدًا (ليست بيانات تفاضلية جديدة)",
+        "body": "يتطابق النص المحدد لبرامج ConnectWise وSoftBank وTailscale وeMudhra وFortinet مع الإصدارات المحفوظة مسبقًا. لم يتم تحديد الحد الأدنى لإصدار Tailworm الثابت. لا تعتبر معالجة CA في Tailscale v1.104.2 بمثابة إصلاح لـ Tailworm. كما لم يتم تحديث مشكلة .NET Brotli الرسمية ضمن هذه النافذة.",
+        "action": "أبقِ اتصالات ConnectWise المتأثرة معطلة حتى وصول التعليمات الفردية. ميّز بين تحديثات وإعادة تشغيل وقت التشغيل المشترك لـ .NET، وعمليات إعادة البناء/إعادة النشر المستقلة، وعمليات إعادة النشر/إعادة النشر لـ NativeAOT. لا تُثبت المصادر المتطابقة وجود تحديثات عالمية أو عدم وجود استغلال.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "ConnectWise公式",
+            "url": "https://www.connectwise.com/company/trust/advisories"
+          },
+          {
+            "name": "Tailscale security",
+            "url": "https://tailscale.com/security-bulletins"
+          },
+          {
+            "name": "Microsoft Brotli公式",
+            "url": "https://github.com/dotnet/announcements/issues/494"
+          }
+        ],
+        "kind": "scope-complement",
+        "certainty": "prior-scope",
+        "date": "2026-10-27"
+      }
+    ],
+    "nvd_published_ids": [
+      "CVE-2026-116554",
+      "CVE-2026-116555",
+      "CVE-2026-116556",
+      "CVE-2026-116602",
+      "CVE-2026-2270",
+      "CVE-2026-76654",
+      "CVE-2026-111422",
+      "CVE-2026-116603",
+      "CVE-2026-116604",
+      "CVE-2026-116800",
+      "CVE-2026-116801",
+      "CVE-2026-116802",
+      "CVE-2026-116803",
+      "CVE-2026-116804",
+      "CVE-2026-116805",
+      "CVE-2026-116806",
+      "CVE-2026-116807",
+      "CVE-2026-116808",
+      "CVE-2026-116809",
+      "CVE-2026-116810",
+      "CVE-2026-116811",
+      "CVE-2026-116812",
+      "CVE-2026-116813",
+      "CVE-2026-116814",
+      "CVE-2026-116815",
+      "CVE-2026-116817",
+      "CVE-2026-116818",
+      "CVE-2026-116819",
+      "CVE-2026-116820",
+      "CVE-2026-116821",
+      "CVE-2026-116822",
+      "CVE-2026-116823",
+      "CVE-2026-116824",
+      "CVE-2026-116825",
+      "CVE-2026-116826",
+      "CVE-2026-116827",
+      "CVE-2026-116828",
+      "CVE-2024-58399",
+      "CVE-2024-58400",
+      "CVE-2025-71439",
+      "CVE-2026-116605",
+      "CVE-2026-116608",
+      "CVE-2026-116620",
+      "CVE-2026-116623",
+      "CVE-2026-116816",
+      "CVE-2026-116829",
+      "CVE-2026-116836",
+      "CVE-2026-116837",
+      "CVE-2026-116838",
+      "CVE-2026-116839",
+      "CVE-2026-116840",
+      "CVE-2026-116841",
+      "CVE-2026-116842",
+      "CVE-2026-116843",
+      "CVE-2026-116844",
+      "CVE-2026-97028",
+      "CVE-2026-116639",
+      "CVE-2026-116640",
+      "CVE-2026-88781",
+      "CVE-2026-103312",
+      "CVE-2026-103332",
+      "CVE-2026-111820",
+      "CVE-2026-117468",
+      "CVE-2026-117469",
+      "CVE-2026-117470",
+      "CVE-2026-117471",
+      "CVE-2026-117472",
+      "CVE-2026-103325",
+      "CVE-2026-103359",
+      "CVE-2026-105946",
+      "CVE-2026-106174",
+      "CVE-2026-110910",
+      "CVE-2026-75891",
+      "CVE-2026-101034",
+      "CVE-2026-107472",
+      "CVE-2026-10511",
+      "CVE-2026-111459",
+      "CVE-2026-111460",
+      "CVE-2026-111461",
+      "CVE-2026-16521",
+      "CVE-2026-18449",
+      "CVE-2026-18450",
+      "CVE-2026-18451",
+      "CVE-2026-65210",
+      "CVE-2026-65219",
+      "CVE-2026-65220",
+      "CVE-2026-65211",
+      "CVE-2026-65213",
+      "CVE-2026-92885"
+    ],
+    "rejected_nvd_ids": [
+      "CVE-2026-97028"
+    ],
+    "report": {
+      "path": "update-20261027-1847.html",
+      "title": "10 18:47 فحص مسائي لتحديثات الحوادث وإجراءات مكافحة الثغرات الأمنية 27",
+      "headline": "ما تم الكشف عنه، وما تم إصلاحه، وما زال مجهولاً.",
+      "intro": "نلخص المصادر الأولية والتدابير التخفيفية المشروطة التي تغطي تقارير الكائنات المعدلة وراثيًا 8 – 11 ، وحالة شحن PAN-OS، وGROWI، وSleipnir، وMPC، وKubernetes، والذكاء الاصطناعي، وBMC، والحزم الخبيثة.",
+      "window_jst": "07:47〜18:47 JST",
+      "cutoff_jst_label": "2026-10-27 18:47 JST / 2026-10-27 09:47 UTC",
+      "retrieved_jst": "18:49 JST以降の現行改訂",
+      "previous": "update-20261027-0747.html",
+      "previous_label": "07:47の調査記録",
+      "motion_path": "./?lang=ja#62",
+      "motion_label": "夕方の4画面：公開・出荷・鍵share・package →",
+      "quick": [
+        {
+          "title": "مستخدمو الكائنات المعدلة وراثيًا: العزل والوقاية من الأضرار الثانوية",
+          "text": "يجري فحص المعلومات التي يُزعم نشرها. يجب التمييز بين هذه المعلومات وبرامج الفدية غير المؤكدة، والرجوع إلى الإرشادات الرسمية لعزل الأجهزة والرسائل الفردية.",
+          "href": "#gmo-publication",
+          "label": "متابعة الإجراءات المتعلقة بالكائنات المعدلة وراثيًا"
+        },
+        {
+          "title": "الخوادم العامة وأجهزة الإدارة",
+          "text": "تحقق من التحديثات العاجلة لـ PAN-OS 4 ، و GROWI 8.0.7 ، وتحديثات Kubernetes الخاصة بالفروع، ولوحات إدارة BMC. ميّز بين الخطط، والنشر الفعلي، والتحقيق في الاختراق.",
+          "href": "#pan-hotfix",
+          "label": "الشحن وشروط الاستخدام"
+        },
+        {
+          "title": "المفاتيح والمصادقة والتشفير",
+          "text": "بالنسبة لـ Fireblocks، ميّز التسلسل الهرمي للمشاركة الخاص بطرف 1 عن الحد الأدنى. بالنسبة لـ Psono وMendix وQt، تحقق أيضًا من الميزات المستخدمة وسلسلة الإصدارات الثابتة.",
+          "href": "#fireblocks-share-boundary",
+          "label": "المعلومات السرية والتفويض"
+        },
+        {
+          "title": "الذكاء الاصطناعي، والحزم، والمدفوعات",
+          "text": "قم بفحص أشجار عمل Mistral Vibe، ووضع GGUF والتنظيف، والحزم الضارة المحددة، وإشعارات الدفع ذات الأسرار الفارغة بشكل منفصل.",
+          "href": "#malware-camera-ui",
+          "label": "مسار التنفيذ والتطبيق"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "engine": "Stored translation memory; Google Cloud Translation v2 for missing text",
+    "human_reviewed": false
+  }
+}

@@ -58,7 +58,7 @@ class Publication(unittest.TestCase):
     def test_sitemap_only_final_canonical_pages(self):
         ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
         tree=ET.parse(SITE/'sitemap.xml');urls=[n.text for n in tree.findall('s:url/s:loc',ns)]
-        expected={Page(p.read_text()).canonical[0] for p in SITE.rglob('*.html') if p.name not in ('404.html','404.en.html')}
+        expected={Page(p.read_text()).canonical[0] for p in SITE.rglob('*.html') if not p.name.startswith('404.')}
         self.assertEqual(len(urls),len(set(urls)))
         self.assertEqual(set(urls),expected)
         for u in urls:self.assertTrue(u.startswith(BASE));self.assertNotIn('.html',urlsplit(u).path)

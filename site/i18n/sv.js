@@ -1,691 +1,772 @@
-window.registerLocale('sv', {
+/* Stored translations; missing scenes filled by Google Cloud Translation. */
+window.registerLocale("sv",{
   "ui": {
-    "chapter": "ÖVERSIKT",
-    "sound": "LJUD",
-    "on": "PÅ",
-    "off": "AV",
-    "sources": "KÄLLOR",
-    "close": "STÄNG",
-    "tap": "NÄSTA",
-    "replay": "SPELA IGEN",
-    "hint": "tryck / klicka / mellanslag",
-    "hintEnd": "slut på översikten — tryck för att börja om",
-    "coverKicker": "INCIDENTÖVERSIKT · 2026-10",
-    "coverTitleA": "EN MÅNAD,",
-    "coverTitleB": "15 INCIDENTER.",
-    "coverSub": "De 15 incidenterna i oktober, i ordning.<br>Breda uppdateringar och 65 bilder i tidsordning, inklusive morgonens scheman om Consul och OpenHands. Se rapporten för uppdateringen den 27 oktober, 07:47 JST. Tryck för att gå vidare.",
-    "coverStart": "TRYCK FÖR ATT BÖRJA",
-    "coverFoot": "Källor ingår. ConnectWise har nu bekräftats genom förstahandskällor; tidigare bilder behåller sitt historiska sammanhang.",
-    "drawerTitle": "KÄLLOR",
-    "drawerFoot": "Senaste läsrapport: 27 oktober, 07:47 JST. Bilderna behåller sammanhanget för sina datum; tillägg följer granskningsdatumen. Källorna hämtades efter bryttiden.",
-    "asof": "läget 2026-10-27 07:47 JST",
-    "lang": "SV"
+    "chapter": "BRIEFING",
+    "sound": "ljud",
+    "on": "ON",
+    "off": "OFF",
+    "sources": "källa",
+    "close": "nära",
+    "tap": "Nästa",
+    "replay": "Från början",
+    "hint": "Tryck / Klicka / Mellanslag",
+    "hintEnd": "Detta är den sista. Tryck för att återgå till början.",
+    "coverKicker": "INCIDENT BRIEFING · 2026-10",
+    "coverTitleA": "Om en månad,",
+    "coverTitleB": "15 artiklar.",
+    "coverSub": "Här är de 15 instanser som överlappade under månaden 10 i 2026 , presenterade i kronologisk ordning.<br>Förutom Apache-kärnan och tillägg till 10 - 23 finns det en vidsträckt undersökning av 10 - 24 , tillägg till 10 - 25 , en specialfunktion på Tailworms 6 skärm och 10 - 26 morgonskärm 4 . Alla 65 skärmar är i kronologisk ordning. Lade till verifiering av konto nattetid och återställningsstatus/Brotli-ankomst för 00:18 . Lade till motåtgärder för konsul/sandlådefunktion för 07:47 och motåtgärder för verifieringsstatus/leverans/MPC/paket för 18:47 . För den vidsträckta undersökningen, gå till rapporten för att läsa. Tryck för att fortsätta. Ljud spelas upp.",
+    "coverStart": "TAP TO BEGIN",
+    "coverFoot": "Källor inkluderade. ConnectWise verifierades initialt genom 10/25 utredningen. Äldre scener är baserade på register från den tiden.",
+    "drawerTitle": "Källor",
+    "drawerFoot": "Den senaste rapporten är baserad på 10/27 07:47 standarder. Skärmen visar poster för varje datum, med tillägg listade i ordning efter deras bekräftelsedatum. Faktiskt förvärv sker efter att standarden har fastställts.",
+    "asof": "2026 - 10 - 27 07:47 JST-standard",
+    "lang": "JA"
   },
   "scenes": {
     "intro": {
-      "kicker": "INCIDENTÖVERSIKT · 2026-10",
-      "title": "Oktobers incidenter, i datumordning.",
-      "lede": "Oberoende fel som gång på gång träffade samma slags svaghet. Tryck för att gå igenom dem i ordning.",
+      "kicker": "INCIDENT BRIEFING · 2026-10",
+      "title": "En tidslinje över händelser från månaden 10 .",
+      "lede": "Den här månaden sammanföll till synes orelaterade incidenter till samma typ av svaghet. Tryck för att gå vidare kronologiskt.",
       "points": [
-        "De första 15 fallen och senare breda granskningar; detta är inte ett globalt antal drabbade",
-        "<a href=\"./update-20261027-0747.html\">Rapport 07:47 JST (japanska) →</a> · <a href=\"./timeline.html\">Läs efter datum →</a>",
-        "Ljudet är på — slå av eller på uppe till höger"
+        "Inledande utredning 15 fall) följt av uppföljning i ett bredare område. Antalet fall representerar inte det totala antalet offer världen över.",
+        "<a href=\"./update-20261027-0747.html\">10 / 27 07:47 Senaste undersökningen →</a> · <a href=\"./timeline.html\">Läsdatum →</a>",
+        "Ljudet spelas upp. Du kan stänga av det med hjälp av LJUD-knappen i det övre högra hörnet."
       ],
-      "metric": "incidenter · 1 månad"
+      "metric": "incidents · 1 month"
     },
     "php-silence": {
-      "kicker": "PHP-KÄRNAN · SAMORDNAT OFFENTLIGGÖRANDE",
-      "title": "70 tysta dagar.",
-      "lede": "70 dagar från rapport till utgåva. Det farliga fönstret låg inte efter publiceringen, utan strax före.",
+      "kicker": "PHP CORE · COORDINATED DISCLOSURE",
+      "title": "Det var tyst i 70 dagar.",
+      "lede": "Det tog 70 dagar från upptäckt till publicering. Den farliga perioden var inte 24 timmarna efter publicering, utan tiden omedelbart före publicering.",
       "points": [
-        "08-01 Calif hittar flera RCE-vägar / 08-11 rapporteras de till PHP",
-        "10-20 detaljer läcker; watchTowr bekräftar RCE",
-        "10-21 <b>07:43 UTC</b> angreppsförsök observeras före rättningen (Cloudflare)",
-        "10-21 14:00 rättade utgåvor — 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35"
+        "08 - 01 Calif upptäcker flera RCE-sökvägar / 08 - 11 Rapporterar till PHP",
+        "Detaljer om 10 - 20 läckta, watchTowr bekräftar RCE",
+        "10-21 <b>07:43 UTC</b> Cloudflare observerade attackförsök innan patchen släpptes.",
+        "10 - 21 14:00 Reviderad version — 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35"
       ],
-      "metric": "dagar från rapport till publicering"
+      "metric": "days from report to public"
     },
     "zeabur": {
-      "kicker": "ZEABUR · INFRASTRUKTUR",
-      "title": "En administratörsnyckel i klartext öppnade 9 regioner.",
-      "lede": "Den andra incidenten sedan augusti. Nyckelbytet i augusti omfattade inte de inloggningsuppgifter som användes denna gång.",
+      "kicker": "ZEABUR · INFRASTRUCTURE",
+      "title": "Administratörsnyckeln i klartext öppnade regionen 9 .",
+      "lede": "Detta är 2 tidpunkten, efter 8 månaden. Rotationen omfattade inte \"nyckeln som användes denna gång\".",
       "points": [
-        "10-14 01:36 intrång via interna AWS-nycklar / 01:51 systemhemligheter",
-        "från 12:39 alla tjänsters miljövariabler; kommandon kördes i <b>865</b> databastjänster",
-        "grundorsak: administratörsuppgifter i klartext utan giltighetstid och ett offentligt åtkomligt administrationsplan",
-        "kunder: byt alla miljövariabler igen, även om det gjordes i augusti"
+        "10 - 14 01:36 Internt AWS-nyckelintrång / 01:51 Systemhemlighet",
+        "Utökad från 12:39 till miljövariabler för alla tjänster.<b>865</b> Kör kommandon i DB-tjänsten",
+        "Orsaken var användningen av vanlig text, obestämda administratörsuppgifter och den offentligt tillgängliga administrationsskärmen.",
+        "Användare måste rotera alla miljövariabler (även om detta gjordes i 8 månad, gör det igen)."
       ],
-      "metric": "berörda databastjänster"
+      "metric": "database services touched"
     },
     "rankmath": {
-      "kicker": "RANK MATH SEO PRO · TILLÄGGSKANAL",
-      "title": "I 11 timmar var den officiella nedladdningen skadlig.",
-      "lede": "Ett tilläggs uppdateringskanal är en angreppsväg. CVSS 9.8.",
+      "kicker": "RANK MATH SEO PRO · PLUGIN CHANNEL",
+      "title": "Den officiella distributionen var kontaminerad i 11 timmar.",
+      "lede": "Sökvägen för plugin-programmets uppdatering blir direkt attackvägen. CVSS-poängen är 9.8 .",
       "points": [
-        "3.0.123 nedladdad mellan 10-15 20:02 och 10-16 07:12 UTC",
-        "<b>CVE-2026-111862</b> / CVSS 9.8 / rättad i 3.0.124",
-        "en uppdatering slutför inte saneringen — sök efter administratörskonton, extra filer och schemalagda uppgifter",
-        "Wordfence levererade tidigt en akut brandväggsregel"
+        "10 - 15 20:02 → 10 - 16 07:12 hämtad i UTC <b>3.0.123</b>",
+        "<b>CVE-2026-111862</b> / CVSS 9.8 / Korrigering är 3.0.124",
+        "Uppdatering är inte en lösning — Leta efter administratörskonton, ytterligare filer och schemalagda uppgifter.",
+        "Wordfence distribuerar brandväggsregler för nödsituationer i förtid."
       ],
       "metric": "CVSS · CVE-2026-111862"
     },
     "teamupdraft": {
-      "kicker": "TEAMUPDRAFT · ANSLUTNINGSNYCKLAR",
-      "title": "Nycklar i en databas öppnade tusentals webbplatser.",
-      "lede": "Anslutningsnycklar ger giltigt signerade kommandon, så den tidigare säkerhetsrättningen stoppade dem inte.",
+      "kicker": "TEAMUPDRAFT · CONNECTION KEYS",
+      "title": "Nyckeln i databasen var ingångspunkten till tusentals webbplatser.",
+      "lede": "Anslutningsnyckeln kan användas som ett \"signerat, legitimt kommando\". Därför kommer befintliga korrigeringar inte att stoppa den.",
       "points": [
-        "kunddatabasen lästes: kontaktuppgifter, lösenordshashar, 2FA-inställningar och <b>3 sorters anslutningsnycklar</b>",
-        "UpdraftCentral / UpdraftVault / UpdraftClone-nycklar användes för att ladda upp, aktivera och radera tillägg",
-        "signaturerna var äkta, så även webbplatser med rättad CVE-2026-10795 godtog dem",
-        "UpdraftPlus 1.26.13 / 2.26.13 kopplar automatiskt från anslutningar skapade före 10-18 22:00 BST"
+        "Kundens databas läst: Kontaktinformation, hashat lösenord, 2 FA-inställningar,<b>Anslutning 3</b>",
+        "Skadliga plugins distribueras med hjälp av UpdraftCentral-/UpdraftVault-/UpdraftClone-nycklar.",
+        "Eftersom signaturen är äkta accepterades den trots att CVE-2026-10795 tillämpades.",
+        "UpdraftPlus 1.26.13 / 2.26.13 kommer automatiskt att koppla bort tidigare anslutningar från 10 - 18 22:00 BST"
       ],
-      "metric": "missbrukade nyckeltyper"
+      "metric": "key types abused"
     },
     "emudhra": {
-      "kicker": "EMUDHRA · CERTIFIKATUTFÄRDARE",
-      "title": "Nycklarna stals inte. De var för svaga för att vara hemliga.",
-      "lede": "Privata P-384-nycklar som var små heltal — 4, 56, 66, 115, 155, 156, 230, 237. Mellan 3 och 8 bitars entropi.",
+      "kicker": "EMUDHRA · CERTIFICATE AUTHORITY",
+      "title": "Nycklarna var inte stulna. Jag var för svag.",
+      "lede": "Den privata nyckeln för P-__ 384 var ett litet heltal. De gissade bitarna var \" 4 , 56 , 66 , 115 , 155 , 156 , 230 , 237 \". Det finns bara bitar från 3 till 8 .",
       "points": [
-        "<b>8</b> mellanliggande CA:er (6 TLS, 2 kodsignering). En ceremoni 2025-04-30 för <b>24 underordnade</b> gav en andra, svag nyckeluppsättning genom ett wrap/unwrap-fel",
-        "10-17 18:05 UTC rapport → 19:45 Chrome blockerar via SPKI → 22:59 alla Firefox. <b>Apple blockerade de 6 TLS-nycklarna, Microsoft de 2 för kodsignering</b>",
-        "Webbläsarna rättade bara sin egen kopia: Docker, Kubernetes, IoT och Python-paket återstår. Go levererade <b>CVE-2026-111943</b> i 1.27.3 / 1.26.10",
-        "Den mest akuta risken gäller <b>VPN-klienter</b> (Talos, Ars): enligt Gos kryptografiunderhållare krävs ”större sanering än efter Heartbleed”"
+        "mellanliggande CA <b>8 bok</b>(TLS 6 + kodsignering 2 ). Nyckelgenerering för 2025 - 04 - 30 <b>24 bok</b>När en lägre nivå CA skapades resulterade ett fel i wrap/unwrap i att &quot; 2 uppsättningen svaga nycklar&quot; skapades.",
+        "10 - 17 18:05 UTC-rapport → 19:45 Chrome blockerar via SPKI → 22:59 Firefox på alla enheter. **Apple blockerar 6 TLS-certifikat, Microsoft blockerar 2 kodsignaturcertifikat****",
+        "Webbläsaren har precis avslutat sin del. Det som återstår är paketvägen Docker, Kubernetes, IoT, Python – Go är <b>CVE-2026-111943</b> Avvisad som 1.27.3 / 1.26.10",
+        "Den senaste skarpa är <b>VPN-klient</b>(Talos / Ars). &quot;Större upprensning än Heartbleed&quot; säger Gos kryptograf."
       ],
-      "metric": "en privat nyckel, bokstavligen"
+      "metric": "one private key, literally"
     },
     "ovh": {
-      "kicker": "OVHCLOUD CLI · UTGÅVEFILER",
-      "title": "I 94 minuter var den officiella binärfilen något annat.",
-      "lede": "Källkoden och byggkedjan var intakta. Det som brast var antagandet att utgåvefiler inte kan bytas ut.",
+      "kicker": "OVHCLOUD CLI · RELEASE ASSETS",
+      "title": "I 94 minuter var den officiella binärfilen något helt annat.",
+      "lede": "Källkoden och versionen är okej. Problemet berodde på antagandet att \"versionsresurser inte kan ersättas\".",
       "points": [
-        "filer ersattes 10-19 mellan 14:47 och 16:21 UTC+2",
-        "utgåvor <b>v0.11.0–v0.15.0</b>; endast nedladdningar under detta tidsfönster berörs",
-        "grundorsak: arkivet var inte inställt för oföränderliga utgåvor",
-        "åtgärden är en inställning plus kontroll: oföränderliga utgåvor och signaturverifiering"
+        "Tillgångar ersätts i 10 - 19 14:47 ~ 16:21 (UTC+ 2 ).",
+        "Omfattningen är <b>v0.11.0〜v0.15.0</b>Påverkan är begränsad till endast förvärv under den tidsperioden.",
+        "Orsak: Arkivet garanterade inte oföränderlighet för utgåvan.",
+        "Lösningen är en enda inställning: oföränderlig release + signaturverifiering."
       ],
-      "metric": "minuters exponering"
+      "metric": "minutes of exposure"
     },
     "oracle": {
-      "kicker": "ORACLE · JAVA SE:S KRITISKA SÄKERHETSUPPDATERING",
-      "title": "55 rättningar, högst 7.5 — versionskolumnen är fällan.",
-      "lede": "”Berörd” och ”rättad” är olika kolumner. 21.0.12.1 är berörd; rättningen finns i 21.0.13.",
+      "kicker": "ORACLE · JAVA SE CRITICAL PATCH UPDATE",
+      "title": "55 objekt. Maximalt antal är 7.5 . Det knepiga är versionen.",
+      "lede": "Den \"berörda versionen\" och den \"korrigerade versionen\" finns i separata kolumner. 21.0.12.1 är den berörda versionen och 21.0.13 är den korrigerade versionen.",
       "points": [
-        "55 CVE:er / 49 kan utnyttjas på distans utan autentisering / högst CVSS 7.5 / 0 i KEV",
-        "berörda: 8u503, 11.0.32.1, 17.0.20.1, 21.0.12.1, 25.0.4.1, 26.0.2, 27",
-        "rättade 10-20: <b>8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1</b>",
-        "JDK 26 får ingen rättning (26.0.3 finns inte) — byt till 27"
+        "55 objekt / Fjärråtkomst utan autentisering 49 objekt / Maximalt CVSS 7.5 / KEV 0 objekt",
+        "Påverkan: 8 u 503 , 11.0.32.1 , 17.0.20.1 , 21.0.12.1 , 25.0.4.1 , 26.0.2 , 27",
+        "Rättelse ( 10 - 20 ): <b>8u511 / 11.0.33 / 17.0.21 / 21.0.13 / 25.0.5 / 27.0.1</b>",
+        "Det finns inga ändringar i JDK 26 ( 26.0.3 finns inte) → Ändrad till 27"
       ],
-      "metric": "CVE:er · 49 på distans utan autentisering"
+      "metric": "CVEs · 49 remote, no auth"
     },
     "plex": {
       "kicker": "PLEX MEDIA SERVER · KEV",
-      "title": "En SSRF med 4.3 öppnar vägen till kodkörning.",
-      "lede": "Ingen enskild poäng sticker ut. CISA:s KEV-post beskriver hur de 4 bildar en kedja.",
+      "title": "SSRF med 4.3 fungerar som startpunkt för kodkörning.",
+      "lede": "De individuella poängen är genomsnittliga. CISA:s KEV anger uttryckligen att dessa 4 fall kommer att kaskadföras.",
       "points": [
-        "tillagda i KEV 10-20 / tidsfrist <b>10-23</b> för 96656 och 96654",
-        "kedja: valfri X-Plex-Token → SSRF → tilläggsanrop → filskrivning som administratör → .so körs vid start",
-        "96651 finns inte i KEV men läser <b>PlexOnlineToken</b> — kontoövertagande",
-        "rättad i <b>1.43.3.10861</b>, men aktuell utgåva är <b>1.43.5.11029</b>; NAS-butiker ligger efter"
+        "KEV-tillägg 10 - 20 / Utgångsdatum <b>10-23</b>( 96656 och 96654 )",
+        "Kedja: Valfri X-Plex-Token → SSRF → Plugin-anrop → Administrativ skrivning → .so-körning vid start",
+        "96651 ligger utanför KEV, <b>PlexOnlineToken</b> Läsning = Ta kontroll över kontot",
+        "Korrektion <b>1.43.3.10861</b>Det senaste är <b>1.43.5.11029</b>(Från och med 2026 - 10 - 23 10:36 JST). NAS-paket kommer att försenas."
       ],
-      "metric": "CVE:er i KEV · tidsfrist 10-23"
+      "metric": "CVEs in KEV · due 10-23"
     },
     "apache": {
-      "kicker": "TILLÄGG · APACHE TOMCAT / HTTPD / TRAFFIC SERVER",
-      "title": "3 ”Important”-fel, samma utfall: en annan användares data.",
-      "lede": "Tomcats 3 fel har olika mekanismer men samma resultat. httpd:s ”low” får poängen 7.5. Allvarlighetsgrad är mer än ett tal.",
+      "kicker": "ADDENDUM · APACHE TOMCAT / HTTPD / TRAFFIC SERVER",
+      "title": "Det \"viktiga\" problemet visade sig vara störningar mellan användare.",
+      "lede": "Tomcats 3 objekt har en annan mekanism men resultatet är detsamma. httpds \"låga\" är 7.5 . Allvarlighetsgraden representeras inte av 1 tal.",
       "points": [
-        "Tomcat: förbigång av autentisering i JNDIRealm (SASL utan GSSAPI) samt sammanblandade HTTP/2- och AJP-svar — <b>11.0.27 / 10.1.61 / 9.0.123</b>",
-        "httpd <b>2.4.69</b>: UAF i mod_rewrite och skrivning utanför gränserna i mod_proxy_html. Apache anger låg, NVD anger 7.5",
-        "Traffic Server: 2 CVE:er för request smuggling (8.9 / 8.7)",
-        "Ingen finns i KEV — avsaknad av publicerat utnyttjande betyder inte säkert"
+        "Tomcat: Autentiseringsförbikoppling (JNDIRealm icke-GSSAPI SASL) + HTTP/ 2 /AJP-svarsstörningar — <b>11.0.27 / 10.1.61 / 9.0.123</b>",
+        "httpd <b>2.4.69</b>mod_rewrite UAF och mod_proxy_html skrivning utanför gränserna. Apache är inställd på lågt, NVD är inställd på 7.5",
+        "Trafikserver: Begäran om smuggling 2 ( 8.9 / 8.7 )",
+        "KEV har 0 objekt. &quot;Opublicerad&quot; betyder dock inte att den är säker."
       ],
-      "metric": "Tomcat: förbigång av autentisering · CVSS 4.0"
+      "metric": "Tomcat · auth bypass (CVSS 4.0)"
     },
     "php-race": {
-      "kicker": "PHP · GLAPPET PÅ 6 TIMMAR",
-      "title": "Sonderingarna kom 6 timmar före rättningen.",
-      "lede": "En sorts fel där det redan är för sent att vänta på en offentlig PoC. Node.js agerade samma dag.",
+      "kicker": "PHP · THE SIX-HOUR GAP",
+      "title": "Försöket hade inträffat 6 timmar före korrigeringen.",
+      "lede": "Det här är den typen av sårbarhet där det inte räcker med att \"få panik efter att ett proof-of-concept (PoC) har släppts\". Node.js fungerade också samma dag.",
       "points": [
-        "<b>07:43 UTC</b> Cloudflare observerar försök innan rättningen släpps",
-        "<b>14:00</b> PHP-utgåvor / <b>14:17</b> NVD publicerar CVE:n",
-        "samma dag: Node.js 22.23.4 / 24.22.1 / 26.12.1, inklusive CA-paketet",
-        "allt som var exponerat under dessa 24 timmar behöver en separat intrångskontroll"
+        "<b>07:43 UTC</b> Cloudflare observerar attackförsök innan patchen släpps.",
+        "<b>14:00</b> PHP släpper en korrigerad version / <b>14:17</b> NVD publicerar CVE",
+        "Samma dag: Node.js 22.23.4 / 24.22.1 / 26.12.1 (CA-paketuppdatering ingår också)",
+        "De offentligt tillgängliga 24 timmarna och den exponerade konfigurationen kommer att kontrolleras separat för intrång."
       ],
-      "metric": "sonderingar före rättningen"
+      "metric": "probes before the fix"
     },
     "gitlab": {
       "kicker": "GITLAB · CVSS 10.0",
-      "title": "Förra veckans uppdatering ger inte den här rättningen.",
-      "lede": "Uppdateringen 12 oktober gällde 19.2 och senare. Denna rättning ligger en utgåva högre.",
+      "title": "Detta gäller även om du satte på plåstret förra veckan.",
+      "lede": "Uppdateringen för 10 månad 12 dag är endast tillgänglig från och med 19.2 . Denna reviderade version är 1 över den.",
       "points": [
-        "<b>CVE-2026-110264</b> / heltalsöverspill i Onigmo / RCE utan autentisering / alla utgåvor sedan 7.0 (2014)",
-        "rättade: 19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13",
-        "en instans uppdaterad 12 oktober är berörd igen om versionen är lägre än 19.2.9",
-        "ingen publicerad kringåtgärd — ta bort internetåtkomsten om uppgradering inte är möjlig"
+        "<b>CVE-2026-110264</b> / Heltalsöverflöde i Onigmo / Oautentiserad RCE / Allt från 7.0 ( 2014 ) och framåt",
+        "Modifiering: 19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13",
+        "Miljöer som uppdaterades på 10 månad 12 dag omfattas också av samma regel igen om de är mindre än 19.2.9 (den korrigerade versionen är 1 över det).",
+        "Det finns inga offentligt tillgängliga lösningar. Att sänka priset skulle eliminera tillgängligheten."
       ],
-      "metric": "CVSS · utan autentisering"
+      "metric": "CVSS · unauthenticated"
     },
     "npm": {
-      "kicker": "PAKETKANALER · 4 INCIDENTER",
-      "title": "Själva distributionen blev angreppsytan.",
-      "lede": "8 av oktobers incidenter handlar om hur kod levereras. Proveniens visar bara var den byggdes.",
+      "kicker": "PACKAGE CHANNELS · FOUR INCIDENTS",
+      "title": "Det distribuerade materialet i sig blev det offensiva verktyget.",
+      "lede": "Artikeln 10 i månaden 8 är ett problem med koddistributionen. Proveniensen anger bara \"var den skapades\".",
       "points": [
-        "LiteLLM 1.107.0: kör informationsstöld vid varje Python-start, byggd från den snarlika <b>Berri-AI</b>",
-        "tensorlake@0.5.144: en token som hålls som gisslan och raderar <b>$HOME</b> om den återkallas",
-        "@subql/common@5.8.3: körs vid installation och igen vid import",
-        "GhostAction: en falsk security-audit.yml skickade ut hemligheter och git-historik från <b>345</b> arkiv"
+        "LiteLLM 1.107.0 : Stulen vid start. Liknande arkiv. <b>Berri-AI</b> Bygg från",
+        "tensorlake@__ 0.5.144 : Om du återkallar det <b>$HOME</b> &quot;Gisslan-token&quot; som raderar",
+        "@subql/common@ 5.8.3 : Startar både under installation och import.",
+        "GhostAction: Fake security-audit.yml <b>345</b> Skicka ut arkivets hemligheter och historik."
       ],
-      "metric": "genomsökta arkiv · 16 minuter"
+      "metric": "repos swept · 16 minutes"
     },
     "railway": {
-      "kicker": "RAILWAY · MILJÖVARIABLER",
-      "title": "Miljövariablerna var lagret för hemligheter.",
-      "lede": "”Del av en serie angrepp mot plattformsföretag riktade mot leverantörer av AI-inferens” — leverantörens egna ord.",
+      "kicker": "RAILWAY · ENVIRONMENT VARIABLES",
+      "title": "Miljövariabler var en hemlig lagringsplats.",
+      "lede": "\"En del av en serie attacker riktade mot leverantörer av AI-inferenser\", skrev leverantören.",
       "points": [
-        "kunders miljövariabler lästes i krypterad form; vissa kan ha dekrypterats",
-        "alla driftsättningar pausades; uppströmsleverantörer ombads återkalla nycklar i förebyggande syfte",
-        "uppgiften gäller <b>varje</b> variabel, inte bara den som misstänks ha läckt",
-        "där finns även SMTP-lösenord, signeringshemligheter för webhooks och JWT_SECRET"
+        "Kundmiljövariabler kan ha lästs medan de var krypterade, och vissa kan ha dekrypterats.",
+        "Under utredningen stoppades alla distributioner och leverantörer uppströms ombads att i förebyggande syfte återkalla nycklar.",
+        "Det som behövs är inte en &quot;nyckel som kan ha läckt ut&quot;,<b>Alla</b>Rotation",
+        "SMTP-lösenordet, webhook-signeringshemligheten och JWT_SECRET ingår också i miljövariablerna."
       ],
-      "metric": "miljövariabler att byta"
+      "metric": "env vars to rotate"
     },
     "bind": {
-      "kicker": "TILLÄGG · ISC BIND 9 / DNS",
-      "title": "Ett återuppspelat paket skadar minnet.",
-      "lede": "Återuppspelning av ett GSS-TSIG-signerat UDP-meddelande slår ut `named`. ISC anger att ingen kringåtgärd finns.",
+      "kicker": "ADDENDUM · ISC BIND 9 / DNS",
+      "title": "Ett omsänt 1 paket korrumperar minnet.",
+      "lede": "När en UDP signerad med GSS-TSIG spelas upp igen, blir den namngivna katalogen korrupt. ISC anger uttryckligen att det inte finns någon \"lösning\".",
       "points": [
-        "<b>CVE-2026-94300</b> / CVSS 8.1 (AV:N, AC:H) / ISC:s allvarlighetsgrad <b>High</b> / kan utnyttjas på distans",
-        "berörda 9.11.0–9.18.50, 9.20.0–9.20.29, 9.21.0–9.21.26 (samt S1) → rättade i <b>9.20.30 / 9.21.27</b>",
-        "vägen är GSS-TSIG-hanteraren: `named-checkconf -p | grep -i gssapi` visar om den är konfigurerad",
-        "ingen kringåtgärd. Utgångna grenar (9.11–9.18) måste flyttas till 9.20 / 9.21"
+        "<b>CVE-2026-94300</b> / CVSS 8.1 (AV:N・AC:H)/Allvarlighetsgrad <b>High</b> / På distans",
+        "Påverkan: 9.11.0 – 9.18.50 , 9.20.0 – 9.20.29 , 9.21.0 – 9.21.26 (och S 1 serien) → Korrigering <b>9.20.30 / 9.21.27</b>",
+        "Ingångspunkten är GSS-TSIG-hanteraren. Använd `named-checkconf -p | grep -i gssapi` för att kontrollera om den är konfigurerad.",
+        "Det finns ingen lösning. Det enda alternativet är att flytta EOL-grenarna ( 9.11 till 9.18 ) till 9.20 / 9.21"
       ],
-      "metric": "CVSS · ingen kringåtgärd"
+      "metric": "CVSS · Ingen lösning tillgänglig"
     },
     "lkml": {
-      "kicker": "TILLÄGG · LINUXKÄRNAN / LKML",
-      "title": "6 nolldagarsfel skickades till den offentliga listan.",
-      "lede": "ZDI skickade rapporterna till offentliga LKML i stället för den privata säkerhetslistan. Greg Kroah-Hartman svarade på var och en och frågade varför.",
+      "kicker": "ADDENDUM · LINUX KERNEL / LKML",
+      "title": "Den offentliga listan har 0 dagar, med 6 poster.",
+      "lede": "ZDI publicerade på den offentliga LKML istället för en privat säkerhetslista. Greg Kroah-Hartman svarar på varje inlägg.",
       "points": [
-        "heltalsunderspill i SMB Direct (<b>9.0</b>) och en kapplöpning i ksmbd (<b>9.0</b>) — båda ger fjärrkörning av kod",
-        "LPE i skb_zerocopy, skrivning utanför gränser i vmwgfx, en oinitierad nvmet-resurs och överspill i TCP:s sökdomän",
-        "huvudgrenen är <b>orättad</b>: rättningar ligger i en v7.5-gren och -next (10-22); ingen commit i huvudgrenen hänvisar till ZDI-id:na",
-        "minska exponeringen: stoppa <b>ksmbd</b> om den inte används och exponera aldrig SMB Direct mot opålitliga nät"
+        "SMB Direkt heltalsunderflöde (<b>9.0</b>) och ksmbd-konflikt (<b>9.0</b>) — Båda är fjärrstyrda RCE",
+        "LPE i skb_zerocopy, skrivning till vmwgfx utanför gränserna, oinitialiserad nvmet, TCP-frågestacköverflöde.",
+        "huvudlinjen är<b>ocensurerad</b>Patchar tillämpade på grenen v7.5 och -next (från och med 10 - 22 ). Det finns inga mainline-commits som refererar till ZDI-ID:n.",
+        "Exponeringsreduktion: Används inte <b>ksmbd</b> Stoppa det / Utsätt inte SMB Direct för otillförlitliga"
       ],
-      "metric": "offentliggjorda rapporter"
+      "metric": "reports sent public"
     },
     "sweep": {
-      "kicker": "GENOMGÅNGEN · NVD, 14 DAGAR",
-      "title": "Samma kommando: 125, sedan 104. Inget rättades.",
-      "lede": "Fönstret slutar ”i dag”, så antalet ändras med klockan. Antalet mäter publicering och analysomgångar, inte risk.",
+      "kicker": "THE SWEEP · NVD, 14 DAYS",
+      "title": "Samma kommando ändrar 125 till 104 . Världen har inte förändrats.",
+      "lede": "Fönstret slutar \"idag\". Därför rör sig siffrorna med klockan. Antalet fall mäter inte risk, utan snarare hur upplysningar och analys sammanfattas.",
       "points": [
-        "125 för 9 timmar sedan, 104 nu: <b>-17</b> vid fönstrets kant, <b>-4</b> lämnade CRITICAL, <b>+0</b> nya",
-        "endast <b>26%</b> har NVD:s CPE-koppling — bland 381 CVE:er publicerade under de senaste 24 timmarna har <b>0%</b> det",
-        "högst EPSS: <b>5.76%</b> (php2shell 109619) — som sedan sänkts till 8.1, utanför intervallet",
-        "CNA och NVD skiljer sig: MOVEit och TeamCity har 8.1 (AC:H) hos leverantören, 9.8 (AC:L) hos NVD"
+        "9 timmar sedan fanns det 125 objekt, och nu finns det 104 objekt. Fördelningen är: <b>− 17 (Fönsterkanten) − 4 (Ta bort från KRITISK) + 0 (Ny)</b>",
+        "NVD CPE-länkning är <b>26%</b>De senaste 381 artiklarna som publicerats under de senaste 24 timmarna är <b>0%</b>(Analysen är fortfarande pågående)",
+        "EPSS högsta är <b>5.76%</b> — php 2 shell 109619 . Gå dock ner till 8.1 och gå utanför CRITICAL.",
+        "CNA- och NVD-poängen är uppdelade: MOVEit / TeamCity är 8.1 (AC:H) och 9.8 (AC:L)"
       ],
-      "metric": "kritiska CVE:er : kända som utnyttjade"
+      "metric": "critical CVEs : known exploited"
     },
     "infinity-core": {
-      "kicker": "EFTERORD · LINUXKÄRNAN",
-      "title": "6 genvägar till root i själva kärnans centrum.",
-      "lede": "Hyunwoo Kim publicerade ”Infinity Core” på oss-security: 5 av 6 tar en opriviligierad användare till root, och samma 5 tar sig ur en container till värden.",
+      "kicker": "POSTSCRIPT · LINUX KERNEL",
+      "title": "I kärnan finns 6 genvägar till root.",
+      "lede": "Hyunwoo Kim har publicerat \"Infinity Core\" om oss-säkerhet. 5 tillåter oprivilegierade användare att avsluta till root, och 5 tillåter användare att avsluta från en container till värden.",
       "points": [
-        "timer, signal, mm, futex, schemaläggare, SLAB — inget nätverk, ingen BPF och inga användarnamnrymder krävs",
-        "NVD ger 4 poängen <b>7.8</b> och 2 ingen poäng alls; alla 6 står som <code>Received</code> och ingen finns i KEV",
-        "<b>Rättningen har redan släppts</b>: 6.6.158 / 6.12.112 / 6.18.54 / 7.2.8, schemaläggaren i 7.2.9 — alla aktuella stabila grenar ligger högre",
-        "det som behövs är en <b>omstart</b>. Ett rättat paket bredvid en gammal körande kärna lämnar felet öppet"
+        "Timer / Signal / MM / Futex / Schemaläggare / SLAB. Inget nätverk, BPF eller användarnamnrymd används.",
+        "NVD är 4 objekt <b>7.8</b>2 objekten har ingen poäng. 6 objekten är också före analys.<code>Received</code>) KEV har inte",
+        "<b>Rättelsen har redan släppts.</b>6.6.158 / 6.12.112 / 6.18.54 / 7.2.8 , schemaläggaren är 7.2.9 . Den nuvarande stabila gränsen överskrids i samtliga fall.",
+        "Det som fungerar är<b>starta om</b>Om den körs på en äldre kärna bara genom att installera den, kommer den att förbli öppen."
       ],
-      "metric": "CVE:er : root-PoC:er"
+      "metric": "CVE: PoC för root-förvärv"
     },
     "blindspot": {
-      "kicker": "EFTERORD · DEN BLINDA FLÄCKEN",
-      "title": "En genomgång ser bara vad databasen gjorde.",
-      "lede": "Varken efter publiceringsdatum, ändringsdatum eller i någon av 12 flöden — Infinity Core dök inte upp i något av dem.",
+      "kicker": "POSTSCRIPT · THE BLIND SPOT",
+      "title": "Sweep fokuserar endast på databasarbete.",
+      "lede": "Oavsett om jag sökte efter publiceringsdatum, uppdateringsdatum eller läste igenom flödet av 12 böcker, så dök Infinity Core aldrig upp.",
       "points": [
-        "CVE:erna publicerades <b>9/4-10/12</b>; PoC:erna kom <b>10/16</b> — ett glapp på 6 veckor",
-        "deras NVD-poster ändrades inte i genomgången av 6 timmars ändringar; alla 6 står som <code>Received</code>",
-        "<code>infinity</code> finns i <b>0</b> av de 13 flödenas rubriker — även RSS-toppen är ett fönster; arkivet är dokumentationen",
-        "den saknade axeln är <b>offentliggörandekanalen</b>: med <code>oss-sec</code> hittades 4 poster som de andra 12 missade"
+        "Utgivningsdatumet för CVE <b>9/4〜10/12</b>PoC:n släpptes. <b>10/16</b> — 6 Veckskillnad",
+        "NVD-poster uppdateras inte i 6 timmars uppdateringssökning. 6 poster uppdateras inte heller. <code>Received</code>",
+        "13 Boktitel <code>infinity</code> tänder <b>0 artiklar</b>RSS är också ett fönster, och posterna finns på arkivsidan.",
+        "Den tillagda axeln är<b>Avslöjandekanaler</b>。<code>oss-sec</code> I den runda där det lades till kunde vi hämta 4 föremål som en annan 12 bok hade tappat."
       ],
-      "metric": "flöden som tog upp detta"
+      "metric": "Flödet som rapporterade denna 6 incident"
     },
     "ecosystem": {
-      "kicker": "EFTERORD · EKOSYSTEMET",
-      "title": "2 kritiska fel som inte är CVE:er.",
-      "lede": "24 timmar i GitHub Advisory Database. Båda Next.js-råden om RCE utan autentisering saknar fortfarande CVE-id.",
+      "kicker": "POSTSCRIPT · THE ECOSYSTEM",
+      "title": "Det fanns 2 kritiska sårbarheter som ännu inte var CVE:er.",
+      "lede": "GitHub Advisory Database 24 timmar. Oautentiserade RCE:er i Next.js 2 har ännu ingen CVE.",
       "points": [
-        "Next.js <code>use cache</code> och bildoptimering (SVG), RCE: rättade i <b>16.4.1</b> / <b>15.5.28</b>",
-        "DOMPurify 3.4.17, Pillow 13.0.0, GitPython 3.2.1, <code>toml</code> 5.0.1, Storybook 8.6.19",
-        "en process som filtrerar på CVE-id ser aldrig dessa; utgå från paketnamn och rättad version",
-        "samma dag angavs lägsta versioner för Python-CA: <code>certifi</code> 2026.10.19, <code>pip</code> 26.2.2"
+        "Next.js <code>use cache</code> Obehörig RCE för bildoptimering (SVG). Åtgärden är <b>16.4.1</b> / <b>15.5.28</b>",
+        "DOMPurify 3.4.17、Pillow 13.0.0、GitPython 3.2.1、<code>toml</code> 5.0.1、Storybook 8.6.19",
+        "CVE-filtreringsprocessen kommer inte att avslöja problemet med 2 förrän i slutet. Beslutet baseras på paketnamnet och den uppdaterade versionen.",
+        "Samma dag släpptes även versionsnumret för Python CA-paketet: <code>certifi</code> 2026.10.19 / <code>pip</code> 26.2.2"
       ],
-      "metric": "paketråd under 24 timmar"
+      "metric": "24 Paketrekommendation för tid"
     },
     "node2shell": {
-      "kicker": "EFTERORD · NODE.JS",
-      "title": "På en officiell version fungerade det.",
-      "lede": "Imperva körde kod i den vanliga Node.js 24.22.0-avbildningen med manipulerade Brotli-data — utan felsökare eller instrumenterat bygge.",
+      "kicker": "POSTSCRIPT · NODE.JS",
+      "title": "Det fungerade med den officiella versionen.",
+      "lede": "Imperva körde framgångsrikt kod från skapade Brotli-data på den distribuerade Node.js 24.22.0 avbildningen. Ingen felsökare eller instrumentbyggnation krävdes.",
       "points": [
-        "2 ingångar: <code>fetch()</code> läser ett opålitligt Brotli-svar, och Express 5 / body-parser 2 packar upp en begärans kropp. Enbart <code>http.createServer()</code> gör ingetdera",
-        "1 bygge testades (24.22.0, Linux arm64); 22.x, 26.x och andra arkitekturer testades inte, och flera försök krävdes",
-        "<b>24.22.1</b> avvisar samma byteföljd. Inget utnyttjande i verkliga angrepp rapporteras",
-        "NVD-posten har CVSS 4.0 <b>9.2</b> och ingen 3.1-poäng, så den syns aldrig i en allvarlighetsfiltrerad CRITICAL-lista"
+        "Det finns 2 ingångar.<code>fetch()</code> Sökvägen som förbrukar det otillförlitliga Brotli-svaret, och sökvägen där Express 5 / body-parser 2 packar upp begäran. <code>http.createServer()</code> Den kommer inte att expandera automatiskt.",
+        "Verifiering utfördes på 24.22.0 Linux-armarna 64 och 1 . 22 __.x / 26 __.x och andra arkitekturer verifierades inte och krävde flera försök för att lyckas.",
+        "Samma ingång <b>24.22.1</b> De vägrade. Det har ännu inte rapporterats om missbruk i verkliga miljöer.",
+        "NVD-poster är CVSS 4.0 <b>9.2</b> 3.1 saknas dock. Den visas inte i listan KRITISKA filtrerad efter allvarlighetsgrad."
       ],
-      "metric": "utnyttjat bygge : 24.22.1 avvisar det"
+      "metric": "Versionen som fungerade: Den avvisade versionen är 24.22.1"
     },
     "prepatch": {
-      "kicker": "EFTERORD · PHP2SHELL",
-      "title": "Försöken började 4 dagar före säkerhetsrådet.",
-      "lede": "AWS honeypot-telemetri innehåller ett exploateringsförsök daterat 2026-10-17, och fungerande PoC:er sågs 12 timmar före embargots slut. Publiceringsdagen var inte den första dagen.",
+      "kicker": "POSTSCRIPT · PHP2SHELL",
+      "title": "Rättegången hade börjat 4 dagar innan rekommendationen utfärdades.",
+      "lede": "AWS-honeypoten har fortfarande exploateringsförsök 2026 - 10 - 17 kvar, och den offentliga PoC:n var ute 12 timmar innan embargot upphävdes. Offentliggörandedatumet är inte datumet för den första attacken.",
       "points": [
-        "<b>482,342</b> begäranden / 122,311 sessioner / 21,998 webbplatser / 103 länder under de första 24 timmarna (Imperva)",
-        "det är <b>försök</b>, inte intrång: Sophos såg att Mirai-installationen misslyckades och Dataminr rapporterar inga kända intrång",
-        "fortfarande inte i KEV. EPSS 5.31% / 5.76%",
-        "sök från <b>10-17</b>. Börjar man vid publiceringen försvinner de första 4 dagarna"
+        "Med tiden 24 före korrigeringen <b>482,342</b> Begäran / 122 , 311 Session / 21 , 998 Plats / 103 Land (Imperva-observation)",
+        "dock<b>rättegång</b>Det är inte ett intrång. Sophos misslyckades med att installera ett Mirai-derivat, och Dataminr har inga kända intrång.",
+        "KEV är fortfarande inte inkluderat. EPSS är 5.31 % / 5.76 %",
+        "Utgångspunkten för utredningen <b>10-17</b>Från och med offentliggörandedatumet utelämnas den första 4 dagen."
       ],
-      "metric": "första försök → säkerhetsråd"
+      "metric": "Första försöket → Rekommendation"
     },
     "filters": {
-      "kicker": "EFTERORD · FILTRET",
-      "title": "En 9.9 som listan inte kan visa.",
-      "lede": "NVD:s allvarlighetsfilter räknar bara dess egen primära CVSS 3.x-poäng. En 9.9 från CNA ger 0 rader, även om posten innehåller poängen.",
+      "kicker": "POSTSCRIPT · THE FILTER",
+      "title": "Även med 9.9 kommer den inte att visas i listan.",
+      "lede": "NVD:s allvarlighetsfilter räknar bara sin egen (primära) CVSS 3 __.x. En CNA:s 9.9 räknas som 0 svar, även om de förekommer i samma post.",
       "points": [
-        "<code>?cveId=CVE-2026-91637&amp;cvssV3Severity=CRITICAL</code> ger <b>0 rader</b>; posten har 9.9 märkt <code>Secondary</code>",
-        "samma gäller utnyttjade <code>CVE-2026-111497</code> (endast CVSS 4.0, 9.2) och <code>CVE-2026-114625</code> (CNA 9.9)",
-        "10 timmar: <b>104 → 98</b>. 6 rader bort, 0 till, inget rättat",
-        "genomgången av alla allvarlighetsgrader och leverantörsflödena fångade båda. En filtrerad lista svarar inte på vad som utnyttjas"
+        "<code>?cveId=CVE-2026-91637&amp;cvssV3Severity=CRITICAL</code> tänder <b>0 artiklar</b>Posten innehåller 9.9 (Sekundär).",
+        "Av samma anledning, <code>CVE-2026-111497</code>(CVSS 4.0 endast 9.2 ) och <code>CVE-2026-114625</code>(CNA 9.9 ) visas inte heller i listan.",
+        "10 timmar <b>104 → 98</b>6 objekt dök upp och 0 objekt lades till, men inga åtgärdades.",
+        "Offentliga genomsökningar av alla allvarlighetsgrader och leverantörsflöden identifierar båda. En filtrerad lista besvarar inte frågan om &quot;vad som utnyttjas&quot;."
       ],
-      "metric": "svaret för CNA:s 9.9"
+      "metric": "CNA:s svar på 9.9"
     },
     "wide": {
-      "kicker": "EFTERORD · DEN BREDA GENOMGÅNGEN",
-      "title": "4 incidenter som ingen CVE-lista nämnde.",
-      "lede": "Denna genomgång samlade även nyheter och X. Där hittades 4 incidenter först; sedan kontrollerades leverantörernas egna sidor. Siffrorna kommer från leverantörerna.",
+      "kicker": "POSTSCRIPT · THE WIDE SWEEP",
+      "title": "CVE-listan namnger inga av 4 objekten.",
+      "lede": "Den här gången tog vi även nyheter och X. 4 artiklar hittades först och verifierades med primärkällor. Siffrorna är så som de publicerats av leverantören.",
       "points": [
-        "Arista VeloCloud Orchestrator <code>CVE-2026-114625</code>: ett utnyttjat nolldagarsfel med <b>9.9</b>; varje inloggad användare kan bli superanvändare. Lokal rättning 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
-        "Linux KSMBD: <code>ZDI-CAN-33774</code> kräver ingen autentisering, får 9.0 och saknar både CVE och rättning i huvudgrenen",
-        "Capcom CAPCOM ID: <b>11,774,247</b> poster. Onamae Desktop Cloud stoppade upp till <b>26,739</b> servrar",
-        "pressen ger uppslaget, leverantörssidan ger beläggen. Aristas primärsida hämtades 24 oktober; utnyttjande, autentiseringskrav och rättningar kontrollerades igen"
+        "Arista VeloCloud Orchestrator <code>CVE-2026-114625</code>: 0 -dag, missbrukas för närvarande,<b>9.9</b>Om du är inloggad, använd superanvändare. För lokal användning, använd 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
+        "Linux KSMBD: <code>ZDI-CAN-33774</code> Detta är 9.0 som inte kräver autentisering. Det finns inga CVE:er eller vanliga korrigeringar ännu.",
+        "Capcom-ID <b>11,774,247</b> Antalet objekt. Onamae.com Desktop Cloud är det största <b>26,739</b> Stoppa maskinen",
+        "Nyhetsrapporterna var utgångspunkten, men bevisen kom från leverantörens sida. Arista erhöll direkt den första anmälan från 10 / 24 . Jag granskade det faktiska missbruket, autentiseringsförhållandena och de reviderade versionerna."
       ],
-      "metric": "incidenter som ingen CVE-lista nämnde"
+      "metric": "Fall som inte nämns i CVE-listan"
     },
     "php-next": {
-      "kicker": "EFTERORD · PHP, 2 DAGAR SENARE",
-      "title": "Ingen akut rättning denna gång.",
-      "lede": "CVE-2026-115560, publicerad 10-23, är en annan RCE-väg. PHP anger inga berörda versioner, ingen poäng och ingen rättning, men lovar ett fullständigt råd vid nästa ordinarie utgåva.",
+      "kicker": "POSTSCRIPT · PHP, TWO DAYS LATER",
+      "title": "Inga nödåtgärder har utfärdats.",
+      "lede": "PHP:s 10 , som följer CVE-2026-115560 - 23 , är en annan RCE-rutt (Remote Control Engagement). De har inte tillhandahållit några berörda versioner, poäng eller korrigeringar, utan uppger att de kommer att utfärda en fullständig rekommendation i nästa schemalagda utgåva.",
       "points": [
-        "alla 4 villkor: ställ in <code>php_binary</code> / <code>php_serialize</code>, byt till <code>php</code> under körning med <code>ini_set</code>, före <code>session_start()</code>, med uppladdningsförlopp aktiverat",
-        "applikationer som aldrig byter hanterare under körning kan behålla funktionen på — det anger PHP självt",
-        "begränsningen är 1 rad: <b><code>session.upload_progress.enabled=0</code></b> — samma som 10-21; finns den redan på plats behövs inget mer",
-        "ingen NVD-post vid kontrollen 23 oktober. PHP:s råd är oförändrat; de 17 senaste KEV-tilläggen innehåller inte 115560. Frånvaro bevisar inte säkerhet"
+        "Villkoret är 4 alla. I inställningarna... <code>php_binary</code> / <code>php_serialize</code>, under utförandet <code>ini_set</code> i <code>php</code> fisa,<code>session_start()</code> Före, och med uppladdningsförlopp aktiverat.",
+        "Appar som inte ändrar hanterare under körning kan lämna funktionen aktiverad – PHP själv anger det.",
+        "Motåtgärden är rad 1 : <b><code>session.upload_progress.enabled=0</code></b>10 - I likhet med uppmjukningen av 109619 för 21 krävs inget ytterligare arbete om det redan har tillämpats.",
+        "I den föregående 10 / 23 hämtningen fanns inga NVD-poster. PHP-notifieringen förblir oförändrad, och även med tillägget av KEV 17 finns det ingen 115560 . Att inte listas garanterar inte säkerhet."
       ],
-      "metric": "begränsningsåtgärden till nästa utgåva"
+      "metric": "Avkoppling tills nästa planerade release."
     },
     "update-scope": {
-      "kicker": "UPPDATERING 10-24 · OMFATTNING",
-      "title": "Bortom CVE-listan, igen.",
-      "lede": "Genomgången 24 oktober granskar nya och ändrade poster, offentliggörandekanaler och inhemska produkter. 24 prioriterade grupper har nu villkor, åtgärder och källor.",
+      "kicker": "10-24 UPDATE · UPDATE-SCOPE",
+      "title": "Låt oss gå utanför CVE igen.",
+      "lede": "En omfattande undersökning av 10 - 24 . Vi granskade ny och uppdaterad information, informationskanaler och inhemska produkter, och sammanställde en lista över viktiga 24 fall med källor.",
       "points": [
-        "NVD, senaste 30 timmarna: <b>526 publicerade / 3,531 ändrade</b>. Mängderna överlappar; summera dem inte",
-        "<b>82 GitHub-råd</b> i tidsfönstret, 6 kritiska. Även poster utan CVE räknas",
-        "alla <b>17 KEV-tillägg</b> sedan 10 oktober, plus 14 forsknings-/officiella flöden och JVN",
-        "24 är granskade produkt-/incidentgrupper, inte 24 nya bekräftade intrång"
+        "Den senaste NVD:n för 30 timmar är<b>Ny 526 / Uppdaterad 3 , 531</b>De är dubbletter och kommer inte att läggas ihop.",
+        "GitHub finns inuti Windows<b>82 Rekommendation</b>Kritisk 6 ingår. Även de utan tilldelad CVE ingår.",
+        "KEV är ett tillägg från 10 / 10 och framåt.<b>17 artiklar</b>Forskare erhåller också officiella 14 och JVN.",
+        "24 representerar antalet produkter eller incidenter grupperade tillsammans. Det betyder inte att det finns 24 nya intrångsärenden."
       ],
-      "metric": "granskade grupper"
+      "metric": "reviewed groups"
     },
     "update-exploited": {
-      "kicker": "UPPDATERING 10-24 · UTNYTTJANDE",
-      "title": "Börja med de 2 som utnyttjas.",
-      "lede": "Arista VCO och Nextcloud Built-in CODE lades till i KEV 23 oktober. Båda kräver forensisk bedömning.",
+      "kicker": "10-24 UPDATE · UPDATE-EXPLOITED",
+      "title": "För det första finns det 2 fall som missbrukas.",
+      "lede": "Arista VCO och Nextcloud Built-in CODE har lagt till KEV:er till 10 - 23 . CISA har begärt kriminaltekniska undersökningar av båda.",
       "points": [
-        "VCO: ett <b>giltigt konto med låg behörighet</b> kan höja privilegier. Lokala rättningar: 5.2.3.18 / 6.1.3.10 / 6.4.2.12",
-        "Built-in CODE: <b>uppdatera till 26.4.303 eller ta bort det</b>. Att inaktivera appen räcker inte",
-        "den sårbara proxy.php-vägen kräver att CODE-processen stoppas. Fristående Collabora berörs inte",
-        "CISA:s federala tidsfrist: <b>26 oktober</b>. Bevara bevis och utred intrång samtidigt som rättningar installeras"
+        "VCO är<b>Konto aktiverat med låg behörighet</b>Men jag blev befordrad. 5.2.3.18 / 6.1.3.10 / 6.4.2.12 på plats och vidare.",
+        "Inbyggd kod är<b>Uppdatera till eller ta bort från 26.4.303 och framåt.</b>Att enbart inaktivera appen räcker inte för att förhindra detta.",
+        "Villkoret är att proxy.php stoppas i CODE-läge. Fristående Collabora Online ingår inte.",
+        "CISA-fristen är<b>10/26</b>(För den amerikanska federala regeringen). Bevarande av bevis före ändring och utredning av intrång efter ändring."
       ],
-      "metric": "KEV-tillägg · 10.23"
+      "metric": "KEV additions · 10.23"
     },
     "update-packages": {
-      "kicker": "UPPDATERING 10-24 · PAKET",
-      "title": "Bilder, Wasm, autentisering, proxyer.",
-      "lede": "4 gränser, 4 uppsättningar villkor. En allvarlighetsetikett visar inte ensam om din driftsättning är exponerad.",
+      "kicker": "10-24 UPDATE · UPDATE-PACKAGES",
+      "title": "Bilder, Wasm, autentisering, proxy.",
+      "lede": "Vi kommer att undersöka två olika 4 gränser under separata förhållanden. I båda fallen avslöjar inte poängen ensam din exponering.",
       "points": [
-        "<b>Pillow 13.0.0</b>: FPX når bildbehandlingen när olefile är installerat, oavsett filändelse. PoC:n använder en fastlåst konfiguration",
-        "<b>Wasmtime -115889</b>: 36.0.19 på 36-grenen; 43.0.0+ för grenarna 37–42. Kontrollera opålitlig Wasm som kompileras av Cranelift",
-        "<b>Laravel 12.68.0 / 13.29.0</b>: TokenGuard kan kringgås med vissa MySQL/MariaDB-konfigurationer",
-        "<b>Echo 4.16.1 / 5.4.1</b>: nekade WebSocket-uppgraderingar kan kringgå ruttkontroller men inte oberoende uppströmsauktorisering"
+        "<b>Pillow 13.0.0</b>Till. När FPX är installerat skickas bilder till bildbehandlingscentret oavsett filändelse. Den publika PoC:n är en demonstration med en fast konfiguration.",
+        "<b>Wasmtime -115889</b>Serien 36 är 36.0.19 , 37 till 42 är 43.0.0 och senare. Gränser för hantering av otillförlitliga Wasm i Cranelift.",
+        "<b>Laravel 12.68.0 / 13.29.0</b>För att kringgå autentisering med TokenGuard + specifik MySQL/MariaDB-konfiguration.",
+        "<b>Echo 4.16.1 / 5.4.1</b>Anslutningen efter att WebSocket-avslaget har avvisats kringgår ruttauktorisering. Oberoende auktorisering på uppströmssidan är separat."
       ],
-      "metric": "paketgränser"
+      "metric": "package boundaries"
     },
     "update-runtime": {
-      "kicker": "UPPDATERING 10-24 · KÖRMILJÖER",
-      "title": "Under appen, inuti paketet.",
-      "lede": "CVE:er med GitLab i namnet kan beröra Ruby-användare, och en Brotli-uppdatering i operativsystemet ändrar inte Perls medföljande kopia.",
+      "kicker": "10-24 UPDATE · UPDATE-RUNTIME",
+      "title": "Själva appen, och även de medföljande tillbehören.",
+      "lede": "Även om CVE:n listas under GitLab-namnet påverkar den Ruby-användare, och uppdatering av operativsystemets Brotli-paket kommer fortfarande att lämna den medföljande Perl-kopian kvar.",
       "points": [
-        "<b>Ruby 4.0.9 / 3.4.12 / 3.3.13</b>: berör applikationer som kompilerar reguljära uttryck styrda av angriparen",
-        "<code>Regexp.timeout</code> och längdgränser räcker inte. 4.0.8 saknar hela rättningen",
-        "<b>IO::Compress::Brotli 0.023</b>: det berörda intervallet börjar vid 0.004001. Enbart uppdatering av systemets Brotli rättar inte detta",
-        "<b>NGINX 1.30.6 / 1.31.7</b>: 5 konfigurationsberoende problem; vissa kodkörningsvägar kräver också förbigång av ASLR"
+        "<b>Ruby 4.0.9 / 3.4.12 / 3.3.13</b>Målet är en applikation som kompilerar angriparens reguljära uttryck.",
+        "<code>Regexp.timeout</code>Längdgränserna är otillräckliga. 4.0.8 ger inte en fullständig lösning.",
+        "<b>IO::Compress::Brotli 0.023</b>Målet ligger mellan 0.004001 och 0.023 . Att enbart uppdatera operativsystembiblioteket kommer inte att åtgärda det.",
+        "<b>NGINX 1.30.6 / 1.31.7</b>Objekten 5 är konfigurationsberoende, och vissa RCE:er kräver ASLR-förbikoppling, etc."
       ],
-      "metric": "kontroller av körmiljöer"
+      "metric": "runtime checks"
     },
     "update-agents": {
-      "kicker": "UPPDATERING 10-24 · AGENTER",
-      "title": "Vem kan använda agentens befogenheter?",
-      "lede": "Autentisering, TLS, valvisolering och modellinläsning skyddar verktygen och hemligheterna som agenten når.",
+      "kicker": "10-24 UPDATE · UPDATE-AGENTS",
+      "title": "Vem kan använda ombudets befogenhet?",
+      "lede": "Autentisering, TLS, anteckningsisolering, modellinläsning – gränser som fanns långt innan namnet \"AI\" myntades – skyddar hemligheter och verktyg.",
       "points": [
-        "<b>PraisonAI 4.6.59</b>: AgentOS-chatten saknade fortfarande autentisering efter det äldre rättningspåståendet för 4.5.128",
-        "<b>req_llm 1.29.0</b>: TLS-verifiering för WebSocket saknades sedan 1.9.0. HTTP-vägar skiljer sig",
-        "<b>obsidian-tc 1.3.1</b>: loopback behöver fortfarande Origin-/DNS-rebinding-kontroller och isolering av valv",
-        "<b>AWS Multi Model Server har nått slutet av sin livscykel</b>: ingen rättad utgåva; migrera. Granska separat x402-utgiftsgränser och signeringens ursprung"
+        "<b>PraisonAI 4.6.59</b>Hej. AgentOS hade fortfarande oautentiserad chatt även med den gamla patchade versionen 4.5.128",
+        "<b>req_llm 1.29.0</b>TLS-verifiering saknas i WebSocket-rutten från och med 1.9.0 . HTTP-rutten är annorlunda.",
+        "<b>obsidian-tc 1.3.1</b>Okej. Jag bekräftade även separationen av Origin/DNS-ombindning och valv i loopback.",
+        "<b>AWS Multi Model Server har slutat fungera</b>Ingen reviderad version tillgänglig, migrering krävs. x 402 kräver separat verifiering av utgiftsgränser och signaturens ursprung."
       ],
-      "metric": "agentgränser"
+      "metric": "agent boundaries"
     },
     "update-japan": {
-      "kicker": "UPPDATERING 10-24 · JAPAN",
-      "title": "Ta med inhemska verksamhetssystem.",
-      "lede": "Granskningen omfattar även verksamhetsappar, LINE-integrationer och administrations-API:er.",
+      "kicker": "10-24 UPDATE · UPDATE-JAPAN",
+      "title": "Även inhemska affärssystem.",
+      "lede": "Det här handlar inte bara om utvecklingsplattformen som kommer att exponeras externt. Vi kommer också att undersöka gränserna mellan affärsapplikationer, LINE-integration och hanterings-API:er.",
       "points": [
-        "<b>Pleasanter 1.5.9.1</b>: vissa LDAP-installationer på Linux/Docker och andra berörda konfigurationer tillåter inloggning utan lösenord med ett giltigt id",
-        "<b>LIFF SDK 2.31.1</b>: DOM XSS berör 2.20.0 till 2.31.0",
-        "<b>JPCERT:s uppdatering 23 oktober</b>: fall E lägger till missbruk av AI-plattformar för penetrationstestning",
-        "kontrollera auktorisering per API, tokenomfattning/giltighet, anropsgränser och exponerad administration. Enbart IP eller JA4 bevisar inte intrång"
+        "<b>1.5.9.1</b>Till: Med Linux/Docker etc. + en specifik LDAP-konfiguration är inloggning endast möjlig med giltiga ID:n.",
+        "<b>LIFF SDK 2.31.1</b>2.20.0 ~ 2.31.0 DOM XSS",
+        "<b>JPCERT 10 / 23 Uppdatering</b>Lade till ett försök att missbruka AI-penetrationsplattformen som fall E.",
+        "API-nivåauktorisering, minsta privilegium/utgångsdatum för token, hastighetsgräns och onödig administrativ avstängning. Dra inte slutsatsen att ett intrång har inträffat baserat enbart på IP-adresser eller JA 4"
       ],
-      "metric": "inhemska kontroller"
+      "metric": "domestic checks"
     },
     "update-devices": {
-      "kicker": "UPPDATERING 10-24 · ENHETER",
-      "title": "Matcha enheter mot rätt utgåvegren.",
-      "lede": "HPE:s officiella CSAF har 72 CVE:er, varav 8 med 10.0. Även industriprodukter och enheter kan sakna en rättad utgåva.",
+      "kicker": "10-24 UPDATE · UPDATE-DEVICES",
+      "title": "Utrustningen är kategoriserad ner till produktlinje.",
+      "lede": "HPE:s officiella CSAF (Computer Security Analysis) har 72 artiklar, varav 8 artiklar har 10.0 CVSS (Computer Security Analysis). För industriprodukter och terminaler finns det vissa modeller för vilka korrigerade versioner inte kommer att släppas.",
       "points": [
-        "<b>HPE AOS</b>: 10.8.1.2 / 10.7.2.7 / 10.4.1.14 / 8.13.3.1 / 8.10.0.24. Matcha varje CVE mot produktgrenen",
-        "<b>Mitsubishi GENESIS / ICONICS med flera</b>: fasta challenge-svar, DCOM och libwebp. Följ produktspecifika rättningar eller begränsningsåtgärder",
-        "<b>Lenovo AVB</b>: offentliga testnycklar i flera surfplattor; fysisk åtkomst krävs. Modeller vars stöd upphört får ingen rättning",
-        "högsta allvarlighetsgrad är inte bekräftat utnyttjande. Överväg migrering när en produkt inte kan rättas"
+        "<b>HPE AOS</b>: 10.8.1.2 / 10.7.2.7 / 10.4.1.14 / 8.13.3.1 / 8.10.0.24 . Matcha CVE:er med produktlinjer.",
+        "<b>Mitsubishi Electric GENESIS / ICONICS och relaterade produkter</b>Åtgärdade problem med utmaningssvar, DCOM, libwebp, etc. Se produktspecifika korrigeringar/lösningar.",
+        "<b>Lenovo AVB</b>Flera enheter använder en offentlig testnyckel. Fysisk åtkomst krävs. Slutet av livscykeln (EOL) är inte åtgärdat.",
+        "Förväxla inte perfekta poäng eller antalet kompatibla modeller med verifiering av faktisk felaktig användning. För produkter som inte kan stödjas, överväg migrering."
       ],
-      "metric": "CVE:er i HPE AOS"
+      "metric": "HPE AOS CVEs"
     },
     "update-trust": {
-      "kicker": "UPPDATERING 10-24 · TILLIT",
-      "title": "Kontrollera vad som följer efter uppdateringen.",
-      "lede": "Blockeringslistor, uppstartstillit och stulna inloggningsuppgifter kräver mer än att installera en rättning.",
+      "kicker": "10-24 UPDATE · UPDATE-TRUST",
+      "title": "Kontrollera nästa steg efter uppdateringen.",
+      "lede": "Blocklistor, startup-trusts och läckta inloggningsuppgifter. Vi dokumenterade även aspekter som går utöver att bara applicera patchar.",
       "points": [
-        "<b>Firefox 158.0.1 / Android 158.0.2</b> och andra rättade grenar innehåller eMudhra-blockering. Thunderbird 153.5.1 rättar också e-postautentisering",
-        "<b>BlackX</b> följer på administratörsåtkomst. OS-rättningar och återkallelser i Secure Boot DBX är separata kontroller",
-        "<b>70,000+ i k0t-rapporten</b> räknar inloggningsuppgifter och relaterade data, inte företag. Utred nycklar och kvarstående åtkomst",
-        "<b>jxrlib</b>: minnesfel i JPEG XR rapporterades utan kända CVE:er eller belägg för kodkörning. Kontrollera distributörernas rättningar"
+        "<b>Firefox 158.0.1 / Android 158.0.2</b>Dessa inkluderar att integrera eMudhra-mellanliggande CA-blockering. Thunderbird 153.5.1 åtgärdar även problem relaterade till e-postautentisering.",
+        "<b>BlackX</b>Detta är bootkit efter att administratörsbehörigheter erhållits. OS-patchning och reflektion av Secure Boot DBX-utgångsdatum är separata processer.",
+        "<b>k 0 t Undersökning 70 , 000 över</b>Detta avser inloggningsuppgifter etc., inte antalet berörda företag. Nycklar och återstående åtkomst kommer att undersökas parallellt med uppdateringen.",
+        "JPEG XR<b>jxrlib</b>Det finns även forskningsrapporter om detta. CVE obekräftad, inga bevis för kodkörning. Kontrollera distributörens patchstatus."
       ],
-      "metric": "tillitskontroller"
+      "metric": "trust checks"
     },
     "oct25-priorities": {
-      "kicker": "UPPDATERING 10-25 · 16:34 JST",
-      "title": "Följ uppdateringen hela vägen.",
-      "lede": "Granskningens bryttid: 25 oktober, 16:34 JST. Hämtat efteråt; ny information i översikten är inte nödvändigtvis en ny incident.",
+      "kicker": "10-25 UPDATE · 16:34 JST",
+      "title": "Uppdateringar kommer att nå dig.",
+      "lede": "16:34 den 10 , undersökningen från dagen 25 kompletteras. Data samlas in efter referenstiden, och alla är inte nya förekomster för idag.",
       "points": [
-        "Stöd säkerhetsarbete i öppen källkod genom <b>Patch the Planet</b>",
-        "exponering som utnyttjas → akuta utgåvor → nycklar och behörigheter → medföljande kopior",
-        "NVD med fast tidsfönster: <b>99</b> publicerade / <b>5,432</b> ändrade. Mängderna överlappar",
-        "KEV står kvar på 23 oktober. Inga nya katalogposter bevisar inte säkerhet"
+        "<b>Patch the Planet</b> Detta rekommenderas. Det är ett initiativ för att stödja felsökning av sårbarheter i programvara med öppen källkod.",
+        "Offentligt tillgängliga tillgångar som redan har missbrukats → Akut uppdatering → Undersökning av nycklar och behörigheter → Verifiering av paketerade kopior.",
+        "NVD-fönster med fast justering är nytt<b>99</b>artiklar/uppdateringar<b>5,432</b>Objekt. Lägg inte till dem eftersom de är dubbletter.",
+        "KEV förblir densamma som 10 / 23 versionen. Inga nya listningar kommer att användas som säkerhetsdeklaration."
       ]
     },
     "oct25-fortinet": {
-      "kicker": "UPPDATERING 10-25 · 16:34 JST",
-      "title": "Vänta inte på CVE-listan.",
-      "lede": "Fortinet uppmanar till prioriterade säkerhetsförstärkande uppdateringar av 5 produkter. Detaljerade PSIRT-råd planeras till 10 november.",
+      "kicker": "10-25 UPDATE · 16:34 JST",
+      "title": "Vänta inte på att CVE ska släppas offentligt.",
+      "lede": "Fortinet tillkännager en nöduppdatering för att härda sina 5 produkter. Mer information kommer att finnas tillgänglig på 11 och 10 .",
       "points": [
         "<b>FortiOS</b>: 8.0.2 / 7.6.8 / 7.4.13 / 7.2.14",
         "<b>Manager / Analyzer</b>: 8.0.2 / 7.6.8 / 7.4.12 / 7.2.13",
-        "<b>Mail</b>: 8.0.2 / 7.6.7 / 7.4.9. <b>Authenticator</b>: 8.0.4 / 6.6.11",
-        "matcha modell, gren och uppgraderingsväg. Begränsad exponering är tillfällig; detta meddelande bekräftar inte i sig utnyttjande"
+        "<b>Mail</b>: 8.0.2 / 7.6.7 / 7.4.9。<b>Authenticator</b>: 8.0.4 / 6.6.11",
+        "Modell, serie och uppdateringsväg kommer att verifieras. Begränsningar av hantering och allmänhetens åtkomst är en tillfällig åtgärd. Faktiskt missbruk kommer inte att antas utifrån anmälan."
       ]
     },
     "oct25-runtime-trust": {
-      "kicker": "UPPDATERING 10-25 · 16:34 JST",
-      "title": "Tillit finns även utanför webbläsaren.",
-      "lede": "Java har ett akut säkerhetsråd från 24 oktober; Python ssl lägger till en spärrlista för komprometterade nycklar. Ordinarie uppdateringar bevisar inte att arbetet är klart.",
+      "kicker": "10-25 UPDATE · 16:34 JST",
+      "title": "Förtroende som finns kvar utanför webbläsaren.",
+      "lede": "Java kräver nöduppdateringar för 10 / 24 , och Python SSL kräver en nekningslista över komprometterade nycklar. Regelbundna uppdateringar ensamma är inte tillräckligt.",
       "points": [
-        "<b>Java CVE-2026-114820</b>: akut uppdatering eller officiella åtgärder för nyckellager/återkallelse; starta om varje körmiljö",
-        "Oracles tabell anger <b>berörda</b> versioner, inte byggen att installera",
-        "<b>Python CVE-2026-115557</b>: införd i huvudgrenen; bekräfta leverans i varje installerad distribution",
-        "inventera OS-lager, certifi, medföljande JRE:er, containrar och egna tillitslager"
+        "<b>Java CVE-2026-114820</b>Nöduppdatering eller officiell kontrollprocedur för nyckellagring/återkallelse. Starta om varje JRE.",
+        "Oracle-tabeller som 8 u 511 -b 32 etc.<b>Influensversion</b>Transkribera inte detta som en reviderad version.",
+        "<b>Python CVE-2026-115557</b>Huvudsammanslagning och implementering i distributionsversionen är separata processer. Kontrollera med distributionskällan.",
+        "Inventering av operativsystem, certifiering, paketerad JRE, container och proprietär lagring."
       ]
     },
     "oct25-dns": {
-      "kicker": "UPPDATERING 10-25 · 16:34 JST",
-      "title": "Skilj på DNS-produkterna.",
-      "lede": "Rekursiva och auktoritativa servrar behöver också granskas. Liknande produktnamn innebär inte samma uppdateringsversioner.",
+      "kicker": "10-25 UPDATE · 16:34 JST",
+      "title": "DNS bör erbjudas som separata produkter.",
+      "lede": "Uppdateringar krävs inte bara för BIND, utan även för resolvern och den auktoritativa DNS:en. Även produkter med liknande namn kan kräva olika uppdateringar.",
       "points": [
-        "<b>BIND</b>: 9.20.30 / 9.21.27; kontrollera återuppspelning av GSS-TSIG och konfigurationsvillkor",
-        "<b>Unbound</b>: 1.26.2 rättar 5 problem med DoQ, validering och belastning",
-        "<b>PowerDNS Recursor</b>: 5.3.12 / 5.4.8. <b>Authoritative</b>: 4.9.18 / 5.0.8 / 5.1.5",
-        "<b>Knot DNS</b>: 3.6.2; en annan produkt än Knot Resolver. Antalet CVE:er är inte antalet observerade angrepp"
+        "<b>BIND</b>: 9.20.30 / 9.21.27 . Matcha GSS-TSIG-återutsändning och konfigurationsberoende villkor.",
+        "<b>Unbound</b>: 1.26.2 . 5 artiklar för DoQ, verifiering och laddning.",
+        "<b>PowerDNS Recursor</b>: 5.3.12 / 5.4.8。<b>Authoritative</b>: 4.9.18 / 5.0.8 / 5.1.5",
+        "<b>Knot DNS</b>: 3.6.2 . Detta är separat från Knot Resolver. Förväxla inte antalet CVE:er med antalet faktiska exploits."
       ]
     },
     "oct25-cloud-access": {
-      "kicker": "UPPDATERING 10-25 · 16:34 JST",
-      "title": "Behörigheter kan överleva återställningen.",
-      "lede": "Primärkällor för ConnectWise och slutresultaten för LiteLLM ersätter tidigare osäkerhet. Leverantörens återställning tar inte bort kvarstående åtkomst hos kunden.",
+      "kicker": "10-25 UPDATE · 16:34 JST",
+      "title": "Behörigheten kvarstår efter att korrigeringen har gjorts.",
+      "lede": "Denna uppdatering återspeglar den initiala verifieringen av ConnectWise och den bekräftade orsaken av LiteLLM. Enbart återställning av leverantören raderar inte återstående kundåtkomst.",
       "points": [
-        "<b>ConnectWise</b>: behåll anslutningar avstängda i väntan på formella instruktioner; 26 oktober är ett mål",
-        "bevara bevis före radering. Granska tjänstidentiteters inloggningar, Graph-aktivitet, nya nycklar, ägare och behörigheter",
-        "<b>LiteLLM</b>: ej återkallad huvudnyckel → GitHub OAuth-token → CI-hemligheter; ersätt tidiga spekulationer",
-        "kör inte pip först på misstänkta värdar. Isolera, bygg om från ren miljö och återkalla åtkomliga inloggningsuppgifter"
+        "<b>ConnectWise</b>Förbli inaktiverad tills officiella återställningsinstruktioner ges. 10 / 26 är mål för etappvis återupptagande.",
+        "Skynda dig inte att ta bort; spara bevisen. Undersök autentisering av tjänstens huvudnamn, grafåtgärder och ytterligare nycklar, ägare och behörigheter.",
+        "<b>LiteLLM</b>: Oåterkallad huvudnyckel → GitHub OAuth-token → CI-hemlighet. Uppdatera initial gissning",
+        "Starta inte pip i den berörda miljön först. Isolering, ombyggnad och återkallelse av nåbara nycklar."
       ]
     },
     "oct25-bundles": {
-      "kicker": "UPPDATERING 10-25 · 16:34 JST",
-      "title": "Kontrollera medföljande kopior och undantag.",
-      "lede": "Komprimering, proxyer, sociala integrationer och industriklienter har olika kriterier för när arbetet är klart.",
+      "kicker": "10-25 UPDATE · 16:34 JST",
+      "title": "Kontrollera leveransadressen och eventuella undantag.",
+      "lede": "Komprimeringsbehandling, proxytjänster, SNS-integration, industriella klienter. Även för samma uppdateringsuppgift skiljer sig slutförandevillkoren åt.",
       "points": [
-        "<b>Brotli</b>: Bun 1.4.4, brotli 1.2.1 / brotlicffi 1.2.1.0; bygg om kompilerade Bun-program",
-        "<b>Postiz</b>: 2.25.3; registrerade användare och integrationsvillkor spelar roll",
-        "<b>ATS</b>: 9.2.16 / 10.1.5 / 10.2.1, men CVE-2026-111817 är <b>inte rättad i 9.2.16</b>",
-        "<b>open62541</b>: 1.5.7; även klienter som importerar fjärrdefinitioner av OPC UA-typer behöver granskas"
+        "<b>Brotli</b>: Bun 1.4.4 , brotli 1.2.1 / brotlicffi 1.2.1.0 . Återskapa även den kompilerade Bun-körbara filen.",
+        "<b>Postiz</b>: 2.25.3 . Kontrollera villkoren för registrerade användare och länkfunktionen.",
+        "<b>ATS</b>: 9.2.16 / 10.1.5 / 10.2.1 . Emellertid är CVE-2026-111817<b>Okorrigerad med 9.2.16</b>",
+        "<b>open62541</b>: 1.5.7 . Klienter som tar emot typdefinitioner från skadliga OPC UA-servrar är också måltavlor."
       ]
     },
     "http2shell": {
-      "kicker": "UPPFÖLJNING AV INLÄGG · CVE-2026-111497",
-      "title": "HTTP2Shell. Kontrollera den medföljande avkodaren.",
-      "lede": "Det efterfrågade inlägget har kontrollerats mot primärkällor. Det gäller samma Brotli-CVE utanför Node.js, inte en ny HTTP/2-specifik sårbarhet.",
+      "kicker": "POST FOLLOW-UP · CVE-2026-111497",
+      "title": "HTTP 2 Shell. Samma fel, även i de medföljande paketen.",
+      "lede": "Det angivna inlägget kommer att jämföras med den primära källan. Brotlis distributionsvägar kommer också att kontrolleras bortom Node.js. Detta är inte en ny sårbarhet begränsad till HTTP/ 2 .",
       "points": [
-        "Google CNA: <b>CVSS v4.0 9.2</b>; samma CVE som Node2Shell. Allvarlighetsgrad bekräftar inte verkligt utnyttjande",
-        "<b>Envoy</b>: 1.40.0 / 1.39.3 / 1.38.6 / 1.37.8, när Brotli-uppackning är konfigurerad",
-        "<b>Istio</b>: 1.31.2 / 1.30.6 / 1.29.9; 1.29 har nått slutet av sin livscykel. Kontrollera gateways och sidocontainrar",
-        "<b>curl, requests, httpx</b>: granska inläst avkodare och automatisk svarshantering. Det räcker inte att ändra Accept-Encoding"
+        "Google CNA är<b>CVSS v4.0 9.2</b>Noden 2 är samma CVE som Shell. Detta är separat från verifieringen av faktisk exploatering.",
+        "<b>Envoy</b>: 1.40.0 / 1.39.3 / 1.38.6 / 1.37.8 . Inställningar för Brotli-distribution krävs.",
+        "<b>Istio</b>1.31.2 / 1.30.6 / 1.29.9 . 1.29 är slutkörd. Gateway och sidovagn är också kontrollerade.",
+        "<b>curl, förfrågningar, httpx</b>Verifiera de faktiska beroende avkodarna och den automatiska dekomprimeringen. Att bara ändra Accept-Encoding är inte tillräckligt."
       ],
       "metric": "Google CNA · CVSS v4.0"
     },
     "tailworm-overview": {
-      "kicker": "TAILWORM · SPECIALRAPPORT",
-      "title": "Tailworm. Granska den inre gränsen igen.",
-      "lede": "En rapport om Tailscale och headscale: vilka parter som får ansluta och vilka privilegier en tillåten session får.",
+      "kicker": "TAILWORM · SPECIAL REPORT",
+      "title": "Svansmask. Omprövning av de inre gränserna.",
+      "lede": "Forskningsrapport om Tailscale/headscale. Fokus ligger på omfattningen av åtkomst från auktoriserade enheter och de behörigheter som beviljas efter anslutning.",
       "points": [
-        "Testade: <b>Tailscale 1.104.2 / headscale 0.29.5</b>. Dessa är inte bekräftat rättade versioner",
-        "forskarens <b>11 rubriker</b> omfattar konfigurationsiakttagelser; inte 11 CVE:er eller bekräftade intrång",
-        "Tailscale utreder och rättar problem; <b>ingen generell rekommendation att stänga av SSH</b>",
-        "börja med <b>värdar med Tailscale SSH aktiverat och åtkomstregler</b>; skilj på vanlig OpenSSH"
+        "Forskningsämnet är<b>Tailscale 1.104.2 / headscale 0.29.5</b>Denna version kallas inte en reviderad version.",
+        "forskare<b>11 artikel</b>Detta inkluderar konfigurationsanteckningar. 11 CVE:er/inte faktiska skador.",
+        "Säljaren utreder och gör korrigeringar.<b>Vi rekommenderar inte att alla användare inaktiverar SSH.</b>",
+        "Kontrollera först:<b>Tailscale SSH-aktiverade terminaler och anslutningsbehörighet</b>Detta är separat från standard OpenSSH."
       ]
     },
     "tailworm-ssh": {
-      "kicker": "TAILWORM · SPECIALRAPPORT",
-      "title": "Tillåten anslutning. Större privilegier än avsett.",
-      "lede": "Forskaren rapporterar Unix-socketvidarebefordran som root och kapplöpningar i sökvägar; leverantören utreder privilegiehantering efter auktorisering.",
+      "kicker": "TAILWORM · SPECIAL REPORT",
+      "title": "Du kan ansluta. Då blir du root.",
+      "lede": "Forskare har rapporterat ett problem där Unix-socketoperationer för SSH-vidarebefordran utförs som root, och en konflikt i sökvägskontrollen. Leverantören undersöker även behörigheter efter anslutning.",
       "points": [
-        "kräver <b>SSH-åtkomst och motsvarande rätt att vidarebefordra</b>; inte anonym åtkomst till varje nod",
-        "privilegierade socketar kan leda till Docker eller administrations-API:er; eskalering rapporteras i laboratoriet",
-        "<b>begränsa källor och mål</b> och ta bort onödig vidarebefordran",
-        "<b>check mode lägger till autentisering vid ingången</b>; det rättar inte eskalering inom en tillåten session"
+        "Premissen är<b>Tillåt SSH-anslutning och motsvarande vidarebefordringsbehörigheter.</b>Detta utgör inte obehörigt intrång i alla enheter.",
+        "Docker- och hanterings-API:er är anslutna via sockets och ersättningar. Forskare rapporterar privilegieeskalering i laboratoriet.",
+        "<b>Begränsad till specifika avsändare → specifika mottagare</b>och minska onödiga överföringar.",
+        "<b>Kontrollläget kräver ytterligare autentisering vid ingången.</b>Detta kommer inte att åtgärda problemet med eskalering av behörigheter efter anslutning."
       ]
     },
     "tailworm-headscale": {
-      "kicker": "TAILWORM · SPECIALRAPPORT",
-      "title": "Headscale behöver egna åtgärder.",
-      "lede": "Skilj på ett eget kontrollplan och Tailscale SaaS. Rapporten beskriver resursuttömning och cacheutträngning via registreringsvägen.",
+      "kicker": "TAILWORM · SPECIAL REPORT",
+      "title": "Headscale kräver en annan lösning.",
+      "lede": "Vi kommer att skilja mellan självhostad kontroll och Tailscale SaaS. Forskare har rapporterat minnesutmattning och cacheeffektivitet i publika registreringsrutter.",
       "points": [
-        "Testad: <b>headscale 0.29.5</b>; vissa registreringsvägar för DoS uppges inte kräva konto",
-        "forskaren rapporterar att <b>vidarebefordran inte kan nekas</b> där; ompröva SSH-behörigheter separat från SaaS",
-        "granska exponering, anropsgränser, minnesgränser och omstartsövervakning; <b>begränsning är ingen rättning</b>",
-        "DERP-klientens uttömning kräver separat att <b>klienten styrs till en fientlig relänod</b>"
+        "<b>headscale 0.29.5</b>Verifiering av ovanstående. Rapporter tyder på att vissa DoS-attacker via registreringsvägen inte kräver ett konto.",
+        "Forskare<b>Det går inte att undertrycka SSH-vidarebefordran</b>De påpekade att de inte borde återanvända SaaS-inställningar och borde överväga att minska eller inaktivera behörigheter.",
+        "Kontrollera åtkomstomfattning, hastighetsgräns, minnesgräns och omstartsövervakning.<b>Avslappning är inte en korrigering.</b>",
+        "En klient-DoS-attack med ett skadligt DERP-svar är,<b>Ansluten till ett skadligt relä</b>En annan premiss"
       ]
     },
     "tailworm-connector": {
-      "kicker": "TAILWORM · SPECIALRAPPORT",
-      "title": "Behörighet till 1 app. Andra destinationer.",
-      "lede": "Den experimentella conn25-vägen uppges låta en behörig klient välja destinationer genom sin anslutningsnod.",
+      "kicker": "TAILWORM · SPECIAL REPORT",
+      "title": "Appbehörighet skickades till en annan destination.",
+      "lede": "Målet är den experimentella anslutningen 25 . Forskare rapporterar att en terminal med åtkomsträttigheter kan tvinga anslutningen att välja en godtycklig verklig destination.",
       "points": [
-        "kräver <b>conn25 och dess klient-capability</b>; gäller inte varje app-connector-installation",
-        "granska verkliga destinationer: anslutningsnodens LAN, molnmetadata och klustertjänster",
-        "ta bort onödig behörighet och <b>begränsa utgående destinationer</b>, inklusive IPv4 och IPv6",
-        "kontrollera Kubernetes-regler mot <b>CNI, värdnätverk och vidarebefordringsvägar</b>"
+        "<b>anslutning 25 och användbarhetsfunktioner</b>Detta baseras på förutsättningen att det inte kan generaliseras till alla kontaktkonfigurationer.",
+        "Verifiera LAN, molnmetadata och klustertjänster i anslutningsenhetens ände med hjälp av den faktiska destinationen.",
+        "Ta bort onödiga användarbehörigheter.<b>Begränsa destinationer på utgångssidan.</b>Kontrollera även IPv 4 / IPv 6 .",
+        "Kubernetes utgående gränser är<b>CNI, värdnätverk, vidarebefordringsväg</b>Vi kommer att mäta det i praktiken. Ange inte bara inställningarna och anse det vara klart."
       ]
     },
     "tailworm-serve": {
-      "kicker": "TAILWORM · SPECIALRAPPORT",
-      "title": "Granska vad Serve exponerar.",
-      "lede": "Granska separat TCP-vidarebefordran till Unix-socketar, bindning till externa gränssnitt och HTTP/2-auktorisering över monteringspunkter.",
+      "kicker": "TAILWORM · SPECIAL REPORT",
+      "title": "Kontrollera hanteringsporten i serverinställningarna.",
+      "lede": "TCP-vidarebefordran till Unix-sockets, bindning till alla gränssnitt och HTTP/ 2 auktorisering mellan monteringar. Vi kommer att inventera konfigurationen och routningen separat.",
       "points": [
-        "hitta <b>TCP-vidarebefordran till privilegierade Unix-socketar</b>; operatörens konfiguration är en förutsättning",
-        "<b>TS_SERVE_ALLOW_ALL_INTERFACES</b> är en konfigurationsnotering, inte standard för varje Serve",
-        "granska huvudbaserad backend-auktorisering och monteringspunkter; skilj på iakttagelser om Funnels hotmodell",
-        "IP-brandväggar <b>granskar inte lokala Unix-socketoperationer</b>; ta bort onödig exponering"
+        "<b>TCP-överföring till Serves privilegierade socket</b>Sök efter relevanta inställningar för operatören.",
+        "<b>TS_SERVE_ALLOW_ALL_INTERFACES</b>Detta är en konfigurationsanmärkning. Det är inte standardbeteendet för alla tjänster.",
+        "Headerberoende backend-auktorisering och flera monteringar bekräftades. Funnels resultat differentierade också hotmodellerna.",
+        "IP-brandvägg<b>Inspektera inte lokala Unix-socketoperationer.</b>Ta bort onödiga inställningar."
       ]
     },
     "tailworm-response": {
-      "kicker": "TAILWORM · SPECIALRAPPORT",
-      "title": "Inventera. Begränsa. Följ rättningen.",
-      "lede": "Spridning i laboratorium bevisar inte ett maskutbrott. Granskade källor fastställer inte verkligt Tailworm-utnyttjande.",
+      "kicker": "TAILWORM · SPECIAL REPORT",
+      "title": "Kontrollera, avgränsa och gör korrigeringar.",
+      "lede": "Detta skiljer mellan automatiserad spridning i forskarnas laboratorier och verkliga maskutbrott. Baserat på de primärkällor som presenteras här är verkliga svansmaskangrepp fortfarande obekräftade.",
       "points": [
-        "inventera SSH, headscale, conn25 och Serve; <b>minska behörigheter utifrån funktionernas förutsättningar</b>",
-        "<b>bekräftade rättningar och särskilda CVE:er/CVSS återstår att fastställa</b>; 1.104.2 rättar ett separat certifikatproblem",
-        "vid misstänkt intrång: bevara bevis, isolera, <b>återkalla enhetens identitet</b> och byt exponerade nycklar",
-        "ominstallation återkallar inte i sig en kopierad identitet; följ fortsatt officiella meddelanden"
+        "Inventering av SSH, headscale, conn 25 och Serve.<b>Villkor för varje funktion som ska fastställas</b>Minskat tillstånd i enlighet med",
+        "<b>Reviderade versioner och dedikerade CVE/CVSS är ännu inte bekräftade.</b>Blanda inte detta med certifikatmodifieringen 1.104.2 .",
+        "Om en överträdelse misstänks, efter att bevis bevarats och isolerats,<b>Inaktivera terminalen vad gäller kontroll</b>Uppdatera de nåbara nycklarna",
+        "Att bara installera om det kommer inte att ogiltigförklara din kopierade identitet. Fortsätt att kontrollera om det finns officiella rekommendationer och uppdateringar."
       ]
     },
     "night-delta": {
-      "kicker": "KVÄLLSUPPDATERING · 23:18 JST",
-      "title": "Bred granskning. Villkor före antal.",
-      "lede": "Ett fast fönster 16:34–23:18 JST kompletterar den tidigare granskningen. Databasändringar är inte antal intrång.",
+      "kicker": "NIGHT UPDATE · 23:18 JST",
+      "title": "Omfattande undersökning. Fokusera på förutsättningarna för framgång snarare än antalet fall.",
+      "lede": "16:34 → 23:18 Ytterligare data för fasta fönster för JST har hämtats. Uppdateringar som överlappar med tidigare data kommer inte att inkluderas i antalet berörda fall.",
       "points": [
-        "<b>NVD: 87 publicerade / 87 ändrade</b>; samma 87 id:n i båda mängderna, alla allvarlighetsgrader",
-        "<b>16 GitHub-råd</b>, ogranskade; tomma paketmetadata betyder inte opåverkad",
-        "<b>KEV: 23 oktober, 1,756 poster</b>; ingen ny listning bevisar inte frånvaro av angrepp",
-        "följ Firecrawl, Dokploy och rotki till primärkällorna; <b>hitta inte på en rättad version</b>"
+        "<b>NVD 87 / 87</b>Båda uppsättningarna i det här fallet innehåller samma 87 objekt. Insamlade över alla allvarlighetsnivåer.",
+        "<b>GitHub 16</b>Detta är inte granskat. Ett tomt paketfält betyder inte att det inte har någon effekt.",
+        "<b>KEV inkluderar versionerna 10 / 23 , 1 , 756</b>Avsaknaden av nya tillskott bevisar inte att det inte förekommer några attacker.",
+        "Jag korsrefererade Firecrawl, Dokploy, Rotki, etc. med primärkällor.<b>Komplettera inte med obekräftade reviderade versioner.</b>"
       ]
     },
     "night-restoration": {
-      "kicker": "KVÄLLSUPPDATERING · 23:18 JST",
-      "title": "Ett återställningsmål är inte tillstånd att återansluta.",
-      "lede": "ConnectWise uppdaterade 23:00 JST. Stegvis anslutning till Cloud Backup har fortfarande 26 oktober som mål.",
+      "kicker": "NIGHT UPDATE · 23:18 JST",
+      "title": "Målet med återhämtning är inte att möjliggöra återanslutning.",
+      "lede": "ConnectWise uppdaterades till 23:00 JST idag. Cloud Backup siktar på en stegvis onboarding till 10 / 26 .",
       "points": [
-        "<b>först åtkomst för återställning av befintliga säkerhetskopior</b>, sedan instruktioner för nyregistrering",
-        "<b>behåll anslutningarna avstängda tills individuella instruktioner ges</b>; återställd infrastruktur är inte en helt återställd tjänst",
-        "försäkran om lagrade säkerhetskopior och utredning av aktiv M365-åtkomst är separata frågor",
-        "fortsätt arbetet med PHP, GitLab, Brotli, utnyttjade KEV-poster och Fortinet; <b>använd den rollbaserade rapporten</b>"
+        "<b>Återställ först åtkomst till befintliga säkerhetskopior.</b>Planen är att vägleda användarna genom den efterföljande omregistreringsprocessen.",
+        "<b>Håll anslutningen inaktiverad tills den specifika formella proceduren har följts.</b>Att återställa infrastrukturen innebär inte att återställa alla funktioner.",
+        "Att underhålla säkerhetskopior och undersöka kund M 365 __s autentisering, behörigheter och e-poståtgärder är separata frågor.",
+        "PHP, GitLab och Brotli, tillsammans med KEV (Key Energy Vault) som redan har utnyttjats, och Fortinet-härdningen, fortsätter.<b>Markera efter roll i den detaljerade rapporten.</b>"
       ]
     },
     "morning-cutoff": {
-      "kicker": "MORGONUPPDATERING · 2026-10-26",
-      "title": "10:27. Vad har ändrats?",
-      "lede": "En daterad genomgång från PHP och framåt, plus nattens ändringar. En databaspost är ingen incident.",
+      "kicker": "MORNING UPDATE · 2026-10-26",
+      "title": "10:27 . Vad har ändrats?",
+      "lede": "Detta är en kronologisk översikt över PHP-versionen och efterföljande uppdateringar, som spårar förloppet fram till i morse. Databasinkludering och förekomst av en incident är separata händelser.",
       "points": [
-        "NVD: <b>28 publicerade / 4,276 ändrade</b>; den första mängden ingår i den andra",
-        "<b>93 GHSA:er</b>, alla ogranskade; många följer tidigare NVD-poster",
-        "Unit 42 <b>drog tillbaka kopplingen till PHP2Shell som första intrångsväg</b> i en myndighetsincident. AWS observationer av försök är separata"
+        "NVD är nytt<b>28 artiklar</b>,uppdatera<b>4 , 276 artiklar</b>Alla nya föremål ingår i uppdateringspaketet.",
+        "GHSA <b>93 artiklar</b>Alla bidrag är ogranskade. Detta inkluderar många bidrag som följde den tidigare NVD-listan (icke-virtuell data).",
+        "<b>Initial intrång i myndigheter = PHP 2 Shell</b>Förklaringen för enhet 42 är återtagen. Detta är separat från AWS testobservationer."
       ]
     },
     "morning-dotnet": {
-      "kicker": "MORGONUPPDATERING · 2026-10-26",
-      "title": "Uppdaterat. Rättningen saknades.",
-      "lede": "Windows .NET CVE-2026-70197: Microsoft säger att uppdateringarna 13 oktober saknade denna rättning. En extra uppdatering tillhandahåller den.",
+      "kicker": "MORNING UPDATE · 2026-10-26",
+      "title": "Jag uppdaterade den. Men det fanns fortfarande inga lösningar.",
+      "lede": "CVE-2026-70197 för Windows .NET. Microsoft förklarade att uppdateringarna 10 / 13 inte inkluderade korrigeringen och släppte en tillfällig uppdatering.",
       "points": [
-        "publicerad <b>03:50 JST, 26 oktober</b>; kräver återanvändning mellan IPv4-/IPv6-datagramsocketar",
-        "kontrollera motsvarande rättade gren: <b>8.0.33 / 9.0.22 / 10.0.14</b> eller dokumenterad förhandsversion",
-        "<b>bygg om och distribuera fristående appar på nytt</b>; kontrollera den körande körmiljön"
+        "Offentligt tillkännagivande <b>10/26 03:50 JST</b>Villkoret är att SocketAsyncEventArgs måste återanvändas mellan IPv 4 och IPv 6 datagram.",
+        "Målserien är <b>8.0.33 / 9.0.22 / 10.0.14</b>Jämför med de reviderade versionerna etc.",
+        "Fristående appar är<b>Återuppbygga och omfördela</b>Kontrollera även vilken körningstid som körs."
       ]
     },
     "morning-ot": {
-      "kicker": "MORGONUPPDATERING · 2026-10-26",
-      "title": "PHP finns också i apparater.",
-      "lede": "Morgonens JVN-uppdatering omfattar PHP2Shell i PAN-OS på RUGGEDCOM. Det betyder inte att alla Siemens-produkter berörs.",
+      "kicker": "MORNING UPDATE · 2026-10-26",
+      "title": "PHP finns också i hårdvaran.",
+      "lede": "Morgonens JVN-uppdatering inkluderar spridningen av PHP 2 skalet till PAN-OS på RUGGEDCOM. Detta betyder inte att alla Siemens-produkter har samma defekt.",
       "points": [
-        "JVN-flödet uppdaterades <b>09:00 JST</b>; Siemens säkerhetsråd har ett eget publiceringsdatum",
-        "PAN-OS: <b>vissa utgåvegrenar har nu rättningar</b>; andra tidsplaner är separata",
-        "Starman och Plack behöver också kontroller vid <b>HTTP-behandlingens gräns</b>"
+        "<b>09:00 JST</b>Flödesuppdatering. Detta är separat från publiceringsdatumet för själva 566512 .",
+        "PAN-OS är<b>Reviderade versioner finns tillgängliga i vissa serier.</b>Separat från andra ETA-serier.",
+        "Starman / Plack har också lagts till. Inte bara PHP.<b>HTTP-bearbetningsgränser</b>Kontrollera"
       ]
     },
     "morning-dates": {
-      "kicker": "MORGONUPPDATERING · 2026-10-26",
-      "title": "Läs efter datum. Återgå till dagens åtgärder.",
-      "lede": "10 fristående sidor, 17–26 oktober. Observation, publicering, rättningar och senare upptäckter märks separat.",
+      "kicker": "MORNING UPDATE · 2026-10-26",
+      "title": "Läst före-datum. Återgå till aktuell status.",
+      "lede": "Den här sidan innehåller separata poster för vart och ett av följande datum: 10 månad 17 till 26 och 10 dagar. Observationsdatum, publiceringsdatum, revisionsdatum och eventuell information som upptäcks senare är separerade.",
       "points": [
-        "<a href=\"./timeline.html\">Daglig dokumentation (japanska) →</a> / <a href=\"./update-20261026.html\">Granskning 10:27 (japanska) →</a>",
-        "fortsätt rätta publika tjänster, utreda exponering och återkalla inloggningsuppgifter",
-        "en lägsta rättad Tailworm-version och slutförd ConnectWise-återställning är <b>inte bekräftade här</b>; ett mål är inte ett slutförande"
+        "<a href=\"./timeline.html\">Poster efter datum →</a> / <a href=\"./update-20261026.html\">Sammanfattning av 10 / 26 10:27 →</a>",
+        "Uppdateringar av offentliga tjänster, utredningar av intrång och fortsatt återkallelse av autentiseringsuppgifter.",
+        "Tailworms minimala fix och ConnectWises omstart är klara.<b>Obekräftat för närvarande</b>Ersätt inte planerade händelser med faktiska resultat."
       ]
     },
     "closing": {
-      "kicker": "VAD DET BETYDER",
-      "title": "Risken ligger inte i koden du skriver.",
-      "lede": "Det som brast i oktober var tillitslagret som avgör vilken kod som körs. Kontrollerna som hjälper är vardagliga och gäller främst konfiguration.",
+      "kicker": "WHAT IT MEANS",
+      "title": "Risken ligger inte i koden du skrev.",
+      "lede": "Det som gick sönder under månaden 10 var \"förtroendet som avgör vilken kod som körs\". Kontrollerna som fungerar är subtila och består mestadels av inställningar.",
       "points": [
-        "oföränderliga utgåvor och signaturverifiering vid installation",
-        "lås versioner med hashvärden; inget `latest`; läs skillnaden mot git-taggen",
-        "inga långlivade administratörsuppgifter i klartext; håll administrationsplanet privat",
-        "utgå från att en leverantörs databas innehåller dina nycklar (TeamUpdraft / Railway / Zeabur)",
-        "kärnan är gränsen som inte kan rättas per app: kod i en container är ett steg mot root på värden"
+        "Frigör oföränderlighet och signaturverifiering under installationen.",
+        "Versionsfixning med hash. Använd inte `latest`. Se skillnader med git-taggar.",
+        "Lagra inte administratörsuppgifter i klartext eller i långtidsformat. Offentliggör inte administrativ information.",
+        "Leverantörens databas antar att den innehar sina egna nycklar (TeamUpdraft / Railway / Zeabur).",
+        "Kärnan är en &quot;gräns som inte kan fastställas applikation för applikation.&quot; Kodkörning i en container är root-åtkomst på värden."
       ]
     },
     "afternoon-deployment": {
-      "kicker": "UPPDATERING 14:56 · DRIFTSÄTTNINGSVÄGAR",
-      "title": "Du uppdaterade. Ändrades den körande binärfilen?",
-      "lede": "Säkerhetsrådet för .NET Brotli skiljer mellan delad körmiljö, fristående och NativeAOT-driftsättningar. Diagrammet visar driftsättningsvägar schematiskt.",
+      "kicker": "14:56 UPPDATERING · Kontrollera placeringsmetoden",
+      "title": "Uppdaterad. Har den binärfilen ersatts?",
+      "lede": "Detta kompletterar .NET Brotli-rekommendationen. Proceduren för att leverera korrigeringar till program som körs skiljer sig beroende på om du använder en delad runtime, fristående eller NativeAOT. Diagrammet visar en schematisk representation av distributionsvägen.",
       "points": [
-        "Brotli-uppackning i ASP.NET Core /HttpClient är <b>av som standard</b>; kontrollera uttrycklig aktivering och direkt API-indata",
-        "kontrollera 8.0.33 / 9.0.22 / 10.0.14. Driftsätt fristående appar igen; <b>uppdatera SDK/paket och publicera NativeAOT på nytt</b>",
-        "detta kompletterar ett råd publicerat 04:06 JST. Det är inget nytt intrång under eftermiddagen"
+        "Brotli-dekomprimering för ASP.NET Core / HttpClient är<b>Inaktiverad som standard</b>Explicit aktivering eller direkt API-inmatningsverifiering",
+        "Kontrollera 8.0.33 / 9.0.22 / 10.0.14 etc. Fristående objekt är omorganiserade.<b>NativeAOT kommer att uppdatera sitt SDK och andra komponenter, och sedan publicera och distribuera dem på nytt.</b>",
+        "Detta är ett tillägg till den tidigare publicerade rekommendationen 04:06 JST. Det är inte en ny överträdelse som inträffade i eftermiddags."
       ],
-      "metric": "driftsättningsvägar · schema"
+      "metric": "Distributionsvägar · schematiskt diagram"
     },
     "afternoon-release": {
-      "kicker": "UPPDATERING 14:56 · UTGÅVA ÄR INTE ÅTERSTÄLLNING",
-      "title": "Släppt. Rullas ut. Planerat.",
-      "lede": "En publicerad rättning, stegvis enhetsutrullning och ett återställningsmål är olika tillstånd. Schemat förklarar skillnaden; kontrollera faktiskt bygge och individuella instruktioner.",
+      "kicker": "14:56 UPPDATERING · Separat provisionering, driftsättning och återställning",
+      "title": "Publicerad. Streamas just nu. Planerar att återuppta.",
+      "lede": "Även om de alla kallas \"uppdateringar\" skiljer sig deras statusar åt. Vi kommer att skilja mellan redan tillhandahållna korrigeringar, stegvis distribution för varje enhet och återställningsmål, och kontrollera vilken version du faktiskt kommer att använda och individuella instruktioner. Diagrammet är en schematisk representation av statusarna.",
       "points": [
-        "PAN-OS: status för 4 snabbfixar i 11.1 uppdaterad; CNA JSON anger <b>14:45 JST</b>, och en avvikande tid i CSAF-historiken är dokumenterad",
-        "Neat OS26.5.4 är en <b>stegvis utrullning</b>; kalenderdatumet bevisar inte att alla enheter är rättade",
-        "ConnectWise planerar nästa meddelande till <b>23:00 JST</b>. Ett mål ger inte tillstånd att återansluta",
-        "<a href=\"./update-20261026-1456.html\">Granskning 14:56, åtgärder och primärkällor (japanska) →</a>"
+        "PAN-OS: Uppdaterade tillgänglighetsstatusen för snabbkorrigeringen 11.1 serien 4 . CNA JSON är<b>14:45 JST</b>Tidsskillnaden mot CSAF-historiken registreras också.",
+        "Snyggt operativsystem 26.5.4 är<b>Fasvis distribution</b>Bara för att det har gått 26 dagar betyder det inte att alla enheter är lagade.",
+        "Nästa tillkännagivande för ConnectWise är planerat till [datum].<b>23:00 JST</b>Ersätt inte omstartsmålet med återanslutningstillstånd.",
+        "<a href=\"./update-20261026-1456.html\">Rapport över hela området, motåtgärder och primärkällor för 14:56 →</a>"
       ]
     },
     "night-account-controls": {
-      "kicker": "UPPDATERING 21:35 · KONTOKONTROLLER",
-      "title": "Byt inloggningsuppgifter. Granska kvarvarande anslutningar.",
-      "lede": "GMO:s meddelande 21:00 utökar skyddskontrollerna från valutahandel till värdepappers-, e-post- och Google-konton. Detta visar kontrollerna schematiskt, inte direkttillståndet.",
+      "kicker": "21:35 UPPDATERING · Kontoverifiering",
+      "title": "Ändra ditt lösenord och kontrollera eventuella återstående anslutningar.",
+      "lede": "GMO:s 21 uppdatering ger vägledning om hur man skyddar inte bara valutakonton utan även värdepapperskonton, e-postmeddelanden, Google-konton med mera. Diagrammet är en schematisk representation av omfattningen av vad som behöver kontrolleras.",
       "points": [
-        "använd en separat betrodd enhet för att byta lösenord, <b>logga ut alla enheter</b> och kontrollera MFA",
-        "granska anslutna appar, e-postvidarebefordran, tillägg och enheter. Behåll webbläsarsynkronisering pausad tills kontrollen är klar",
-        "förebyggande råd fastställer inte att varje kunds enhet är infekterad",
-        "<a href=\"./update-20261026-2135.html#gmo-sixth\">Officiella råd och villkor (japanska) →</a>"
+        "Ändra ditt lösenord från en annan betrodd enhet.<b>Logga ut från alla enheter</b>• Verifiera flerfaktorsautentisering",
+        "Kontrollera om det finns okända länkade appar, vidarebefordran av e-post, tillägg och anslutna enheter. Webbläsarsynkronisering pausas tills verifieringen är klar.",
+        "Detta är ett meddelande för förebyggande inspektion och bekräftar inte att alla användares enheter är infekterade.",
+        "<a href=\"./update-20261026-2135.html#gmo-sixth\">Läs det officiella tillkännagivandet och information om bevakningen →</a>"
       ]
     },
     "night-package-response": {
-      "kicker": "UPPDATERING 21:35 · PAKETÅTGÄRDER",
-      "title": "En skadlig utgåva kräver kontroll av körmiljön.",
-      "lede": "Nya skadlig-kod-poster för npm och PyPI beskriver körning vid installation eller import. Åtgärdsschemat är skilt från antalet utnyttjade sårbarheter.",
+      "kicker": "21:35 UPDATE · Distributions- och exekveringsmiljö",
+      "title": "Hur långt ska vi gå i att kontrollera när en skadlig version är installerad?",
+      "lede": "Vi har samlat in ytterligare rekommendationer om skadlig kod från npm och PyPI. Dessa är separata från befintliga sårbarheter och undersöker vilka åtgärder som vidtogs under installation och import. Diagrammet visar en schematisk representation av svarsvägen.",
       "points": [
-        "matcha <b>paketnamn och berörda versioner</b>: @worca/app RC-versioner, npm-brytning/persistens och PyPI:s netweavex-laddare",
-        "om en berörd utgåva kördes: isolera miljön och återkalla åtkomliga inloggningsuppgifter från en säker enhet; bedöm ominstallation enligt säkerhetsrådet",
-        "2 separata PROBABLY_PENTEST-klassningar fastställer inte samma observerade skada",
-        "<a href=\"./update-20261026-2135.html#npm-worca\">Paketvillkor och åtgärder (japanska) →</a>"
+        "Detta inkluderar mål-RC-versionen av @worca/app, npm-utvinning och persistensbearbetning, samt extern kodhämtning från PyPI netweavex.<b>Matcha namn med målversion</b>",
+        "Om den berörda versionen körs, isolera miljön och återkalla alla tillgängliga autentiseringsuppgifter från en säker enhet. Överväg att återskapa i enlighet med rekommendationerna.",
+        "Andra 2 fall som inkluderar PROBABLY_PENTEST-klassificeringen i analysen kommer inte att behandlas som att de har samma bekräftade skada.",
+        "<a href=\"./update-20261026-2135.html#npm-worca\">Paketspecifika villkor och åtgärder →</a>"
       ]
     },
-    "night-restore-status": {"kicker": "UPPDATERING 00:18 · ÅTERSTÄLLNING OCH ÅTERUPPTAGEN DRIFT", "title": "Förberedelser, en hotfrist och en återupptagen varningskanal.", "lede": "ConnectWises inlägg klockan 14:00 UTC beskriver fortsatta förberedelser för anslutning. GMO:s tid 12:00 är angriparens tidsfrist. SoftBank återupptog katastrofvarningar klockan 23:17 JST. Endast en schematisk bild.", "points": ["ConnectWise: detta är inget besked om att partner har börjat återställa. <b>Behåll anslutningarna avstängda</b> tills tjänstespecifika instruktioner ges", "GMO: företaget kommer inte att betala. Fortsätt med kontokontrollerna i det sjätte meddelandet. Rättelsen klockan 00:20 kom efter bryttiden", "SoftBanks återupptagande gäller denna operatörskanal, inte att hela PHP-ekosystemet är färdigåtgärdat", "<a href=\"./update-20261027-0018.html#connectwise-1400\">Läsrapport för 00:18 (på japanska) →</a>"]},
-    "brotli-reach": {"kicker": "UPPDATERING 00:18 · VÄGAR TILL BROTLI", "title": "Namnet säger HTTP/2. Felet finns i avkodaren.", "lede": "HTTP2Shell, Node2Shell och Brotli2Shell är CVE-2026-111497. Vägarna skiljer sig mellan HTTP-svar, .NET-API:er, JPEG XL, ClickHouse och Parquet. Endast en schematisk bild.", "points": ["Uppdatera .NET-körmiljöerna; <b>publicera NativeAOT på nytt</b>. Brotli-dekomprimering i ASP.NET / HttpClient är avstängd som standard", "Ingen RCE hade demonstrerats för FFmpeg/libjxl, ClickHouse eller Arrow; behandla ej utgivna rättningar som ej åtgärdade", "Cloudflares akuta WAF använder fortfarande Log som standard. Bandits HTTP/2-kluster är separat", "<a href=\"./update-20261027-0018.html#brotli-jfrog-reach\">Nåbarhet och åtgärder (på japanska) →</a>"]},
-    "morning-consul-identity": {"kicker": "UPPDATERING 07:47 · TJÄNSTEIDENTITET", "title": "En saknad API-kontroll kan röja ett certifikat och dess privata nyckel.", "lede": "CVE-2026-105765 kringgår behörighetskontroll för cachade slutcertifikatsvar i Consul-agentens HTTP API. Schemat visar villkor och åtgärder, inte observerat utnyttjande.", "points": ["Berörda versioner: <b>1.17.0–2.0.4</b> med ACL aktiverat. HTTP API lyssnar som standard på loopback; API:t måste vara nåbart och målcertifikatet och dess privata nyckel redan cachade", "Kontrollera rätt utgivningsgren: Community <b>2.1.0</b>; Enterprise <b>2.1.0 / 1.21.19</b>", "Begränsa API:ts nåbarhet. Uppdatering och utredning av potentiellt röjda tjänsteidentiteter är separata uppgifter", "<a href=\"./update-20261027-0747.html#consul-leaf\">Villkor och primärkällor (på japanska) →</a>"]},
-    "morning-sandbox-auth": {"kicker": "UPPDATERING 07:47 · AUTENTISERING I SANDBOX", "title": "Även en sandbox behöver autentisering på sitt publika API.", "lede": "OpenHands SDK CVE-2026-112346 berör versioner före 1.52.0. En launcher bunden till 0.0.0.0 med tomma session_api_keys kan tillåta kommandon utan autentisering genom en nåbar publicerad port.", "points": ["Root-körning sker <b>inne i sandboxen</b>; monterade arbetsytor och tillförda hemligheter kan också exponeras", "Verifiera rättningen i <b>1.52.0</b> eller senare och granska publicerade portar och autentiseringsinställningar", "För tidigare nåbara miljöer: granska loggar och återkalla samt utfärda röjda hemligheter på nytt som en separat åtgärd", "<a href=\"./update-20261027-0747.html#openhands-sdk\">Villkor och primärkällor (på japanska) →</a>"]},
-    "evening-disclosure": {"kicker": "18:47 UPDATE · EVIDENCE STATES", "title": "Publicering bekräftad. Innehållet granskas fortfarande.", "lede": "GMO bekräftade publicering av påstådda företags- och kunduppgifter kl12:30. Innehållet granskas; ransomware var obekräftat kl13:55. Detta är ett schema över bevisläget.", "points": ["Ingen skadlig kod i färdiganalyserade enheter <b>friskförklarar inte alla enheter</b>", "Följ officiella isoleringsanvisningar och skydda konton från en separat betrodd enhet", "Öppna eller sprid inte påstådda uppgifter och länkar; se upp för opportunistisk nätfiske", "<a href=\"./update-20261027-1847.html#gmo-publication\">Villkor, åtgärder och primärkällor (japanska) →</a>"]},
-    "evening-release": {"kicker": "18:47 UPDATE · RELEASE GATES", "title": "Planerade versioner och levererade rättningar är olika lägen.", "lede": "PAN-OS-rättningar för PHP är versionsgrensspecifika. Den sparade KEV-katalogen ändrades också för CVE-2026-109618 / CVE-2026-109619. Schemat skiljer utgivning, driftsättning och utredning.", "points": ["<b>10.2.13-h27 / 10.2.16-h12</b>: utgivning bekräftad kl09:10 JST", "<b>12.1.7-h11 / 12.2.4-h1</b>: utgivning bekräftad kl13:03 JST; kontrollera övriga grenars planer separat", "En utgiven rättning, installation på enheten och utredning av tidigare intrång är skilda uppgifter", "<a href=\"./update-20261027-1847.html#pan-hotfix\">Villkor, åtgärder och primärkällor (japanska) →</a>"]},
-    "evening-threshold": {"kicker": "18:47 UPDATE · MPC BOUNDARY", "title": "En parts andel är inte hela den privata nyckeln.", "lede": "Fireblocks mpc-lib CVE-2026-90975 kan avslöja samma parts överordnade andel från en underordnad andel och chain code. Tröskellagret kvarstår. Detta är ett villkorsschema.", "points": ["Betrakta inte BIP32 hardened derivation som <b>fullständig isolering av andelshierarkin</b>", "Skydda chain code som en hemlighet; distribuera den inte genom watch-only-information", "CERT anger att leverantörsrättning saknas. Utred samma parts hierarki efter att en lövandel komprometterats", "<a href=\"./update-20261027-1847.html#fireblocks-share-boundary\">Villkor, åtgärder och primärkällor (japanska) →</a>"]},
-    "evening-package": {"kicker": "18:47 UPDATE · PACKAGE RESPONSE", "title": "Kontrollera körmiljön innan saneringen avslutas.", "lede": "Specifika npm- och PyPI-versioner har rapporterats som skadliga. Schemat visar inventering, isolering och återkallande av hemligheter, inte observerad offertelemetri.", "points": ["npm <b>@camera.ui/camera-ui-nvr-windows-amd64 1.6.1</b>: GHSA-2w7v-jwxh-w7wc", "PyPI <b>h13t0ry-hello-demo 0.1.0</b>: GHSA-5crq-52j9-fc74; reverse shell vid import rapporteras", "Kontrollera lockfiler, CI och körhistorik. Isolera berörda miljöer; återkalla och utfärda hemligheter från en separat säker enhet", "<a href=\"./update-20261027-1847.html#malware-camera-ui\">Villkor, åtgärder och primärkällor (japanska) →</a>"]}
+    "night-restore-status": {
+      "kicker": "00:18 UPPDATERING · Återställning och meddelande",
+      "title": "Att fortsätta förberedelserna, göra tillkännagivanden och återuppta streaming är alla olika tillstånd.",
+      "lede": "ConnectWises 23:00 __-uppdatering indikerar fortsatta onboarding-förberedelser. GMO:s 7 rapports 12:00 är en varning för angripare. SoftBank har återupptagit katastrof- och evakueringsinformation från och med 23:17 . Diagrammet är en schematisk representation av situationen.",
+      "points": [
+        "ConnectWise: Detta är inte en rapport om att en återställning från en befintlig säkerhetskopia har påbörjats.<b>Anslutningen är inaktiverad tills den individuella proceduren är slutförd.</b>",
+        "GMO: Vi kommer inte att tillmötesgå begäran. Kontogranskningen för rapporten 6 kommer att fortsätta. 00:20 korrigeringar kommer att göras efter standarden.",
+        "SoftBanks tjänst har återupptagits, men endast för den aktuella e-postrutten. Hela PHP-processen är ännu inte klar.",
+        "<a href=\"./update-20261027-0018.html#connectwise-1400\">Gå till rapporten som ska läsas av 00:18 →</a>"
+      ]
+    },
+    "brotli-reach": {
+      "kicker": "00:18 UPDATE · BROTLI REACH",
+      "title": "Även med ett namn som HTTP/ 2 ligger felet i avkodaren.",
+      "lede": "HTTP 2 Shell / Nod 2 Shell / Brotli 2 Shell är samma CVE-2026-111497 . Destinationssökvägen skiljer sig åt för HTTP-svar, .NET API, JPEG XL, ClickHouse och Parquet. Diagrammet är en schematisk representation av destinationen.",
+      "points": [
+        ".NET kommer att uppdateras till runtime.<b>NativeAOT återutges</b>ASP.NET/HttpClients br-expansion är avstängd som standard.",
+        "FFmpeg/libjxl, ClickHouse och Arrow har inte verifierats för RCE (Remote Computation Effect). Objekt för vilka en fixversion inte har bekräftats kommer att behandlas som ofixade.",
+        "Cloudflares nöd-WAF använder standardloggning. Bandit HTTP/ 2 sekvensen finns i ett separat kluster.",
+        "<a href=\"./update-20261027-0018.html#brotli-jfrog-reach\">Nedströms räckvidd och respons →</a>"
+      ]
+    },
+    "morning-consul-identity": {
+      "kicker": "07:47 UPDATE · SERVICE IDENTITY",
+      "title": "API-auktoriseringsintrång kan spåras tillbaka till certifikat och privata nycklar.",
+      "lede": "CVE-2026-105765 är en auktoriseringsförbikoppling för det cachade lövcertifikatsvaret i Consul-agentens HTTP-API. Diagrammet är en schematisk representation av de villkor under vilka denna sårbarhet är giltig och motsvarande åtgärder, och representerar inte en observation av faktisk skada.",
+      "points": [
+        "Omfattningen är<b>1.17.0〜2.0.4</b>ACL-aktiverad konfiguration. HTTP API:et använder standardloopback. Villkoren för att lyckas är att API:et är nåbart och att målcertifikatet och den privata nyckeln är cachade.",
+        "Community <b>2.1.0</b>、Enterprise <b>2.1.0 / 1.21.19</b>Kolla den seriespecifika guiden.",
+        "API-exponering kommer att begränsas. Uppdateringar och undersökningar av eventuella exponerade tjänstidentiteter kommer att genomföras separat.",
+        "<a href=\"./update-20261027-0747.html#consul-leaf\">Läs villkoren och källorna →</a>"
+      ]
+    },
+    "morning-sandbox-auth": {
+      "kicker": "07:47 UPDATE · SANDBOX AUTH",
+      "title": "Även i en sandlådemiljö krävs autentisering för att komma åt publika API:er.",
+      "lede": "OpenHands SDK:s CVE-2026-112346 är mindre än 1.52.0 . När startprogrammet binder till 0.0.0.0 och session_api_keys är tomt är det möjligt att köra kommandon från den publika porten utan autentisering.",
+      "points": [
+        "Root-körning är<b>Inuti sandlådan</b>Detta kan också påverka monterade arbetsytor och de hemligheter du skickar.",
+        "<b>1.52.0</b>Jämför efterföljande ändringar och kontrollera de offentliga portarna och autentiseringsinställningarna.",
+        "För miljöer som var åtkomliga externt kommer loggkontroller och återkallelse/återutgivning av hemligheter att utföras separat.",
+        "<a href=\"./update-20261027-0747.html#openhands-sdk\">Läs villkoren och källorna →</a>"
+      ]
+    },
+    "evening-disclosure": {
+      "kicker": "18:47 UPDATE · EVIDENCE STATES",
+      "title": "Att bekräfta publicering och att bekräfta innehållet är två olika saker.",
+      "lede": "GMO har bekräftat avslöjandet av vad de påstår vara företags- och kundinformation i 12:30 . Innehållet är under utredning, och inga ransomware-attacker har bekräftats per 13:55 . Diagrammet är en schematisk representation av den bekräftade statusen.",
+      "points": [
+        "Förklaringen som gavs var att ingen skadlig kod hittades på terminalerna efter att analysen var slutförd.<b>Säkerhetskontroll av alla enheter</b>Sprid det inte vidare.",
+        "Officiell enhetsisolering och kontoskydd från en annan betrodd enhet har bekräftats.",
+        "Avstå från att få åtkomst till, publicera igen eller sprida länkar till offentligt tillgänglig information, och var försiktig med opportunistiska nätfiskeförsök.",
+        "<a href=\"./update-20261027-1847.html#gmo-publication\">Läs rapporterna och svaren från 8 till 11 →</a>"
+      ]
+    },
+    "evening-release": {
+      "kicker": "18:47 UPDATE · RELEASE GATES",
+      "title": "Den version som var schemalagd och den version som redan har levererats.",
+      "lede": "Motåtgärderna för PAN-OS PHP fortskrider i serie. Vi kontrollerade även skillnaderna i originaldokumentet för KEV mellan CVE-2026-109618 och CVE-2026-109619 . Diagrammet är en schematisk representation av hur man separerar leverans från ansökan och utredning.",
+      "points": [
+        "<b>10.2.13-h27 / 10.2.16-h12</b>Bekräftat att den har skickats till 09:10 JST.",
+        "<b>12.1.7-h11 / 12.2.4-h1</b>Bekräftat att den har skickats till 13:03 JST. Andra beräknade leveranstider kontrolleras separat.",
+        "Att utföra korrigeringar, tillämpa dem på din utrustning och undersöka tecken på intrång är separata uppgifter.",
+        "<a href=\"./update-20261027-1847.html#pan-hotfix\">Leveransstatus per serie och KEV-reserver →</a>"
+      ]
+    },
+    "evening-threshold": {
+      "kicker": "18:47 UPDATE · MPC BOUNDARY",
+      "title": "Party-resursen 1 är inte en komplett privat nyckel.",
+      "lede": "Fireblocks mpc-lib's CVE-2026-90975 . Möjligheten att nå partens förfaderdelning från den underordnade delningen och kedjekoden. Tröskellagret finns kvar. Diagrammet är en schematisk representation av villkoren.",
+      "points": [
+        "BIP 32 härdad härledning,<b>Fullständig isolering av delningshierarkin</b>Jag litar inte på dem.",
+        "Kedjekoden kommer att hållas hemlig och kommer inte att distribueras från information som endast gäller för klockan.",
+        "CERT-dokumentet tillhandahåller inga korrigeringar. När ett intrång i lövdelning inträffar undersöks hierarkin för samma part.",
+        "<a href=\"./update-20261027-1847.html#fireblocks-share-boundary\">Läs villkoren för ikraftträdande och de provisoriska lättnaderna →</a>"
+      ]
+    },
+    "evening-package": {
+      "kicker": "18:47 UPDATE · PACKAGE RESPONSE",
+      "title": "Innan du raderar, kontrollera miljön där den kördes.",
+      "lede": "Rapporter om skadliga paket för specifika versioner har skickats till npm och PyPI. Diagrammet visar installationshistorik, isolering och hemliga utgångssvarsvägar och representerar inte en observation av faktisk skada.",
+      "points": [
+        "npm <b>@camera.ui/camera-ui-nvr-windows-amd64 1.6.1</b>：GHSA-2w7v-jwxh-w7wc",
+        "PyPI <b>h13t0ry-hello-demo 0.1.0</b>: GHSA-5crq-52j9-fc74 . Omvänd skalrapport vid import",
+        "Låsfilen, CI:n och körningshistoriken jämförs. Den berörda miljön isoleras och hemligheten återkallas och utfärdas på nytt från en annan säker terminal.",
+        "<a href=\"./update-20261027-1847.html#malware-camera-ui\">Läs målpaketet och dess korrespondens →</a>"
+      ]
+    }
   }
 });

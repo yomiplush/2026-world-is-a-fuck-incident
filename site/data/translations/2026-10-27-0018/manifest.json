@@ -3,158 +3,203 @@
   "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d",
   "register_hash": "455e0fbbb5859b6de3c12ce3adad001253615d6e482a7c01f29434cf2976c3d0",
   "target_count": 15,
-  "ready_count": 1,
-  "note": "Only complete source-matched Codex translations are published. Pending/unsupported languages are never filled with another language.",
-  "languages": [
-    {
-      "code": "en",
-      "native": "English",
-      "html": "en",
-      "dir": "ltr",
-      "en": "English",
-      "ja": "英語",
-      "status": "pending",
-      "url": null
+  "ready_count": 15,
+  "languages": {
+    "en": {
+      "language": {
+        "code": "en",
+        "native": "English",
+        "html": "en",
+        "dir": "ltr",
+        "en": "English",
+        "ja": "英語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/en.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "ja",
-      "native": "日本語",
-      "html": "ja",
-      "dir": "ltr",
-      "en": "Japanese",
-      "ja": "日本語",
+    "ja": {
+      "language": {
+        "code": "ja",
+        "native": "日本語",
+        "html": "ja",
+        "dir": "ltr",
+        "en": "Japanese",
+        "ja": "日本語"
+      },
       "status": "source",
-      "url": "/database"
+      "file": "data/translations/2026-10-27-0018/ja.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "zh",
-      "native": "中文（简体）",
-      "html": "zh-Hans",
-      "dir": "ltr",
-      "en": "Chinese (Simplified)",
-      "ja": "中国語（簡体）",
-      "status": "pending",
-      "url": null
+    "zh": {
+      "language": {
+        "code": "zh",
+        "native": "中文（简体）",
+        "html": "zh-Hans",
+        "dir": "ltr",
+        "en": "Chinese (Simplified)",
+        "ja": "中国語（簡体）"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/zh.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "ko",
-      "native": "한국어",
-      "html": "ko",
-      "dir": "ltr",
-      "en": "Korean",
-      "ja": "韓国語",
-      "status": "pending",
-      "url": null
+    "ko": {
+      "language": {
+        "code": "ko",
+        "native": "한국어",
+        "html": "ko",
+        "dir": "ltr",
+        "en": "Korean",
+        "ja": "韓国語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/ko.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "es",
-      "native": "Español",
-      "html": "es",
-      "dir": "ltr",
-      "en": "Spanish",
-      "ja": "スペイン語",
-      "status": "pending",
-      "url": null
+    "es": {
+      "language": {
+        "code": "es",
+        "native": "Español",
+        "html": "es",
+        "dir": "ltr",
+        "en": "Spanish",
+        "ja": "スペイン語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/es.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "fr",
-      "native": "Français",
-      "html": "fr",
-      "dir": "ltr",
-      "en": "French",
-      "ja": "フランス語",
-      "status": "pending",
-      "url": null
+    "fr": {
+      "language": {
+        "code": "fr",
+        "native": "Français",
+        "html": "fr",
+        "dir": "ltr",
+        "en": "French",
+        "ja": "フランス語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/fr.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "de",
-      "native": "Deutsch",
-      "html": "de",
-      "dir": "ltr",
-      "en": "German",
-      "ja": "ドイツ語",
-      "status": "pending",
-      "url": null
+    "de": {
+      "language": {
+        "code": "de",
+        "native": "Deutsch",
+        "html": "de",
+        "dir": "ltr",
+        "en": "German",
+        "ja": "ドイツ語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/de.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "pt",
-      "native": "Português",
-      "html": "pt",
-      "dir": "ltr",
-      "en": "Portuguese (Brazil)",
-      "ja": "ポルトガル語（ブラジル）",
-      "status": "pending",
-      "url": null
+    "pt": {
+      "language": {
+        "code": "pt",
+        "native": "Português",
+        "html": "pt",
+        "dir": "ltr",
+        "en": "Portuguese (Brazil)",
+        "ja": "ポルトガル語（ブラジル）"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/pt.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "ru",
-      "native": "Русский",
-      "html": "ru",
-      "dir": "ltr",
-      "en": "Russian",
-      "ja": "ロシア語",
-      "status": "pending",
-      "url": null
+    "ru": {
+      "language": {
+        "code": "ru",
+        "native": "Русский",
+        "html": "ru",
+        "dir": "ltr",
+        "en": "Russian",
+        "ja": "ロシア語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/ru.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "ar",
-      "native": "العربية",
-      "html": "ar",
-      "dir": "rtl",
-      "en": "Arabic",
-      "ja": "アラビア語",
-      "status": "pending",
-      "url": null
+    "ar": {
+      "language": {
+        "code": "ar",
+        "native": "العربية",
+        "html": "ar",
+        "dir": "rtl",
+        "en": "Arabic",
+        "ja": "アラビア語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/ar.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "hi",
-      "native": "हिन्दी",
-      "html": "hi",
-      "dir": "ltr",
-      "en": "Hindi",
-      "ja": "ヒンディー語",
-      "status": "pending",
-      "url": null
+    "hi": {
+      "language": {
+        "code": "hi",
+        "native": "हिन्दी",
+        "html": "hi",
+        "dir": "ltr",
+        "en": "Hindi",
+        "ja": "ヒンディー語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/hi.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "id",
-      "native": "Bahasa Indonesia",
-      "html": "id",
-      "dir": "ltr",
-      "en": "Indonesian",
-      "ja": "インドネシア語",
-      "status": "pending",
-      "url": null
+    "id": {
+      "language": {
+        "code": "id",
+        "native": "Bahasa Indonesia",
+        "html": "id",
+        "dir": "ltr",
+        "en": "Indonesian",
+        "ja": "インドネシア語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/id.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "uk",
-      "native": "Українська",
-      "html": "uk",
-      "dir": "ltr",
-      "en": "Ukrainian",
-      "ja": "ウクライナ語",
-      "status": "pending",
-      "url": null
+    "uk": {
+      "language": {
+        "code": "uk",
+        "native": "Українська",
+        "html": "uk",
+        "dir": "ltr",
+        "en": "Ukrainian",
+        "ja": "ウクライナ語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/uk.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "pl",
-      "native": "Polski",
-      "html": "pl",
-      "dir": "ltr",
-      "en": "Polish",
-      "ja": "ポーランド語",
-      "status": "pending",
-      "url": null
+    "pl": {
+      "language": {
+        "code": "pl",
+        "native": "Polski",
+        "html": "pl",
+        "dir": "ltr",
+        "en": "Polish",
+        "ja": "ポーランド語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/pl.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     },
-    {
-      "code": "sv",
-      "native": "Svenska",
-      "html": "sv",
-      "dir": "ltr",
-      "en": "Swedish",
-      "ja": "スウェーデン語",
-      "status": "pending",
-      "url": null
+    "sv": {
+      "language": {
+        "code": "sv",
+        "native": "Svenska",
+        "html": "sv",
+        "dir": "ltr",
+        "en": "Swedish",
+        "ja": "スウェーデン語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-10-27-0018/sv.json",
+      "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d"
     }
-  ]
+  },
+  "note": "Only complete source-matched Codex translations are published. Pending/unsupported languages are never filled with another language."
 }

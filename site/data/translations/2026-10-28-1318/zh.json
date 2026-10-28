@@ -333,6 +333,7 @@
     "records.studio-reporting.time": "10/28 00:30 JST 更新",
     "records.kev-brotli-commerce.title": "KEV：新增Brotli和Adobe Commerce，将已确认的利用情况纳入优先级判断",
     "records.kev-brotli-commerce.body": "CISA 2026.10.27版共收录1,760条。新增CVE-2026-111497和CVE-2026-48356，截止日期为11月10日。这表示已确认漏洞遭到利用，并不意味着所有.NET、Node.js环境或商户均已遭入侵。未提供受害人数或实际损失金额。",
+    "records.kev-brotli-commerce.action": "确认 Brotli 1.2.1、Node.js 22.23.4 / 24.22.1 / 26.12.1 等各产品的修复情况。对于 Adobe，确认 APSB26-73 中各版本的七月累积更新。不要将 KEV 针对美国联邦机构规定的期限视为适用于所有用户的法定期限。",
     "records.kev-brotli-commerce.time": "10/28 04:00:02 JST 目录发布",
     "records.dotnet-deploy.title": "Brotli：区分.NET修复版本的提供与在使用环境中的部署",
     "records.dotnet-deploy.body": ".NET 8.0.33 / 9.0.22 / 10.0.14 / 11 RC3为此前已提供的带外修复。.NET Framework不在影响范围内。Azure Functions于10月26日发布的官方说明称正在部署，并未表示已应用到所有运行中的实例。",
@@ -612,8 +613,7 @@
     "ui.languages": "选择语言",
     "ui.evidence": "获取的原始资料与调查方法",
     "ui.counts": "此处涉及的要点数量并非新增受害事件的数量。",
-    "ui.pending": "正在准备翻译数据。",
-    "records.kev-brotli-commerce.action": "确认 Brotli 1.2.1、Node.js 22.23.4 / 24.22.1 / 26.12.1 等各产品的修复情况。对于 Adobe，确认 APSB26-73 中各版本的七月累积更新。不要将 KEV 针对美国联邦机构规定的期限视为适用于所有用户的法定期限。"
+    "ui.pending": "正在准备翻译数据。"
   },
   "provenance": {
     "engine": "OpenAI Codex CLI",

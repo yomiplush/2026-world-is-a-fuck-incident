@@ -10,14 +10,14 @@ test('motion dropdown availability matches the current translations and scene co
  assert.ok(data.MOTION_LOCALE_STATUS,'generated motion translation status is required');
  const {audit}=require('../tools/check-motion-locales.cjs');
  assert.deepEqual(JSON.parse(JSON.stringify(data.MOTION_LOCALE_STATUS)),audit(root));
- assert.deepEqual(Object.keys(data.MOTION_LOCALE_STATUS).filter(code=>data.MOTION_LOCALE_STATUS[code].ready),['en','ja','uk','pl','sv']);
- for(const code of ['zh','ko','es','fr','de','pt','ru','ar','hi','id']){
-  assert.equal(data.MOTION_LOCALE_STATUS[code].ready,false);
-  assert.equal(data.MOTION_LOCALE_STATUS[code].translated,18);
+ assert.deepEqual(Object.keys(data.MOTION_LOCALE_STATUS).filter(code=>data.MOTION_LOCALE_STATUS[code].ready),catalog.map(r=>r.code));
+ for(const {code} of catalog){
+  assert.equal(data.MOTION_LOCALE_STATUS[code].ready,true);
+  assert.equal(data.MOTION_LOCALE_STATUS[code].translated,65);
   assert.equal(data.MOTION_LOCALE_STATUS[code].total,data.CONTENT.scenes.length);
  }
 });
-for(const code of ['uk','pl','sv'])test(code+' motion copy covers every actual scene and UI key without an English scene fallback',()=>{
+for(const code of catalog.map(r=>r.code).filter(c=>!['ja','en'].includes(c)))test(code+' motion copy covers every actual scene and UI key without an English scene fallback',()=>{
  const data=content();let locale;const scope={window:{registerLocale:(registered,value)=>{assert.equal(registered,code);locale=value}}};vm.createContext(scope);vm.runInContext(fs.readFileSync(path.join(root,'site/i18n',code+'.js'),'utf8'),scope);
  assert.deepEqual(Object.keys(locale.scenes).sort(),Array.from(data.CONTENT.scenes,r=>r.id).sort());
  for(const key of Object.keys(data.CONTENT.ui.en))assert.equal(typeof locale.ui[key],'string',key);

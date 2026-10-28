@@ -1,0 +1,1257 @@
+{
+  "locale": "en",
+  "language": {
+    "code": "en",
+    "native": "English",
+    "html": "en",
+    "dir": "ltr",
+    "en": "English",
+    "ja": "英語"
+  },
+  "snapshot": "2026-10-27-1847",
+  "source_hash": "72dbf6f7149982995732f90ce12f06761fc3a4e51dd73919a484432f0ddf3597",
+  "register_hash": "6e5c699865bd2c98d3bb650f64b3506424a7a38c08181aabf211e0bfa850b8b4",
+  "string_hashes": {
+    "records.gmo-publication.title": "88d67b559bea45e50a56830203f2cc58c7b1aabda00e912f06de231c3fda84b9",
+    "records.gmo-publication.body": "70a034481c329f95c2e944edd99ac09c35959231a619fbc811958d98b56a44e7",
+    "records.gmo-publication.action": "f443481f3ecf4d258c758d839cb5517f4adab4d023b18400713c45d9c856f458",
+    "records.gmo-publication.time": "3dc9df0a89d4404b5b3644afa2b695134b81962120153c29217efa13669f7755",
+    "records.gmo-endpoint-isolation.title": "0d4a1c988015aa7b12d5b053cb87be36fc72b6ce67eddae6c9bf8d0590c37cb4",
+    "records.gmo-endpoint-isolation.body": "8eb4b1b44be900b7b0f6621364951ef4aa6c65b56e90d14f771d3f8c17605ffb",
+    "records.gmo-endpoint-isolation.action": "1d472d70a339189fa3c882ee79cc70512da74c7935c1b5c5ed5b73a7ceae6af3",
+    "records.gmo-endpoint-isolation.time": "2e02e90609b6bb6cbd36c81b68c7c89f9729b71f4271efe26fa4da6f2e2846d1",
+    "records.railway-registration.title": "088c9292b346b6c2caf0e0857c4ad8eb3c9439f07aefd07b832a92128ea4a00f",
+    "records.railway-registration.body": "4dc866fdf890e74b86b14eff9b064b7114e05ee368faedce8d85badb392de550",
+    "records.railway-registration.action": "1c68878d7bf39da209f3d5e3ef6a3b4cb71c1fa48cc5a682ea84b2c459e5c86d",
+    "records.railway-registration.time": "01361fd9126de43a4f8f6455dd8080b7fd0e7f801514b893e8c0cd60510d08e4",
+    "records.pan-hotfix.title": "49f75d8245b6bcc3dd7548dceef58473727c4897b05db162964d8da79b50277f",
+    "records.pan-hotfix.body": "28bb4c1ee3379306087412d29d6cad6a9e24bd0cfe3de1160075cba67d8e6cc5",
+    "records.pan-hotfix.action": "8b462c93bc73ffd08b539d925fc533fa8f01a8baabd3007e10ecc14440130256",
+    "records.pan-hotfix.time": "d54814d6c69dce83de9217ef2434323384327db0f86d4701a8ac0b2274ca5a2f",
+    "records.kev-php.title": "ad23079078750cd56ec88ee86622ec79984fce5c0603819e6b8cf86ada41112c",
+    "records.kev-php.body": "bed054bfb05316164bc95815faa5eff25bf4019adb39403aaad4b2d91a0487e0",
+    "records.kev-php.action": "a5fa6f8049541674b399e06cb56bee4f78c20767e4713c15641a2c922dd28f87",
+    "records.kev-php.time": "753af8152aac9695ff19ee23a92332682a6681413f1bd5e4de52d17a7306d4e6",
+    "records.growi-authorization.title": "b8cd83fd04297abb524de6ea81bffd25f346db0a1f98c78e2af46ae5d0e288dc",
+    "records.growi-authorization.body": "1f0b9f23996b1623cd7c01d23bf575912c8d12bda37e0fa6d559d19f23477774",
+    "records.growi-authorization.action": "c28a52a05ac72f37c5725fc7c8d4d8d73ef97833b14cf8e1ebc9140c943652a6",
+    "records.growi-authorization.time": "17b521c144dcbfc8beb4817233a5269d22bd62afd1e279ffbcb11a6b5e85fcee",
+    "records.sleipnir-android.title": "74ae8506c25ce2b3cdd6cca53e069586a0dce48f928c0d1b48495768f1c00d34",
+    "records.sleipnir-android.body": "df3c6c4b0bdc9b038cea86f96d6ba01f1f33263b30d978d98dcfad2a56594c0a",
+    "records.sleipnir-android.action": "284e449c251eb97e2a0aa72c1f7b7bf863acb1b52decffe03d76391ac6003407",
+    "records.sleipnir-android.time": "03ce4dcbc8f13ab578ad7324ada7dd202daf2c337d42620461d49a1b0f86dd73",
+    "records.fireblocks-share-boundary.title": "c3864f9f327ac1c32266490626772604fb045dee48a4dcd37dc90ada03c4d1e0",
+    "records.fireblocks-share-boundary.body": "2d7ba34fa9740804032b839684c17571510a5a25063869fa1199cbcce8b6e43e",
+    "records.fireblocks-share-boundary.action": "8e5b0438015aafddc76419d7debe70b1844ef3a945d3c4737b8be08f2d5b1bc6",
+    "records.fireblocks-share-boundary.time": "12248016f0043bcab1374abb7a2a9e03382cee777c8af6ffbde7308ffa9aa67e",
+    "records.vsomeip-resource-limit.title": "599ede2a71e1562a5eb673f4f39592a5c6d2fdf6c099a67a6d679402b930ace3",
+    "records.vsomeip-resource-limit.body": "8b740836929a37f1da1cae3168dc547f8e5d066c413086cfecec0893bcdd6dfa",
+    "records.vsomeip-resource-limit.action": "b710061dd79c1b51d6daf49547b6d22b07024e059811d3fa7a918fb4e81558f0",
+    "records.vsomeip-resource-limit.time": "59bd3635b3a6affdcc29348d9682a666e4a202f17583d3bd8091c4ea2083e14e",
+    "records.mendix-saml.title": "ecfe2c9d587ce69f546c9cb58aaf5eaf83479ed83a6826139abcff05a606af1c",
+    "records.mendix-saml.body": "89db3afdd74152e4e08c387f61bd46d1bd3017aa9b6f57c2dcf44252ab4c1301",
+    "records.mendix-saml.action": "65bf4a5f46a01498ac20dd3ac6b4878e11bc2059131b9eddecf56693e5de0cca",
+    "records.mendix-saml.time": "0483e2d08013a4cb9e70922e0bd3f33f52d6c96e60e59818e05bf42246f3cd7d",
+    "records.kubernetes-boundaries.title": "ee51e20cd2b0380cbf4e2e1e138199954cfd9984ff98c79f3d8666ea7f01f876",
+    "records.kubernetes-boundaries.body": "f2ed59f5dcb249583c8a2605227bc81657288bfad3e3280264bb619ee3321f41",
+    "records.kubernetes-boundaries.action": "85a2a8f4be25c13f85eddd4e65eec36bea78eaa155501023125c52ee16a3cd7d",
+    "records.kubernetes-boundaries.time": "0642931d48b93cc7f3a99578ffa6383f337307a87f5858c9471f5ab868fc126f",
+    "records.airflow-ssh.title": "b66dcdeb84d931188818a4e63b2c35b8d111b4bbc6191a643e97240f74d14761",
+    "records.airflow-ssh.body": "844e82f78750f32abbfd5e72ec83b8314f973aa62cd7f3ae82e0b6061642625c",
+    "records.airflow-ssh.action": "1e9756bc55ca531fd88f5c47ef113964d9c1d4c67c453f842b0a0c16d8ebc4bf",
+    "records.airflow-ssh.time": "4b2b8bc59d5e302654a9f4db796d2234e1bfbe43528526aa3041e2627ea65c42",
+    "records.dompurify-modes.title": "801337e0bcf87b3d207fb189899acd1ff274c9b47cb552e8d5b9824f305a3eab",
+    "records.dompurify-modes.body": "1cbabdf9101834d0d18f0c8d6f87e082fafa28ef08dda1b9ffa13ba5c8a4ad5f",
+    "records.dompurify-modes.action": "ebb3a82a35515a4f9b7a951c4c8254005c95a7b7ee0c2f674411c28b1ffc8663",
+    "records.dompurify-modes.time": "ec863fcc95f12e3a578d7f11cfa48f88abf0c3c2993f6436112d26695d1fff6a",
+    "records.mistral-worktree.title": "7da4962edc42c62c82dcde22070a112d70e48d0e9c6e5907c42e76f61a9f5e89",
+    "records.mistral-worktree.body": "b210dcdc588ddf82908e3cab9530da0748f3d63926224d0cb409a407563ff6f7",
+    "records.mistral-worktree.action": "7bd67568d985a9c19c21ea9e1f587dd1e8772e52ea552ea1ed6d96bf04b1d61f",
+    "records.mistral-worktree.time": "ebb98f4a110cd13e906acdb3f66c30fa5e04e3f2e6889a8d237da38a6b10048e",
+    "records.psono-permissions.title": "7194457e4d543fa76d39013b524aba5daeb95cd3e292d3a03a1b4e3ac330e60e",
+    "records.psono-permissions.body": "c76961b40ff262d1107d0d480448cf1d57da599c23ea781a4e1c391e7b0204b8",
+    "records.psono-permissions.action": "e6ec29af3d1628a83f732c487c7708c7387bf2dc05d22ebabc5a6edb4e80b7a4",
+    "records.psono-permissions.time": "e75a77beaf100cc59f95d1c952110fc47bb124be104a42d6ae5a2e724398572c",
+    "records.qt-codecs.title": "a096b5fc91bb5bbb76910deac49f52038fbdc8e246a0e9f86ba97beaed74a882",
+    "records.qt-codecs.body": "830cd57c1ea2c83481d253a8b1691720fb166a94347b4c7a1fd30d4893252de1",
+    "records.qt-codecs.action": "468be00e30ad548e4b8b39e3b0e76160d822f8994fee690166e51890d524d348",
+    "records.qt-codecs.time": "1189d9e24b1d055e40946e5082c21ac55b8090981d659f2adc8eec37850a4c66",
+    "records.supermicro-bmc.title": "eafa01383e67f55011629f32f48b858bb334949be0df8b51ff8416d3c005ad8d",
+    "records.supermicro-bmc.body": "ee8a135778e90f1f14aa23e5b8ab082c49a90cadf8b200b570b60efface32912",
+    "records.supermicro-bmc.action": "0a87132508da3e69d572938e907c7ec18083939a3ae7c919033bb139a7cea5a9",
+    "records.supermicro-bmc.time": "39eaddaaca86e4f4551c11b25b36daeacacf152aa2a4b6aad717a834ee140764",
+    "records.fortios-management.title": "cc1716274de1a0a9bbba17db6c24bda398124e57b0365729ef02a11aaa194814",
+    "records.fortios-management.body": "9306b67f38eee70390776a41a614fc95531bd48f6d08da8981c3ed8d1bd901bf",
+    "records.fortios-management.action": "d9fec0d50954f0a8604ec0875acfb4ecd5c588d70cd3e74a723b7b3ab4c98e6c",
+    "records.fortios-management.time": "4c81f8bbec0da0e4bb0f020eb3716d7761d0fa4222c4997346251296d3b99fa5",
+    "records.moxa-conditions.title": "8d9fbae275fc35cf12b2f39f1f59aeb805a0b30bd2c09a05ef9926d6786e7515",
+    "records.moxa-conditions.body": "d7fdc30b2aa34a410b380c27c5b56d2f5d985786253164afc8682bd337ec99b0",
+    "records.moxa-conditions.action": "af83c1fce56b24576f926e5cccbe500ce872144a55fc4fb1c19568abe36b736f",
+    "records.moxa-conditions.time": "4905838e97f803ccfdf4be2c00e7d1c65837b85eb4d095adf535c6a5d0fa76bb",
+    "records.malware-camera-ui.title": "8e7ecc9e38e0f5ac4f1ba0face92ee088e5817a17af0f6e9d2a09a1dc94803bd",
+    "records.malware-camera-ui.body": "9f896d74579af24ae82e9099a8eefff56a5d636187cd892d3ae438975ef9a0a7",
+    "records.malware-camera-ui.action": "b0803ef4ffeba8db41505d79c3c727b47d58cc1a670f2b517950ebecabdfc990",
+    "records.malware-camera-ui.time": "25e09c5b43127eaf3d8b6f14891b23d1d8b860a42ab774d58b0b6b4bba207e4d",
+    "records.malware-pypi.title": "bde6ff817a6101b6f998f62ff32014d2b0fcd4b0e90812b6ee34b23219c38596",
+    "records.malware-pypi.body": "aff3fe40ddaa118d46164aba29407bfcdefab634eea8f4ca55582f95ac24c387",
+    "records.malware-pypi.action": "2a579007394237788d3e96b5388ed659fc7ec6838f20adb25bcaa974e2a95dee",
+    "records.malware-pypi.time": "234e717ab7fb9801e06f6ccc22b7aa312490cf13f7620d8962fde8d0d04ce590",
+    "records.openpanel-isolation.title": "0bcdf178dfa80a3408c084744605958ff4f041aeffd9f4f2f9d8e0b829e38ff7",
+    "records.openpanel-isolation.body": "1175e56b8ea6958f86605a378bff44f554c73572c57de11967cf20c358b77ecc",
+    "records.openpanel-isolation.action": "34532b89e2ee17b6bde7fff70d1dbc268db349c5a89bd01c724fbb4537fdca9c",
+    "records.openpanel-isolation.time": "1eff66005c0ce70e6e26ec75644021d9bb4d0973fc4f673e33ef3a6b8180c447",
+    "records.yeswiki-signature.title": "f7e9ec361ba5ea7bfe57a3652faff0ee667df5e2598103412cd63db47e38bc89",
+    "records.yeswiki-signature.body": "20263669d43c6a6d89ea0ec5387256c0b1e1ffcbe3c5583717a563eb8ee8756a",
+    "records.yeswiki-signature.action": "7ef36a21e68b43aded6cfa1fcc31b392f8f6868e394590efc8fa3e9662cfc6ba",
+    "records.yeswiki-signature.time": "39d4086fd33f0c627b65c01ca02cfbc704996ef7afe8c874b5a638f00e781ad2",
+    "records.llama-gguf.title": "4f2a4b2423e34b87bda0be47a5c4646bd7f25dc344e72b9fbce349078ed1a6d3",
+    "records.llama-gguf.body": "914a8a00f0c5a3123b58f5b0064fe635bfb7fce2d7cda485c8a7a8890bbbebc1",
+    "records.llama-gguf.action": "f50f70fe7f8d7e427c766e6f8dfc15d27549431555414ea9eace2b517affe341",
+    "records.llama-gguf.time": "cfa6b683138ecb76742fa5074be279432377ba3747b7d031489661959db85754",
+    "records.wordpress-payments.title": "5028505b5a8c9f80540aa3c429b767d1c037ede89294f2d66d7eee27153518c5",
+    "records.wordpress-payments.body": "260192f99e27a7fed12bc452daeb9d5068f067618c324a27959a92dc68db6a9f",
+    "records.wordpress-payments.action": "e31a4191d65187c9e39c90c41d6f12a39e38f152d234084472e8b4c047bffc70",
+    "records.wordpress-payments.time": "24e0af0cf6e9979fc2faab6622df8142c8c98b8873718339a7926969c95ba089",
+    "records.argilla-xss.title": "0bfd20c5d90d505e34c6460a1b571b61d62a1bce7be01fb1f9f2c3382d3d37b8",
+    "records.argilla-xss.body": "2919d4131eeadddaf37a7c1d74a88863013ed387acd136650a91668f4320cd0a",
+    "records.argilla-xss.action": "d8085648825a1b9605a19674a9224971ea4d5af45cb069c15d4466dc908c4243",
+    "records.argilla-xss.time": "512a338a3b08302a3c2df7b5f34b453facda6131a67eb26da5a73f5682fe9365",
+    "records.rapidjson-regex.title": "13a7974205844eb43dc48c0e2b9c617cee05b13a9649202cf7a68c549052a6b4",
+    "records.rapidjson-regex.body": "8eaeffd4ee5e0f1594836632c9c72a628b19f54ad786381626b373eeb9c55d65",
+    "records.rapidjson-regex.action": "fe08985effcb8bc2a391b9e640b058a9b9c2b2dfee992849aa07c5f2111eaaa0",
+    "records.rapidjson-regex.time": "ebb98f4a110cd13e906acdb3f66c30fa5e04e3f2e6889a8d237da38a6b10048e",
+    "records.msrc-index-revisions.title": "0a62529deeffc9032417b006c1491738ceedaeee3c1a69a3a4f999c6973932a8",
+    "records.msrc-index-revisions.body": "858c335549c177a74039b910930894dd7dcfe3acc0d80b10c16ec5bcbdbe55be",
+    "records.msrc-index-revisions.action": "ae9f5284c29061c319f84f026d85931f4675e0358bb6670744b53637e97cb367",
+    "records.msrc-index-revisions.time": "8cb0e8d8114f8479532b11a4810220803bbea86eea3ec4b3840c41ae66623aef",
+    "records.continuing-response.title": "c3be6ee3a7620db423a7d10560df6c6e6ac7f6de7b2b5cbd432ef20a425eeb8a",
+    "records.continuing-response.body": "14bd80e0b43e618dcaaebaf51f80a172e1131e7127198bb50f082c51217db8e1",
+    "records.continuing-response.action": "1d18cb364dd6f82c562f27736fbaec4988f93c1650f686d46f80b9c4acddf289",
+    "records.continuing-response.time": "5753b542d275f4b4a8dea117ef3047a0ff51670c9e5f7686c86f99b4139fa4d9",
+    "caveats.0": "1d94f0b21aa351c2126484b30ca9f0593b9cc8edcd4d7675af7ac998c4af8ea4",
+    "caveats.1": "a126cdae02d3e7925d9a711a5cb91944ee11e56e861c8c39acd5ec72898c94aa",
+    "caveats.2": "52eb11f0fb24b62305172920929c6ccf75a5dc26a45bbec07377e57fde24ee58",
+    "caveats.3": "d9154fbde79503304fc9a071886b18bedca9d09ee202c0c541187b23beefaf3c",
+    "caveats.4": "5e5c59ab1c617e01f1c6fbee687392e5d117544a8bd0c0f19fc7d915a5fdaaa7",
+    "caveats.5": "fd6ba0e0d974b7ff4ca8ffe80efd59f2bcb97e0eb118f202806972c9a48f4bc0",
+    "caveats.6": "51c2a114eabad54d2ec8e084c94e455ff87fb5fe374e83518d165fdbdd9fadd0",
+    "caveats.7": "b3a687ffdcc8cfa587f5f5fd2f81ab272a9b18e2b94f09b1f87e76f45d4056bf",
+    "caveats.8": "bc9b4d1a65162e53499257eba37b4181478164b2b9d2da3307b6b4b23e53021e",
+    "caveats.9": "f6ad653d44a4babca5b2a6b634eac14a6970fa4b0c77218beb25e6652b6627cc",
+    "report.title": "cb05fc8a48b48078a5148753f458531b8a078a22c0bbbf4e877e89dffdce4990",
+    "report.headline": "4c76675fa18b561a48c252c5f6cd5bf76326a1a7f102dcbe67b3059fc7c092c0",
+    "report.intro": "4c57895c453dcc0a901f404887ba30c3f2fdfddf8af9e69bece23c3253a0570b",
+    "quick.0.title": "5394f02c9c0e018c69272a257d6bd81c08d5b57241af3a9a2773e36b81aa002f",
+    "quick.0.text": "5fc0319d10092554c603db344303b6309cc176d29ffd18f1fe53ffa83c5b69df",
+    "quick.0.label": "3b15c51bd594464fa39e93356fa6c359d63d7a3124614d6a9765375bef31e126",
+    "quick.1.title": "7d84ac26900d69d6edc7b20c89f0c236a448a634db4d9ca12a581428d5047c02",
+    "quick.1.text": "d3af0c75dc96a06dc83b864b4d033a63c8f82cdcb3006c3cacfc4f4a9dd218bc",
+    "quick.1.label": "f45271e9f5f7ff096f0c717cd6cb903b245f579d6edc9c59c22d857c76399071",
+    "quick.2.title": "04760a5874f20f1a86c6653d113c9fd9342408981665af167177ed49a0c3ad9a",
+    "quick.2.text": "f357cb268e0bb6166295a93f2cce44ae588426d3259598e428bc0f1d23ff2f1c",
+    "quick.2.label": "3b085daabe636ba4cb10fe31a43b544889ad626f264ca23f5a7182cc3d7928be",
+    "quick.3.title": "8579e638779b30fad50b8b6400b38150834d96ce99ba27d1fcb11dcb33a06793",
+    "quick.3.text": "8f0f9e4614627c40dc462d3eb78e1eee7b31b370f3b470c7e6f46076f2404a76",
+    "quick.3.label": "9095a098f6f269968429d5a967b04b4fbb939e7dbdd6e8bb251f007d005898d7",
+    "ui.title": "c589afd85a653859c675603d873b89a2ec72704a908f9fe532956589276d6ea1",
+    "ui.intro": "8bc1411fd2df3f6f0ad0fdbd6a6d7ed5ba9b0c63f0bd91fbea0f04dd4b859fda",
+    "ui.cutoff": "30bffe1d8c0fefe3ad569045a850f06ea6dd8810b558c34de1f71d4df906a9e6",
+    "ui.actions": "7e155300cecf74323a1e9ffcde23987947c1aa0b2a3e797fd3a50ad82939d62d",
+    "ui.sources": "835c47be68ea833b08692f4fd81b08923cc237d4aa02e12951d1352e9c23bd71",
+    "ui.delta": "9adc14b6e164efe8327f724c20a7ccfb1e6afa553360fe699d5169498751dd53",
+    "ui.scope-complement": "40eb64185c871529b368a52dec2a5da371f082fd0ceede57744418e9e7bded29",
+    "ui.reference-only": "438c048773567ac03e23a2d37bcda0cfd91b904736e75680507be0efb1859685",
+    "ui.notice": "58caa3c4eeff2c6afefb59c8edea1d100788a6947a2c7560e7a91ecbf21e4638",
+    "ui.original": "e8fc20d01f7577c9e02b0eafdd1fb27a5633123f9ac86833b370bc7c8d5fea9f",
+    "ui.data": "2039bbd338a139da69fcdd7b37a2f1dc83dbc2efbf17c2f52fdbb96e895837f3",
+    "ui.home": "f109578971d6a45d0822844efc41ded0cf437c2e1e876ea2519cbbb9dbc12f87",
+    "ui.languages": "2191b209745deedcb25dc4acbbab8273ac7159575dd94c2170b24998e46a2d29",
+    "ui.evidence": "688f77c246c750e5858f1d0b04381beb642d641a043603b7510db8deb1a16da5",
+    "ui.counts": "7d6c2976cecf20cd4587cd6ae65583534f56cbdecabad2b9104cd7a7a8357fe2",
+    "ui.pending": "7673fe83755b580dddf493fe3091b7687e3df01dd8c4268344bf707912eb1790"
+  },
+  "status": "translated",
+  "strings": {
+    "records.gmo-publication.title": "GMO: distinguish verified publication from verified content and attacks.",
+    "records.gmo-publication.body": "The 10th report says publication of material purportedly concerning the company and customers was confirmed at 12:30. Its content is under review and may be inaccurate. A ransomware attack was unconfirmed as of 13:55. The 9th report's statement that malware was not found on devices whose analysis was complete also does not confirm the safety of all devices.",
+    "records.gmo-publication.action": "Following report 11, refrain from accessing or reposting disclosed information or spreading links directing others to it. If already accessed, consult official full-scan guidance, and do not respond to requests for passwords, authentication codes, or money.",
+    "records.gmo-publication.time": "12:30 Confirmation / 13:55 Publicly Announced Information / 14:55 JST Follow-up Report",
+    "records.gmo-endpoint-isolation.title": "GMO: device isolation and account protection in execution order",
+    "records.gmo-endpoint-isolation.body": "In addition to continued investigation and cooperation arrangements, report 8 asks customers to back up, disconnect from the network, shut down, and unplug cords connected to PCs. Report 9's heading was corrected to 11:59, but its history section still says 11:52, leaving a discrepancy in initial publication times.",
+    "records.gmo-endpoint-isolation.action": "Check official guidance specific to your usage, proceed with backups and instructed device isolation. Protect accounts from another trusted device, and do not restore browser synchronization or connections before the investigation is complete.",
+    "records.gmo-endpoint-isolation.time": "09:58 as of / 10:56 JST addition/correction",
+    "records.railway-registration.title": "Railway: new registrations remain suspended; resumption date undetermined",
+    "records.railway-registration.body": "The official status is unchanged from the previous check and explicitly says this is not an additional security incident. It says new registrations remain suspended to prioritize reliability for existing customers and no resumption date can be given. The blog text matches the previous original.",
+    "records.railway-registration.action": "Affected users should continue revoking/reissuing stored secrets and auditing GitHub and registries. Do not interpret service restoration as a guarantee that old keys are safe. The next scheduled update at 10/28 00:00 JST is after the cutoff time.",
+    "records.railway-registration.time": "12:22 JST ( 03:22 UTC status)",
+    "records.pan-hotfix.title": "PAN-OS: confirmed shipment of 4 hotfixes for the 10.2, 12.1, and 12.2 series.",
+    "records.pan-hotfix.body": "The PHP advisory JSON removed ETAs for 10.2.13-h27 / 10.2.16-h12 at 09:10 and 12.1.7-h11 / 12.2.4-h1 at 13:03 because they shipped. Other branches, including 11.2.13-h4, retain ETAs. An RSS refresh alone is not new confirmation of exploitation.",
+    "records.pan-hotfix.action": "Match the PAN-OS series and affected features in use to official hotfixes. Check planned dates against actual availability, and perform both updates and compromise investigation. Do not apply a version number from another series as a universal fixed version.",
+    "records.pan-hotfix.time": "09:10 / 13:03 JST (Official Timeline)",
+    "records.kev-php.title": "2 PHP differences in the saved KEV original, separate from attack start times",
+    "records.kev-php.body": "CISA KEV is the 2026.10.26 edition with 1,758 entries. The 2 PHP CVEs were added since the previously saved original; forensicTriage is Yes and knownRansomwareCampaignUse is Unknown. The catalog dateReleased precedes this window, while the official Git commit falls within it, so these cannot simply be equated with the original publication time.",
+    "records.kev-php.action": "Prioritize official fixes for PHP and bundled products, and check intrusion traces and existing credentials. KEV inclusion informs prioritization of known exploitation, but does not prove new victim counts or confirmed ransomware in this window.",
+    "records.kev-php.time": "10:13 JST Git commit / catalog dateReleased is 07:24 JST",
+    "records.growi-authorization.title": "GROWI: authorization boundaries for viewing revisions and concurrent editing",
+    "records.growi-authorization.body": "CVE-2026-105272 / 109848 bypass authorization for content and comments using known revision IDs of other pages, among other inputs. In 115624, collaborative editing checks only viewing permission, allowing unauthenticated guests to modify drafts on publicly viewable pages. This does not mean guests directly save revisions; changes can be incorporated when a legitimate editor subsequently saves.",
+    "records.growi-authorization.action": "Update to GROWI 8.0.7 or later. Setting guest access to Deny is a temporary measure for unauthenticated guests only, not complete protection against logged-in read-only users. Inspect drafts of public pages before saving.",
+    "records.growi-authorization.time": "14:18 JST Developer Release / 15:00 JST JVN",
+    "records.sleipnir-android.title": "Sleipnir Android: beware fake address bars",
+    "records.sleipnir-android.body": "CVE-2026-109434 is UI spoofing in Sleipnir Mobile for Android below 3.9.0. Viewing a crafted page can lead to phishing through a fake address bar or similar interface. The developer announced 3.9.0 on 10/15; this is not a new patch today.",
+    "records.sleipnir-android.action": "Update Android to 3.9.0 or later and check the domain and how to exit fullscreen. Do not generalize the scope to Windows/iOS versions.",
+    "records.sleipnir-android.time": "12:00 JST JVN (Revised shipments are 10 / 15 )",
+    "records.fireblocks-share-boundary.title": "Fireblocks mpc-lib: ancestor shares of 1 party differ from a complete private key",
+    "records.fireblocks-share-boundary.body": "CVE-2026-90975 involves fallback to zero when a parent secret is absent during BIP32 hardened derivation. An attacker obtaining a descendant signer share and chain code may be able to reach an ancestor/root share of the same MPC party. The threshold layer remains, and this is not described as independently yielding a spendable private key. The CERT text says no fix is available.",
+    "records.fireblocks-share-boundary.action": "Protect chain codes as secrets and do not distribute them through watch-only extended public keys or similar means. Do not treat hardened derivation as a guarantee of isolation between shares; if a leaf share is compromised, investigate that party's entire hierarchy. Do not use unconfirmed fixed-version numbers to make deployment decisions.",
+    "records.fireblocks-share-boundary.time": "10:30 JST JVN (CERT revision is 07:45 JST)",
+    "records.vsomeip-resource-limit.title": "COVESA vsomeip: limit memory allocation before receiving",
+    "records.vsomeip-resource-limit.body": "CVE-2026-91141 is a DoS in reliable TCP endpoints in 3.7.3 and earlier that allocate a buffer of the declared size before confirming receipt. By default, up to approximately 4 GB can be specified per connection. Configurations with explicit size limits are excluded; clients connecting to malicious servers may also be affected.",
+    "records.vsomeip-resource-limit.action": "Update to 3.7.4 or later. If updating is difficult, set suitable limits such as max-payload-size-reliable and restrict access to trusted peers. Do not count the 7/6 shipment of 3.7.4 as a new fix or observed attack today.",
+    "records.vsomeip-resource-limit.time": "10:30 JST JVN (Corrections: 7 / 6 )",
+    "records.mendix-saml.title": "Mendix SAML: recheck release series with incomplete earlier fixes",
+    "records.mendix-saml.body": "SSA-887643 explains in V1.1 on 10/26 that the earlier fixed version for CVE-2026-80465 was incomplete. CVE-2026-89209 in SSA-137528 is an IdP-initiated SSO authentication bypass by replaying a valid SAML assertion. JVN's 20 new and 22 updated entries are cumulative for October (month 10), not 42 new incidents today.",
+    "records.mendix-saml.action": "Check each series separately: SAML module 3.6.29 or later for Mendix 9, and 4.2.4 or later for 10/11. Distinguish the main product version from the module version. The interim mitigation for 89209 is disabling IdP-initiated SSO. The vendor's publication time itself is not confirmed to fall within the window.",
+    "records.mendix-saml.time": "10:15 JST JVN aggregate update / vendor 10 / 26 Date only",
+    "records.kubernetes-boundaries.title": "Kubernetes: namespace boundaries and Windows NTLM separately",
+    "records.kubernetes-boundaries.body": "CVE-2026-2270 is a confused deputy that creates cross-namespace Pods through namespace-scoped write access to StatefulSet and ControllerRevision. Persistent Pods also require conditions such as the victim StatefulSet UID. 76654 concerns possible NetNTLMv2 exposure through Windows kubelet subPath UNC symlinks; relay and impersonation conditions vary with domain membership and other factors.",
+    "records.kubernetes-boundaries.action": "Apply 1.34.12 / 1.35.9 / 1.36.5 / 1.37.1 or later for the respective branches using official procedures. Separate controller manager and Windows kubelet update targets; inspect namespace write permissions and outbound SMB from Windows. Do not treat this as first disclosed today.",
+    "records.kubernetes-boundaries.time": "08:17 JST NVD included (First public release by the 9 / 14 )",
+    "records.airflow-ssh.title": "Airflow SSH provider: from trigger input to remote shell",
+    "records.airflow-ssh.body": "CVE-2026-111422 affects apache-airflow-providers-ssh before 7.0.1. Where a DAG maps params or dag_run.conf into the environment of SSHRemoteJobOperator, a user with trigger permission may execute commands as the SSH connection user. The CNA record was checked; retrieval of the vendor text is incomplete.",
+    "records.airflow-ssh.action": "Verify the fix in SSH provider 7.0.1 or later. Do not judge by the Airflow core version alone; inspect DAGs that pass trigger inputs to the environment and least privilege for SSH connections.",
+    "records.airflow-ssh.time": "09:17 JST NVD Recording",
+    "records.dompurify-modes.title": "DOMPurify: check 3 paths in non-default modes",
+    "records.dompurify-modes.body": "CVE-2026-116802 / 803 affect versions below 3.4.17; 804 affects 3.4.4–3.4.16. XHTML and SVG animation, node detachment through IN_PLACE hooks, and SAFE_FOR_TEMPLATES with DOM output and shadow roots have separate prerequisites. This does not describe unconditional XSS in every default configuration.",
+    "records.dompurify-modes.action": "Upgrade to 3.4.17 or later and check actual parser, hook, and template processing. Also check DOM operations after sanitization and downstream template evaluation. Disclose the developer's Low rating and 10/12 publication, distinguishing them from this database inclusion.",
+    "records.dompurify-modes.time": "09:17 JST NVD included (Developed by 10 / 12 released)",
+    "records.mistral-worktree.title": "Mistral Vibe: conditions where worktree creation precedes the trust check.",
+    "records.mistral-worktree.body": "The CNA for CVE-2026-116843 specifies versions below 3.0.3. Starting --worktree in an untrusted repository can invoke Git filter drivers in .git/config before the trust check, potentially running commands with the executing user's privileges. A fixed release was confirmed.",
+    "records.mistral-worktree.action": "Update to 3.0.3 or later and do not unconditionally execute Git settings or filters in unfamiliar repositories. Running an AI agent in another worktree alone is not a security boundary.",
+    "records.mistral-worktree.time": "10:19 JST NVD Recording",
+    "records.psono-permissions.title": "Psono: API key, device, and WebAuthn boundaries",
+    "records.psono-permissions.body": "CVE-2026-117468–117472 affect CE/EE from their respective introduction versions through 7.2.3. They cover device-code privilege escalation in restricted API sessions, file credential direction checks, WebAuthn challenge reuse, Duo host input, and read/write checks with URL_PREFIX. The WebAuthn issue requires a password and acquisition of a valid assertion; the URL_PREFIX issue involves special API key privileges and encrypted data.",
+    "records.psono-permissions.action": "Check Psono Server 7.2.4 or later and inventory API key privileges, device codes, URL_PREFIX, and external file repositories. Distinguish the new disclosure from the existing fixed release of 7/30; do not treat this as plaintext vault leakage for everyone.",
+    "records.psono-permissions.time": "15:17 JST NVD / 10 / 27 Recommendation (Revised release 7 / 30 )",
+    "records.qt-codecs.title": "Qt: separate NTLM authentication and TSCII conversion issues",
+    "records.qt-codecs.body": "CVE-2026-105946 exposes heap information and causes crashes in Qt Network NTLM. Versions 6.8.0–6.8.9 / 6.9.0–6.11.1 are fixed in 6.8.10 / 6.11.2 / 6.12.0. 107472 affects QTextCodec TSCII conversion in 4.0.0–6.8.8 / 6.9.0–6.11.2, fixed in 6.8.9 / 6.11.3 / 6.12.0. The reviewed material lists NTLM impact below 6.8 as unknown.",
+    "records.qt-codecs.action": "Check the Qt bundled and used by applications and the affected APIs, then apply the fix for the relevant branch. Inspect reachability conditions for NTLM server/proxy and TSCII inputs separately; a fixed version for one does not establish that both are fixed.",
+    "records.qt-codecs.time": "16:16 / 17:16 JST NVD Recording",
+    "records.supermicro-bmc.title": "Supermicro BMC: inspect management-plane sessions, keys, and privileges",
+    "records.supermicro-bmc.body": "CVE-2026-18450 concerns inadequate integrity/encryption requirements for active RMCP+ sessions. According to the developer, 18449 concerns a hardcoded SMCRAKP key and password hash attacks; read NVD's duplicate 18450 description with this correction. 65219/65220 concern sessions and privileges; 65210/65211/65213 require an IPMI administrator. The syslog command injection in 16521 requires high-privilege authentication and restarting the related service.",
+    "records.supermicro-bmc.action": "Restrict BMC/IPMI to trusted management networks and check model-specific firmware tables. X13DEG-QT01.08.16 and similar versions are model-specific examples, not universal versions; X12DGU is TBD. Do not aggregate every vulnerability as an unauthenticated attack.",
+    "records.supermicro-bmc.time": "17:16 / 18:16 JST NVD included (Development date 10 / 26 )",
+    "records.fortios-management.title": "FortiOS: HTTPS management-interface DoS (fixed versions not cross-checked).",
+    "records.fortios-management.body": "The Fortinet CNA record for CVE-2026-106174 lists 8.0.0 / 7.6.4–7.6.6 and describes HTTPS management interface DoS by an unauthenticated attacker with network access. The official PSIRT text returned 403 and could not be retrieved; the minimum fixed version has not been independently verified.",
+    "records.fortios-management.action": "Limit exposure of the HTTPS management interface, and have administrators check FG-IR-26-181 for the series in use. Verify minimum fixed versions through official support. Distinguish this from existing hardening releases for multiple products.",
+    "records.fortios-management.time": "16:16 JST NVD Recording",
+    "records.moxa-conditions.title": "Moxa: CNA conditions for MRC and OnCell; awaiting original-text comparison",
+    "records.moxa-conditions.body": "The CNA describes CVE-2026-111459 as certificate validation in MRC Client, 111460 as device impersonation using a shared key in OnCell G3150A-LTE, and 111461 as SMS management command injection in the same series. Do not assign all 3 to the same product based solely on product names in reference URLs. The official text could not be retrieved, and firmware versions remain unverified.",
+    "records.moxa-conditions.action": "Check MRC Client / OnCell as separate assets, including whether SMS management is enabled, required privileges, and communication paths. Restrict management interfaces and reconfirm affected products and fixed versions with official Moxa support.",
+    "records.moxa-conditions.time": "17:16 JST NVD Recording",
+    "records.malware-camera-ui.title": "npm: specific Windows package versions of camera-ui reported malicious",
+    "records.malware-camera-ui.body": "GHSA-2w7v-jwxh-w7wc reports @camera.ui/camera-ui-nvr-windows-amd64 1.6.1 as malware. The fixed-version field is empty. Do not generalize this into compromise of all unrelated camera.ui components.",
+    "records.malware-camera-ui.action": "Check the name and 1.6.1 against lockfiles, CI artifacts, and installation history. Isolate hosts where installed or executed according to the advisory, and revoke/reissue accessible secrets from a separate safe device. Package removal alone does not complete compromise recovery.",
+    "records.malware-camera-ui.time": "16:54 JST GHSA Release",
+    "records.malware-pypi.title": "PyPI: report of a reverse shell on importing h13t0ry-hello-demo",
+    "records.malware-pypi.body": "GHSA-5crq-52j9-fc74 reports an import-time reverse shell in h13t0ry-hello-demo 0.1.0. No fixed version is listed. This does not confirm harm across PyPI or in other packages.",
+    "records.malware-pypi.action": "Check installation and import histories for the affected versions, and consider isolating execution environments, preserving logs, and revoking secrets. Do not reuse the same image or cache before safety is established. Do not download or execute malicious packages for verification.",
+    "records.malware-pypi.time": "15:31 JST GHSA Release",
+    "records.openpanel-isolation.title": "OpenPanel: tenant boundaries, worker exposure, and secrets",
+    "records.openpanel-isolation.body": "The 14 CVEs cover tenant SQL, public WebSocket, Bull Board worker dashboards, webhook JavaScript sandboxes, and credential or log exposure. While the CNA uses below 3.0.0 as the boundary, some developer GHSAs retain commit ranges and empty patched_versions, and their publication text is outdated. Version alone cannot establish that remediation is complete.",
+    "records.openpanel-isolation.action": "Restrict access to worker/Bull Board and unnecessary WebSockets, and cross-check pinned image digests, fixing commits, and actual deployments. Separately revoke potentially exposed ingestion/integration secrets and DB connection details and investigate logs.",
+    "records.openpanel-isolation.time": "09:17 JST NVD included (developed by 10 / 11 previously released)",
+    "records.yeswiki-signature.title": "YesWiki: signature validity and replay prevention are separate",
+    "records.yeswiki-signature.body": "CVE-2026-116820–116828 cover SQL information exposure, ACL wildcards, template traversal, XSS, signature replay, administrator SSRF, and other issues. In 4.6.2 and later, 116825 lacks Date freshness and replay prevention, allowing previously valid signed ActivityPub requests to be resent. It is not a signature forgery issue.",
+    "records.yeswiki-signature.action": "Upgrade to YesWiki 4.7.0 or later. Check freshness and deduplication as well as signatures and actor ownership, and avoid publishing signed request logs from reverse proxies or similar systems. Treat SSRF requiring administrator privileges separately from unauthenticated XSS.",
+    "records.yeswiki-signature.time": "09:17 JST NVD included (developed by 10 / 12 previously released)",
+    "records.llama-gguf.title": "llama.cpp: boundaries around model files and token input",
+    "records.llama-gguf.body": "6 issues involve out-of-bounds reads in GGUF tensor offsets and special token IDs, heap writes in the PLAMO tokenizer, and GGUF shape/size integer overflows. The respective fix boundaries are b2731 / b3701 / b5649 / b10261 / b11301 / b11275. Some are newly assigned CVEs for old fixes; do not treat them as 6 new RCEs today.",
+    "records.llama-gguf.action": "Match the build in use against each fix commit, and handle untrusted GGUF files in isolated, low-privilege environments. Restrict APIs accepting arbitrary token IDs. Do not assume models are safe because they contain only weights.",
+    "records.llama-gguf.time": "10:19 JST NVD recording (including 2024 / 2025 numbers)",
+    "records.wordpress-payments.title": "WooCommerce payments: empty secrets and webhook authenticity.",
+    "records.wordpress-payments.body": "Notification validation issues involving unset or empty secrets are reported in Wompi 4.0.1 and earlier, Payex1.2.10 and earlier, TiendaCrypto1.2.1 and earlier, and PayDunya1.1.6 and earlier. Conditions differ: TiendaCrypto always uses an empty key, while others involve initial unset configurations. This investigation cannot uniformly confirm fixed versions.",
+    "records.wordpress-payments.action": "Check usage, configuration, and vendor fixes for applicable gateways, and consider disabling notification paths that cannot be secured. Before shipping, reconcile transactions with the payment provider rather than relying only on an order's paid status. Do not assume setting a secret fixes every issue.",
+    "records.wordpress-payments.time": "15:17 / 16:16 JST NVD Recording",
+    "records.argilla-xss.title": "Argilla: stored XSS report in annotation UI",
+    "records.argilla-xss.body": "CVE-2026-116554–116556 concern XSS in dataset names, custom field iframes, and text field processing in 2.8.0 and earlier. Saved developer issues referenced by the CNA, but this retrieval does not establish the minimum fixed version.",
+    "records.argilla-xss.action": "Restrict annotation/dataset inputs and sharing destinations, and check developer issues against deployed versions. Do not unconditionally open untrusted datasets in a browser with administrative privileges.",
+    "records.argilla-xss.time": "08:16 JST NVD Recording",
+    "records.rapidjson-regex.title": "RapidJSON: untrusted input passed to the regex parser",
+    "records.rapidjson-regex.body": "CVE-2026-116620 reports an out-of-bounds read in the regex parser in RapidJSON 1.1.0 and earlier. Developer issue2401 was checked, but the minimum fixed release remains undetermined. This does not mean every application using JSON is unconditionally attackable.",
+    "records.rapidjson-regex.action": "Check paths that actually pass external input into regex/schema processing, and consider size and execution-resource limits, isolation, and fixing commits. Inventory copies bundled with products too.",
+    "records.rapidjson-regex.time": "10:19 JST NVD Recording",
+    "records.msrc-index-revisions.title": "MSRC: October (month 10) CVRF registrations/revisions differ from shipment times",
+    "records.msrc-index-revisions.body": "Microsoft's October (month 10) CVRF contains 35 newly published revisions and 7 revisions to existing entries in this window. These are record updates involving GitLab, Wasmtime, Chromium, SSL, and others, not 35 attacks or newly shipped patches for Microsoft products. Individual revision indexes are saved with the originals.",
+    "records.msrc-index-revisions.action": "Check each product against FixedBuild and update history individually. Do not reinterpret old FixedBuild values for Edge and others as current recommended versions; consult current distribution channels and release notices.",
+    "records.msrc-index-revisions.time": "10:46 JST document updated ( 01:46:22 UTC)",
+    "records.continuing-response.title": "Ongoing response: distinguish recovery, CA-remediation versions, and Tailworm fixes.",
+    "records.continuing-response.body": "Selected text for ConnectWise, SoftBank, Tailscale, eMudhra, and Fortinet matches the previously saved versions. The minimum fixed Tailworm version remains undetermined. Do not identify the CA remediation in Tailscale v1.104.2 as a Tailworm fix. The official .NET Brotli issue is also not newly revised within this window.",
+    "records.continuing-response.action": "Keep affected ConnectWise connections disabled until individual instructions arrive. Distinguish .NET shared runtime updates and restarts, self-contained rebuilds/redeployments, and NativeAOT republishes/redeployments. Matching sources do not prove worldwide updates or absence of exploitation.",
+    "records.continuing-response.time": "18:49 Re-acquisition of data from JST onwards (not a new differential)",
+    "caveats.0": "The cutoff is 2026-10-27 18:47 JST. Retrieved material reflects current revisions from 18:49 JST onward and does not fully reconstruct the original publication text.",
+    "caveats.1": "All 89 NVD published entries overlap with the 192 modified entries, including 1 Rejected entry. Publication/revision times are not attack start times or first shipment times of fixes.",
+    "caveats.2": "The 127 published GHSAs comprise unreviewed125 / malware2 / reviewed0. CVEs in 88 overlap with the current NVD set, and 37 with the previous NVD set. All 127 published advisories are included in the 181 revised ones. Do not add all sets together as an incident count.",
+    "caveats.3": "KEV is the 2026.10.26 edition with 1,758 entries and 2 PHP entry changes from the previously saved original. dateReleased precedes this window's start, while the Git commit falls within the window. The original publication time of the additions and attack start times are not established.",
+    "caveats.4": "GMO distinguishes confirming publication of purported information from verifying its authenticity, retaining the statement that ransomware was unconfirmed at 13:55. A time discrepancy remains between the 11:59 correction in report 9 and 11:52 in the chronology.",
+    "caveats.5": "For Fireblocks, distinguish an ancestor share held by 1 party from a spendable private key; the vendor has not supplied a fix. Do not assign a fictional fixed version.",
+    "caveats.6": "Kubernetes, DOMPurify, vsomeip, Psono, and others include previously fixed versions or disclosures. Do not treat all current registrations and domestic notices as newly discovered vulnerabilities or new exploitation.",
+    "caveats.7": "For OpenPanel, compare deployed commits because CNA version boundaries differ from commits and empty patched fields in some developer GHSAs. For Supermicro18449, prioritize the primary text and reserve judgment on NVD's duplicate description.",
+    "caveats.8": "Recorded failures including Fortinet PSIRT403, incomplete retrieval of Moxa/Apache text, the old IPA URL404, and research-material redirect loops. Retrieval failures are not reinterpreted as 0 vulnerabilities or updates.",
+    "caveats.9": "This is retrieval of all API pages and cross-checking selected primary sources, not statistics comprehensively covering all incidents/vulnerabilities worldwide.",
+    "report.title": "10 18:47 Evening check for incident updates and vulnerability countermeasures 27",
+    "report.headline": "What was disclosed, what was fixed, and what remains unknown.",
+    "report.intro": "We summarize primary sources and conditional mitigations covering GMO reports 8–11, PAN-OS shipment status, GROWI, Sleipnir, MPC, Kubernetes, AI, BMC, and malicious packages.",
+    "quick.0.title": "GMO users: isolation and secondary-harm prevention",
+    "quick.0.text": "Information claimed to have been published is being examined. Distinguish this from unconfirmed ransomware, and consult official device-isolation guidance and individual communications.",
+    "quick.0.label": "GMO follow-up and actions",
+    "quick.1.title": "Public servers and management appliances",
+    "quick.1.text": "Check the 4 PAN-OS hotfixes, GROWI 8.0.7, branch-specific Kubernetes fixes, and BMC management planes. Distinguish plans, actual deployment, and compromise investigation.",
+    "quick.1.label": "Shipping and Terms of Use",
+    "quick.2.title": "Keys, authentication and encryption",
+    "quick.2.text": "For Fireblocks, distinguish the share hierarchy of 1 party from the threshold. For Psono, Mendix, and Qt, also check the features used and fixed release series.",
+    "quick.2.label": "Confidential information and authorization",
+    "quick.3.title": "AI, packages and payments",
+    "quick.3.text": "Inspect Mistral Vibe worktrees, GGUF and sanitize mode, specific malicious packages, and payment notifications with empty secrets separately.",
+    "quick.3.label": "Implementation and Execution Route",
+    "ui.title": "Incident and vulnerability research data",
+    "ui.intro": "Research records based on public primary sources. They are organized so you can review conditions and reservations and return to official guidance.",
+    "ui.cutoff": "Research cutoff time",
+    "ui.actions": "What to check",
+    "ui.sources": "Primary sources and references",
+    "ui.delta": "Updates to records and advisories reviewed this time",
+    "ui.scope-complement": "Additional measures and conditions for existing cases",
+    "ui.reference-only": "Reference information with publication times or other details still undetermined",
+    "ui.notice": "This is an AI translation by Codex and has not been reviewed by a native speaker. Check product names, versions, settings, and measures against the original text and official guidance.",
+    "ui.original": "Japanese original",
+    "ui.data": "Download translation data as JSON",
+    "ui.home": "Go to motion",
+    "ui.languages": "Select a language",
+    "ui.evidence": "Retrieved originals and research methods",
+    "ui.counts": "The number of topics covered here is not the number of new incidents involving harm.",
+    "ui.pending": "Preparing translation data."
+  },
+  "database": {
+    "cutoff": "2026-10-27T09:47:00Z",
+    "cutoff_jst": "2026-10-27T18:47:00+09:00",
+    "delta_start": "2026-10-26T22:47:00Z",
+    "counts": {
+      "nvd_published": 89,
+      "nvd_modified": 192,
+      "published_modified_overlap": 89,
+      "ghsa": 127,
+      "ghsa_unreviewed": 125,
+      "ghsa_reviewed": 0,
+      "ghsa_malware": 2,
+      "ghsa_modified": 181,
+      "ghsa_published_modified_overlap": 127,
+      "ghsa_current_published_overlap": 88,
+      "ghsa_previous_published_overlap": 37,
+      "record_topic_groups": 29,
+      "delta_topic_groups": 27,
+      "scope_complement_topic_groups": 2,
+      "reference_only_topic_groups": 0,
+      "nvd_rejected_records": 1,
+      "verified_response_records": 146,
+      "deduplicated_previous_references": 27
+    },
+    "kev": {
+      "catalog_version": "2026.10.26",
+      "count": 1758,
+      "same_bytes": false,
+      "added_ids": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ]
+    },
+    "caveats": [
+      "The cutoff is 2026-10-27 18:47 JST. Retrieved material reflects current revisions from 18:49 JST onward and does not fully reconstruct the original publication text.",
+      "All 89 NVD published entries overlap with the 192 modified entries, including 1 Rejected entry. Publication/revision times are not attack start times or first shipment times of fixes.",
+      "The 127 published GHSAs comprise unreviewed125 / malware2 / reviewed0. CVEs in 88 overlap with the current NVD set, and 37 with the previous NVD set. All 127 published advisories are included in the 181 revised ones. Do not add all sets together as an incident count.",
+      "KEV is the 2026.10.26 edition with 1,758 entries and 2 PHP entry changes from the previously saved original. dateReleased precedes this window's start, while the Git commit falls within the window. The original publication time of the additions and attack start times are not established.",
+      "GMO distinguishes confirming publication of purported information from verifying its authenticity, retaining the statement that ransomware was unconfirmed at 13:55. A time discrepancy remains between the 11:59 correction in report 9 and 11:52 in the chronology.",
+      "For Fireblocks, distinguish an ancestor share held by 1 party from a spendable private key; the vendor has not supplied a fix. Do not assign a fictional fixed version.",
+      "Kubernetes, DOMPurify, vsomeip, Psono, and others include previously fixed versions or disclosures. Do not treat all current registrations and domestic notices as newly discovered vulnerabilities or new exploitation.",
+      "For OpenPanel, compare deployed commits because CNA version boundaries differ from commits and empty patched fields in some developer GHSAs. For Supermicro18449, prioritize the primary text and reserve judgment on NVD's duplicate description.",
+      "Recorded failures including Fortinet PSIRT403, incomplete retrieval of Moxa/Apache text, the old IPA URL404, and research-material redirect loops. Retrieval failures are not reinterpreted as 0 vulnerabilities or updates.",
+      "This is retrieval of all API pages and cross-checking selected primary sources, not statistics comprehensively covering all incidents/vulnerabilities worldwide."
+    ],
+    "records": [
+      {
+        "id": "gmo-publication",
+        "title": "GMO: distinguish verified publication from verified content and attacks.",
+        "time": "12:30 Confirmation / 13:55 Publicly Announced Information / 14:55 JST Follow-up Report",
+        "body": "The 10th report says publication of material purportedly concerning the company and customers was confirmed at 12:30. Its content is under review and may be inaccurate. A ransomware attack was unconfirmed as of 13:55. The 9th report's statement that malware was not found on devices whose analysis was complete also does not confirm the safety of all devices.",
+        "action": "Following report 11, refrain from accessing or reposting disclosed information or spreading links directing others to it. If already accessed, consult official full-scan guidance, and do not respond to requests for passwords, authentication codes, or money.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GMO第10報",
+            "url": "https://group.gmo/info/alert/2026102703/"
+          },
+          {
+            "name": "GMO第11報",
+            "url": "https://group.gmo/info/alert/2026102704/"
+          },
+          {
+            "name": "GMO第9報",
+            "url": "https://group.gmo/info/alert/2026102702/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "gmo-endpoint-isolation",
+        "title": "GMO: device isolation and account protection in execution order",
+        "time": "09:58 as of / 10:56 JST addition/correction",
+        "body": "In addition to continued investigation and cooperation arrangements, report 8 asks customers to back up, disconnect from the network, shut down, and unplug cords connected to PCs. Report 9's heading was corrected to 11:59, but its history section still says 11:52, leaving a discrepancy in initial publication times.",
+        "action": "Check official guidance specific to your usage, proceed with backups and instructed device isolation. Protect accounts from another trusted device, and do not restore browser synchronization or connections before the investigation is complete.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GMO第8報",
+            "url": "https://group.gmo/info/alert/20261027/"
+          },
+          {
+            "name": "GMO第9報",
+            "url": "https://group.gmo/info/alert/2026102702/"
+          },
+          {
+            "name": "GMO第6報",
+            "url": "https://group.gmo/info/alert/20261026/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "railway-registration",
+        "title": "Railway: new registrations remain suspended; resumption date undetermined",
+        "time": "12:22 JST ( 03:22 UTC status)",
+        "body": "The official status is unchanged from the previous check and explicitly says this is not an additional security incident. It says new registrations remain suspended to prioritize reliability for existing customers and no resumption date can be given. The blog text matches the previous original.",
+        "action": "Affected users should continue revoking/reissuing stored secrets and auditing GitHub and registries. Do not interpret service restoration as a guarantee that old keys are safe. The next scheduled update at 10/28 00:00 JST is after the cutoff time.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "Railway status",
+            "url": "https://status.railway.com/"
+          },
+          {
+            "name": "Railway一次報告",
+            "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "pan-hotfix",
+        "title": "PAN-OS: confirmed shipment of 4 hotfixes for the 10.2, 12.1, and 12.2 series.",
+        "time": "09:10 / 13:03 JST (Official Timeline)",
+        "body": "The PHP advisory JSON removed ETAs for 10.2.13-h27 / 10.2.16-h12 at 09:10 and 12.1.7-h11 / 12.2.4-h1 at 13:03 because they shipped. Other branches, including 11.2.13-h4, retain ETAs. An RSS refresh alone is not new confirmation of exploitation.",
+        "action": "Match the PAN-OS series and affected features in use to official hotfixes. Check planned dates against actual availability, and perform both updates and compromise investigation. Do not apply a version number from another series as a universal fixed version.",
+        "cve_ids": [
+          "CVE-2026-109618",
+          "CVE-2026-109619"
+        ],
+        "sources": [
+          {
+            "name": "PAN公式勧告",
+            "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+          },
+          {
+            "name": "PAN JSON timeline",
+            "url": "https://security.paloaltonetworks.com/json/CVE-2026-109618"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "kev-php",
+        "title": "2 PHP differences in the saved KEV original, separate from attack start times",
+        "time": "10:13 JST Git commit / catalog dateReleased is 07:24 JST",
+        "body": "CISA KEV is the 2026.10.26 edition with 1,758 entries. The 2 PHP CVEs were added since the previously saved original; forensicTriage is Yes and knownRansomwareCampaignUse is Unknown. The catalog dateReleased precedes this window, while the official Git commit falls within it, so these cannot simply be equated with the original publication time.",
+        "action": "Prioritize official fixes for PHP and bundled products, and check intrusion traces and existing credentials. KEV inclusion informs prioritization of known exploitation, but does not prove new victim counts or confirmed ransomware in this window.",
+        "cve_ids": [
+          "CVE-2026-109618",
+          "CVE-2026-109619"
+        ],
+        "sources": [
+          {
+            "name": "CISA公式KEV原本",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          },
+          {
+            "name": "公式Git更新",
+            "url": "https://github.com/cisagov/kev-data/commit/e7b48852252704fb12c28f1c9fc656dc99286c27"
+          }
+        ],
+        "kind": "scope-complement",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "growi-authorization",
+        "title": "GROWI: authorization boundaries for viewing revisions and concurrent editing",
+        "time": "14:18 JST Developer Release / 15:00 JST JVN",
+        "body": "CVE-2026-105272 / 109848 bypass authorization for content and comments using known revision IDs of other pages, among other inputs. In 115624, collaborative editing checks only viewing permission, allowing unauthenticated guests to modify drafts on publicly viewable pages. This does not mean guests directly save revisions; changes can be incorporated when a legitimate editor subsequently saves.",
+        "action": "Update to GROWI 8.0.7 or later. Setting guest access to Deny is a temporary measure for unauthenticated guests only, not complete protection against logged-in read-only users. Inspect drafts of public pages before saving.",
+        "cve_ids": [
+          "CVE-2026-105272",
+          "CVE-2026-109848",
+          "CVE-2026-115624"
+        ],
+        "sources": [
+          {
+            "name": "JVN#51223238",
+            "url": "https://jvn.jp/jp/JVN51223238/index.html"
+          },
+          {
+            "name": "開発元draft勧告",
+            "url": "https://github.com/growilabs/growi/security/advisories/GHSA-3v2v-8q3r-mhm4"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "sleipnir-android",
+        "title": "Sleipnir Android: beware fake address bars",
+        "time": "12:00 JST JVN (Revised shipments are 10 / 15 )",
+        "body": "CVE-2026-109434 is UI spoofing in Sleipnir Mobile for Android below 3.9.0. Viewing a crafted page can lead to phishing through a fake address bar or similar interface. The developer announced 3.9.0 on 10/15; this is not a new patch today.",
+        "action": "Update Android to 3.9.0 or later and check the domain and how to exit fullscreen. Do not generalize the scope to Windows/iOS versions.",
+        "cve_ids": [
+          "CVE-2026-109434"
+        ],
+        "sources": [
+          {
+            "name": "JVN#90463048",
+            "url": "https://jvn.jp/jp/JVN90463048/index.html"
+          },
+          {
+            "name": "開発元3.9.0",
+            "url": "https://www.fenrir-inc.com/jp/news/2026/10/15/sleipnir-mobile-for-android-3-9-0/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "fireblocks-share-boundary",
+        "title": "Fireblocks mpc-lib: ancestor shares of 1 party differ from a complete private key",
+        "time": "10:30 JST JVN (CERT revision is 07:45 JST)",
+        "body": "CVE-2026-90975 involves fallback to zero when a parent secret is absent during BIP32 hardened derivation. An attacker obtaining a descendant signer share and chain code may be able to reach an ancestor/root share of the same MPC party. The threshold layer remains, and this is not described as independently yielding a spendable private key. The CERT text says no fix is available.",
+        "action": "Protect chain codes as secrets and do not distribute them through watch-only extended public keys or similar means. Do not treat hardened derivation as a guarantee of isolation between shares; if a leaf share is compromised, investigate that party's entire hierarchy. Do not use unconfirmed fixed-version numbers to make deployment decisions.",
+        "cve_ids": [
+          "CVE-2026-90975"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90547696",
+            "url": "https://jvn.jp/vu/JVNVU90547696/index.html"
+          },
+          {
+            "name": "CERT VU#701544",
+            "url": "https://kb.cert.org/vuls/id/701544"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "vsomeip-resource-limit",
+        "title": "COVESA vsomeip: limit memory allocation before receiving",
+        "time": "10:30 JST JVN (Corrections: 7 / 6 )",
+        "body": "CVE-2026-91141 is a DoS in reliable TCP endpoints in 3.7.3 and earlier that allocate a buffer of the declared size before confirming receipt. By default, up to approximately 4 GB can be specified per connection. Configurations with explicit size limits are excluded; clients connecting to malicious servers may also be affected.",
+        "action": "Update to 3.7.4 or later. If updating is difficult, set suitable limits such as max-payload-size-reliable and restrict access to trusted peers. Do not count the 7/6 shipment of 3.7.4 as a new fix or observed attack today.",
+        "cve_ids": [
+          "CVE-2026-91141"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90363302",
+            "url": "https://jvn.jp/vu/JVNVU90363302/index.html"
+          },
+          {
+            "name": "CERT VU#128947",
+            "url": "https://kb.cert.org/vuls/id/128947"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "mendix-saml",
+        "title": "Mendix SAML: recheck release series with incomplete earlier fixes",
+        "time": "10:15 JST JVN aggregate update / vendor 10 / 26 Date only",
+        "body": "SSA-887643 explains in V1.1 on 10/26 that the earlier fixed version for CVE-2026-80465 was incomplete. CVE-2026-89209 in SSA-137528 is an IdP-initiated SSO authentication bypass by replaying a valid SAML assertion. JVN's 20 new and 22 updated entries are cumulative for October (month 10), not 42 new incidents today.",
+        "action": "Check each series separately: SAML module 3.6.29 or later for Mendix 9, and 4.2.4 or later for 10/11. Distinguish the main product version from the module version. The interim mitigation for 89209 is disabling IdP-initiated SSO. The vendor's publication time itself is not confirmed to fall within the window.",
+        "cve_ids": [
+          "CVE-2026-80465",
+          "CVE-2026-89209"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90141693",
+            "url": "https://jvn.jp/vu/JVNVU90141693/index.html"
+          },
+          {
+            "name": "SSA-887643",
+            "url": "https://cert-portal.siemens.com/productcert/html/ssa-887643.html"
+          },
+          {
+            "name": "SSA-137528",
+            "url": "https://cert-portal.siemens.com/productcert/html/ssa-137528.html"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "kubernetes-boundaries",
+        "title": "Kubernetes: namespace boundaries and Windows NTLM separately",
+        "time": "08:17 JST NVD included (First public release by the 9 / 14 )",
+        "body": "CVE-2026-2270 is a confused deputy that creates cross-namespace Pods through namespace-scoped write access to StatefulSet and ControllerRevision. Persistent Pods also require conditions such as the victim StatefulSet UID. 76654 concerns possible NetNTLMv2 exposure through Windows kubelet subPath UNC symlinks; relay and impersonation conditions vary with domain membership and other factors.",
+        "action": "Apply 1.34.12 / 1.35.9 / 1.36.5 / 1.37.1 or later for the respective branches using official procedures. Separate controller manager and Windows kubelet update targets; inspect namespace write permissions and outbound SMB from Windows. Do not treat this as first disclosed today.",
+        "cve_ids": [
+          "CVE-2026-2270",
+          "CVE-2026-76654"
+        ],
+        "sources": [
+          {
+            "name": "Kubernetes公式2270",
+            "url": "https://github.com/kubernetes/kubernetes/issues/142097"
+          },
+          {
+            "name": "Kubernetes公式76654",
+            "url": "https://github.com/kubernetes/kubernetes/issues/142098"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "airflow-ssh",
+        "title": "Airflow SSH provider: from trigger input to remote shell",
+        "time": "09:17 JST NVD Recording",
+        "body": "CVE-2026-111422 affects apache-airflow-providers-ssh before 7.0.1. Where a DAG maps params or dag_run.conf into the environment of SSHRemoteJobOperator, a user with trigger permission may execute commands as the SSH connection user. The CNA record was checked; retrieval of the vendor text is incomplete.",
+        "action": "Verify the fix in SSH provider 7.0.1 or later. Do not judge by the Airflow core version alone; inspect DAGs that pass trigger inputs to the environment and least privilege for SSH connections.",
+        "cve_ids": [
+          "CVE-2026-111422"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-111422",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111422"
+          },
+          {
+            "name": "Apache告知",
+            "url": "https://lists.apache.org/thread/k159xrq1tbgmkvl24j63g12qh0mczk79"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "dompurify-modes",
+        "title": "DOMPurify: check 3 paths in non-default modes",
+        "time": "09:17 JST NVD included (Developed by 10 / 12 released)",
+        "body": "CVE-2026-116802 / 803 affect versions below 3.4.17; 804 affects 3.4.4–3.4.16. XHTML and SVG animation, node detachment through IN_PLACE hooks, and SAFE_FOR_TEMPLATES with DOM output and shadow roots have separate prerequisites. This does not describe unconditional XSS in every default configuration.",
+        "action": "Upgrade to 3.4.17 or later and check actual parser, hook, and template processing. Also check DOM operations after sanitization and downstream template evaluation. Disclose the developer's Low rating and 10/12 publication, distinguishing them from this database inclusion.",
+        "cve_ids": [
+          "CVE-2026-116802",
+          "CVE-2026-116803",
+          "CVE-2026-116804"
+        ],
+        "sources": [
+          {
+            "name": "開発元802",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-c6gr-qvv4-5v3f"
+          },
+          {
+            "name": "開発元803",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-mrv2-3pqr-j5jr"
+          },
+          {
+            "name": "開発元804",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cg2g-xh64-v4q7"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "mistral-worktree",
+        "title": "Mistral Vibe: conditions where worktree creation precedes the trust check.",
+        "time": "10:19 JST NVD Recording",
+        "body": "The CNA for CVE-2026-116843 specifies versions below 3.0.3. Starting --worktree in an untrusted repository can invoke Git filter drivers in .git/config before the trust check, potentially running commands with the executing user's privileges. A fixed release was confirmed.",
+        "action": "Update to 3.0.3 or later and do not unconditionally execute Git settings or filters in unfamiliar repositories. Running an AI agent in another worktree alone is not a security boundary.",
+        "cve_ids": [
+          "CVE-2026-116843"
+        ],
+        "sources": [
+          {
+            "name": "Vibe3.0.3",
+            "url": "https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3"
+          },
+          {
+            "name": "開発元修正",
+            "url": "https://github.com/mistralai/mistral-vibe/commit/7bb48f213ac677f943d5c791199ed3dddf302f00"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "psono-permissions",
+        "title": "Psono: API key, device, and WebAuthn boundaries",
+        "time": "15:17 JST NVD / 10 / 27 Recommendation (Revised release 7 / 30 )",
+        "body": "CVE-2026-117468–117472 affect CE/EE from their respective introduction versions through 7.2.3. They cover device-code privilege escalation in restricted API sessions, file credential direction checks, WebAuthn challenge reuse, Duo host input, and read/write checks with URL_PREFIX. The WebAuthn issue requires a password and acquisition of a valid assertion; the URL_PREFIX issue involves special API key privileges and encrypted data.",
+        "action": "Check Psono Server 7.2.4 or later and inventory API key privileges, device codes, URL_PREFIX, and external file repositories. Distinguish the new disclosure from the existing fixed release of 7/30; do not treat this as plaintext vault leakage for everyone.",
+        "cve_ids": [
+          "CVE-2026-117468",
+          "CVE-2026-117469",
+          "CVE-2026-117470",
+          "CVE-2026-117471",
+          "CVE-2026-117472"
+        ],
+        "sources": [
+          {
+            "name": "Psono開発元勧告468",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117468.md"
+          },
+          {
+            "name": "Psono開発元勧告470",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117470.md"
+          },
+          {
+            "name": "Psono開発元勧告472",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117472.md"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "qt-codecs",
+        "title": "Qt: separate NTLM authentication and TSCII conversion issues",
+        "time": "16:16 / 17:16 JST NVD Recording",
+        "body": "CVE-2026-105946 exposes heap information and causes crashes in Qt Network NTLM. Versions 6.8.0–6.8.9 / 6.9.0–6.11.1 are fixed in 6.8.10 / 6.11.2 / 6.12.0. 107472 affects QTextCodec TSCII conversion in 4.0.0–6.8.8 / 6.9.0–6.11.2, fixed in 6.8.9 / 6.11.3 / 6.12.0. The reviewed material lists NTLM impact below 6.8 as unknown.",
+        "action": "Check the Qt bundled and used by applications and the affected APIs, then apply the fix for the relevant branch. Inspect reachability conditions for NTLM server/proxy and TSCII inputs separately; a fixed version for one does not establish that both are fixed.",
+        "cve_ids": [
+          "CVE-2026-105946",
+          "CVE-2026-107472"
+        ],
+        "sources": [
+          {
+            "name": "Qt公式脆弱性一覧",
+            "url": "https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "supermicro-bmc",
+        "title": "Supermicro BMC: inspect management-plane sessions, keys, and privileges",
+        "time": "17:16 / 18:16 JST NVD included (Development date 10 / 26 )",
+        "body": "CVE-2026-18450 concerns inadequate integrity/encryption requirements for active RMCP+ sessions. According to the developer, 18449 concerns a hardcoded SMCRAKP key and password hash attacks; read NVD's duplicate 18450 description with this correction. 65219/65220 concern sessions and privileges; 65210/65211/65213 require an IPMI administrator. The syslog command injection in 16521 requires high-privilege authentication and restarting the related service.",
+        "action": "Restrict BMC/IPMI to trusted management networks and check model-specific firmware tables. X13DEG-QT01.08.16 and similar versions are model-specific examples, not universal versions; X12DGU is TBD. Do not aggregate every vulnerability as an unauthenticated attack.",
+        "cve_ids": [
+          "CVE-2026-18449",
+          "CVE-2026-18450",
+          "CVE-2026-18451",
+          "CVE-2026-65210",
+          "CVE-2026-65211",
+          "CVE-2026-65213",
+          "CVE-2026-65219",
+          "CVE-2026-65220",
+          "CVE-2026-16521"
+        ],
+        "sources": [
+          {
+            "name": "Supermicro公式1",
+            "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1"
+          },
+          {
+            "name": "Supermicro公式2",
+            "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_2"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "fortios-management",
+        "title": "FortiOS: HTTPS management-interface DoS (fixed versions not cross-checked).",
+        "time": "16:16 JST NVD Recording",
+        "body": "The Fortinet CNA record for CVE-2026-106174 lists 8.0.0 / 7.6.4–7.6.6 and describes HTTPS management interface DoS by an unauthenticated attacker with network access. The official PSIRT text returned 403 and could not be retrieved; the minimum fixed version has not been independently verified.",
+        "action": "Limit exposure of the HTTPS management interface, and have administrators check FG-IR-26-181 for the series in use. Verify minimum fixed versions through official support. Distinguish this from existing hardening releases for multiple products.",
+        "cve_ids": [
+          "CVE-2026-106174"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-106174",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106174"
+          },
+          {
+            "name": "Fortinet PSIRT（取得403）",
+            "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-181"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "moxa-conditions",
+        "title": "Moxa: CNA conditions for MRC and OnCell; awaiting original-text comparison",
+        "time": "17:16 JST NVD Recording",
+        "body": "The CNA describes CVE-2026-111459 as certificate validation in MRC Client, 111460 as device impersonation using a shared key in OnCell G3150A-LTE, and 111461 as SMS management command injection in the same series. Do not assign all 3 to the same product based solely on product names in reference URLs. The official text could not be retrieved, and firmware versions remain unverified.",
+        "action": "Check MRC Client / OnCell as separate assets, including whether SMS management is enabled, required privileges, and communication paths. Restrict management interfaces and reconfirm affected products and fixed versions with official Moxa support.",
+        "cve_ids": [
+          "CVE-2026-111459",
+          "CVE-2026-111460",
+          "CVE-2026-111461"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-111459",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111459"
+          },
+          {
+            "name": "NVD・CNA記録 CVE-2026-111460",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111460"
+          },
+          {
+            "name": "Moxa公式参照（本文取得未完）",
+            "url": "https://www.moxa.com/en/support/product-support/security-advisory/mpsa-269510-cve-2026-111459-cve-2026-111460-cve-2026-111461-vulnerabilities-in-moxa-remote-connect-suite-mrc-client"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "malware-camera-ui",
+        "title": "npm: specific Windows package versions of camera-ui reported malicious",
+        "time": "16:54 JST GHSA Release",
+        "body": "GHSA-2w7v-jwxh-w7wc reports @camera.ui/camera-ui-nvr-windows-amd64 1.6.1 as malware. The fixed-version field is empty. Do not generalize this into compromise of all unrelated camera.ui components.",
+        "action": "Check the name and 1.6.1 against lockfiles, CI artifacts, and installation history. Isolate hosts where installed or executed according to the advisory, and revoke/reissue accessible secrets from a separate safe device. Package removal alone does not complete compromise recovery.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GHSA悪性package報告",
+            "url": "https://github.com/advisories/GHSA-2w7v-jwxh-w7wc"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "malware-pypi",
+        "title": "PyPI: report of a reverse shell on importing h13t0ry-hello-demo",
+        "time": "15:31 JST GHSA Release",
+        "body": "GHSA-5crq-52j9-fc74 reports an import-time reverse shell in h13t0ry-hello-demo 0.1.0. No fixed version is listed. This does not confirm harm across PyPI or in other packages.",
+        "action": "Check installation and import histories for the affected versions, and consider isolating execution environments, preserving logs, and revoking secrets. Do not reuse the same image or cache before safety is established. Do not download or execute malicious packages for verification.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GHSA悪性package報告",
+            "url": "https://github.com/advisories/GHSA-5crq-52j9-fc74"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "openpanel-isolation",
+        "title": "OpenPanel: tenant boundaries, worker exposure, and secrets",
+        "time": "09:17 JST NVD included (developed by 10 / 11 previously released)",
+        "body": "The 14 CVEs cover tenant SQL, public WebSocket, Bull Board worker dashboards, webhook JavaScript sandboxes, and credential or log exposure. While the CNA uses below 3.0.0 as the boundary, some developer GHSAs retain commit ranges and empty patched_versions, and their publication text is outdated. Version alone cannot establish that remediation is complete.",
+        "action": "Restrict access to worker/Bull Board and unnecessary WebSockets, and cross-check pinned image digests, fixing commits, and actual deployments. Separately revoke potentially exposed ingestion/integration secrets and DB connection details and investigate logs.",
+        "cve_ids": [
+          "CVE-2026-116805",
+          "CVE-2026-116806",
+          "CVE-2026-116807",
+          "CVE-2026-116808",
+          "CVE-2026-116809",
+          "CVE-2026-116810",
+          "CVE-2026-116811",
+          "CVE-2026-116812",
+          "CVE-2026-116813",
+          "CVE-2026-116814",
+          "CVE-2026-116815",
+          "CVE-2026-116817",
+          "CVE-2026-116818",
+          "CVE-2026-116819"
+        ],
+        "sources": [
+          {
+            "name": "開発元WebSocket勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-8wr9-x797-f238"
+          },
+          {
+            "name": "開発元worker勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-r627-6vrh-65p9"
+          },
+          {
+            "name": "開発元sandbox勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-mc99-9jf5-22cq"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "yeswiki-signature",
+        "title": "YesWiki: signature validity and replay prevention are separate",
+        "time": "09:17 JST NVD included (developed by 10 / 12 previously released)",
+        "body": "CVE-2026-116820–116828 cover SQL information exposure, ACL wildcards, template traversal, XSS, signature replay, administrator SSRF, and other issues. In 4.6.2 and later, 116825 lacks Date freshness and replay prevention, allowing previously valid signed ActivityPub requests to be resent. It is not a signature forgery issue.",
+        "action": "Upgrade to YesWiki 4.7.0 or later. Check freshness and deduplication as well as signatures and actor ownership, and avoid publishing signed request logs from reverse proxies or similar systems. Treat SSRF requiring administrator privileges separately from unauthenticated XSS.",
+        "cve_ids": [
+          "CVE-2026-116820",
+          "CVE-2026-116821",
+          "CVE-2026-116822",
+          "CVE-2026-116823",
+          "CVE-2026-116824",
+          "CVE-2026-116825",
+          "CVE-2026-116826",
+          "CVE-2026-116827",
+          "CVE-2026-116828"
+        ],
+        "sources": [
+          {
+            "name": "開発元署名replay勧告",
+            "url": "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-7m9j-h553-397x"
+          },
+          {
+            "name": "開発元ACL勧告",
+            "url": "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-q5j6-79p7-mp94"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "llama-gguf",
+        "title": "llama.cpp: boundaries around model files and token input",
+        "time": "10:19 JST NVD recording (including 2024 / 2025 numbers)",
+        "body": "6 issues involve out-of-bounds reads in GGUF tensor offsets and special token IDs, heap writes in the PLAMO tokenizer, and GGUF shape/size integer overflows. The respective fix boundaries are b2731 / b3701 / b5649 / b10261 / b11301 / b11275. Some are newly assigned CVEs for old fixes; do not treat them as 6 new RCEs today.",
+        "action": "Match the build in use against each fix commit, and handle untrusted GGUF files in isolated, low-privilege environments. Restrict APIs accepting arbitrary token IDs. Do not assume models are safe because they contain only weights.",
+        "cve_ids": [
+          "CVE-2024-58399",
+          "CVE-2024-58400",
+          "CVE-2025-71439",
+          "CVE-2026-116816",
+          "CVE-2026-116829",
+          "CVE-2026-116840"
+        ],
+        "sources": [
+          {
+            "name": "開発元b11301",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11301"
+          },
+          {
+            "name": "開発元b10261",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10261"
+          },
+          {
+            "name": "開発元b11275",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11275"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "wordpress-payments",
+        "title": "WooCommerce payments: empty secrets and webhook authenticity.",
+        "time": "15:17 / 16:16 JST NVD Recording",
+        "body": "Notification validation issues involving unset or empty secrets are reported in Wompi 4.0.1 and earlier, Payex1.2.10 and earlier, TiendaCrypto1.2.1 and earlier, and PayDunya1.1.6 and earlier. Conditions differ: TiendaCrypto always uses an empty key, while others involve initial unset configurations. This investigation cannot uniformly confirm fixed versions.",
+        "action": "Check usage, configuration, and vendor fixes for applicable gateways, and consider disabling notification paths that cannot be secured. Before shipping, reconcile transactions with the payment provider rather than relying only on an order's paid status. Do not assume setting a secret fixes every issue.",
+        "cve_ids": [
+          "CVE-2026-103312",
+          "CVE-2026-103332",
+          "CVE-2026-103325",
+          "CVE-2026-103359"
+        ],
+        "sources": [
+          {
+            "name": "WPScan Wompi",
+            "url": "https://wpscan.com/vulnerability/617a62de-f7d6-461e-bbf2-db6092a3346f/"
+          },
+          {
+            "name": "WPScan TiendaCrypto",
+            "url": "https://wpscan.com/vulnerability/d19c174c-0032-4f5d-b9be-c4f690e4c8ca/"
+          },
+          {
+            "name": "WPScan PayDunya",
+            "url": "https://wpscan.com/vulnerability/d2d7c885-9525-41e0-9666-04a4a8cd183f/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "argilla-xss",
+        "title": "Argilla: stored XSS report in annotation UI",
+        "time": "08:16 JST NVD Recording",
+        "body": "CVE-2026-116554–116556 concern XSS in dataset names, custom field iframes, and text field processing in 2.8.0 and earlier. Saved developer issues referenced by the CNA, but this retrieval does not establish the minimum fixed version.",
+        "action": "Restrict annotation/dataset inputs and sharing destinations, and check developer issues against deployed versions. Do not unconditionally open untrusted datasets in a browser with administrative privileges.",
+        "cve_ids": [
+          "CVE-2026-116554",
+          "CVE-2026-116555",
+          "CVE-2026-116556"
+        ],
+        "sources": [
+          {
+            "name": "開発元issue5875",
+            "url": "https://github.com/argilla-io/argilla/issues/5875"
+          },
+          {
+            "name": "開発元issue5876",
+            "url": "https://github.com/argilla-io/argilla/issues/5876"
+          },
+          {
+            "name": "開発元issue5877",
+            "url": "https://github.com/argilla-io/argilla/issues/5877"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "rapidjson-regex",
+        "title": "RapidJSON: untrusted input passed to the regex parser",
+        "time": "10:19 JST NVD Recording",
+        "body": "CVE-2026-116620 reports an out-of-bounds read in the regex parser in RapidJSON 1.1.0 and earlier. Developer issue2401 was checked, but the minimum fixed release remains undetermined. This does not mean every application using JSON is unconditionally attackable.",
+        "action": "Check paths that actually pass external input into regex/schema processing, and consider size and execution-resource limits, isolation, and fixing commits. Inventory copies bundled with products too.",
+        "cve_ids": [
+          "CVE-2026-116620"
+        ],
+        "sources": [
+          {
+            "name": "RapidJSON開発元issue",
+            "url": "https://github.com/Tencent/rapidjson/issues/2401"
+          },
+          {
+            "name": "NVD・CNA記録 CVE-2026-116620",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116620"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "msrc-index-revisions",
+        "title": "MSRC: October (month 10) CVRF registrations/revisions differ from shipment times",
+        "time": "10:46 JST document updated ( 01:46:22 UTC)",
+        "body": "Microsoft's October (month 10) CVRF contains 35 newly published revisions and 7 revisions to existing entries in this window. These are record updates involving GitLab, Wasmtime, Chromium, SSL, and others, not 35 attacks or newly shipped patches for Microsoft products. Individual revision indexes are saved with the originals.",
+        "action": "Check each product against FixedBuild and update history individually. Do not reinterpret old FixedBuild values for Edge and others as current recommended versions; consult current distribution channels and release notices.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "MSRC公式10月CVRF",
+            "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct"
+          },
+          {
+            "name": "MSRC update API",
+            "url": "https://api.msrc.microsoft.com/cvrf/v3.0/updates"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "continuing-response",
+        "title": "Ongoing response: distinguish recovery, CA-remediation versions, and Tailworm fixes.",
+        "time": "18:49 Re-acquisition of data from JST onwards (not a new differential)",
+        "body": "Selected text for ConnectWise, SoftBank, Tailscale, eMudhra, and Fortinet matches the previously saved versions. The minimum fixed Tailworm version remains undetermined. Do not identify the CA remediation in Tailscale v1.104.2 as a Tailworm fix. The official .NET Brotli issue is also not newly revised within this window.",
+        "action": "Keep affected ConnectWise connections disabled until individual instructions arrive. Distinguish .NET shared runtime updates and restarts, self-contained rebuilds/redeployments, and NativeAOT republishes/redeployments. Matching sources do not prove worldwide updates or absence of exploitation.",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "ConnectWise公式",
+            "url": "https://www.connectwise.com/company/trust/advisories"
+          },
+          {
+            "name": "Tailscale security",
+            "url": "https://tailscale.com/security-bulletins"
+          },
+          {
+            "name": "Microsoft Brotli公式",
+            "url": "https://github.com/dotnet/announcements/issues/494"
+          }
+        ],
+        "kind": "scope-complement",
+        "certainty": "prior-scope",
+        "date": "2026-10-27"
+      }
+    ],
+    "nvd_published_ids": [
+      "CVE-2026-116554",
+      "CVE-2026-116555",
+      "CVE-2026-116556",
+      "CVE-2026-116602",
+      "CVE-2026-2270",
+      "CVE-2026-76654",
+      "CVE-2026-111422",
+      "CVE-2026-116603",
+      "CVE-2026-116604",
+      "CVE-2026-116800",
+      "CVE-2026-116801",
+      "CVE-2026-116802",
+      "CVE-2026-116803",
+      "CVE-2026-116804",
+      "CVE-2026-116805",
+      "CVE-2026-116806",
+      "CVE-2026-116807",
+      "CVE-2026-116808",
+      "CVE-2026-116809",
+      "CVE-2026-116810",
+      "CVE-2026-116811",
+      "CVE-2026-116812",
+      "CVE-2026-116813",
+      "CVE-2026-116814",
+      "CVE-2026-116815",
+      "CVE-2026-116817",
+      "CVE-2026-116818",
+      "CVE-2026-116819",
+      "CVE-2026-116820",
+      "CVE-2026-116821",
+      "CVE-2026-116822",
+      "CVE-2026-116823",
+      "CVE-2026-116824",
+      "CVE-2026-116825",
+      "CVE-2026-116826",
+      "CVE-2026-116827",
+      "CVE-2026-116828",
+      "CVE-2024-58399",
+      "CVE-2024-58400",
+      "CVE-2025-71439",
+      "CVE-2026-116605",
+      "CVE-2026-116608",
+      "CVE-2026-116620",
+      "CVE-2026-116623",
+      "CVE-2026-116816",
+      "CVE-2026-116829",
+      "CVE-2026-116836",
+      "CVE-2026-116837",
+      "CVE-2026-116838",
+      "CVE-2026-116839",
+      "CVE-2026-116840",
+      "CVE-2026-116841",
+      "CVE-2026-116842",
+      "CVE-2026-116843",
+      "CVE-2026-116844",
+      "CVE-2026-97028",
+      "CVE-2026-116639",
+      "CVE-2026-116640",
+      "CVE-2026-88781",
+      "CVE-2026-103312",
+      "CVE-2026-103332",
+      "CVE-2026-111820",
+      "CVE-2026-117468",
+      "CVE-2026-117469",
+      "CVE-2026-117470",
+      "CVE-2026-117471",
+      "CVE-2026-117472",
+      "CVE-2026-103325",
+      "CVE-2026-103359",
+      "CVE-2026-105946",
+      "CVE-2026-106174",
+      "CVE-2026-110910",
+      "CVE-2026-75891",
+      "CVE-2026-101034",
+      "CVE-2026-107472",
+      "CVE-2026-10511",
+      "CVE-2026-111459",
+      "CVE-2026-111460",
+      "CVE-2026-111461",
+      "CVE-2026-16521",
+      "CVE-2026-18449",
+      "CVE-2026-18450",
+      "CVE-2026-18451",
+      "CVE-2026-65210",
+      "CVE-2026-65219",
+      "CVE-2026-65220",
+      "CVE-2026-65211",
+      "CVE-2026-65213",
+      "CVE-2026-92885"
+    ],
+    "rejected_nvd_ids": [
+      "CVE-2026-97028"
+    ],
+    "report": {
+      "path": "update-20261027-1847.html",
+      "title": "10 18:47 Evening check for incident updates and vulnerability countermeasures 27",
+      "headline": "What was disclosed, what was fixed, and what remains unknown.",
+      "intro": "We summarize primary sources and conditional mitigations covering GMO reports 8–11, PAN-OS shipment status, GROWI, Sleipnir, MPC, Kubernetes, AI, BMC, and malicious packages.",
+      "window_jst": "07:47〜18:47 JST",
+      "cutoff_jst_label": "2026-10-27 18:47 JST / 2026-10-27 09:47 UTC",
+      "retrieved_jst": "18:49 JST以降の現行改訂",
+      "previous": "update-20261027-0747.html",
+      "previous_label": "07:47の調査記録",
+      "motion_path": "./?lang=ja#62",
+      "motion_label": "夕方の4画面：公開・出荷・鍵share・package →",
+      "quick": [
+        {
+          "title": "GMO users: isolation and secondary-harm prevention",
+          "text": "Information claimed to have been published is being examined. Distinguish this from unconfirmed ransomware, and consult official device-isolation guidance and individual communications.",
+          "href": "#gmo-publication",
+          "label": "GMO follow-up and actions"
+        },
+        {
+          "title": "Public servers and management appliances",
+          "text": "Check the 4 PAN-OS hotfixes, GROWI 8.0.7, branch-specific Kubernetes fixes, and BMC management planes. Distinguish plans, actual deployment, and compromise investigation.",
+          "href": "#pan-hotfix",
+          "label": "Shipping and Terms of Use"
+        },
+        {
+          "title": "Keys, authentication and encryption",
+          "text": "For Fireblocks, distinguish the share hierarchy of 1 party from the threshold. For Psono, Mendix, and Qt, also check the features used and fixed release series.",
+          "href": "#fireblocks-share-boundary",
+          "label": "Confidential information and authorization"
+        },
+        {
+          "title": "AI, packages and payments",
+          "text": "Inspect Mistral Vibe worktrees, GGUF and sanitize mode, specific malicious packages, and payment notifications with empty secrets separately.",
+          "href": "#malware-camera-ui",
+          "label": "Implementation and Execution Route"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "engine": "Stored translation memory; Google Cloud Translation v2 for missing text",
+    "human_reviewed": false
+  }
+}

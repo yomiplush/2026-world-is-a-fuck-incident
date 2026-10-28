@@ -1,0 +1,1257 @@
+{
+  "locale": "zh",
+  "language": {
+    "code": "zh",
+    "native": "中文（简体）",
+    "html": "zh-Hans",
+    "dir": "ltr",
+    "en": "Chinese (Simplified)",
+    "ja": "中国語（簡体）"
+  },
+  "snapshot": "2026-10-27-1847",
+  "source_hash": "72dbf6f7149982995732f90ce12f06761fc3a4e51dd73919a484432f0ddf3597",
+  "register_hash": "6e5c699865bd2c98d3bb650f64b3506424a7a38c08181aabf211e0bfa850b8b4",
+  "string_hashes": {
+    "records.gmo-publication.title": "88d67b559bea45e50a56830203f2cc58c7b1aabda00e912f06de231c3fda84b9",
+    "records.gmo-publication.body": "70a034481c329f95c2e944edd99ac09c35959231a619fbc811958d98b56a44e7",
+    "records.gmo-publication.action": "f443481f3ecf4d258c758d839cb5517f4adab4d023b18400713c45d9c856f458",
+    "records.gmo-publication.time": "3dc9df0a89d4404b5b3644afa2b695134b81962120153c29217efa13669f7755",
+    "records.gmo-endpoint-isolation.title": "0d4a1c988015aa7b12d5b053cb87be36fc72b6ce67eddae6c9bf8d0590c37cb4",
+    "records.gmo-endpoint-isolation.body": "8eb4b1b44be900b7b0f6621364951ef4aa6c65b56e90d14f771d3f8c17605ffb",
+    "records.gmo-endpoint-isolation.action": "1d472d70a339189fa3c882ee79cc70512da74c7935c1b5c5ed5b73a7ceae6af3",
+    "records.gmo-endpoint-isolation.time": "2e02e90609b6bb6cbd36c81b68c7c89f9729b71f4271efe26fa4da6f2e2846d1",
+    "records.railway-registration.title": "088c9292b346b6c2caf0e0857c4ad8eb3c9439f07aefd07b832a92128ea4a00f",
+    "records.railway-registration.body": "4dc866fdf890e74b86b14eff9b064b7114e05ee368faedce8d85badb392de550",
+    "records.railway-registration.action": "1c68878d7bf39da209f3d5e3ef6a3b4cb71c1fa48cc5a682ea84b2c459e5c86d",
+    "records.railway-registration.time": "01361fd9126de43a4f8f6455dd8080b7fd0e7f801514b893e8c0cd60510d08e4",
+    "records.pan-hotfix.title": "49f75d8245b6bcc3dd7548dceef58473727c4897b05db162964d8da79b50277f",
+    "records.pan-hotfix.body": "28bb4c1ee3379306087412d29d6cad6a9e24bd0cfe3de1160075cba67d8e6cc5",
+    "records.pan-hotfix.action": "8b462c93bc73ffd08b539d925fc533fa8f01a8baabd3007e10ecc14440130256",
+    "records.pan-hotfix.time": "d54814d6c69dce83de9217ef2434323384327db0f86d4701a8ac0b2274ca5a2f",
+    "records.kev-php.title": "ad23079078750cd56ec88ee86622ec79984fce5c0603819e6b8cf86ada41112c",
+    "records.kev-php.body": "bed054bfb05316164bc95815faa5eff25bf4019adb39403aaad4b2d91a0487e0",
+    "records.kev-php.action": "a5fa6f8049541674b399e06cb56bee4f78c20767e4713c15641a2c922dd28f87",
+    "records.kev-php.time": "753af8152aac9695ff19ee23a92332682a6681413f1bd5e4de52d17a7306d4e6",
+    "records.growi-authorization.title": "b8cd83fd04297abb524de6ea81bffd25f346db0a1f98c78e2af46ae5d0e288dc",
+    "records.growi-authorization.body": "1f0b9f23996b1623cd7c01d23bf575912c8d12bda37e0fa6d559d19f23477774",
+    "records.growi-authorization.action": "c28a52a05ac72f37c5725fc7c8d4d8d73ef97833b14cf8e1ebc9140c943652a6",
+    "records.growi-authorization.time": "17b521c144dcbfc8beb4817233a5269d22bd62afd1e279ffbcb11a6b5e85fcee",
+    "records.sleipnir-android.title": "74ae8506c25ce2b3cdd6cca53e069586a0dce48f928c0d1b48495768f1c00d34",
+    "records.sleipnir-android.body": "df3c6c4b0bdc9b038cea86f96d6ba01f1f33263b30d978d98dcfad2a56594c0a",
+    "records.sleipnir-android.action": "284e449c251eb97e2a0aa72c1f7b7bf863acb1b52decffe03d76391ac6003407",
+    "records.sleipnir-android.time": "03ce4dcbc8f13ab578ad7324ada7dd202daf2c337d42620461d49a1b0f86dd73",
+    "records.fireblocks-share-boundary.title": "c3864f9f327ac1c32266490626772604fb045dee48a4dcd37dc90ada03c4d1e0",
+    "records.fireblocks-share-boundary.body": "2d7ba34fa9740804032b839684c17571510a5a25063869fa1199cbcce8b6e43e",
+    "records.fireblocks-share-boundary.action": "8e5b0438015aafddc76419d7debe70b1844ef3a945d3c4737b8be08f2d5b1bc6",
+    "records.fireblocks-share-boundary.time": "12248016f0043bcab1374abb7a2a9e03382cee777c8af6ffbde7308ffa9aa67e",
+    "records.vsomeip-resource-limit.title": "599ede2a71e1562a5eb673f4f39592a5c6d2fdf6c099a67a6d679402b930ace3",
+    "records.vsomeip-resource-limit.body": "8b740836929a37f1da1cae3168dc547f8e5d066c413086cfecec0893bcdd6dfa",
+    "records.vsomeip-resource-limit.action": "b710061dd79c1b51d6daf49547b6d22b07024e059811d3fa7a918fb4e81558f0",
+    "records.vsomeip-resource-limit.time": "59bd3635b3a6affdcc29348d9682a666e4a202f17583d3bd8091c4ea2083e14e",
+    "records.mendix-saml.title": "ecfe2c9d587ce69f546c9cb58aaf5eaf83479ed83a6826139abcff05a606af1c",
+    "records.mendix-saml.body": "89db3afdd74152e4e08c387f61bd46d1bd3017aa9b6f57c2dcf44252ab4c1301",
+    "records.mendix-saml.action": "65bf4a5f46a01498ac20dd3ac6b4878e11bc2059131b9eddecf56693e5de0cca",
+    "records.mendix-saml.time": "0483e2d08013a4cb9e70922e0bd3f33f52d6c96e60e59818e05bf42246f3cd7d",
+    "records.kubernetes-boundaries.title": "ee51e20cd2b0380cbf4e2e1e138199954cfd9984ff98c79f3d8666ea7f01f876",
+    "records.kubernetes-boundaries.body": "f2ed59f5dcb249583c8a2605227bc81657288bfad3e3280264bb619ee3321f41",
+    "records.kubernetes-boundaries.action": "85a2a8f4be25c13f85eddd4e65eec36bea78eaa155501023125c52ee16a3cd7d",
+    "records.kubernetes-boundaries.time": "0642931d48b93cc7f3a99578ffa6383f337307a87f5858c9471f5ab868fc126f",
+    "records.airflow-ssh.title": "b66dcdeb84d931188818a4e63b2c35b8d111b4bbc6191a643e97240f74d14761",
+    "records.airflow-ssh.body": "844e82f78750f32abbfd5e72ec83b8314f973aa62cd7f3ae82e0b6061642625c",
+    "records.airflow-ssh.action": "1e9756bc55ca531fd88f5c47ef113964d9c1d4c67c453f842b0a0c16d8ebc4bf",
+    "records.airflow-ssh.time": "4b2b8bc59d5e302654a9f4db796d2234e1bfbe43528526aa3041e2627ea65c42",
+    "records.dompurify-modes.title": "801337e0bcf87b3d207fb189899acd1ff274c9b47cb552e8d5b9824f305a3eab",
+    "records.dompurify-modes.body": "1cbabdf9101834d0d18f0c8d6f87e082fafa28ef08dda1b9ffa13ba5c8a4ad5f",
+    "records.dompurify-modes.action": "ebb3a82a35515a4f9b7a951c4c8254005c95a7b7ee0c2f674411c28b1ffc8663",
+    "records.dompurify-modes.time": "ec863fcc95f12e3a578d7f11cfa48f88abf0c3c2993f6436112d26695d1fff6a",
+    "records.mistral-worktree.title": "7da4962edc42c62c82dcde22070a112d70e48d0e9c6e5907c42e76f61a9f5e89",
+    "records.mistral-worktree.body": "b210dcdc588ddf82908e3cab9530da0748f3d63926224d0cb409a407563ff6f7",
+    "records.mistral-worktree.action": "7bd67568d985a9c19c21ea9e1f587dd1e8772e52ea552ea1ed6d96bf04b1d61f",
+    "records.mistral-worktree.time": "ebb98f4a110cd13e906acdb3f66c30fa5e04e3f2e6889a8d237da38a6b10048e",
+    "records.psono-permissions.title": "7194457e4d543fa76d39013b524aba5daeb95cd3e292d3a03a1b4e3ac330e60e",
+    "records.psono-permissions.body": "c76961b40ff262d1107d0d480448cf1d57da599c23ea781a4e1c391e7b0204b8",
+    "records.psono-permissions.action": "e6ec29af3d1628a83f732c487c7708c7387bf2dc05d22ebabc5a6edb4e80b7a4",
+    "records.psono-permissions.time": "e75a77beaf100cc59f95d1c952110fc47bb124be104a42d6ae5a2e724398572c",
+    "records.qt-codecs.title": "a096b5fc91bb5bbb76910deac49f52038fbdc8e246a0e9f86ba97beaed74a882",
+    "records.qt-codecs.body": "830cd57c1ea2c83481d253a8b1691720fb166a94347b4c7a1fd30d4893252de1",
+    "records.qt-codecs.action": "468be00e30ad548e4b8b39e3b0e76160d822f8994fee690166e51890d524d348",
+    "records.qt-codecs.time": "1189d9e24b1d055e40946e5082c21ac55b8090981d659f2adc8eec37850a4c66",
+    "records.supermicro-bmc.title": "eafa01383e67f55011629f32f48b858bb334949be0df8b51ff8416d3c005ad8d",
+    "records.supermicro-bmc.body": "ee8a135778e90f1f14aa23e5b8ab082c49a90cadf8b200b570b60efface32912",
+    "records.supermicro-bmc.action": "0a87132508da3e69d572938e907c7ec18083939a3ae7c919033bb139a7cea5a9",
+    "records.supermicro-bmc.time": "39eaddaaca86e4f4551c11b25b36daeacacf152aa2a4b6aad717a834ee140764",
+    "records.fortios-management.title": "cc1716274de1a0a9bbba17db6c24bda398124e57b0365729ef02a11aaa194814",
+    "records.fortios-management.body": "9306b67f38eee70390776a41a614fc95531bd48f6d08da8981c3ed8d1bd901bf",
+    "records.fortios-management.action": "d9fec0d50954f0a8604ec0875acfb4ecd5c588d70cd3e74a723b7b3ab4c98e6c",
+    "records.fortios-management.time": "4c81f8bbec0da0e4bb0f020eb3716d7761d0fa4222c4997346251296d3b99fa5",
+    "records.moxa-conditions.title": "8d9fbae275fc35cf12b2f39f1f59aeb805a0b30bd2c09a05ef9926d6786e7515",
+    "records.moxa-conditions.body": "d7fdc30b2aa34a410b380c27c5b56d2f5d985786253164afc8682bd337ec99b0",
+    "records.moxa-conditions.action": "af83c1fce56b24576f926e5cccbe500ce872144a55fc4fb1c19568abe36b736f",
+    "records.moxa-conditions.time": "4905838e97f803ccfdf4be2c00e7d1c65837b85eb4d095adf535c6a5d0fa76bb",
+    "records.malware-camera-ui.title": "8e7ecc9e38e0f5ac4f1ba0face92ee088e5817a17af0f6e9d2a09a1dc94803bd",
+    "records.malware-camera-ui.body": "9f896d74579af24ae82e9099a8eefff56a5d636187cd892d3ae438975ef9a0a7",
+    "records.malware-camera-ui.action": "b0803ef4ffeba8db41505d79c3c727b47d58cc1a670f2b517950ebecabdfc990",
+    "records.malware-camera-ui.time": "25e09c5b43127eaf3d8b6f14891b23d1d8b860a42ab774d58b0b6b4bba207e4d",
+    "records.malware-pypi.title": "bde6ff817a6101b6f998f62ff32014d2b0fcd4b0e90812b6ee34b23219c38596",
+    "records.malware-pypi.body": "aff3fe40ddaa118d46164aba29407bfcdefab634eea8f4ca55582f95ac24c387",
+    "records.malware-pypi.action": "2a579007394237788d3e96b5388ed659fc7ec6838f20adb25bcaa974e2a95dee",
+    "records.malware-pypi.time": "234e717ab7fb9801e06f6ccc22b7aa312490cf13f7620d8962fde8d0d04ce590",
+    "records.openpanel-isolation.title": "0bcdf178dfa80a3408c084744605958ff4f041aeffd9f4f2f9d8e0b829e38ff7",
+    "records.openpanel-isolation.body": "1175e56b8ea6958f86605a378bff44f554c73572c57de11967cf20c358b77ecc",
+    "records.openpanel-isolation.action": "34532b89e2ee17b6bde7fff70d1dbc268db349c5a89bd01c724fbb4537fdca9c",
+    "records.openpanel-isolation.time": "1eff66005c0ce70e6e26ec75644021d9bb4d0973fc4f673e33ef3a6b8180c447",
+    "records.yeswiki-signature.title": "f7e9ec361ba5ea7bfe57a3652faff0ee667df5e2598103412cd63db47e38bc89",
+    "records.yeswiki-signature.body": "20263669d43c6a6d89ea0ec5387256c0b1e1ffcbe3c5583717a563eb8ee8756a",
+    "records.yeswiki-signature.action": "7ef36a21e68b43aded6cfa1fcc31b392f8f6868e394590efc8fa3e9662cfc6ba",
+    "records.yeswiki-signature.time": "39d4086fd33f0c627b65c01ca02cfbc704996ef7afe8c874b5a638f00e781ad2",
+    "records.llama-gguf.title": "4f2a4b2423e34b87bda0be47a5c4646bd7f25dc344e72b9fbce349078ed1a6d3",
+    "records.llama-gguf.body": "914a8a00f0c5a3123b58f5b0064fe635bfb7fce2d7cda485c8a7a8890bbbebc1",
+    "records.llama-gguf.action": "f50f70fe7f8d7e427c766e6f8dfc15d27549431555414ea9eace2b517affe341",
+    "records.llama-gguf.time": "cfa6b683138ecb76742fa5074be279432377ba3747b7d031489661959db85754",
+    "records.wordpress-payments.title": "5028505b5a8c9f80540aa3c429b767d1c037ede89294f2d66d7eee27153518c5",
+    "records.wordpress-payments.body": "260192f99e27a7fed12bc452daeb9d5068f067618c324a27959a92dc68db6a9f",
+    "records.wordpress-payments.action": "e31a4191d65187c9e39c90c41d6f12a39e38f152d234084472e8b4c047bffc70",
+    "records.wordpress-payments.time": "24e0af0cf6e9979fc2faab6622df8142c8c98b8873718339a7926969c95ba089",
+    "records.argilla-xss.title": "0bfd20c5d90d505e34c6460a1b571b61d62a1bce7be01fb1f9f2c3382d3d37b8",
+    "records.argilla-xss.body": "2919d4131eeadddaf37a7c1d74a88863013ed387acd136650a91668f4320cd0a",
+    "records.argilla-xss.action": "d8085648825a1b9605a19674a9224971ea4d5af45cb069c15d4466dc908c4243",
+    "records.argilla-xss.time": "512a338a3b08302a3c2df7b5f34b453facda6131a67eb26da5a73f5682fe9365",
+    "records.rapidjson-regex.title": "13a7974205844eb43dc48c0e2b9c617cee05b13a9649202cf7a68c549052a6b4",
+    "records.rapidjson-regex.body": "8eaeffd4ee5e0f1594836632c9c72a628b19f54ad786381626b373eeb9c55d65",
+    "records.rapidjson-regex.action": "fe08985effcb8bc2a391b9e640b058a9b9c2b2dfee992849aa07c5f2111eaaa0",
+    "records.rapidjson-regex.time": "ebb98f4a110cd13e906acdb3f66c30fa5e04e3f2e6889a8d237da38a6b10048e",
+    "records.msrc-index-revisions.title": "0a62529deeffc9032417b006c1491738ceedaeee3c1a69a3a4f999c6973932a8",
+    "records.msrc-index-revisions.body": "858c335549c177a74039b910930894dd7dcfe3acc0d80b10c16ec5bcbdbe55be",
+    "records.msrc-index-revisions.action": "ae9f5284c29061c319f84f026d85931f4675e0358bb6670744b53637e97cb367",
+    "records.msrc-index-revisions.time": "8cb0e8d8114f8479532b11a4810220803bbea86eea3ec4b3840c41ae66623aef",
+    "records.continuing-response.title": "c3be6ee3a7620db423a7d10560df6c6e6ac7f6de7b2b5cbd432ef20a425eeb8a",
+    "records.continuing-response.body": "14bd80e0b43e618dcaaebaf51f80a172e1131e7127198bb50f082c51217db8e1",
+    "records.continuing-response.action": "1d18cb364dd6f82c562f27736fbaec4988f93c1650f686d46f80b9c4acddf289",
+    "records.continuing-response.time": "5753b542d275f4b4a8dea117ef3047a0ff51670c9e5f7686c86f99b4139fa4d9",
+    "caveats.0": "1d94f0b21aa351c2126484b30ca9f0593b9cc8edcd4d7675af7ac998c4af8ea4",
+    "caveats.1": "a126cdae02d3e7925d9a711a5cb91944ee11e56e861c8c39acd5ec72898c94aa",
+    "caveats.2": "52eb11f0fb24b62305172920929c6ccf75a5dc26a45bbec07377e57fde24ee58",
+    "caveats.3": "d9154fbde79503304fc9a071886b18bedca9d09ee202c0c541187b23beefaf3c",
+    "caveats.4": "5e5c59ab1c617e01f1c6fbee687392e5d117544a8bd0c0f19fc7d915a5fdaaa7",
+    "caveats.5": "fd6ba0e0d974b7ff4ca8ffe80efd59f2bcb97e0eb118f202806972c9a48f4bc0",
+    "caveats.6": "51c2a114eabad54d2ec8e084c94e455ff87fb5fe374e83518d165fdbdd9fadd0",
+    "caveats.7": "b3a687ffdcc8cfa587f5f5fd2f81ab272a9b18e2b94f09b1f87e76f45d4056bf",
+    "caveats.8": "bc9b4d1a65162e53499257eba37b4181478164b2b9d2da3307b6b4b23e53021e",
+    "caveats.9": "f6ad653d44a4babca5b2a6b634eac14a6970fa4b0c77218beb25e6652b6627cc",
+    "report.title": "cb05fc8a48b48078a5148753f458531b8a078a22c0bbbf4e877e89dffdce4990",
+    "report.headline": "4c76675fa18b561a48c252c5f6cd5bf76326a1a7f102dcbe67b3059fc7c092c0",
+    "report.intro": "4c57895c453dcc0a901f404887ba30c3f2fdfddf8af9e69bece23c3253a0570b",
+    "quick.0.title": "5394f02c9c0e018c69272a257d6bd81c08d5b57241af3a9a2773e36b81aa002f",
+    "quick.0.text": "5fc0319d10092554c603db344303b6309cc176d29ffd18f1fe53ffa83c5b69df",
+    "quick.0.label": "3b15c51bd594464fa39e93356fa6c359d63d7a3124614d6a9765375bef31e126",
+    "quick.1.title": "7d84ac26900d69d6edc7b20c89f0c236a448a634db4d9ca12a581428d5047c02",
+    "quick.1.text": "d3af0c75dc96a06dc83b864b4d033a63c8f82cdcb3006c3cacfc4f4a9dd218bc",
+    "quick.1.label": "f45271e9f5f7ff096f0c717cd6cb903b245f579d6edc9c59c22d857c76399071",
+    "quick.2.title": "04760a5874f20f1a86c6653d113c9fd9342408981665af167177ed49a0c3ad9a",
+    "quick.2.text": "f357cb268e0bb6166295a93f2cce44ae588426d3259598e428bc0f1d23ff2f1c",
+    "quick.2.label": "3b085daabe636ba4cb10fe31a43b544889ad626f264ca23f5a7182cc3d7928be",
+    "quick.3.title": "8579e638779b30fad50b8b6400b38150834d96ce99ba27d1fcb11dcb33a06793",
+    "quick.3.text": "8f0f9e4614627c40dc462d3eb78e1eee7b31b370f3b470c7e6f46076f2404a76",
+    "quick.3.label": "9095a098f6f269968429d5a967b04b4fbb939e7dbdd6e8bb251f007d005898d7",
+    "ui.title": "c589afd85a653859c675603d873b89a2ec72704a908f9fe532956589276d6ea1",
+    "ui.intro": "8bc1411fd2df3f6f0ad0fdbd6a6d7ed5ba9b0c63f0bd91fbea0f04dd4b859fda",
+    "ui.cutoff": "30bffe1d8c0fefe3ad569045a850f06ea6dd8810b558c34de1f71d4df906a9e6",
+    "ui.actions": "7e155300cecf74323a1e9ffcde23987947c1aa0b2a3e797fd3a50ad82939d62d",
+    "ui.sources": "835c47be68ea833b08692f4fd81b08923cc237d4aa02e12951d1352e9c23bd71",
+    "ui.delta": "9adc14b6e164efe8327f724c20a7ccfb1e6afa553360fe699d5169498751dd53",
+    "ui.scope-complement": "40eb64185c871529b368a52dec2a5da371f082fd0ceede57744418e9e7bded29",
+    "ui.reference-only": "438c048773567ac03e23a2d37bcda0cfd91b904736e75680507be0efb1859685",
+    "ui.notice": "58caa3c4eeff2c6afefb59c8edea1d100788a6947a2c7560e7a91ecbf21e4638",
+    "ui.original": "e8fc20d01f7577c9e02b0eafdd1fb27a5633123f9ac86833b370bc7c8d5fea9f",
+    "ui.data": "2039bbd338a139da69fcdd7b37a2f1dc83dbc2efbf17c2f52fdbb96e895837f3",
+    "ui.home": "f109578971d6a45d0822844efc41ded0cf437c2e1e876ea2519cbbb9dbc12f87",
+    "ui.languages": "2191b209745deedcb25dc4acbbab8273ac7159575dd94c2170b24998e46a2d29",
+    "ui.evidence": "688f77c246c750e5858f1d0b04381beb642d641a043603b7510db8deb1a16da5",
+    "ui.counts": "7d6c2976cecf20cd4587cd6ae65583534f56cbdecabad2b9104cd7a7a8357fe2",
+    "ui.pending": "7673fe83755b580dddf493fe3091b7687e3df01dd8c4268344bf707912eb1790"
+  },
+  "status": "translated",
+  "strings": {
+    "records.gmo-publication.title": "GMO：将公众确认与内容/攻击确认区分开来。",
+    "records.gmo-publication.body": "报告10解释说，它已与12:30确认了据称与公司及其客户相关的信息泄露事件。该信息的内容仍在核实中，可能并非事实。截至13:55 ，尚未确认发生勒索软件攻击。报告9解释说，在分析的终端上未发现恶意软件，但这并不意味着所有终端都已确认安全。",
+    "records.gmo-publication.action": "根据11通知，请勿访问、转发或传播指向公开信息的链接。如果您已经访问过这些信息，请仔细阅读官方说明，切勿回应任何索要密码、验证码或金钱的要求。",
+    "records.gmo-publication.time": "12:30确认 / 13:55公开信息 / 14:55 JST 后续报告",
+    "records.gmo-endpoint-isolation.title": "GMO：按执行顺序进行设备隔离和账户保护",
+    "records.gmo-endpoint-isolation.body": "报告8要求继续调查并予以配合，同时敦促客户在备份后断开网络连接、关闭电源并拔掉所有连接到电脑的线缆。报告9的标题已更正为11:59 ，但历史记录部分仍为11:52 ，导致初始发布时间存在差异。",
+    "records.gmo-endpoint-isolation.action": "请查看官方的个人使用指南，并根据指南进行数据备份，同时隔离指定设备。请勿在其他受信任的设备上登录您的帐户，并在调查完成前不要恢复浏览器同步或连接。",
+    "records.gmo-endpoint-isolation.time": "09:58截至 / 10:56 JST 新增/更正",
+    "records.railway-registration.title": "铁路：新车登记仍暂停；恢复日期未定。",
+    "records.railway-registration.body": "官方声明与上次保持一致，明确指出没有发生其他安全事件。他们解释说，他们优先考虑现有客户的信任，并将继续暂停新用户注册，目前无法确定重新开放的日期。博文内容与之前的原文完全相同。",
+    "records.railway-registration.action": "受影响的用户将继续撤销并重新发布其存储的密钥，并审核 GitHub 注册表。服务恢复并不保证旧密钥的安全性。下一次计划更新为10 / 28 00:00 。JST 表示参考时间之后的时间。",
+    "records.railway-registration.time": "12:22 JST（ 03:22 UTC 状态）",
+    "records.pan-hotfix.title": "PAN-OS：已确认10.2 、 12.1和12.2系列的4热修复程序已发布。",
+    "records.pan-hotfix.body": "PHP 建议的 JSON 会从09:10中移除10.2.13-h27和10.2.16-h12的预计交付日期 (ETA)，并从13:03中移除12.1.7-h11和12.2.4-h1的预计交付日期 (ETA)，表明它们已交付。其他系列（例如11.2.13-h4 ）中的预计交付日期 (ETA) 仍然保留。仅刷新 RSS 源不足以检查是否存在新的滥用行为。",
+    "records.pan-hotfix.action": "请将您的 PAN-OS 版本与目标功能进行匹配，并参考官方热修复程序。检查计划发布日期、实际可用性、更新状态以及侵权调查情况。请勿将其他版本的版本号作为通用修复程序应用。",
+    "records.pan-hotfix.time": "09:10 / 13:03 JST（官方时间表）",
+    "records.kev-php.title": "原始 KEV 归档包含 PHP 2差异记录，与攻击开始时间分开。",
+    "records.kev-php.body": "CISA 关键漏洞报告 (KEV) 包括版本2026.10.26 、 1和758 。自上次保存原始版本以来，新增了一个 PHP CVE，即2 。“取证分类”设置为“是”，“已知勒索软件活动用途”设置为“未知”。目录的发布日期早于此窗口的开始时间，而官方 Git 提交则在此窗口内，因此无法直接匹配原始发布时间。",
+    "records.kev-php.action": "我们将优先修复 PHP 和捆绑产品的官方漏洞，同时也会检查是否存在入侵迹象和现有凭证。关键漏洞报告 (KEV) 的收录是确定已知漏洞的优先标准，但这并不能证明新增受害者的数量或是否存在勒索软件。",
+    "records.kev-php.time": "10:13 JST Git 提交/目录发布日期为07:24 JST",
+    "records.growi-authorization.title": "GROWI：查看修订和同时编辑授权边界",
+    "records.growi-authorization.body": "CVE-2026-105272 / 109848通过使用已知的页面修订 ID 等信息绕过对正文和评论的授权。__ 115624仅检查同时编辑的查看权限，允许未经身份验证的访客重写公开页面上的草稿。这并不意味着访客可以直接保存修订，而是指合法编辑者可以通过后续保存引入修订。",
+    "records.growi-authorization.action": "请继续执行 GROWI 8.0.7及后续步骤。“拒绝访客访问”仅针对未经身份验证的访客，并非针对已登录只读用户的彻底解决方案。保存前请检查公共页面的草稿。",
+    "records.growi-authorization.time": "14:18 JST 开发者版本 / 15:00 JST JVN",
+    "records.sleipnir-android.title": "Sleipnir Android：谨防虚假地址栏",
+    "records.sleipnir-android.body": "CVE-2026-109434是 Sleipnir Mobile 安卓版中的一个 UI 欺骗漏洞，其危害程度低于3.9.0 。当用户浏览精心构造的页面时，可能会通过伪造的地址栏等方式进行网络钓鱼。开发者发布的3.9.0公告针对的是10 / 15 ，而非今天发布的新补丁。",
+    "records.sleipnir-android.action": "将 Android 版本更新至3.9.0或更高版本，并在全屏模式下验证域名和终止方式。请勿将此方法推广至 Windows/iOS 版本。",
+    "records.sleipnir-android.time": "12:00 JST JVN（修订后的发货单为10 / 15 ）",
+    "records.fireblocks-share-boundary.title": "Fireblocks mpc-lib： 1方祖先共享和完整私钥是分开的。",
+    "records.fireblocks-share-boundary.body": "CVE-2026-90975是一个 BIP（区块信息程序）问题，当父密钥不可用时， 32强化派生会回退到零。攻击者如果获取了后代签名者份额和链码，就有可能获取到同一 MPC 方的祖先/根份额。阈值层仍然存在，并且没有说明可以独立获取可花费的私钥。CERT 报告中没有提供修复方案。",
+    "records.fireblocks-share-boundary.action": "链码将作为机密信息进行保护，不会通过仅供监视的扩展公钥等方式分发。强化派生不会作为份额间隔离的保证，一旦发生叶子份额泄露事件，将对整个参与方层级进行调查。未经验证的补丁编号不会用于确定其适用性。",
+    "records.fireblocks-share-boundary.time": "10:30 JST JVN（证书修订版为07:45 JST）",
+    "records.vsomeip-resource-limit.title": "COVESA vsomeip：在接收数据之前限制内存分配。",
+    "records.vsomeip-resource-limit.body": "CVE-2026-91141是一种拒绝服务 (DoS) 攻击，它强制低于3.7.3级别的可靠 TCP 端点在确认接收之前预留指定大小的缓冲区。默认情况下，每个连接最多可以指定约4 GB 的缓冲区大小。已明确设置大小限制的配置不受影响，连接到恶意服务器的客户端也可能受到影响。",
+    "records.vsomeip-resource-limit.action": "请更新至3.7.4或更高版本。如果更新困难，请设置适当的限制，例如最大有效载荷大小（可靠）以及限制与受信任对等节点的通信。请勿将来自3.7.4的7 / 6数据包计入今天的新修复或攻击观测结果中。",
+    "records.vsomeip-resource-limit.time": "10:30 JST JVN（更正： 7 / 6 ）",
+    "records.mendix-saml.title": "Mendix SAML：重新匹配先前不完整的序列",
+    "records.mendix-saml.body": "SSA-__ 887643在10 / 26与1.1对比中解释说，之前针对CVE-2026-80465修复并不完整。SSA-__ 137528和CVE-2026-89209通过重新发送有效的 SAML 断言来绕过 IdP 发起的 SSO 身份验证。JVN 中新增的20和更新的22是10月的累积情况，并非今天42的新案例。",
+    "records.mendix-saml.action": "Mendix 9系列 SAML 模块（ 3.6.29及更高版本）和10 / 11系列（ 4.2.4及更高版本）均按系列进行检查。请勿将主版本与模块版本混淆。__ 89209的临时解决方案是禁用 IdP 发起的 SSO。供应商发布时间本身并不一定固定在上述范围内。",
+    "records.mendix-saml.time": "10:15 JST JVN 汇总更新 / 供应商10 / 26仅日期",
+    "records.kubernetes-boundaries.title": "Kubernetes：命名空间边界和 Windows NTLM 分别进行验证",
+    "records.kubernetes-boundaries.body": "CVE-2026-2270是一个混乱的代理，它会根据 StatefulSet 和 ControllerRevision 命名空间内的写入操作创建一个跨命名空间的 Pod。持久化 Pod 还存在一些限制条件，例如受害者 StatefulSet 的 UID。__ 76654是一个问题，其中 NetNTLMv 2可能通过 Windows kubelet 子路径 UNC 符号链接暴露出来，并且中继和欺骗条件会因域加入等因素而异。",
+    "records.kubernetes-boundaries.action": "请使用官方流程，对1.34.12 / 1.35.9 / 1.36.5 / 1.37.1及之后的每个系列应用更新。请分别更新控制器管理器和 Windows kubelet 的目标，并检查命名空间写入权限以及 Windows 的出站 SMB 连接。今天不会将此视为首次公开发布。",
+    "records.kubernetes-boundaries.time": "08:17 JST NVD 已包含（ 9 / 14的首次公开发布）",
+    "records.airflow-ssh.title": "Airflow SSH 提供程序：从触发输入到远程 shell",
+    "records.airflow-ssh.body": "对于 apache-airflow-providers-ssh， CVE-2026-111422值小于7.0.1 。在 DAG 将参数和 dag_run.conf 映射到 SSHRemoteJobOperator 环境的配置中，具有触发权限的用户可以以 SSH 连接用户的身份执行命令。已检查 CNA 记录，但供应商文本检索不完整。",
+    "records.airflow-ssh.action": "检查 SSH 提供程序7.0.1及更高版本中的修复程序。不要仅仅依赖 Airflow 版本；还要检查将触发输入传递给环境的 DAG 以及 SSH 连接的最低权限。",
+    "records.airflow-ssh.time": "09:17 JST NVD 录制",
+    "records.dompurify-modes.title": "DOMPurify：在非默认模式下匹配3路由",
+    "records.dompurify-modes.body": "CVE-2026-116802 / 803小于3.4.17 ， 804小于3.4.4 ~ 3.4.16 。XHTML 和 SVG 动画、通过 IN_PLACE 钩子分离节点、SAFE_FOR_TEMPLATES 以及 DOM 输出/影子根都有各自的条件。但这并不能解释为什么在所有默认配置下都会无条件地发生 XSS 攻击。",
+    "records.dompurify-modes.action": "更新至3.4.17及更高版本，并验证实际的解析器、钩子和模板处理。同时检查清理和后续模板评估后的 DOM 操作。不要隐藏开发者的低评分或10 / 12的发布信息，并将其与当前数据库包含情况分开。",
+    "records.dompurify-modes.time": "09:17 JST NVD 已包含（由10 / 12开发并发布）",
+    "records.mistral-worktree.title": "密斯特拉尔氛围：在信任确认之前创建工作树的条件。",
+    "records.mistral-worktree.body": "CVE-2026-116843的 CNA 值低于3.0.3 。在不受信任的仓库中，当使用 `--worktree` 参数启动时，`.git/config` 中的 Git 过滤器驱动程序会在信任验证之前被调用，因此命令可能以执行用户的权限运行。请检查是否存在修复版本。",
+    "records.mistral-worktree.action": "请更新至3.0.3或更高版本，并且不要无条件地对未知仓库执行 Git 设置和过滤器。不要将运行 AI 代理程序时使用单独的工作树视为唯一的安全措施。",
+    "records.mistral-worktree.time": "10:19 JST NVD 录制",
+    "records.psono-permissions.title": "Psono：API密钥、设备和WebAuthn之间的边界",
+    "records.psono-permissions.body": "CVE-2026-117468至117472涵盖了从每个初始版本到7.2.3它们处理受限 API 会话中的设备代码权限提升、文件凭证方向检查、WebAuthn 质询重用、Duo 主机输入以及 URL_PREFIX 期间的读/写检查。对于 WebAuthn，获取密码和有效断言是必要条件；而对于 URL_PREFIX，加密数据会使用特殊的 API 密钥权限进行访问。",
+    "records.psono-permissions.action": "检查 Psono Server 的7.2.4及更高版本，并清点 API 密钥权限、设备代码、URL_PREFIX 和外部文件存储库。将新披露的内容与已修正的7 / 30版本区分开来，不要将其视为所有人都能访问的明文保险库泄露。",
+    "records.psono-permissions.time": "15:17 JST NVD / 10 / 27建议（修订版7 / 30 ）",
+    "records.qt-codecs.title": "Qt：NTLM 身份验证和 TSCII 转换的另一个问题",
+    "records.qt-codecs.body": "CVE-2026-105946受 Qt Network NTLM 的影响，导致堆信息泄露和程序崩溃。__ 6.8.0至6.8.9和6.9.0至6.11.1已由6.8.10 、 6.11.2和6.12.0修复。__ 107472受 QTextCodec TSCII 转换的影响，导致4.0.0至6.8.8和6.9.0至6.11.2出现问题，并已由6.8.9 、 6.11.3和6.12.0修复。根据文档， 6.8以下的 NTLM 影响未知。",
+    "records.qt-codecs.action": "检查应用程序使用的 Qt 库和目标 API，然后更正使用顺序。分别检查 NTLM 服务器/代理和 TSCII 输入的条件，不要以为修正其中一个就能解决另一个问题。",
+    "records.qt-codecs.time": "16:16 / 17:16 JST NVD 录制",
+    "records.supermicro-bmc.title": "Supermicro BMC：检查管理会话、密钥和权限。",
+    "records.supermicro-bmc.body": "CVE-2026-18450是由于活动 RMCP+ 会话的完整性/加密要求不足造成的。据开发者称， 18449是一个硬编码的 SMCRAKP 密钥和密码哈希攻击，修正了 NVD 中18450的冗余解释。__ 65219 / 65220是会话和权限要求，而65210 / 65211 / 65213需要 IPMI 管理员权限。__ 16521的 syslog 命令注入需要高权限身份验证并重启相关服务。",
+    "records.supermicro-bmc.action": "BMC/IPMI 仅限于受信任的管理网络，并且会检查每个型号的固件表。例如，X 13 DEG-QT 01.08.16是特定型号的，并非所有产品都通用；X 12 DGU 待定。并非所有漏洞都会被归类为未经身份验证的攻击。",
+    "records.supermicro-bmc.time": "17:16 / 18:16 JST NVD 已包含（开发日期10 / 26 ）",
+    "records.fortios-management.title": "FortiOS：HTTPS 管理界面遭受 DoS 攻击（修复程序尚未验证）",
+    "records.fortios-management.body": "Fortinet CNA 中关于CVE-2026-106174的记录是8.0.0 / 7.6.4 ~ 7.6.6 ，描述了未经身份验证的攻击者通过网络对 HTTPS 管理接口发起的拒绝服务 (DoS) 攻击。无法获取403的官方 PSIRT 文本，且其最低补丁版本尚未经过独立验证。",
+    "records.fortios-management.action": "为最大限度减少 HTTPS 管理信息的泄露，管理员应验证所用系列的 FG-IR-__ 26至181 。最低修正版本将由官方支持人员进行验证。此版本也将与多个产品的现有加固版本区分开来。",
+    "records.fortios-management.time": "16:16 JST NVD 录制",
+    "records.moxa-conditions.title": "Moxa：MRC 和 OnCell 的 CNA 要求，待原文核实。",
+    "records.moxa-conditions.body": "CNA 将CVE-2026-111459列为 MRC 客户端的证书验证， 111460列为 OnCell G， 3150列为使用 A-LTE 共享密钥的设备模拟， 111461列为同一系列的短信管理命令注入。请勿仅根据参考 URL 中的产品名称将3项分配给同一产品。由于无法获取官方文档，因此固件版本尚未确认。",
+    "records.moxa-conditions.action": "将 MRC 客户端/OnCell 作为独立资产进行验证，并检查短信管理激活情况、所需权限和通信路径。限制管理访问权限，并与 Moxa 官方支持人员再次确认目标产品和已打补丁的版本。",
+    "records.moxa-conditions.time": "17:16 JST NVD 录制",
+    "records.malware-camera-ui.title": "举报特定 Windows 版本的 npm camera-ui 软件包为恶意软件。",
+    "records.malware-camera-ui.body": "GHSA-2w7v-jwxh-w7wc将 @camera.ui/camera-ui-nvr-windows-amd、 64和1.6.1报告为恶意软件。补丁版本字段为空。请勿将此情况概括为整个 camera.ui 组件已被攻破，两者并无关联。",
+    "records.malware-camera-ui.action": "锁定文件、CI工件和部署历史记录用于将名称与1.6.1进行匹配。部署和执行恶意软件的主机已根据建议进行隔离，并且从其他安全终端可访问的密钥已被撤销并重新颁发。仅删除软件包不足以从安全漏洞中恢复。",
+    "records.malware-camera-ui.time": "16:54 JST GHSA 发布",
+    "records.malware-pypi.title": "PyPI：h 13 t 0 ry-hello-demo 导入反向 shell 报告",
+    "records.malware-pypi.body": "GHSA-5crq-52j9-fc74在导入 h 13 t 0 ry-hello-demo 0.1.0时报告反向 shell 错误。未列出已修复的版本。但这并不意味着 PyPI 整体或其他软件包受到影响。",
+    "records.malware-pypi.action": "检查相关版本的安装和导入历史记录，并考虑隔离执行环境、保存日志和设置密钥过期时间。在验证安全性之前，请勿重复使用相同的镜像或缓存。请勿为了验证目的下载或运行恶意软件。",
+    "records.malware-pypi.time": "15:31 JST GHSA 发布",
+    "records.openpanel-isolation.title": "OpenPanel：租户边界、员工风险暴露、机密信息",
+    "records.openpanel-isolation.body": "14 CVE 包括租户 SQL、公共 WebSocket、Bull Board 工作面板、Webhook JavaScript 沙箱以及凭据和日志泄露。虽然 CNA 使用3.0.0以下的版本作为边界，但一些开发者（例如 GHSA）维护提交范围和空的 patched_versions，而且发布时的文本也已过时。仅凭版本号无法断定修复是否已完成。",
+    "records.openpanel-isolation.action": "限制对 worker/Bull Board 和不必要的 WebSocket 连接的访问，并验证已修复的镜像摘要、修改提交和实际部署。单独调查已暴露的摄取/集成密钥和数据库连接信息的过期情况，以及日志调查。",
+    "records.openpanel-isolation.time": "09:17 JST NVD 已包含（由10 / 11开发，此前已发布）",
+    "records.yeswiki-signature.title": "YesWiki：签名准确性和防止重放是两个不同的问题。",
+    "records.yeswiki-signature.body": "CVE-2026-116820至116828涉及 SQL 信息泄露、ACL 通配符攻击、模板遍历、XSS 攻击、签名重放、管理员 SSRF 攻击等。__ 116825及4.6.2之后，由于缺少日期新鲜度和防止重复执行的机制，允许重新发送过去有效的 ActivityPub 签名请求。这并非签名伪造问题。",
+    "records.yeswiki-signature.action": "继续使用 YesWiki 的4.7.0及更高版本。不仅要检查签名和参与者所有权，还要检查其新鲜度和去重情况，并避免发布已签名的请求日志，例如反向代理日志。分别处理需要管理员权限的 SSRF 攻击和未经身份验证的 XSS 攻击。",
+    "records.yeswiki-signature.time": "09:17 JST NVD 已包含（由10 / 12开发，此前已发布）",
+    "records.llama-gguf.title": "llama.cpp：模型文件和标记输入之间的边界",
+    "records.llama-gguf.body": "这包括 GGUF 张量偏移/特殊标记 ID 的出站读取、PLAMO 分词器堆写入以及 GGUF 形状/大小整数溢出的6实例。修正后的边界依次为 b 2731 / b 3701 / b 5649 / b 10261 / b 11301 / b 11275 。由于它还包含来自旧修复程序的新 CVE，因此今天不会将其视为6新的远程代码执行漏洞。",
+    "records.llama-gguf.action": "每次修改提交都会对当前构建版本进行比对，不受信任的GGUF将在隔离的低权限环境中处理。接受任意令牌ID的API将被限制。模型仅包含权重并不能保证其安全性。",
+    "records.llama-gguf.time": "10:19 JST NVD 记录（包括2024 / 2025编号）",
+    "records.wordpress-payments.title": "WooCommerce Payments：空密钥和 Webhook 的真实性",
+    "records.wordpress-payments.body": "据报道，Wompi（使用4.0.1 、Payex（使用1.2.10 ）、TiendaCrypto（使用1.2.1和 PayDunya（使用1.1.6的通知验证存在问题，包括密钥未设置或为空。TiendaCrypto 始终使用空密钥，而其他几个平台则使用不同的初始设置。本次调查未能找到统一的修复版本。",
+    "records.wordpress-payments.action": "我们将检查相关支付网关的使用情况、配置和供应商修改情况，并考虑禁用无法解决的通知路由。我们不会仅根据订单的付款状态发货，而是会将其与支付提供商端的交易结果进行交叉核对。我们不会认为设置密钥就能解决所有问题。",
+    "records.wordpress-payments.time": "15:17 / 16:16 JST NVD 录制",
+    "records.argilla-xss.title": "Argilla：注释 UI 中已保存的 XSS 报告",
+    "records.argilla-xss.body": "CVE-2026-116554至116556是与数据集名称、自定义字段、iframe 和文本字段处理相关的 XSS 漏洞，如2.8.0我已保存 CNA 引用的开发者问题，但此次检索尚未确认最小修复方案。",
+    "records.argilla-xss.action": "限制标注/数据集的输入和共享目标，并使用已部署的版本验证开发者的问题。切勿使用具有管理员权限的浏览器无条件打开不受信任的数据集。",
+    "records.argilla-xss.time": "08:16 JST NVD 录制",
+    "records.rapidjson-regex.title": "RapidJSON：传递给正则表达式解析器的输入不受信任",
+    "records.rapidjson-regex.body": "CVE-2026-116620表示 RapidJSON 1.1.0及后续正则表达式解析器中报告了越界读取事件。虽然开发者问题2401已得到审查，但尚未确认最低修复版本。但这并不意味着所有使用 JSON 的应用程序都必然容易受到攻击。",
+    "records.rapidjson-regex.action": "我们将考察将外部输入传递给正则表达式/模式处理的实际路径，并考虑大小和执行资源限制、隔离以及修改提交。我们还将清点产品附带的副本。",
+    "records.rapidjson-regex.time": "10:19 JST NVD 录制",
+    "records.msrc-index-revisions.title": "MSRC： 10每月 CVRF 注册/修订，与发货时间分开。",
+    "records.msrc-index-revisions.body": "微软的10月度 CVRF 现在包含35新的 Windows 版本和7现有版本。这些记录更新（包括 GitLab、Wasmtime、Chromium、SSL 等）并不代表35攻击或微软产品的新补丁版本发布。各个版本索引与原始版本一起保存。",
+    "records.msrc-index-revisions.action": "请将当前使用的产品与已发布的版本号 (FixedBuild) 和更新历史记录逐一进行比较。不要想当然地认为 Edge 等产品的过往版本号就是当前推荐的最新版本；而应查看当前的发行渠道和发布信息。",
+    "records.msrc-index-revisions.time": "10:46 JST 文档已更新（ 01:46:22 UTC）",
+    "records.continuing-response.title": "持续支持：不要将恢复、CA 修复和 Tailworm 修复混淆。",
+    "records.continuing-response.body": "ConnectWise、SoftBank、Tailscale、eMudhra 和 Fortinet 的选择文本与之前保存的版本一致。Tailworm 的最低版本号尚未最终确定。Tailscale v1.104.2的 CA 处理尚不能确定是否为 Tailworm 的修复。此次 .NET Brotli 的官方问题也不是 Windows 的新版本。",
+    "records.continuing-response.action": "ConnectWise 目标连接将保持禁用状态，直到相应的流程完成。.NET 会区分共享运行时更新和重启、独立重建和重新部署，以及 NativeAOT 重新发布和重新部署。源代码匹配并不能证明全球范围内不存在更新和漏洞利用。",
+    "records.continuing-response.time": "18:49从 JST 开始重新获取数据（不是新的差分数据）",
+    "caveats.0": "检索标准为2026 - 10 - 27 18:47 JST。检索基于18:49 JST 及之后的当前修订版，并不完全恢复原始出版时的文本。",
+    "caveats.1": "所有 NVD 发布的89条目均被复制到修改后的192条目中，包括被拒绝的1条目。发布时间和修订时间并非攻击开始时间或修正版本首次发货时间。",
+    "caveats.2": "GHSA 公开发布的127条目包括未经审核的125 / 恶意软件2 / 已审核的0 __。__ 88条目本次为 NVD（新漏洞报告）， 37条目与之前的 NVD 和 CVE 重复。修订后的181条目包含所有已公开发布的127条目。事件总数并非通过将所有条目相加计算得出。",
+    "caveats.3": "KEV 版本为2026.10.26 ，包含1和758个条目，而上次保存的原始版本存在2个 PHP 条目差异。dateReleased 早于此窗口的开始时间，且 Git 提交发生在此窗口内。其他原始版本发布时间和攻击开始时间尚未确定。",
+    "caveats.4": "GMO 将信息的公开确认与其内容的真实性分开，截至13:55 ，勒索软件的状态仍为未确认。__ 9报告的11:59更正和11:52历史记录部分仍然存在时间差异。",
+    "caveats.5": "Fireblocks 区分1方的祖先份额和可花费私钥，并且不提供供应商修改。它不配置假设的修改版本。",
+    "caveats.6": "Kubernetes、DOMPurify、vsomeip、Psono 等工具包含以往的修复和披露信息。这些注册和国内通报并不意味着它们都代表发现了新的漏洞或新的攻击手段。",
+    "caveats.7": "OpenPanel 的 CNA 版本边界与部分 GHSA 开发人员的提交/空补丁字段存在差异，因此需要验证部署提交。Supermicro 18449优先考虑主要内容，并保留在 NVD 中重复解释的权利。",
+    "caveats.8": "Fortinet PSIRT 403 、Moxa/Apache 请求体检索不完整、旧的 IPA URL 404 、研究文档重定向循环等均被记录为失败。检索失败不会被重新分类为漏洞/更新0项。",
+    "caveats.9": "这包括检索所有 API 页面并将其与选定的主要来源进行交叉引用；它并不代表涵盖全球所有事件和漏洞的全面统计数据。",
+    "report.title": "10 18:47晚间检查事件更新和漏洞对策27",
+    "report.headline": "已公开的事项、已解决的事项以及仍未知的事项。",
+    "report.intro": "本文档汇编了 GMO 报告8至11 、PAN-OS 发货状态、GROWI、Sleipnir、MPC、Kubernetes、AI、BMC 甚至恶意软件包的主要来源和条件对策。",
+    "quick.0.title": "转基因生物使用者：隔离及防止二次损害的措施",
+    "quick.0.text": "目前正在对声称已公开的信息进行审核。我们将把这些信息与未经证实的勒索软件区分开来，并确认官方的设备隔离情况以及与相关人员的联系。",
+    "quick.0.label": "转基因生物后续报告及行动",
+    "quick.1.title": "公共服务器和管理设备",
+    "quick.1.text": "审查 PAN-OS 4热修复程序、GROWI 8.0.7热修复程序、Kubernetes 系列特定修复程序以及 BMC 管理方面的问题。将计划部署、实际部署和漏洞调查任务分开处理。",
+    "quick.1.label": "运输和使用条款",
+    "quick.2.title": "密钥、身份验证和加密",
+    "quick.2.text": "Fireblocks 将1方的共享层级和阈值分开。Psono、Mendix 和 Qt 也匹配所使用的功能和修改顺序。",
+    "quick.2.label": "机密信息和授权",
+    "quick.3.title": "人工智能、软件包、支付",
+    "quick.3.text": "我们分别检查了 Mistral Vibe 工作树、GGUF 和清理模式、特定恶意软件包以及结算通知中的空密钥。",
+    "quick.3.label": "实施与执行路线",
+    "ui.title": "事件与漏洞调查数据",
+    "ui.intro": "这是基于公开一手资料的调查记录。整理时保留了条件与限定说明，并可追溯至官方说明。",
+    "ui.cutoff": "调查基准时间",
+    "ui.actions": "需要核实的事项",
+    "ui.sources": "一手资料与来源",
+    "ui.delta": "本次核实的登记信息及安全公告更新",
+    "ui.scope-complement": "现有事件的应对措施及条件补充",
+    "ui.reference-only": "公开时间等尚未确定的参考信息",
+    "ui.notice": "本译文由Codex进行AI翻译，未经母语使用者校阅。请将产品名称、版本、配置及应对措施与原文和官方说明核对。",
+    "ui.original": "日文原文",
+    "ui.data": "以JSON格式获取翻译数据",
+    "ui.home": "前往动效",
+    "ui.languages": "选择语言",
+    "ui.evidence": "获取的原始资料与调查方法",
+    "ui.counts": "此处涉及的要点数量并非新增受害事件的数量。",
+    "ui.pending": "正在准备翻译数据。"
+  },
+  "database": {
+    "cutoff": "2026-10-27T09:47:00Z",
+    "cutoff_jst": "2026-10-27T18:47:00+09:00",
+    "delta_start": "2026-10-26T22:47:00Z",
+    "counts": {
+      "nvd_published": 89,
+      "nvd_modified": 192,
+      "published_modified_overlap": 89,
+      "ghsa": 127,
+      "ghsa_unreviewed": 125,
+      "ghsa_reviewed": 0,
+      "ghsa_malware": 2,
+      "ghsa_modified": 181,
+      "ghsa_published_modified_overlap": 127,
+      "ghsa_current_published_overlap": 88,
+      "ghsa_previous_published_overlap": 37,
+      "record_topic_groups": 29,
+      "delta_topic_groups": 27,
+      "scope_complement_topic_groups": 2,
+      "reference_only_topic_groups": 0,
+      "nvd_rejected_records": 1,
+      "verified_response_records": 146,
+      "deduplicated_previous_references": 27
+    },
+    "kev": {
+      "catalog_version": "2026.10.26",
+      "count": 1758,
+      "same_bytes": false,
+      "added_ids": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ]
+    },
+    "caveats": [
+      "检索标准为2026 - 10 - 27 18:47 JST。检索基于18:49 JST 及之后的当前修订版，并不完全恢复原始出版时的文本。",
+      "所有 NVD 发布的89条目均被复制到修改后的192条目中，包括被拒绝的1条目。发布时间和修订时间并非攻击开始时间或修正版本首次发货时间。",
+      "GHSA 公开发布的127条目包括未经审核的125 / 恶意软件2 / 已审核的0 __。__ 88条目本次为 NVD（新漏洞报告）， 37条目与之前的 NVD 和 CVE 重复。修订后的181条目包含所有已公开发布的127条目。事件总数并非通过将所有条目相加计算得出。",
+      "KEV 版本为2026.10.26 ，包含1和758个条目，而上次保存的原始版本存在2个 PHP 条目差异。dateReleased 早于此窗口的开始时间，且 Git 提交发生在此窗口内。其他原始版本发布时间和攻击开始时间尚未确定。",
+      "GMO 将信息的公开确认与其内容的真实性分开，截至13:55 ，勒索软件的状态仍为未确认。__ 9报告的11:59更正和11:52历史记录部分仍然存在时间差异。",
+      "Fireblocks 区分1方的祖先份额和可花费私钥，并且不提供供应商修改。它不配置假设的修改版本。",
+      "Kubernetes、DOMPurify、vsomeip、Psono 等工具包含以往的修复和披露信息。这些注册和国内通报并不意味着它们都代表发现了新的漏洞或新的攻击手段。",
+      "OpenPanel 的 CNA 版本边界与部分 GHSA 开发人员的提交/空补丁字段存在差异，因此需要验证部署提交。Supermicro 18449优先考虑主要内容，并保留在 NVD 中重复解释的权利。",
+      "Fortinet PSIRT 403 、Moxa/Apache 请求体检索不完整、旧的 IPA URL 404 、研究文档重定向循环等均被记录为失败。检索失败不会被重新分类为漏洞/更新0项。",
+      "这包括检索所有 API 页面并将其与选定的主要来源进行交叉引用；它并不代表涵盖全球所有事件和漏洞的全面统计数据。"
+    ],
+    "records": [
+      {
+        "id": "gmo-publication",
+        "title": "GMO：将公众确认与内容/攻击确认区分开来。",
+        "time": "12:30确认 / 13:55公开信息 / 14:55 JST 后续报告",
+        "body": "报告10解释说，它已与12:30确认了据称与公司及其客户相关的信息泄露事件。该信息的内容仍在核实中，可能并非事实。截至13:55 ，尚未确认发生勒索软件攻击。报告9解释说，在分析的终端上未发现恶意软件，但这并不意味着所有终端都已确认安全。",
+        "action": "根据11通知，请勿访问、转发或传播指向公开信息的链接。如果您已经访问过这些信息，请仔细阅读官方说明，切勿回应任何索要密码、验证码或金钱的要求。",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GMO第10報",
+            "url": "https://group.gmo/info/alert/2026102703/"
+          },
+          {
+            "name": "GMO第11報",
+            "url": "https://group.gmo/info/alert/2026102704/"
+          },
+          {
+            "name": "GMO第9報",
+            "url": "https://group.gmo/info/alert/2026102702/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "gmo-endpoint-isolation",
+        "title": "GMO：按执行顺序进行设备隔离和账户保护",
+        "time": "09:58截至 / 10:56 JST 新增/更正",
+        "body": "报告8要求继续调查并予以配合，同时敦促客户在备份后断开网络连接、关闭电源并拔掉所有连接到电脑的线缆。报告9的标题已更正为11:59 ，但历史记录部分仍为11:52 ，导致初始发布时间存在差异。",
+        "action": "请查看官方的个人使用指南，并根据指南进行数据备份，同时隔离指定设备。请勿在其他受信任的设备上登录您的帐户，并在调查完成前不要恢复浏览器同步或连接。",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GMO第8報",
+            "url": "https://group.gmo/info/alert/20261027/"
+          },
+          {
+            "name": "GMO第9報",
+            "url": "https://group.gmo/info/alert/2026102702/"
+          },
+          {
+            "name": "GMO第6報",
+            "url": "https://group.gmo/info/alert/20261026/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "railway-registration",
+        "title": "铁路：新车登记仍暂停；恢复日期未定。",
+        "time": "12:22 JST（ 03:22 UTC 状态）",
+        "body": "官方声明与上次保持一致，明确指出没有发生其他安全事件。他们解释说，他们优先考虑现有客户的信任，并将继续暂停新用户注册，目前无法确定重新开放的日期。博文内容与之前的原文完全相同。",
+        "action": "受影响的用户将继续撤销并重新发布其存储的密钥，并审核 GitHub 注册表。服务恢复并不保证旧密钥的安全性。下一次计划更新为10 / 28 00:00 。JST 表示参考时间之后的时间。",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "Railway status",
+            "url": "https://status.railway.com/"
+          },
+          {
+            "name": "Railway一次報告",
+            "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "pan-hotfix",
+        "title": "PAN-OS：已确认10.2 、 12.1和12.2系列的4热修复程序已发布。",
+        "time": "09:10 / 13:03 JST（官方时间表）",
+        "body": "PHP 建议的 JSON 会从09:10中移除10.2.13-h27和10.2.16-h12的预计交付日期 (ETA)，并从13:03中移除12.1.7-h11和12.2.4-h1的预计交付日期 (ETA)，表明它们已交付。其他系列（例如11.2.13-h4 ）中的预计交付日期 (ETA) 仍然保留。仅刷新 RSS 源不足以检查是否存在新的滥用行为。",
+        "action": "请将您的 PAN-OS 版本与目标功能进行匹配，并参考官方热修复程序。检查计划发布日期、实际可用性、更新状态以及侵权调查情况。请勿将其他版本的版本号作为通用修复程序应用。",
+        "cve_ids": [
+          "CVE-2026-109618",
+          "CVE-2026-109619"
+        ],
+        "sources": [
+          {
+            "name": "PAN公式勧告",
+            "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+          },
+          {
+            "name": "PAN JSON timeline",
+            "url": "https://security.paloaltonetworks.com/json/CVE-2026-109618"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "kev-php",
+        "title": "原始 KEV 归档包含 PHP 2差异记录，与攻击开始时间分开。",
+        "time": "10:13 JST Git 提交/目录发布日期为07:24 JST",
+        "body": "CISA 关键漏洞报告 (KEV) 包括版本2026.10.26 、 1和758 。自上次保存原始版本以来，新增了一个 PHP CVE，即2 。“取证分类”设置为“是”，“已知勒索软件活动用途”设置为“未知”。目录的发布日期早于此窗口的开始时间，而官方 Git 提交则在此窗口内，因此无法直接匹配原始发布时间。",
+        "action": "我们将优先修复 PHP 和捆绑产品的官方漏洞，同时也会检查是否存在入侵迹象和现有凭证。关键漏洞报告 (KEV) 的收录是确定已知漏洞的优先标准，但这并不能证明新增受害者的数量或是否存在勒索软件。",
+        "cve_ids": [
+          "CVE-2026-109618",
+          "CVE-2026-109619"
+        ],
+        "sources": [
+          {
+            "name": "CISA公式KEV原本",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+          },
+          {
+            "name": "公式Git更新",
+            "url": "https://github.com/cisagov/kev-data/commit/e7b48852252704fb12c28f1c9fc656dc99286c27"
+          }
+        ],
+        "kind": "scope-complement",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "growi-authorization",
+        "title": "GROWI：查看修订和同时编辑授权边界",
+        "time": "14:18 JST 开发者版本 / 15:00 JST JVN",
+        "body": "CVE-2026-105272 / 109848通过使用已知的页面修订 ID 等信息绕过对正文和评论的授权。__ 115624仅检查同时编辑的查看权限，允许未经身份验证的访客重写公开页面上的草稿。这并不意味着访客可以直接保存修订，而是指合法编辑者可以通过后续保存引入修订。",
+        "action": "请继续执行 GROWI 8.0.7及后续步骤。“拒绝访客访问”仅针对未经身份验证的访客，并非针对已登录只读用户的彻底解决方案。保存前请检查公共页面的草稿。",
+        "cve_ids": [
+          "CVE-2026-105272",
+          "CVE-2026-109848",
+          "CVE-2026-115624"
+        ],
+        "sources": [
+          {
+            "name": "JVN#51223238",
+            "url": "https://jvn.jp/jp/JVN51223238/index.html"
+          },
+          {
+            "name": "開発元draft勧告",
+            "url": "https://github.com/growilabs/growi/security/advisories/GHSA-3v2v-8q3r-mhm4"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "sleipnir-android",
+        "title": "Sleipnir Android：谨防虚假地址栏",
+        "time": "12:00 JST JVN（修订后的发货单为10 / 15 ）",
+        "body": "CVE-2026-109434是 Sleipnir Mobile 安卓版中的一个 UI 欺骗漏洞，其危害程度低于3.9.0 。当用户浏览精心构造的页面时，可能会通过伪造的地址栏等方式进行网络钓鱼。开发者发布的3.9.0公告针对的是10 / 15 ，而非今天发布的新补丁。",
+        "action": "将 Android 版本更新至3.9.0或更高版本，并在全屏模式下验证域名和终止方式。请勿将此方法推广至 Windows/iOS 版本。",
+        "cve_ids": [
+          "CVE-2026-109434"
+        ],
+        "sources": [
+          {
+            "name": "JVN#90463048",
+            "url": "https://jvn.jp/jp/JVN90463048/index.html"
+          },
+          {
+            "name": "開発元3.9.0",
+            "url": "https://www.fenrir-inc.com/jp/news/2026/10/15/sleipnir-mobile-for-android-3-9-0/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "fireblocks-share-boundary",
+        "title": "Fireblocks mpc-lib： 1方祖先共享和完整私钥是分开的。",
+        "time": "10:30 JST JVN（证书修订版为07:45 JST）",
+        "body": "CVE-2026-90975是一个 BIP（区块信息程序）问题，当父密钥不可用时， 32强化派生会回退到零。攻击者如果获取了后代签名者份额和链码，就有可能获取到同一 MPC 方的祖先/根份额。阈值层仍然存在，并且没有说明可以独立获取可花费的私钥。CERT 报告中没有提供修复方案。",
+        "action": "链码将作为机密信息进行保护，不会通过仅供监视的扩展公钥等方式分发。强化派生不会作为份额间隔离的保证，一旦发生叶子份额泄露事件，将对整个参与方层级进行调查。未经验证的补丁编号不会用于确定其适用性。",
+        "cve_ids": [
+          "CVE-2026-90975"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90547696",
+            "url": "https://jvn.jp/vu/JVNVU90547696/index.html"
+          },
+          {
+            "name": "CERT VU#701544",
+            "url": "https://kb.cert.org/vuls/id/701544"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "vsomeip-resource-limit",
+        "title": "COVESA vsomeip：在接收数据之前限制内存分配。",
+        "time": "10:30 JST JVN（更正： 7 / 6 ）",
+        "body": "CVE-2026-91141是一种拒绝服务 (DoS) 攻击，它强制低于3.7.3级别的可靠 TCP 端点在确认接收之前预留指定大小的缓冲区。默认情况下，每个连接最多可以指定约4 GB 的缓冲区大小。已明确设置大小限制的配置不受影响，连接到恶意服务器的客户端也可能受到影响。",
+        "action": "请更新至3.7.4或更高版本。如果更新困难，请设置适当的限制，例如最大有效载荷大小（可靠）以及限制与受信任对等节点的通信。请勿将来自3.7.4的7 / 6数据包计入今天的新修复或攻击观测结果中。",
+        "cve_ids": [
+          "CVE-2026-91141"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90363302",
+            "url": "https://jvn.jp/vu/JVNVU90363302/index.html"
+          },
+          {
+            "name": "CERT VU#128947",
+            "url": "https://kb.cert.org/vuls/id/128947"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "mendix-saml",
+        "title": "Mendix SAML：重新匹配先前不完整的序列",
+        "time": "10:15 JST JVN 汇总更新 / 供应商10 / 26仅日期",
+        "body": "SSA-__ 887643在10 / 26与1.1对比中解释说，之前针对CVE-2026-80465修复并不完整。SSA-__ 137528和CVE-2026-89209通过重新发送有效的 SAML 断言来绕过 IdP 发起的 SSO 身份验证。JVN 中新增的20和更新的22是10月的累积情况，并非今天42的新案例。",
+        "action": "Mendix 9系列 SAML 模块（ 3.6.29及更高版本）和10 / 11系列（ 4.2.4及更高版本）均按系列进行检查。请勿将主版本与模块版本混淆。__ 89209的临时解决方案是禁用 IdP 发起的 SSO。供应商发布时间本身并不一定固定在上述范围内。",
+        "cve_ids": [
+          "CVE-2026-80465",
+          "CVE-2026-89209"
+        ],
+        "sources": [
+          {
+            "name": "JVNVU#90141693",
+            "url": "https://jvn.jp/vu/JVNVU90141693/index.html"
+          },
+          {
+            "name": "SSA-887643",
+            "url": "https://cert-portal.siemens.com/productcert/html/ssa-887643.html"
+          },
+          {
+            "name": "SSA-137528",
+            "url": "https://cert-portal.siemens.com/productcert/html/ssa-137528.html"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "kubernetes-boundaries",
+        "title": "Kubernetes：命名空间边界和 Windows NTLM 分别进行验证",
+        "time": "08:17 JST NVD 已包含（ 9 / 14的首次公开发布）",
+        "body": "CVE-2026-2270是一个混乱的代理，它会根据 StatefulSet 和 ControllerRevision 命名空间内的写入操作创建一个跨命名空间的 Pod。持久化 Pod 还存在一些限制条件，例如受害者 StatefulSet 的 UID。__ 76654是一个问题，其中 NetNTLMv 2可能通过 Windows kubelet 子路径 UNC 符号链接暴露出来，并且中继和欺骗条件会因域加入等因素而异。",
+        "action": "请使用官方流程，对1.34.12 / 1.35.9 / 1.36.5 / 1.37.1及之后的每个系列应用更新。请分别更新控制器管理器和 Windows kubelet 的目标，并检查命名空间写入权限以及 Windows 的出站 SMB 连接。今天不会将此视为首次公开发布。",
+        "cve_ids": [
+          "CVE-2026-2270",
+          "CVE-2026-76654"
+        ],
+        "sources": [
+          {
+            "name": "Kubernetes公式2270",
+            "url": "https://github.com/kubernetes/kubernetes/issues/142097"
+          },
+          {
+            "name": "Kubernetes公式76654",
+            "url": "https://github.com/kubernetes/kubernetes/issues/142098"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "airflow-ssh",
+        "title": "Airflow SSH 提供程序：从触发输入到远程 shell",
+        "time": "09:17 JST NVD 录制",
+        "body": "对于 apache-airflow-providers-ssh， CVE-2026-111422值小于7.0.1 。在 DAG 将参数和 dag_run.conf 映射到 SSHRemoteJobOperator 环境的配置中，具有触发权限的用户可以以 SSH 连接用户的身份执行命令。已检查 CNA 记录，但供应商文本检索不完整。",
+        "action": "检查 SSH 提供程序7.0.1及更高版本中的修复程序。不要仅仅依赖 Airflow 版本；还要检查将触发输入传递给环境的 DAG 以及 SSH 连接的最低权限。",
+        "cve_ids": [
+          "CVE-2026-111422"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-111422",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111422"
+          },
+          {
+            "name": "Apache告知",
+            "url": "https://lists.apache.org/thread/k159xrq1tbgmkvl24j63g12qh0mczk79"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "dompurify-modes",
+        "title": "DOMPurify：在非默认模式下匹配3路由",
+        "time": "09:17 JST NVD 已包含（由10 / 12开发并发布）",
+        "body": "CVE-2026-116802 / 803小于3.4.17 ， 804小于3.4.4 ~ 3.4.16 。XHTML 和 SVG 动画、通过 IN_PLACE 钩子分离节点、SAFE_FOR_TEMPLATES 以及 DOM 输出/影子根都有各自的条件。但这并不能解释为什么在所有默认配置下都会无条件地发生 XSS 攻击。",
+        "action": "更新至3.4.17及更高版本，并验证实际的解析器、钩子和模板处理。同时检查清理和后续模板评估后的 DOM 操作。不要隐藏开发者的低评分或10 / 12的发布信息，并将其与当前数据库包含情况分开。",
+        "cve_ids": [
+          "CVE-2026-116802",
+          "CVE-2026-116803",
+          "CVE-2026-116804"
+        ],
+        "sources": [
+          {
+            "name": "開発元802",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-c6gr-qvv4-5v3f"
+          },
+          {
+            "name": "開発元803",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-mrv2-3pqr-j5jr"
+          },
+          {
+            "name": "開発元804",
+            "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cg2g-xh64-v4q7"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "mistral-worktree",
+        "title": "密斯特拉尔氛围：在信任确认之前创建工作树的条件。",
+        "time": "10:19 JST NVD 录制",
+        "body": "CVE-2026-116843的 CNA 值低于3.0.3 。在不受信任的仓库中，当使用 `--worktree` 参数启动时，`.git/config` 中的 Git 过滤器驱动程序会在信任验证之前被调用，因此命令可能以执行用户的权限运行。请检查是否存在修复版本。",
+        "action": "请更新至3.0.3或更高版本，并且不要无条件地对未知仓库执行 Git 设置和过滤器。不要将运行 AI 代理程序时使用单独的工作树视为唯一的安全措施。",
+        "cve_ids": [
+          "CVE-2026-116843"
+        ],
+        "sources": [
+          {
+            "name": "Vibe3.0.3",
+            "url": "https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3"
+          },
+          {
+            "name": "開発元修正",
+            "url": "https://github.com/mistralai/mistral-vibe/commit/7bb48f213ac677f943d5c791199ed3dddf302f00"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "psono-permissions",
+        "title": "Psono：API密钥、设备和WebAuthn之间的边界",
+        "time": "15:17 JST NVD / 10 / 27建议（修订版7 / 30 ）",
+        "body": "CVE-2026-117468至117472涵盖了从每个初始版本到7.2.3它们处理受限 API 会话中的设备代码权限提升、文件凭证方向检查、WebAuthn 质询重用、Duo 主机输入以及 URL_PREFIX 期间的读/写检查。对于 WebAuthn，获取密码和有效断言是必要条件；而对于 URL_PREFIX，加密数据会使用特殊的 API 密钥权限进行访问。",
+        "action": "检查 Psono Server 的7.2.4及更高版本，并清点 API 密钥权限、设备代码、URL_PREFIX 和外部文件存储库。将新披露的内容与已修正的7 / 30版本区分开来，不要将其视为所有人都能访问的明文保险库泄露。",
+        "cve_ids": [
+          "CVE-2026-117468",
+          "CVE-2026-117469",
+          "CVE-2026-117470",
+          "CVE-2026-117471",
+          "CVE-2026-117472"
+        ],
+        "sources": [
+          {
+            "name": "Psono開発元勧告468",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117468.md"
+          },
+          {
+            "name": "Psono開発元勧告470",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117470.md"
+          },
+          {
+            "name": "Psono開発元勧告472",
+            "url": "https://gitlab.com/esaqa/esaqa/security-advisories/-/raw/master/advisories/CVE-2026-117472.md"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "qt-codecs",
+        "title": "Qt：NTLM 身份验证和 TSCII 转换的另一个问题",
+        "time": "16:16 / 17:16 JST NVD 录制",
+        "body": "CVE-2026-105946受 Qt Network NTLM 的影响，导致堆信息泄露和程序崩溃。__ 6.8.0至6.8.9和6.9.0至6.11.1已由6.8.10 、 6.11.2和6.12.0修复。__ 107472受 QTextCodec TSCII 转换的影响，导致4.0.0至6.8.8和6.9.0至6.11.2出现问题，并已由6.8.9 、 6.11.3和6.12.0修复。根据文档， 6.8以下的 NTLM 影响未知。",
+        "action": "检查应用程序使用的 Qt 库和目标 API，然后更正使用顺序。分别检查 NTLM 服务器/代理和 TSCII 输入的条件，不要以为修正其中一个就能解决另一个问题。",
+        "cve_ids": [
+          "CVE-2026-105946",
+          "CVE-2026-107472"
+        ],
+        "sources": [
+          {
+            "name": "Qt公式脆弱性一覧",
+            "url": "https://wiki.qt.io/List_of_known_vulnerabilities_in_Qt_products"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "supermicro-bmc",
+        "title": "Supermicro BMC：检查管理会话、密钥和权限。",
+        "time": "17:16 / 18:16 JST NVD 已包含（开发日期10 / 26 ）",
+        "body": "CVE-2026-18450是由于活动 RMCP+ 会话的完整性/加密要求不足造成的。据开发者称， 18449是一个硬编码的 SMCRAKP 密钥和密码哈希攻击，修正了 NVD 中18450的冗余解释。__ 65219 / 65220是会话和权限要求，而65210 / 65211 / 65213需要 IPMI 管理员权限。__ 16521的 syslog 命令注入需要高权限身份验证并重启相关服务。",
+        "action": "BMC/IPMI 仅限于受信任的管理网络，并且会检查每个型号的固件表。例如，X 13 DEG-QT 01.08.16是特定型号的，并非所有产品都通用；X 12 DGU 待定。并非所有漏洞都会被归类为未经身份验证的攻击。",
+        "cve_ids": [
+          "CVE-2026-18449",
+          "CVE-2026-18450",
+          "CVE-2026-18451",
+          "CVE-2026-65210",
+          "CVE-2026-65211",
+          "CVE-2026-65213",
+          "CVE-2026-65219",
+          "CVE-2026-65220",
+          "CVE-2026-16521"
+        ],
+        "sources": [
+          {
+            "name": "Supermicro公式1",
+            "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_1"
+          },
+          {
+            "name": "Supermicro公式2",
+            "url": "https://www.supermicro.com/en/support/security_BMC_IPMI_Oct_2026_2"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "fortios-management",
+        "title": "FortiOS：HTTPS 管理界面遭受 DoS 攻击（修复程序尚未验证）",
+        "time": "16:16 JST NVD 录制",
+        "body": "Fortinet CNA 中关于CVE-2026-106174的记录是8.0.0 / 7.6.4 ~ 7.6.6 ，描述了未经身份验证的攻击者通过网络对 HTTPS 管理接口发起的拒绝服务 (DoS) 攻击。无法获取403的官方 PSIRT 文本，且其最低补丁版本尚未经过独立验证。",
+        "action": "为最大限度减少 HTTPS 管理信息的泄露，管理员应验证所用系列的 FG-IR-__ 26至181 。最低修正版本将由官方支持人员进行验证。此版本也将与多个产品的现有加固版本区分开来。",
+        "cve_ids": [
+          "CVE-2026-106174"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-106174",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106174"
+          },
+          {
+            "name": "Fortinet PSIRT（取得403）",
+            "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-181"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "moxa-conditions",
+        "title": "Moxa：MRC 和 OnCell 的 CNA 要求，待原文核实。",
+        "time": "17:16 JST NVD 录制",
+        "body": "CNA 将CVE-2026-111459列为 MRC 客户端的证书验证， 111460列为 OnCell G， 3150列为使用 A-LTE 共享密钥的设备模拟， 111461列为同一系列的短信管理命令注入。请勿仅根据参考 URL 中的产品名称将3项分配给同一产品。由于无法获取官方文档，因此固件版本尚未确认。",
+        "action": "将 MRC 客户端/OnCell 作为独立资产进行验证，并检查短信管理激活情况、所需权限和通信路径。限制管理访问权限，并与 Moxa 官方支持人员再次确认目标产品和已打补丁的版本。",
+        "cve_ids": [
+          "CVE-2026-111459",
+          "CVE-2026-111460",
+          "CVE-2026-111461"
+        ],
+        "sources": [
+          {
+            "name": "NVD・CNA記録 CVE-2026-111459",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111459"
+          },
+          {
+            "name": "NVD・CNA記録 CVE-2026-111460",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111460"
+          },
+          {
+            "name": "Moxa公式参照（本文取得未完）",
+            "url": "https://www.moxa.com/en/support/product-support/security-advisory/mpsa-269510-cve-2026-111459-cve-2026-111460-cve-2026-111461-vulnerabilities-in-moxa-remote-connect-suite-mrc-client"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "malware-camera-ui",
+        "title": "举报特定 Windows 版本的 npm camera-ui 软件包为恶意软件。",
+        "time": "16:54 JST GHSA 发布",
+        "body": "GHSA-2w7v-jwxh-w7wc将 @camera.ui/camera-ui-nvr-windows-amd、 64和1.6.1报告为恶意软件。补丁版本字段为空。请勿将此情况概括为整个 camera.ui 组件已被攻破，两者并无关联。",
+        "action": "锁定文件、CI工件和部署历史记录用于将名称与1.6.1进行匹配。部署和执行恶意软件的主机已根据建议进行隔离，并且从其他安全终端可访问的密钥已被撤销并重新颁发。仅删除软件包不足以从安全漏洞中恢复。",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GHSA悪性package報告",
+            "url": "https://github.com/advisories/GHSA-2w7v-jwxh-w7wc"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "malware-pypi",
+        "title": "PyPI：h 13 t 0 ry-hello-demo 导入反向 shell 报告",
+        "time": "15:31 JST GHSA 发布",
+        "body": "GHSA-5crq-52j9-fc74在导入 h 13 t 0 ry-hello-demo 0.1.0时报告反向 shell 错误。未列出已修复的版本。但这并不意味着 PyPI 整体或其他软件包受到影响。",
+        "action": "检查相关版本的安装和导入历史记录，并考虑隔离执行环境、保存日志和设置密钥过期时间。在验证安全性之前，请勿重复使用相同的镜像或缓存。请勿为了验证目的下载或运行恶意软件。",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "GHSA悪性package報告",
+            "url": "https://github.com/advisories/GHSA-5crq-52j9-fc74"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "openpanel-isolation",
+        "title": "OpenPanel：租户边界、员工风险暴露、机密信息",
+        "time": "09:17 JST NVD 已包含（由10 / 11开发，此前已发布）",
+        "body": "14 CVE 包括租户 SQL、公共 WebSocket、Bull Board 工作面板、Webhook JavaScript 沙箱以及凭据和日志泄露。虽然 CNA 使用3.0.0以下的版本作为边界，但一些开发者（例如 GHSA）维护提交范围和空的 patched_versions，而且发布时的文本也已过时。仅凭版本号无法断定修复是否已完成。",
+        "action": "限制对 worker/Bull Board 和不必要的 WebSocket 连接的访问，并验证已修复的镜像摘要、修改提交和实际部署。单独调查已暴露的摄取/集成密钥和数据库连接信息的过期情况，以及日志调查。",
+        "cve_ids": [
+          "CVE-2026-116805",
+          "CVE-2026-116806",
+          "CVE-2026-116807",
+          "CVE-2026-116808",
+          "CVE-2026-116809",
+          "CVE-2026-116810",
+          "CVE-2026-116811",
+          "CVE-2026-116812",
+          "CVE-2026-116813",
+          "CVE-2026-116814",
+          "CVE-2026-116815",
+          "CVE-2026-116817",
+          "CVE-2026-116818",
+          "CVE-2026-116819"
+        ],
+        "sources": [
+          {
+            "name": "開発元WebSocket勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-8wr9-x797-f238"
+          },
+          {
+            "name": "開発元worker勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-r627-6vrh-65p9"
+          },
+          {
+            "name": "開発元sandbox勧告",
+            "url": "https://github.com/Openpanel-dev/openpanel/security/advisories/GHSA-mc99-9jf5-22cq"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "yeswiki-signature",
+        "title": "YesWiki：签名准确性和防止重放是两个不同的问题。",
+        "time": "09:17 JST NVD 已包含（由10 / 12开发，此前已发布）",
+        "body": "CVE-2026-116820至116828涉及 SQL 信息泄露、ACL 通配符攻击、模板遍历、XSS 攻击、签名重放、管理员 SSRF 攻击等。__ 116825及4.6.2之后，由于缺少日期新鲜度和防止重复执行的机制，允许重新发送过去有效的 ActivityPub 签名请求。这并非签名伪造问题。",
+        "action": "继续使用 YesWiki 的4.7.0及更高版本。不仅要检查签名和参与者所有权，还要检查其新鲜度和去重情况，并避免发布已签名的请求日志，例如反向代理日志。分别处理需要管理员权限的 SSRF 攻击和未经身份验证的 XSS 攻击。",
+        "cve_ids": [
+          "CVE-2026-116820",
+          "CVE-2026-116821",
+          "CVE-2026-116822",
+          "CVE-2026-116823",
+          "CVE-2026-116824",
+          "CVE-2026-116825",
+          "CVE-2026-116826",
+          "CVE-2026-116827",
+          "CVE-2026-116828"
+        ],
+        "sources": [
+          {
+            "name": "開発元署名replay勧告",
+            "url": "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-7m9j-h553-397x"
+          },
+          {
+            "name": "開発元ACL勧告",
+            "url": "https://github.com/YesWiki/yeswiki/security/advisories/GHSA-q5j6-79p7-mp94"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "llama-gguf",
+        "title": "llama.cpp：模型文件和标记输入之间的边界",
+        "time": "10:19 JST NVD 记录（包括2024 / 2025编号）",
+        "body": "这包括 GGUF 张量偏移/特殊标记 ID 的出站读取、PLAMO 分词器堆写入以及 GGUF 形状/大小整数溢出的6实例。修正后的边界依次为 b 2731 / b 3701 / b 5649 / b 10261 / b 11301 / b 11275 。由于它还包含来自旧修复程序的新 CVE，因此今天不会将其视为6新的远程代码执行漏洞。",
+        "action": "每次修改提交都会对当前构建版本进行比对，不受信任的GGUF将在隔离的低权限环境中处理。接受任意令牌ID的API将被限制。模型仅包含权重并不能保证其安全性。",
+        "cve_ids": [
+          "CVE-2024-58399",
+          "CVE-2024-58400",
+          "CVE-2025-71439",
+          "CVE-2026-116816",
+          "CVE-2026-116829",
+          "CVE-2026-116840"
+        ],
+        "sources": [
+          {
+            "name": "開発元b11301",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11301"
+          },
+          {
+            "name": "開発元b10261",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10261"
+          },
+          {
+            "name": "開発元b11275",
+            "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11275"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "wordpress-payments",
+        "title": "WooCommerce Payments：空密钥和 Webhook 的真实性",
+        "time": "15:17 / 16:16 JST NVD 录制",
+        "body": "据报道，Wompi（使用4.0.1 、Payex（使用1.2.10 ）、TiendaCrypto（使用1.2.1和 PayDunya（使用1.1.6的通知验证存在问题，包括密钥未设置或为空。TiendaCrypto 始终使用空密钥，而其他几个平台则使用不同的初始设置。本次调查未能找到统一的修复版本。",
+        "action": "我们将检查相关支付网关的使用情况、配置和供应商修改情况，并考虑禁用无法解决的通知路由。我们不会仅根据订单的付款状态发货，而是会将其与支付提供商端的交易结果进行交叉核对。我们不会认为设置密钥就能解决所有问题。",
+        "cve_ids": [
+          "CVE-2026-103312",
+          "CVE-2026-103332",
+          "CVE-2026-103325",
+          "CVE-2026-103359"
+        ],
+        "sources": [
+          {
+            "name": "WPScan Wompi",
+            "url": "https://wpscan.com/vulnerability/617a62de-f7d6-461e-bbf2-db6092a3346f/"
+          },
+          {
+            "name": "WPScan TiendaCrypto",
+            "url": "https://wpscan.com/vulnerability/d19c174c-0032-4f5d-b9be-c4f690e4c8ca/"
+          },
+          {
+            "name": "WPScan PayDunya",
+            "url": "https://wpscan.com/vulnerability/d2d7c885-9525-41e0-9666-04a4a8cd183f/"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "argilla-xss",
+        "title": "Argilla：注释 UI 中已保存的 XSS 报告",
+        "time": "08:16 JST NVD 录制",
+        "body": "CVE-2026-116554至116556是与数据集名称、自定义字段、iframe 和文本字段处理相关的 XSS 漏洞，如2.8.0我已保存 CNA 引用的开发者问题，但此次检索尚未确认最小修复方案。",
+        "action": "限制标注/数据集的输入和共享目标，并使用已部署的版本验证开发者的问题。切勿使用具有管理员权限的浏览器无条件打开不受信任的数据集。",
+        "cve_ids": [
+          "CVE-2026-116554",
+          "CVE-2026-116555",
+          "CVE-2026-116556"
+        ],
+        "sources": [
+          {
+            "name": "開発元issue5875",
+            "url": "https://github.com/argilla-io/argilla/issues/5875"
+          },
+          {
+            "name": "開発元issue5876",
+            "url": "https://github.com/argilla-io/argilla/issues/5876"
+          },
+          {
+            "name": "開発元issue5877",
+            "url": "https://github.com/argilla-io/argilla/issues/5877"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "rapidjson-regex",
+        "title": "RapidJSON：传递给正则表达式解析器的输入不受信任",
+        "time": "10:19 JST NVD 录制",
+        "body": "CVE-2026-116620表示 RapidJSON 1.1.0及后续正则表达式解析器中报告了越界读取事件。虽然开发者问题2401已得到审查，但尚未确认最低修复版本。但这并不意味着所有使用 JSON 的应用程序都必然容易受到攻击。",
+        "action": "我们将考察将外部输入传递给正则表达式/模式处理的实际路径，并考虑大小和执行资源限制、隔离以及修改提交。我们还将清点产品附带的副本。",
+        "cve_ids": [
+          "CVE-2026-116620"
+        ],
+        "sources": [
+          {
+            "name": "RapidJSON開発元issue",
+            "url": "https://github.com/Tencent/rapidjson/issues/2401"
+          },
+          {
+            "name": "NVD・CNA記録 CVE-2026-116620",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116620"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "CNA-unreviewed",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "msrc-index-revisions",
+        "title": "MSRC： 10每月 CVRF 注册/修订，与发货时间分开。",
+        "time": "10:46 JST 文档已更新（ 01:46:22 UTC）",
+        "body": "微软的10月度 CVRF 现在包含35新的 Windows 版本和7现有版本。这些记录更新（包括 GitLab、Wasmtime、Chromium、SSL 等）并不代表35攻击或微软产品的新补丁版本发布。各个版本索引与原始版本一起保存。",
+        "action": "请将当前使用的产品与已发布的版本号 (FixedBuild) 和更新历史记录逐一进行比较。不要想当然地认为 Edge 等产品的过往版本号就是当前推荐的最新版本；而应查看当前的发行渠道和发布信息。",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "MSRC公式10月CVRF",
+            "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Oct"
+          },
+          {
+            "name": "MSRC update API",
+            "url": "https://api.msrc.microsoft.com/cvrf/v3.0/updates"
+          }
+        ],
+        "kind": "delta",
+        "certainty": "confirmed-publication",
+        "date": "2026-10-27"
+      },
+      {
+        "id": "continuing-response",
+        "title": "持续支持：不要将恢复、CA 修复和 Tailworm 修复混淆。",
+        "time": "18:49从 JST 开始重新获取数据（不是新的差分数据）",
+        "body": "ConnectWise、SoftBank、Tailscale、eMudhra 和 Fortinet 的选择文本与之前保存的版本一致。Tailworm 的最低版本号尚未最终确定。Tailscale v1.104.2的 CA 处理尚不能确定是否为 Tailworm 的修复。此次 .NET Brotli 的官方问题也不是 Windows 的新版本。",
+        "action": "ConnectWise 目标连接将保持禁用状态，直到相应的流程完成。.NET 会区分共享运行时更新和重启、独立重建和重新部署，以及 NativeAOT 重新发布和重新部署。源代码匹配并不能证明全球范围内不存在更新和漏洞利用。",
+        "cve_ids": [],
+        "sources": [
+          {
+            "name": "ConnectWise公式",
+            "url": "https://www.connectwise.com/company/trust/advisories"
+          },
+          {
+            "name": "Tailscale security",
+            "url": "https://tailscale.com/security-bulletins"
+          },
+          {
+            "name": "Microsoft Brotli公式",
+            "url": "https://github.com/dotnet/announcements/issues/494"
+          }
+        ],
+        "kind": "scope-complement",
+        "certainty": "prior-scope",
+        "date": "2026-10-27"
+      }
+    ],
+    "nvd_published_ids": [
+      "CVE-2026-116554",
+      "CVE-2026-116555",
+      "CVE-2026-116556",
+      "CVE-2026-116602",
+      "CVE-2026-2270",
+      "CVE-2026-76654",
+      "CVE-2026-111422",
+      "CVE-2026-116603",
+      "CVE-2026-116604",
+      "CVE-2026-116800",
+      "CVE-2026-116801",
+      "CVE-2026-116802",
+      "CVE-2026-116803",
+      "CVE-2026-116804",
+      "CVE-2026-116805",
+      "CVE-2026-116806",
+      "CVE-2026-116807",
+      "CVE-2026-116808",
+      "CVE-2026-116809",
+      "CVE-2026-116810",
+      "CVE-2026-116811",
+      "CVE-2026-116812",
+      "CVE-2026-116813",
+      "CVE-2026-116814",
+      "CVE-2026-116815",
+      "CVE-2026-116817",
+      "CVE-2026-116818",
+      "CVE-2026-116819",
+      "CVE-2026-116820",
+      "CVE-2026-116821",
+      "CVE-2026-116822",
+      "CVE-2026-116823",
+      "CVE-2026-116824",
+      "CVE-2026-116825",
+      "CVE-2026-116826",
+      "CVE-2026-116827",
+      "CVE-2026-116828",
+      "CVE-2024-58399",
+      "CVE-2024-58400",
+      "CVE-2025-71439",
+      "CVE-2026-116605",
+      "CVE-2026-116608",
+      "CVE-2026-116620",
+      "CVE-2026-116623",
+      "CVE-2026-116816",
+      "CVE-2026-116829",
+      "CVE-2026-116836",
+      "CVE-2026-116837",
+      "CVE-2026-116838",
+      "CVE-2026-116839",
+      "CVE-2026-116840",
+      "CVE-2026-116841",
+      "CVE-2026-116842",
+      "CVE-2026-116843",
+      "CVE-2026-116844",
+      "CVE-2026-97028",
+      "CVE-2026-116639",
+      "CVE-2026-116640",
+      "CVE-2026-88781",
+      "CVE-2026-103312",
+      "CVE-2026-103332",
+      "CVE-2026-111820",
+      "CVE-2026-117468",
+      "CVE-2026-117469",
+      "CVE-2026-117470",
+      "CVE-2026-117471",
+      "CVE-2026-117472",
+      "CVE-2026-103325",
+      "CVE-2026-103359",
+      "CVE-2026-105946",
+      "CVE-2026-106174",
+      "CVE-2026-110910",
+      "CVE-2026-75891",
+      "CVE-2026-101034",
+      "CVE-2026-107472",
+      "CVE-2026-10511",
+      "CVE-2026-111459",
+      "CVE-2026-111460",
+      "CVE-2026-111461",
+      "CVE-2026-16521",
+      "CVE-2026-18449",
+      "CVE-2026-18450",
+      "CVE-2026-18451",
+      "CVE-2026-65210",
+      "CVE-2026-65219",
+      "CVE-2026-65220",
+      "CVE-2026-65211",
+      "CVE-2026-65213",
+      "CVE-2026-92885"
+    ],
+    "rejected_nvd_ids": [
+      "CVE-2026-97028"
+    ],
+    "report": {
+      "path": "update-20261027-1847.html",
+      "title": "10 18:47晚间检查事件更新和漏洞对策27",
+      "headline": "已公开的事项、已解决的事项以及仍未知的事项。",
+      "intro": "本文档汇编了 GMO 报告8至11 、PAN-OS 发货状态、GROWI、Sleipnir、MPC、Kubernetes、AI、BMC 甚至恶意软件包的主要来源和条件对策。",
+      "window_jst": "07:47〜18:47 JST",
+      "cutoff_jst_label": "2026-10-27 18:47 JST / 2026-10-27 09:47 UTC",
+      "retrieved_jst": "18:49 JST以降の現行改訂",
+      "previous": "update-20261027-0747.html",
+      "previous_label": "07:47の調査記録",
+      "motion_path": "./?lang=ja#62",
+      "motion_label": "夕方の4画面：公開・出荷・鍵share・package →",
+      "quick": [
+        {
+          "title": "转基因生物使用者：隔离及防止二次损害的措施",
+          "text": "目前正在对声称已公开的信息进行审核。我们将把这些信息与未经证实的勒索软件区分开来，并确认官方的设备隔离情况以及与相关人员的联系。",
+          "href": "#gmo-publication",
+          "label": "转基因生物后续报告及行动"
+        },
+        {
+          "title": "公共服务器和管理设备",
+          "text": "审查 PAN-OS 4热修复程序、GROWI 8.0.7热修复程序、Kubernetes 系列特定修复程序以及 BMC 管理方面的问题。将计划部署、实际部署和漏洞调查任务分开处理。",
+          "href": "#pan-hotfix",
+          "label": "运输和使用条款"
+        },
+        {
+          "title": "密钥、身份验证和加密",
+          "text": "Fireblocks 将1方的共享层级和阈值分开。Psono、Mendix 和 Qt 也匹配所使用的功能和修改顺序。",
+          "href": "#fireblocks-share-boundary",
+          "label": "机密信息和授权"
+        },
+        {
+          "title": "人工智能、软件包、支付",
+          "text": "我们分别检查了 Mistral Vibe 工作树、GGUF 和清理模式、特定恶意软件包以及结算通知中的空密钥。",
+          "href": "#malware-camera-ui",
+          "label": "实施与执行路线"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "engine": "Stored translation memory; Google Cloud Translation v2 for missing text",
+    "human_reviewed": false
+  }
+}

@@ -88,10 +88,10 @@ public_manifest={k:manifest[k] for k in ('snapshot','source_hash','register_hash
 public_manifest['languages']=[dict(state['language'],status=state['status'],url=('/database' if code=='ja' else '/database.'+code) if state['status'] in ('source','translated') else None,archive=({'snapshot':publications[code][0]['snapshot'],'url':'/database.'+code} if code in publications and publications[code][3] else None)) for code,state in manifest['languages'].items()]
 (outdir/'manifest.json').write_text(json.dumps(public_manifest,ensure_ascii=False,indent=2)+'\n')
 body=f'<header><p class="kicker">LANGUAGES</p><h1>対応言語</h1><p class="intro">各ページのプルダウンから言語を選べます。</p></header>'
-body+='<section><h2>モーション</h2>'+pub.language_select([dict(row,url='/?lang='+row['code']) for row in source['languages']],None,'言語')+f'<p>{language_count}言語。ウクライナ語・ポーランド語・スウェーデン語は全{scene_count}画面を翻訳しています。他の言語の一部の追補画面は英語表示の場合があります。</p></section>'
+body+='<section><h2>モーション</h2>'+pub.language_select([dict(row,url='/?lang='+row['code']) for row in source['languages']],None,'言語')+f'<p>{language_count}言語。全{scene_count}画面を翻訳しています。</p></section>'
 body+='<section><h2>Tailworm特集</h2>'+pub.language_select([dict(row,url='/tailworm?lang=ja' if row['code']=='ja' else '/tailworm.'+row['code']) for row in source['languages']],None,'言語')+'</section>'
 body+='<section><h2>調査データ</h2>'+pub.language_select(ready,None,'言語')+f'<p>最新の日本語データベースは{topic_count}論点です。翻訳ページは各ページに記載された日時の保存版で、最新情報と異なる場合があります。<a href="/database">最新の日本語データベース</a>で確認してください。AI翻訳は母語話者による校閲を行っていません。対策は原文・公式案内と照合してください。</p></section>'
-body+=f'<section><h2>モーションの文章版</h2><p><a href="/briefing">日本語</a> · <a href="/briefing.en">English</a> — 全{scene_count}画面の本文と出典。</p></section>'
+body+='<section><h2>モーションの文章版</h2>'+pub.language_select([dict(row,url="/briefing" if row["code"]=="ja" else "/briefing."+row["code"]) for row in source["languages"]],None,"言語")+f'<p>全{scene_count}画面の本文と出典。</p></section>'
 (SITE/'languages.html').write_text(pub.shell('対応言語',f'モーションとTailworm特集の{language_count}言語をプルダウンで選択。調査データの翻訳と文章版。',body))
 for lang in ('ja','en'):
  ja=lang=='ja';title='モーション全画面の文章版' if ja else 'Full motion briefing transcript'

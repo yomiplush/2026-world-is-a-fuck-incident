@@ -1252,7 +1252,7 @@ window.CONTENT = {
         "points": [
           "<b>Ruby 4.0.9 / 3.4.12 / 3.3.13</b>: applications compiling attacker-controlled regexp patterns are affected",
           "<code>Regexp.timeout</code> and length limits are insufficient. 4.0.8 lacks the complete fix",
-          "<b>IO::Compress::Brotli 0.023</b>: affected range starts at 0.004001. Updating system Brotli alone does not fix it",
+          "<b>IO::Compress::Brotli 0.023</b>: affected range is at least 0.004001 and below 0.023. Updating system Brotli alone does not fix it",
           "<b>NGINX 1.30.6 / 1.31.7</b>: five configuration-dependent issues; some execution paths also need ASLR bypass"
         ]
       }
@@ -3319,53 +3319,53 @@ window.MOTION_LOCALE_STATUS = {
     "total": 65
   },
   "zh": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "ko": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "es": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "fr": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "de": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "pt": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "ru": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "ar": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "hi": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "id": {
-    "ready": false,
-    "translated": 18,
+    "ready": true,
+    "translated": 65,
     "total": 65
   },
   "uk": {

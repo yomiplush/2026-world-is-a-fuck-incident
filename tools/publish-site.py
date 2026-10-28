@@ -161,7 +161,7 @@ def metadata(file,text):
         graph.append(article)
     if relative=='database.html':
         graph.append({'@type':'Dataset','@id':url+'#dataset','name':'Infosec Briefing 調査記録','description':info.description,'url':url,'creator':{'@id':org['@id']},'distribution':[{'@type':'DataDownload','encodingFormat':'application/json','contentUrl':BASE+'data/latest.json'}],'isAccessibleForFree':True})
-    tags=['<link rel="stylesheet" href="/publishing.css">',f'<meta property="og:site_name" content="{esc(CONFIG["name"])}">',f'<meta property="og:title" content="{esc(info.title)}">',f'<meta property="og:description" content="{esc(info.description)}">',f'<meta property="og:url" content="{esc(url)}">',f'<meta property="og:type" content="{"article" if is_article else "website"}">',f'<meta property="og:image" content="{BASE}{CONFIG["image"]}">',f'<meta property="og:image:width" content="{CONFIG["image_width"]}">',f'<meta property="og:image:height" content="{CONFIG["image_height"]}">','<meta name="twitter:card" content="summary_large_image">',f'<meta name="twitter:title" content="{esc(info.title)}">',f'<meta name="twitter:description" content="{esc(info.description)}">',f'<meta name="twitter:image" content="{BASE}{CONFIG["image"]}">',f'<link rel="canonical" href="{esc(url)}">','<link rel="alternate" type="application/rss+xml" title="Infosec Briefing 更新" href="/feed.xml">','<link rel="icon" type="image/svg+xml" href="/favicon.svg">']
+    tags=['<link rel="stylesheet" href="/publishing.css">',f'<meta property="og:site_name" content="{esc(CONFIG["name"])}">',f'<meta property="og:title" content="{esc(info.title)}">',f'<meta property="og:description" content="{esc(info.description)}">',f'<meta property="og:url" content="{esc(url)}">',f'<meta property="og:type" content="{"article" if is_article else "website"}">',f'<meta property="og:image" content="{BASE}{CONFIG["image"]}">',f'<meta property="og:image:width" content="{CONFIG["image_width"]}">',f'<meta property="og:image:height" content="{CONFIG["image_height"]}">','<meta name="twitter:card" content="summary_large_image">',f'<meta name="twitter:title" content="{esc(info.title)}">',f'<meta name="twitter:description" content="{esc(info.description)}">',f'<meta name="twitter:image" content="{BASE}{CONFIG["image"]}">',f'<link rel="canonical" href="{esc(url)}">','<link rel="alternate" type="application/rss+xml" title="Infosec Briefing RSS" href="/feed.xml">','<link rel="icon" type="image/svg+xml" href="/favicon.svg">']
     if relative=='database.html' or relative.startswith('database.'):
         for language,href in database_alternates():
             tags.append(f'<link rel="alternate" hreflang="{esc(language)}" href="{esc(href)}">')
@@ -200,7 +200,7 @@ def discovery(pages):
     ET.register_namespace('',ns);ET.register_namespace('xhtml',xhtml)
     tree=ET.Element('{'+ns+'}urlset')
     for file in pages:
-        if file.name in ('404.html','404.en.html'):continue
+        if file.name.startswith('404.'):continue
         node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=canonical(file)
         if file.name.startswith('tailworm'):
             for lang,_ in LANGUAGES:
@@ -215,7 +215,7 @@ def discovery(pages):
     for source in (ROOT/'data').glob('*/incident-register.json'):
         record=json.loads(source.read_text())
         if record.get('report',{}).get('path'):cutoffs[record['report']['path']]=record.get('cutoff_jst','')[:16]
-    for file in sorted((p for p in SITE.glob('update-*.html') if not p.name.endswith('.en.html')),key=lambda p:cutoffs.get(p.name,p.stem),reverse=True):
+    for file in sorted((p for p in SITE.glob('update-*.html') if not re.search(r'\.[a-z]{2}\.html$',p.name)),key=lambda p:cutoffs.get(p.name,p.stem),reverse=True):
         p=Info(file.read_text());item=ET.SubElement(channel,'item')
         for key,value in [('title',p.title),('link',canonical(file)),('guid',canonical(file)),('description',p.description)]:ET.SubElement(item,key).text=value
     ET.indent(rss);ET.ElementTree(rss).write(SITE/'feed.xml',encoding='utf-8',xml_declaration=True)
@@ -230,6 +230,6 @@ def main():
     impact_pages.publish_locales(__import__('types').SimpleNamespace(ROOT=ROOT,LATEST=LATEST,BASE=BASE,shell=shell,esc=esc,metadata=metadata,language_select=language_select))
     pages=sorted(SITE.rglob('*.html'))
     discovery(pages)
-    print(f'Published metadata, clean canonicals, structured data, RSS and sitemap for{len(pages)-1}indexable pages')
+    print(f'Published metadata, clean canonicals, structured data, RSS and sitemap for{sum(not p.name.startswith('404.') for p in pages)}indexable pages')
 
 if __name__=='__main__':main()

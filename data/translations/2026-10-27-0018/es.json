@@ -1,0 +1,887 @@
+{
+  "locale": "es",
+  "language": {
+    "code": "es",
+    "native": "Español",
+    "html": "es",
+    "dir": "ltr",
+    "en": "Spanish",
+    "ja": "スペイン語"
+  },
+  "snapshot": "2026-10-27-0018",
+  "source_hash": "1773ce6deda34ffcbb76fdcb322f85b0e73abfd6dc758f918659f20717beca3d",
+  "register_hash": "455e0fbbb5859b6de3c12ce3adad001253615d6e482a7c01f29434cf2976c3d0",
+  "string_hashes": {
+    "records.connectwise-1400.title": "a02952a607dd1f9cdfabd4f8c14f74a312097382a355aa521e183fb01bd2a469",
+    "records.connectwise-1400.body": "d36db09eb17f20d23797e226cde703f8ed74977de298b0624d2d363a1287aa33",
+    "records.connectwise-1400.action": "356f88dd979e77548e2142eb8119506f85d973daa07727b8efb352f01afb1152",
+    "records.connectwise-1400.time": "d9f9cf197e35f70abebe219b7d5c981f70570ad0de966df6352fabeec2072f9a",
+    "records.gmo-seventh.title": "505620013710e71382c69a95c8e3b3d3028cdeb3893e2799338abdc05f44cf1c",
+    "records.gmo-seventh.body": "3d0f889b98dbe821239fa57a4286de877e9a3dc0fbdd393c6c182569bdaa815f",
+    "records.gmo-seventh.action": "3cba6f38c0f2edb0c906cca92991d4dc38208cef38c2fc21bf6a5651cf50d5e8",
+    "records.gmo-seventh.time": "bc01734671878805978a74b18d896c777018c7eec0069cc2670bc44be5824747",
+    "records.softbank-resume.title": "fab56fa31ac03a547f84ae7479165983755cb4a92074508c974422479cf220f0",
+    "records.softbank-resume.body": "e82390e364f9c0a1c5bdf4233b471c3817863f773b58be0060209bd266a36d18",
+    "records.softbank-resume.action": "e80212fbf8681802c200998359a12dddd7f1b4bfdb1ed0331c02e67732866fcc",
+    "records.softbank-resume.time": "68e3c127a0b9936db93a428b18ab5d8610b62685155c533dd5c2104b39a3c115",
+    "records.nvd-fortisandbox.title": "a701671e16058dc28666757b00d64331628d172a573e5815ab76d5281ea00e66",
+    "records.nvd-fortisandbox.body": "3e3114bcb1ef4f38c86f7a58dba997b394818506602e9c01f13afb7eefbe6424",
+    "records.nvd-fortisandbox.action": "2916ef454f033f2c7ea9e2b64f6ff7e5ddb03eb06a6fcc0e37b8b5e4570c59ec",
+    "records.nvd-fortisandbox.time": "c2a7b8360b26ddb0f4ad2d72daf6dc465283a46de3dd9f614ac266b3423ec820",
+    "records.nvd-harbor-ssrf.title": "3338804bd2c53d8d469d08db3e03c55436f06d3edac70cd19643978815fa6e82",
+    "records.nvd-harbor-ssrf.body": "e1a4b65d6d0d43aa963ed4b4a0a9bbcf34eaedd4b5ea21e9b770f6e75b02c960",
+    "records.nvd-harbor-ssrf.action": "8aac3af878dffa6a03f7ef2cf80cffe771c1ee5f812c618e4560438ef71d1bc1",
+    "records.nvd-harbor-ssrf.time": "5f8c881749fed77d04faf43821546bfec2c076ff9275f56fdf8f0e68e1c05e3c",
+    "records.nvd-mongosh-emudhra.title": "3c4fe5944a6d5122693d0a721c09d7e1a9d58588cb97d89a860aa70ef3854f9c",
+    "records.nvd-mongosh-emudhra.body": "ad895bb9a98b88f5c03fd830ca22e36a0e81ba6ab80ed9a849b49f1ba801f4d3",
+    "records.nvd-mongosh-emudhra.action": "5815378cc7d8acbfa5807cd848a2ca1b310f2aa726b7cf7ead5730fe03f5949a",
+    "records.nvd-mongosh-emudhra.time": "85f6823fdf5a5f202354bebdafc23a723d6e5ba1404b0337d3f5ec4a3a750405",
+    "records.nvd-mcp-toolbox.title": "21a0ae427fa4aef68988b68c131ea78afec971adc614472d02b90cae91f13190",
+    "records.nvd-mcp-toolbox.body": "2f7ac4e6a217d2a07fedb284853df2548a3b6092848b28d300a8b321565967cd",
+    "records.nvd-mcp-toolbox.action": "c606d5bc5d9c5cf872b83c010c45fac40af363fb3348d6bbcddc73d88789e2e1",
+    "records.nvd-mcp-toolbox.time": "07780323d6188611dfa5d8d0a87e1b73a48da88db57c0f41f45886a98cedd9f3",
+    "records.nvd-avocent-wsserver.title": "94bb23003c92b237865212b916a23a06f4965db0a156ef591bde5dd2579633ab",
+    "records.nvd-avocent-wsserver.body": "19538607a28f55f084f7b2c53d8b14bb8a3ebe830fdd3d77690b9e8099d71c1d",
+    "records.nvd-avocent-wsserver.action": "15cb023806d8bd855f17a9ae0e9e0623b9a82e8823dd597ed45605df0bea5576",
+    "records.nvd-avocent-wsserver.time": "75d7afaea68816762f873b1d02ae8cd42e24116a0cb8e05bf2dc6302e6229cd9",
+    "records.nvd-camel-saxon-oauth.title": "5bfcb0c2a4172e1c9cb9e8648a2673db85fa9a4a2c0d8646b25c42b6a8f143ef",
+    "records.nvd-camel-saxon-oauth.body": "7c85ede9355d8c55f73270690ca4afced2f7336203b3a1a2fdacb085fef589b3",
+    "records.nvd-camel-saxon-oauth.action": "b16e8a18479c316ea57d04c1e949d5eaafe4707e70dd090e15c9cb288a0650c4",
+    "records.nvd-camel-saxon-oauth.time": "5481fdf9ff1a2ab7cee2fc7fddd6596c7310816efbee04f0393401d4a5bea7a4",
+    "records.nvd-mautic7.title": "bc0eaa5f6f96e2a7c029bc755cf6b358ddc2b0e2cd898b5d0b6583f62d771daa",
+    "records.nvd-mautic7.body": "69658b66063c5130550eda7bccd4049e61785c6150d902f7814900f26009ea43",
+    "records.nvd-mautic7.action": "54686a89dbaeefff0c9142716d25d0bd67298b6f887125d9064a0918ea24e278",
+    "records.nvd-mautic7.time": "a13202c3d4f82184adb53b55e25234d8856c75f8272fe9c62d6cd7a55eb6ca81",
+    "records.nvd-bandit-http2.title": "16e3617f9c5c854ae6df262147429771065bdc71b303a1bc2524fab849ce59eb",
+    "records.nvd-bandit-http2.body": "b8f5646732385fcdc60ec8c8ee6b6f8f8f5f14941cd24d687e4792c24aa678ad",
+    "records.nvd-bandit-http2.action": "6a40c77b4b5503407fd55dcafc3b03eed6ca7209b9c4854b7de4ade8e2c1d6e2",
+    "records.nvd-bandit-http2.time": "4eee677ca0cbd9a946fba0d2311375bd9d10b13494feeb9cc6b87e069f23d8fd",
+    "records.ghsa-modified-19.title": "321c953d922b9235c999bcf82d5951157cf1b3dcc9ed92b06b6c0e9f7a2c8e87",
+    "records.ghsa-modified-19.body": "55f29947c20ca475c3871d09a2ed39dc5b445d43af621a491a063c459552bb55",
+    "records.ghsa-modified-19.action": "8601d8c9ade2e9c10a4bb4705563bf9de503b9693a3191de10926300f43d8a52",
+    "records.ghsa-modified-19.time": "e157a58ab7a9b545ea6c1044020e0fec51b053fc0751bd5de34449715b23aa80",
+    "records.brotli-jfrog-reach.title": "885237bed8c767af0166acf31e1cbf5f349faff31cdbd40380ba7279dffad7d9",
+    "records.brotli-jfrog-reach.body": "983b73e88a3d470bcf4c210f7366182fdfa478989615ab856c6b7377d7964264",
+    "records.brotli-jfrog-reach.action": "7fb8570a9507295cff169e24e96eaf8f96dc08933544c451ebe2e46c172bcd9c",
+    "records.brotli-jfrog-reach.time": "15ade1942a73e6c352c135ec8d56460d5d8a1cb65306b1fec16b66a4bc9b9d02",
+    "records.gmo-sixth-still.title": "73086c3d8fe319b7ede2a7fa4b61e2cb34a89039fbd37b5dc2736ea5ffa66a89",
+    "records.gmo-sixth-still.body": "8c338ba927b2fe8ab1033a42470d66b12d172f88752f37eb31e1eea138a6cc20",
+    "records.gmo-sixth-still.action": "f8be50e8dc145d5e3cd1d6c0a98dec2ccb35f727776c04765dc179a9f52a6461",
+    "records.gmo-sixth-still.time": "14109ffdd47049a7b26b74d1772fb2e2bd4a76b53638ad8c329c045c04f17a20",
+    "records.blastmail-345.title": "304317d627548709a4d1ef85117e7c23be7e52927bf9c7b3ea7873fd79b3d1b8",
+    "records.blastmail-345.body": "e9170fd4175f1954ec3f7180fb698bd86063407ea6b3d7a430577f7626e5f6da",
+    "records.blastmail-345.action": "6db776836ff8743244fac1effbfb96cce597ee678cee7f41a08a9accbeb5f103",
+    "records.blastmail-345.time": "af037aca229242f7e5f606561ff8fcf949b1ae42c8e2c1617f1e1fcc95668809",
+    "records.pan-os-php.title": "040a0e56cbbdd5903f719fe5cb6bd460b24decf51839e5a05261f0907405533d",
+    "records.pan-os-php.body": "bb5b1aaa4ff2f24edc591f2c43893b05160b07a38fe306822031d3f3dc365809",
+    "records.pan-os-php.action": "091d845777da8ed5f88a9640f1701d7288acbdad59d9074d974f511437985b3c",
+    "records.pan-os-php.time": "cc8deb7a104b51d02c0f18db32efe5655f0e21c36b8da4d7965c147da323f5a2",
+    "records.tailscale-1042.title": "575a32d96ad64808a057996ad85b69c0d9dead3f1fd66b202b514f5d908f932f",
+    "records.tailscale-1042.body": "0ff39a5e895450c1f1aab3d6cfe686da8fb705fd07023e38d4ed901073d4a466",
+    "records.tailscale-1042.action": "f488ed0a76c97ecb675838155756aee74ba7b0d41edb420aabd5913783e042f9",
+    "records.tailscale-1042.time": "26594b2e55b3cbfbc83113282fc9b2342fcb636853c94babd7bf9ea669481dc6",
+    "records.php-brotli-jpcert.title": "df81c8c8cf780cda760d23da953b2c2657df762c8644739601fa99fa3a41599e",
+    "records.php-brotli-jpcert.body": "1dc84f1216f1171072285efbc5055ca03fa87489bef7845e5bf0a4adefe7fb9e",
+    "records.php-brotli-jpcert.action": "2256a9f4534a7e430fd915cc4754f3904839a9154190ba9cb97c30ec794c8010",
+    "records.php-brotli-jpcert.time": "efe20b5b33b03e8238e95324d56393540dc00a868709c7e7b06e483fc47b7c0c",
+    "records.gmo-seventh-correction.title": "d948f2e599b6990f0f4146baf3b96ddb7eea47be0e0c1e35eaff1592c23948ef",
+    "records.gmo-seventh-correction.body": "ce30fc95d9554830f15d293a5f9509942fd8792cd1647a24e34b2f88816a9196",
+    "records.gmo-seventh-correction.action": "ab70c0e8d95e6b66507fdffacef86f9ea55091ace66ea5132b877585e727ebc5",
+    "records.gmo-seventh-correction.time": "6a96400f9271e210a2f114384b723c18125729be98c687f59b97cae69225f5f7",
+    "records.bc-dotnet-after-cutoff.title": "4bfbc81e6b9c0f3822fc22e88fabe52c91a1764af78db2771ccd6ad1c8b7b150",
+    "records.bc-dotnet-after-cutoff.body": "7e3244969a2a71375ff70a000a81b80f068376ac62d15000a9d26f05d506e3de",
+    "records.bc-dotnet-after-cutoff.action": "c722e1927c4d8c6933936f6147af25c47d0d7a9fdd97869078b18b705c22509f",
+    "records.bc-dotnet-after-cutoff.time": "035cc314d7927ae6c4d7be35e0be3a5addf59954eb84d3cfcfd321e2d839a099",
+    "caveats.0": "d8e25d8b006740ab7080cdb7ef35982bed7497e2eb5ed6a1be22a22aac24f611",
+    "caveats.1": "8044172fdd6dd6fda112d41def41f35ee90d4c3d0425f1e5a6381b2c4940f329",
+    "caveats.2": "a82e36db44150da4b12086dd9a83f3fde9337c4e5b44573f0bfb10bf860a28d3",
+    "caveats.3": "1b83b83180c0236526f75989efba66b4f110f4c3baca0b6bb3a7f1f69cb99e6a",
+    "caveats.4": "1078ee79f144f8601b8cee847a33a537221924e3da00159da01f1c6302a4ec5c",
+    "caveats.5": "74ce3c50f1f4e9b68c7a2380add559ce09dd5d9858e9b5e6ed13551445d4d21d",
+    "caveats.6": "05f953a013b9a3a440dd53c7722fb79fcc9fca9019e3a2833963aed28e154e53",
+    "caveats.7": "1e78d29f267917091145832087a6644f073f03f031ad65c18147670fa021cd19",
+    "caveats.8": "7e803486c511059c2af5b7c166ad26d25a6887578fb7c5b1e6a3b5216f1498de",
+    "caveats.9": "fd8e1de8741bbe82a1074ad102273e01d97f14008cb9e2ffb08e29301e875378",
+    "caveats.10": "1d32419a23c7df9820725e7d06ed45c4031c9f231fc420649666625bd2fd0b4d",
+    "caveats.11": "d551072652f9c10f27cf22afcd28745f96862856f1432ae31cf36eb41061e166",
+    "caveats.12": "46bf1f6f59bd23e86b70cf0f060066ffecc816a2fe2cc42ba40defbae2032205",
+    "caveats.13": "4722bca5de5ee3586287981656f0bb915d38739ce2ec8bf55e201710a8df7a3a",
+    "caveats.14": "dd55a0b0ad5a475a16ab609cd77bfb88d5a9f677609f377f046a6219247b6596",
+    "caveats.15": "df89ad35824d104fe58f58f9f1377596002973d0215255341b759a8e10767816",
+    "caveats.16": "5a1bf3531540dc00d4cbe0a6a9a3e8e11065b23f07a033571c901d3d78872657",
+    "caveats.17": "34c9581e0aa78208866ba1855c5debe696b46102ae1e69ad67cc2a87022eef40",
+    "caveats.18": "53ab8230e95966260db5dfd3cb576c3eb0a2c4a31a7be0ff505707b7dc658013",
+    "caveats.19": "db236c956203076fe85082b52cbc84a677f11f955b446b0830bc21709c2528b5",
+    "report.title": "89fb902515a1c23e674f03e2cd61d8808e42506bef5d5e7ed45f651cacb65e42",
+    "report.headline": "d0abba21eed0a6f942c899848fd70ba8c990eb6b5de8c360b376d755b2a53a92",
+    "report.intro": "5e236eac333f2b2df748070098a954bae6e305f33cbd578c5074d180be4cc49e",
+    "quick.0.title": "0f9afc396780d727189767255f839109adcbd5e983b24d7a6fbed35d850e706f",
+    "quick.0.text": "38bd07315a7583ad8a7685b02caf784cc485cff985b6a270ddcfca23a70838dc",
+    "quick.0.label": "b9bc05c6bbf460ba75ee10971c47b208b800a1686dd8892b87894e156015d24e",
+    "quick.1.title": "e873244f50dafaa56d4141d400e03b53532781d0090586cb86a856d85fa6f45d",
+    "quick.1.text": "fb690398c4b85de73ea6673d4f93bab9d3bcc7178dcc2118675e4699d3188a53",
+    "quick.1.label": "9ef3eac8cd6d5b29062c3c2dc5b7d2d1976fa40529a3dc97bbc419948f48c780",
+    "quick.2.title": "5bc68fbf72c82abd42d4792a65c7430fba7c28c01d210d4b763eb1db817102c4",
+    "quick.2.text": "c753d988d85d6d32bbf4f5983c5a5fed2611a10c160325f62a0620b80aab068e",
+    "quick.2.label": "20c9433fefa4ef6c7c9896b8b3e21c086f1452e54defb6dd260132e8948c48ae",
+    "quick.3.title": "6487fadf00d8b24dd5ac07f8dcc95dd45e6d1354d66fc31a8e24bb98e83c1a7c",
+    "quick.3.text": "419367b482b88d25be22eba498d170f276aec33b1badefa9ce24e17b65c13b60",
+    "quick.3.label": "53c297eaa58a9dcff2aa7e94da7a277b057d11e13e0a1f3d537c15f70a54b452",
+    "ui.title": "c589afd85a653859c675603d873b89a2ec72704a908f9fe532956589276d6ea1",
+    "ui.intro": "8bc1411fd2df3f6f0ad0fdbd6a6d7ed5ba9b0c63f0bd91fbea0f04dd4b859fda",
+    "ui.cutoff": "30bffe1d8c0fefe3ad569045a850f06ea6dd8810b558c34de1f71d4df906a9e6",
+    "ui.actions": "7e155300cecf74323a1e9ffcde23987947c1aa0b2a3e797fd3a50ad82939d62d",
+    "ui.sources": "835c47be68ea833b08692f4fd81b08923cc237d4aa02e12951d1352e9c23bd71",
+    "ui.delta": "9adc14b6e164efe8327f724c20a7ccfb1e6afa553360fe699d5169498751dd53",
+    "ui.scope-complement": "40eb64185c871529b368a52dec2a5da371f082fd0ceede57744418e9e7bded29",
+    "ui.reference-only": "438c048773567ac03e23a2d37bcda0cfd91b904736e75680507be0efb1859685",
+    "ui.notice": "58caa3c4eeff2c6afefb59c8edea1d100788a6947a2c7560e7a91ecbf21e4638",
+    "ui.original": "e8fc20d01f7577c9e02b0eafdd1fb27a5633123f9ac86833b370bc7c8d5fea9f",
+    "ui.data": "2039bbd338a139da69fcdd7b37a2f1dc83dbc2efbf17c2f52fdbb96e895837f3",
+    "ui.home": "f109578971d6a45d0822844efc41ded0cf437c2e1e876ea2519cbbb9dbc12f87",
+    "ui.languages": "2191b209745deedcb25dc4acbbab8273ac7159575dd94c2170b24998e46a2d29",
+    "ui.evidence": "688f77c246c750e5858f1d0b04381beb642d641a043603b7510db8deb1a16da5",
+    "ui.counts": "7d6c2976cecf20cd4587cd6ae65583534f56cbdecabad2b9104cd7a7a8357fe2",
+    "ui.pending": "7673fe83755b580dddf493fe3091b7687e3df01dd8c4268344bf707912eb1790"
+  },
+  "status": "translated",
+  "strings": {
+    "records.connectwise-1400.title": "ConnectWise: La actualización UTC 14:00 indica que la preparación continúa, no es un informe de inicio de restauración.",
+    "records.connectwise-1400.body": "Trust Center publicó una actualización para el lunes 26 14:00 UTC. Indica que continúan los preparativos para la incorporación gradual de socios y que se proporcionarán instrucciones cuando se pueda iniciar la restauración a partir de las copias de seguridad existentes. Este informe no indica que la restauración haya comenzado el 10/26 . Mantenga las conexiones afectadas deshabilitadas hasta que lleguen las instrucciones individuales. Los archivos están cifrados, aislados y preservados, sin indicios de impacto en otros productos. La próxima actualización es 10/27 14:00 UTC.",
+    "records.connectwise-1400.action": "La conexión de destino permanece desactivada. No se vuelva a conectar hasta que se proporcionen instrucciones específicas para la reactivación del servicio. En el lado de 365 , el inicio de sesión en Entra, el registro de la aplicación, el consentimiento, las reglas de reenvío y los dispositivos registrados continuarán como tareas independientes. No interprete la recuperación de la infraestructura ni las actualizaciones diarias como una autorización para volver a conectarse.",
+    "records.connectwise-1400.time": "23:00 JST ( 14:00 UTC, actualizado diariamente)",
+    "records.gmo-seventh.title": "Informe sobre OMG n.º 7 : 12:00 es una advertencia de un atacante. No atenderemos la solicitud.",
+    "records.gmo-seventh.body": "La empresa explicó que recibió avisos de divulgación de información y ataques de ransomware de un presunto atacante a través de 10 / 27 12:00 . No accederán a las solicitudes. Se han recuperado terminales y se están analizando hasta la fecha de 10 / 26 22 en colaboración con la investigación de terminales. No se ha confirmado la instalación de malware. Se reitera la información de protección de la cuenta de 6 . Nunca solicitarán una contraseña ni un código de autenticación.",
+    "records.gmo-seventh.action": "Si tiene un dispositivo o cuenta conectada al servicio en cuestión, continúe revisando el informe número 6 desde otro dispositivo seguro. No responda a solicitudes de dinero no oficiales ni a mensajes que afirmen \"recuperar fondos perdidos\". 12:00 no se considerará la hora oficial de publicación de la información. No enviar un dispositivo no se considerará una condición de no víctima.",
+    "records.gmo-seventh.time": "23:10 JST (Estándares de texto para el informe 7 )",
+    "records.softbank-resume.title": "SoftBank: Reanuda el servicio de información sobre desastres y evacuación a 23:17",
+    "records.softbank-resume.body": "Además de las alertas tempranas de terremotos y tsunamis, la distribución de información sobre desastres y evacuación por parte de los gobiernos nacionales y locales se ha reanudado desde 10 / 26 23:17 . SoftBank / Y!mobile / LINEMO han declarado que podrán recibir toda la información de los correos electrónicos de alerta de emergencia. El mantenimiento continuará de la siguiente manera: 10 / 23 6:47 a 10 / 26 23:17 . Esto es una reanudación de las rutas de los operadores y no significa que se haya solucionado todo el ecosistema PHP.",
+    "records.softbank-resume.action": "En muchos casos, basta con revisar la configuración de alertas de emergencia en la línea afectada. No considere que la reanudación del servicio por parte del operador signifique la finalización de la actualización de seguridad de PHP de su organización ni el fin del abuso.",
+    "records.softbank-resume.time": "23:17 JST (texto oficial)",
+    "records.nvd-fortisandbox.title": "FortiSandbox: Omisión de autenticación mediante ruta alternativa (NVD recibido)",
+    "records.nvd-fortisandbox.body": "CVE-2026-107656 describe la posibilidad de eludir la autenticación mediante rutas alternativas y ejecutar código o comandos no autorizados a través de HTTP manipulado para todas las versiones de FortiSandbox 5.0.0 – 5.0.6 , 4.4.0 – 4.4.9 y 4.2 y sus PaaS correspondientes. El estado es Recibido. El número de corrección no se infiere del NVD.",
+    "records.nvd-fortisandbox.action": "Si la interfaz de administración está disponible públicamente en internet, lea FortiGuard FG-IR-__ 26 - 185 y compárela con las correcciones oficiales para cada serie. No considere \"Recibido\" como confirmación de una vulnerabilidad de emergencia.",
+    "records.nvd-fortisandbox.time": "23:16 JST (NVD publicó 14:16:24 UTC)",
+    "records.nvd-harbor-ssrf.title": "Puerto: Webhook SSRF de ProjectAdmin",
+    "records.nvd-harbor-ssrf.body": "CVE-2026-111590 indica una verificación insuficiente del destino del webhook. Esto requiere que ProjectAdmin establezca un destino local de enlace privado y que el cuerpo de la respuesta se registre en el registro de ejecución. No se trata de una brecha de seguridad completa que involucre a usuarios no autenticados.",
+    "records.nvd-harbor-ssrf.action": "Compruebe los permisos de creación de webhooks y las restricciones de destino, y verifique los cambios en GHSA-2phj-cp9f-qq6w .",
+    "records.nvd-harbor-ssrf.time": "23:16 JST (NVD publicó 14:16:28 UTC)",
+    "records.nvd-mongosh-emudhra.title": "mongosh: CA intermedio eMudhra para Node.js empaquetado",
+    "records.nvd-mongosh-emudhra.body": "CVE-2026-115930 es un problema de mongosh; cualquier versión anterior a 2.14.0 incluye una CA intermedia eMudhra que se puede recuperar en el almacén TLS integrado de Node.js. 2.14.0 es de Node.js; 24.22.1 y versiones posteriores están descritas por NVD. Actualizar el host Node mediante npm es una condición aparte. Esto no demuestra que se haya solucionado el problema de Tailworm.",
+    "records.nvd-mongosh-emudhra.action": "La versión de mongosh y la versión del nodo host se comparan por separado para cada ruta de distribución. Si el objetivo es rechazar eMudhra, compruebe la serie Node 24.22.1 y mongosh 2.14.0 según las instrucciones.",
+    "records.nvd-mongosh-emudhra.time": "00:16 JST (NVD publicó 15:16:39 UTC)",
+    "records.nvd-mcp-toolbox.title": "MCP Toolbox: Transferencia de archivos no autorizada y sobrescritura local",
+    "records.nvd-mcp-toolbox.body": "CVE-2026-93328 es un problema de recorrido de ruta y falta de autorización en la fuente de almacenamiento en la nube de googleapis/mcp-toolbox 1.2.0 – 1.4.0 . NVD indica que es posible tomar archivos de host a un GCS externo sin autenticación y sobrescribir los archivos locales. Recibido.",
+    "records.nvd-mcp-toolbox.action": "Solo si la versión de destino está disponible públicamente, la solicitud de extracción 3454 se comparará con las modificaciones de la fuente.",
+    "records.nvd-mcp-toolbox.time": "00:16 JST (NVD publicó 15:16:45 UTC)",
+    "records.nvd-avocent-wsserver.title": "Avocent ACS 8000 : ensamblado de comandos para wsserver",
+    "records.nvd-avocent-wsserver.body": "CVE-2026-65184 es un informe de runZero que indica que el servidor web con privilegios de root pasa comandos a system()/popen() desde el campo WebSocket. La ruta de sesión de clave pública no realiza la comprobación de sesión del dispositivo. Recibido. La versión corregida aún no se ha confirmado en esta investigación.",
+    "records.nvd-avocent-wsserver.action": "Solo compare la recomendación de runZero con las instrucciones del fabricante si el dispositivo en cuestión se gestiona a través de Internet.",
+    "records.nvd-avocent-wsserver.time": "00:16 JST (NVD publicó 15:16:41 UTC)",
+    "records.nvd-camel-saxon-oauth.title": "Apache Camel: Saxon XXE y caché de tokens OAuth",
+    "records.nvd-camel-saxon-oauth.body": "CVE-2026-90885 es camel-saxon XXE ( 4.0.0 o superior, menor que 4.18.5 , 4.19.0 o superior, menor que 4.22.2 ). CVE-2026-94386 es una confusión de caché de tokens OAuth ( 4.19.0 o superior, menor que 4.22.2 ). Estas son condiciones diferentes a las de la ruta de Docling que completamos anteriormente.",
+    "records.nvd-camel-saxon-oauth.action": "Compare los componentes y secuencias que se utilizan con las directrices oficiales a partir de 4.18.5 / 4.22.2 . No los considere como una única RCE para todo el sistema Camel.",
+    "records.nvd-camel-saxon-oauth.time": "00:16 JST (NVD publicó 15:16:45 UTC unidades)",
+    "records.nvd-mautic7.title": "Mautic 7 : Una serie de operaciones que incluyen carga, SSTI, deserialización, SQLi, etc.",
+    "records.nvd-mautic7.body": "Las condiciones CVE-2026-115188 a 115196 son alternativas para Mautic 7 . Estas incluyen cargas de importación de campañas, Twig SSTI, deserialización, AJAX de administración y SQLi de la API del panel de control, XSS almacenado, rutas de la API de activos, permisos de la API de estadísticas y redirecciones abiertas para formularios públicos. Algunas requieren permisos autenticados o funcionalidad específica. Los elementos 9 no se incluyen como vulnerabilidades que afectan a todos los servidores sin autenticación.",
+    "records.nvd-mautic7.action": "El sistema solo verificará la versión corregida y la configuración de permisos de cada GHSA si se está utilizando la función correspondiente.",
+    "records.nvd-mautic7.time": "23:16 JST (NVD diferido)",
+    "records.nvd-bandit-http2.title": "Bandit HTTP/ 2 etc: HTTP 2 está en un clúster diferente al de Shell (Brotli).",
+    "records.nvd-bandit-http2.body": "Las implementaciones HTTP/ 2 y HTTP/ 1.1 del bandido mtrudel se han añadido al NVD (Depósito No Virtual) con una serie de vulnerabilidades que incluyen agotamiento de recursos, complejidad, amplificación de compresión y contrabando de solicitudes. Esto es independiente de la vulnerabilidad del decodificador Brotli en CVE-2026-111497 . El uso de HTTP/ 2 por sí solo no se incluirá en el objetivo de corrección de Brotli. Otro CVE de hackney se encuentra en el mismo lote.",
+    "records.nvd-bandit-http2.action": "Cuando utilice Elixir/Bandit o Hackney públicamente, compare las condiciones de cada CVE con las del distribuidor.",
+    "records.nvd-bandit-http2.time": "23:16 JST stand (NVD publicado)",
+    "records.ghsa-modified-19.title": "GHSA: Se publicó recientemente 0 y se revisaron las revisiones existentes 19",
+    "records.ghsa-modified-19.body": "Hay 0 elementos disponibles públicamente. Los elementos actualizados 19 incluyen aiohttp 3.14.4 , Keycloak, kobako, Grav, Wagtail, Talos Linux, Dolibarr, ImageSharp, PostCSS, el antiguo retoque GHSA de Open WebUI, el puente Log 4 j 1 -to- 2 , etc. Los elementos actualizados son revisiones del texto y alcance principales, no nuevas versiones de día cero esta noche.",
+    "records.ghsa-modified-19.action": "Si ya se ha implementado, se comprobará el límite actual de cada GHSA. No se volverá a añadir al recuento de publicaciones anterior.",
+    "records.ghsa-modified-19.time": "23:07 ~ 00:16 JST (GHSA actualizado)",
+    "records.brotli-jfrog-reach.title": "Brotli: .NET / FFmpeg / ClickHouse / Arrow no es un defecto HTTP/ 2 .",
+    "records.brotli-jfrog-reach.body": "CVE-2026-111497 es una escritura fuera de límites al decodificador C. Comúnmente conocido como HTTP. 2 Shell/Node. 2 Shell/Brotli. 2 Shell tiene el mismo CVE. .NET tiene SIGSEGV, RCE no probado, correcciones 8.0.33 / 9.0.22 / 10.0.14 , NativeAOT ha sido reeditado. FFmpeg → libjxl brob box corrompe punteros, lanzamiento de corrección no confirmado. ClickHouse falla con aproximadamente 23 MB, fusión de PR y lanzamiento aún no enviados. Arrow tiene 534 bucle infinito de bytes, problema no cerrado. Cloudflare emergency WAF está en el registro predeterminado. cybersecuritynews es 403 .",
+    "records.brotli-jfrog-reach.action": "Inventaría las copias empaquetadas y la ruta de despliegue real. No considere que el proceso esté completo simplemente eliminando br de Accept-Encoding. Vuelva a emitir NativeAOT. Trate ClickHouse/Arrow/libjxl como sin corregir hasta que se confirme la corrección distribuida. No considere que la regla de registro bloqueada esté completa.",
+    "records.brotli-jfrog-reach.time": "10 / 25 JFrog/Microsoft principal. NVD última modificación 23:16 JST",
+    "records.gmo-sixth-still.title": "Informe sobre OMG n.º 6 : La solicitud de protección de la cuenta no ha sido retirada.",
+    "records.gmo-sixth-still.body": "El punto 4 de 6 (escaneo completo, copia de seguridad sin conexión, desconexión de todas las sesiones de otros dispositivos, desactivación de contraseñas, MFA y sincronización, y bloqueo de cualquier dispositivo) también se menciona en 7 . Esto se aplica no solo a FX, sino también a valores, correo electrónico, Google, etc. No se confirma la infección de todos los dispositivos conectados.",
+    "records.gmo-sixth-still.action": "Continúe la inspección desde otro dispositivo de confianza. No active la sincronización del navegador hasta que finalice la inspección.",
+    "records.gmo-sixth-still.time": "21:00 JST (n.º 6 ). Se vuelve a publicar el informe n.º 7",
+    "records.blastmail-345.title": "Correo masivo: 345 Contrato/Reanudación sin decidir permanece según el aviso 17:00 .",
+    "records.blastmail-345.body": "Se confirma la filtración de información más allá de los datos del suscriptor para los contratos 345 , y se notifica individualmente a 345 . No se ha determinado la hora de reanudación. No se han producido cambios en el contenido durante este período. Esto no implica que 345 personas, todos los destinatarios o 345 hayan sido víctimas de nuevas intrusiones.",
+    "records.blastmail-345.action": "Confirmaremos los elementos en cuestión mediante notificaciones individuales y mantendremos canales alternativos de comunicación y distribución. No consideraremos la investigación concluida ni autorizaremos su reanudación simplemente porque se haya contactado a todas las personas.",
+    "records.blastmail-345.time": "Actualización de JST 17:00 (en la ventana anterior). Próxima actualización alrededor de 10 / 27 12:00",
+    "records.pan-os-php.title": "PAN-OS PHP: No hay nuevas eliminaciones con fecha estimada de finalización para esta ventana.",
+    "records.pan-os-php.body": "Se han liberado 11.1.4-h38 / 11.1.6-h40 / 11.1.10-h36 / 11.1.13-h16 . Las ETA restantes (por ejemplo, 11.2.13-h4 y 10.2.13-h27 se convierten en 10 / 27 ) permanecen como en la tabla anterior a 05:45 Z. No tenemos conocimiento de ningún uso indebido en nuestros propios productos. Se mantiene la distinción existente de que el portal GlobalProtect, etc., no se ve afectado.",
+    "records.pan-os-php.action": "Proteger la gestión del acceso a internet y verificar en una tabla si el sistema está en la versión publicada o en la versión ETA. No utilizar firmas de contenido como sustituto de las actualizaciones del sistema operativo. No interpretar el mensaje \"no reconocido\" de PAN como una indicación de que PHP en general no se está utilizando incorrectamente.",
+    "records.pan-os-php.time": "Línea de tiempo JSON final 14:45 JST ( 05:45 UTC)",
+    "records.tailscale-1042.title": "Tailscale: Permanece 1.104.2 . La solución mínima para Tailworm aún no se ha decidido.",
+    "records.tailscale-1042.body": "La última versión estable en el boletín oficial y en las versiones de GitHub es 1.104.2 (eMudhra). No hay nuevas etiquetas ni boletines en esta ventana. No utilice la fusión de código fuente, el modo de verificación ni TS_SSH_DISABLE_FORWARDING=1 para comprobar las correcciones distribuidas.",
+    "records.tailscale-1042.action": "Si el objetivo es votar en contra de eMudhra, proceda a partir de 1.104.2 . Para el reenvío SSH, Serve/Funnel y headscale, hasta que se publiquen correcciones oficiales para cada elemento, limítese a comprobar rutas de administración alternativas y a detener el reenvío innecesario.",
+    "records.tailscale-1042.time": "Última versión estable 1.104.2 ( 10 / 21 ). No hay nuevas etiquetas para esta ventana.",
+    "records.php-brotli-jpcert.title": "PHP / Brotli Domestic Advertencia: Continúa la orientación para 16:25 / 18:00",
+    "records.php-brotli-jpcert.body": "AT-__ 2026 - 0033 tienen comunicaciones de prueba y de prueba, pero se ha añadido que la ejecución exitosa depende de la versión, el entorno y la asignación de memoria. CVE-2026-115560 y session.upload_progress.enabled=0 reinician todos los trabajadores. Brotli AT-__ 2026 - 0034 son límites de corrección para cada serie. No hay nuevas alertas nacionales en esta ventana.",
+    "records.php-brotli-jpcert.action": "Compare las modificaciones realizadas a la serie objetivo con las copias que se han colocado realmente. No confunda la configuración de mitigación con la finalización de toda la configuración de PHP.",
+    "records.php-brotli-jpcert.time": "JPCERT 16:25 / JVN 18:00 JST (dentro de la ventana anterior)",
+    "records.gmo-seventh-correction.title": "Referencia: La corrección de fecha para el Informe sobre OMG n. 7 es 2 minutos después de la fecha de referencia.",
+    "records.gmo-seventh-correction.body": "El HTML recuperado dice 10/27 0:20 corrección: incorrecto 10/23 , correcto 10/25 (la fecha de la solicitud de investigación del dispositivo). No retrodate la corrección misma como un hecho confirmado en 23:10 . Al recuperarse, la fecha de la solicitud del cliente se había corregido a 10/25 .",
+    "records.gmo-seventh-correction.action": "Verifique la fecha de la solicitud en la página oficial actual. No utilice la hora de corrección como hora de finalización de la intrusión o del análisis.",
+    "records.gmo-seventh-correction.time": "00:20 Corrección JST (después del criterio 00:18 )",
+    "records.bc-dotnet-after-cutoff.title": "Referencia: El feed RSS de artículos .NET de BleepingComputer es post-estándar.",
+    "records.bc-dotnet-after-cutoff.body": "El canal RSS para las actualizaciones de emergencia de .NET de Microsoft se publica 15:38 UTC. Las fuentes principales son 10 / 25 dotnet/announcements# 494 / 493 . Las publicaciones posteriores a la hora estándar no se consideran nuevas actualizaciones dentro de la red.",
+    "records.bc-dotnet-after-cutoff.action": "Las contramedidas de .NET implican verificar la guía principal # 494 / # 493 . Se mantendrá la reemisión de NativeAOT y la exclusión de los marcos.",
+    "records.bc-dotnet-after-cutoff.time": "Fecha de publicación RSS 15:38 UTC (después de la referencia 15:18 )",
+    "caveats.0": "Es la revisión actual obtenida después de la hora examinada. Distinga la publicación, la incorporación a la base de datos, la intrusión y la disponibilidad de correcciones.",
+    "caveats.1": "delta incluye las primeras incorporaciones a bases de datos dentro del intervalo y los avisos oficiales; no significa en todos los casos nuevos descubrimientos o nuevos daños.",
+    "caveats.2": "Las nuevas entradas de NVD 98 ) se duplicarán en sus entradas actualizadas 1 y 048 ). Las entradas publicadas por GHSA 0 ) y las entradas modificadas 19 son revisiones de entradas revisadas existentes.",
+    "caveats.3": "No añada 98 + 1 , 048 + 19 al número de incidentes ni al número de organizaciones victimizadas.",
+    "caveats.4": "NVD Recibido/Aplazado indica que se ha recibido el CNA o que está pendiente de análisis, y no significa que se haya confirmado la confirmación o el uso indebido por parte de CVSS.",
+    "caveats.5": "HTTP 2 Shell / Nodo 2 Shell / Brotli 2 Shell es el mismo CVE-2026-111497 . HTTP/ 2 no es un defecto del protocolo.",
+    "caveats.6": "El problema de agotamiento de recursos del clúster Bandit HTTP/ 2 es independiente del defecto del decodificador Brotli.",
+    "caveats.7": "La ausencia en KEV, la falta de actualizaciones o la falta de publicación en un feed no demuestran ausencia de explotación o de daños.",
+    "caveats.8": "No deducimos el número de parche para FortiSandbox, etc., del cuerpo del mensaje NVD Received.",
+    "caveats.9": "El objetivo de incorporación 10 / 26 de ConnectWise permanece como \"La preparación continúa\" en la actualización 14:00 UTC. No se permitirá la reconexión durante los trabajos de recuperación.",
+    "caveats.10": "Los 10 / 27 12:00 de GMO son advertencias de atacantes. No son ni horarios oficiales de publicación de información ni horarios de finalización de análisis.",
+    "caveats.11": "Informe sobre OMG n.º 7 : 00:20 La corrección de la fecha JST es posterior a la fecha de referencia. 23:10 No lo vuelva a escribir en el texto principal.",
+    "caveats.12": "La reanudación 23:17 se refiere a la reanudación de la entrega para ese tipo específico de correo electrónico. No significa el cierre de todo el ecosistema PHP.",
+    "caveats.13": "Tailscale 1.104.2 es para eMudhra. La solución mínima para Tailworm aún no se ha decidido.",
+    "caveats.14": "No confunda la fusión de solicitudes de extracción de ClickHouse con la versión principal de libjxl para correcciones visibles para el usuario.",
+    "caveats.15": "El problema de Arrow no está resuelto. NativeAOT no reemplaza el decodificador solo con una actualización de tiempo de ejecución compartida.",
+    "caveats.16": "Cloudflare Emergency WAF utiliza el registro predeterminado. No considera el registro como una indicación de bloqueo exitoso.",
+    "caveats.17": "La información de cybersecuritynews.com y Reddit JSON 403 . No conviertas las fuentes de noticias secundarias en la autoridad de otros.",
+    "caveats.18": "La recuperación real se produce después de 00:48 JST. El original HTTP se basa en la revisión actual después de la hora de referencia, y cualquier adición no registrada no se puede restaurar por completo.",
+    "caveats.19": "Esto no abarca todos los incidentes a nivel mundial. Los informes de prensa y las redes sociales solo se utilizan como punto de partida para las investigaciones iniciales, y las reclamaciones de los atacantes no se incluyen en los daños confirmados.",
+    "report.title": "10 00:18 Comprobar incidentes, vulnerabilidades y 27",
+    "report.headline": "Comprobaremos por separado la reanudación, los anuncios y la llegada del decodificador.",
+    "report.intro": "Hemos recopilado datos de fuentes primarias sobre las actualizaciones diarias de ConnectWise, el informe 7 de GMO, la reanudación de las alertas de emergencia de SoftBank y las condiciones de alcance descendente de Brotli. Las nuevas entradas de NVD 98 no representan el número de incidentes.",
+    "quick.0.title": "Para quienes utilizan GMO",
+    "quick.0.text": "El informe 7 de 23:10 explica las advertencias del atacante para 10 / 27 12:00 , y la política de no cumplir con sus solicitudes. Continúe con la verificación de la cuenta para el informe 6 . La corrección de fecha para 00:20 es posterior a la fecha estándar.",
+    "quick.0.label": "Alcance de la verificación para los informes 7 y 6",
+    "quick.1.title": "ConnectWise / SoftBank",
+    "quick.1.text": "La actualización 23:00 de ConnectWise indica que continúan los preparativos para la incorporación y no es una notificación de inicio de restauración. SoftBank ha reanudado la información sobre desastres y evacuaciones desde 23:17 .",
+    "quick.1.label": "Distinguir entre recuperación y reapertura",
+    "quick.2.title": "Brotli / HTTP 2 Shell",
+    "quick.2.text": "El defecto reside en el decodificador C, no en HTTP/ 2 . .NET lo ha corregido con una actualización en tiempo de ejecución y una reedición de NativeAOT, mientras que FFmpeg/ClickHouse/Arrow tienen condiciones de alcance diferentes. La serie Bandit HTTP/ 2 constituye un clúster aparte.",
+    "quick.2.label": "Alcance aguas abajo y contramedidas",
+    "quick.3.title": "Servicios públicos y dispositivos de delimitación",
+    "quick.3.text": "FortiSandbox, Harbor webhook, eMudhra CA de mongosh, MCP Toolbox, Camel Saxon y Mautic 7 se incluyen en NVD por primera vez. No asuma que \"Recibido\" significa que se ha hecho un uso indebido de ellos.",
+    "quick.3.label": "Requisitos de la ventana NVD y guía principal",
+    "ui.title": "Datos de investigación sobre incidentes y vulnerabilidades",
+    "ui.intro": "Registros de investigación basados en fuentes primarias públicas. Están organizados para revisar las condiciones y reservas y volver a las indicaciones oficiales.",
+    "ui.cutoff": "Hora de corte de la investigación",
+    "ui.actions": "Qué comprobar",
+    "ui.sources": "Fuentes primarias y referencias",
+    "ui.delta": "Actualizaciones de registros y avisos revisadas en esta ocasión",
+    "ui.scope-complement": "Ampliación de medidas y condiciones de casos existentes",
+    "ui.reference-only": "Información de referencia con horas de publicación u otros datos sin determinar",
+    "ui.notice": "Traducción mediante IA realizada por Codex. No ha sido revisada por un hablante nativo. Contraste los nombres de productos, las versiones, la configuración y las medidas con el original y las indicaciones oficiales.",
+    "ui.original": "Original en japonés",
+    "ui.data": "Obtener los datos de traducción en JSON",
+    "ui.home": "Ir a la animación",
+    "ui.languages": "Seleccionar idioma",
+    "ui.evidence": "Originales obtenidos y método de investigación",
+    "ui.counts": "El número de asuntos tratados aquí no equivale al número de nuevos incidentes con daños.",
+    "ui.pending": "Preparando los datos de traducción."
+  },
+  "database": {
+    "cutoff": "2026-10-26T15:18:00Z",
+    "cutoff_jst": "2026-10-27T00:18:00+09:00",
+    "delta_start": "2026-10-26T12:35:00Z",
+    "counts": {
+      "nvd_published": 98,
+      "nvd_modified": 1048,
+      "published_modified_overlap": 98,
+      "ghsa": 0,
+      "ghsa_unreviewed": 0,
+      "ghsa_reviewed": 0,
+      "ghsa_malware": 0,
+      "ghsa_modified": 19,
+      "ghsa_published_modified_overlap": 0,
+      "delta_topic_groups": 12,
+      "scope_complement_topic_groups": 6,
+      "reference_only_topic_groups": 2,
+      "record_topic_groups": 20,
+      "nvd_rejected_records": 0,
+      "verified_response_records": 161,
+      "deduplicated_previous_references": 55,
+      "rendered_supplement_captures": 0,
+      "snapshot_ok": 85,
+      "vendor_ok": 76
+    },
+    "kev": {
+      "catalog_version": "2026.10.23",
+      "count": 1756,
+      "same_bytes": true,
+      "added_ids": []
+    },
+    "caveats": [
+      "Es la revisión actual obtenida después de la hora examinada. Distinga la publicación, la incorporación a la base de datos, la intrusión y la disponibilidad de correcciones.",
+      "delta incluye las primeras incorporaciones a bases de datos dentro del intervalo y los avisos oficiales; no significa en todos los casos nuevos descubrimientos o nuevos daños.",
+      "Las nuevas entradas de NVD 98 ) se duplicarán en sus entradas actualizadas 1 y 048 ). Las entradas publicadas por GHSA 0 ) y las entradas modificadas 19 son revisiones de entradas revisadas existentes.",
+      "No añada 98 + 1 , 048 + 19 al número de incidentes ni al número de organizaciones victimizadas.",
+      "NVD Recibido/Aplazado indica que se ha recibido el CNA o que está pendiente de análisis, y no significa que se haya confirmado la confirmación o el uso indebido por parte de CVSS.",
+      "HTTP 2 Shell / Nodo 2 Shell / Brotli 2 Shell es el mismo CVE-2026-111497 . HTTP/ 2 no es un defecto del protocolo.",
+      "El problema de agotamiento de recursos del clúster Bandit HTTP/ 2 es independiente del defecto del decodificador Brotli.",
+      "La ausencia en KEV, la falta de actualizaciones o la falta de publicación en un feed no demuestran ausencia de explotación o de daños.",
+      "No deducimos el número de parche para FortiSandbox, etc., del cuerpo del mensaje NVD Received.",
+      "El objetivo de incorporación 10 / 26 de ConnectWise permanece como \"La preparación continúa\" en la actualización 14:00 UTC. No se permitirá la reconexión durante los trabajos de recuperación.",
+      "Los 10 / 27 12:00 de GMO son advertencias de atacantes. No son ni horarios oficiales de publicación de información ni horarios de finalización de análisis.",
+      "Informe sobre OMG n.º 7 : 00:20 La corrección de la fecha JST es posterior a la fecha de referencia. 23:10 No lo vuelva a escribir en el texto principal.",
+      "La reanudación 23:17 se refiere a la reanudación de la entrega para ese tipo específico de correo electrónico. No significa el cierre de todo el ecosistema PHP.",
+      "Tailscale 1.104.2 es para eMudhra. La solución mínima para Tailworm aún no se ha decidido.",
+      "No confunda la fusión de solicitudes de extracción de ClickHouse con la versión principal de libjxl para correcciones visibles para el usuario.",
+      "El problema de Arrow no está resuelto. NativeAOT no reemplaza el decodificador solo con una actualización de tiempo de ejecución compartida.",
+      "Cloudflare Emergency WAF utiliza el registro predeterminado. No considera el registro como una indicación de bloqueo exitoso.",
+      "La información de cybersecuritynews.com y Reddit JSON 403 . No conviertas las fuentes de noticias secundarias en la autoridad de otros.",
+      "La recuperación real se produce después de 00:48 JST. El original HTTP se basa en la revisión actual después de la hora de referencia, y cualquier adición no registrada no se puede restaurar por completo.",
+      "Esto no abarca todos los incidentes a nivel mundial. Los informes de prensa y las redes sociales solo se utilizan como punto de partida para las investigaciones iniciales, y las reclamaciones de los atacantes no se incluyen en los daños confirmados."
+    ],
+    "provenance": {
+      "summary": "collection-summary.json",
+      "nvd": "nvd-index.json",
+      "ghsa_modified": "ghsa-modified-index.json",
+      "feeds": "feed-index.json",
+      "research": "../../docs/research-collection-2026-10-27-0018.md",
+      "collector": "../../tools/intel/snapshot-0018.py",
+      "vendor_summary": "../2026-10-27-0018-vendors/collection-summary.json",
+      "vendor_research": "../../docs/research-2026-10-27-0018.md"
+    },
+    "records": [
+      {
+        "id": "connectwise-1400",
+        "title": "ConnectWise: La actualización UTC 14:00 indica que la preparación continúa, no es un informe de inicio de restauración.",
+        "kind": "delta",
+        "time": "23:00 JST ( 14:00 UTC, actualizado diariamente)",
+        "body": "Trust Center publicó una actualización para el lunes 26 14:00 UTC. Indica que continúan los preparativos para la incorporación gradual de socios y que se proporcionarán instrucciones cuando se pueda iniciar la restauración a partir de las copias de seguridad existentes. Este informe no indica que la restauración haya comenzado el 10/26 . Mantenga las conexiones afectadas deshabilitadas hasta que lleguen las instrucciones individuales. Los archivos están cifrados, aislados y preservados, sin indicios de impacto en otros productos. La próxima actualización es 10/27 14:00 UTC.",
+        "action": "La conexión de destino permanece desactivada. No se vuelva a conectar hasta que se proporcionen instrucciones específicas para la reactivación del servicio. En el lado de 365 , el inicio de sesión en Entra, el registro de la aplicación, el consentimiento, las reglas de reenvío y los dispositivos registrados continuarán como tareas independientes. No interprete la recuperación de la infraestructura ni las actualizaciones diarias como una autorización para volver a conectarse.",
+        "sources": [
+          {
+            "name": "ConnectWise Trust Center",
+            "url": "https://www.connectwise.com/company/trust/advisories"
+          }
+        ],
+        "certainty": "confirmed-publication",
+        "date": "2026-10-26",
+        "cve_ids": []
+      },
+      {
+        "id": "gmo-seventh",
+        "title": "Informe sobre OMG n.º 7 : 12:00 es una advertencia de un atacante. No atenderemos la solicitud.",
+        "kind": "delta",
+        "time": "23:10 JST (Estándares de texto para el informe 7 )",
+        "body": "La empresa explicó que recibió avisos de divulgación de información y ataques de ransomware de un presunto atacante a través de 10 / 27 12:00 . No accederán a las solicitudes. Se han recuperado terminales y se están analizando hasta la fecha de 10 / 26 22 en colaboración con la investigación de terminales. No se ha confirmado la instalación de malware. Se reitera la información de protección de la cuenta de 6 . Nunca solicitarán una contraseña ni un código de autenticación.",
+        "action": "Si tiene un dispositivo o cuenta conectada al servicio en cuestión, continúe revisando el informe número 6 desde otro dispositivo seguro. No responda a solicitudes de dinero no oficiales ni a mensajes que afirmen \"recuperar fondos perdidos\". 12:00 no se considerará la hora oficial de publicación de la información. No enviar un dispositivo no se considerará una condición de no víctima.",
+        "sources": [
+          {
+            "name": "GMO第7報",
+            "url": "https://group.gmo/info/alert/2026102602/"
+          },
+          {
+            "name": "GMO第6報（再掲の依頼）",
+            "url": "https://group.gmo/info/alert/20261026/"
+          }
+        ],
+        "certainty": "confirmed-publication",
+        "date": "2026-10-26",
+        "cve_ids": []
+      },
+      {
+        "id": "softbank-resume",
+        "title": "SoftBank: Reanuda el servicio de información sobre desastres y evacuación a 23:17",
+        "kind": "delta",
+        "time": "23:17 JST (texto oficial)",
+        "body": "Además de las alertas tempranas de terremotos y tsunamis, la distribución de información sobre desastres y evacuación por parte de los gobiernos nacionales y locales se ha reanudado desde 10 / 26 23:17 . SoftBank / Y!mobile / LINEMO han declarado que podrán recibir toda la información de los correos electrónicos de alerta de emergencia. El mantenimiento continuará de la siguiente manera: 10 / 23 6:47 a 10 / 26 23:17 . Esto es una reanudación de las rutas de los operadores y no significa que se haya solucionado todo el ecosistema PHP.",
+        "action": "En muchos casos, basta con revisar la configuración de alertas de emergencia en la línea afectada. No considere que la reanudación del servicio por parte del operador signifique la finalización de la actualización de seguridad de PHP de su organización ni el fin del abuso.",
+        "sources": [
+          {
+            "name": "ソフトバンク公式案内",
+            "url": "https://www.softbank.jp/corp/news/info/2026/20261023_01/"
+          }
+        ],
+        "certainty": "confirmed-publication",
+        "date": "2026-10-26",
+        "cve_ids": []
+      },
+      {
+        "id": "nvd-fortisandbox",
+        "title": "FortiSandbox: Omisión de autenticación mediante ruta alternativa (NVD recibido)",
+        "kind": "delta",
+        "time": "23:16 JST (NVD publicó 14:16:24 UTC)",
+        "body": "CVE-2026-107656 describe la posibilidad de eludir la autenticación mediante rutas alternativas y ejecutar código o comandos no autorizados a través de HTTP manipulado para todas las versiones de FortiSandbox 5.0.0 – 5.0.6 , 4.4.0 – 4.4.9 y 4.2 y sus PaaS correspondientes. El estado es Recibido. El número de corrección no se infiere del NVD.",
+        "action": "Si la interfaz de administración está disponible públicamente en internet, lea FortiGuard FG-IR-__ 26 - 185 y compárela con las correcciones oficiales para cada serie. No considere \"Recibido\" como confirmación de una vulnerabilidad de emergencia.",
+        "sources": [
+          {
+            "name": "FortiGuard PSIRT FG-IR-26-185",
+            "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-185"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-107656"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "nvd-harbor-ssrf",
+        "title": "Puerto: Webhook SSRF de ProjectAdmin",
+        "kind": "delta",
+        "time": "23:16 JST (NVD publicó 14:16:28 UTC)",
+        "body": "CVE-2026-111590 indica una verificación insuficiente del destino del webhook. Esto requiere que ProjectAdmin establezca un destino local de enlace privado y que el cuerpo de la respuesta se registre en el registro de ejecución. No se trata de una brecha de seguridad completa que involucre a usuarios no autenticados.",
+        "action": "Compruebe los permisos de creación de webhooks y las restricciones de destino, y verifique los cambios en GHSA-2phj-cp9f-qq6w .",
+        "sources": [
+          {
+            "name": "Harbor GHSA-2phj-cp9f-qq6w",
+            "url": "https://github.com/goharbor/harbor/security/advisories/GHSA-2phj-cp9f-qq6w"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-111590"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "nvd-mongosh-emudhra",
+        "title": "mongosh: CA intermedio eMudhra para Node.js empaquetado",
+        "kind": "delta",
+        "time": "00:16 JST (NVD publicó 15:16:39 UTC)",
+        "body": "CVE-2026-115930 es un problema de mongosh; cualquier versión anterior a 2.14.0 incluye una CA intermedia eMudhra que se puede recuperar en el almacén TLS integrado de Node.js. 2.14.0 es de Node.js; 24.22.1 y versiones posteriores están descritas por NVD. Actualizar el host Node mediante npm es una condición aparte. Esto no demuestra que se haya solucionado el problema de Tailworm.",
+        "action": "La versión de mongosh y la versión del nodo host se comparan por separado para cada ruta de distribución. Si el objetivo es rechazar eMudhra, compruebe la serie Node 24.22.1 y mongosh 2.14.0 según las instrucciones.",
+        "sources": [
+          {
+            "name": "MongoDB Shell changelog",
+            "url": "https://www.mongodb.com/docs/mongodb-shell/changelog/"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-115930"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "nvd-mcp-toolbox",
+        "title": "MCP Toolbox: Transferencia de archivos no autorizada y sobrescritura local",
+        "kind": "delta",
+        "time": "00:16 JST (NVD publicó 15:16:45 UTC)",
+        "body": "CVE-2026-93328 es un problema de recorrido de ruta y falta de autorización en la fuente de almacenamiento en la nube de googleapis/mcp-toolbox 1.2.0 – 1.4.0 . NVD indica que es posible tomar archivos de host a un GCS externo sin autenticación y sobrescribir los archivos locales. Recibido.",
+        "action": "Solo si la versión de destino está disponible públicamente, la solicitud de extracción 3454 se comparará con las modificaciones de la fuente.",
+        "sources": [
+          {
+            "name": "googleapis/mcp-toolbox PR 3454",
+            "url": "https://github.com/googleapis/mcp-toolbox/pull/3454"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-93328"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "nvd-avocent-wsserver",
+        "title": "Avocent ACS 8000 : ensamblado de comandos para wsserver",
+        "kind": "delta",
+        "time": "00:16 JST (NVD publicó 15:16:41 UTC)",
+        "body": "CVE-2026-65184 es un informe de runZero que indica que el servidor web con privilegios de root pasa comandos a system()/popen() desde el campo WebSocket. La ruta de sesión de clave pública no realiza la comprobación de sesión del dispositivo. Recibido. La versión corregida aún no se ha confirmado en esta investigación.",
+        "action": "Solo compare la recomendación de runZero con las instrucciones del fabricante si el dispositivo en cuestión se gestiona a través de Internet.",
+        "sources": [
+          {
+            "name": "runZero advisory",
+            "url": "https://www.runzero.com/advisories/avocent-acs8000-wsserver-cmdinj-cve-2026-65184"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-65184"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "nvd-camel-saxon-oauth",
+        "title": "Apache Camel: Saxon XXE y caché de tokens OAuth",
+        "kind": "delta",
+        "time": "00:16 JST (NVD publicó 15:16:45 UTC unidades)",
+        "body": "CVE-2026-90885 es camel-saxon XXE ( 4.0.0 o superior, menor que 4.18.5 , 4.19.0 o superior, menor que 4.22.2 ). CVE-2026-94386 es una confusión de caché de tokens OAuth ( 4.19.0 o superior, menor que 4.22.2 ). Estas son condiciones diferentes a las de la ruta de Docling que completamos anteriormente.",
+        "action": "Compare los componentes y secuencias que se utilizan con las directrices oficiales a partir de 4.18.5 / 4.22.2 . No los considere como una única RCE para todo el sistema Camel.",
+        "sources": [
+          {
+            "name": "CVE-2026-90885",
+            "url": "https://camel.apache.org/security/CVE-2026-90885.html"
+          },
+          {
+            "name": "CVE-2026-94386",
+            "url": "https://camel.apache.org/security/CVE-2026-94386.html"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-90885",
+          "CVE-2026-94386"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "nvd-mautic7",
+        "title": "Mautic 7 : Una serie de operaciones que incluyen carga, SSTI, deserialización, SQLi, etc.",
+        "kind": "delta",
+        "time": "23:16 JST (NVD diferido)",
+        "body": "Las condiciones CVE-2026-115188 a 115196 son alternativas para Mautic 7 . Estas incluyen cargas de importación de campañas, Twig SSTI, deserialización, AJAX de administración y SQLi de la API del panel de control, XSS almacenado, rutas de la API de activos, permisos de la API de estadísticas y redirecciones abiertas para formularios públicos. Algunas requieren permisos autenticados o funcionalidad específica. Los elementos 9 no se incluyen como vulnerabilidades que afectan a todos los servidores sin autenticación.",
+        "action": "El sistema solo verificará la versión corregida y la configuración de permisos de cada GHSA si se está utilizando la función correspondiente.",
+        "sources": [
+          {
+            "name": "GHSA-mxjf-pghx-h299",
+            "url": "https://github.com/mautic/mautic/security/advisories/GHSA-mxjf-pghx-h299"
+          },
+          {
+            "name": "GHSA-h7pm-79gc-8867",
+            "url": "https://github.com/mautic/mautic/security/advisories/GHSA-h7pm-79gc-8867"
+          },
+          {
+            "name": "GHSA-5r63-8h35-j3mw",
+            "url": "https://github.com/mautic/mautic/security/advisories/GHSA-5r63-8h35-j3mw"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-115188",
+          "CVE-2026-115189",
+          "CVE-2026-115190",
+          "CVE-2026-115191",
+          "CVE-2026-115192",
+          "CVE-2026-115193",
+          "CVE-2026-115194",
+          "CVE-2026-115195",
+          "CVE-2026-115196"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "nvd-bandit-http2",
+        "title": "Bandit HTTP/ 2 etc: HTTP 2 está en un clúster diferente al de Shell (Brotli).",
+        "kind": "delta",
+        "time": "23:16 JST stand (NVD publicado)",
+        "body": "Las implementaciones HTTP/ 2 y HTTP/ 1.1 del bandido mtrudel se han añadido al NVD (Depósito No Virtual) con una serie de vulnerabilidades que incluyen agotamiento de recursos, complejidad, amplificación de compresión y contrabando de solicitudes. Esto es independiente de la vulnerabilidad del decodificador Brotli en CVE-2026-111497 . El uso de HTTP/ 2 por sí solo no se incluirá en el objetivo de corrección de Brotli. Otro CVE de hackney se encuentra en el mismo lote.",
+        "action": "Cuando utilice Elixir/Bandit o Hackney públicamente, compare las condiciones de cada CVE con las del distribuidor.",
+        "sources": [
+          {
+            "name": "NVD CVE-2026-108525",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108525"
+          }
+        ],
+        "certainty": "CNA-unreviewed",
+        "cve_ids": [
+          "CVE-2026-108525",
+          "CVE-2026-108529",
+          "CVE-2026-109584"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "ghsa-modified-19",
+        "title": "GHSA: Se publicó recientemente 0 y se revisaron las revisiones existentes 19",
+        "kind": "delta",
+        "time": "23:07 ~ 00:16 JST (GHSA actualizado)",
+        "body": "Hay 0 elementos disponibles públicamente. Los elementos actualizados 19 incluyen aiohttp 3.14.4 , Keycloak, kobako, Grav, Wagtail, Talos Linux, Dolibarr, ImageSharp, PostCSS, el antiguo retoque GHSA de Open WebUI, el puente Log 4 j 1 -to- 2 , etc. Los elementos actualizados son revisiones del texto y alcance principales, no nuevas versiones de día cero esta noche.",
+        "action": "Si ya se ha implementado, se comprobará el límite actual de cada GHSA. No se volverá a añadir al recuento de publicaciones anterior.",
+        "sources": [
+          {
+            "name": "aiohttp GHSA-494j-54xm-rwp3",
+            "url": "https://github.com/advisories/GHSA-494j-54xm-rwp3"
+          }
+        ],
+        "certainty": "confirmed-publication",
+        "date": "2026-10-26",
+        "cve_ids": []
+      },
+      {
+        "id": "brotli-jfrog-reach",
+        "title": "Brotli: .NET / FFmpeg / ClickHouse / Arrow no es un defecto HTTP/ 2 .",
+        "kind": "scope-complement",
+        "time": "10 / 25 JFrog/Microsoft principal. NVD última modificación 23:16 JST",
+        "body": "CVE-2026-111497 es una escritura fuera de límites al decodificador C. Comúnmente conocido como HTTP. 2 Shell/Node. 2 Shell/Brotli. 2 Shell tiene el mismo CVE. .NET tiene SIGSEGV, RCE no probado, correcciones 8.0.33 / 9.0.22 / 10.0.14 , NativeAOT ha sido reeditado. FFmpeg → libjxl brob box corrompe punteros, lanzamiento de corrección no confirmado. ClickHouse falla con aproximadamente 23 MB, fusión de PR y lanzamiento aún no enviados. Arrow tiene 534 bucle infinito de bytes, problema no cerrado. Cloudflare emergency WAF está en el registro predeterminado. cybersecuritynews es 403 .",
+        "action": "Inventaría las copias empaquetadas y la ruta de despliegue real. No considere que el proceso esté completo simplemente eliminando br de Accept-Encoding. Vuelva a emitir NativeAOT. Trate ClickHouse/Arrow/libjxl como sin corregir hasta que se confirme la corrección distribuida. No considere que la regla de registro bloqueada esté completa.",
+        "sources": [
+          {
+            "name": "JFrog Brotli2Shell",
+            "url": "https://research.jfrog.com/post/brotli2shell-beyond-node2shell-and-http2shell/"
+          },
+          {
+            "name": "dotnet/announcements#494",
+            "url": "https://github.com/dotnet/announcements/issues/494"
+          },
+          {
+            "name": "Cloudflare emergency WAF 2026-10-25",
+            "url": "https://developers.cloudflare.com/changelog/post/2026-10-25-emergency-waf-release/"
+          },
+          {
+            "name": "Google CNA CVE-2026-111497",
+            "url": "https://www.cve.org/CVERecord?id=CVE-2026-111497"
+          }
+        ],
+        "certainty": "prior-scope",
+        "cve_ids": [
+          "CVE-2026-111497"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "gmo-sixth-still",
+        "title": "Informe sobre OMG n.º 6 : La solicitud de protección de la cuenta no ha sido retirada.",
+        "kind": "scope-complement",
+        "time": "21:00 JST (n.º 6 ). Se vuelve a publicar el informe n.º 7",
+        "body": "El punto 4 de 6 (escaneo completo, copia de seguridad sin conexión, desconexión de todas las sesiones de otros dispositivos, desactivación de contraseñas, MFA y sincronización, y bloqueo de cualquier dispositivo) también se menciona en 7 . Esto se aplica no solo a FX, sino también a valores, correo electrónico, Google, etc. No se confirma la infección de todos los dispositivos conectados.",
+        "action": "Continúe la inspección desde otro dispositivo de confianza. No active la sincronización del navegador hasta que finalice la inspección.",
+        "sources": [
+          {
+            "name": "GMO第6報",
+            "url": "https://group.gmo/info/alert/20261026/"
+          }
+        ],
+        "certainty": "prior-scope",
+        "date": "2026-10-26",
+        "cve_ids": []
+      },
+      {
+        "id": "blastmail-345",
+        "title": "Correo masivo: 345 Contrato/Reanudación sin decidir permanece según el aviso 17:00 .",
+        "kind": "scope-complement",
+        "time": "Actualización de JST 17:00 (en la ventana anterior). Próxima actualización alrededor de 10 / 27 12:00",
+        "body": "Se confirma la filtración de información más allá de los datos del suscriptor para los contratos 345 , y se notifica individualmente a 345 . No se ha determinado la hora de reanudación. No se han producido cambios en el contenido durante este período. Esto no implica que 345 personas, todos los destinatarios o 345 hayan sido víctimas de nuevas intrusiones.",
+        "action": "Confirmaremos los elementos en cuestión mediante notificaciones individuales y mantendremos canales alternativos de comunicación y distribución. No consideraremos la investigación concluida ni autorizaremos su reanudación simplemente porque se haya contactado a todas las personas.",
+        "sources": [
+          {
+            "name": "ブラストメール運営案内",
+            "url": "https://info.blastmail.jp/information_20261021.html"
+          }
+        ],
+        "certainty": "prior-scope",
+        "date": "2026-10-26",
+        "cve_ids": []
+      },
+      {
+        "id": "pan-os-php",
+        "title": "PAN-OS PHP: No hay nuevas eliminaciones con fecha estimada de finalización para esta ventana.",
+        "kind": "scope-complement",
+        "time": "Línea de tiempo JSON final 14:45 JST ( 05:45 UTC)",
+        "body": "Se han liberado 11.1.4-h38 / 11.1.6-h40 / 11.1.10-h36 / 11.1.13-h16 . Las ETA restantes (por ejemplo, 11.2.13-h4 y 10.2.13-h27 se convierten en 10 / 27 ) permanecen como en la tabla anterior a 05:45 Z. No tenemos conocimiento de ningún uso indebido en nuestros propios productos. Se mantiene la distinción existente de que el portal GlobalProtect, etc., no se ve afectado.",
+        "action": "Proteger la gestión del acceso a internet y verificar en una tabla si el sistema está en la versión publicada o en la versión ETA. No utilizar firmas de contenido como sustituto de las actualizaciones del sistema operativo. No interpretar el mensaje \"no reconocido\" de PAN como una indicación de que PHP en general no se está utilizando incorrectamente.",
+        "sources": [
+          {
+            "name": "Palo Alto Networks CVE-2026-109618",
+            "url": "https://security.paloaltonetworks.com/CVE-2026-109618"
+          }
+        ],
+        "certainty": "prior-scope",
+        "cve_ids": [
+          "CVE-2026-109618"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "tailscale-1042",
+        "title": "Tailscale: Permanece 1.104.2 . La solución mínima para Tailworm aún no se ha decidido.",
+        "kind": "scope-complement",
+        "time": "Última versión estable 1.104.2 ( 10 / 21 ). No hay nuevas etiquetas para esta ventana.",
+        "body": "La última versión estable en el boletín oficial y en las versiones de GitHub es 1.104.2 (eMudhra). No hay nuevas etiquetas ni boletines en esta ventana. No utilice la fusión de código fuente, el modo de verificación ni TS_SSH_DISABLE_FORWARDING=1 para comprobar las correcciones distribuidas.",
+        "action": "Si el objetivo es votar en contra de eMudhra, proceda a partir de 1.104.2 . Para el reenvío SSH, Serve/Funnel y headscale, hasta que se publiquen correcciones oficiales para cada elemento, limítese a comprobar rutas de administración alternativas y a detener el reenvío innecesario.",
+        "sources": [
+          {
+            "name": "Tailscale security bulletins",
+            "url": "https://tailscale.com/security-bulletins"
+          },
+          {
+            "name": "GitHub releases",
+            "url": "https://github.com/tailscale/tailscale/releases"
+          }
+        ],
+        "certainty": "prior-scope",
+        "date": "2026-10-26",
+        "cve_ids": []
+      },
+      {
+        "id": "php-brotli-jpcert",
+        "title": "PHP / Brotli Domestic Advertencia: Continúa la orientación para 16:25 / 18:00",
+        "kind": "scope-complement",
+        "time": "JPCERT 16:25 / JVN 18:00 JST (dentro de la ventana anterior)",
+        "body": "AT-__ 2026 - 0033 tienen comunicaciones de prueba y de prueba, pero se ha añadido que la ejecución exitosa depende de la versión, el entorno y la asignación de memoria. CVE-2026-115560 y session.upload_progress.enabled=0 reinician todos los trabajadores. Brotli AT-__ 2026 - 0034 son límites de corrección para cada serie. No hay nuevas alertas nacionales en esta ventana.",
+        "action": "Compare las modificaciones realizadas a la serie objetivo con las copias que se han colocado realmente. No confunda la configuración de mitigación con la finalización de toda la configuración de PHP.",
+        "sources": [
+          {
+            "name": "JPCERT/CC AT-2026-0033",
+            "url": "https://www.jpcert.or.jp/at/2026/at260033.html"
+          },
+          {
+            "name": "JPCERT/CC AT-2026-0034",
+            "url": "https://www.jpcert.or.jp/at/2026/at260034.html"
+          }
+        ],
+        "certainty": "prior-scope",
+        "cve_ids": [
+          "CVE-2026-109618",
+          "CVE-2026-109619",
+          "CVE-2026-115560",
+          "CVE-2026-111497"
+        ],
+        "date": "2026-10-26"
+      },
+      {
+        "id": "gmo-seventh-correction",
+        "title": "Referencia: La corrección de fecha para el Informe sobre OMG n. 7 es 2 minutos después de la fecha de referencia.",
+        "kind": "reference-only",
+        "time": "00:20 Corrección JST (después del criterio 00:18 )",
+        "date": "2026-10-27",
+        "body": "El HTML recuperado dice 10/27 0:20 corrección: incorrecto 10/23 , correcto 10/25 (la fecha de la solicitud de investigación del dispositivo). No retrodate la corrección misma como un hecho confirmado en 23:10 . Al recuperarse, la fecha de la solicitud del cliente se había corregido a 10/25 .",
+        "action": "Verifique la fecha de la solicitud en la página oficial actual. No utilice la hora de corrección como hora de finalización de la intrusión o del análisis.",
+        "sources": [
+          {
+            "name": "GMO第7報（取得版）",
+            "url": "https://group.gmo/info/alert/2026102602/"
+          }
+        ],
+        "certainty": "timestamp-unconfirmed",
+        "cve_ids": []
+      },
+      {
+        "id": "bc-dotnet-after-cutoff",
+        "title": "Referencia: El feed RSS de artículos .NET de BleepingComputer es post-estándar.",
+        "kind": "reference-only",
+        "time": "Fecha de publicación RSS 15:38 UTC (después de la referencia 15:18 )",
+        "body": "El canal RSS para las actualizaciones de emergencia de .NET de Microsoft se publica 15:38 UTC. Las fuentes principales son 10 / 25 dotnet/announcements# 494 / 493 . Las publicaciones posteriores a la hora estándar no se consideran nuevas actualizaciones dentro de la red.",
+        "action": "Las contramedidas de .NET implican verificar la guía principal # 494 / # 493 . Se mantendrá la reemisión de NativeAOT y la exclusión de los marcos.",
+        "sources": [
+          {
+            "name": "dotnet/announcements#494",
+            "url": "https://github.com/dotnet/announcements/issues/494"
+          }
+        ],
+        "certainty": "timestamp-unconfirmed",
+        "date": "2026-10-26",
+        "cve_ids": []
+      }
+    ],
+    "additional_nvd_ids_not_individually_featured": [
+      "CVE-2026-107092",
+      "CVE-2026-107157",
+      "CVE-2026-108525",
+      "CVE-2026-108529",
+      "CVE-2026-109584",
+      "CVE-2026-110314",
+      "CVE-2026-110474",
+      "CVE-2026-110475",
+      "CVE-2026-110499",
+      "CVE-2026-111101",
+      "CVE-2026-111103",
+      "CVE-2026-112880",
+      "CVE-2026-113436",
+      "CVE-2026-113440",
+      "CVE-2026-114213",
+      "CVE-2026-114216",
+      "CVE-2026-115269",
+      "CVE-2026-115693",
+      "CVE-2026-115700",
+      "CVE-2026-116210",
+      "CVE-2026-116212",
+      "CVE-2026-116213",
+      "CVE-2026-116214",
+      "CVE-2026-116215",
+      "CVE-2026-116216",
+      "CVE-2026-116217",
+      "CVE-2026-116218",
+      "CVE-2026-116219",
+      "CVE-2026-116274",
+      "CVE-2026-116275",
+      "CVE-2026-116280",
+      "CVE-2026-116281",
+      "CVE-2026-116282",
+      "CVE-2026-116283",
+      "CVE-2026-116485",
+      "CVE-2026-116486",
+      "CVE-2026-116487",
+      "CVE-2026-116488",
+      "CVE-2026-116492",
+      "CVE-2026-116516",
+      "CVE-2026-59106",
+      "CVE-2026-59107",
+      "CVE-2026-97200",
+      "CVE-2026-106781",
+      "CVE-2026-110733",
+      "CVE-2026-110748",
+      "CVE-2026-112345",
+      "CVE-2026-116284",
+      "CVE-2026-116339",
+      "CVE-2026-116340",
+      "CVE-2026-116497",
+      "CVE-2026-31158",
+      "CVE-2026-36698",
+      "CVE-2026-3322",
+      "CVE-2026-77052",
+      "CVE-2026-77053",
+      "CVE-2026-77054",
+      "CVE-2026-77055",
+      "CVE-2026-77056",
+      "CVE-2026-77057",
+      "CVE-2026-77058",
+      "CVE-2026-77059",
+      "CVE-2026-77060",
+      "CVE-2026-77061",
+      "CVE-2026-77062",
+      "CVE-2026-92171",
+      "CVE-2026-93847",
+      "CVE-2026-93848",
+      "CVE-2026-93849",
+      "CVE-2026-93850",
+      "CVE-2026-99088",
+      "CVE-2026-99089",
+      "CVE-2026-99090",
+      "CVE-2026-99091",
+      "CVE-2026-99092",
+      "CVE-2026-99093",
+      "CVE-2026-99094",
+      "CVE-2026-99095",
+      "CVE-2026-99096",
+      "CVE-2026-99097",
+      "CVE-2026-99098",
+      "CVE-2026-99099"
+    ],
+    "rejected_nvd_ids": [],
+    "report": {
+      "path": "update-20261027-0018.html",
+      "title": "10 00:18 Comprobar incidentes, vulnerabilidades y 27",
+      "headline": "Comprobaremos por separado la reanudación, los anuncios y la llegada del decodificador.",
+      "intro": "Hemos recopilado datos de fuentes primarias sobre las actualizaciones diarias de ConnectWise, el informe 7 de GMO, la reanudación de las alertas de emergencia de SoftBank y las condiciones de alcance descendente de Brotli. Las nuevas entradas de NVD 98 no representan el número de incidentes.",
+      "window_jst": "21:35〜00:18 JST",
+      "cutoff_jst_label": "2026-10-27 00:18 JST / 2026-10-26 15:18 UTC",
+      "retrieved_jst": "00:48 JST以降",
+      "previous": "update-20261026-2135.html",
+      "previous_label": "21:35の調査記録",
+      "motion_path": "./?lang=ja#58",
+      "motion_label": "復旧状態とBrotli到達を2画面で →",
+      "quick": [
+        {
+          "title": "Para quienes utilizan GMO",
+          "text": "El informe 7 de 23:10 explica las advertencias del atacante para 10 / 27 12:00 , y la política de no cumplir con sus solicitudes. Continúe con la verificación de la cuenta para el informe 6 . La corrección de fecha para 00:20 es posterior a la fecha estándar.",
+          "href": "#gmo-seventh",
+          "label": "Alcance de la verificación para los informes 7 y 6"
+        },
+        {
+          "title": "ConnectWise / SoftBank",
+          "text": "La actualización 23:00 de ConnectWise indica que continúan los preparativos para la incorporación y no es una notificación de inicio de restauración. SoftBank ha reanudado la información sobre desastres y evacuaciones desde 23:17 .",
+          "href": "#connectwise-1400",
+          "label": "Distinguir entre recuperación y reapertura"
+        },
+        {
+          "title": "Brotli / HTTP 2 Shell",
+          "text": "El defecto reside en el decodificador C, no en HTTP/ 2 . .NET lo ha corregido con una actualización en tiempo de ejecución y una reedición de NativeAOT, mientras que FFmpeg/ClickHouse/Arrow tienen condiciones de alcance diferentes. La serie Bandit HTTP/ 2 constituye un clúster aparte.",
+          "href": "#brotli-jfrog-reach",
+          "label": "Alcance aguas abajo y contramedidas"
+        },
+        {
+          "title": "Servicios públicos y dispositivos de delimitación",
+          "text": "FortiSandbox, Harbor webhook, eMudhra CA de mongosh, MCP Toolbox, Camel Saxon y Mautic 7 se incluyen en NVD por primera vez. No asuma que \"Recibido\" significa que se ha hecho un uso indebido de ellos.",
+          "href": "#nvd-fortisandbox",
+          "label": "Requisitos de la ventana NVD y guía principal"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "engine": "Stored translation memory; Google Cloud Translation v2 for missing text",
+    "human_reviewed": false
+  }
+}
