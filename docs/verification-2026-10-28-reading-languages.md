@@ -16,4 +16,9 @@ Verification:
 - Asset manifest check passed; initial motion entry still3requests. Published previous CSS705c7e2cc103 retained.
 - Read-only review found Japanese transcript shell text and incorrect rewriting of hreflang links; both fixed and identity regression checks added. Link localization now changes anchors only. English404 remains noindex and outside sitemap.
 
-Production source and live verification are recorded after publishing.
+## Production
+
+Sourcecommit32b553970b53136230e618b772e37830db249298; CloudflarePages release6a4ff4f4.
+
+Live article language tests passed:6routes x3viewports, Japanese/English dropdown round trips and no-JavaScript links. Live X-style toolbar and landscape safe-area tests passed. ImpactJA/EN, latestEnglishreport and latestEnglishDB match localSHA-256. Englishpolicy matches after normalizing email_off comments removed by the host; visible markup and email links are unchanged. PublishingCSS matches local bytes. No physical X-app/WKWebView run was available.
+
