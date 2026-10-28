@@ -216,3 +216,40 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
 @media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
   .hud-bottom .nav { width:min(390px,55vw) }
 }
+
+/* Phone portrait: reserve space for the briefing inside X's short web view. */
+@media (max-width:600px) and (orientation:portrait) {
+  :root { --pad:10px }
+  html body #app {
+    gap:6px;
+    padding-top:calc(12px + env(safe-area-inset-top));
+    padding-inline:calc(10px + env(safe-area-inset-left)) calc(10px + env(safe-area-inset-right));
+    padding-bottom:calc(54px + env(safe-area-inset-bottom));
+  }
+  .hud-top { display:flex; gap:0; padding:0 52px 6px 0 }
+  .hud-top .hud-left { display:none }
+  .hud-top .hud-right { gap:6px; width:100%; min-width:0 }
+  .hud-right .chip { padding-inline:8px; font-size:10px }
+  html body #app :is(.chip,.langselect,.navbtn) { min-height:44px }
+  body:not(.entry-locked) .repo-link { display:none }
+  body:not(.entry-locked) .patch-link { right:calc(10px + env(safe-area-inset-right)) }
+  .panel, .compact-viewport .panel {
+    max-height:min(calc(var(--app-height,100dvh) * .6),100%); padding:10px 12px;
+    background:rgba(8,17,27,.94); text-shadow:none;
+  }
+  html:not([data-device="quest"]):not([data-device="tv"]) .panel :is(.lede,.points li) {
+    font-size:14px; line-height:1.55;
+  }
+  .panel .kicker,.compact-viewport .panel .kicker { margin-bottom:4px; font-size:8px }
+  .panel .stamp,.compact-viewport .panel .stamp { font-size:16px; margin-bottom:6px }
+  .panel h1#title,.compact-viewport .panel h1#title { font-size:21px; line-height:1.3; margin-bottom:8px }
+  .panel .lede { margin-bottom:10px }
+  .panel .points { gap:6px }
+  .panel .metric { margin-top:10px; padding-top:8px; gap:8px }
+  .panel #metric-val { font-size:24px }
+  .hud-bottom,.compact-viewport .hud-bottom { gap:4px; padding-top:4px }
+  html body #app .hud-bottom .nav { gap:6px }
+  html body #app .hud-bottom .navbtn { padding:8px 6px; font-size:11px }
+  .hud-bottom .hint { display:none }
+  .hud-bottom .more { font-size:9px; line-height:12px }
+}
