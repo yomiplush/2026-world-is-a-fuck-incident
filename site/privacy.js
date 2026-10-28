@@ -60,7 +60,12 @@
   banner.append(label, bar);
   const dock = document.createElement('nav'); dock.className = 'privacy-dock'; dock.setAttribute('aria-label', copy.policy);
   const policyLink = policy.cloneNode(true);
-  const settings = document.createElement('button'); settings.type = 'button'; settings.id = 'privacy-settings'; settings.textContent = copy.settings;
+  const settings = document.createElement('button'); settings.type = 'button'; settings.id = 'privacy-settings';
+  settings.setAttribute('aria-label', copy.settings); settings.title = copy.settings;
+  const cookieIcon = document.createElement('span'); cookieIcon.className = 'privacy-cookie-icon'; cookieIcon.setAttribute('aria-hidden', 'true'); cookieIcon.textContent = '🍪';
+  const settingsText = document.createElement('span'); settingsText.className = 'privacy-settings-text'; settingsText.textContent = copy.settings;
+  settings.append(cookieIcon, settingsText);
+  if (document.getElementById('app')) { document.body.classList.add('motion-page'); dock.classList.add('motion-privacy'); }
   settings.setAttribute('aria-controls', banner.id); settings.setAttribute('aria-expanded', 'false');
   dock.append(policyLink, settings);
   const status = document.createElement('p'); status.className = 'privacy-status'; status.setAttribute('role', 'status');

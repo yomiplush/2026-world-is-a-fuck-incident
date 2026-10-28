@@ -13,8 +13,9 @@ async function ready(path){for(let i=0;i<100;i++){await pause(50);try{if(await r
 async function loaded(path){for(let i=0;i<120;i++){await pause(40);try{if(await run(`location.pathname===${JSON.stringify(path)} && document.readyState==='complete' && !!document.querySelector('select[data-language-navigation]')`))return;}catch(e){if(e.code!==-32000)throw e;}}throw Error('Not ready: '+path);}
 
 async function openMotion(lang='ja'){
- await cdp('Page.navigate',{url:origin+'/?lang='+lang+'&still=1&toggle-qa='+Date.now()+'#57'});
- for(let n=0;n<180;n++){await pause(50);if(await run('window.__booted===true')){await run('document.getElementById("privacy-reject")?.click();true');await pause(120);return;}}
+ const target=origin+'/?lang='+lang+'&still=1&toggle-qa='+Date.now()+'#57';
+ await cdp('Page.navigate',{url:target});
+ for(let n=0;n<180;n++){await pause(50);if(await run('location.href==='+JSON.stringify(target)+' && document.readyState==="complete" && window.__booted===true')){await run('document.getElementById("privacy-reject")?.click();true');await pause(120);return;}}
  throw Error('Motion failed to load');
 }
 async function usable(ids){
@@ -38,7 +39,7 @@ try{
   assert.ok(geometry.font>=14&&geometry.font<=14.5,'phone body font should be compact but readable');
   assert.ok(geometry.line<=23,'phone body leading wastes vertical space');
   assert.ok(geometry.panel>=150,'short X viewport needs a usable text window');
-  await usable(['btn-text','btn-prev','btn-next','lang-select','btn-audio','btn-info','patch-link']);
+  await usable(['btn-text','btn-prev','btn-next','lang-select','btn-audio','btn-info','privacy-settings']);
   await run('document.getElementById("btn-text").click();true');await pause(100);assert.equal(await run('document.getElementById("panel").hidden'),true);
   await run('document.getElementById("btn-text").click();true');await pause(100);assert.equal(await run('document.getElementById("panel").hidden'),false);
  }

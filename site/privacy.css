@@ -34,3 +34,5 @@ body #app{padding-bottom:calc(50px + env(safe-area-inset-bottom))}
 @media(max-width:400px){.privacy-actions{gap:8px}.privacy-actions button{font-size:14px}}
 @media print{.briefing-preferences,.privacy-dock,.privacy-policy-actions{display:none!important}}
 .preferences-label{display:block;color:#ffb545;font:10px/1.5 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.14em;margin-bottom:8px;max-width:1120px;margin-left:auto;margin-right:auto}
+
+.privacy-cookie-icon{display:none}
