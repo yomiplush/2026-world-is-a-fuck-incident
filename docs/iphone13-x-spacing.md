@@ -14,3 +14,5 @@ Evidence:
 - Tests use Chromium emulation. Physical iPhone13 and actual X/WKWebView were not available.
 
 A plain static server initially failed the extensionless `/impact` route check. Rechecking against a local server supporting production-style clean URLs passed; this was a test-server routing mismatch.
+
+Published runtime: `a8cd48bc38bf64f9b5b77a1ccded6a0da3fb463f`; Cloudflare Pages production deployment `b3ee18b2` (https://b3ee18b2.2026-incident-briefing.pages.dev). Production HTML and current/previous CSS match local artifacts. The full12-condition phone spacing suite also passed against https://www.infosec-briefing.net/ after publication.
