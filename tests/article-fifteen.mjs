@@ -19,7 +19,7 @@ try {
   if(width!==390&&!['ja','en','ar'].includes(language.code))continue;
   await cdp('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:true});
   for(const route of ['/about','/briefing','/update-20261028-1318','/privacypolicy/index']){
-   const target=route+(language.code==='ja'?'':'.'+language.code);
+   const target=language.code==='ja'&&route==='/privacypolicy/index'?'/privacypolicy/':route+(language.code==='ja'?'':'.'+language.code);
    await cdp('Page.navigate',{url:origin+target+'?translation-test='+Date.now()});
    let ready=false;
    for(let i=0;i<100;i++){await pause(30);if(await run('location.pathname==='+JSON.stringify(target)+' && !!window.PRIVACY && !!document.querySelector("select[data-language-navigation]")')){ready=true;break;}}
