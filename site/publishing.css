@@ -18,3 +18,12 @@
 .entry-impact{position:fixed;left:76px;top:max(22px,env(safe-area-inset-top));z-index:26;padding:10px 14px;min-height:44px;box-sizing:border-box;border:1px solid #496272;border-radius:5px;background:#0c1a28;color:#e4ebf2;text-decoration:none;font:13px/1.7 system-ui,sans-serif}
 body:not(.entry-locked) .entry-impact{display:none}
 details{margin:20px 0;padding:14px;border:1px solid #29414e;border-radius:5px}summary{cursor:pointer;min-height:32px;line-height:1.8}details code{overflow-wrap:anywhere}details h4{margin-bottom:8px}
+/* X/WKWebView can pan the visual viewport while its toolbars change. */
+.entry-library,.entry-impact{top:calc(var(--viewport-top,0px) + max(22px,env(safe-area-inset-top)))}
+/* Reading pages use native document scrolling and respect landscape notches. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body>main:not(#app){padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right));padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+.language-select-control{width:100%;min-width:0}
+.table-scroll{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+@media(max-width:600px){body>main:not(#app){padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}}
+@media(pointer:coarse),(max-width:600px){summary{min-height:44px}.privacy-dock a,.privacy-dock button{display:inline-flex;align-items:center;min-height:44px}}

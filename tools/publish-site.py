@@ -19,6 +19,7 @@ def sibling(name):
 
 impact_pages=sibling("impact_pages")
 advisory_details=sibling("advisory_details")
+article_languages=sibling("article_languages")
 from urllib.parse import urlsplit, urlunsplit
 import xml.etree.ElementTree as ET
 
@@ -179,12 +180,12 @@ def metadata(file,text):
     schema=json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     tags.append('<script type="application/ld+json">'+schema+'</script>')
     text=text.replace('</head>','<!-- publication:start -->\n'+'\n'.join(tags)+'\n<!-- publication:end -->\n</head>')
-    if not is_root and relative!='404.html' and not relative.startswith('database.'):
+    if not is_root and relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html'):
         text=re.sub(r'<!-- editorial:start -->.*?<!-- editorial:end -->','',text,flags=re.S)
         credit='<footer class="editorial-credit"><p>編集・調査：<a href="/about">YomiPlush / Infosec Briefing</a> · <a href="/about">編集方針・訂正窓口</a> · <a href="/database">調査データ</a> · <a href="/feed.xml">RSS</a></p></footer>'
         text=text.replace('</body>','<!-- editorial:start -->'+credit+'<!-- editorial:end --></body>')
     text=re.sub(r'<!-- language-nav:start -->.*?<!-- language-nav:end -->','',text,flags=re.S)
-    if relative!='404.html' and not relative.startswith('database.'):
+    if relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html'):
         nav='<a href="/languages">言語 / Languages</a>'
         if is_root:
             text=text.replace('<nav aria-label="読む資料">','<nav aria-label="読む資料"><!-- language-nav:start -->'+nav+' · <!-- language-nav:end -->',1)
@@ -199,7 +200,7 @@ def discovery(pages):
     ET.register_namespace('',ns);ET.register_namespace('xhtml',xhtml)
     tree=ET.Element('{'+ns+'}urlset')
     for file in pages:
-        if file.name=='404.html':continue
+        if file.name in ('404.html','404.en.html'):continue
         node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=canonical(file)
         if file.name.startswith('tailworm'):
             for lang,_ in LANGUAGES:
@@ -214,7 +215,7 @@ def discovery(pages):
     for source in (ROOT/'data').glob('*/incident-register.json'):
         record=json.loads(source.read_text())
         if record.get('report',{}).get('path'):cutoffs[record['report']['path']]=record.get('cutoff_jst','')[:16]
-    for file in sorted(SITE.glob('update-*.html'),key=lambda p:cutoffs.get(p.name,p.stem),reverse=True):
+    for file in sorted((p for p in SITE.glob('update-*.html') if not p.name.endswith('.en.html')),key=lambda p:cutoffs.get(p.name,p.stem),reverse=True):
         p=Info(file.read_text());item=ET.SubElement(channel,'item')
         for key,value in [('title',p.title),('link',canonical(file)),('guid',canonical(file)),('description',p.description)]:ET.SubElement(item,key).text=value
     ET.indent(rss);ET.ElementTree(rss).write(SITE/'feed.xml',encoding='utf-8',xml_declaration=True)
@@ -225,6 +226,8 @@ def main():
     root.write_text(root_reading(root.read_text()))
     pages=sorted(SITE.rglob('*.html'))
     for file in pages:file.write_text(metadata(file,file.read_text()))
+    article_languages.publish(__import__('types').SimpleNamespace(metadata=metadata,clean_url=clean_url,language_select=language_select,BASE=BASE))
+    pages=sorted(SITE.rglob('*.html'))
     discovery(pages)
     print(f'Published metadata, clean canonicals, structured data, RSS and sitemap for{len(pages)-1}indexable pages')
 
