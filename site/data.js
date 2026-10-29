@@ -3228,16 +3228,259 @@ window.CONTENT.scenes.push(...[
   }
 ]);
 
+/* October 29 explanatory scenes; numeric URLs append after the historical 65. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "latest-scope",
+    "stamp": "10.29 · 14:01 JST",
+    "visual": {
+      "type": "latestScope"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "CISA KEV",
+        "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      }
+    ],
+    "metric": {
+      "val": "116",
+      "label": {
+        "ja": "調査論点 · 事件総数ではない",
+        "en": "curated topics · not an incident total"
+      }
+    },
+    "ja": {
+      "kicker": "10/29 REVIEW · SCOPE",
+      "title": "116論点を、116件の事件にしない。",
+      "lede": "10月29日14:01 JSTの調査範囲。重なる集合は分類の模式図で、面積は件数比ではありません。",
+      "points": [
+        "DB登録・改訂、勧告、継続対応を含む116論点。影響一覧は19事例",
+        "NVDの公開772件は改訂2,182件に重複。足して被害件数にしない",
+        "対象条件と現実への影響を分け、公式の対処を確認する"
+      ]
+    },
+    "en": {
+      "kicker": "10/29 REVIEW · SCOPE",
+      "title": "116 topics are not 116 incidents.",
+      "lede": "Research scope at 14:01 JST on October 29. Overlapping sets explain classification; their areas are not proportional to counts.",
+      "points": [
+        "116 curated topics include database changes, advisories and continuing responses; the impact view has 19 cases",
+        "All 772 NVD publications overlap the 2,182 modified records; do not add them as victims",
+        "Separate exposure conditions from observed impact and verify official remediation"
+      ]
+    },
+    "chapterBreak": true
+  },
+  {
+    "id": "latest-chain",
+    "stamp": "10.29 · 14:01 JST",
+    "visual": {
+      "type": "latestChain"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "Dream Research",
+        "url": "https://dreamgroup.com/blog/chained-php2shell-exploit-roots-25-servers"
+      },
+      {
+        "name": "CISA KEV",
+        "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "10/29 REVIEW · CHAIN",
+      "title": "入口を塞いでも、鍵の調査は残る。",
+      "lede": "研究者が報告したPHPからカーネル・認証基盤への経路。発光は概念上の経路で、実際の攻撃通信ではありません。",
+      "points": [
+        "Dreamは25サーバーでrootを得た痕跡と、LDAP資格情報の復号・列挙を報告",
+        "パスワード試行・裏口アカウント作成・SAML鍵取得の成否は不明",
+        "侵害の兆候がある場合は管理基盤・資格情報・トンネル・認証ログまで点検"
+      ]
+    },
+    "en": {
+      "kicker": "10/29 REVIEW · CHAIN",
+      "title": "Closing the entry point leaves credentials to investigate.",
+      "lede": "A researcher-reported path from PHP to the kernel and identity infrastructure. Light traces explain a path; they are not attack telemetry.",
+      "points": [
+        "Dream reports traces of root access on 25 servers and LDAP credential decryption and enumeration",
+        "Success of password attempts, backdoor-account creation and SAML key retrieval remains unknown",
+        "When compromise is suspected, investigate management systems, credentials, tunnels and authentication logs"
+      ]
+    }
+  },
+  {
+    "id": "latest-audit",
+    "stamp": "10.29 · 14:01 JST",
+    "visual": {
+      "type": "latestAudit"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "CISA KEV",
+        "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "10/29 REVIEW · AUDIT",
+      "title": "記録がないことを、安全の証明にしない。",
+      "lede": "ESXの操作と監査記録を別の層で示します。欠けた記録は調査の制約であり、侵害の確定図ではありません。",
+      "points": [
+        "CVE-2026-41709は管理者アクセス後の操作が記録されない問題",
+        "CVE-2026-46300のLinux権限昇格もKEVに追加。両者を同じ攻撃と断定しない",
+        "公式の対応表で稼働版を照合し、ログ欠落を調査上の制約として扱う"
+      ]
+    },
+    "en": {
+      "kicker": "10/29 REVIEW · AUDIT",
+      "title": "Missing records do not prove safety.",
+      "lede": "ESX operations and audit evidence occupy separate layers. A missing record limits investigation; this diagram does not establish a compromise.",
+      "points": [
+        "CVE-2026-41709 concerns actions not being logged after administrator access",
+        "Linux privilege escalation CVE-2026-46300 was also added to KEV; the two entries do not establish one attack",
+        "Check running versions against official remediation tables and account for gaps in audit evidence"
+      ]
+    }
+  },
+  {
+    "id": "latest-disclosure",
+    "stamp": "10.29 · 14:01 JST",
+    "visual": {
+      "type": "latestDisclosure"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GMO notice 15",
+        "url": "https://group.gmo/info/alert/20261029/"
+      },
+      {
+        "name": "GMO notice 14",
+        "url": "https://group.gmo/info/alert/2026102802/"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "10/29 REVIEW · DISCLOSURE",
+      "title": "情報の精査と、復旧完了は別の状態。",
+      "lede": "GMOの第15報を状態の階段で整理。明るい段は公表済みの説明、暗い段は確認できていない結果です。",
+      "points": [
+        "有力情報を精査中との発表。情報提供270件を被害者数にしない",
+        "犯人サイトの停止・全情報回収・サービス復旧・逮捕は、それぞれ別の確認事項",
+        "流出物にアクセスせず、公式の個別連絡・代替環境・補償条件を確認"
+      ]
+    },
+    "en": {
+      "kicker": "10/29 REVIEW · DISCLOSURE",
+      "title": "Reviewing information is not restoration.",
+      "lede": "State steps explain GMO notice 15. Illuminated steps represent published statements; dark steps represent outcomes not established by this review.",
+      "points": [
+        "GMO says it is examining promising information; 270 submissions are not a victim count",
+        "Site takedown, complete information recovery, service restoration and arrest each require separate confirmation",
+        "Avoid leaked material and verify official individual notices, alternative environments and compensation conditions"
+      ]
+    }
+  },
+  {
+    "id": "latest-passwords",
+    "stamp": "10.29 · 14:01 JST",
+    "visual": {
+      "type": "latestPasswords"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "Sony Network Communications PDF",
+        "url": "https://www.sonynetwork.co.jp/corporation/release/2026/v5e5u00000000zwj-att/20261027.pdf"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "10/29 REVIEW · PASSWORDS",
+      "title": "会員情報と、メール用の鍵を分ける。",
+      "lede": "So-netの公式発表にある情報の種類を別の保管庫で示します。柱の高さは被害の大きさを表しません。",
+      "points": [
+        "So-net会員情報2,141,986件とplala（Sコース）443,495件。人数として合算しない",
+        "会員情報のパスワードと、一部サービスのメール用パスワードは別の項目",
+        "漏えいを確認したメール用パスワードは27日に初期化。公式案内で再設定し、使い回し先も変更"
+      ]
+    },
+    "en": {
+      "kicker": "10/29 REVIEW · PASSWORDS",
+      "title": "Separate member records from email credentials.",
+      "lede": "Separate vaults distinguish the data categories in the official So-net disclosure. Column height does not measure harm.",
+      "points": [
+        "2,141,986 So-net member records and 443,495 plala S-course records; do not sum these as people",
+        "Passwords in member information and email passwords for some services are distinct fields",
+        "Email passwords confirmed leaked were reset on October 27; follow official reset instructions and change reused passwords"
+      ]
+    }
+  },
+  {
+    "id": "latest-care",
+    "stamp": "10.29 · 14:01 JST",
+    "visual": {
+      "type": "latestCare"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "UNM HSC official update",
+        "url": "https://hscnews.unm.edu/news/ambulance-traffic-diverted-clinical-appointments-cancelled-and-classes-cancelled-due-to-cybersecurity-issue-at-unm-hsc"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "10/29 REVIEW · CARE",
+      "title": "診療再開と、漏えい確認を混同しない。",
+      "lede": "UNMのサービス状態を時系列の橋で表現。再開は組織の公式説明で、流出主張の裏付けではありません。",
+      "points": [
+        "10月26日は救急搬送振替・外来手術・予約の中断。28日更新では医療機能の全面稼働を説明",
+        "組織は一部端末への影響で、コアシステム・サーバーへの侵入はなかったと説明",
+        "予約は公式窓口で確認し、攻撃者を名乗る補償や金銭提供の連絡に応じない"
+      ]
+    },
+    "en": {
+      "kicker": "10/29 REVIEW · CARE",
+      "title": "Clinical reopening does not establish data-exposure claims.",
+      "lede": "A timeline bridge shows UNM service states. Reopening is attributed to the organization, not proof of attacker claims.",
+      "points": [
+        "October 26 saw ambulance diversions and disrupted outpatient surgery and appointments; the October 28 update says healthcare functions are fully operational",
+        "The organization says some devices were affected and its core systems and servers were not compromised",
+        "Confirm appointments through official channels; reject compensation or payment offers from alleged attackers"
+      ]
+    }
+  }
+]);
+
+// The overview is a directory; keep its reading links current as reviews grow.
+window.CONTENT.scenes.find(scene => scene.id === 'intro').ja.points[1] =
+  '<a href="/update-20261029-1401">10/29 14:01 最新記事 →</a> · <a href="/?lang=ja#66">立体図解6画面 →</a> · <a href="/timeline">日付から読む →</a>';
+window.CONTENT.scenes.find(scene => scene.id === 'intro').en.points[1] =
+  '<a href="/update-20261029-1401.en">10/29 14:01 latest report →</a> · <a href="/?lang=en#66">6 motion diagrams →</a> · <a href="/timeline.en">Read by date →</a>';
+window.CONTENT.ui.ja.coverSub = '全71画面を日付順に。10/29の立体図解6画面を追加。各場面は記載時点の記録です。';
+window.CONTENT.ui.en.coverSub = '71 scenes in chronological order, including 6 October 29 explanatory diagrams. Each scene retains its dated context.';
+
+window.CONTENT.scenes.find(scene => scene.id === 'latest-scope').sources.push(
+  {name:'Stored NVD/GHSA aggregation (10/29)',url:'https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/20261029T050117Z-dbf8f2/collection-summary.json'},
+  {name:'Stored impact register (10/29)',url:'https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/20261029T050117Z-dbf8f2/impact-register.json'},
+  {name:'Review 10/29 14:01 JST',url:'https://www.infosec-briefing.net/update-20261029-1401'}
+);
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 65,
-    "total": 65
+    "translated": 71,
+    "total": 71
   },
   "ja": {
     "ready": true,
-    "translated": 65,
-    "total": 65
+    "translated": 71,
+    "total": 71
   }
 };

@@ -272,3 +272,13 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
     max-height:calc(var(--app-height,100dvh) - 24px);
   }
 }
+
+/* Bounded chapter windows: seven chapter controls, ten scene dots, at any size. */
+.rail.chapter-rail{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;overflow:visible}
+.chapter-controls{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;min-width:0}
+.scene-controls{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));min-width:0}
+.chapter-rail .chapter-button[hidden]{display:none}
+.chapter-rail .chapter-page{grid-row:1;font-size:15px;cursor:pointer}
+.chapter-rail .chapter-page:disabled{opacity:.25;cursor:default}
+.chapter-rail .scene-tick{height:30px;min-height:30px}
+.chapter-rail .scene-tick span{width:5px;height:5px;border-radius:50%}

@@ -10,14 +10,28 @@
     return stamp.replace(/ · /g, ' ').replace(' JST', '');
   }
   const scenes = original.slice().sort((a, b) => dateKey(a).localeCompare(dateKey(b)));
-  const chapters = Array.from({ length: Math.ceil(scenes.length / 10) }, (_, index) => ({
-    index, start: index * 10, end: Math.min((index + 1) * 10, scenes.length)
-  }));
+  const chapters = [];
+  scenes.forEach((scene, index) => {
+    let group = chapters[chapters.length - 1];
+    if (!group || index - group.start >= 10 || scene.chapterBreak) {
+      group = { index: chapters.length, start: index, end: index };
+      chapters.push(group);
+    }
+    group.end = index + 1;
+  });
   window.BRIEFING_NAV = {
     scenes,
     chapters,
     chapterFor(index) {
-      return Number.isInteger(index) && index >= 0 && index < scenes.length ? chapters[Math.floor(index / 10)] : null;
+      return Number.isInteger(index) && index >= 0 && index < scenes.length ? chapters.find(group => group.start <= index && index < group.end) : null;
+    },
+    chapterWindow(index, capacity = 5) {
+      if (!Number.isInteger(index) || index < 0 || index >= chapters.length ||
+          !Number.isInteger(capacity) || capacity < 1) return null;
+      const first = Math.floor(index / capacity) * capacity;
+      const last = Math.min(first + capacity, chapters.length);
+      return { first, last, previous: first ? Math.max(0, first - capacity) : null,
+        next: last < chapters.length ? last : null };
     },
     indexFor(number) { return scenes.indexOf(original[number - 1]); },
     numberFor(index) { return original.indexOf(scenes[index]) + 1; }

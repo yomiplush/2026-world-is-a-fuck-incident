@@ -107,6 +107,8 @@ def publish(pub):
      href=html.unescape(match[2]);parts=urlsplit(urljoin(pub.BASE+original.relative_to(site).as_posix(),href))
      if parts.netloc!=urlsplit(pub.BASE).netloc:return match[0]
      route=pub.clean_url(parts.path)
+     if route=='/' and parts.query=='lang=ja':
+      return 'href='+match[1]+html.escape(urlunsplit(('', '', '/', 'lang=en', parts.fragment)),quote=True)+match[1]
      if route not in routes:return match[0]
      return 'href='+match[1]+html.escape(urlunsplit(('', '',routes[route],parts.query,parts.fragment)),quote=True)+match[1]
     text=re.sub(r'<a\b[^>]*>',lambda anchor:re.sub(r'\bhref=(["\'])(.*?)\1',localized_link,anchor[0]),text)

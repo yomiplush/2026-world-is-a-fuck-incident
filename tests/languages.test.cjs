@@ -11,6 +11,6 @@ test('both supported motion languages have every scene available',()=>{
  assert.deepEqual(Object.keys(data.MOTION_LOCALE_STATUS),['en','ja']);
  for(const code of ['en','ja']){
   assert.equal(data.MOTION_LOCALE_STATUS[code].ready,true);
-  assert.equal(data.MOTION_LOCALE_STATUS[code].translated,65);
+  assert.equal(data.MOTION_LOCALE_STATUS[code].translated,data.CONTENT.scenes.length);
  }
 });
