@@ -32,3 +32,10 @@ html[dir="rtl"] details code{direction:ltr;unicode-bidi:isolate;display:inline-b
 html[dir="rtl"] .research-tabs a{text-align:center}
 
 .entry-impact{top:calc(var(--viewport-top,0px) + max(76px,env(safe-area-inset-top)))}
+
+/* Keep article entry links below the icon row on narrow portrait screens. */
+@media (max-width:600px) and (orientation:portrait){
+  .entry-latest,.entry-impact{left:max(20px,env(safe-area-inset-left));max-width:calc(100vw - 40px - env(safe-area-inset-left) - env(safe-area-inset-right));white-space:normal}
+  .entry-latest{top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 78px)}
+  .entry-impact{top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 132px)}
+}
