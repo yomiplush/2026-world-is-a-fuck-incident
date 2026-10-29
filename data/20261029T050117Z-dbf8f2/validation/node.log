@@ -1,0 +1,247 @@
+TAP version 13
+# Subtest: HTML and generated entry refer to the same content-hashed production assets
+not ok 1 - HTML and generated entry refer to the same content-hashed production assets
+  ---
+  duration_ms: 4.165607
+  type: 'test'
+  location: '/home/yomiplush/.local/state/update-infosec/runs/20261029T050117Z-dbf8f2/repo/tests/assets.test.cjs:2:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/yomiplush/.local/state/update-infosec/runs/20261029T050117Z-dbf8f2/repo/tests/assets.test.cjs:13:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: ES5 compatibility guard can route a browser without Promise to the complete transcript
+ok 2 - ES5 compatibility guard can route a browser without Promise to the complete transcript
+  ---
+  duration_ms: 1.763437
+  type: 'test'
+  ...
+# Subtest: explicit Brave API enables compatibility and signals one reflow
+ok 3 - explicit Brave API enables compatibility and signals one reflow
+  ---
+  duration_ms: 8.361077
+  type: 'test'
+  ...
+# Subtest: explicit compatibility link works when browser identity is unavailable
+ok 4 - explicit compatibility link works when browser identity is unavailable
+  ---
+  duration_ms: 2.104076
+  type: 'test'
+  ...
+# Subtest: Brave brand and API together still trigger only one reflow
+ok 5 - Brave brand and API together still trigger only one reflow
+  ---
+  duration_ms: 1.629833
+  type: 'test'
+  ...
+# Subtest: Chromium shared UA and other browsers keep the existing layout
+ok 6 - Chromium shared UA and other browsers keep the existing layout
+  ---
+  duration_ms: 3.09358
+  type: 'test'
+  ...
+# Subtest: blocked identity API degrades safely without an unhandled rejection
+ok 7 - blocked identity API degrades safely without an unhandled rejection
+  ---
+  duration_ms: 3.408023
+  type: 'test'
+  ...
+# Subtest: 65 chronological scenes form six ten-scene chapters and one five-scene chapter
+ok 8 - 65 chronological scenes form six ten-scene chapters and one five-scene chapter
+  ---
+  duration_ms: 19.131733
+  type: 'test'
+  ...
+# Chronological playback, stable shared links and ascending daily archive passed
+# Subtest: tests/chronology.test.cjs
+ok 4 - tests/chronology.test.cjs
+  ---
+  duration_ms: 63.164354
+  type: 'test'
+  ...
+# Current database cutoff, motion report and morning response scenes agree
+# Subtest: tests/current-review.test.cjs
+ok 5 - tests/current-review.test.cjs
+  ---
+  duration_ms: 45.959182
+  type: 'test'
+  ...
+# Subtest: historical evening report keeps its cutoff and scenes while current review advances
+ok 11 - historical evening report keeps its cutoff and scenes while current review advances
+  ---
+  duration_ms: 8.540096
+  type: 'test'
+  ...
+# Subtest: native dropdown offers Japanese and English only
+ok 12 - native dropdown offers Japanese and English only
+  ---
+  duration_ms: 7.163722
+  type: 'test'
+  ...
+# Subtest: both supported motion languages have every scene available
+ok 13 - both supported motion languages have every scene available
+  ---
+  duration_ms: 11.408899
+  type: 'test'
+  ...
+# Subtest: media settings support old Safari listeners and release them
+ok 14 - media settings support old Safari listeners and release them
+  ---
+  duration_ms: 2.780933
+  type: 'test'
+  ...
+# Subtest: missing optional media APIs choose conservative motion without throwing
+ok 15 - missing optional media APIs choose conservative motion without throwing
+  ---
+  duration_ms: 1.161875
+  type: 'test'
+  ...
+# Subtest: Web Audio constructor failures never block entry or navigation
+ok 16 - Web Audio constructor failures never block entry or navigation
+  ---
+  duration_ms: 1.771573
+  type: 'test'
+  ...
+# Subtest: viewport bursts coalesce and unchanged measurements produce no style writes or layout events
+ok 17 - viewport bursts coalesce and unchanged measurements produce no style writes or layout events
+  ---
+  duration_ms: 1.780631
+  type: 'test'
+  ...
+# Subtest: limited devices allocate smaller reverb buffers and support legacy void audio promises
+ok 18 - limited devices allocate smaller reverb buffers and support legacy void audio promises
+  ---
+  duration_ms: 161.16651
+  type: 'test'
+  ...
+# Subtest: legacy hosts permanently redirect while preserving path, query and browser fragment
+ok 19 - legacy hosts permanently redirect while preserving path, query and browser fragment
+  ---
+  duration_ms: 34.139066
+  type: 'test'
+  ...
+# Subtest: canonical and preview assets pass through unchanged without loops
+ok 20 - canonical and preview assets pass through unchanged without loops
+  ---
+  duration_ms: 1.859335
+  type: 'test'
+  ...
+# Subtest: canonical HTTP is upgraded to HTTPS
+ok 21 - canonical HTTP is upgraded to HTTPS
+  ---
+  duration_ms: 0.479427
+  type: 'test'
+  ...
+# Subtest: low-core and low-memory devices start with bounded raster and frame work
+ok 22 - low-core and low-memory devices start with bounded raster and frame work
+  ---
+  duration_ms: 6.53406
+  type: 'test'
+  ...
+# Subtest: low memory is recognized independently of reported CPU count
+ok 23 - low memory is recognized independently of reported CPU count
+  ---
+  duration_ms: 1.20394
+  type: 'test'
+  ...
+# Subtest: sustained expensive frames reduce fps as well as raster work
+ok 24 - sustained expensive frames reduce fps as well as raster work
+  ---
+  duration_ms: 2.813013
+  type: 'test'
+  ...
+# Subtest: recovery is gradual and cannot exceed the starting device budget
+ok 25 - recovery is gradual and cannot exceed the starting device budget
+  ---
+  duration_ms: 4.077837
+  type: 'test'
+  ...
+# Subtest: low target rates do not poll every120Hz display refresh
+ok 26 - low target rates do not poll every120Hz display refresh
+  ---
+  duration_ms: 1.591362
+  type: 'test'
+  ...
+# Subtest: repeated pointer invalidations cannot bypass a low-device frame cap
+ok 27 - repeated pointer invalidations cannot bypass a low-device frame cap
+  ---
+  duration_ms: 3.590371
+  type: 'test'
+  ...
+# Subtest: hidden, static and disposed views leave no callbacks or timers
+ok 28 - hidden, static and disposed views leave no callbacks or timers
+  ---
+  duration_ms: 1.673926
+  type: 'test'
+  ...
+# Subtest: save-data changes update an active budget and release the listener on dispose
+ok 29 - save-data changes update an active budget and release the listener on dispose
+  ---
+  duration_ms: 1.316907
+  type: 'test'
+  ...
+# Subtest: sustained late presentation reduces load even when JS draw time is cheap
+ok 30 - sustained late presentation reduces load even when JS draw time is cheap
+  ---
+  duration_ms: 1.798335
+  type: 'test'
+  ...
+# Subtest: translucent scene colors retain valid channels when shaded
+ok 31 - translucent scene colors retain valid channels when shaded
+  ---
+  duration_ms: 1.545697
+  type: 'test'
+  ...
+# Subtest: short viewports fit the world vertically as well as horizontally
+ok 32 - short viewports fit the world vertically as well as horizontally
+  ---
+  duration_ms: 0.551185
+  type: 'test'
+  ...
+# Subtest: camera edits continue to change projection
+ok 33 - camera edits continue to change projection
+  ---
+  duration_ms: 0.387203
+  type: 'test'
+  ...
+# Subtest: default camera looks down from above the floor
+ok 34 - default camera looks down from above the floor
+  ---
+  duration_ms: 0.290221
+  type: 'test'
+  ...
+# Subtest: repeated solid materials avoid repeated color calculations within one flush
+ok 35 - repeated solid materials avoid repeated color calculations within one flush
+  ---
+  duration_ms: 4.683253
+  type: 'test'
+  ...
+# { layoutMeasurements: 2, expectedAfterHiddenResizeAndResume: 2 }
+# Subtest: tests/visibility-layout.test.cjs
+ok 12 - tests/visibility-layout.test.cjs
+  ---
+  duration_ms: 43.925135
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 35
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 394.433797

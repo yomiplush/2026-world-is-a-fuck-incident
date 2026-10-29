@@ -1,0 +1,50 @@
+
+> build
+> python3 tools/build-site.py
+
+Removed retired public locale artifacts: 0
+Built latest review, timeline.html and 10 dated pages
+Built 13:01 JST report: 10 delta, 7 prior-scope, 1 reference-only topics
+Built update-20261026-1456.html: 18 editorial topic groups
+Built update-20261026-2135.html: 37 editorial topic groups
+Built update-20261027-0018.html: 20 editorial topic groups
+Built update-20261027-0747.html: 23 editorial topic groups
+Built update-20261027-1847.html: 29 editorial topic groups
+Built update-20261028-1318.html: 65 editorial topic groups
+Built update-20261029-1401.html: 116 editorial topic groups
+Built 2 complete Tailworm language pages, with matching markup, source URLs and sitemap alternates
+{"en":{"ready":true,"translated":65,"total":65},"ja":{"ready":true,"translated":65,"total":65}}
+Built 2/2 stored-language pages and2full 65-scene transcripts
+Complete reading-page language pairs: 28
+Impact language pages: 2 / 2
+Published metadata, clean canonicals, structured data, RSS and sitemap for60indexable pages
+node:internal/modules/cjs/loader:1433
+  throw err;
+  ^
+
+Error: Cannot find module 'esbuild'
+Require stack:
+- /home/yomiplush/.local/state/update-infosec/runs/20261029T050117Z-dbf8f2/repo/tools/build-assets.cjs
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1430:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1040:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1045:22)
+    at Function._load (node:internal/modules/cjs/loader:1216:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+    at Module.require (node:internal/modules/cjs/loader:1527:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/home/yomiplush/.local/state/update-infosec/runs/20261029T050117Z-dbf8f2/repo/tools/build-assets.cjs:3:15)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/yomiplush/.local/state/update-infosec/runs/20261029T050117Z-dbf8f2/repo/tools/build-assets.cjs'
+  ]
+}
+
+Node.js v22.23.4
+Traceback (most recent call last):
+  File "/home/yomiplush/.local/state/update-infosec/runs/20261029T050117Z-dbf8f2/repo/tools/build-site.py", line 18, in <module>
+    subprocess.run(['node',str(ROOT/'tools/build-assets.cjs')],cwd=ROOT,check=True)
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['node', '/home/yomiplush/.local/state/update-infosec/runs/20261029T050117Z-dbf8f2/repo/tools/build-assets.cjs']' returned non-zero exit status 1.

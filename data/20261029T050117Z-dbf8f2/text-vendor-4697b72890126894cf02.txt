@@ -1,0 +1,191 @@
+Vulnerability-Disclosures/2026/MNDT-2026-0039.md at master · mandiant/Vulnerability-Disclosures · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Products
+Platform
+GitHub
+Repository hosting, code review, and collaboration
+Copilot
+AI coding agent for tasks, projects and automated work
+Build & Ship
+Actions
+CI/CD and automation
+Code Quality
+Quality analysis, fixes, and enforcement
+Codespaces
+Cloud development environments
+Secure
+Code Security
+Vulnerability detection and remediation
+Secret Protection
+Secret scanning and leak prevention
+All Features
+Developers
+Learn
+Documentation
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Events
+Changelog
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
+Enterprises
+Team
+Startups
+Nonprofits
+By Industry
+Healthcare
+Financial services
+Manufacturing
+Government
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
+Business insights
+Trust Center
+Add-ons
+GitHub Advanced Security
+Enterprise-grade code security
+Copilot for business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+{{ message }}
+mandiant
+Vulnerability-Disclosures
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security and quality
+Insights
+More
+items
+Files
+Expand file tree
+master
+Breadcrumbs
+Vulnerability-Disclosures
+/
+2026
+/
+MNDT-2026-0039.md
+Copy path
+Blame
+More file actions
+Blame
+More file actions
+Latest commit
+History
+History
+History
+50 lines (28 loc) · 2.17 KB
+master
+Breadcrumbs
+Vulnerability-Disclosures
+/
+2026
+/
+MNDT-2026-0039.md
+Copy path
+Top
+File metadata and controls
+Preview
+Code
+Blame
+50 lines (28 loc) · 2.17 KB
+Raw
+Copy raw file
+Download raw file
+Outline
+Edit and raw actions
+MNDT-2026-0039
+Description
+A critical and a high-severity vulnerability exist in the Aquila on-premises deployment, in versions up to 2.6.7.2. The vulnerabilities lead to container root-level remote code execution, authentication bypasses, and sensitive information disclosure. Mandiant observed that an improperly restricted API endpoint allows persistent injection of dynamic Lua scripts that are subsequently evaluated by backend execution engines.
+Impact
+Critical - A remote authenticated or low-privileged attacker can exploit these vulnerabilities to achieve arbitrary code execution as container root, bypass zero-trust tunnel authorization controls to access internal network assets, and harvest sensitive deployment keys. This can lead to a full system and enterprise perimeter compromise.
+Exploitability
+High - Exploitation does not require advanced techniques or victim interaction. Attackers can leverage exposed API endpoints directly from the public internet and through edge proxies with leaked credentials to achieve code execution with authentication code obtained from other avenues.
+CVE ID
+CVE-2026-104383 - Remote Code Execution via Stored Lua Injection
+Common Weakness Enumeration
+CWE-94: Improper Control of Generation of Code ('Code Injection')
+Details
+An injection flaw in the Pigeon MFA service allows callers to persist and trigger arbitrary Lua scripts via execution runtimes lacking proper sandboxing, running under container root privileges.
+CVSS
+CVE-2026-104383 - CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H (9.4)
+Resolution
+The issue was fixed in the following Aquila on-premises version: 2.6.7.3
+Discovery Credits
+Liu Yong, TS Lab
+Sun Pu, Mandiant
+Disclosure Timeline
+2026-10-01: Initial report to EagleCloud
+2026-10-02: Call with EagleCloud leadership to discuss the issues
+2026-10-02: EagleCloud provided updated version 2.6.7.3 to fix the issue.
+2026-10-20: Emailed EagleCloud for the updated public advisory
+2026-10-28: Mandiant advisory published
+References
+cve.org CVE-2026-104383
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.

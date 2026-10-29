@@ -1,0 +1,35 @@
+{
+  "status": "blocked",
+  "verified_at": "2026-10-29T05:13:42.100987+00:00",
+  "checks": [
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exit_code": 1,
+      "log": "data/20261029T050117Z-dbf8f2/validation/build.log"
+    },
+    {
+      "name": "assets",
+      "command": "npm run check:assets",
+      "exit_code": 1,
+      "log": "data/20261029T050117Z-dbf8f2/validation/assets.log"
+    },
+    {
+      "name": "node",
+      "command": "bash -c node --test tests/*.test.cjs",
+      "exit_code": 1,
+      "log": "data/20261029T050117Z-dbf8f2/validation/node.log"
+    },
+    {
+      "name": "python",
+      "command": "python3 -m unittest discover -s tests -p *test.py",
+      "exit_code": 0,
+      "log": "data/20261029T050117Z-dbf8f2/validation/python.log"
+    }
+  ],
+  "browser": {
+    "status": "unverified",
+    "reason": "Existing Firefox snap failed to start with a dedicated workspace profile; no extra browser packages installed."
+  },
+  "blocking_reason": "The existing locked build dependency esbuild is not installed. Package installation is prohibited by the task. Asset generation/check cannot complete; Node asset integrity test fails."
+}

@@ -1,0 +1,990 @@
+DSA-2026-416: Security Update for Dell PowerProtect Data Domain Multiple Vulnerabilities | Dell US
+Skip to main content
+Welcome
+Dell Sites
+Dell Technologies
+Premier Sign In
+Partner Program Sign In
+Dell Financial Services
+Support
+Dell Sites
+Dell Technologies
+Premier Sign In
+Partner Program Sign In
+Dell Financial Services
+Support
+My Account
+Order Status
+Profile Settings
+My Products
+Make a Payment
+Dell Rewards Balance
+Sign Out
+Welcome to Dell
+My Account
+Place orders quickly and easily
+View orders and track your shipping status
+Enjoy members-only rewards and discounts
+Create and access a list of your products
+Sign In
+Create an Account
+Premier Sign In
+Dell Financial Services
+Partner Program Sign In
+Contact Us
+US/EN
+Cart
+Your Dell.com Carts
+Products
+Solutions
+Services
+Support
+Back
+Support
+Support Home
+Support Library
+Support Videos
+Support Services & Warranty
+Drivers & Downloads
+Manuals & Documentation
+PC Diagnostics
+Self-Repair & Parts
+Service Requests & Dispatch Status
+Order Support
+Contact Technical Support
+Community
+Contact Us
+US/EN
+Back
+Home
+Support Home
+Knowledge Base Article
+Print
+Email
+Alert
+English
+DSA-2026-416: Security Update for Dell PowerProtect Data Domain Multiple Vulnerabilities
+Table of Contents
+Detailed Article
+Impact
+Details
+Affected Products & Remediation
+Revision History
+Acknowledgements
+Related Info
+Legal Disclaimer
+Affected Products
+Provide Feedback
+Summary:
+Dell PowerProtect Data Domain remediation is available for multiple security vulnerabilities that could be exploited by malicious users to compromise the affected system.
+Detailed Article
+Impact
+Details
+Affected Products & Remediation
+Revision History
+Acknowledgements
+Related Info
+Legal Disclaimer
+Affected Products
+Provide Feedback
+Please select a product to check article relevancy
+This article applies to
+This article does not apply to
+This article is not tied to any specific product.
+Not all product versions are identified in this article.
+Check out other resources
+Identify Your Product
+Impact
+Critical
+Details
+Third-Party Component
+CVEs
+More Information
+IDRAC9
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DSA-2026-312: Security Update for Dell iDRAC9 Vulnerabilities
+Apache HTTP Server
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006
+https://nvd.nist.gov/vuln/search
+Lodash
+CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465
+https://nvd.nist.gov/vuln/search
+rsync
+CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2026-43619
+https://nvd.nist.gov/vuln/search
+Apache Tomcat
+CVE-2026-29145, CVE-2026-24734
+https://nvd.nist.gov/vuln/search
+libpq5
+CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474
+https://nvd.nist.gov/vuln/search
+libtiff5
+CVE-2025-61144, CVE-2026-4775
+https://nvd.nist.gov/vuln/search
+nginx
+CVE-2026-27784, CVE-2026-27654, CVE-2026-1642
+https://nvd.nist.gov/vuln/search
+libexpat
+CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375
+https://nvd.nist.gov/vuln/search
+pillow
+CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311
+https://nvd.nist.gov/vuln/search
+tar
+CVE-2025-45582
+https://nvd.nist.gov/vuln/search
+suseconnect
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281
+https://nvd.nist.gov/vuln/search
+helm
+CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-33811, CVE-2026-39836, CVE-2026-39825, CVE-2026-25679, CVE-2026-32280, CVE-2026-32281, CVE-2026-32288, CVE-2026-32283, CVE-2026-46680, CVE-2026-35469, CVE-2026-35206, CVE-2025-55199, CVE-2026-33814, CVE-2026-41888
+https://nvd.nist.gov/vuln/search
+Bind9
+CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519
+https://nvd.nist.gov/vuln/search
+curl
+CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805
+https://nvd.nist.gov/vuln/search
+python311
+CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2026-32597
+https://nvd.nist.gov/vuln/search
+nghttp2
+CVE-2026-27135
+https://nvd.nist.gov/vuln/search
+pyasn1
+CVE-2026-30922
+https://nvd.nist.gov/vuln/search
+Python programming language
+CVE-2026-3087, CVE-2026-4519
+https://nvd.nist.gov/vuln/search
+urllib3
+CVE-2026-44431, CVE-2026-44432
+https://nvd.nist.gov/vuln/search
+XZ Utils
+CVE-2026-34743
+https://nvd.nist.gov/vuln/search
+libssh2
+CVE-2026-7598
+https://nvd.nist.gov/vuln/search
+libcap2
+CVE-2026-4878
+https://nvd.nist.gov/vuln/search
+idna
+CVE-2026-45409
+https://nvd.nist.gov/vuln/search
+c-ares
+CVE-2025-62408
+https://nvd.nist.gov/vuln/search
+NFS
+CVE-2025-12801
+https://nvd.nist.gov/vuln/search
+pip
+CVE-2026-6357, CVE-2026-3219
+https://nvd.nist.gov/vuln/search
+PKIXSSH
+CVE-2026-45447, CVE-2026-34182, CVE-2026-34183, CVE-2026-42764, CVE-2026-45445, CVE-2026-7383, CVE-2026-9076, CVE-2026-34180, CVE-2026-34181, CVE-2026-42766, CVE-2026-42767, CVE-2026-42768, CVE-2026-42769, CVE-2026-42770, CVE-2026-45446
+https://nvd.nist.gov/vuln/search
+libexpat
+CVE-2026-24515
+https://nvd.nist.gov/vuln/search
+OpenSSL
+CVE-2025-69421, CVE-2026-22795, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390
+https://nvd.nist.gov/vuln/search
+Proprietary Code CVEs
+Description
+CVSS Base Score
+CVSS Vector String
+CVE-2026-103780
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to command execution.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86384
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Use of Hard-coded Cryptographic Key vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to credential exposure. The credentials may be used to access the system with privileges of the compromised user.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86397
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Authentication vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to privileged account creation. This is a critical severity vulnerability as it allows an attacker to take complete control of the system. Dell recommends customers to upgrade at the earliest opportunity.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86400
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Authentication vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to arbitrary command execution with root privileges. This is a critical severity vulnerability as it allows an attacker to take complete control of the system. Dell recommends customers to upgrade at the earliest opportunity.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-103799
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to unauthorized system operation on managed systems.
+9.6
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H
+CVE-2026-103792
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access to managed systems.
+9.6
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N
+CVE-2026-90717
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Authentication Bypass by Spoofing vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges. This vulnerability could impact other managed Data Domain systems.
+9.1
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:H/A:L
+CVE-2026-86378
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86385
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, contain an Improper Check for Dropped Privileges vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to elevation of privileges.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86396
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to command execution.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86398
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to filesystem access for attacker.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-103779
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Authentication vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+8.3
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L
+CVE-2026-86377
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Out-of-bounds Write vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+7.6
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H
+CVE-2026-110541
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-94347
+PowerProtect Data Domain Virtual Edition, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.70, LTS2025 release versions 8.3.1.0 through 8.3.1.30, LTS2026 release versions 8.6.1.0 through 8.6.1.10, contain a Process Control vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-94346
+PowerProtect Data Domain Virtual Edition, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.70, LTS2025 release versions 8.3.1.0 through 8.3.1.30, LTS2026 release versions 8.6.1.0 through 8.6.1.10, contain a Path Traversal vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86379
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86380
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Integer Overflow or Wraparound vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86389
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Integer Overflow or Wraparound vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Code execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86393
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Privilege Management vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86394
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86395
+Dell PowerProtect Data Domain Virtual Edition, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86399
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-90718
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-110540
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized operation.
+7.1
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:L
+CVE-2026-86383
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+6.8
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N
+CVE-2026-90720
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Validation of Integrity Check Value vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+6.7
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-90729
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Privilege Management vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.
+6.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:H/A:H
+CVE-2026-68866
+PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.70, LTS2025 release versions 8.3.1.0 through 8.3.1.30, LTS2026 release versions 8.6.1.0 through 8.6.1.10, contain a Relative Path Traversal vulnerability in the certificate. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+6.5
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H
+CVE-2026-86390
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access.
+6.5
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N
+CVE-2026-90730
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Access Control vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to denial of service.
+6.5
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L
+CVE-2026-86391
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Authentication Bypass by Spoofing vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+6.4
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:L/A:L
+CVE-2026-90728
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Privilege Management vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to elevation of privileges.
+6.3
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:H/A:H
+CVE-2026-90726
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Path Traversal vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Denial of service.
+6.0
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H
+CVE-2026-56084
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Server-Side Request Forgery (SSRF) vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Server-side request forgery.
+5.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N
+CVE-2026-86388
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Filesystem access for attacker.
+5.3
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-92665
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Allocation of Resources Without Limits or Throttling vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+5.3
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L
+CVE-2026-86392
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Heap-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-90725
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-90731
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-90732
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through LTS 2026, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-86386
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+4.3
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90727
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Relative Path Traversal vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering.
+3.8
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:L
+CVE-2026-90721
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Path Traversal vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Denial of service.
+3.4
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:L
+CVE-2026-86401
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information exposure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90719
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90723
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90724
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+Proprietary Code CVEs
+Description
+CVSS Base Score
+CVSS Vector String
+CVE-2026-103780
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to command execution.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86384
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Use of Hard-coded Cryptographic Key vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to credential exposure. The credentials may be used to access the system with privileges of the compromised user.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86397
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Authentication vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to privileged account creation. This is a critical severity vulnerability as it allows an attacker to take complete control of the system. Dell recommends customers to upgrade at the earliest opportunity.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86400
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Authentication vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to arbitrary command execution with root privileges. This is a critical severity vulnerability as it allows an attacker to take complete control of the system. Dell recommends customers to upgrade at the earliest opportunity.
+9.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-103799
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to unauthorized system operation on managed systems.
+9.6
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H
+CVE-2026-103792
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access to managed systems.
+9.6
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N
+CVE-2026-90717
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Authentication Bypass by Spoofing vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges. This vulnerability could impact other managed Data Domain systems.
+9.1
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:H/A:L
+CVE-2026-86378
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86385
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, contain an Improper Check for Dropped Privileges vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to elevation of privileges.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86396
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to command execution.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86398
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to filesystem access for attacker.
+8.8
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-103779
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Authentication vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+8.3
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L
+CVE-2026-86377
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Out-of-bounds Write vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+7.6
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H
+CVE-2026-110541
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-94347
+PowerProtect Data Domain Virtual Edition, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.70, LTS2025 release versions 8.3.1.0 through 8.3.1.30, LTS2026 release versions 8.6.1.0 through 8.6.1.10, contain a Process Control vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-94346
+PowerProtect Data Domain Virtual Edition, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.70, LTS2025 release versions 8.3.1.0 through 8.3.1.30, LTS2026 release versions 8.6.1.0 through 8.6.1.10, contain a Path Traversal vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86379
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86380
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Integer Overflow or Wraparound vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86389
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Integer Overflow or Wraparound vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Code execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86393
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Privilege Management vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86394
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86395
+Dell PowerProtect Data Domain Virtual Edition, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-86399
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-90718
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Command execution.
+7.2
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-110540
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized operation.
+7.1
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:L
+CVE-2026-86383
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+6.8
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N
+CVE-2026-90720
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Validation of Integrity Check Value vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Protection mechanism bypass.
+6.7
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+CVE-2026-90729
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Privilege Management vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.
+6.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:H/A:H
+CVE-2026-68866
+PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.70, LTS2025 release versions 8.3.1.0 through 8.3.1.30, LTS2026 release versions 8.6.1.0 through 8.6.1.10, contain a Relative Path Traversal vulnerability in the certificate. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+6.5
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H
+CVE-2026-86390
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Missing Authorization vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access.
+6.5
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N
+CVE-2026-90730
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Access Control vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to denial of service.
+6.5
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L
+CVE-2026-86391
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Authentication Bypass by Spoofing vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+6.4
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:L/A:L
+CVE-2026-90728
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Privilege Management vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to elevation of privileges.
+6.3
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:L/I:H/A:H
+CVE-2026-90726
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Path Traversal vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Denial of service.
+6.0
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H
+CVE-2026-56084
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Server-Side Request Forgery (SSRF) vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Server-side request forgery.
+5.8
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N
+CVE-2026-86388
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Filesystem access for attacker.
+5.3
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-92665
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Allocation of Resources Without Limits or Throttling vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+5.3
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L
+CVE-2026-86392
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Heap-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-90725
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-90731
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.7, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-90732
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through LTS 2026, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Stack-based Buffer Overflow vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Denial of service.
+4.9
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H
+CVE-2026-86386
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+4.3
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90727
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Relative Path Traversal vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information tampering.
+3.8
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:L
+CVE-2026-90721
+Dell PowerProtect Data Domain, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain a Path Traversal vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Denial of service.
+3.4
+CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:L
+CVE-2026-86401
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information exposure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90719
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90723
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+CVE-2026-90724
+Dell PowerProtect Data Domain Management Center, Feature Release versions 7.7.1.0 through 8.8, LTS2024 release versions 7.13.1.0 through 7.13.1.80, LTS2025 release versions 8.3.1.0 through 8.3.1.40, LTS2026 release versions 8.6.1.0 through 8.6.1.20, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.
+2.7
+CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N
+Dell Technologies recommends all customers consider both the CVSS base score and any relevant temporal and environmental scores that may impact the potential severity associated with a particular security vulnerability.
+Affected Products & Remediation
+CVEs Addressed
+Product
+Software/Firmware
+Affected Versions
+Remediated Versions
+Link
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-45447, CVE-2026-34182, CVE-2026-34183, CVE-2026-42764, CVE-2026-45445, CVE-2026-7383, CVE-2026-9076, CVE-2026-34180, CVE-2026-34181, CVE-2026-42766, CVE-2026-42767, CVE-2026-42768, CVE-2026-42769, CVE-2026-42770, CVE-2026-45446, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86385, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-94346, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-86383, CVE-2026-90720, CVE-2026-90729, CVE-2026-68866, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 8.9
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8.0.0
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-90720, CVE-2026-90729, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 7.13.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-86383, CVE-2026-90720, CVE-2026-90729, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 8.3.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-86383, CVE-2026-90720, CVE-2026-90729, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 8.6.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+CVE-2026-68866, CVE-2026-94346
+DD OS 7.13.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.70
+Version 7.13.1.80 or later
+Data Domain Download
+CVE-2026-68866, CVE-2026-94346
+DD OS 8.3.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.30
+Version 8.3.1.40 or later
+Data Domain Download
+CVE-2026-68866, CVE-2026-94346
+DD OS 8.6.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.10
+Version 8.6.1.20 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 8.9
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8.0.0
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 7.13.1
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 8.3.1
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 8.6.1
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+CVE-2026-86395, CVE-2026-94347
+DD OS 8.9
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2026-86395
+DD OS 7.13.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2026-86395
+DD OS 8.3.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2026-86395
+DD OS 8.6.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+CVE-2026-94347
+DD OS 7.13.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.70
+Version 7.13.1.80 or later
+Data Domain Download
+CVE-2026-94347
+DD OS 8.3.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.30
+Version 8.3.1.40 or later
+Data Domain Download
+CVE-2026-94347
+DD OS 8.6.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.10
+Version 8.6.1.20 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 8.9
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 7.13.1
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 8.3.1
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 8.6.1
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+CVEs Addressed
+Product
+Software/Firmware
+Affected Versions
+Remediated Versions
+Link
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-45447, CVE-2026-34182, CVE-2026-34183, CVE-2026-42764, CVE-2026-45445, CVE-2026-7383, CVE-2026-9076, CVE-2026-34180, CVE-2026-34181, CVE-2026-42766, CVE-2026-42767, CVE-2026-42768, CVE-2026-42769, CVE-2026-42770, CVE-2026-45446, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86385, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-94346, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-86383, CVE-2026-90720, CVE-2026-90729, CVE-2026-68866, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 8.9
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8.0.0
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-90720, CVE-2026-90729, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 7.13.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-86383, CVE-2026-90720, CVE-2026-90729, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 8.3.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2026-28780, CVE-2026-23918, CVE-2026-24072, CVE-2026-29169, CVE-2026-34059, CVE-2026-29168, CVE-2026-33523, CVE-2026-33857, CVE-2026-33007, CVE-2026-34032, CVE-2026-33006, CVE-2026-29145, CVE-2026-24734, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2025-62408, CVE-2026-7168, CVE-2026-6429, CVE-2026-6276, CVE-2026-6253, CVE-2026-5773, CVE-2026-5545, CVE-2026-4873, CVE-2026-3805, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-7598, CVE-2026-4800, CVE-2021-23337, CVE-2026-2950, CVE-2025-13465, CVE-2025-12801, CVE-2026-27135, CVE-2026-6357, CVE-2026-3219, CVE-2026-30922, CVE-2026-3087, CVE-2026-4519, CVE-2026-43618, CVE-2026-41035, CVE-2026-29518, CVE-2026-43619, CVE-2026-43620, CVE-2026-43617, CVE-2026-45232, CVE-2025-69421, CVE-2026-22795, CVE-2026-86384, CVE-2026-86397, CVE-2026-86400, CVE-2026-86378, CVE-2026-86396, CVE-2026-86398, CVE-2026-86377, CVE-2026-86380, CVE-2026-86389, CVE-2026-86393, CVE-2026-86394, CVE-2026-86399, CVE-2026-90718, CVE-2026-86383, CVE-2026-90720, CVE-2026-90729, CVE-2026-86390, CVE-2026-90730, CVE-2026-90728, CVE-2026-90726, CVE-2026-56084, CVE-2026-86388, CVE-2026-92665, CVE-2026-86392, CVE-2026-90725, CVE-2026-90731, CVE-2026-90732, CVE-2026-90727, CVE-2026-90721, CVE-2026-103780, CVE-2026-103779, CVE-2026-110541
+DD OS 8.6.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+CVE-2026-68866, CVE-2026-94346
+DD OS 7.13.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.70
+Version 7.13.1.80 or later
+Data Domain Download
+CVE-2026-68866, CVE-2026-94346
+DD OS 8.3.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.30
+Version 8.3.1.40 or later
+Data Domain Download
+CVE-2026-68866, CVE-2026-94346
+DD OS 8.6.1
+Dell PowerProtect Data Domain series appliances, Data Domain Virtual Edition, Dell APEX Protection Storage, and Data Domain Management Center with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.10
+Version 8.6.1.20 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 8.9
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8.0.0
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 7.13.1
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 8.3.1
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2026-32283, CVE-2026-33811, CVE-2026-39836, CVE-2026-33814, CVE-2026-32280, CVE-2026-32281, CVE-2026-32289, CVE-2026-27142, CVE-2026-39826, CVE-2026-39823, CVE-2026-39825, CVE-2026-25679, CVE-2026-32288, CVE-2026-46680, CVE-2026-35469, CVE-2026-5946, CVE-2026-3592, CVE-2026-3039, CVE-2026-1519, CVE-2026-35206, CVE-2025-55199, CVE-2026-41888, CVE-2026-45409, CVE-2026-4878, CVE-2026-6253, CVE-2026-6429, CVE-2026-5545, CVE-2026-25210, CVE-2026-45186, CVE-2026-41080, CVE-2026-24515, CVE-2026-32778, CVE-2026-32776, CVE-2026-32777, CVE-2025-66382, CVE-2025-59375, CVE-2026-34743, CVE-2026-31790, CVE-2026-28389, CVE-2026-28387, CVE-2026-28388, CVE-2026-31789, CVE-2026-28390, CVE-2026-6638, CVE-2026-6575, CVE-2026-6637, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6472, CVE-2026-6473, CVE-2026-6474, CVE-2026-4224, CVE-2026-4519, CVE-2026-3644, CVE-2026-0672, CVE-2025-61144, CVE-2026-4775, CVE-2026-27784, CVE-2026-27654, CVE-2026-1642, CVE-2026-40192, CVE-2026-42310, CVE-2026-42308, CVE-2026-42311, CVE-2026-32597, CVE-2026-45232, CVE-2026-43617, CVE-2026-43618, CVE-2026-43620, CVE-2026-41035, CVE-2026-29518, CVE-2024-12084, CVE-2025-45582, CVE-2026-44431, CVE-2026-44432, CVE-2026-90717, CVE-2026-86379, CVE-2026-86391, CVE-2026-86386, CVE-2026-86401, CVE-2026-90719, CVE-2026-90723, CVE-2026-90724, CVE-2026-103799, CVE-2026-103792, CVE-2026-110540
+DD OS 8.6.1
+Dell PowerProtect Data Domain Management Center with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+CVE-2026-86395, CVE-2026-94347
+DD OS 8.9
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2026-86395
+DD OS 7.13.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2026-86395
+DD OS 8.3.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2026-86395
+DD OS 8.6.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+CVE-2026-94347
+DD OS 7.13.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.70
+Version 7.13.1.80 or later
+Data Domain Download
+CVE-2026-94347
+DD OS 8.3.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.30
+Version 8.3.1.40 or later
+Data Domain Download
+CVE-2026-94347
+DD OS 8.6.1
+Dell PowerProtect Data Domain Virtual Edition with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.10
+Version 8.6.1.20 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 8.9
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) Feature Release
+Versions 7.7.1.0 through 8.8
+Version 8.9.0.0 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 7.13.1
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) LTS2024 7.13.1
+Versions 7.13.1.0 through 7.13.1.80
+Version 7.13.1.90 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 8.3.1
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) LTS2025 8.3.1
+Versions 8.3.1.0 through 8.3.1.40
+Version 8.3.1.50 or later
+Data Domain Download
+CVE-2022-43680, CVE-2023-52425, CVE-2023-52426, CVE-2024-28757, CVE-2026-25210, CVE-2026-32776, CVE-2026-32777, CVE-2026-32778, CVE-2025-60876
+DD OS 8.6.1
+Dell PowerProtect Data Domain series appliances with Data Domain Operating System (DD OS) LTS2026 8.6.1
+Versions 8.6.1.0 through 8.6.1.20
+Version 8.6.1.30 or later
+Data Domain Download
+PowerProtect Data Domain: Software Versions
+: This KB article provides the status of the current active PowerProtect Data Domain Operating System (DD OS) releases, along with links to the release notes. (Requires
+support.dell.com
+login to view article).
+For instructions on how to upgrade Data Domain Operating System (DD OS), see Data Domain and DDVE:
+How to Upgrade the Data Domain Operating System
+Data Domain: iDRAC Operator User Changes in DDOS
+Some security scanners may still report False Positive findings after upgrading to remediated DDOS versions.  For more details, please refer to the respective False Positive KB articles:
+Dell PowerProtect Data Domain False Positive Security Vulnerabilities for DD OS 8.9
+Dell PowerProtect Data Domain False Positive Security Vulnerabilities for DDOS 8.6
+Dell PowerProtect Data Domain False Positive Security Vulnerabilities for DDOS 8.3
+Dell Data Domain False Positive Security Vulnerabilities for DDOS 7.13
+Revision History
+Revision
+Date
+Description
+1.0
+2026-10-01
+Initial Release
+2.0
+2026-10-07
+Minor updates
+3.0
+2026-10-19
+Added details for CVE-2026-103780, CVE-2026-103799, CVE-2026-103779, CVE-2026-103792, CVE-2026-110540, CVE-2026-110541 in "Proprietary Code" and "Affected Products and Remediation" tables
+Acknowledgements
+Dell would like to thank Ahmed Y. Elmogy for reporting this issue: CVE-2026-56084
+Dell would like to thank songxiaoyue for reporting the following issues: CVE-2026-90732, CVE-2026-90725, CVE-2026-90731
+Related Information
+Dell Security Advisories and Notices
+Dell Vulnerability Response Policy
+CVSS Scoring Guide
+Legal Disclaimer
+Affected Products
+Data Domain, DD OS, DD OS 7.11, DD OS 7.13, DD OS 8.1, DD OS 8.3, DD OS 8.4, DD OS 8.5, DD OS 8.6, DD OS 8.7, DD OS 8.8, DD OS 8.9, DD OS 8.0, DD OS Licensed Features
+Article Properties
+Article Number:
+000515178
+Article Type:
+Dell Security Advisory
+Last Modified:
+19 Oct 2026
+Find answers to your questions from other Dell users
+Visit Community
+Support Services
+Check if your device is covered by Support Services.
+Check Support Status
+Article Properties
+Article Number:
+000515178
+Article Type:
+Dell Security Advisory
+Last Modified:
+19 Oct 2026
+Find answers to your questions from other Dell users
+Visit Community
+Support Services
+Check if your device is covered by Support Services.
+Check Support Status
+US/EN
+Site Map
+Account
+Account
+My Account
+Order Status
+Profile Settings
+My Products
+Make a Payment
+Dell Rewards Balance
+Support
+Support
+Support Home
+Contact Technical Support
+Returns
+Connect with Us
+Connect with Us
+Community
+Contact Us
+X (Twitter)
+LinkedIn
+Instagram
+YouTube
+Site Map
+US/EN
+Our Offerings
+Our Offerings
+Artificial Intelligence
+Products
+Solutions
+Services
+Deals
+Our Company
+Our Company
+Who We Are
+Careers
+Dell Technologies Capital
+Investors
+Newsroom
+Recycling
+Corporate Impact
+Customer Stories
+Our Partners
+Our Partners
+Find a Partner
+Find a Retailer
+OEM Solutions
+Partner Program
+Resources
+Resources
+Blog
+Dell Rewards
+Events
+Email Sign-Up
+Specialty Product Collections
+Privacy Center
+Security & Trust Center
+Trial Software Downloads
+Dell Technologies
+Dell Premier for Business
+Dell Financial Services
+Copyright © 2026 Dell Inc.
+Terms of Sale
+Privacy Statement
+My Privacy Choices
+Cookies, Ads & Emails
+Legal & Regulatory
+Accessibility
+Anti-Slavery, Human Trafficking & Child Labor
