@@ -48,6 +48,28 @@ class Publication(unittest.TestCase):
             text=(SITE/filename).read_text()
             self.assertIn('<!--email_off--><a href="mailto:contact@yomiplush.dev">',text)
 
+    def test_entrance_links_to_current_report_with_visible_date(self):
+        import importlib.util
+        from datetime import datetime
+        spec=importlib.util.spec_from_file_location('publisher',ROOT/'tools/publish-site.py')
+        publisher=importlib.util.module_from_spec(spec);spec.loader.exec_module(publisher)
+        class Links(HTMLParser):
+            def __init__(self,text):
+                super().__init__();self.links=[];self.active=None;self.feed(text)
+            def handle_starttag(self,tag,attrs):
+                if tag=='a':self.active=[dict(attrs),'']
+            def handle_data(self,text):
+                if self.active:self.active[1]+=text
+            def handle_endtag(self,tag):
+                if tag=='a' and self.active:self.links.append(self.active);self.active=None
+        for cutoff,report in [('2026-10-29T14:01:25+09:00','/update-20261029-1401'),('2026-10-30T09:00:00+09:00','/update-20261030-0900')]:
+            publisher.LATEST=dict(publisher.LATEST,cutoff_jst=cutoff,site_report=BASE.rstrip('/')+report)
+            text=publisher.root_reading((SITE/'index.html').read_text())
+            current=[label for attrs,label in Links(text).links if attrs.get('href')==report]
+            self.assertTrue(current,'entrance must expose the latest article')
+            self.assertIn(datetime.fromisoformat(cutoff).strftime('%m/%d %H:%M'),current[0])
+            self.assertEqual(publisher.root_reading(text),text,'rebuild must not duplicate links')
+
     def test_non_http_links_are_preserved(self):
         import importlib.util
         spec=importlib.util.spec_from_file_location('publisher',ROOT/'tools/publish-site.py')
