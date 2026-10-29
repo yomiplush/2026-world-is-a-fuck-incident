@@ -1,0 +1,388 @@
+Unauthenticated JWT Secret Disclosure via /skServer/ziplogs Leads to Full Admin Account Takeover · Advisory · SignalK/signalk-server · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Products
+Platform
+GitHub
+Repository hosting, code review, and collaboration
+Copilot
+AI coding agent for tasks, projects and automated work
+Build & Ship
+Actions
+CI/CD and automation
+Code Quality
+Quality analysis, fixes, and enforcement
+Codespaces
+Cloud development environments
+Secure
+Code Security
+Vulnerability detection and remediation
+Secret Protection
+Secret scanning and leak prevention
+All Features
+Developers
+Learn
+Documentation
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Events
+Changelog
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
+Enterprises
+Team
+Startups
+Nonprofits
+By Industry
+Healthcare
+Financial services
+Manufacturing
+Government
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
+Business insights
+Trust Center
+Add-ons
+GitHub Advanced Security
+Enterprise-grade code security
+Copilot for business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+{{ message }}
+SignalK
+signalk-server
+Repository navigation
+Code
+Issues
+263
+(
+263
+)
+Pull requests
+97
+(
+97
+)
+Actions
+Projects
+Wiki
+Security and quality
+21
+(
+21
+)
+Insights
+More
+items
+signalk-server
+Security
+Advisories
+GHSA-4w32-qx5g-cpwv
+Unauthenticated JWT Secret Disclosure via /skServer/ziplogs Leads to Full Admin Account Takeover
+Critical
+tkurki
+published
+GHSA-4w32-qx5g-cpwv
+Sep 21, 2026
+Package
+npm
+signalk-server
+(
+npm
+)
+Affected versions
+< 2.32.0
+Patched versions
+>=2.33.0
+Description
+Summary
+/skServer/ziplogs
+is accessible without authentication and returns a ZIP archive that includes
+security.json
+. That file contains the server's HS256 JWT signing key (
+secretKey
+). An attacker who retrieves this key can forge a valid admin JWT, create a persistent admin account, and log in with real credentials.
+As of the date checked through Shodan, around 66 servers are potentially affected globally.
+Details
+Missing authentication on
+/skServer/ziplogs
+.The route streams the config/log directory as a ZIP to any caller. Admin middleware protects
+/skServer/logfiles/
+but not
+ziplogs
+.
+secretKey
+included in the archive
+.The bundle includes
+security.json
+(e.g.
+sk-logs--<timestamp>/security.json
+) with the symmetric HS256 signing key used to issue and verify JWTs.
+Affected Code
+File:
+src/interfaces/logfiles.js
+(lines 33-34, 76-87)
+/skServer/logfiles/
+is behind admin middleware;
+/skServer/ziplogs
+is not. The handler zips
+getFullLogDir(app)
+(usually the config directory, including
+security.json
+) for any unauthenticated caller.
+app
+.
+securityStrategy
+.
+addAdminMiddleware
+(
+`
+${
+SERVERROUTESPREFIX
+}
+/logfiles/`
+)
+// ...
+app
+.
+get
+(
+`
+${
+SERVERROUTESPREFIX
+}
+/ziplogs`
+,
+function
+(
+req
+,
+res
+)
+{
+sendZip
+(
+res
+,
+{
+files
+:
+[
+{
+path
+:
+getFullLogDir
+(
+app
+)
+,
+name
+:
+zipFileName
+}
+]
+,
+filename
+:
+zipFileName
++
+'.zip'
+}
+)
+}
+)
+File:
+src/tokensecurity.ts
+(lines 1502-1503, 1469-1470)
+Leaked
+secretKey
+from
+security.json
+is the HMAC key for verification. Tokens in
+Authorization: JWT <token>
+with claim
+id
+set to an admin username are accepted like legitimate sessions.
+payload
+=
+jwt
+.
+verify
+(
+token
+,
+configuration
+.
+secretKey
+)
+as
+JWTPayload
+// ...
+if
+(
+headerValue
+&&
+headerValue
+.
+startsWith
+(
+'JWT '
+)
+)
+{
+return
+headerValue
+.
+substring
+(
+'JWT '
+.
+length
+)
+}
+Impact
+Full unauthenticated admin takeover. An attacker can create a persistent admin account and then authenticate via the normal login flow (no forged JWT required after account creation).
+On vessels, admin access to Signal K implies control over NMEA routing, plugin configuration, and alarms. Many instances are exposed on the default port and discoverable via internet scanners.
+Recommendation
+Guard
+/skServer/ziplogs
+with the same admin middleware as other
+/skServer/*
+routes (unauthenticated requests should return 401).
+Maybe exclude
+security.json
+from downloadable archives regardless of auth.
+Affected Versions
+All
+signalk-server
+versions where unauthenticated
+/skServer/ziplogs
+includes
+security.json
+. Confirmed on a live instance on 2026-09-19 (
+signalk-server@2.32.0
+/
+signalk/signalk-server:latest
+). No patch available at time of disclosure.
+Severity
+Critical
+9.8
+CVSS overall score
+This score calculates overall vulnerability severity from 0 to 10 and is based on the Common Vulnerability Scoring System (CVSS).
+/ 10
+CVSS v3 base metrics
+Attack vector
+Network
+Attack complexity
+Low
+Privileges required
+None
+User interaction
+None
+Scope
+Unchanged
+Confidentiality
+High
+Integrity
+High
+Availability
+High
+Learn more about base metrics
+CVSS v3 base metrics
+Attack vector:
+More severe the more the remote (logically and physically) an attacker can be in order to exploit the vulnerability.
+Attack complexity:
+More severe for the least complex attacks.
+Privileges required:
+More severe if no privileges are required.
+User interaction:
+More severe when no user interaction is required.
+Scope:
+More severe when a scope change occurs, e.g. one vulnerable component impacts resources in components beyond its security scope.
+Confidentiality:
+More severe when loss of data confidentiality is highest, measuring the level of data access available to an unauthorized user.
+Integrity:
+More severe when loss of data integrity is the highest, measuring the consequence of data modification possible by an unauthorized user.
+Availability:
+More severe when the loss of impacted component availability is highest.
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CVE ID
+No known CVE
+Weaknesses
+Weakness
+CWE-306
+Missing Authentication for Critical Function
+The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.
+Learn more on MITRE.
+Weakness
+CWE-312
+Cleartext Storage of Sensitive Information
+The product stores sensitive information in cleartext within a resource that might be accessible to another control sphere.
+Learn more on MITRE.
+Credits
+taqi-CO
+Reporter
+tx-qi
+Reporter
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.

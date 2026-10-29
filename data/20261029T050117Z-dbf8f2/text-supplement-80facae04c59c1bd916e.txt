@@ -1,0 +1,258 @@
+Silent Train: uncovering Volt Typhoon's operational framework for zero-day exploitation and strategic access
+hero-background-color-red-orange-gradient
+image
+https://assets.lumen.com/is/image/Lumen/image-silent-train-hero-train?Creativeid=cbbd71d9-e3b8-476d-90a1-ec977aa3917f
+https://assets.lumen.com/is/image/Lumen/image-silent-train-hero-train?Creativeid=cbbd71d9-e3b8-476d-90a1-ec977aa3917f
+https://assets.lumen.com/is/image/Lumen/image-silent-train-hero-train?Creativeid=cbbd71d9-e3b8-476d-90a1-ec977aa3917f
+A train called the zero-day express quietly rides on a track made of pillows over a bridge made of digits
+content
+content-col-11
+Silent Train: uncovering Volt Typhoon's operational framework for zero-day exploitation and strategic access
+Volt Typhoon’s Silent Train is a covert network designed to gain and maintain access to the technologies businesses rely on to manage devices, networks and critical operations. Black Lotus Labs® tracked how the group used rapidly changing chains of compromised infrastructure to conceal its activity while exploiting previously unknown vulnerabilities in centralized management platforms.
+For enterprise leaders, the lesson is clear: systems with broad administrative reach can become high-value gateways to the entire organization and its customers. Reducing internet exposure, accelerating patching, strengthening access controls and preserving security telemetry are essential to detecting threats earlier and limiting their impact.
+Key takeaways
+Black Lotus Labs has tracked Volt Typhoon's covert access network, dubbed “Silent Train,” for the past three years. This effort led to hundreds of victim notifications in strategically significant sectors. These notifications led to incident response investigations that uncovered zero-day exploits used for initial access.
+First identified in late 2023, Silent Train uses rotating chains of compromised SOHO, IoT and enterprise infrastructure. It employs anti-forensic techniques, compartmentalized operations and post-operation cleanup to minimize detection and attribution.
+Our monitoring helped uncover at least four confirmed and one likely zero-day vulnerabilities that Volt Typhoon exploited, targeting network and endpoint management systems, SD-WAN orchestrators and control plane infrastructure that provide visibility, administration and access across enterprise and customer environments.
+Victims included telecommunications providers, government, defense contractors, satellite and mission-critical communication services, universities, IT firms and critical infrastructure such as water, energy, transportation, maritime, rail, aviation, emergency services and other essential operations.
+Victimology indicates deliberate efforts to maintain access to critical ecosystems that support defense, logistics, communications, military and civilian operations, especially during heightened tensions or crises in the Indo-Pacific region.
+Read the complete story, including how Volt Typhoon evolved, who it targeted, its impact on victims and what your organization can do to reduce risk.
+How Silent Train enables Volt Typhoon’s strategic access
+Volt Typhoon has emerged as one of the most consequential state-sponsored cyberthreat actors from the People’s Republic of China (PRC), targeting U.S. interests across critical infrastructure, telecommunications, government, defense and other strategically significant sectors. Public reporting on this threat has focused mainly on victims and potential strategic objectives, leaving the operational framework and access methods behind these activities less understood. Black Lotus Labs’ recent findings help close that gap by revealing how Volt Typhoon built and used a system of relays to carry out its objectives.
+Since 2023, Black Lotus Labs has tracked, monitored and quietly disrupted a covert operational framework used by Volt Typhoon that we call Silent Train. Unlike traditional
+botnets
+, proxy networks or
+operational relay box (ORB) networks
+, Silent Train is built around rapidly rotating chains of compromised SOHO, IoT and enterprise devices that are exploited on demand, used against carefully selected targets, cleaned up after each operation and continuously refreshed. This approach allowed Volt Typhoon to carry out exploitation and post-exploitation activity securely while reducing the risk of detection, attribution and disruption.
+By continuously monitoring Silent Train, we gained rare insight into Volt Typhoon’s most sensitive operations. Tracking this activity allowed us to support government agencies and affected organizations with rapid detection and response. Over three years, we notified hundreds of victims in key sectors and supported investigations that uncovered at least one likely and four confirmed zero-day campaigns targeting endpoint and network management systems, SD-WAN, out-of-band platforms and other control plane infrastructure.
+A consistent pattern emerged: Volt Typhoon repeatedly targets systems that, once breached, offer extensive visibility, control and access across large enterprise environments.
+Silent Train repeatedly appeared in operations targeting organizations in these sectors:
+Telecommunications providers
+Defense contractors
+Government networks
+Satellite and mission-critical communications providers
+Managed service providers (MSPs)
+Universities with military affiliations
+Critical infrastructure organizations
+Hawaii, California and Texas consistently emerged as the most targeted regions, reflecting a sustained focus on communications, logistics, defense and critical infrastructure ecosystems that support strategically significant U.S. operations, particularly in the Indo-Pacific region.
+Black Lotus Labs uncovered a repeatable operational model for acquiring, protecting and sustaining strategic access at scale. Over time, Volt Typhoon developed Silent Train into a highly covert capability for exploiting systems and organizations of lasting strategic value to the United States. The following findings show how the group gained this access and the extensive measures it took to maintain it.
+The evolution of Volt Typhoon's operational infrastructure
+The disruption of
+KV-botnet
+in late 2023 dealt a major blow to Volt Typhoon’s infrastructure. After discovering and tracking the botnet, Black Lotus Labs worked with U.S. agencies to investigate its activity, notify victims and
+disrupt
+thousands of compromised routers used to conceal exploitation. Although the operation
+successfully disrupted
+a key covert-access capability, Volt Typhoon had already begun developing a far more elusive obfuscation framework.
+We first observed consistent Silent Train activity in November 2023, shortly before the initial KV-botnet takedown. Activity increased after the second disruption, with rapid changes in device types, geographic reach and short-lived operational patterns. Instead of relying on persistent infrastructure, Volt Typhoon adopted disposable chains of compromised devices that could be rebuilt as needed.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-1?Creativeid=f535890e-d3f6-4236-b2df-cf2bc48251dc
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-1?Creativeid=f535890e-d3f6-4236-b2df-cf2bc48251dc
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-1?Creativeid=f535890e-d3f6-4236-b2df-cf2bc48251dc
+A timeline of Volt Typhoon's transition from the KV-Botnet network, its disruption and the establishment of Silent Train.
+Figure 1: Operational infrastructure transition following successful KV-botnet disruption efforts, leading to full adoption of the Silent Train operational framework.
+Traditional botnets often rely on persistent, centralized or recurring patterns, making them easier for defenders to detect. Silent Train took a different approach: instead of maintaining a permanent network, Volt Typhoon rapidly assembled and dismantled transient infrastructure, creating a resilient, secure and compartmentalized framework that protected valuable access.
+Inside the Silent Train operational methodology
+Silent Train is a layered, multi-hop framework that lets Volt Typhoon operators route activity through multiple devices before reaching targets. Though simple in concept, its disciplined implementation became clearer during our investigation. Global IP backbone telemetry revealed rapid infrastructure rotation, deliberate compartmentalization and structured workflows that remained consistent despite frequent infrastructure changes.
+The Silent Train architecture
+At a high level, Silent Train relied on a series of intermediary hops that insulated the attacker from both victims and threat hunters alike. Sessions began from virtual private servers (VPS) outside the U.S., then daisy-chained through compromised non-U.S. devices before pivoting within the U.S. to reach targets.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-2?Creativeid=1cd001e2-df9f-4fcd-a534-daee6fc6317c
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-2?Creativeid=1cd001e2-df9f-4fcd-a534-daee6fc6317c
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-2?Creativeid=1cd001e2-df9f-4fcd-a534-daee6fc6317c
+General concept of Silent Train hops, showing an average of four nodes before entering IP space in the U.S. and then another hop before reaching the victim.
+Figure 2: High-level overview of the Silent Train chaining methodology.
+Each link in the chain served a distinct operational purpose:
+Initial VPS:
+Served as a temporary staging area that could be quickly provisioned and discarded after each session.
+Secondary VPS:
+Further separated the operator while adding geographic and provider diversity.
+Compromised non-U.S. SOHO and IoT devices:
+Routed activity through different countries, providers and hardware to obscure its true origin.
+Compromised U.S.-based devices:
+Provided a domestic exit point before the victim, helping malicious traffic blend in and bypass geo-blocking and IP reputation filters.
+Together, these layers compartmentalized operations, hindered attribution and made the full chain difficult to trace.
+Operational discipline at scale
+We observed more than 27 device classes exploited and used in Silent Train operations, ranging from SOHO and IoT devices like TP-Link routers and Netgear Orbi devices to enterprise platforms like Fortinet appliances and CyberPanel servers. Some relay device types lack known vulnerabilities, suggesting Volt Typhoon leveraged undisclosed zero-day exploits to set up a single relay in a four-to-six hop chain and indicating a willingness to commit significant resources to protecting future access capabilities.
+Silent Train stands out for its operational discipline, focusing on short-lived, self-managed sessions rather than persistent relays or C2 infrastructure. To construct these sessions, its operators exploit exposed web interfaces on SOHO, IoT and other relay devices, then deploy only the tooling needed to enable chained SSH access through the compromised node. This included temporary SSH services, keys, configuration files and “live off the land” utilities. At the end of each session, operators removed all artifacts and dismantled the chain. Sessions averaged about four hours, though some lasted only minutes.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-3?Creativeid=dc90d58a-7168-4e76-a37c-6188ee140c12
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-3?Creativeid=dc90d58a-7168-4e76-a37c-6188ee140c12
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-3?Creativeid=dc90d58a-7168-4e76-a37c-6188ee140c12
+A chart showing how brief the average session was during operations through the Silent Train network. Some sessions were over in less than 10 minutes, many less in than an hour, but most sessions lasted around 8 to 10 hours.
+Figure 3: Distribution of Silent Train session durations shows many occur within short windows, highlighting the emphasis on rapid infrastructure setup, task completion and evidence removal.
+Sessions were often remarkably efficient. Operators could exploit and assemble chains of devices in under two minutes, and on their way out they would leave no evidence for defenders to uncover. Their operational tempo suggests the use of a semi-automated, on-demand provisioning process.
+Poster Image
+https://assets.lumen.com/is/image/Lumen/ST%204%20static%20thumb?Creativeid=4f11e1ba-fd1d-43af-a096-deb4248fb6e8
+Video Alt Text
+An animated image that shows the hops in a typical session. These hops are shown beginning in China, routing through Europe or Africa, then reaching the U.S. Once the activity is complete, the network is shown being broken down as hops are swept up behind the threat actor all the way to the origin point.
+Video URL
+https://assets.lumen.com/is/content/Lumen/animation-silent-train-infographic-ST-4?Creativeid=808481ac-b039-478a-9a7e-163253d70b93
+Figure 4: Animated playback of two Silent Train sessions across global infrastructure. It shows the full lifecycle from build-out (blue) to exploitation (red) and teardown (orange).
+The evolution of Silent Train infrastructure shows advanced operational planning and testing of infrastructure before full integration. New device classes followed a consistent pattern: limited probing and real-world testing outside the U.S., followed months later by use in Silent Train chains. Operators generally added one device type per quarter, accelerating to roughly one per month during the framework’s 2023–2024 build-out.
+These patterns illustrated proactive updates to operational infrastructure, development of new exploit capabilities and a diverse inventory of exploitable devices and access vectors for future operations.
+Compartmentalization by design
+Another noteworthy aspect was Volt Typhoon’s consistent assignment of specific device types to positions within Silent Train chains. We noticed that device types were “reserved” for specific operational roles that never deviated. Intelbras modems only appeared as overseas relay nodes, while Netgear Orbi devices served as U.S.-based hops that interacted with victims. Similar patterns appeared across every other device type in Silent Train. Despite having enough global infrastructure to swap device types between overseas and U.S. hops, Volt Typhoon maintained these fixed roles throughout our three-year observation. Its VPS infrastructure followed the same pattern, using separate providers and locations rather than a shared environment.
+These patterns suggest that the infrastructure was deliberately compartmentalized across layers, complicating attribution and reducing the risk that access to one device or provider would expose more of the network. The underlying infrastructure changed constantly, but the architecture and role of each layer remained highly structured.
+From ephemeral chains to hybrid operations
+The Silent Train infrastructure evolved continuously during our investigation. Early operations relied on quickly rotating SOHO and IoT devices like TP-Link, Intelbras, Ruckus, SATO, Netgear, Zyxel and Cambium. The group exploited these devices via exposed web interfaces for a single session, then restored them to a pre-operational state through extensive cleanup procedures. Over time, the group added enterprise-grade platforms, including Fortinet, Cisco, PRTG, Mirth Connect and CyberPanel. Rather than replacing the standard array, these compromised systems added optional end-of-chain layers or replaced the final U.S. relay node.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-5?Creativeid=0fa9c7b0-cf15-44dd-8858-32674cde006d
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-5?Creativeid=0fa9c7b0-cf15-44dd-8858-32674cde006d
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-5?Creativeid=0fa9c7b0-cf15-44dd-8858-32674cde006d
+Detailed overview of silent train hops in a typical session, showing the same number of non-U.S. hops as before, and two hops inside the U.S. before the target. This overview also lists one typical device or service abused at each hop, as well as the port and protocol used between certain hops. As an example, between Ucloud and Alibaba cloud, there was HTTPS on 443 and SSH on 2222 going in, and HTTP on 8281 coming back.
+Figure 5: Silent Train session chains through multiple non-U.S. and U.S. hops, ending with a compromised Fortinet FortiGate appliance before the final target.
+Unlike the short-lived SOHO and IoT devices used for individual operations, compromised enterprise platforms remained active in Silent Train for one to three months and supported multiple intrusions before replacement. By early 2025, this shift had transformed Silent Train into a hybrid framework that preserved its compartmentalization and resistance to attribution while gaining stability from longer-lived final-hop infrastructure. In some cases, as many as six hops separated the operator from the victim.
+As Silent Train matured, reverse-tunnel variants were introduced alongside the traditional SSH-chaining model. Rather than exposing temporary SSH services on each hop and pivoting sequentially through the chain, some operations mixed in reverse tunnels via open-source proxies like Chisel and FRP, sending traffic from compromised devices to upstream infrastructure.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-6?Creativeid=23df6dc2-3667-4eb8-bd10-e7284859df29
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-6?Creativeid=23df6dc2-3667-4eb8-bd10-e7284859df29
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-6?Creativeid=23df6dc2-3667-4eb8-bd10-e7284859df29
+Similar to image 5, this is a session that shows worldwide hops on alternative devices and services, with an emphasis on the use of the Chisel open-source proxy. Chisel was used for reverse tunneling using TCP on port 8999 to return traffic between a router and a VPS in the Huawei cloud, in hops before moving into the U.S. Also shown was the use of SSH on ports 22 and 8103 between Ucloud and Huawei cloud prior to that. And in the transition to the U.S. proxy, use of HTTPS on 8443 and SSH on 14737 to move into a router in the U.S. before going to the victim.
+Figure 6: Example of a session chaining through multiple non-U.S. and U.S. hops, with one SSH hop replaced with a reverse tunnel through Chisel.
+These reverse-tunnel variants did not replace the earlier methodologies. Traditional SSH chains, reverse-tunnel chains, semi-persistent additional-hop chains and hybrid variants all operated in parallel within the Silent Train framework, expanding in complexity rather than converging on a single model.
+A network built for covert exploitation
+Silent Train differed fundamentally from the typical infrastructure used in target development and reconnaissance. While Volt Typhoon operated over additional operational relay box (ORB) networks and ad-hoc infrastructure for early reconnaissance, Silent Train was reserved for critical phases like exploitation, credential access, data exfiltration and ongoing engagement with victim environments.
+We observed consistent activity in each session: highly selective targeting involving one to five victims but often focused on a single organization. Volt Typhoon targeted entities that could provide scalable access to downstream customers, sensitive networks or strategic programs. These devices were not chosen randomly—the victimology indicates deliberate and strategic targeting.
+Session timing further indicates that Silent Train was operated by people rather than running autonomously. Activity was concentrated Monday through Friday, primarily between 09:00 and 22:00 China Standard Time (CST), with little occurring overnight or on weekends.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-7?Creativeid=11e68fbc-b1a6-4d3b-ab6b-3aa003359aca
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-7?Creativeid=11e68fbc-b1a6-4d3b-ab6b-3aa003359aca
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-7?Creativeid=11e68fbc-b1a6-4d3b-ab6b-3aa003359aca
+This is a heatmap that shows the times of activity in China Standard Time, most sessions correlate with a 12-hour day beginning at 9 a.m. local time. The map also shows how sessions declined on the weekends.
+Figure 7: Heatmap of Silent Train session activity by day of week and hour of day, aligned with standard China working hours.
+This heatmap pattern aligns with hands-on operational sessions conducted by human operators. The distinct spikes in late morning, mid-afternoon and evening indicate a structured operational tempo that matches typical military rotational work schedules in China. We also noted operational pauses, including several multiweek reductions in session activity during the Chinese New Year.
+The selective targets, limited operating windows and disposable chains show that Volt Typhoon reserved Silent Train for carefully chosen missions. The zero-day campaigns below illustrate this strategy.
+A multiyear campaign of zero-day exploitation against enterprise control planes
+Through Silent Train, Black Lotus Labs observed Volt Typhoon target a broad range of edge, identity, network and enterprise management technologies, including Fortinet, Cisco, ManageEngine, Ivanti, F5, Check Point, Palo Alto, ServiceNow and ArcGIS. Our telemetry could not always determine whether access involved known or undisclosed vulnerabilities, but the group consistently focused on systems with critical administrative, trust and networking functions.
+This targeting activity revealed an even more focused trend. Volt Typhoon consistently focused on endpoint and network management platforms, SD-WAN orchestrators and other enterprise control plane technologies. These centralized trust points give enterprises and downstream customers broad administrative access, asset visibility, network insight and remote management capabilities.
+Compromising these technologies offers significant operational benefits. Threat actors typically need to traverse networks, identify administrators, locate key systems and establish multiple footholds to gain visibility. Volt Typhoon directly targets management platforms, which already have visibility, access and administrative functions. This expands the scope of access while reducing interactions with hosts and authentication events and minimizing forensic artifacts.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-8?Creativeid=fc739dea-b227-450f-92e0-e0ba87442cec
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-8?Creativeid=fc739dea-b227-450f-92e0-e0ba87442cec
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-8?Creativeid=fc739dea-b227-450f-92e0-e0ba87442cec
+This graphic shows the advantage of compromising a management platform at the target enterprise. Access to these devices gives admin access to hundreds of devices that it connects to, eliminating the need for long-term operating time within a network which reduces the chance of exposure
+Figure 8: One compromised management platform gave Volt Typhoon the reach of a full intrusion: admin access to thousands of devices and trusted paths to downstream customers, with no lateral movement. Every zero-day campaign through Silent Train targeted this kind of platform.
+Persistent monitoring of Silent Train gave Black Lotus Labs rare visibility into Volt Typhoon’s exploitation activity, often before public disclosures, vendor alerts or incident response. This insight helped identify one likely and four confirmed zero-day campaigns targeting network and endpoint management platforms and SD-WAN orchestrators used by critical organizations.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-9?Creativeid=2632568f-88d8-4f0e-90ea-0367454a0795
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-9?Creativeid=2632568f-88d8-4f0e-90ea-0367454a0795
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-9?Creativeid=2632568f-88d8-4f0e-90ea-0367454a0795
+A chart showing the primary control plane devices targeted through the Silent Train network over several campaigns, along with the likelihood and length of time that a zero-day exploit was used to gain access.
+Figure 9: Timeline of likely and confirmed zero-day campaigns. Time ranges indicate when vulnerabilities were assessed as zero-days, not the full exploitation duration by Volt Typhoon.
+Post-incident analysis with partners uncovered in-memory webshells, credential harvesting and abuse of native features such as endpoint control and remote file transfers. In several cases, the actors also erased or altered logs and other evidence of exploitation and operator activity. These tactics suggest an effort to use trusted platform capabilities while protecting valuable assets, especially zero-day exploits and strategic access.
+The campaigns below show how Volt Typhoon applied this approach across endpoint management, network management, out-of-band administration and SD-WAN platforms.
+Quest KACE
+Quest KACE is a suite of Unified Endpoint Management (UEM) and IT systems management solutions. Although limited log availability made it difficult to identify the underlying vulnerability, the activity showed signs of exploiting a previously undisclosed flaw. The campaign affected more than 30 victims, followed vendor remediation timelines and declined after Quest's October 2025
+security updates
+. Despite limited forensic evidence, the available data supports a moderate-confidence assessment that Volt Typhoon exploited a zero-day vulnerability.
+After gaining access, the actor remained on the KACE server rather than moving laterally. By using the platform’s administrative capabilities and visibility to obtain and exfiltrate credentials, it achieved its objectives without traversing the broader enterprise network.
+Versa Director
+In mid-2024, Black Lotus Labs
+publicly documented
+Volt Typhoon's exploitation of Versa Director. After exploitation, Volt Typhoon used an in-memory JAR webshell to minimize forensics, leverage built-in platform features and target downstream customers.
+N-Able N-Central
+N-Central deployments are trusted platforms for managing large swaths of endpoints, offering centralized views of inventories, software, credentials, monitoring and remote admin from one interface. A compromise grants control over hundreds or thousands of downstream assets, including customer environments. Persistent monitoring of this activity provided valuable insight into the exploitation of a chain of previously undisclosed vulnerabilities assigned
+CVE-2025-8875 and CVE-2025-8876
+.
+Cisco Catalyst SD-WAN
+By late 2025, Volt Typhoon was exploiting Cisco Catalyst SD-WAN through
+CVE-2026-20127
+, a critical CVSS 10.0 vulnerability in the SD-WAN control plane. The group targeted trusted peering mechanisms connecting SD-WAN devices and control infrastructure, indicating an effort to use the platform as a strategic access point. Exploitation continued well after Cisco disclosed the vulnerability in February 2026, underscoring Volt Typhoon’s sustained interest in it.
+VeloCloud Orchestrator
+VeloCloud Orchestrator, a centralized controller for SD-WAN deployments, was the third SD-WAN platform Volt Typhoon exploited after Versa Director and Cisco Catalyst SD-WAN. Through Silent Train, the group exploited a zero-day vulnerability later designated
+CVE-2026-16812
+.
+Victimology reflects a pursuit of strategic access
+A clear pattern emerged: through Silent Train, Volt Typhoon consistently targeted organizations that held trusted, connected or influential positions within broader operational ecosystems. Across several years, we observed Volt Typhoon target organizations in these sectors.
+Targets spanned the U.S. government, telecommunications providers, defense industrial base entities and cleared defense contractors. Critical infrastructure organizations and universities with ROTC programs and defense relationships were also affected. Additional victims included satellite, emergency and mission-critical communications providers, along with managed service providers and information technology companies.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-10?Creativeid=468ff1b6-8c92-44e2-b146-f1dab0a7fc56
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-10?Creativeid=468ff1b6-8c92-44e2-b146-f1dab0a7fc56
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-10?Creativeid=468ff1b6-8c92-44e2-b146-f1dab0a7fc56
+A graph showing the victims by sector and the devices used in those attacks. The sectors are mentioned in the victimology below, but examples are the U.S. government, satellite communications providers and critical infrastructure. The devices used are mentioned previously, such as the Cisco Catalyst and Versa Director systems.
+Figure 10: Sector distribution of organizations targeted through Silent Train. The highlighted zero-day campaigns represent only a subset of the broader victimology observed throughout the investigation.
+While these sectors may appear diverse, they share a common trait: each offers access to broader networks, customers or essential operations.
+Telecommunications, technology and service providers connect government, military and enterprise customers, while universities and critical infrastructure operators support defense programs and essential civilian services. MSPs and IT providers maintain privileged access into customer environments.
+This assessment is reinforced by the geographic concentration of Silent Train’s targeting. Hawaii, California and Texas repeatedly emerged as focal points for Silent Train operations over several years. These states host major military installations, telecommunications infrastructure, defense contractors, satellite communications providers and critical logistics networks that support strategic U.S. operations, particularly within the Indo-Pacific region. Organizations targeted in these regions held trusted, connected roles essential to military, government and civilian operations.
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-11?Creativeid=bc5b4d47-864a-48bd-8dc8-425f0d9510bf
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-11?Creativeid=bc5b4d47-864a-48bd-8dc8-425f0d9510bf
+https://assets.lumen.com/is/image/Lumen/image-silent-train-infographic-ST-11?Creativeid=bc5b4d47-864a-48bd-8dc8-425f0d9510bf
+This is a heat map of the U.S., showing states where targeting was most frequently found. Those states align with certain strategic assets that relate to the ability to project power in the pacific and generate energy for the country.
+Figure 11: The shading indicates targeting concentration from November 2023 to July 2026, with the heaviest in California, Texas and Hawaii.
+Although the reason for this concentration is unclear, Silent Train’s exploitation patterns are consistent with efforts to pre-position access within strategic communications, critical infrastructure and other ecosystems that become essential during geopolitical tensions or crises.
+Silent Train: sustaining strategic access at scale
+Black Lotus Labs’ persistent monitoring of Silent Train provides one of the clearest views into how Volt Typhoon conducts and protects their most sensitive intrusion operations. What began as an investigation into unusual SSH relay chains ultimately exposed a mature operational framework supporting years of targeted exploitation against strategically significant organizations across the United States.
+Although the technologies, vulnerabilities and victims varied, the objective remained the same: secure lasting access to systems and organizations offering broad visibility, administrative control and reach into larger operational ecosystems. The exploitation patterns, victimology and geographic targeting reveal a sustained focus on communications, defense, government and critical infrastructure of enduring strategic value.
+For more than three years, Black Lotus Labs has tracked this activity, collaborated closely with trusted public and private sector partners, delivered hundreds of high-priority victim notifications and used its visibility into Silent Train to help identify, contextualize and investigate zero-day exploitation campaigns.
+The evidence reveals a highly structured framework designed to gain and maintain strategic access at scale. By repeatedly targeting centralized management and control plane technologies, Volt Typhoon uses Silent Train to secure lasting access to some of the United States’ most critical networks.
+Defender recommendations
+Management and control plane technologies provide broad visibility and administrative access across enterprise and customer environments. Organizations should take the following steps to reduce the risk posed by advanced threat actors using similar tactics.
+Elevate management and control plane security
+Apply heightened security controls to network and endpoint management systems, SD-WAN orchestrators, out-of-band platforms and other centralized enterprise administration technologies.
+Regularly review permissions, trust relationships and downstream access granted through these platforms.
+Reduce internet exposure
+Continuously inventory, review and minimize internet-facing systems, administrative services and portals.
+Restrict direct access to administrative interfaces through VPNs, access control policies, jump hosts or dedicated management networks.
+Prioritize patching
+Prioritize remediation of vulnerabilities affecting centralized management and control plane technologies.
+Maintain rapid patching processes for all internet-facing administrative platforms.
+Preserve visibility
+Centralize logging, extend retention and export security telemetry wherever possible.
+Prioritize monitoring and log retention for internet-facing systems and platforms that enable elevated administrative access.
+Hunt for abuse of trusted platforms
+Monitor and investigate unusual administrative logins, network or endpoint administration activity, abnormal API usage, remote file transfers and configuration changes.
+Hunt for suspicious “live off the land” activity that falls outside normal administrative timeframes or workflow patterns.
+Implement CISA and NCSC guidance for
+mitigating Volt Typhoon activity
+and
+defending against China-nexus covert networks of compromised devices
+.
+Prepare for strategic targeting
+Assess how your organization's systems, services and trust relationships could provide access to broader customer, partner, government or critical infrastructure ecosystems.
+Evaluate trust relationships within telecommunications, government, defense, MSP and critical infrastructure environments.
+Treat centralized management, control plane technologies and critical infrastructure as priority targets for sophisticated nation-state actors.
+Explore additional threat resources
+For broader threat protection and insights, explore these resources:
+Learn how we help protect customers with
+Lumen Defender
+SM
+.
+Read the
+Lumen Defender Threatscape Report
+to understand how modern cyberthreats are evolving.
+Collaborate with us on similar research by reaching out on
+LinkedIn
+or
+X
+(@BlackLotusLabs).
+Analysis of Volt Typhoon and Silent Train was performed by Michael Horka. Technical editing by Ryan English.
+This content is provided for informational purposes only and may require additional research and substantiation by the end user. In addition, the information is provided "as is" without any warranty or condition of any kind, either express or implied. Use of this information is at the end user's own risk. Lumen does not warrant that the information will meet the end user's requirements or that the implementation or usage of this information will result in the desired outcome of the end user. All third-party company and product or service names referenced in this article are for identification purposes only and do not imply endorsement or affiliation with Lumen. This document represents Lumen products and offerings as of the date of issue. Services not available everywhere. Lumen may change or cancel products and services or substitute similar products and services at its sole discretion without notice. © 2026 Lumen Technologies. All Rights Reserved.
+primaryOrange
+Explore Black Lotus Labs
+https://www.lumen.com/en-us/security/black-lotus-labs.html
+_blank
+image
+https://assets.lumen.com/is/image/Lumen/author-black-lotus-labs-logo-image-300x300?$PNG$&Creativeid=b08a9660-2840-4cf8-b2b4-aa45b9585632
+https://assets.lumen.com/is/image/Lumen/author-black-lotus-labs-logo-image-300x300?$PNG$&Creativeid=b08a9660-2840-4cf8-b2b4-aa45b9585632
+https://assets.lumen.com/is/image/Lumen/author-black-lotus-labs-logo-image-300x300?$PNG$&Creativeid=b08a9660-2840-4cf8-b2b4-aa45b9585632
+The Black Lotus Labs logo showing the name in black lettering with an image of a black lotus flower to the right.
+content
+Author
+Black Lotus Labs
+The mission of Black Lotus Labs® is to leverage our network visibility to help protect customers and keep the internet clean.
+Related resources
+image
+https://assets.lumen.com/is/image/Lumen/img-blog-featured-resource-card-communication?Creativeid=6ca02f37-3e49-429b-b15c-3ceb78d5634e
+https://assets.lumen.com/is/image/Lumen/img-blog-featured-resource-card-communication?Creativeid=6ca02f37-3e49-429b-b15c-3ceb78d5634e
+https://assets.lumen.com/is/image/Lumen/img-blog-featured-resource-card-communication?Creativeid=6ca02f37-3e49-429b-b15c-3ceb78d5634e
+Glowing blue cloud icon with upward and downward arrows in the center, symbolizing cloud data upload and download. The background is dark with faint circuit patterns and technology-related icons, including a padlock, gears, charts and a download symbol.
+content
+INFOBRIEF
+Benefits of migrating to cloud voice solutions
+link
+Read brief
+https://assets.lumen.com/is/content/Lumen/cloud-voice-migration-infobrief
+_self
+content
+Related products
+Cloud Communications
+Voice Services
+UC&C
+Contact Center Solutions
+content
+Research & reports
+Generate more value from your collaboration tools
+Future-ready voice and UC&C for the AI economy
+The business value of enhanced cloud communication

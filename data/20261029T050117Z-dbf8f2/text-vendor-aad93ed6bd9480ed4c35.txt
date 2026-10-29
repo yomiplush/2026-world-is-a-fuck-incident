@@ -1,0 +1,255 @@
+TALOS-2026-2419 ||  Cisco Talos Intelligence Group - Comprehensive Threat Intelligence
+Cisco Login
+Intelligence Center
+Intelligence Center
+BACK
+Intelligence Search
+Email & Spam Trends
+Vulnerability Research
+Vulnerability Research
+BACK
+Vulnerability Reports
+Microsoft Advisories
+Incident Response
+Incident Response
+BACK
+Reactive Services
+Proactive Services
+Emergency Support
+Blog
+Support
+More
+Security Resources
+Security Resources
+BACK
+Security Resources
+Open-source Security Tools
+Intelligence Categories Reference
+Secure Endpoint Naming Reference
+Media
+Media
+BACK
+Media
+Talos Intelligence Blog
+Threat Source Newsletter
+Beers with Talos Podcast
+Talos Takes Podcast
+Talos Videos
+Company
+Company
+BACK
+Company
+About Talos
+Careers
+Under Attack?
+Cisco Login
+Contact Cisco Talos Incident Response
+×
+Close
+This form is for Incident Response service inquiries only,
+including emergency network security needs
+.
+For reputation or categorization inquiries, visit the
+Talos Support site
+.
+For emergency DDoS mitigation assistance, please contact the
+Cisco Secure DDoS Protection Team
+.
+Name
+Company (optional)
+Email address
+Phone number
+Preferred communication:
+Email
+Phone
+What Incident Response Service are you interested in?
+General Talos IR services and retainer information
+Emergency Response
+IR Plan
+IR Playbooks
+IR Readiness Assessment
+Tabletop Exercises
+Compromise Assessment
+Threat Hunting
+Executive Threat Detection
+Cyber Range Training
+Intel on Demand
+Please provide as much detail as possible so we can best address your needs
+I acknowledge that this is an inquiry for Incident Response services and that any other use of this form will not receive a response.
+I acknowledge that this is NOT a request to unblock or recategorize IP addresses/domains. Those requests must submitted via the
+Talos Support site
+; the Talos Incident Response team does not handle, respond to, or escalate reputation requests.
+Send Email
+Cancel
+Talos Vulnerability Report
+TALOS-2026-2419
+frangoteam FUXA /nodered authorization bypass vulnerability
+October 29, 2026
+CVE Number
+CVE-2026-42922
+Summary
+A undefined vulnerability exists in the /nodered functionality of FUXA (version(s): 1.3.2-2809). A specially crafted HTTP request can lead to a arbitrary code execution. An attacker can make an unauthenticated HTTP request to trigger this vulnerability.
+Confirmed Vulnerable  Versions
+The versions below were either tested or verified to be vulnerable by Talos or confirmed to be vulnerable by the vendor.
+FUXA (version(s): 1.3.2-2809)
+Product URLs
+FUXA -
+https://github.com/frangoteam/FUXA
+CVSSv3 Score
+9.8 - CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+CWE
+CWE-285 - Improper Authorization
+Details
+FUXA is an open-source, web based HMI software developed by frangoteam.
+Users of the FUXA software can build virtual dashboards of physical processes, enabling them to read and write live process data, execute automations at the click of a button, review historical process data, interact remotely with physical devices, etc. FUXA administrators have the option to enable a first-class integration of Node-RED, with the Node-RED app being served under the
+/nodered
+route. Requests to
+/nodered
+routes wil first pass through a FUXA-specific authorization callback (
+allowDashboard
+) before being passed through to the Node-RED implementation.
+FUXA versions 1.2.8 through 1.2.10 suffered from unauthenticated direct access to the Node-RED integration (in deployments where Node-RED had been enabled). This issue was tracked as CVE-2026-25938, and an attempted fix was committed in version 1.2.11. This version added a JWT validation step to the auth middleware for all requests destined for
+/nodered
+based routes. This change was not entirely successful in blocking access to
+/nodered
+for unauthorized users.
+The authorization callback,
+allowDashboard
+is found in
+server/integrations/node-red/index.js
+, and is included here.
+const allowDashboard = (req, res, next) => {
+    if (req.baseUrl === '/dashboard') return next();
+
+    if (!settings.secureEnabled || settings.nodeRedAuthMode === 'legacy-open') {
+        return next();
+    }
+
+    const apiKey = req.headers['x-api-key'];
+    if (apiKey) {
+        return verifyApiKey(runtime, apiKey)
+            .then(validKey => {
+                if (!validKey) {
+                    return res.status(401).json({ error: "unauthorized_error", message: "Invalid API Key" });
+                }
+                return next();
+            });
+    }
+
+    // [1] Recover a JWT from any of: header, query, or cookie
+    const headerToken = req.headers['x-access-token'];
+    const queryToken = req.query?.token;
+    const cookieToken = getCookieValue(req, 'nodered_auth');
+    const token = headerToken || queryToken || cookieToken;
+    if (!token) {
+        return res.status(401).json({ error: "unauthorized_error", message: "Authentication required!" });
+    }
+
+    // [2] Verify that the token is valid and signed
+    return authJwt.verify(token)
+        .then(() => {
+            if (queryToken) {
+                res.cookie('nodered_auth', token, {
+                    httpOnly: true,
+                    sameSite: 'lax',
+                    secure: !!settings.https,
+                });
+            }
+            // [3] Forward the request on to RED.httpAdmin
+            return next();
+        })
+        .catch(() => {
+            if (cookieToken) {
+                res.clearCookie('nodered_auth');
+            }
+            return res.status(401).json({ error: "unauthorized_error", message: "Invalid token!" });
+        });
+};
+Access to these
+/nodered
+routes requires a valid, signed JWT to be associated with the request. The client is expected to pass a JWT in either the
+x-access-token
+header, the
+token
+query parameter, or the
+nodered_auth
+cookie, all of which are extracted at
+[1]
+for immediate verification at
+[2]
+. Verification is done using
+authJwt.verify
+(from
+server/api/jwt-helper.js
+) which is a simple wrapper around
+jsonwebtoken.verify
+. The issue that arises is any valid token is considered authorized, regardless of permission level, and the request is forwarded on to
+/nodered
+(by
+[3]
+) with no additional authorization checks occuring in the dispatched function. This effectively means that access to
+/nodered
+cannot be limited based on identity.
+An exacerbating factor is the
+/api/heartbeat
+route, responsible for refreshing these tokens before expiry, can also mint valid
+guest
+tokens for unauthenticated users. A malicious, unauthenticated user can issue a request to
+/api/heartbeat
+and be provided with a
+guest
+JWT which will be considered valid and authorized by the
+/nodered
+authorization callback. We note that this vulnerability is distinct from CVE-2026-25893, which was fixed in version 1.2.11, but which does share many characteristics with this vulnerability. In both cases, an unauthenticated user can conduct an authorization bypass to access a Node-RED deployment running on the device, including the ability to deploy malicious Node-RED flows to execute arbitrary commands on the device.
+Vendor Response (CVE-2026-42922)
+Vendor Notes: Addressed in FUXA v1.3.3. The /nodered middleware now rejects guest JWTs and refresh tokens, and requires an authenticated non-guest user or a valid API key.
+Timeline
+2026-05-29 - Cisco - Vendor Notification
+2026-06-08 - Cisco - Follow-up sent
+2026-06-08 - Frangoteam - Vendor Acknowledged
+2026-06-10 - Cisco - Follow-up sent
+2026-06-23 - Cisco - Follow-up sent
+2026-06-23 - Frangoteam - Vendor replied
+2026-07-16 - Cisco - Follow-up sent
+2026-07-22 - Frangoteam - Vendor replied
+2026-09-15 - Cisco - Follow-up sent
+Credit
+Matt Wiseman of Cisco Talos
+Vulnerability Reports
+Next Report
+TALOS-2026-2418
+Previous Report
+TALOS-2026-2414
+Intelligence Center
+Intelligence Search
+Email & Spam Trends
+Vulnerability Research
+Vulnerability Reports
+Microsoft Advisories
+Incident Response
+Reactive Services
+Proactive Services
+Emergency Support
+Security Resources
+Open-source Security Tools
+Intelligence Categories Reference
+Secure Endpoint Naming Reference
+Media
+Talos Intelligence Blog
+Threat Source Newsletter
+Beers with Talos Podcast
+Talos Takes Podcast
+Talos Videos
+Support
+Support Documentation
+Company
+About Talos
+Careers
+Cisco Security
+Follow us
+©
+2026
+Cisco Systems, Inc. and/or its affiliates. All rights
+reserved. View our
+privacy policy
+.

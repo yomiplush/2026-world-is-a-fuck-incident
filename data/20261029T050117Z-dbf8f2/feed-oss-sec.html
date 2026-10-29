@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Wed, 28 Oct 2026 21:00:04 GMT</pubDate>
+    <lastBuildDate>Wed, 28 Oct 2026 21:00:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>CVE-2026-115942: Apache Qpid Proton C: Verifying non compliant TLS wildcard cert can cause stack buffer overflow read</title>
+    <link>https://seclists.org/oss-sec/2026/q4/432</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+A misconfigured wildcard TLS certificate causes a stack read overflow.&lt;br&gt;
+&lt;br&gt;
+This issue does not affect any wildcard certificate issued to the RFC9525 standard - the fix only accepts certificates &lt;br&gt;
+that comply to this standard.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Qpid Proton C: through 0.40.0.&lt;br&gt;
+&lt;br&gt;
+Users are recommended to upgrade to version 0.41.1, which fixes the issue.&lt;br&gt;
+&lt;br&gt;
+This...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:47:46 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/432</guid>
+  </item>
+  <item>
+    <title>CVE-2026-114230: Apache Qpid Proton C: Potential authentication bypass: regular AMQP frames can be sent as SASL frames</title>
+    <link>https://seclists.org/oss-sec/2026/q4/431</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When dispatching SASL frames to authenticate the peer, Proton will also dispatch AMQP frames if they claim to be SASL &lt;br&gt;
+frames. This allows authentication bypass. However there will be no user name set so the effects depend on how the &lt;br&gt;
+application deals with this condition - which otherwise means that authentication has not completed yet.&lt;br&gt;
+&lt;br&gt;
+This issue...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:46:00 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/431</guid>
+  </item>
+  <item>
+    <title>CVE-2026-105042: Apache Qpid Proton C: Unbounded recursion in parsing AMQP message bodies can lead to crash</title>
+    <link>https://seclists.org/oss-sec/2026/q4/430</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+A message body that is deeply nested and decoded by pn_message_body() could overflow the stack and cause a crash.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Qpid Proton C: through 0.40.0.&lt;br&gt;
+&lt;br&gt;
+Users are recommended to upgrade to version 0.41.1, which fixes the issue.&lt;br&gt;
+&lt;br&gt;
+This issue is being tracked as PROTON-2976 &lt;br&gt;
+&lt;br&gt;
+Credit:&lt;br&gt;
+&lt;br&gt;
+zhangph () yandex com (finder)&lt;br&gt;
+Gjoko Krstic...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:44:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/430</guid>
+  </item>
+  <item>
+    <title>CVE-2026-105031: Apache Qpid Proton C: The OpenSSL TLS implementation adds a locally trusted certificate authority to the existing trusted system trust anchors.</title>
+    <link>https://seclists.org/oss-sec/2026/q4/429</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When using the OpenSSL TLS implementation, both the pn_ssl_domain_set_trusted_ca_db() &amp;amp; &lt;br&gt;
+pn_tls_config_set_trusted_certs() APIs added to rather than replaced the default system trust anchors. Leading to &lt;br&gt;
+potentially trusting unexpected peer certificates.&lt;br&gt;
+&lt;br&gt;
+This can be worked around by setting the SSL_CERT_FILE environment variable for the...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:42:21 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/429</guid>
+  </item>
+  <item>
+    <title>MIME-tools versions before 5.521 for Perl (10 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/428</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 28&lt;/p&gt;CVE-2026-116264&lt;br&gt;
+   MIME::Field::ParamVal versions before 5.521 for Perl allow one&lt;br&gt;
+   invalid Content-Type parameter to hide the parameters after it,&lt;br&gt;
+   including the multipart boundary&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116265&lt;br&gt;
+   MIME::Field::ParamVal versions before 5.521 for Perl do not flag an&lt;br&gt;
+   ambiguous multipart boundary written as RFC 2231 continuations&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116266&lt;br&gt;
+   MIME::Head versions from 5.518 before 5.521 for Perl decode a partly&lt;br&gt;
+   encoded...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 18:21:16 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/428</guid>
+  </item>
+  <item>
+    <title>HTTP::Body versions before 1.24_01 for Perl (9 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/427</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 28&lt;/p&gt;CVE-2026-116131&lt;br&gt;
+   HTTP::Body versions before 1.23_01 for Perl allow memory and&lt;br&gt;
+   temporary file exhaustion via an unlimited number of form fields and&lt;br&gt;
+   multipart parts&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116132&lt;br&gt;
+   HTTP::Body versions before 1.23_01 for Perl leave the temporary file&lt;br&gt;
+   of an incomplete multipart upload on disk&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116133&lt;br&gt;
+   HTTP::Body versions before 1.23_01 for Perl allow CPU exhaustion via&lt;br&gt;
+   quadratic rescanning of a multipart body with...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 18:18:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/427</guid>
+  </item>
+  <item>
+    <title>CVE-2026-102479: Request smuggling in Eclipse Vert.x HTTP/1.x decoder</title>
+    <link>https://seclists.org/oss-sec/2026/q4/426</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 28&lt;/p&gt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/eclipse-vertx/vert.x/security/advisories/GHSA-ch7p-g5pm-3gqx&quot;&gt;https://github.com/eclipse-vertx/vert.x/security/advisories/GHSA-ch7p-g5pm-3gqx&lt;/a&gt;&lt;br&gt;
+advises:&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://research.jfrog.com/post/byte-debt-vertx-header-typo-session-fixation/&quot;&gt;https://research.jfrog.com/post/byte-debt-vertx-header-typo-session-fixation/&lt;/a&gt;&lt;br&gt;
+explores how this can be exploited and says that &amp;quot;vertx-core has around 2,100&lt;br&gt;
+Maven dependents and north of 300 million cumulative downloads, but those&lt;br&gt;
+figures span the entire history of the project. The actual exposure window is&lt;br&gt;
+narrow: three minor release branches shipped...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 18:14:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/426</guid>
+  </item>
+  <item>
+    <title>CVE-2026-114349: Apache Kafka: Denial of service via unbounded memory allocation when decoding compressed record batches</title>
+    <link>https://seclists.org/oss-sec/2026/q4/425</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: important&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 0.11.0.0 through 4.1.2&lt;br&gt;
+- Apache Kafka 4.2.0 through 4.2.1&lt;br&gt;
+- Apache Kafka 4.3.0 through 4.3.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When a broker decodes a compressed record batch, the per-record&lt;br&gt;
+decoder reads a declared body size from the decompressed stream and&lt;br&gt;
+allocates a buffer of that size before validating it against the bytes&lt;br&gt;
+available or any configured limit. The size is attacker-controlled,&lt;br&gt;
+and the batch...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:44:54 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/425</guid>
+  </item>
+  <item>
+    <title>CVE-2026-112375: Apache Kafka: Unauthorized principal can read arbitrary broker files via IncrementalAlterConfigs</title>
+    <link>https://seclists.org/oss-sec/2026/q4/424</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: important&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 3.2.0 through 4.1.2&lt;br&gt;
+- Apache Kafka 4.2.0 through 4.2.1&lt;br&gt;
+- Apache Kafka 4.3.0 through 4.3.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+An authenticated Kafka principal with no authorization grants (not&lt;br&gt;
+even ALTER_CONFIGS) can make a broker read a file or an environment&lt;br&gt;
+variable from the broker host and return its contents. An&lt;br&gt;
+IncrementalAlterConfigs (or AlterConfigs) request targeting a BROKER&lt;br&gt;
+resource reaches the...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:42:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/424</guid>
+  </item>
+  <item>
+    <title>CVE-2026-116593: Apache Kafka: Kafka Connect configuration provider values exposed via validation REST API endpoint</title>
+    <link>https://seclists.org/oss-sec/2026/q4/423</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: moderate&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 2.4.0 before 4.2.2&lt;br&gt;
+- Apache Kafka 4.3.0 before 4.3.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Apache Kafka Connect has the&lt;br&gt;
+/connector-plugins/{connector-type}/config/validate endpoint on its&lt;br&gt;
+REST API to validate connector configurations.&lt;br&gt;
+Apache Kafka Connect also support Configuration Providers which enable&lt;br&gt;
+to hide the values of sensitive configuration and only resolve them at&lt;br&gt;
+runtime.&lt;br&gt;
+&lt;br&gt;
+An attacker with access to the...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:40:44 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/423</guid>
+  </item>
+  <item>
+    <title>CVE-2026-115644: Apache Kafka: Connect Admin REST API Authentication Bypass via Unapplied REST Extensions</title>
+    <link>https://seclists.org/oss-sec/2026/q4/422</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: low&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 2.4.0 before 4.2.2&lt;br&gt;
+- Apache Kafka 4.3.0 before 4.3.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Apache Kafka Connect contains an authentication bypass vulnerability&lt;br&gt;
+affecting the admin REST API when admin.listeners is configured with a&lt;br&gt;
+separate listener from the main listeners property.&lt;br&gt;
+&lt;br&gt;
+When operators isolate the admin REST API by explicitly configuring&lt;br&gt;
+the &amp;quot;admin.listeners&amp;quot; property, REST extensions specified via...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:38:38 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/422</guid>
+  </item>
+  <item>
+    <title>CVE-2026-111496: Apache Kafka: Kafka Streams StreamThread hang from integer overflow in stream-time punctuation</title>
+    <link>https://seclists.org/oss-sec/2026/q4/421</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: low&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 1.1.0 through 4.1.2&lt;br&gt;
+- Apache Kafka 4.2.0 through 4.2.1&lt;br&gt;
+- Apache Kafka 4.3.0 through 4.3.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Kafka Streams derives its stream-time clock from record timestamps.&lt;br&gt;
+PunctuationSchedule.next() computed the next punctuation time as&lt;br&gt;
+timestamp + (intervalsMissed + 1) * interval with no overflow check. A&lt;br&gt;
+record with a timestamp at or near Long.MAX_VALUE advances stream time&lt;br&gt;
+to that value, so...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:36:45 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/421</guid>
+  </item>
+  <item>
+    <title>CVE-2026-111551: Apache Kafka: Denial of service in Kafka Streams and client deserializers via unbounded memory allocation</title>
+    <link>https://seclists.org/oss-sec/2026/q4/420</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: important&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 0.10.0.0 through 4.1.2&lt;br&gt;
+- Apache Kafka 4.2.0 through 4.2.1&lt;br&gt;
+- Apache Kafka 4.3.0 through 4.3.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Several Kafka deserialization paths read a size or count field from&lt;br&gt;
+input data and use it directly to allocate an array, collection, or&lt;br&gt;
+byte buffer, with no check against the bytes actually available. A&lt;br&gt;
+small crafted input can therefore declare a very large size and force&lt;br&gt;
+a...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:34:54 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/420</guid>
+  </item>
+  <item>
+    <title>CVE-2026-111115: Apache Kafka: Broker OutOfMemoryError via tagged-field allocation amplification in flexible protocol request parsing</title>
+    <link>https://seclists.org/oss-sec/2026/q4/419</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: important&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 2.4.0 through 4.1.2&lt;br&gt;
+- Apache Kafka 4.2.0 through 4.2.1&lt;br&gt;
+- Apache Kafka 4.3.0 through 4.3.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Apache Kafka&amp;apos;s code-generated readers for flexible protocol versions&lt;br&gt;
+read a tagged-field count declared by the sender and retain a&lt;br&gt;
+RawTaggedField object for each unknown field. That count was bounded&lt;br&gt;
+only by the outer request frame size (socket.request.max.bytes); it&lt;br&gt;
+was not checked...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:33:02 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/419</guid>
+  </item>
+  <item>
+    <title>CVE-2026-111073: Apache Kafka: PushTelemetry (KIP-714) metrics payloads are decompressed without a size limit, allowing a broker out-of-memory denial of service</title>
+    <link>https://seclists.org/oss-sec/2026/q4/418</link>
+    <description>&lt;p&gt;Posted by Manikumar on Oct 28&lt;/p&gt;Severity: moderate&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Kafka 3.7.0 through 4.1.2&lt;br&gt;
+- Apache Kafka 4.2.0 through 4.2.1&lt;br&gt;
+- Apache Kafka 4.3.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+The broker-side PushTelemetry API (KIP-714) validates only the&lt;br&gt;
+compressed size of a client&amp;apos;s metrics payload against&lt;br&gt;
+telemetry.max.bytes (default 1 MB) before decompressing it.&lt;br&gt;
+ClientTelemetryUtils.decompress() then decompresses the payload with&lt;br&gt;
+no limit on the decompressed output size, growing a...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 17:31:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/418</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

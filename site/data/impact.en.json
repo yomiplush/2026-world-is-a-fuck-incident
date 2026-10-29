@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-28T04:18:44Z",
+  "cutoff": "2026-10-29T05:01:25Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -8,7 +8,7 @@
       "unknown": "206 is not the number of completed recoveries. The company says data inside VMs was not exfiltrated and traces of registration-information exfiltration remain unconfirmed. Final recovery dates for all customers and total losses are undisclosed.",
       "response": "Reset passwords. Support alternative-environment migration and backup retrieval.",
       "status": "confirmed-impact",
-      "category": "Business, medical and service disruption",
+      "category": "Business, healthcare and service disruption",
       "sources": [
         {
           "name": "IDCF第7報・10月27日",
@@ -17,8 +17,11 @@
       ],
       "event_date": "2026-10-07",
       "source_date": "2026-10-27",
-      "as_of": "Source updated: 2026-10-27",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-27 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "infoq-real-impact",
@@ -36,7 +39,7 @@
       ],
       "event_date": "2026-10-03",
       "source_date": "2026-10-14",
-      "as_of": "Source updated: 2026-10-14",
+      "as_of": "Source updated: 2026-10-14 / source rechecked; overall recovery not established",
       "total_loss_jpy": null,
       "reported_financial_impact": {
         "amount": 2869500,
@@ -44,16 +47,19 @@
         "unit": "unauthorized point exchanges",
         "count": 611,
         "is_total_incident_loss": false
-      }
+      },
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "gmo-real-impact",
       "title": "Onamae.com: business environment shutdown and data exfiltration",
-      "confirmed": "Service suspended since 10/21. External exfiltration of customer information confirmed. Perpetrator site domain suspension confirmed around 04:00 on 10/28.",
+      "confirmed": "Service has been suspended since 10/21, with external removal of customer information confirmed. The company confirmed domain takedown around 04:00 on 10/28. Notice 15 says potentially useful leads are being assessed.",
       "unknown": "Authenticity of published content, victim counts, and total unauthorized transaction amounts remain undetermined. Domain suspension does not mean full recovery of information or service restoration.",
       "response": "The policy is to offer alternative services rather than restart the current infrastructure as is. Announced compensation for realized losses from confirmed unauthorized transactions and special relief payments.",
       "status": "confirmed-impact",
-      "category": "Business, medical and service disruption",
+      "category": "Business, healthcare and service disruption",
       "sources": [
         {
           "name": "GMO第4報",
@@ -66,12 +72,19 @@
         {
           "name": "GMO第13報・10月28日11時",
           "url": "https://group.gmo/info/alert/20261028/"
+        },
+        {
+          "name": "GMO notice 15",
+          "url": "https://group.gmo/info/alert/20261029/"
         }
       ],
       "event_date": "2026-10-21",
-      "source_date": "2026-10-28",
-      "as_of": "Source updated: 2026-10-28",
-      "total_loss_jpy": null
+      "source_date": "2026-10-29",
+      "as_of": "Source updated: 2026-10-29 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "updated",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "atlink-real-impact",
@@ -80,7 +93,7 @@
       "unknown": "Leakage counts and the resumption date for all functions remain under investigation and verification. Starting beta testing at some medical institutions is not resumption of general availability.",
       "response": "Block intrusion paths and disable related credentials. Contact medical institutions directly to change reservations. Set a new password upon resumption.",
       "status": "confirmed-impact",
-      "category": "Business, medical and service disruption",
+      "category": "Business, healthcare and service disruption",
       "sources": [
         {
           "name": "メドレー調査案内",
@@ -97,8 +110,11 @@
       ],
       "event_date": "2026-10-14",
       "source_date": "2026-10-28",
-      "as_of": "Source updated: 2026-10-28",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-28 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "aiiku-atlink-impact",
@@ -107,7 +123,7 @@
       "unknown": "This announcement does not confirm a complete clinical shutdown or harm to life. It is a user-side impact of the Atlink incident, not an independent separate attack.",
       "response": "Check the hospital's alternative appointment guidance and contact the hospital directly about necessary procedures.",
       "status": "confirmed-impact",
-      "category": "Business, medical and service disruption",
+      "category": "Business, healthcare and service disruption",
       "sources": [
         {
           "name": "愛育病院・10月23日更新",
@@ -116,8 +132,11 @@
       ],
       "source_date": "2026-10-23",
       "parent_incident": "atlink-real-impact",
-      "as_of": "Source updated: 2026-10-23",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-23 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "railway-real-impact",
@@ -126,7 +145,7 @@
       "unknown": "The maximum 1.85%, about 100,000 workspaces, is the potential scope of environment-variable exposure, not a confirmed count of people affected by leakage. Key-revocation notifications alone do not confirm compromise.",
       "response": "Revoke and reissue stored secrets, and audit GitHub and registries. The next status update, scheduled for 10/28 16:00 UTC, is after this cutoff.",
       "status": "confirmed-impact",
-      "category": "Business, medical and service disruption",
+      "category": "Business, healthcare and service disruption",
       "sources": [
         {
           "name": "Railway一次報告",
@@ -139,8 +158,11 @@
       ],
       "event_date": "2026-10-20",
       "source_date": "2026-10-27",
-      "as_of": "Source updated: 2026-10-27",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-27 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "piccoma-blastmail-impact",
@@ -158,8 +180,11 @@
       ],
       "source_date": "2026-10-24",
       "parent_incident": "blastmail",
-      "as_of": "Source updated: 2026-10-24",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-24 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "environment-blastmail-impact",
@@ -168,7 +193,7 @@
       "unknown": "Leakage of recipient information is unconfirmed. Do not generalize Piccoma's findings to the Ministry of the Environment. Affected counts are unspecified.",
       "response": "Confirm whether leakage occurred based on the operator's investigation. Resumption timing is stated as undetermined.",
       "status": "confirmed-impact",
-      "category": "Business, medical and service disruption",
+      "category": "Business, healthcare and service disruption",
       "sources": [
         {
           "name": "環境省・10月23日",
@@ -177,8 +202,11 @@
       ],
       "source_date": "2026-10-23",
       "parent_incident": "blastmail",
-      "as_of": "Source updated: 2026-10-23",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-23 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "studio-real-impact",
@@ -195,8 +223,11 @@
         }
       ],
       "source_date": "2026-10-28",
-      "as_of": "Source updated: 2026-10-28",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-28 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "yotsuya-itsuaki-impact",
@@ -214,8 +245,11 @@
       ],
       "event_date": "2026-09-21",
       "source_date": "2026-10-20",
-      "as_of": "Source updated: 2026-10-20",
-      "total_loss_jpy": null
+      "as_of": "Source updated: 2026-10-20 / source rechecked; overall recovery not established",
+      "total_loss_jpy": null,
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "connectwise-real-impact",
@@ -225,14 +259,17 @@
       "response": "Awaiting third-party validation as of 10/27 14:30 UTC. Keep affected connections disabled until individual guidance.",
       "status": "confirmed-impact",
       "category": "Backups and business continuity",
-      "as_of": "Updated 10/27 14:30 UTC",
+      "as_of": "Updated 10/27 14:30 UTC / source rechecked; overall recovery not established",
       "total_loss_jpy": null,
       "sources": [
         {
           "name": "ConnectWise Trust Center",
           "url": "https://www.connectwise.com/company/trust/advisories"
         }
-      ]
+      ],
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "litellm-distribution-impact",
@@ -242,7 +279,7 @@
       "response": "Investigate affected installations, isolate and rebuild environments. Revoke and reissue keys that were reachable. Check the risk of startup hooks executing again before performing a simple update.",
       "status": "confirmed-impact",
       "category": "Software supply chain",
-      "as_of": "10/21 incident / 10/23 analysis",
+      "as_of": "10/21 incident / 10/23 analysis / source rechecked; overall recovery not established",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -253,7 +290,10 @@
           "name": "公式攻撃連鎖分析",
           "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
         }
-      ]
+      ],
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "brotli-exploitation",
@@ -263,14 +303,17 @@
       "response": "Check fixes by product and series, and investigate compromise indicators separately from updates. Compare downstream embedded versions with supported versions.",
       "status": "exploitation-confirmed",
       "category": "Exploited vulnerabilities",
-      "as_of": "KEV2026.10.27 edition",
+      "as_of": "KEV2026.10.27 edition / source rechecked; overall recovery not established",
       "total_loss_jpy": null,
       "sources": [
         {
           "name": "CISA公式KEV",
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
-      ]
+      ],
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "commerce-exploitation",
@@ -280,14 +323,17 @@
       "response": "Check fixes by product and series, and investigate compromise indicators separately from updates. Compare downstream embedded versions with supported versions.",
       "status": "exploitation-confirmed",
       "category": "Exploited vulnerabilities",
-      "as_of": "KEV2026.10.27 edition",
+      "as_of": "KEV2026.10.27 edition / source rechecked; overall recovery not established",
       "total_loss_jpy": null,
       "sources": [
         {
           "name": "CISA公式KEV",
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
-      ]
+      ],
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "php-exploitation",
@@ -297,14 +343,17 @@
       "response": "Check fixes by product and series, and investigate compromise indicators separately from updates. Compare downstream embedded versions with supported versions.",
       "status": "exploitation-confirmed",
       "category": "Exploited vulnerabilities",
-      "as_of": "KEV2026.10.27 edition",
+      "as_of": "KEV2026.10.27 edition / source rechecked; overall recovery not established",
       "total_loss_jpy": null,
       "sources": [
         {
           "name": "CISA公式KEV",
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
-      ]
+      ],
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
     },
     {
       "id": "fireblocks-potential",
@@ -314,28 +363,98 @@
       "response": "No fixed version is available. Protect chain codes as secrets and investigate the entire key-share hierarchy.",
       "status": "potential",
       "category": "Crypto assets and key management",
-      "as_of": "Revised 10/27 14:45 UTC",
+      "as_of": "Revised 10/27 14:45 UTC / source rechecked; overall recovery not established",
       "total_loss_jpy": null,
       "sources": [
         {
           "name": "CERT VU701544",
           "url": "https://kb.cert.org/vuls/id/701544"
         }
-      ]
+      ],
+      "monitoring_status": "rechecked-source",
+      "checked_at": "2026-10-29T05:01:25Z",
+      "recovery_state": "not-established"
+    },
+    {
+      "id": "sonet-real-impact",
+      "title": "So-net: member information and some email passwords exposed",
+      "confirmed": "Disclosure of 2,141,986 So-net member records and 443,495 plala (S course) member records. Email passwords in some mail services were also exposed and reset. Bank-account information: 16 records; notification information: 7 records.",
+      "unknown": "Categories may overlap; do not add them as a count of people. Root cause and total losses remain undetermined. Distinguish member-account passwords from the affected email passwords.",
+      "response": "Reset affected email passwords using official guidance and change reused passwords. Avoid links in unsolicited incident-related email.",
+      "status": "confirmed-impact",
+      "category": "Personal information and credentials",
+      "sources": [
+        {
+          "name": "Sony Network Communications PDF",
+          "url": "https://www.sonynetwork.co.jp/corporation/release/2026/v5e5u00000000zwj-att/20261027.pdf"
+        }
+      ],
+      "event_date": "2026-10-19",
+      "source_date": "2026-10-27",
+      "as_of": "Source updated: 2026-10-27",
+      "total_loss_jpy": null,
+      "recovery_state": "response-in-progress",
+      "monitoring_status": "newly-covered",
+      "checked_at": "2026-10-29T05:01:25Z"
+    },
+    {
+      "id": "unm-recovered-impact",
+      "title": "UNM Health: clinical and academic recovery, with a warning about follow-on scams",
+      "confirmed": "Ambulance diversion, interrupted outpatient surgery and appointments, and suspended classes on 10/26. The official 10/28 update confirms fully functional clinical services and resumed classes and research.",
+      "unknown": "Disclosure counts and losses remain undetermined. The institution describes impact on some devices and denies penetration of core systems. Attacker claims are not confirmed disclosure.",
+      "response": "Reschedule interrupted care through official channels. Do not engage with purported attackers or compensation offers.",
+      "status": "confirmed-impact",
+      "category": "Business, healthcare and service disruption",
+      "sources": [
+        {
+          "name": "UNM HSC official update",
+          "url": "https://hscnews.unm.edu/news/ambulance-traffic-diverted-clinical-appointments-cancelled-and-classes-cancelled-due-to-cybersecurity-issue-at-unm-hsc"
+        }
+      ],
+      "event_date": "2026-10-26",
+      "source_date": "2026-10-28",
+      "as_of": "Source updated: 2026-10-28",
+      "total_loss_jpy": null,
+      "recovery_state": "restored-per-organization",
+      "monitoring_status": "newly-covered",
+      "checked_at": "2026-10-29T05:01:25Z"
+    },
+    {
+      "id": "kernel-exploitation",
+      "title": "KEV: Linux privilege escalation and missing ESX logging added",
+      "confirmed": "CISA lists known exploitation of CVE-2026-46300 and chaining with PHP vulnerabilities.",
+      "unknown": "Worldwide victim counts and losses are unknown. KEV listing does not establish compromise of every product or deployment.",
+      "response": "Update kernels and embedded products, verify running versions, and investigate credentials and management infrastructure where compromise is suspected.",
+      "status": "exploitation-confirmed",
+      "category": "Known exploitation; impact scale unknown",
+      "sources": [
+        {
+          "name": "CISA KEV",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "event_date": null,
+      "source_date": "2026-10-28",
+      "as_of": "Source updated: 2026-10-28",
+      "total_loss_jpy": null,
+      "recovery_state": "not-established",
+      "monitoring_status": "newly-covered",
+      "checked_at": "2026-10-29T05:01:25Z"
     }
   ],
-  "cutoff_jst": "2026-10-28T13:18:44+09:00",
+  "cutoff_jst": "2026-10-29T14:01:25+09:00",
   "caveats": [
     "Selected examples. parent_incident indicates user-side effects of the same compromise and is not added as a separate incident. potential means actual acquisition is unconfirmed.",
     "A list of cases checked against primary sources, not worldwide damage statistics. These are not this run's new incident counts.",
     "Separate occurrence, disclosure, update, and retrieval times; preserve source units for money, people, and records. Undisclosed total losses do not mean 0 yen.",
     "Retrieved material reflects current revisions after the cutoff. All historical text on dynamic pages cannot be fully reconstructed.",
-    "User-side impacts on the same infrastructure are linked through parent_incident. Do not add them as duplicate incidents."
+    "User-side impacts on the same infrastructure are linked through parent_incident. Do not add them as duplicate incidents.",
+    "The newly covered healthcare recovery follows the institution’s official statement. Existing source dates remain; re-fetching does not make an incident new."
   ],
   "locale": "en",
   "translation": {
-    "source_hash": "dd28e03d66ec83eb9d35d9fdd166fc715d536bf69571b6c8d967c4bfa88d1722",
-    "register_hash": "4c3a9feaf3ca00e56d5b162f47c98fe2e735367ead09a9883655b6f1ff46e9b5",
+    "source_hash": "9c6901447998ef9bf043fcf53c15f5eb60ff57eb75fb975b586cc18804c34241",
+    "register_hash": "55a4ba495639e9b9f53e0a350307c3fd50ab0d5aafb19b917e4eb163ee1c089e",
     "human_reviewed": false
   }
 }
