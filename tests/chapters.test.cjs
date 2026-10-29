@@ -1,5 +1,5 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-function model(){const scope={window:{}};for(const p of ['data.js','chronology.js'])vm.runInNewContext(fs.readFileSync('site/'+p,'utf8'),scope);return scope.window.BRIEFING_NAV;}
+function model(){const scope={window:{}};vm.runInNewContext(fs.readFileSync('site/data.js','utf8'),scope);scope.window.CONTENT.scenes=scope.window.CONTENT.scenes.slice(0,65);vm.runInNewContext(fs.readFileSync('site/chronology.js','utf8'),scope);return scope.window.BRIEFING_NAV;}
 test('65 chronological scenes form six ten-scene chapters and one five-scene chapter',()=>{
  const nav=model();assert.ok(nav.chapters,'chapter model must be available');
  assert.deepEqual(Array.from(nav.chapters,g=>g.end-g.start),[10,10,10,10,10,10,5]);

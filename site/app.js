@@ -225,11 +225,20 @@
 
     const group = chapterFor(index), words = chapterWords();
     el.chapter.textContent = "BRIEFING";
+    const page = navigation.chapterWindow(group.index, 5);
+    el.rail.querySelectorAll('.chapter-page').forEach(button => {
+      const target = button.dataset.direction === 'previous' ? page.previous : page.next;
+      button.disabled = target === null;
+      button.setAttribute('aria-label', (lang === 'ja' ? '章グループ' : 'Chapter group') +
+        ' ' + (button.dataset.direction === 'previous' ? '▲' : '▼'));
+    });
     el.rail.querySelectorAll('.chapter-button').forEach((button, i) => {
+      button.hidden = i < page.first || i >= page.last;
       const active = i === group.index;
       button.setAttribute('aria-current', active ? 'true' : 'false');
       button.style.gridRow = '1';
-      button.style.gridColumn = String(i + 1);
+      button.style.gridColumn = String(i - page.first + 2);
+      button.querySelector('.chapter-square').textContent = active ? '●' : '■';
       button.setAttribute('aria-label', `${chapterLabel(i + 1)} / ${chapters.length} · ${chapters[i].end - chapters[i].start} ${words[1]}`);
     });
     el.rail.querySelectorAll('.scene-tick').forEach((button, i) => {
@@ -624,6 +633,26 @@
 
   function buildRail() {
     el.rail.innerHTML = "";
+    const chapterRow = document.createElement('div');
+    chapterRow.className = 'chapter-controls';
+    const sceneRow = document.createElement('div');
+    sceneRow.className = 'scene-controls';
+    for (const direction of ['previous', 'next']) {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'tick chapter-page';
+      button.dataset.direction = direction;
+      button.textContent = direction === 'previous' ? '▲' : '▼';
+      button.style.gridColumn = direction === 'previous' ? '1' : '7';
+      button.style.gridRow = '1';
+      button.addEventListener('click', e => {
+        e.stopPropagation();
+        const page = navigation.chapterWindow(chapterFor(index).index, 5);
+        const target = direction === 'previous' ? page.previous : page.next;
+        if (target !== null) go(chapters[target].start, direction === 'previous' ? -1 : 1);
+      });
+      chapterRow.appendChild(button);
+    }
+    el.rail.append(chapterRow, sceneRow);
     chapters.forEach((group, i) => {
       const b = document.createElement("button");
       b.className = "tick chapter-button";
@@ -633,19 +662,19 @@
         e.stopPropagation();
         if (chapterFor(index).index !== i) go(group.start, i > chapterFor(index).index ? 1 : -1);
       });
-      el.rail.appendChild(b);
+      chapterRow.appendChild(b);
     });
     for (let i = 0; i < 10; i++) {
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'scene-tick';
-      b.style.gridColumn = String(i + 9);
-      b.innerHTML = '<span aria-hidden="true">│</span>';
+      b.style.gridColumn = String(i + 1);
+      b.innerHTML = '<span aria-hidden="true">●</span>';
       b.addEventListener('click', e => {
         e.stopPropagation();
         const target = chapterFor(index).start + i;
         if (target < chapterFor(index).end) go(target, target >= index ? 1 : -1);
       });
-      el.rail.appendChild(b);
+      sceneRow.appendChild(b);
     }
   }
 

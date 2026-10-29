@@ -31,6 +31,12 @@ def main(path):
     research_doc = 'docs/research-' + stamp + '.md'
     motion_path = report.get('motion_path', './?lang=ja#54')
     motion_label = report.get('motion_label', '追加2画面のモーション →')
+    motion_reviews = json.loads((ROOT/'content/motion-reviews.json').read_text()) if (ROOT/'content/motion-reviews.json').exists() else {}
+    if report['path'] in motion_reviews:
+        motion = motion_reviews[report['path']]
+        motion_path = '/?lang=ja#' + str(motion['start'])
+        motion_label = motion['label']
+
     groups = {kind: [r for r in record['records'] if r['kind'] == kind]
               for kind in ('delta', 'scope-complement', 'reference-only')}
     quick = ''.join(f'<article><h3>{esc(r["title"])}</h3><p>{esc(r["text"])}</p>{anchor(r["href"],r["label"]+" →")}</article>' for r in report['quick'])

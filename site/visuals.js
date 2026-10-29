@@ -904,6 +904,76 @@ window.VISUALS = (function () {
     heading(g,'VERIFY / PATCH / REVOKE / ROTATE',C.cyan);g.flush();
   };
 
+  // October 29: explanatory spatial models, never live telemetry.
+  scenes.latestScope = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.58});
+    for(let i=0;i<3;i++){
+      const p=[(i-1)*220,40-i*45,(i-1)*75];
+      g.prism(...p,150,12,6,[C.cyan,C.amber,C.steel][i],{alpha:.32,edge:.7,rot:t*.06+i});
+      ring(g,p,170,[C.cyan,C.amber,C.steel][i]);
+      for(let j=0;j<4;j++)g.box(p[0]-65+j*43,p[1]-45-Math.sin(t+j+i)*10,p[2],12,22,16,C.cyan,{alpha:.65});
+      label(g,[p[0],p[1]-170,p[2]],['ADVISORIES','116 TOPICS','19 IMPACTS'][i],i===1?C.amber:C.cyan,10);
+    }
+    heading(g,'OVERLAP IS NOT AN INCIDENT COUNT');g.flush();
+  };
+  scenes.latestChain = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.20,pitch:.5});
+    const p=[[-330,90,50],[-105,-40,0],[145,-140,-55],[350,-45,45]];
+    p.forEach((point,i)=>node(g,point,['PHP','KERNEL','LDAP','UNKNOWN'][i],i===3?C.steel:i===2?C.amber:C.cyan,t,i,{hx:48,hy:40,hz:40,font:10}));
+    for(let i=0;i<2;i++)flow(g,p[i],p[i+1],t,C.amber,i*.22);
+    wire(g,p[2],p[3],C.steel);ring(g,p[2],85,C.amber,'xy');
+    label(g,[0,250,50],'INVESTIGATE KEYS / DO NOT ASSUME SUCCESS',C.amber,10);
+    heading(g,'RESEARCHER-REPORTED PATH / UNCERTAINTY RETAINED');g.flush();
+  };
+  scenes.latestAudit = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.26,pitch:.5});
+    node(g,[-250,0,0],'ADMIN',C.cyan,t,0,{hx:75,hy:85,hz:65});
+    for(let i=0;i<5;i++){
+      const y=165-i*65,tone=i===2?C.steel:C.cyan;
+      g.box(200,y,0,125,14,75,tone,{alpha:i===2?.10:.55,edge:i===2?.2:.7});
+      if(i!==2)flow(g,[-175,0,0],[75,y,0],t,C.cyan,i*.12);
+      else ring(g,[200,y,0],95,C.amber);
+    }
+    label(g,[200,-240,0],'AUDIT TRAIL',C.cyan,11);
+    label(g,[0,265,0],'GAP IN EVIDENCE ≠ PROOF OF SAFETY',C.amber,11);
+    heading(g,'OPERATIONS / RECORDS / INVESTIGATION LIMITS');g.flush();
+  };
+  scenes.latestDisclosure = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.28,pitch:.57});
+    for(let i=0;i<5;i++){
+      const x=-320+i*160,y=180-i*65,z=(i-2)*35;
+      g.box(x,y,z,62,18+i*12,70,i<2?C.cyan:C.steel,{alpha:i<2?.75:.18,edge:.65});
+      if(i<2)ring(g,[x,y-55-i*12,z],60+i*8,C.cyan);
+      label(g,[x,y-110-i*12,z],['NOTICE','REVIEW','RECOVERY?','RESTORED?','ARREST?'][i],i<2?C.cyan:C.steel,9);
+    }
+    g.octa(-160,20-Math.sin(t*1.3)*12,-35,14,C.amber,{alpha:.9});
+    heading(g,'PUBLISHED STATUS / OUTCOMES NOT ESTABLISHED');g.flush();
+  };
+  scenes.latestPasswords = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.52});
+    for(let i=0;i<2;i++){
+      const x=i?230:-230,tone=i?C.amber:C.cyan;
+      node(g,[x,10,0],i?'EMAIL KEYS':'MEMBER RECORDS',tone,t,i,{hx:100,hy:115,hz:85,font:11});
+      for(let j=0;j<4;j++)g.box(x-45+j*30,-150,0,7,18,9,tone,{alpha:.8});
+      ring(g,[x,15,0],160,tone);
+    }
+    g.octa(230,-195-Math.sin(t)*12,0,18,C.amber,{alpha:.9});
+    label(g,[0,270,30],'RESET LEAKED KEYS / CHANGE REUSED PASSWORDS',C.amber,10);
+    heading(g,'SEPARATE DATA CATEGORIES / DO NOT ADD AS PEOPLE');g.flush();
+  };
+  scenes.latestCare = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.22,pitch:.54});
+    const p=[[-310,90,40],[0,10,-30],[310,-70,-90]];
+    p.forEach((v,i)=>{
+      node(g,v,['OCT 26','RESPONSE','OCT 28'][i],i===0?C.amber:C.cyan,t,i,{hx:65,hy:55,hz:55});
+      if(i)flow(g,p[i-1],v,t,C.cyan,i*.2);
+    });
+    for(let i=0;i<7;i++)g.box(-280+i*90,155-i*20,10-i*18,44,5,45,C.steel,{alpha:.36,edge:.4});
+    ring(g,p[2],110,C.cyan);g.octa(310,-180-Math.sin(t)*10,-90,15,C.cyan,{alpha:.9});
+    label(g,[0,265,70],'REOPENING: ORGANIZATION STATEMENT',C.cyan,11);
+    heading(g,'CARE CONTINUITY / DATA CLAIMS NEED SEPARATE EVIDENCE');g.flush();
+  };
+
   function frame(ctx,w,h,t) {
     ctx.save();ctx.strokeStyle=A(C.steel,.28);ctx.lineWidth=.75;
     const m=8,L=14;

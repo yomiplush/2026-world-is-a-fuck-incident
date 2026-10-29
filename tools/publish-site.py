@@ -123,12 +123,18 @@ def extra_pages():
 def root_reading(text):
     text=re.sub(r'<!-- reading:start -->.*?<!-- reading:end -->\n?','',text,flags=re.S)
     label=datetime.fromisoformat(LATEST['cutoff_jst']).strftime('%m/%d %H:%M JST')
-    # Keep the visible entrance in sync with the same report as the database.
+    # Rebuild a native navigation group so entrance links never collide with icons.
     report=urlsplit(LATEST['site_report']).path
+    text=re.sub(r'<nav class="entry-links"[^>]*>.*?</nav>\n?','',text,flags=re.S)
+    text=re.sub(r'<a class="entry-(?:latest|impact|motion)"[^>]*>.*?</a>\n?','',text,flags=re.S)
     link='<a class="entry-latest" href="'+esc(report)+'" aria-label="最新記事 / Latest report '+esc(label)+'">'+esc(label.removesuffix(' JST'))+' 最新記事 ↗</a>'
-    text=re.sub(r'<a class="entry-latest"[^>]*>.*?</a>\n?','',text,flags=re.S)
-    impact='<a class="entry-impact" href="/impact" aria-label="現実世界への影響を読む">影響一覧 ↗</a>'
-    text=re.sub(r'<a class="entry-impact"[^>]*>.*?</a>',lambda _:link+'\n'+impact,text,flags=re.S)
+    config=ROOT/'content/motion-reviews.json'
+    motion=json.loads(config.read_text()).get(report.lstrip('/')+'.html') if config.exists() else None
+    if motion:
+        link+='<a class="entry-motion" href="/?lang=ja#'+str(motion['start'])+'">立体図解 / 3D ↗</a>'
+    link+='<a class="entry-impact" href="/impact" aria-label="現実世界への影響を読む">影響一覧 ↗</a>'
+    group='<nav class="entry-links" aria-label="最新の調査資料 / Latest research">'+link+'</nav>\n'
+    text=re.sub(r'(<a class="entry-library"[^>]*>.*?</a>)\n?',lambda m:m[1]+'\n'+group,text,flags=re.S)
     text=text.replace('<title>'+Info(text).title+'</title>','<title>インシデント・脆弱性と対策 | Infosec Briefing</title>')
     text=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+esc(CONFIG['description']+' 最新調査：'+label)+'">',text)
     return text

@@ -39,3 +39,13 @@ html[dir="rtl"] .research-tabs a{text-align:center}
   .entry-latest{top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 78px)}
   .entry-impact{top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 132px)}
 }
+
+/* Entrance links share one layout, independent of the fixed corner controls. */
+.entry-links{position:fixed;z-index:26;top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 78px);left:max(20px,env(safe-area-inset-left));right:max(20px,env(safe-area-inset-right));display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:360px}
+.entry-links :is(.entry-latest,.entry-impact,.entry-motion){position:static;display:flex;align-items:center;justify-content:center;min-width:0;max-width:none;min-height:44px;padding:10px 12px;border:1px solid #496272;border-radius:5px;background:#0c1a28;color:#e4ebf2;text-decoration:none;font:13px/1.6 system-ui,sans-serif;box-sizing:border-box;white-space:normal}
+.entry-links .entry-latest{grid-column:1/-1}
+.entry-links .entry-motion{border-color:#ab804b;color:#ffd18a}
+.entry-links a:focus-visible{outline:2px solid #58e0ff;outline-offset:2px}
+body:not(.entry-locked) .entry-links{display:none}
+@media(max-width:600px) and (orientation:portrait){.cover{padding-top:190px;padding-bottom:50px}.entry-control{width:min(70vw,48dvh,320px)}}
+@media(max-height:560px) and (orientation:landscape){.entry-links{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 66px)}.cover{padding-left:270px}.entry-control{width:min(50vw,65dvh,280px)}}
