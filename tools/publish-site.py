@@ -17,6 +17,7 @@ def sibling(name):
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     return module
 
+research_scope=sibling("research_scope")
 impact_pages=sibling("impact_pages")
 advisory_details=sibling("advisory_details")
 article_languages=sibling("article_languages")
@@ -95,12 +96,14 @@ def extra_pages():
     cutoff=datetime.fromisoformat(LATEST['cutoff_jst']).strftime('%Y-%m-%d %H:%M JST')
     kinds={'delta':'今回確認した登録・勧告の更新','scope-complement':'既存事案の対応・条件の補完','reference-only':'公開時刻などが未確定の参考情報'}
     body=impact_pages.tabs('database')+f'<header><p class="kicker">RESEARCH DATABASE</p><h1>インシデント・脆弱性の調査データ</h1><p class="intro">影響条件と対策を、一次資料へ戻って確認できる一覧です。</p><p class="date">最新の調査基準：{esc(cutoff)}。論点の数は新しい被害事件の件数ではありません。</p><p><a href="{esc(clean_url(LATEST["site_report"]))}">忙しい人向けの最新レポート →</a> · <a href="/about">収集・編集方針</a> · <a href="/feed.xml">更新RSS</a></p></header>'
-    for kind,label in kinds.items():
-        rows=[r for r in register['records'] if r['kind']==kind]
-        body+=f'<section><h2>{label} · {len(rows)}論点</h2>'
+    scope_path=ROOT/"data"/LATEST["incident_register"]
+    body+=research_scope.intro(register,scope_path,"ja")
+    for scope,rows in research_scope.groups(register,scope_path):
+        label=research_scope.labels("ja")[scope]
+        body+=f'<section id="scope-{scope}"><h2>{label} · {len(rows)}論点</h2>'
         for row in rows:
             sources=' / '.join(f'<a href="{esc(s["url"])}">{esc(s["name"])}</a>' for s in row['sources'])
-            body+=f'<article id="{esc(row["id"])}"><p class="event-type">{esc(row["time"])}</p><h3>{esc(row["title"])}</h3><p>{esc(row["body"])}</p><p class="action"><strong>確認すること：</strong>{esc(row["action"])}</p>{advisory_details.render(row,esc)}<p class="sources">{sources}</p></article>'
+            body+=f'<article id="{esc(row["id"])}"><p class="event-type">{esc(kinds[row["kind"]])} · {esc(row["time"])}</p><h3>{esc(row["title"])}</h3><p>{esc(row["body"])}</p><p class="action"><strong>確認すること：</strong>{esc(row["action"])}</p>{advisory_details.render(row,esc)}{research_scope.reason(register,scope_path,row,"ja")}<p class="sources">{sources}</p></article>'
         body+='</section>'
     body+='<section><h2>機械可読データと取得原本</h2><p>JSONの条件・留保もあわせて確認してください。網羅的な全世界の被害統計ではありません。</p><ul>'
     for key in ('incident_register','collection_summary','vendor_summary'):
@@ -116,6 +119,8 @@ def extra_pages():
     body=body.replace('</header>', '<p><a href="/data/latest.json" download>現在の調査データをJSONで取得</a> · <a href="/languages">保存したAI翻訳を読む</a></p></header>',1)
     (SITE/'data').mkdir(exist_ok=True)
     public={k:register[k] for k in ('cutoff','cutoff_jst','counts','caveats','records') if k in register}
+    public['research_scope']=research_scope.decisions(register,scope_path)
+    (SITE/'data/research-scope.json').write_text(json.dumps(research_scope.export(register,scope_path),ensure_ascii=False,indent=2)+'\n')
     public['source_register']=REPO+'blob/main/data/'+LATEST['incident_register']
     public['note']='Curated topic groups; not a worldwide incident count. See original evidence and caveats.'
     (SITE/'data/latest.json').write_text(json.dumps(public,ensure_ascii=False,indent=2)+'\n')

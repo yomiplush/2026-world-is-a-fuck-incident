@@ -10874,6 +10874,1500 @@
       "monitoring_status": "newly-covered"
     }
   ],
+  "research_scope": {
+    "gmo-domain-stop": {
+      "scope": "japan",
+      "reason": {
+        "ja": "「お名前.com デスクトップクラウド」の契約者向け補償・代替サービス案内を扱う日本中心の個別サービス事案。日本国外の利用者がいないとは断定しない。",
+        "en": "Japan-focused individual service case concerning compensation and alternatives for Onamae.com Desktop Cloud subscribers; this does not assert there are no users outside Japan."
+      },
+      "sources": [
+        "https://group.gmo/info/alert/20261030/",
+        "https://group.gmo/info/alert/2026102902/"
+      ]
+    },
+    "atlink-beta": {
+      "scope": "japan",
+      "reason": {
+        "ja": "日本の医療機関の予約・患者向けサービスと院内運用の復旧案内を扱う事案。利用者全員の所在地を確定した分類ではない。",
+        "en": "Case concerning restoration of appointment, patient and in-clinic workflows for Japanese medical institutions; this classification does not establish every user’s location."
+      },
+      "sources": [
+        "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/",
+        "https://www.medley.jp/notice/20261015.html"
+      ]
+    },
+    "railway-signups": {
+      "scope": "global",
+      "reason": {
+        "ja": "Railwayのプラットフォーム利用者向けのsecret更新と登録停止の案内で、特定の法域に限定された対処ではない。世界各国で被害が確認されたという意味ではない。",
+        "en": "Railway platform guidance on secret rotation and paused signups is not remediation restricted to one jurisdiction; this does not mean victim impact is confirmed in countries worldwide."
+      },
+      "sources": [
+        "https://status.railway.com/",
+        "https://blog.railway.com/p/preliminary-report-october-security-incident"
+      ]
+    },
+    "studio-reporting": {
+      "scope": "japan",
+      "reason": {
+        "ja": "このレコードの主題は日本の個人情報保護委員会への連名報告と本人通知。プラットフォーム自体の情報露出・鍵失効の注意は国境を越えて関連し得るため、日本だけの被害とはしない。",
+        "en": "This record focuses on joint reporting to Japan’s Personal Information Protection Commission and individual notification. The platform exposure and key-revocation guidance may matter across borders; impact is not asserted to be Japan-only."
+      },
+      "sources": [
+        "https://studio.design/ja/security/notice/2026-10-incident"
+      ]
+    },
+    "kev-brotli-commerce": {
+      "scope": "global",
+      "reason": {
+        "ja": "KEVの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+        "https://github.com/google/brotli/releases/tag/v1.2.1",
+        "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases",
+        "https://www.adobe.com/trust/security/products/commerce/apsb26-73.html"
+      ]
+    },
+    "dotnet-deploy": {
+      "scope": "global",
+      "reason": {
+        "ja": "Brotliの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Brotli; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://devblogs.microsoft.com/dotnet/dotnet-october-2026-oob-security-updates/",
+        "https://azure.github.io/AppService/2026/10/26/dotnet-brotli-security-update-azure-functions.html"
+      ]
+    },
+    "netscaler-php": {
+      "scope": "global",
+      "reason": {
+        "ja": "Citrix NetScalerの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Citrix NetScaler; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://support.citrix.com/external/article/CTX697263/citrix-security-advisory-for-cve20261096.html"
+      ]
+    },
+    "pan-branch-status": {
+      "scope": "global",
+      "reason": {
+        "ja": "PAN-OSの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning PAN-OS; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://security.paloaltonetworks.com/CVE-2026-109618"
+      ]
+    },
+    "watchguard-fireware": {
+      "scope": "global",
+      "reason": {
+        "ja": "WatchGuardの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning WatchGuard; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://psirt.watchguard.com/",
+        "https://psirt.watchguard.com/CVE-2026-112709/",
+        "https://psirt.watchguard.com/CVE-2026-115495/"
+      ]
+    },
+    "browser-mail": {
+      "scope": "global",
+      "reason": {
+        "ja": "ブラウザ・メールの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning ブラウザ・メール; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://www.mozilla.org/en-US/security/advisories/",
+        "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/",
+        "https://chromereleases.googleblog.com/"
+      ]
+    },
+    "creative-cloud": {
+      "scope": "global",
+      "reason": {
+        "ja": "Creative Cloud Windowsの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Creative Cloud Windows; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://www.adobe.com/trust/security/products/creative-cloud/apsb26-135.html"
+      ]
+    },
+    "oss-mlflow-mlflow": {
+      "scope": "global",
+      "reason": {
+        "ja": "MLflowのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for MLflow; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/mlflow/mlflow/security/advisories/GHSA-m65p-9j7q-6w33",
+        "https://github.com/mlflow/mlflow/security/advisories/GHSA-j7qq-vr8c-xvw3",
+        "https://github.com/mlflow/mlflow/security/advisories/GHSA-26p8-2jq9-3vq9"
+      ]
+    },
+    "oss-datadog-dd-trace-js": {
+      "scope": "global",
+      "reason": {
+        "ja": "dd-trace-jsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for dd-trace-js; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/DataDog/dd-trace-js/security/advisories/GHSA-x94g-w73q-hpcw"
+      ]
+    },
+    "oss-tinymce-tinymce": {
+      "scope": "global",
+      "reason": {
+        "ja": "tinymceのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for tinymce; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/tinymce/tinymce/security/advisories/GHSA-mf2p-h6hf-fcwm"
+      ]
+    },
+    "oss-modelcontextprotocol-python-sdk": {
+      "scope": "global",
+      "reason": {
+        "ja": "MCP Python SDKのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for MCP Python SDK; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-w4fh-qvv9-3v23",
+        "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-5h93-6whr-6q8j",
+        "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-rwrf-2pqf-9j8j"
+      ]
+    },
+    "oss-open-telemetry-opentelemetry-python": {
+      "scope": "global",
+      "reason": {
+        "ja": "opentelemetry-pythonのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for opentelemetry-python; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/open-telemetry/opentelemetry-python/security/advisories/GHSA-f5m9-jfrj-jjj7"
+      ]
+    },
+    "oss-ckeditor-ckeditor5": {
+      "scope": "global",
+      "reason": {
+        "ja": "ckeditor5のパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for ckeditor5; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/ckeditor/ckeditor5/security/advisories/GHSA-v6mg-96c6-gmpq",
+        "https://github.com/ckeditor/ckeditor5/security/advisories/GHSA-rh54-vffm-5fvp"
+      ]
+    },
+    "oss-m1k1o-neko": {
+      "scope": "global",
+      "reason": {
+        "ja": "nekoのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for neko; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/m1k1o/neko/security/advisories/GHSA-5cp7-fp4j-wwcv"
+      ]
+    },
+    "oss-runatlantis-atlantis": {
+      "scope": "global",
+      "reason": {
+        "ja": "Atlantisのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for Atlantis; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/runatlantis/atlantis/security/advisories/GHSA-rjh2-4xgw-p2hj"
+      ]
+    },
+    "oss-gtsteffaniak-filebrowser": {
+      "scope": "global",
+      "reason": {
+        "ja": "filebrowserのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for filebrowser; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/gtsteffaniak/filebrowser/security/advisories/GHSA-mgqf-5mf5-prfj"
+      ]
+    },
+    "oss-nodejs-undici": {
+      "scope": "global",
+      "reason": {
+        "ja": "undiciのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for undici; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/nodejs/undici/security/advisories/GHSA-4w7w-5xrc-9h26",
+        "https://github.com/nodejs/undici/security/advisories/GHSA-2m5v-pch6-74hx",
+        "https://github.com/nodejs/undici/security/advisories/GHSA-qrxm-fqhp-jwvm",
+        "https://github.com/nodejs/undici/security/advisories/GHSA-9fm3-97px-rjf6",
+        "https://github.com/nodejs/undici/security/advisories/GHSA-55wc-3pg8-jfw6",
+        "https://github.com/nodejs/undici/security/advisories/GHSA-qq8j-7v2v-3rwp"
+      ]
+    },
+    "oss-modelcontextprotocol-typescript-sdk": {
+      "scope": "global",
+      "reason": {
+        "ja": "MCP TypeScript SDKのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for MCP TypeScript SDK; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-f897-62hf-6gxq"
+      ]
+    },
+    "oss-symfony-symfony": {
+      "scope": "global",
+      "reason": {
+        "ja": "symfonyのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for symfony; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/symfony/symfony/security/advisories/GHSA-2v3c-qxhr-7vpv",
+        "https://github.com/symfony/symfony/security/advisories/GHSA-r925-mgvr-h9cc"
+      ]
+    },
+    "oss-go-jose-go-jose": {
+      "scope": "global",
+      "reason": {
+        "ja": "go-joseのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for go-jose; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/go-jose/go-jose/security/advisories/GHSA-mgcc-cww5-fp2q"
+      ]
+    },
+    "oss-ctfer-io-terraform-provider-ctfd": {
+      "scope": "global",
+      "reason": {
+        "ja": "terraform-provider-ctfdのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for terraform-provider-ctfd; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/ctfer-io/terraform-provider-ctfd/security/advisories/GHSA-vg84-c5mg-76xh"
+      ]
+    },
+    "oss-hydra-ecosystem-hydra": {
+      "scope": "global",
+      "reason": {
+        "ja": "hydraのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for hydra; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/hydra-ecosystem/hydra/security/advisories/GHSA-757g-8w3h-hp29"
+      ]
+    },
+    "oss-ljharb-qs": {
+      "scope": "global",
+      "reason": {
+        "ja": "qsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for qs; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/ljharb/qs/security/advisories/GHSA-6pq8-jhm2-2vcw"
+      ]
+    },
+    "oss-authlib-authlib": {
+      "scope": "global",
+      "reason": {
+        "ja": "Authlibのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for Authlib; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/authlib/authlib/security/advisories/GHSA-8m4g-j4wp-wgcg",
+        "https://github.com/authlib/authlib/security/advisories/GHSA-x4rv-c3wx-4cr8",
+        "https://github.com/authlib/authlib/security/advisories/GHSA-c5mf-xmp2-59rc",
+        "https://github.com/authlib/authlib/security/advisories/GHSA-fch4-3c6x-j4gc",
+        "https://github.com/authlib/authlib/security/advisories/GHSA-q686-2qmg-hqc7",
+        "https://github.com/authlib/authlib/security/advisories/GHSA-7vr2-2fgp-9w7p",
+        "https://github.com/authlib/authlib/security/advisories/GHSA-jj7h-c3hg-m23x",
+        "https://github.com/authlib/authlib/security/advisories/GHSA-6v38-4h7w-rj9h"
+      ]
+    },
+    "oss-rustls-rustls": {
+      "scope": "global",
+      "reason": {
+        "ja": "rustlsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for rustls; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/rustls/rustls/security/advisories/GHSA-vp88-798v-h67f",
+        "https://github.com/rustls/rustls/security/advisories/GHSA-w44r-93j7-qv28",
+        "https://github.com/rustls/rustls/security/advisories/GHSA-c8m5-c952-6cm4",
+        "https://github.com/rustls/rustls/security/advisories/GHSA-h2v8-394m-p7vv"
+      ]
+    },
+    "oss-phpoffice-phpspreadsheet": {
+      "scope": "global",
+      "reason": {
+        "ja": "PhpSpreadsheetのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for PhpSpreadsheet; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-2phh-27fw-q4gc",
+        "https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-j2w7-387v-m2rq",
+        "https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-3x94-m842-937c",
+        "https://github.com/PHPOffice/PhpSpreadsheet/security/advisories/GHSA-rxj4-h86g-25gc"
+      ]
+    },
+    "oss-klauspost-compress": {
+      "scope": "global",
+      "reason": {
+        "ja": "compressのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for compress; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/klauspost/compress/security/advisories/GHSA-fpmh-frq8-7rj8"
+      ]
+    },
+    "oss-rthalley-dnspython": {
+      "scope": "global",
+      "reason": {
+        "ja": "dnspythonのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for dnspython; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/rthalley/dnspython/security/advisories/GHSA-45c3-73f7-pv4m"
+      ]
+    },
+    "oss-datadog-dd-trace-py": {
+      "scope": "global",
+      "reason": {
+        "ja": "dd-trace-pyのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for dd-trace-py; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/DataDog/dd-trace-py/security/advisories/GHSA-3633-r77q-h3v3",
+        "https://github.com/DataDog/dd-trace-py/security/advisories/GHSA-p3m5-h5v9-vqj6"
+      ]
+    },
+    "oss-mongodb-mongo-python-driver": {
+      "scope": "global",
+      "reason": {
+        "ja": "mongo-python-driverのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for mongo-python-driver; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/mongodb/mongo-python-driver/security/advisories/GHSA-98qm-wvgf-w4cf"
+      ]
+    },
+    "oss-vllm-project-vllm": {
+      "scope": "global",
+      "reason": {
+        "ja": "vLLMのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for vLLM; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-h3rc-6mm3-gc2m",
+        "https://github.com/vllm-project/vllm/security/advisories/GHSA-frvg-qw88-hww9"
+      ]
+    },
+    "oss-strands-agents-harness-sdk": {
+      "scope": "global",
+      "reason": {
+        "ja": "harness-sdkのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for harness-sdk; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/strands-agents/harness-sdk/security/advisories/GHSA-3w55-933p-8pv5",
+        "https://github.com/strands-agents/harness-sdk/security/advisories/GHSA-763v-5pjm-fx36"
+      ]
+    },
+    "oss-xerial-snappy-java": {
+      "scope": "global",
+      "reason": {
+        "ja": "snappy-javaのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for snappy-java; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/xerial/snappy-java/security/advisories/GHSA-gwq9-9ffj-mvrv",
+        "https://github.com/xerial/snappy-java/security/advisories/GHSA-xqrx-qh46-34m7",
+        "https://github.com/xerial/snappy-java/security/advisories/GHSA-q233-g92q-qxp6"
+      ]
+    },
+    "oss-stevereiner-flexible-graphrag": {
+      "scope": "global",
+      "reason": {
+        "ja": "flexible-graphragのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for flexible-graphrag; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/stevereiner/flexible-graphrag/security/advisories/GHSA-vqrg-773h-4wxc"
+      ]
+    },
+    "oss-berriai-litellm": {
+      "scope": "global",
+      "reason": {
+        "ja": "LiteLLMのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for LiteLLM; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/BerriAI/litellm/security/advisories/GHSA-g5ff-637f-6q2m",
+        "https://github.com/BerriAI/litellm/security/advisories/GHSA-hhww-mrg2-969h",
+        "https://github.com/BerriAI/litellm/security/advisories/GHSA-7hp6-4w63-5g45"
+      ]
+    },
+    "oss-better-auth-better-auth": {
+      "scope": "global",
+      "reason": {
+        "ja": "Better Authのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for Better Auth; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-44jh-23m7-hpcf",
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-r4xp-prcw-77qf",
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-965c-763c-88jm",
+        "https://github.com/better-auth/better-auth/security/advisories/GHSA-q84f-53jg-9ppm"
+      ]
+    },
+    "oss-gitpython-developers-gitpython": {
+      "scope": "global",
+      "reason": {
+        "ja": "GitPythonのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for GitPython; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-23mf-xhv8-69c2",
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-gq48-pqfc-9p58",
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-f9j4-qggq-h239",
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-w8jc-g24h-crhw",
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-fx3j-rwgx-fr94",
+        "https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-m64x-33q8-m5h7"
+      ]
+    },
+    "oss-nodemailer-nodemailer": {
+      "scope": "global",
+      "reason": {
+        "ja": "nodemailerのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for nodemailer; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/nodemailer/nodemailer/security/advisories/GHSA-4ffr-jq9g-5ffx",
+        "https://github.com/nodemailer/nodemailer/security/advisories/GHSA-g73g-hqqh-jr95",
+        "https://github.com/nodemailer/nodemailer/security/advisories/GHSA-4g23-2xm8-66gc"
+      ]
+    },
+    "oss-msgpack-msgpack-python": {
+      "scope": "global",
+      "reason": {
+        "ja": "msgpack-pythonのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for msgpack-python; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/msgpack/msgpack-python/security/advisories/GHSA-j586-36cw-2gc2"
+      ]
+    },
+    "oss-nltk-nltk": {
+      "scope": "global",
+      "reason": {
+        "ja": "nltkのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for nltk; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/nltk/nltk/security/advisories/GHSA-j456-xh4h-cpf2"
+      ]
+    },
+    "oss-pylint-dev-pylint": {
+      "scope": "global",
+      "reason": {
+        "ja": "pylintのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for pylint; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/pylint-dev/pylint/security/advisories/GHSA-22qq-2fwx-7p67"
+      ]
+    },
+    "oss-vercel-next-js": {
+      "scope": "global",
+      "reason": {
+        "ja": "Satoriのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for Satori; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/vercel/next.js/security/advisories/GHSA-vcvr-r3jv-pc5j"
+      ]
+    },
+    "oss-danielgatis-rembg": {
+      "scope": "global",
+      "reason": {
+        "ja": "rembgのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for rembg; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/danielgatis/rembg/security/advisories/GHSA-qr6x-7v33-6qmg"
+      ]
+    },
+    "oss-twisted-twisted": {
+      "scope": "global",
+      "reason": {
+        "ja": "twistedのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for twisted; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/twisted/twisted/security/advisories/GHSA-jj36-9pvh-vj5r"
+      ]
+    },
+    "oss-tryghost-ghost": {
+      "scope": "global",
+      "reason": {
+        "ja": "Ghostのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for Ghost; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/TryGhost/Ghost/security/advisories/GHSA-qrh6-cwg3-343x"
+      ]
+    },
+    "oss-siyuan-note-siyuan": {
+      "scope": "global",
+      "reason": {
+        "ja": "siyuanのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for siyuan; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-c8r8-95hg-mp34"
+      ]
+    },
+    "oss-py-pdf-fpdf2": {
+      "scope": "global",
+      "reason": {
+        "ja": "fpdf2のパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for fpdf2; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/py-pdf/fpdf2/security/advisories/GHSA-wqw6-wpr3-45rh",
+        "https://github.com/py-pdf/fpdf2/security/advisories/GHSA-rw7v-4hrq-x6r9"
+      ]
+    },
+    "oss-google-guava": {
+      "scope": "global",
+      "reason": {
+        "ja": "guavaのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for guava; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/google/guava/security/advisories/GHSA-xxph-c9ww-hj94"
+      ]
+    },
+    "oss-agno-agi-agno": {
+      "scope": "global",
+      "reason": {
+        "ja": "agnoのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for agno; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/agno-agi/agno/security/advisories/GHSA-m4w4-3r8h-jw98"
+      ]
+    },
+    "oss-oauthlib-oauthlib": {
+      "scope": "global",
+      "reason": {
+        "ja": "oauthlibのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for oauthlib; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/oauthlib/oauthlib/security/advisories/GHSA-3jp2-3mrg-2vxc"
+      ]
+    },
+    "oss-project-monai-monai": {
+      "scope": "global",
+      "reason": {
+        "ja": "MONAIのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for MONAI; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/Project-MONAI/MONAI/security/advisories/GHSA-6hp3-vr39-rqw8"
+      ]
+    },
+    "oss-dcmjs-org-dcmjs": {
+      "scope": "global",
+      "reason": {
+        "ja": "dcmjsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for dcmjs; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/dcmjs-org/dcmjs/security/advisories/GHSA-px68-xx5g-48q5"
+      ]
+    },
+    "oss-wailsapp-wails": {
+      "scope": "global",
+      "reason": {
+        "ja": "wailsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for wails; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/wailsapp/wails/security/advisories/GHSA-47hv-j4px-h3c9"
+      ]
+    },
+    "oss-dolibarr-dolibarr": {
+      "scope": "global",
+      "reason": {
+        "ja": "dolibarrのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for dolibarr; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/Dolibarr/dolibarr/security/advisories/GHSA-v5fq-cf5m-vwv7"
+      ]
+    },
+    "oss-ajenti-ajenti": {
+      "scope": "global",
+      "reason": {
+        "ja": "ajentiのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for ajenti; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/ajenti/ajenti/security/advisories/GHSA-vcw3-r3fx-j444"
+      ]
+    },
+    "connectwise-validation": {
+      "scope": "global",
+      "reason": {
+        "ja": "ConnectWiseのサービス利用者向け復旧・検証状況で、特定の法域の事案として範囲が限定されていない。全面復旧や世界各地の被害を証明する分類ではない。",
+        "en": "Restoration and validation status for ConnectWise service users is not scoped to a particular jurisdiction. This classification proves neither full restoration nor worldwide victim impact."
+      },
+      "sources": [
+        "https://www.connectwise.com/company/trust/advisories"
+      ]
+    },
+    "tailscale-four-fixes": {
+      "scope": "global",
+      "reason": {
+        "ja": "Tailscaleの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Tailscale; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://tailscale.com/security-bulletins",
+        "https://github.com/tailscale/tailscale/releases/tag/v1.104.4",
+        "https://tailworm.com/"
+      ]
+    },
+    "fireblocks-no-fix": {
+      "scope": "global",
+      "reason": {
+        "ja": "Fireblocks mpc-libの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Fireblocks mpc-lib; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://kb.cert.org/vuls/id/701544"
+      ]
+    },
+    "fortinet-fips": {
+      "scope": "global",
+      "reason": {
+        "ja": "Fortinet FIPSの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Fortinet FIPS; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://community.fortinet.com/fortigate-3/frontier-ai-assisted-firmware-updates-for-fips-enabled-fortigates-october-2026-230877",
+        "https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products"
+      ]
+    },
+    "litellm-supplychain-response": {
+      "scope": "global",
+      "reason": {
+        "ja": "LiteLLMの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning LiteLLM; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
+        "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
+      ]
+    },
+    "malware-packages": {
+      "scope": "global",
+      "reason": {
+        "ja": "列挙された悪性パッケージを取得・実行した環境に関わる配布リスクで、法域による制限は示されていない。勧告数は世界の感染数ではない。",
+        "en": "Distribution risk concerns environments that obtained or executed the listed malicious packages, with no jurisdictional restriction established. Advisory counts are not worldwide infection counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-rm9p-x4m7-hxmp",
+        "https://github.com/advisories/GHSA-vc33-3x34-x6jm",
+        "https://github.com/advisories/GHSA-ph3g-jrf5-8792",
+        "https://github.com/advisories/GHSA-h5wr-j55v-8m79",
+        "https://github.com/advisories/GHSA-v9xw-mxj4-fm5q",
+        "https://github.com/advisories/GHSA-2732-c6cp-rx5v",
+        "https://github.com/advisories/GHSA-r889-j2qv-2jv6",
+        "https://github.com/advisories/GHSA-v383-2358-576w",
+        "https://github.com/advisories/GHSA-wh86-6qm8-xgw2",
+        "https://github.com/advisories/GHSA-7p7m-8jmq-qp93",
+        "https://github.com/advisories/GHSA-84fw-gj66-p5v3",
+        "https://github.com/advisories/GHSA-g9fj-q87h-6h4c",
+        "https://github.com/advisories/GHSA-r9qx-xcg2-7wcc",
+        "https://github.com/advisories/GHSA-r77r-rw3m-rjh5",
+        "https://github.com/advisories/GHSA-6crh-vwr2-4qfp",
+        "https://github.com/advisories/GHSA-wmfr-2pvv-wmf3",
+        "https://github.com/advisories/GHSA-wfcx-722r-fg5h",
+        "https://github.com/advisories/GHSA-hc8w-gq4q-fr74",
+        "https://github.com/advisories/GHSA-hpc9-fxqh-hhf8",
+        "https://github.com/advisories/GHSA-w9mp-cvjp-jfqp",
+        "https://github.com/advisories/GHSA-rh7q-f888-q36c",
+        "https://github.com/advisories/GHSA-32g3-f74c-pcxq",
+        "https://github.com/advisories/GHSA-9mgv-25w8-jwhf",
+        "https://github.com/advisories/GHSA-fxw2-4j5q-6hwg",
+        "https://github.com/advisories/GHSA-hh3m-f424-g8v5",
+        "https://github.com/advisories/GHSA-9gcx-88qx-rxch",
+        "https://github.com/advisories/GHSA-m8mp-r4jx-43fw"
+      ]
+    },
+    "kev-linux-esx": {
+      "scope": "global",
+      "reason": {
+        "ja": "KEVの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "php-kernel-identity": {
+      "scope": "global",
+      "reason": {
+        "ja": "研究者は米国・日本・台湾・韓国の対象を報告しており、PHPとカーネルの攻撃連鎖は条件を満たす環境に関連する。観測された25サーバーを世界全体の件数とはしない。",
+        "en": "The researcher reports targets in the United States, Japan, Taiwan and South Korea, and the PHP/kernel exploit chain matters to environments meeting its conditions. The 25 observed servers are not a worldwide total."
+      },
+      "sources": [
+        "https://dreamgroup.com/blog/chained-php2shell-exploit-roots-25-servers",
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "sonet-disclosure": {
+      "scope": "japan",
+      "reason": {
+        "ja": "So-net・plala（Sコース）の接続・メール契約者情報と日本の当局報告を扱う日本中心のサービス事案。全世界のSonyサービスの侵害ではなく、所在地の排他性も示さない。",
+        "en": "Japan-focused service case about So-net/plala (S Course) connectivity and mail subscriber data and reporting to Japan’s regulator; it neither describes compromise of all Sony services worldwide nor establishes geographic exclusivity."
+      },
+      "sources": [
+        "https://www.sonynetwork.co.jp/corporation/release/2026/v5e5u00000000zwj-att/20261027.pdf"
+      ]
+    },
+    "unm-recovery": {
+      "scope": "regional",
+      "reason": {
+        "ja": "ニューメキシコ大学医療システムの救急搬送・外来・授業への具体的影響と復旧を扱う米国の地域事案。一般的な医療セキュリティ上の教訓と被害範囲を区別する。",
+        "en": "Localized United States case concerning ambulance, clinic and class disruption and recovery at the University of New Mexico health system; general healthcare security lessons are distinct from the impact scope."
+      },
+      "sources": [
+        "https://hscnews.unm.edu/news/ambulance-traffic-diverted-clinical-appointments-cancelled-and-classes-cancelled-due-to-cybersecurity-issue-at-unm-hsc"
+      ]
+    },
+    "silent-train": {
+      "scope": "regional",
+      "reason": {
+        "ja": "Lumenの観測対象は米国の戦略的重要組織への活動で、Hawaii・California・Texasへの集中を記載。中継網が複数国にあることを全世界の被害に読み替えない。",
+        "en": "Lumen’s observed activity targets strategically important United States organizations, with concentration in Hawaii, California and Texas. Relay infrastructure across countries does not establish worldwide victim impact."
+      },
+      "sources": [
+        "https://www.lumen.com/blog/en-us/silent-train-volt-typhoon-operational-framework"
+      ]
+    },
+    "yamaha-nwr100": {
+      "scope": "global",
+      "reason": {
+        "ja": "ヤマハNWR100の技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning ヤマハNWR100; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://jvn.jp/vu/JVNVU91027179/"
+      ]
+    },
+    "yamaha-windows": {
+      "scope": "global",
+      "reason": {
+        "ja": "ヤマハWindows製品の技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning ヤマハWindows製品; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://jvn.jp/jp/JVN23695234/",
+        "https://jvn.jp/jp/JVN30675482/"
+      ]
+    },
+    "struts-anysetter": {
+      "scope": "global",
+      "reason": {
+        "ja": "Struts RESTの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Struts REST; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://jvn.jp/jp/JVN82782759/"
+      ]
+    },
+    "edk2-pxe": {
+      "scope": "global",
+      "reason": {
+        "ja": "EDK IIの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning EDK II; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/tianocore/edk2/security/advisories/GHSA-99cj-7hg9-mp4m"
+      ]
+    },
+    "ghsa-tornado": {
+      "scope": "global",
+      "reason": {
+        "ja": "tornadoのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for tornado; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-crass": {
+      "scope": "global",
+      "reason": {
+        "ja": "crassのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for crass; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-systeminformation": {
+      "scope": "global",
+      "reason": {
+        "ja": "systeminformationのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for systeminformation; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-backstage-plugin-catalog-backend": {
+      "scope": "global",
+      "reason": {
+        "ja": "@backstage/plugin-catalog-backendのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for @backstage/plugin-catalog-backend; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-electrum": {
+      "scope": "global",
+      "reason": {
+        "ja": "electrumのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for electrum; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-knative-dev-pkg": {
+      "scope": "global",
+      "reason": {
+        "ja": "knative.dev/pkgのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for knative.dev/pkg; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-waline-vercel": {
+      "scope": "global",
+      "reason": {
+        "ja": "@waline/vercelのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for @waline/vercel; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-seroval": {
+      "scope": "global",
+      "reason": {
+        "ja": "serovalのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for seroval; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-mem0ai": {
+      "scope": "global",
+      "reason": {
+        "ja": "mem0aiのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for mem0ai; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-social-auth-core": {
+      "scope": "global",
+      "reason": {
+        "ja": "social-auth-coreのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for social-auth-core; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-onnx": {
+      "scope": "global",
+      "reason": {
+        "ja": "onnxのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for onnx; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-vllm": {
+      "scope": "global",
+      "reason": {
+        "ja": "vllmのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for vllm; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-wasmtime": {
+      "scope": "global",
+      "reason": {
+        "ja": "wasmtimeのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for wasmtime; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-github-com-go-jose-go-jose-v4": {
+      "scope": "global",
+      "reason": {
+        "ja": "github.com/go-jose/go-jose/v4のパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for github.com/go-jose/go-jose/v4; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-langgraph-cli": {
+      "scope": "global",
+      "reason": {
+        "ja": "langgraph-cliのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for langgraph-cli; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-graphql-scalars": {
+      "scope": "global",
+      "reason": {
+        "ja": "graphql-scalarsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for graphql-scalars; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-autobahn": {
+      "scope": "global",
+      "reason": {
+        "ja": "autobahnのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for autobahn; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-i18next-http-backend": {
+      "scope": "global",
+      "reason": {
+        "ja": "i18next-http-backendのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for i18next-http-backend; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-re2js": {
+      "scope": "global",
+      "reason": {
+        "ja": "re2jsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for re2js; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-zip": {
+      "scope": "global",
+      "reason": {
+        "ja": "zipのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for zip; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-langgraph-api": {
+      "scope": "global",
+      "reason": {
+        "ja": "langgraph-apiのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for langgraph-api; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-filelock": {
+      "scope": "global",
+      "reason": {
+        "ja": "filelockのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for filelock; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-io-opentelemetry-opentelemetry-api": {
+      "scope": "global",
+      "reason": {
+        "ja": "io.opentelemetry:opentelemetry-apiのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for io.opentelemetry:opentelemetry-api; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-happy-dom": {
+      "scope": "global",
+      "reason": {
+        "ja": "happy-domのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for happy-dom; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-vue-i18n": {
+      "scope": "global",
+      "reason": {
+        "ja": "vue-i18nのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for vue-i18n; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-langgraph-sdk": {
+      "scope": "global",
+      "reason": {
+        "ja": "langgraph-sdkのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for langgraph-sdk; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-graphql-tools-executor-legacy-ws": {
+      "scope": "global",
+      "reason": {
+        "ja": "@graphql-tools/executor-legacy-wsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for @graphql-tools/executor-legacy-ws; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-hono-node-server": {
+      "scope": "global",
+      "reason": {
+        "ja": "@hono/node-serverのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for @hono/node-server; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-github-com-labstack-echo-v5": {
+      "scope": "global",
+      "reason": {
+        "ja": "github.com/labstack/echo/v5のパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for github.com/labstack/echo/v5; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-highcharts-dashboards": {
+      "scope": "global",
+      "reason": {
+        "ja": "@highcharts/dashboardsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for @highcharts/dashboards; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-highcharts-grid-lite": {
+      "scope": "global",
+      "reason": {
+        "ja": "@highcharts/grid-liteのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for @highcharts/grid-lite; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-highcharts": {
+      "scope": "global",
+      "reason": {
+        "ja": "highchartsのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for highcharts; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-highcharts-grid-pro": {
+      "scope": "global",
+      "reason": {
+        "ja": "@highcharts/grid-proのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for @highcharts/grid-pro; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-mcp-sanitizer": {
+      "scope": "global",
+      "reason": {
+        "ja": "mcp-sanitizerのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for mcp-sanitizer; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-rucio": {
+      "scope": "global",
+      "reason": {
+        "ja": "rucioのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for rucio; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-mysqlconnector": {
+      "scope": "global",
+      "reason": {
+        "ja": "MySqlConnectorのパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for MySqlConnector; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "ghsa-github-com-caddyserver-caddy-v2": {
+      "scope": "global",
+      "reason": {
+        "ja": "github.com/caddyserver/caddy/v2のパッケージ勧告で、適用可否は対象版・機能・設定に依存し、法域や開発元の国籍では決まらない。世界各地の実被害を示す分類ではない。",
+        "en": "Package advisory for github.com/caddyserver/caddy/v2; applicability depends on affected versions, features and configuration, rather than jurisdiction or maintainer nationality. This is not a claim of observed victim impact worldwide."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "malware-window": {
+      "scope": "global",
+      "reason": {
+        "ja": "列挙された悪性パッケージを取得・実行した環境に関わる配布リスクで、法域による制限は示されていない。勧告数は世界の感染数ではない。",
+        "en": "Distribution risk concerns environments that obtained or executed the listed malicious packages, with no jurisdictional restriction established. Advisory counts are not worldwide infection counts."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-10-28T04%3A18%3A44Z..2026-10-29T05%3A01%3A25Z"
+      ]
+    },
+    "dell-backup": {
+      "scope": "global",
+      "reason": {
+        "ja": "Dellバックアップ基盤の技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Dellバックアップ基盤; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://www.dell.com/support/kbdoc/en-us/000515178/dsa-2026-416-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities"
+      ]
+    },
+    "fuxa-nodered": {
+      "scope": "global",
+      "reason": {
+        "ja": "FUXAの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning FUXA; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://talosintelligence.com/vulnerability_reports/TALOS-2026-2419"
+      ]
+    },
+    "juniper-nvd": {
+      "scope": "global",
+      "reason": {
+        "ja": "Juniper管理基盤の技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Juniper管理基盤; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-28T04%3A18%3A44.000&pubEndDate=2026-10-29T05%3A01%3A25.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "sophos-utm-nvd": {
+      "scope": "global",
+      "reason": {
+        "ja": "Sophos UTMの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Sophos UTM; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-28T04%3A18%3A44.000&pubEndDate=2026-10-29T05%3A01%3A25.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "uri-decode-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "decode-uri-componentの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning decode-uri-component; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-qr28-fpjm-wq7f"
+      ]
+    },
+    "twisted-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Twistedの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Twisted; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-vpp8-g58w-m8mp"
+      ]
+    },
+    "zip-rs-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Rust zipの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Rust zip; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-9hj8-73fh-9963",
+        "https://github.com/advisories/GHSA-hjqx-j4rw-g7xv",
+        "https://github.com/advisories/GHSA-8hxf-qr8p-62x4",
+        "https://github.com/advisories/GHSA-q7v9-x93c-xqv3"
+      ]
+    },
+    "vite-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Viteの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Vite; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8g5g-mxqh-grgj"
+      ]
+    },
+    "shopify-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "shopify_appの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning shopify_app; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-6j52-38f8-qhxr"
+      ]
+    },
+    "cert-manager-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "cert-managerの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning cert-manager; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8rvj-mm4h-c258"
+      ]
+    },
+    "keycloak-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Keycloakの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Keycloak; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-v3f7-2p4r-mwfw",
+        "https://github.com/advisories/GHSA-9jrw-8xf7-xqhq",
+        "https://github.com/advisories/GHSA-w3p3-7cjg-vgfw",
+        "https://github.com/advisories/GHSA-f5p5-6xmx-p252",
+        "https://github.com/advisories/GHSA-r7rc-c989-86g6"
+      ]
+    },
+    "volto-chatbot-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Volto chatbotの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Volto chatbot; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-w9x9-j56r-h98r"
+      ]
+    },
+    "crass-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Crassの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Crass; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8vfg-2r28-hvhj",
+        "https://github.com/advisories/GHSA-wwpr-jff3-395c",
+        "https://github.com/advisories/GHSA-6jxj-px6v-747w"
+      ]
+    },
+    "cedar-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Cedarの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Cedar; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-c33x-vcv4-vg3g"
+      ]
+    },
+    "pdf-mcp-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "PDF Reader MCPの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning PDF Reader MCP; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-q344-5v34-gm84"
+      ]
+    },
+    "praisonai-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "PraisonAIの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning PraisonAI; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-26mh-57q7-jfvr"
+      ]
+    },
+    "parse-server-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Parse Serverの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Parse Server; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-r899-h629-j84r"
+      ]
+    },
+    "daptin-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Daptinの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Daptin; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-rhj7-vh3v-mcq6"
+      ]
+    },
+    "pocketmine-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "PocketMine-MPの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning PocketMine-MP; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-pg53-p7qp-65cv"
+      ]
+    },
+    "silverstripe-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "SilverStripe MFAの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning SilverStripe MFA; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-68wq-phq7-p2vg"
+      ]
+    },
+    "malware-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "列挙された悪性パッケージを取得・実行した環境に関わる配布リスクで、法域による制限は示されていない。勧告数は世界の感染数ではない。",
+        "en": "Distribution risk concerns environments that obtained or executed the listed malicious packages, with no jurisdictional restriction established. Advisory counts are not worldwide infection counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-73xg-497j-5qqr",
+        "https://github.com/advisories/GHSA-9wjc-g5vf-3m22",
+        "https://github.com/advisories/GHSA-w3jr-q4jr-xq95",
+        "https://github.com/advisories/GHSA-cjmr-6xg2-vf8h",
+        "https://github.com/advisories/GHSA-j272-m9j4-g3v9",
+        "https://github.com/advisories/GHSA-5cmc-vx46-22wx",
+        "https://github.com/advisories/GHSA-h86m-7gvf-j79h",
+        "https://github.com/advisories/GHSA-p6mc-228w-6q75",
+        "https://github.com/advisories/GHSA-9r7r-h4fq-xj8p",
+        "https://github.com/advisories/GHSA-526r-6j5j-v9pv",
+        "https://github.com/advisories/GHSA-w9pq-6r9f-pj96",
+        "https://github.com/advisories/GHSA-jp74-4rg3-7ppj",
+        "https://github.com/advisories/GHSA-g6j7-j669-23g6",
+        "https://github.com/advisories/GHSA-4rjq-j97h-cqxc",
+        "https://github.com/advisories/GHSA-f5mv-v4rc-qq2q",
+        "https://github.com/advisories/GHSA-wg3r-wqgc-7fgf",
+        "https://github.com/advisories/GHSA-6xqc-cfvp-q89v",
+        "https://github.com/advisories/GHSA-rvxc-82gp-xpr6",
+        "https://github.com/advisories/GHSA-q68g-454g-9qww",
+        "https://github.com/advisories/GHSA-gp92-xqcg-876c",
+        "https://github.com/advisories/GHSA-cccw-qphx-7whg",
+        "https://github.com/advisories/GHSA-6ggw-hqvq-8wcm",
+        "https://github.com/advisories/GHSA-x82c-crm3-jcwv",
+        "https://github.com/advisories/GHSA-3jx4-3p7f-pv7p",
+        "https://github.com/advisories/GHSA-jpgq-34qx-jwwc",
+        "https://github.com/advisories/GHSA-prqg-vvv3-2xf8",
+        "https://github.com/advisories/GHSA-h7h9-fmhv-56wh",
+        "https://github.com/advisories/GHSA-qcg8-4xw5-5ccq",
+        "https://github.com/advisories/GHSA-j2r4-xxhh-xx58",
+        "https://github.com/advisories/GHSA-w9j6-p46m-xvp4",
+        "https://github.com/advisories/GHSA-88vx-c9pj-9527",
+        "https://github.com/advisories/GHSA-vh6h-8m24-j9mj",
+        "https://github.com/advisories/GHSA-7cm4-74gj-gfp2",
+        "https://github.com/advisories/GHSA-4mf5-57pc-vj85",
+        "https://github.com/advisories/GHSA-282x-w96h-wv7f",
+        "https://github.com/advisories/GHSA-pr23-gvcv-c422",
+        "https://github.com/advisories/GHSA-v78q-7787-v9rq",
+        "https://github.com/advisories/GHSA-2hrq-h3vj-5wxm",
+        "https://github.com/advisories/GHSA-48mf-mvf8-x4v3",
+        "https://github.com/advisories/GHSA-j7r7-x5hv-p975",
+        "https://github.com/advisories/GHSA-g2vv-m33m-p9qf",
+        "https://github.com/advisories/GHSA-98qv-v7qr-v3gx",
+        "https://github.com/advisories/GHSA-4h9g-fh86-j87q",
+        "https://github.com/advisories/GHSA-2pph-m662-c8hg",
+        "https://github.com/advisories/GHSA-8hr2-m7vq-fhpg",
+        "https://github.com/advisories/GHSA-r4m9-8735-g966"
+      ]
+    },
+    "kev-gitlab-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "GitLabの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning GitLab; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+        "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-4-2-released/",
+        "https://www.ruby-lang.org/en/news/2026/10/23/regexp-fixes-for-gitlab-cves"
+      ]
+    },
+    "kev-cisco-1030": {
+      "scope": "global",
+      "reason": {
+        "ja": "Cisco ASA/FTDの技術・製品に関する勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Technology/product advisory concerning Cisco ASA/FTD; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction, and this does not imply observed victim impact worldwide."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+        "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75"
+      ]
+    }
+  },
   "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-10-30-1031/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

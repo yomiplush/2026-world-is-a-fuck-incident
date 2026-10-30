@@ -1,0 +1,36 @@
+# Audience scope audit, October 30, 2026
+
+The frozen [135-record register](../data/2026-10-30-1031/incident-register.json) is classified by editorial subject and practical applicability in [the scope sidecar](../content/research-scope.json): **129 global, 4 Japan, 2 regional, 0 unresolved**. These are curated topic-group counts, not a worldwide incident census. The sidecar records the exact register SHA-256 and the actual scope-review time; that time is not a fresh source-validation timestamp.
+
+## Criteria
+
+- `global`: technology, product, package or platform risks relevant across jurisdictions when their technical conditions apply. This does not establish victims in every country, or even actual exploitation.
+- `japan`: Japan-focused service impacts, incidents, regulatory reporting or local guidance. This does not assert that every affected person resides in Japan.
+- `regional`: a localized impact or observed campaign outside Japan. Transferable defensive lessons do not turn localized victims into global victims.
+- `unresolved`: available evidence does not establish the appropriate scope. No current row required this value; the category remains available for future ambiguity.
+
+All 135 stable IDs received one decision, with equivalent Japanese and English reasons and URLs drawn from that row’s existing sources. Source language, source hostname and vendor/maintainer nationality were not classification rules. The [English editorial map](../data/2026-10-30-1031/editorial-en-map.json) assists reading but is not independent incident evidence.
+
+## Decisions requiring care
+
+| Records | Scope | Evidence and interpretation |
+|---|---|---|
+| `gmo-domain-stop` | Japan | [GMO customer notice](https://group.gmo/info/alert/20261030/) concerns Onamae.com Desktop Cloud subscribers, compensation procedures and alternatives. The [saved notice](../data/2026-10-30-1031/gmo-customer30.html.gz) establishes this specific service context, not the residence of every customer. |
+| `atlink-beta` | Japan | [@link operations notice](https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/) addresses medical-institution workflows and patients; the [saved original](../data/2026-10-30-1031/atlink-operation.html.gz) details appointment, clinical-system and patient-app disruption. |
+| `studio-reporting` | Japan | The row’s lead concerns joint reporting to Japan’s PPC and individual notification. The [official portal](https://studio.design/ja/security/notice/2026-10-incident) and [saved original](../data/2026-10-30-1031/studio-incident.html.gz) also describe potential exposure for all registered customers, external API keys and AI waitlist data including country. Japan placement reflects this row’s regulatory focus, **not Japan-only exposure**. Platform security guidance can matter internationally. |
+| `sonet-disclosure` | Japan | The [operator PDF](https://www.sonynetwork.co.jp/corporation/release/2026/v5e5u00000000zwj-att/20261027.pdf), preserved in the [prior snapshot](../data/20261029T050117Z-dbf8f2/supplement-8b80d04ae0c1ca704fbb.gz), specifies So-net/plala (S Course) subscriber and mail-service categories and Japan regulator reporting. It is not a worldwide Sony service breach. |
+| `unm-recovery` | Regional | [UNM’s notice](https://hscnews.unm.edu/news/ambulance-traffic-diverted-clinical-appointments-cancelled-and-classes-cancelled-due-to-cybersecurity-issue-at-unm-hsc), [saved original](../data/20261029T050117Z-dbf8f2/unm-official.html.gz), concerns New Mexico health-system ambulance, clinic and class disruption and recovery. |
+| `silent-train` | Regional | [Lumen’s own observations](https://www.lumen.com/blog/en-us/silent-train-volt-typhoon-operational-framework), [saved original](../data/20261029T050117Z-dbf8f2/supplement-80facae04c59c1bd916e.gz), identify US strategic targeting and concentration in Hawaii, California and Texas. International relay nodes are not evidence of worldwide victim impact. |
+| `railway-signups`, `connectwise-validation` | Global | [Railway’s preliminary report](https://blog.railway.com/p/preliminary-report-october-security-incident) ([capture](../data/2026-10-30-1031/railway-preliminary.html.gz)) and [ConnectWise advisories](https://www.connectwise.com/company/trust/advisories) ([capture](../data/2026-10-30-1031/connectwise.html.gz)) address platform/service users without a jurisdiction-limited remediation scope. This does not establish customer residence or completed restoration. |
+| Yamaha NWR100 / Windows products; Struts | Global | [NWR100](https://jvn.jp/vu/JVNVU91027179/), [LAN Monitor](https://jvn.jp/jp/JVN23695234/), [YMS-VPN8](https://jvn.jp/jp/JVN30675482/) and [Struts](https://jvn.jp/jp/JVN82782759/) concern affected versions and technical conditions. Japanese publication or vendor origin does not make these Japan-specific incidents. |
+| `php-kernel-identity` | Global | [Dream’s report](https://dreamgroup.com/blog/chained-php2shell-exploit-roots-25-servers), [saved original](../data/20261029T050117Z-dbf8f2/supplement-ff1ebca6f559787f35b4.gz), describes observations spanning the US, Japan, Taiwan and South Korea. Its exploit-chain relevance is conditional, and 25 observed servers are not a global total. |
+
+KEV rows remain global because their underlying product risks have technical applicability across jurisdictions; CISA remediation deadlines remain US federal requirements, not worldwide legal deadlines. Package and malware rows concern the listed dependencies and affected conditions, not the nationality of maintainers or a measured worldwide infection count. Missing vendor pages or unknown minimum fixed versions in Juniper/Sophos rows limit remediation certainty, not the cross-jurisdiction applicability of the stated product risk.
+
+## Audit limits
+
+This is a scope review of the current curated database and selected saved primary originals, not a new collection window or verification of every underlying technical claim. It does **not** claim all 135 sources were reverified today. The latest snapshot’s own [research note](research-2026-10-30-1031.en.md) and [vendor note](research-vendors-2026-10-30-1031.md) distinguish updated checks from retained prior context. So-net, UNM, Silent Train, Yamaha, Struts and other carried-forward material remain **retained prior context, not freshly revalidated**. Reading their frozen evidence for this scope audit does not refresh their incident status. No historical register or source capture was rewritten, no new worldwide completeness claim is supported, and regional/Japan separation should not hide useful cross-border lessons.
+
+## Coverage gaps and next review
+
+Separating these records does not make the collection geographically representative. NVD, GHSA, KEV and the selected vendor notices favor disclosed vulnerabilities and the sources already monitored; absence of a region or language is not evidence of absence of incidents. The current sidecar classifies the 135-topic database only; the separate impact view and historical reports retain their existing structure. Future collection should document source selection and availability before expanding regional coverage. A changed snapshot or register digest automatically places records in the unreviewed section until a matching audit exists; classification is not inferred from a country name.

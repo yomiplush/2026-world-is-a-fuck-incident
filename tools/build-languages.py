@@ -63,11 +63,13 @@ for code,(page_source,package,page_record,archived) in publications.items():
   notice=f'<aside class="translation-notice archive-notice" data-snapshot="{esc(page_source["snapshot"])}"><span lang="en">Archived translation · <bdi>{esc(page_record["cutoff_jst"])}</bdi>. Information may differ from the latest version. <a href="/database">Latest Japanese database →</a></span></aside>'
   body=body.replace('<header>','<header>'+notice,1)
  body=body.replace('</header>',pub.language_select(ready,code,values['ui.languages'])+'</header>',1)
- for kind in ('delta','scope-complement','reference-only'):
-  rows=[r for r in page_record['records'] if r['kind']==kind];body+=f'<section><h2>{t("ui."+kind)} · {len(rows)}</h2>'
+ scope_path=ROOT/'data'/page_source['register']
+ body+=pub.research_scope.intro(page_record,scope_path,code)
+ for scope,rows in pub.research_scope.groups(page_record,scope_path):
+  label=pub.research_scope.labels(code)[scope];body+=f'<section id="scope-{scope}"><h2>{esc(label)} · {len(rows)}</h2>'
   for row in rows:
    prefix='records.'+row['id']+'.';sources=' / '.join(f'<a href="{esc(x["url"])}" dir="auto">{esc(x["name"])}</a>' for x in row['sources'])
-   body+=f'<article id="{esc(row["id"])}"><p class="event-type">{t(prefix+"time")}</p><h3>{t(prefix+"title")}</h3><p>{t(prefix+"body")}</p><p class="action"><strong>{t("ui.actions")}: </strong>{t(prefix+"action")}</p>{pub.advisory_details.render(row,esc,code,impact_labels)}<p class="sources">{t("ui.sources")}: {sources}</p></article>'
+   body+=f'<article id="{esc(row["id"])}"><p class="event-type">{t("ui."+row["kind"])} · {t(prefix+"time")}</p><h3>{t(prefix+"title")}</h3><p>{t(prefix+"body")}</p><p class="action"><strong>{t("ui.actions")}: </strong>{t(prefix+"action")}</p>{pub.advisory_details.render(row,esc,code,impact_labels)}{pub.research_scope.reason(page_record,scope_path,row,code)}<p class="sources">{t("ui.sources")}: {sources}</p></article>'
   body+='</section>'
  body+='<section><ul>'+''.join('<li>'+t('caveats.'+str(i))+'</li>' for i in range(len(page_record.get('caveats',[]))))+'</ul>'
  body+=f'<p><a href="{pub.REPO}blob/main/data/{esc(page_source["register"])}">{t("ui.evidence")}</a></p></section>'
