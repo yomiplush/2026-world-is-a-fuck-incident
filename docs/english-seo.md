@@ -84,3 +84,6 @@ Official references: [multilingual URLs](https://developers.google.com/search/do
 [Article metadata](https://developers.google.com/search/docs/appearance/structured-data/article),
 [sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap),
 [helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).
+
+Search Console submission, language-sitemap monitoring, and the English URL
+performance filter are documented in [the Japanese runbook](search-console.ja.md).
