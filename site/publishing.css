@@ -1,4 +1,8 @@
 /* Shared editorial attribution on reading pages. */
+.english-entry{position:fixed;z-index:26;top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 184px);left:max(20px,env(safe-area-inset-left));right:max(20px,env(safe-area-inset-right));max-width:360px;display:flex;flex-wrap:wrap;gap:4px 12px;font:13px/1.6 system-ui,sans-serif;color:#b4cbd8}
+.english-entry a{display:inline-flex;align-items:center;min-height:44px;color:#b4e8f4;text-decoration:underline;text-underline-offset:4px}
+.english-entry a:focus-visible{outline:2px solid #58e0ff;outline-offset:3px}
+body:not(.entry-locked) .english-entry{display:none}
 .editorial-credit { max-width:1120px; margin:0 auto; padding:20px 24px 90px; font:12px/1.9 system-ui,sans-serif; color:#90a8b7 }
 .language-select-control{margin:16px 0;max-width:360px}
 .language-select-control label{display:grid;gap:6px;font:14px/1.6 system-ui,sans-serif}
@@ -47,5 +51,5 @@ html[dir="rtl"] .research-tabs a{text-align:center}
 .entry-links .entry-motion{border-color:#ab804b;color:#ffd18a}
 .entry-links a:focus-visible{outline:2px solid #58e0ff;outline-offset:2px}
 body:not(.entry-locked) .entry-links{display:none}
-@media(max-width:600px) and (orientation:portrait){.cover{padding-top:190px;padding-bottom:50px}.entry-control{width:min(70vw,48dvh,320px)}}
-@media(max-height:560px) and (orientation:landscape){.entry-links{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 66px)}.cover{padding-left:270px}.entry-control{width:min(50vw,65dvh,280px)}}
+@media(max-width:600px) and (orientation:portrait){.cover{padding-top:240px;padding-bottom:50px}.entry-control{width:min(70vw,40dvh,320px)}}
+@media(max-height:560px) and (orientation:landscape){.entry-links{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 66px)}.english-entry{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 172px)}.cover{padding-left:270px}.entry-control{width:min(50vw,65dvh,280px)}}

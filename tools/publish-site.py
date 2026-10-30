@@ -27,6 +27,8 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 CONFIG = json.loads((ROOT/'content/site.json').read_text())
+ENGLISH_SEO = json.loads((ROOT/'content/english-seo.json').read_text())
+PUBLICATION_DATES = json.loads((ROOT/'content/publication-dates.json').read_text())
 BASE = CONFIG['base_url']
 LATEST = json.loads((ROOT/'data/latest.json').read_text())
 REPO = 'https://github.com/yomiplush/2026-world-is-a-fuck-incident/'
@@ -130,6 +132,7 @@ def extra_pages():
     (SITE/'404.html').write_text(shell('ページが見つかりません','ページが見つかりません。最新レポート、日付別の記録、調査データからお探しください。','<header><p class="kicker">404 / NOT FOUND</p><h1>ページが見つかりません。</h1><p>URLが変わったか、このページは公開されていません。</p><p><a href="/database">調査データから探す</a> · <a href="/timeline">日付から読む</a> · <a href="/">トップへ</a></p></header>').replace('</head>','<meta name="robots" content="noindex,follow"></head>'))
 
 def root_reading(text):
+    text=re.sub(r'<!-- english-entry:start -->.*?<!-- english-entry:end -->\n?','',text,flags=re.S)
     text=re.sub(r'<!-- reading:start -->.*?<!-- reading:end -->\n?','',text,flags=re.S)
     label=datetime.fromisoformat(LATEST['cutoff_jst']).strftime('%m/%d %H:%M JST')
     # Rebuild a native navigation group so entrance links never collide with icons.
@@ -155,10 +158,45 @@ def root_reading(text):
     if motion:link+=entry_link('motion','/?lang=ja#'+str(motion['start']))
     link+=entry_link('impact','/impact','impact_label')
     group='<nav class="entry-links" aria-label="最新の調査資料 / Latest research">'+link+'</nav>\n'
+    english_report=SITE/(report.lstrip('/')+'.en.html')
+    english_latest=(f'<a href="{esc(report)}.en" lang="en">Latest in English</a>' if english_report.exists() else '')
+    group+='<!-- english-entry:start --><nav class="english-entry" aria-label="English research"><a href="/en/" lang="en">English briefings</a>'+english_latest+'</nav><!-- english-entry:end -->\n'
     text=re.sub(r'(<a class="entry-library"[^>]*>.*?</a>)\n?',lambda m:m[1]+'\n'+group,text,flags=re.S)
     text=text.replace('<title>'+Info(text).title+'</title>','<title>インシデント・脆弱性と対策 | Infosec Briefing</title>')
     text=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+esc(CONFIG['description']+' 最新調査：'+label)+'">',text)
     return text
+
+def english_hub():
+    """Publish a static research entrance using only complete English pages."""
+    copy=ENGLISH_SEO['hub']
+    report=clean_url(urlsplit(LATEST['site_report']).path)+'.en'
+    latest=SITE/(report.lstrip('/')+'.html')
+    intro=''
+    if latest.is_file():
+        article=Info(latest.read_text())
+        cutoff=datetime.fromisoformat(LATEST['cutoff_jst'])
+        intro=f'<section><h2>Latest research briefing</h2><p><a href="{esc(report)}">{esc(article.title)}</a></p><p>{esc(article.description)}</p><p>Research cutoff: <time datetime="{esc(LATEST["cutoff_jst"])}">{cutoff:%B %d, %Y, %H:%M} JST</time>. This is the research cutoff, not the publication time.</p></section>'
+    sections=[('/database.en','Vulnerability and incident research','Check affected products, conditions, mitigations, and the evidence behind each record.'),('/impact.en','Real-world impact','Review operational disruption, data exposure claims, and recovery status.'),('/timeline.en','Daily incident reports','Follow dated research records and return to their original sources.'),('/briefing.en','Visual briefing transcript','Read the full incident narrative without playing the motion graphics.'),('/tailworm.en','Tailworm research','Review the historical findings, affected boundaries, and response conditions.'),('/about.en','Editorial policy and methodology','Learn who maintains the site, how sources are checked, and how to request corrections.')]
+    cards=''.join(f'<section><h2><a href="{route}">{title}</a></h2><p>{description}</p></section>' for route,title,description in sections if (SITE/(route.lstrip('/')+'.html')).is_file())
+    page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{esc(copy['title'])}</title><meta name="description" content="{esc(copy['description'])}"><link rel="stylesheet" href="/update.css"><link rel="stylesheet" href="/daily.css"><link rel="stylesheet" href="/privacy.css"><script defer src="/privacy.js"></script></head><body><a class="skip" href="#content">Skip to content</a><main id="content"><nav class="global" aria-label="Site navigation"><a href="/en/" aria-current="page">English briefings</a><a href="/?lang=en">Visual briefing</a><a href="/">日本語 / Japanese</a><a href="/feed.en.xml">English RSS</a></nav><header><p class="kicker">INFOSEC BRIEFING / INDEPENDENT RESEARCH</p><h1>{esc(copy['heading'])}</h1><p class="intro">{esc(copy['description'])}</p></header>{intro}{cards}<section><h2>Evidence before conclusions</h2><p>We distinguish publication, observed exploitation, patch availability, and recovery. Dated reports retain their historical context; check the latest report and vendor guidance for current actions. These records are curated research, not a worldwide count of incidents.</p><p><a href="/about.en">Editorial policy and corrections</a> · <a href="/feed.en.xml">Subscribe to English updates via RSS</a></p></section></main></body></html>'''
+    path=SITE/'en/index.html';path.parent.mkdir(exist_ok=True)
+    path.write_text(metadata(path,page))
+
+def publication_dates(url):
+    """Accept documented, timezone-aware publication dates; never infer cutoffs."""
+    record=PUBLICATION_DATES.get(urlsplit(url).path,{})
+    values={}
+    for field in ('published','modified'):
+        if field not in record:continue
+        value=record[field]
+        parsed=datetime.fromisoformat(value)
+        if parsed.tzinfo is None:raise ValueError('Publication dates require a timezone: '+url)
+        values[field]=value
+    if 'modified' in values and 'published' not in values:
+        raise ValueError('A modified date requires a documented publication date: '+url)
+    if 'modified' in values and datetime.fromisoformat(values['modified'])<datetime.fromisoformat(values['published']):
+        raise ValueError('Modification predates publication: '+url)
+    return values
 
 @lru_cache(maxsize=1)
 def database_alternates():
@@ -166,6 +204,11 @@ def database_alternates():
     return [(Info(path.read_text()).language,canonical(path)) for path in sorted(SITE.glob('database*.html')) if path.name=='database.html' or path.name.startswith('database.')]
 
 def metadata(file,text):
+    relative=file.relative_to(SITE).as_posix()
+    copy=ENGLISH_SEO['pages'].get(relative)
+    if copy:
+        text=re.sub(r'<title>.*?</title>',lambda m:'<title>'+esc(copy['title'])+'</title>',text,count=1,flags=re.S)
+        text=re.sub(r'<meta name="description" content="[^"]*">',lambda m:'<meta name="description" content="'+esc(copy['description'])+'">',text,count=1)
     if file.name != 'index.html' or file.parent != SITE:
         if '/language-preference.js' not in text:
             text=re.sub(r'(<head\b[^>]*>)',r'\1<script defer src="/language-preference.js"></script>',text,count=1)
@@ -182,22 +225,36 @@ def metadata(file,text):
     text=re.sub(r'<link\b[^>]*\brel=["\'](?:canonical|alternate)["\'][^>]*>','',text,flags=re.I)
     text=re.sub(r'<meta\b[^>]*(?:property=["\'](?:og:|article:)[^"\']+["\']|name=["\']twitter:[^"\']+["\'])[^>]*>','',text,flags=re.I)
     info=Info(text);url=canonical(file);relative=file.relative_to(SITE).as_posix()
+    text=re.sub(r'<!-- english-home:start -->.*?<!-- english-home:end -->','',text,flags=re.S)
+    if info.language=='en' and relative!='en/index.html':
+        text=re.sub(r'(<nav\b[^>]*>)',r'\1<!-- english-home:start --><a href="/en/">English briefings</a> · <!-- english-home:end -->',text,count=1)
     if relative!='404.html':
         text=re.sub(r'<meta\b[^>]*name=["\']robots["\'][^>]*>','',text,flags=re.I)
-    is_root=relative=='index.html';is_article=relative.startswith(('update-','tailworm'))
+    is_root=relative=='index.html';is_article=relative.startswith(('update-','tailworm'));is_english=info.language=='en'
     webpage_type='AboutPage' if relative=='about.html' else ('CollectionPage' if relative in ('database.html','timeline.html','impact.html') else 'WebPage')
     org={'@type':'Person','@id':BASE+'about#operator','name':CONFIG['operator'],'url':CONFIG['operator_url']}
     webpage={'@type':webpage_type,'@id':url+'#page','url':url,'name':info.title,'description':info.description,'inLanguage':info.language,'isPartOf':{'@id':BASE+'#website'}}
     graph=[{'@type':'WebSite','@id':BASE+'#website','url':BASE,'name':CONFIG['name'],'alternateName':CONFIG['alternate_name'],'publisher':{'@id':org['@id']}},org,webpage]
     if not is_root:
-        graph.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Infosec Briefing','item':BASE},{'@type':'ListItem','position':2,'name':info.title,'item':url}]})
+        graph.append({'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Infosec Briefing','item':BASE+('en/' if is_english else '')},{'@type':'ListItem','position':2,'name':info.title,'item':url}]})
+    text=re.sub(r'<!-- publication-dates:start -->.*?<!-- publication-dates:end -->','',text,flags=re.S)
     if is_article:
         article={'@type':'Article','@id':url+'#article','headline':info.title,'description':info.description,'mainEntityOfPage':{'@id':url+'#page'},'inLanguage':info.language,'author':{'@id':org['@id']},'publisher':{'@id':org['@id']},'image':[BASE+CONFIG['image']],'citation':list(dict.fromkeys(info.sources))}
-        # No guessed publication times: review cutoffs are not publish dates.
+        dates=publication_dates(url)
+        date_labels={'published':('datePublished','Published' if is_english else '公開'),'modified':('dateModified','Updated' if is_english else '更新')}
+        visible=[]
+        for field,value in dates.items():
+            schema_key,label=date_labels[field];article[schema_key]=value
+            visible.append(f'{label}: <time datetime="{esc(value)}">{esc(value)}</time>')
+        if visible:
+            credit='<!-- publication-dates:start --><p class="publication-dates">'+' · '.join(visible)+'</p><!-- publication-dates:end -->'
+            text=text.replace('</header>',credit+'</header>',1) if '</header>' in text else text.replace('</main>',credit+'</main>',1)
         graph.append(article)
     if relative=='database.html':
         graph.append({'@type':'Dataset','@id':url+'#dataset','name':'Infosec Briefing 調査記録','description':info.description,'url':url,'creator':{'@id':org['@id']},'distribution':[{'@type':'DataDownload','encodingFormat':'application/json','contentUrl':BASE+'data/latest.json'}],'isAccessibleForFree':True})
     tags=['<link rel="stylesheet" href="/publishing.css">',f'<meta property="og:site_name" content="{esc(CONFIG["name"])}">',f'<meta property="og:title" content="{esc(info.title)}">',f'<meta property="og:description" content="{esc(info.description)}">',f'<meta property="og:url" content="{esc(url)}">',f'<meta property="og:type" content="{"article" if is_article else "website"}">',f'<meta property="og:image" content="{BASE}{CONFIG["image"]}">',f'<meta property="og:image:width" content="{CONFIG["image_width"]}">',f'<meta property="og:image:height" content="{CONFIG["image_height"]}">','<meta name="twitter:card" content="summary_large_image">',f'<meta name="twitter:title" content="{esc(info.title)}">',f'<meta name="twitter:description" content="{esc(info.description)}">',f'<meta name="twitter:image" content="{BASE}{CONFIG["image"]}">',f'<link rel="canonical" href="{esc(url)}">','<link rel="alternate" type="application/rss+xml" title="Infosec Briefing 更新" href="/feed.xml">','<link rel="icon" type="image/svg+xml" href="/favicon.svg">']
+    if is_english:
+        tags=[tag.replace('title="Infosec Briefing 更新" href="/feed.xml"','title="Infosec Briefing — English updates" href="/feed.en.xml"') for tag in tags]
     if relative=='database.html' or relative.startswith('database.'):
         for language,href in database_alternates():
             tags.append(f'<link rel="alternate" hreflang="{esc(language)}" href="{esc(href)}">')
@@ -216,12 +273,12 @@ def metadata(file,text):
     schema=json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     tags.append('<script type="application/ld+json">'+schema+'</script>')
     text=text.replace('</head>','<!-- publication:start -->\n'+'\n'.join(tags)+'\n<!-- publication:end -->\n</head>')
-    if not is_root and relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html') and not relative.startswith('impact.'):
+    if not is_root and relative!='404.html' and not is_english and not relative.startswith('database.') and not relative.startswith('impact.'):
         text=re.sub(r'<!-- editorial:start -->.*?<!-- editorial:end -->','',text,flags=re.S)
         credit='<footer class="editorial-credit"><p>編集・調査：<a href="/about">YomiPlush / Infosec Briefing</a> · <a href="/about">編集方針・訂正窓口</a> · <a href="/database">調査データ</a> · <a href="/feed.xml">RSS</a></p></footer>'
         text=text.replace('</body>','<!-- editorial:start -->'+credit+'<!-- editorial:end --></body>')
     text=re.sub(r'<!-- language-nav:start -->.*?<!-- language-nav:end -->','',text,flags=re.S)
-    if relative!='404.html' and not relative.startswith('database.') and not relative.endswith('.en.html') and not relative.startswith('impact.'):
+    if relative!='404.html' and not is_english and not relative.startswith('database.') and not relative.startswith('impact.'):
         nav='<a href="/languages">言語 / Languages</a>'
         if is_root:
             text=text.replace('<nav aria-label="読む資料">','<nav aria-label="読む資料"><!-- language-nav:start -->'+nav+' · <!-- language-nav:end -->',1)
@@ -229,6 +286,8 @@ def metadata(file,text):
             text=text.replace('</nav>','<!-- language-nav:start -->'+nav+'<!-- language-nav:end --></nav>',1)
     # Only links to our HTML pages change. JS/CSS/media and primary-source URLs stay intact.
     text=re.sub(r'\bhref=(["\'])(.*?)\1',lambda m:'href='+m[1]+esc(clean_url(html.unescape(m[2])))+m[1],text)
+    if is_english:
+        text=re.sub(r'(<a\b[^>]*\bhref=)(["\'])/feed\.xml\2',r'\1\2/feed.en.xml\2',text)
     return text
 
 def discovery(pages):
@@ -238,6 +297,8 @@ def discovery(pages):
     for file in pages:
         if file.name in ('404.html','404.en.html'):continue
         node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=canonical(file)
+        dates=publication_dates(canonical(file))
+        if dates:ET.SubElement(node,'{'+ns+'}lastmod').text=dates.get('modified',dates['published'])
         if file.name.startswith('tailworm'):
             for lang,_ in LANGUAGES:
                 code=LANGUAGE_CODES[lang]
@@ -245,16 +306,22 @@ def discovery(pages):
             ET.SubElement(node,'{'+xhtml+'}link',rel='alternate',hreflang='x-default',href=BASE+'tailworm')
     ET.indent(tree);ET.ElementTree(tree).write(SITE/'sitemap.xml',encoding='utf-8',xml_declaration=True)
     (SITE/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+BASE+'sitemap.xml\n')
-    rss=ET.Element('rss',version='2.0');channel=ET.SubElement(rss,'channel')
-    for key,value in [('title','Infosec Briefing — 調査レポート更新'),('link',BASE),('description',CONFIG['description']),('language','ja')]:ET.SubElement(channel,key).text=value
     cutoffs={'update-20261025.html':'2026-10-25T16:34', 'update-20261025-2318.html':'2026-10-25T23:18', 'update-20261026.html':'2026-10-26T10:27', 'update-20261026-1301.html':'2026-10-26T13:01'}
     for source in (ROOT/'data').glob('*/incident-register.json'):
         record=json.loads(source.read_text())
         if record.get('report',{}).get('path'):cutoffs[record['report']['path']]=record.get('cutoff_jst','')[:16]
-    for file in sorted((p for p in SITE.glob('update-*.html') if not p.name.endswith('.en.html')),key=lambda p:cutoffs.get(p.name,p.stem),reverse=True):
-        p=Info(file.read_text());item=ET.SubElement(channel,'item')
-        for key,value in [('title',p.title),('link',canonical(file)),('guid',canonical(file)),('description',p.description)]:ET.SubElement(item,key).text=value
-    ET.indent(rss);ET.ElementTree(rss).write(SITE/'feed.xml',encoding='utf-8',xml_declaration=True)
+    for language,filename in [('ja','feed.xml'),('en','feed.en.xml')]:
+        rss=ET.Element('rss',version='2.0');channel=ET.SubElement(rss,'channel')
+        title='Infosec Briefing — English updates' if language=='en' else 'Infosec Briefing — 調査レポート更新'
+        description=ENGLISH_SEO['hub']['description'] if language=='en' else CONFIG['description']
+        for key,value in [('title',title),('link',BASE+('en/' if language=='en' else '')),('description',description),('language',language)]:ET.SubElement(channel,key).text=value
+        articles=[p for p in SITE.glob('update-*.html') if (p.name.endswith('.en.html'))==(language=='en')]
+        for file in sorted(articles,key=lambda p:cutoffs.get(p.name.replace('.en.html','.html'),p.stem),reverse=True):
+            p=Info(file.read_text());item=ET.SubElement(channel,'item')
+            for key,value in [('title',p.title),('link',canonical(file)),('guid',canonical(file)),('description',p.description)]:ET.SubElement(item,key).text=value
+            dates=publication_dates(canonical(file))
+            if dates:ET.SubElement(item,'pubDate').text=format_datetime(datetime.fromisoformat(dates['published']))
+        ET.indent(rss);ET.ElementTree(rss).write(SITE/filename,encoding='utf-8',xml_declaration=True)
 
 def main():
     extra_pages()
@@ -264,6 +331,8 @@ def main():
     for file in pages:file.write_text(metadata(file,file.read_text()))
     article_languages.publish(__import__('types').SimpleNamespace(metadata=metadata,clean_url=clean_url,language_select=language_select,BASE=BASE,impact_en=bool(impact_pages.locale_package(ROOT,LATEST,"en"))))
     impact_pages.publish_locales(__import__('types').SimpleNamespace(ROOT=ROOT,LATEST=LATEST,BASE=BASE,shell=shell,esc=esc,metadata=metadata,language_select=language_select))
+    english_hub()
+    root.write_text(root_reading(root.read_text()))
     pages=sorted(SITE.rglob('*.html'))
     discovery(pages)
     print(f'Published metadata, clean canonicals, structured data, RSS and sitemap for{len(pages)-1}indexable pages')
