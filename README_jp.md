@@ -1,3 +1,36 @@
+# Infosec Briefing — 独立調査とオープンソース
+
+[公開サイト](https://www.infosec-briefing.net/) · [English](README.md) · [研究とオープンソース](https://www.infosec-briefing.net/about#research-open-source) · [MITライセンス](LICENSE)
+
+Infosec Briefingは、公開サイバーセキュリティ情報を、開発者、運用担当者、独立研究者向けに
+出典付きレポート、構造化記録、モーション図へ整理します。脆弱性フィードの重複、DB収録の遅れ、
+影響版の境界の不一致、悪用・復旧状況の不確実性を扱います。DB件数を事件数とはせず、
+出典に帰属する報告、確認できた事実、不明点を区別します。
+
+公開リポジトリには収集・検証スクリプト、サイトのソース、防御用ユーティリティ、
+ランブック、独自研究文書があり、MITで提供しています。取得した第三者資料の権利は各提供元に帰属します。
+[日付別データ](data/)、[現在のデータへの入口](data/latest.json)、[研究方法](docs/research-methodology.ja.md)、
+[助成申請準備資料](docs/grant-readiness.ja.md)で既存成果と提案段階の開発を確認できます。
+
+記録済みのオフライン検証例は、checkout内で `python3 tools/intel/verify-1847.py`
+を実行します（Python 3、ネットワーク不要）。対象の過去スナップショットを検証し、派生ファイル
+`verification.json`を出力します。現在の証拠の検証は
+`python3 -m unittest discover -s tests -p evidence_manifest_test.py` です。
+再収集は外部サービスへ接続し保存原本を上書きする場合があるため、別checkoutで
+[研究方法の手順](docs/research-methodology.ja.md)に従ってください。当時の改訂本文の再現は保証できません。
+
+根拠と関連チェックを添えた小さなプルリクエスト、またはページ、出典URL、取得日を添えた
+[Issue](https://github.com/yomiplush/2026-world-is-a-fuck-incident/issues)で貢献できます。
+翻訳・文書の訂正も歓迎します。過去の記録を保持し、非公開情報を記載しないでください。
+
+[GitHub Sponsors](https://github.com/sponsors/yomiplush)の寄付は、オープンソース開発、
+研究インフラ、保守、公開技術資料の継続を支えます。
+
+以下の日付付き資料は過去の調査記録として保持しています。版や状況の記述は各基準時刻のものです。
+後続の調査は現在のサイトとデータへの入口を参照してください。
+
+---
+
 # 最新調査：2026-10-27 18:47 JST
 
 **[読むレポート](https://www.infosec-briefing.net/update-20261027-1847) · [追加4画面のモーション](https://www.infosec-briefing.net/?lang=ja#62) · [調査データ](https://www.infosec-briefing.net/database)**

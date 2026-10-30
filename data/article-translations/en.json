@@ -1,6 +1,6 @@
 {
   "locale": "en",
-  "source_hash": "f635b35481497466e319d475139b5e2a2416ecc039737b37a9489546e8d71b18",
+  "source_hash": "ffe2be34a8d495d719214e7eca01f98c30eaff7057ea50a7f1a0ae0d22c575cb",
   "strings": {
     "7e155300cecf74323a1e9ffcde23987947c1aa0b2a3e797fd3a50ad82939d62d": "What to check",
     "07c6d57177d09a4f0641e65037cb8709e1b94cbfcd50f72acb3e1f4d50788854": "Start tonight's checks with what you use.",
@@ -2466,7 +2466,28 @@
     "95f22f5e0e48ea9abc2214c3df11b77f1efd004c51363ddc8556d72614251201": "Business, healthcare and service disruption · Source updated: 2026-10-29 / source rechecked; overall recovery not established",
     "b3415b78fd0e758932be6b593639598131f0c2d1809f81463de64aad57a2c8ab": "10/29: 6 motion diagrams →",
     "b2cc602b055f6efa42d98ddc7993c15232f00cd24a61ce6103d028ae22df200c": "All 71 scenes are available in Japanese and English.",
-    "0c7fbbcad764bb29691496595bc4d79114e468e20c9d5befa6d321cc24d411f8": "— text and sources for all 71 scenes."
+    "0c7fbbcad764bb29691496595bc4d79114e468e20c9d5befa6d321cc24d411f8": "— text and sources for all 71 scenes.",
+    "350ff5b7b21ab81890c7b20da307e3053f831e1a3be37247907df901998a090a": "Infosec Briefing helps developers, operators and independent researchers inspect the conditions and evidence behind public security information. Dated reports, structured JSON and sourced motion diagrams aim to reduce confusion between database registrations, vulnerabilities and damaging incidents.",
+    "aa231f7816aac2d0fef07e4742b8f56c29db3971fb264b943deb9f791288f947": "We distinguish facts supported by primary sources, statements attributed to organizations or researchers, and unverified conditions. Unanalyzed NVD records and unreviewed GHSAs do not establish exploitation or harm. Failed retrievals and unknown fixed versions remain explicit.",
+    "26ea55b17fdd4c76c3570fd5991e3e6903450324ea8b7f326d28adbf663ca946": "Code and original documentation are published under the MIT license. Retrieved third-party materials retain their owners’ rights. Researchers can independently inspect sources and counts using saved responses, manifests, indexes and verification scripts in the repository.",
+    "aa6ebe8f927eeaf6f3f7e5c1d6e0b8df7f6362ac94021aef5993123cb1a8af02": "Public repository",
+    "b5fd36f4ccbb61fa7969efd61b7b4becc420a5d482ed792df26dcc18b67a1241": "MIT license",
+    "9bae2d787be2c32679a9526255cd3e3ecc51441f9b0a428e4cf406d6db74f95b": "Research materials and reproduction steps",
+    "cdfda18c8e79edb56cef3600f5bd33658a8e9ead0c4155c130e1ed49dc822bbc": "Structured data entry point",
+    "6516c7aa460ad7898ee64a635a4c20ddba5da1d84ac3db0284169573c3b18688": "Research methodology",
+    "8536a9cabf9cb3428c637f98e117f93f2912915eeb116cacd0e1ae1680d30ded": "Collection: NVD publication and last-modification queries are collected separately over fixed UTC windows, with pagination. For example, snapshot-1847.py collects GHSA published and modified windows for reviewed, unreviewed and malware types, following next-page Link headers. Scripts support collection, indexing and hash verification; topic selection and primary-source interpretation are not fully automated.",
+    "d493d2f009cf4599d0af1b4bb8c8af459af85c87972c090f66cd8d1023185ef6": "Cross-referencing and classification: CVE and GHSA IDs, reference URLs, vendor advisories, releases and public code are compared, retaining differences in affected conditions and fix status. Identifier intersections prevent simply adding publication, modification, NVD and GHSA totals. Topics use delta, scope-complement and reference-only categories. These are editorial categories, not severity or confidence scores.",
+    "2487670777d6c322de66c2e3281c44157fc5bbfab839f59f6a0dfc5cb2553136": "Timestamps and integrity: Disclosure, database registration, revision, retrieval, fix availability and restoration are kept distinct. JST displays and UTC windows are recorded, with attention to overlapping boundaries. SHA-256 conventions vary by manifest. The 10/27 18:47 main collection hashes decoded bodies, vendor records hash saved bytes, and discovery records hash both. The 10/29 independent evidence manifest hashes saved bytes, including compressed gzip files. Matching hashes establish stored-content integrity, not the truth of claims.",
+    "fd45a5f575abe8e71cd5029b01e775093188a0496c9409cbffa210b1a927d367": "Limitations: Responses are retrieval-time revisions collected after cutoff; recollection may not recover historical bodies. API limits, failed requests, empty JavaScript shells, anti-bot pages, unknown publication times, conflicting sources and historical rows not revalidated remain limitations. This is not a comprehensive incident census; omission or absence from KEV does not establish safety.",
+    "0a3efc604727818b90a4fed1085aed485c7ca1e6b3a64267745e7dbb79d9b62e": "Procedures, verification commands and limits",
+    "7088cf2e293a5372769d788ae63c12309a3ea4272619acca3bbed8c460902599": "Collector (fixed-window example)",
+    "7e4ce3eebae08197464517ead3fce083b13839416a0b33ce6dfe3e105ba67fae": "Offline verification script",
+    "191188ccb3e5f9b30768170a68052e459e1d5652a3ab4c2b99349388bb2287d3": "Collection manifest",
+    "37b95e0a0290e5130440c5eb7433e8fe7361cb1f0e5d365d901ca87fc6c5f0b4": "Evidence tests for the current research",
+    "664432f82951c94dd53e7d66e75b41c4c6021d8941460c0b341d68036bbef982": "Support continued development and research",
+    "ace5307a28122c9859fe488edc33c2170ea906ac1cfc4d6f36fea9260e0596b3": "Contributions support continued open-source development, research infrastructure, maintenance and publicly accessible technical resources.",
+    "1505d425e1585851f1ac14f12609433f63200708dbd860e087857dac333ecca2": "Support via GitHub Sponsors",
+    "8da4b73060a55aaa32bc9459a87c1c3f9d08d5bbb9f51435805796ca80b43b89": "Open Source"
   },
   "note": "AI translation; not reviewed by a native speaker."
 }

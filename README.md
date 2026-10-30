@@ -1,3 +1,43 @@
+# Infosec Briefing — independent research and open source
+
+[Website](https://www.infosec-briefing.net/) · [日本語](README_jp.md) · [Research & Open Source](https://www.infosec-briefing.net/about.en#research-open-source) · [MIT license](LICENSE)
+
+Infosec Briefing organizes public cybersecurity information into sourced reports,
+structured registers and motion diagrams for developers, operators and independent
+researchers. It addresses overlapping vulnerability feeds, delayed database entries,
+conflicting version boundaries and uncertainty about exploitation or recovery.
+Database counts are not incident counts; attributed reports are distinguished from
+confirmed facts and unknowns.
+
+The public repository includes collection and verification scripts, site source,
+defensive utilities, runbooks and original research documentation under MIT.
+Retrieved third-party evidence retains its owners’ rights. Inspect [dated datasets](data/),
+[the current dataset pointer](data/latest.json), [research methodology](docs/research-methodology.md)
+and [grant-readiness notes](docs/grant-readiness.md) for completed work and proposed development.
+
+To reproduce a documented offline check, run `python3 tools/intel/verify-1847.py`
+from a checkout (Python 3; no network). It verifies that dated snapshot and writes
+its derived `verification.json`. Current evidence checks use
+`python3 -m unittest discover -s tests -p evidence_manifest_test.py`.
+Recollection contacts upstream services and may overwrite saved responses; use a
+separate checkout and the [methodology instructions](docs/research-methodology.md).
+It cannot guarantee recovery of past revisions.
+
+Contribute a focused pull request with evidence and relevant checks, or
+[report an issue](https://github.com/yomiplush/2026-world-is-a-fuck-incident/issues)
+with the page, source URL and retrieval date. Translation and documentation
+corrections are welcome; keep historical records intact and omit private information.
+
+[GitHub Sponsors](https://github.com/sponsors/yomiplush) contributions support
+continued open-source development, research infrastructure, maintenance and publicly
+accessible technical resources.
+
+The dated material below is preserved as historical research; its version and status
+claims apply to its stated cutoff. Use the current website and dataset pointer for
+later reviews.
+
+---
+
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
 ## Latest review — 2026-10-27 18:47 JST
