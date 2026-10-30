@@ -2331,10 +2331,11 @@
       "Content-Security-Policy": "default-src 'self' 'unsafe-eval' 'unsafe-hashes' 'unsafe-inline' data: blob: www.google.de cdn.cookielaw.org www.google.it adservice.google.com *.onetrust.com *.imperva.com www.google.com.et www.google.co.il www.google.com.sa munchkin.marketo.net cdn.bizible.com www.google.pl *.doubleclick.net www.google.com.co www.google.com.np edge.fullstory.com www.google.com.ph www.google.fr www.google-analytics.com www.google.co.th www.google.com.br www.google.es *.mktoresp.com www.brighttalk.com region1.analytics.google.com translate.google.com www.google.com.ua www.google.nl www.google.com.eg *.optimizely.com www.google.com.hk www.youtube.com jscloud.net *.adroll.com www.google.com.pk *.googleapis.com www.google.com.ng rs.fullstory.com *.vimeo.com www.google.com.au www.google.ie www.google.com.gh www.google.co.kr www.google.com.vn www.google.com www.google.se www.google.com.my *.mktoutil.com imperva.piwik.pro www.google.co.in www.googletagmanager.com *.gstatic.com www.google.com.tw imperva.containers.piwik.pro js.driftt.com bam.nr-data.net privacy-policy.truste.com www.google.co.uk www.google.co.il analytics.google.com www.google.ca cdn.bizibly.com js-agent.newrelic.com *.gravatar.com code.highcharts.com go.imperva.com imperva.substack.com *.vimeocdn.com *.demandbase.com *.company-target.com id.rlcdn.com yoast.com *.hcaptcha.com demostack.app snap.licdn.com *.linkedin.com *.6sense.com *.navattic.com netdna.bootstrapcdn.com *.6sc.co static.oktopost.com *.soundcloud.com *.thalesgroup.com *.bttrack.com bttrack.com *.wp.com ; form-action 'self' *.salesforce.com ; frame-ancestors 'self' http://thalesgroup.lookbookhq.com https://thalesgroup.lookbookhq.com demostack.app ;",
       "X-Iinfo": "9-41984764-0 0CNN RT(1793055026103 67) q(0 -1 -1 1) r(1 -1)"
     },
-    "sha256": "c69f1c14c0515d7e25e7a51b7d634b5b732dc12a0a6e021f76524c20f32a437c",
-    "bytes": 224001,
+    "sha256": "f2d305eeb683e41eb579fb1315c2ac3b737e837e22809552be1089db9af5da57",
+    "bytes": 223987,
     "sha256_is": "decompressed HTTP response body bytes",
-    "file": "imperva-node2shell.html"
+    "file": "imperva-node2shell.html",
+    "redaction_note": "Embedded third-party Google API key redacted; hash describes sanitized bytes. See docs/security-evidence-redactions.md."
   },
   "connectwise-trust": {
     "name": "connectwise-trust",

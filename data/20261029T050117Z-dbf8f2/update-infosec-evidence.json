@@ -1477,9 +1477,10 @@
     {
       "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2026-2419",
       "path": "data/20261029T050117Z-dbf8f2/vendor-aad93ed6bd9480ed4c35.gz",
-      "sha256": "4a3d47339c5a9c52eb281ae0240a951f7b1c936a0220256d29acba4ff0c7e383",
+      "sha256": "0f26dabbb43db85185aad61d547cf249b791aa1e3285161ab492d5731667150c",
       "fetched_at": "2026-10-29T05:05:47+00:00",
-      "status": 200
+      "status": 200,
+      "redaction_note": "Embedded third-party Google API key redacted; hash describes sanitized bytes. See docs/security-evidence-redactions.md."
     },
     {
       "url": "https://www.dell.com/support/kbdoc/en-us/000515178/dsa-2026-416-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities",

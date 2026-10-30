@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "date": "2026-10-30",
+  "reason": "Remove embedded third-party Google API keys from redistributed source captures. Original bytes are no longer present in the current checkout. No credential validity testing was performed.",
+  "files": {
+    "data/2026-10-27-0018-vendors/imperva-node2shell.html": {
+      "original_stored_sha256": "89d97f60db0911e91a2dec1e9f0e06b64097acf8cad359e505888755ee882148",
+      "redacted_stored_sha256": "2f6badf4759dd08dce5d754352578cc0289003395f3b535df3084bf3ced6bcfa",
+      "redactions": 1,
+      "note": "Embedded third-party Google API key removed; this is a sanitized capture, not the original response."
+    },
+    "data/2026-10-27-0747-vendors/imperva-node2shell.html": {
+      "original_stored_sha256": "c69f1c14c0515d7e25e7a51b7d634b5b732dc12a0a6e021f76524c20f32a437c",
+      "redacted_stored_sha256": "f2d305eeb683e41eb579fb1315c2ac3b737e837e22809552be1089db9af5da57",
+      "redactions": 1,
+      "note": "Embedded third-party Google API key removed; this is a sanitized capture, not the original response."
+    },
+    "data/2026-10-30-1031/gitlab-patch-19-4-2.html.gz": {
+      "original_stored_sha256": "3c01d4e823ba3fb5fbead9734dfd96eddf43c7b450671fd8008326811909c1f3",
+      "redacted_stored_sha256": "6a9a04ee0dfa2be95665d0fd1262656c390ff4ba5675549ed3e08161fd78de5e",
+      "redactions": 1,
+      "note": "Embedded third-party Google API key removed; this is a sanitized capture, not the original response."
+    },
+    "data/20261029T050117Z-dbf8f2/vendor-aad93ed6bd9480ed4c35.gz": {
+      "original_stored_sha256": "4a3d47339c5a9c52eb281ae0240a951f7b1c936a0220256d29acba4ff0c7e383",
+      "redacted_stored_sha256": "0f26dabbb43db85185aad61d547cf249b791aa1e3285161ab492d5731667150c",
+      "redactions": 1,
+      "note": "Embedded third-party Google API key removed; this is a sanitized capture, not the original response."
+    }
+  },
+  "updated_manifests": [
+    "data/2026-10-27-0018-vendors/collection-summary.json",
+    "data/2026-10-27-0747-vendors/collection-summary.json",
+    "data/2026-10-30-1031/update-infosec-evidence.json",
+    "data/2026-10-30-1031/vendor-followup-fetch.json",
+    "data/20261029T050117Z-dbf8f2-vendors/collection-summary.json",
+    "data/20261029T050117Z-dbf8f2/update-infosec-evidence.json",
+    "data/20261029T050117Z-dbf8f2/vendor-fetch.json"
+  ]
+}
