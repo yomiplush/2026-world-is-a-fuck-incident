@@ -58,12 +58,15 @@ def canonical(file):
 
 class Info(HTMLParser):
     def __init__(self,text):
-        super().__init__();self.title='';self.description='';self.language='ja';self.in_title=False;self.sources=[];self.feed(text)
+        super().__init__();self.title='';self.description='';self.language='ja';self.in_title=False;self.sources=[];self.noindex=False;self.feed(text)
     def handle_starttag(self,t,a):
         a=dict(a)
         if t=='title':self.in_title=True
         if t=='html':self.language=a.get('lang','ja')
         if t=='meta' and a.get('name')=='description':self.description=a.get('content','')
+        if t=='meta' and a.get('name','').lower() in ('robots','googlebot'):
+            directives={part.strip().lower() for part in a.get('content','').split(',')}
+            self.noindex=self.noindex or bool(directives & {'noindex','none'})
         if t=='a' and a.get('href','').startswith('https://') and urlsplit(a['href']).netloc not in OLD_HOSTS | {urlsplit(BASE).netloc}:self.sources.append(a['href'])
     def handle_endtag(self,t):
         if t=='title':self.in_title=False
@@ -228,7 +231,7 @@ def metadata(file,text):
     text=re.sub(r'<!-- english-home:start -->.*?<!-- english-home:end -->','',text,flags=re.S)
     if info.language=='en' and relative!='en/index.html':
         text=re.sub(r'(<nav\b[^>]*>)',r'\1<!-- english-home:start --><a href="/en/">English briefings</a> · <!-- english-home:end -->',text,count=1)
-    if relative!='404.html':
+    if relative!='404.html' and not info.noindex:
         text=re.sub(r'<meta\b[^>]*name=["\']robots["\'][^>]*>','',text,flags=re.I)
     is_root=relative=='index.html';is_article=relative.startswith(('update-','tailworm'));is_english=info.language=='en'
     webpage_type='AboutPage' if relative=='about.html' else ('CollectionPage' if relative in ('database.html','timeline.html','impact.html') else 'WebPage')
@@ -263,7 +266,7 @@ def metadata(file,text):
         tags.append('<script src="/language-select.js?v=20261026major" defer></script>')
     if relative in ('briefing.html','briefing.en.html'):
         tags.extend([f'<link rel="alternate" hreflang="ja" href="{BASE}briefing">',f'<link rel="alternate" hreflang="en" href="{BASE}briefing.en">',f'<link rel="alternate" hreflang="x-default" href="{BASE}briefing">'])
-    if relative!='404.html':tags.append('<meta name="robots" content="index,follow,max-image-preview:large">')
+    if relative!='404.html' and not info.noindex:tags.append('<meta name="robots" content="index,follow,max-image-preview:large">')
     if relative.startswith('tailworm'):
         for lang,_ in LANGUAGES:
             code=LANGUAGE_CODES[lang]
@@ -294,8 +297,12 @@ def discovery(pages):
     ns='http://www.sitemaps.org/schemas/sitemap/0.9';xhtml='http://www.w3.org/1999/xhtml'
     ET.register_namespace('',ns);ET.register_namespace('xhtml',xhtml)
     tree=ET.Element('{'+ns+'}urlset')
+    languages={code:ET.Element('{'+ns+'}urlset') for code in ('en','ja')}
     for file in pages:
         if file.name in ('404.html','404.en.html'):continue
+        info=Info(file.read_text())
+        if info.noindex:continue
+        if info.language not in languages:raise ValueError('Unsupported sitemap language: '+str(file))
         node=ET.SubElement(tree,'{'+ns+'}url');ET.SubElement(node,'{'+ns+'}loc').text=canonical(file)
         dates=publication_dates(canonical(file))
         if dates:ET.SubElement(node,'{'+ns+'}lastmod').text=dates.get('modified',dates['published'])
@@ -304,8 +311,16 @@ def discovery(pages):
                 code=LANGUAGE_CODES[lang]
                 ET.SubElement(node,'{'+xhtml+'}link',rel='alternate',hreflang=lang,href=BASE+('tailworm?lang=ja' if code=='ja' else 'tailworm.'+code))
             ET.SubElement(node,'{'+xhtml+'}link',rel='alternate',hreflang='x-default',href=BASE+'tailworm')
+        # ElementTree can serialize the same completed node in separate trees.
+        languages[info.language].append(node)
     ET.indent(tree);ET.ElementTree(tree).write(SITE/'sitemap.xml',encoding='utf-8',xml_declaration=True)
-    (SITE/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+BASE+'sitemap.xml\n')
+    index=ET.Element('{'+ns+'}sitemapindex')
+    for language,group in languages.items():
+        filename='sitemap-'+language+'.xml'
+        ET.indent(group);ET.ElementTree(group).write(SITE/filename,encoding='utf-8',xml_declaration=True)
+        entry=ET.SubElement(index,'{'+ns+'}sitemap');ET.SubElement(entry,'{'+ns+'}loc').text=BASE+filename
+    ET.indent(index);ET.ElementTree(index).write(SITE/'sitemap-index.xml',encoding='utf-8',xml_declaration=True)
+    (SITE/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+BASE+'sitemap.xml\nSitemap: '+BASE+'sitemap-index.xml\n')
     cutoffs={'update-20261025.html':'2026-10-25T16:34', 'update-20261025-2318.html':'2026-10-25T23:18', 'update-20261026.html':'2026-10-26T10:27', 'update-20261026-1301.html':'2026-10-26T13:01'}
     for source in (ROOT/'data').glob('*/incident-register.json'):
         record=json.loads(source.read_text())
@@ -335,6 +350,6 @@ def main():
     root.write_text(root_reading(root.read_text()))
     pages=sorted(SITE.rglob('*.html'))
     discovery(pages)
-    print(f'Published metadata, clean canonicals, structured data, RSS and sitemap for{len(pages)-1}indexable pages')
+    print('Published metadata, clean canonicals, structured data, RSS and language sitemaps')
 
 if __name__=='__main__':main()
