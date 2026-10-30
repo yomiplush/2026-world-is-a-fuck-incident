@@ -229,11 +229,11 @@ body.still .cover { display:none }
   display:grid; place-items:center; width:44px; height:44px; border:1px solid var(--line); border-radius:4px; color:var(--dim); background:rgba(6,13,21,.8); transition:color .2s,border-color .2s }
 .repo-link svg,.patch-link svg,.sponsor-link svg { width:22px; height:22px }
 .patch-link { right:calc(var(--pad) + 52px + env(safe-area-inset-right)); color:var(--amber); border-color:rgba(255,181,69,.42) }
-.repo-link { right:calc(var(--pad) + 104px + env(safe-area-inset-right)) }
+.repo-link { right:calc(var(--pad) + 104px + env(safe-area-inset-right)); border-color:rgba(88,224,255,.5); box-shadow:0 0 10px rgba(88,224,255,.12); transition:color .2s,border-color .2s,box-shadow .2s }
 .sponsor-link { right:calc(var(--pad) + env(safe-area-inset-right)); color:#db92b4; border-color:rgba(219,146,180,.32) }
 .sponsor-link:hover,.sponsor-link:focus-visible { color:#ffb4d5; border-color:currentColor; background:rgba(219,146,180,.10) }
 .patch-link:hover { color:var(--green); border-color:var(--green) }
-.repo-link:hover { color:var(--ink); border-color:var(--cyan) }
+.repo-link:hover,.repo-link:focus-visible { color:var(--ink); border-color:var(--cyan); box-shadow:0 0 14px rgba(88,224,255,.24) }
 @media (max-width:560px) {
   .hud-top { padding-right:0 }
   .hud-left { padding-right:160px; min-height:44px; gap:8px }
