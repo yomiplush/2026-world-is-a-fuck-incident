@@ -9,7 +9,7 @@
 body #app { top:var(--viewport-top,0px); height:var(--app-height,100dvh) }
 #stage,.cover { top:var(--viewport-top,0px); bottom:auto; height:var(--app-height,100dvh) }
 .drawer { inset-block-start:var(--viewport-top,0px); inset-block-end:auto; height:var(--app-height,100dvh) }
-.repo-link,.patch-link { top:calc(var(--viewport-top,0px) + var(--pad) + env(safe-area-inset-top)) }
+.repo-link,.patch-link,.sponsor-link { top:calc(var(--viewport-top,0px) + var(--pad) + env(safe-area-inset-top)) }
 .privacy-dock { bottom:calc(var(--viewport-bottom,0px) + max(6px,env(safe-area-inset-bottom))) }
 .briefing-preferences { max-height:calc(var(--app-height,100dvh) - 80px); bottom:calc(var(--viewport-bottom,0px) + max(52px,env(safe-area-inset-bottom) + 44px)) }
 .rail { display:flex; overflow-x:auto; gap:4px; padding:2px 0; scrollbar-width:thin; overscroll-behavior-x:contain }
@@ -59,7 +59,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
   #app { gap:10px }
   .hud-top { flex-wrap:wrap; gap:8px; padding-right:0 }
   .hud-left,.hud-right { width:100% }
-  .hud-left { padding-inline-end:108px }
+  .hud-left { padding-inline-end:160px }
   .hud-right .langwrap { min-width:0 }
   .langselect { font-size:12px }
   .hud-right .chip { font-size:11px; padding-inline:12px }
@@ -102,7 +102,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
 }
 
 @media (max-width:600px) and (max-height:560px) and (orientation:landscape) {
-  .hud-top { flex-wrap:nowrap; padding-right:108px }
+  .hud-top { flex-wrap:nowrap; padding-right:160px }
   .hud-left { display:none }
   .hud-right .langwrap { flex:1 }
   .langselect { width:100%; max-width:none }
@@ -113,7 +113,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
    This also covers the 601–680px gap and languages with longer UI labels. */
 @media (max-width:900px) {
   .hud-top { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; padding-right:0 }
-  .hud-left { display:flex; width:100%; min-height:52px; padding:0 108px 0 0; gap:8px }
+  .hud-left { display:flex; width:100%; min-height:52px; padding:0 160px 0 0; gap:8px }
   .hud-left .sep { display:none }
   .hud-right { display:flex; width:100%; min-width:0; gap:8px; justify-content:start }
   .hud-right .langwrap { flex:1; min-width:44px }
@@ -123,7 +123,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
 }
 
 @media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
-  .hud-top { display:flex; flex-wrap:nowrap; padding-right:108px }
+  .hud-top { display:flex; flex-wrap:nowrap; padding-right:160px }
   .hud-left { display:none }
   .hud-right { flex:1; min-width:0 }
   .hud-right .langwrap { flex:1; min-width:44px }
@@ -264,7 +264,7 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
   .motion-privacy.privacy-dock > a,.motion-privacy .privacy-settings-text { display:none }
   .motion-privacy .privacy-cookie-icon { display:block; font-size:22px; line-height:1 }
   .motion-privacy #privacy-settings { flex:0 0 44px; width:44px; height:44px; min-height:44px; padding:0; border:0 }
-  .motion-page:not(.entry-locked) :is(.repo-link,.patch-link) { display:none }
+  .motion-page:not(.entry-locked) :is(.repo-link,.patch-link,.sponsor-link) { display:none }
   .motion-page:not(.entry-locked) .hud-top { padding-right:52px }
   html body.motion-page #app { padding-bottom:calc(12px + env(safe-area-inset-bottom)) }
   .motion-page .briefing-preferences {
