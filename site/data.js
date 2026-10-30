@@ -3056,7 +3056,7 @@ window.CONTENT.scenes.push(...[
 ]);
 
 /* 18:47 JST review: stable scene numbers62–65; closing remains last. */
-window.CONTENT.review = {"cutoff": "2026-10-29T05:01:25Z", "label": "2026-10-29 14:01 JST", "report": "/update-20261029-1401"};
+window.CONTENT.review = {"cutoff": "2026-10-30T10:31:35Z", "label": "2026-10-30 19:31 JST", "report": "/update-20261030-1931"};
 window.CONTENT.scenes.push(...[
   {
     "id": "evening-disclosure",
@@ -3459,9 +3459,9 @@ window.CONTENT.scenes.push(...[
 
 // The overview is a directory; keep its reading links current as reviews grow.
 window.CONTENT.scenes.find(scene => scene.id === 'intro').ja.points[1] =
-  '<a href="/update-20261029-1401">10/29 14:01 最新記事 →</a> · <a href="/?lang=ja#66">立体図解6画面 →</a> · <a href="/timeline">日付から読む →</a>';
+  '<a href="/update-20261030-1931">10/30 19:31 最新記事 →</a> · <a href="/?lang=ja#66">立体図解6画面 →</a> · <a href="/timeline">日付から読む →</a>';
 window.CONTENT.scenes.find(scene => scene.id === 'intro').en.points[1] =
-  '<a href="/update-20261029-1401.en">10/29 14:01 latest report →</a> · <a href="/?lang=en#66">6 motion diagrams →</a> · <a href="/timeline.en">Read by date →</a>';
+  '<a href="/update-20261030-1931.en">10/30 19:31 latest report →</a> · <a href="/?lang=en#66">6 motion diagrams →</a> · <a href="/timeline.en">Read by date →</a>';
 window.CONTENT.ui.ja.coverSub = '全71画面を日付順に。10/29の立体図解6画面を追加。各場面は記載時点の記録です。';
 window.CONTENT.ui.en.coverSub = '71 scenes in chronological order, including 6 October 29 explanatory diagrams. Each scene retains its dated context.';
 

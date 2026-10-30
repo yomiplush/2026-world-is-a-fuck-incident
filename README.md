@@ -32,6 +32,8 @@ corrections are welcome; keep historical records intact and omit private informa
 continued open-source development, research infrastructure, maintenance and publicly
 accessible technical resources.
 
+**Database review — 2026-10-30 19:31:35 JST:** [Reading report](https://www.infosec-briefing.net/update-20261030-1931.en) · [135-topic register](data/2026-10-30-1031/incident-register.json) · [English research](docs/research-2026-10-30-1031.en.md). Overlapping NVD/GHSA records are not incident counts; retained historical prose is explicitly distinguished from newly reviewed material.
+
 The dated material below is preserved as historical research; its version and status
 claims apply to its stated cutoff. Use the current website and dataset pointer for
 later reviews.

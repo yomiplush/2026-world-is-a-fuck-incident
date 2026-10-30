@@ -13,15 +13,8 @@
     return target;
   }
   const query = new URLSearchParams(location.search).get('lang');
-  let preferred = codes.includes(query) ? query : current;
-  // Explicit translated paths win over stored/browser preferences. The default
-  // entrance uses the same consent-managed preference as the motion briefing.
-  if (!query && current === 'ja') {
-    let saved = null;
-    try { saved = window.PRIVACY && window.PRIVACY.getLanguage(); } catch (_) { /* optional */ }
-    const browser = (navigator.language || 'en').split('-')[0].toLowerCase();
-    preferred = codes.includes(saved) ? saved : (codes.includes(browser) ? browser : 'en');
-  }
+  const preferred = window.BRIEFING_LANGUAGE ? window.BRIEFING_LANGUAGE.initial(current) :
+    (codes.includes(query) ? query : current);
   if (preferred !== current) { location.replace(targetURL(preferred).href); return; }
 
   select.disabled = false;

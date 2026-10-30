@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-29T05:01:25Z",
+  "cutoff": "2026-10-30T10:31:35Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -17,9 +17,9 @@
       ],
       "event_date": "2026-10-07",
       "source_date": "2026-10-27",
-      "as_of": "Source updated: 2026-10-27 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-27 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -39,7 +39,7 @@
       ],
       "event_date": "2026-10-03",
       "source_date": "2026-10-14",
-      "as_of": "Source updated: 2026-10-14 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-14 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "reported_financial_impact": {
         "amount": 2869500,
@@ -48,16 +48,16 @@
         "count": 611,
         "is_total_incident_loss": false
       },
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
     {
       "id": "gmo-real-impact",
       "title": "Onamae.com: business environment shutdown and data exfiltration",
-      "confirmed": "Service has been suspended since 10/21, with external removal of customer information confirmed. The company confirmed domain takedown around 04:00 on 10/28. Notice 15 says potentially useful leads are being assessed.",
+      "confirmed": "Service stopped on 10/21 and external removal of customer data was confirmed. The offender-site domain was stopped around 04:00 on 10/28. Notice16 records 428 cumulative tips as of 10/30 at 18:00.",
       "unknown": "Authenticity of published content, victim counts, and total unauthorized transaction amounts remain undetermined. Domain suspension does not mean full recovery of information or service restoration.",
-      "response": "The policy is to offer alternative services rather than restart the current infrastructure as is. Announced compensation for realized losses from confirmed unauthorized transactions and special relief payments.",
+      "response": "At 15:30 on 10/30, GMO announced that direct contact about condolence-payment procedures and alternative services had begun. Starting contact does not establish completed payments or recovery for every customer.",
       "status": "confirmed-impact",
       "category": "Business, healthcare and service disruption",
       "sources": [
@@ -76,14 +76,22 @@
         {
           "name": "GMO notice 15",
           "url": "https://group.gmo/info/alert/20261029/"
+        },
+        {
+          "name": "GMO 10/30 customer notice",
+          "url": "https://group.gmo/info/alert/20261030/"
+        },
+        {
+          "name": "GMO notice16",
+          "url": "https://group.gmo/info/alert/2026102902/"
         }
       ],
       "event_date": "2026-10-21",
-      "source_date": "2026-10-29",
-      "as_of": "Source updated: 2026-10-29 / source rechecked; overall recovery not established",
+      "source_date": "2026-10-30",
+      "as_of": "Source updated: 2026-10-30 / Individual contact started; full recovery unconfirmed",
       "total_loss_jpy": null,
       "monitoring_status": "updated",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -110,10 +118,10 @@
       ],
       "event_date": "2026-10-14",
       "source_date": "2026-10-28",
-      "as_of": "Source updated: 2026-10-28 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-28 / Rechecked; full recovery remains unconfirmed",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "monitoring_status": "rechecked-no-material-update",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -132,18 +140,18 @@
       ],
       "source_date": "2026-10-23",
       "parent_incident": "atlink-real-impact",
-      "as_of": "Source updated: 2026-10-23 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-23 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
     {
       "id": "railway-real-impact",
       "title": "Railway: interrupted builds/deployments, suspended new registrations",
-      "confirmed": "There were interruptions to builds/deployments and periods when the dashboard/API/CLI/support were unavailable. New registrations remained suspended as of 10/27 15:19 UTC. Existing customer deployments are described as continuing to run.",
+      "confirmed": "Build/deploy interruptions and dashboard/API/CLI/support outages occurred. The 10/29 15:45 UTC status still pauses signups with no reopening date, prioritizing existing-customer reliability.",
       "unknown": "The maximum 1.85%, about 100,000 workspaces, is the potential scope of environment-variable exposure, not a confirmed count of people affected by leakage. Key-revocation notifications alone do not confirm compromise.",
-      "response": "Revoke and reissue stored secrets, and audit GitHub and registries. The next status update, scheduled for 10/28 16:00 UTC, is after this cutoff.",
+      "response": "Revoke and reissue stored secrets at their providers and audit GitHub and registries. The next status update is scheduled for 10/30 at 16:00 UTC, after this cutoff.",
       "status": "confirmed-impact",
       "category": "Business, healthcare and service disruption",
       "sources": [
@@ -157,11 +165,11 @@
         }
       ],
       "event_date": "2026-10-20",
-      "source_date": "2026-10-27",
-      "as_of": "Source updated: 2026-10-27 / source rechecked; overall recovery not established",
+      "source_date": "2026-10-29",
+      "as_of": "Source updated: 2026-10-29 / Signups remain paused; reopening date unknown",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "monitoring_status": "updated",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -180,9 +188,9 @@
       ],
       "source_date": "2026-10-24",
       "parent_incident": "blastmail",
-      "as_of": "Source updated: 2026-10-24 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-24 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -202,9 +210,9 @@
       ],
       "source_date": "2026-10-23",
       "parent_incident": "blastmail",
-      "as_of": "Source updated: 2026-10-23 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-23 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -223,10 +231,10 @@
         }
       ],
       "source_date": "2026-10-28",
-      "as_of": "Source updated: 2026-10-28 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-28 / Rechecked; full recovery remains unconfirmed",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "monitoring_status": "rechecked-no-material-update",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -245,9 +253,9 @@
       ],
       "event_date": "2026-09-21",
       "source_date": "2026-10-20",
-      "as_of": "Source updated: 2026-10-20 / source rechecked; overall recovery not established",
+      "as_of": "Source updated: 2026-10-20 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -259,7 +267,7 @@
       "response": "Awaiting third-party validation as of 10/27 14:30 UTC. Keep affected connections disabled until individual guidance.",
       "status": "confirmed-impact",
       "category": "Backups and business continuity",
-      "as_of": "Updated 10/27 14:30 UTC / source rechecked; overall recovery not established",
+      "as_of": "Source updated: not established / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -267,7 +275,7 @@
           "url": "https://www.connectwise.com/company/trust/advisories"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -279,7 +287,7 @@
       "response": "Investigate affected installations, isolate and rebuild environments. Revoke and reissue keys that were reachable. Check the risk of startup hooks executing again before performing a simple update.",
       "status": "confirmed-impact",
       "category": "Software supply chain",
-      "as_of": "10/21 incident / 10/23 analysis / source rechecked; overall recovery not established",
+      "as_of": "Source updated: not established / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -291,7 +299,7 @@
           "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -303,7 +311,7 @@
       "response": "Check fixes by product and series, and investigate compromise indicators separately from updates. Compare downstream embedded versions with supported versions.",
       "status": "exploitation-confirmed",
       "category": "Exploited vulnerabilities",
-      "as_of": "KEV2026.10.27 edition / source rechecked; overall recovery not established",
+      "as_of": "Source updated: not established / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -311,7 +319,7 @@
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -323,7 +331,7 @@
       "response": "Check fixes by product and series, and investigate compromise indicators separately from updates. Compare downstream embedded versions with supported versions.",
       "status": "exploitation-confirmed",
       "category": "Exploited vulnerabilities",
-      "as_of": "KEV2026.10.27 edition / source rechecked; overall recovery not established",
+      "as_of": "Source updated: not established / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -331,7 +339,7 @@
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -343,7 +351,7 @@
       "response": "Check fixes by product and series, and investigate compromise indicators separately from updates. Compare downstream embedded versions with supported versions.",
       "status": "exploitation-confirmed",
       "category": "Exploited vulnerabilities",
-      "as_of": "KEV2026.10.27 edition / source rechecked; overall recovery not established",
+      "as_of": "Source updated: not established / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -351,7 +359,7 @@
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -363,7 +371,7 @@
       "response": "No fixed version is available. Protect chain codes as secrets and investigate the entire key-share hierarchy.",
       "status": "potential",
       "category": "Crypto assets and key management",
-      "as_of": "Revised 10/27 14:45 UTC / source rechecked; overall recovery not established",
+      "as_of": "Source updated: not established / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -371,7 +379,7 @@
           "url": "https://kb.cert.org/vuls/id/701544"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -391,10 +399,10 @@
       ],
       "event_date": "2026-10-19",
       "source_date": "2026-10-27",
-      "as_of": "Source updated: 2026-10-27",
+      "as_of": "Source updated: 2026-10-27 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "recovery_state": "response-in-progress",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
     },
     {
@@ -413,10 +421,10 @@
       ],
       "event_date": "2026-10-26",
       "source_date": "2026-10-28",
-      "as_of": "Source updated: 2026-10-28",
+      "as_of": "Source updated: 2026-10-28 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "recovery_state": "restored-per-organization",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
     },
     {
@@ -435,15 +443,16 @@
       ],
       "event_date": null,
       "source_date": "2026-10-28",
-      "as_of": "Source updated: 2026-10-28",
+      "as_of": "Source updated: 2026-10-28 / Prior source context; text not revalidated in this update",
       "total_loss_jpy": null,
       "recovery_state": "not-established",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
     }
   ],
-  "cutoff_jst": "2026-10-29T14:01:25+09:00",
+  "cutoff_jst": "2026-10-30T19:31:35+09:00",
   "caveats": [
+    "Rows outside the update scope retain prior source context. Their recorded check times are not new retrieval times.",
     "Selected examples. parent_incident indicates user-side effects of the same compromise and is not added as a separate incident. potential means actual acquisition is unconfirmed.",
     "A list of cases checked against primary sources, not worldwide damage statistics. These are not this run's new incident counts.",
     "Separate occurrence, disclosure, update, and retrieval times; preserve source units for money, people, and records. Undisclosed total losses do not mean 0 yen.",
@@ -453,8 +462,8 @@
   ],
   "locale": "en",
   "translation": {
-    "source_hash": "9c6901447998ef9bf043fcf53c15f5eb60ff57eb75fb975b586cc18804c34241",
-    "register_hash": "55a4ba495639e9b9f53e0a350307c3fd50ab0d5aafb19b917e4eb163ee1c089e",
+    "source_hash": "5308fe1ced78ed7ca2bd9caae7072f1acf33cc97193a35e3420797451a55ea81",
+    "register_hash": "fdedf089447d581ed7f28884f208cd36b64410862da0956996a5a44a03dbdb16",
     "human_reviewed": false
   }
 }

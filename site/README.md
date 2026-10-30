@@ -1,3 +1,23 @@
+## Initial display language / 初回表示言語
+
+The entrance and reading pages choose the first supported Japanese/English language
+in the browser preference list, falling back to English. An explicit `?lang=ja`
+or `?lang=en`, a translated `.en` URL, and consent-approved saved preferences take
+precedence where applicable. Native language selections carry an explicit URL
+parameter; internal reading navigation and Back/Forward are not renegotiated.
+No additional browser storage or translation service is used. Without JavaScript,
+the original static pages and language links remain available.
+
+入口と読むページは、ブラウザーの優先言語から最初に対応する日本語・英語を選び、
+未対応の場合は英語にします。明示的な`?lang=ja`・`?lang=en`、翻訳版の`.en` URL、
+同意済みの保存設定を該当する場面で優先します。言語選択はURLへ明示し、サイト内の
+読む経路や戻る・進むでは再判定しません。新たなブラウザー保存や翻訳サービスは使いません。
+JavaScriptなしでも、元の静的ページと言語リンクを利用できます。
+
+Run `node tests/language-preference.test.cjs` and, with the local server and Chrome
+CDP setup below, `CDP_PORT=9238 node tests/language-preference.mjs`.
+検証は上記の単体テストと、以下のローカルサーバー・Chrome CDP設定でブラウザテストを実行します。
+
 ## Building the optimized site
 
 Run `npm ci` once, then `npm run build` after changing content or source modules.

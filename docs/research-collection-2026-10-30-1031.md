@@ -1,0 +1,11 @@
+# Collection provenance — October30 19:31:35 JST
+
+English / [日本語](research-collection-2026-10-30-1031.ja.md)
+
+Run `python3 tools/intel/snapshot-20261030.py --output-dir data/recollect-2026-10-30-1031` against a fresh output directory. Existing output directories are rejected before network collection. It reconfigures the established `snapshot-1318.py` collector and its base for the selected OUT directory (the saved research used `data/2026-10-30-1031`), PREVIOUS `data/20261029T050117Z-dbf8f2`, START `2026-10-29T05:01:25`, END `2026-10-30T10:31:35`; it also corrects the inherited collector's hardcoded JST metadata. Running again cannot reproduce earlier response revisions. Historical originals are unchanged.
+
+The collector retrieves NVD published/modified windows, GitHub reviewed/unreviewed/malware published/modified windows, CISA KEV, vendor followups and feeds. Individual errors and content warnings stay in collection-summary.json. Successful identical bodies may point to older saved originals using relative paths while recording the actual new retrieval. Summary hashes are over decompressed bytes, unlike the evidence manifest's actual stored-byte hashes.
+
+Additional advisory HTML bodies were fetched directly from each newly published reviewed/malware entry's html_url with urllib, User-Agent Infosec-Briefing-research, timeout50, five workers, gzip.compress(mtime=0); `advisory-fetch.json` contains all71 HTTP200 captures with actual stored-byte SHA256 and UTC retrieval time. Twelve primary vendor bodies were captured separately and recorded in `vendor-followup-fetch.json`; see the vendor note. All inherited source evidence retains its original fetched_at. The combined evidence manifest also maps API page URLs to the actual saved bodies.
+
+Register changes are editorial, with a paired English string map retained as `editorial-en-map.json`. Existing translation managers prepare source-hashed JA packages; the English packages retain unchanged previous English values and add authored Codex translations of changed strings. The managers validate all keys and protected numbers/identifiers. Other locales remain pending for this snapshot rather than publishing stale translations.

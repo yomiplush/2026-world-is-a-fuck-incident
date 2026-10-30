@@ -8,6 +8,7 @@
       const option=select.selectedOptions[0];if(!option||!option.value)return;
       const target=new URL(option.value,location.href);
       if(target.origin!==location.origin)return;
+      if (['ja','en'].includes(option.dataset.code)) target.searchParams.set('lang',option.dataset.code);
       try { window.PRIVACY?.setLanguage(option.dataset.code); } catch (_) { /* Navigation remains available. */ }
       location.assign(target.href);
     });

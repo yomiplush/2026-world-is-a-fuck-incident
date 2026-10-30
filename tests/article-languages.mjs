@@ -17,7 +17,7 @@ try{
   await cdp('Network.setUserAgentOverride',{userAgent:ua});await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
   for(const page of ['impact','update-20261028-1318','day-20261021','about','privacypolicy/index','briefing']){
    const ja=page==='privacypolicy/index'?'/privacypolicy/':'/'+page;
-   await cdp('Page.navigate',{url:origin+ja+'?article-language-qa='+Date.now()});await loaded(ja);
+   await cdp('Page.navigate',{url:origin+ja+'?lang=ja&article-language-qa='+Date.now()});await loaded(ja);
    await run("document.querySelector('select[data-language-navigation]').value='/"+page+".en';document.querySelector('select[data-language-navigation]').dispatchEvent(new Event('change',{bubbles:true}));true");
    await loaded('/'+page+'.en');assert.equal(await run('document.documentElement.lang'),'en');
    assert.ok(await run('document.documentElement.scrollWidth<=innerWidth+1'),'English overflow '+page+' '+width);

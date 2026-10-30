@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-29T05:01:25Z",
+  "cutoff": "2026-10-30T10:31:35Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -17,9 +17,9 @@
       ],
       "event_date": "2026-10-07",
       "source_date": "2026-10-27",
-      "as_of": "資料更新：2026-10-27 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-27 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -39,7 +39,7 @@
       ],
       "event_date": "2026-10-03",
       "source_date": "2026-10-14",
-      "as_of": "資料更新：2026-10-14 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-14 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "reported_financial_impact": {
         "amount": 2869500,
@@ -48,16 +48,16 @@
         "count": 611,
         "is_total_incident_loss": false
       },
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
     {
       "id": "gmo-real-impact",
       "title": "お名前.com：業務環境の停止と情報持出し",
-      "confirmed": "10月21日からサービス停止。顧客情報の外部持出しを確認。10月28日04:00頃に犯人サイトのドメイン停止を確認。第15報は有力情報の精査中と公表。",
+      "confirmed": "10月21日からサービス停止。顧客情報の外部持出しを確認。10月28日04:00頃に犯人サイトのドメイン停止を確認。第16報の10月30日18:00時点で情報提供は累計428件。",
       "unknown": "公開内容の真正性・被害人数・不正取引の総額は未確定。ドメイン停止は情報の全回収やサービス復旧を意味しない。",
-      "response": "現行基盤をそのまま再開せず代替サービスを案内する方針。確認された不正取引の実現損失補償と特別お見舞金を公表。",
+      "response": "10月30日15:30、お見舞金の受取手続きと代替サービスについて契約者への直接連絡を開始したと公表。連絡開始は支払完了や全顧客の復旧完了を意味しない。",
       "status": "confirmed-impact",
       "category": "業務・医療・サービス停止",
       "sources": [
@@ -76,14 +76,22 @@
         {
           "name": "GMO notice 15",
           "url": "https://group.gmo/info/alert/20261029/"
+        },
+        {
+          "name": "GMO 10/30 customer notice",
+          "url": "https://group.gmo/info/alert/20261030/"
+        },
+        {
+          "name": "GMO notice16",
+          "url": "https://group.gmo/info/alert/2026102902/"
         }
       ],
       "event_date": "2026-10-21",
-      "source_date": "2026-10-29",
-      "as_of": "資料更新：2026-10-29 / 今回原本を再確認・全体復旧は未確定",
+      "source_date": "2026-10-30",
+      "as_of": "資料更新：2026-10-30 / 個別連絡開始・全体復旧は未確定",
       "total_loss_jpy": null,
       "monitoring_status": "updated",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -110,10 +118,10 @@
       ],
       "event_date": "2026-10-14",
       "source_date": "2026-10-28",
-      "as_of": "資料更新：2026-10-28 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-28 / 今回再確認・全体復旧は未確定",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "monitoring_status": "rechecked-no-material-update",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -132,18 +140,18 @@
       ],
       "source_date": "2026-10-23",
       "parent_incident": "atlink-real-impact",
-      "as_of": "資料更新：2026-10-23 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-23 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
     {
       "id": "railway-real-impact",
       "title": "Railway：ビルド・デプロイ中断、新規登録停止",
-      "confirmed": "build/deploy中断とdashboard/API/CLI/supportの利用不能期間があった。10月27日15:19 UTC時点で新規登録停止継続。既存顧客のdeployは稼働継続と説明。",
+      "confirmed": "build/deploy中断とdashboard/API/CLI/supportの利用不能期間があった。10月29日15:45 UTCのstatusでも新規登録停止が継続し、再開日は未定。既存顧客の信頼性確保を優先すると説明。",
       "unknown": "最大1.85%・約100,000workspacesは環境変数の潜在的影響範囲で確定漏えい人数ではない。鍵失効通知だけで侵害確定とはしない。",
-      "response": "保存secretを失効・再発行しGitHubやregistry監査を実施。次回status予定10月28日16:00 UTCは今回基準より後。",
+      "response": "保存secretを発行元で失効・再発行しGitHubやregistry監査を実施。次回status予定は10月30日16:00 UTCで今回基準より後。",
       "status": "confirmed-impact",
       "category": "業務・医療・サービス停止",
       "sources": [
@@ -157,11 +165,11 @@
         }
       ],
       "event_date": "2026-10-20",
-      "source_date": "2026-10-27",
-      "as_of": "資料更新：2026-10-27 / 今回原本を再確認・全体復旧は未確定",
+      "source_date": "2026-10-29",
+      "as_of": "資料更新：2026-10-29 / 新規登録停止継続・再開日未定",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "monitoring_status": "updated",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -180,9 +188,9 @@
       ],
       "source_date": "2026-10-24",
       "parent_incident": "blastmail",
-      "as_of": "資料更新：2026-10-24 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-24 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -202,9 +210,9 @@
       ],
       "source_date": "2026-10-23",
       "parent_incident": "blastmail",
-      "as_of": "資料更新：2026-10-23 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-23 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -223,10 +231,10 @@
         }
       ],
       "source_date": "2026-10-28",
-      "as_of": "資料更新：2026-10-28 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-28 / 今回再確認・全体復旧は未確定",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
-      "checked_at": "2026-10-29T05:01:25Z",
+      "monitoring_status": "rechecked-no-material-update",
+      "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
     {
@@ -245,9 +253,9 @@
       ],
       "event_date": "2026-09-21",
       "source_date": "2026-10-20",
-      "as_of": "資料更新：2026-10-20 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：2026-10-20 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -259,7 +267,7 @@
       "response": "10月27日14:30 UTC時点で第三者検証待ち。個別案内まで対象接続を無効に保つ。",
       "status": "confirmed-impact",
       "category": "バックアップ・業務継続",
-      "as_of": "10/27 14:30 UTC更新 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：未確定 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -267,7 +275,7 @@
           "url": "https://www.connectwise.com/company/trust/advisories"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -279,7 +287,7 @@
       "response": "対象導入を調べ、環境を隔離・再構築。到達可能だった鍵を失効・再発行。単純な更新操作の前にstartup hook再実行の危険を確認。",
       "status": "confirmed-impact",
       "category": "ソフトウェア供給網",
-      "as_of": "10/21事件 / 10/23分析 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：未確定 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -291,7 +299,7 @@
           "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -303,7 +311,7 @@
       "response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
       "status": "exploitation-confirmed",
       "category": "悪用された脆弱性",
-      "as_of": "KEV2026.10.27版 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：未確定 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -311,7 +319,7 @@
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -323,7 +331,7 @@
       "response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
       "status": "exploitation-confirmed",
       "category": "悪用された脆弱性",
-      "as_of": "KEV2026.10.27版 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：未確定 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -331,7 +339,7 @@
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -343,7 +351,7 @@
       "response": "製品別・系列別の修正を確認し、更新と別に侵害兆候を調べる。下流の組込版とサポート版を照合。",
       "status": "exploitation-confirmed",
       "category": "悪用された脆弱性",
-      "as_of": "KEV2026.10.27版 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：未確定 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -351,7 +359,7 @@
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -363,7 +371,7 @@
       "response": "修正版は未提供。chain codeを秘密として保護し、鍵shareの階層全体を調査。",
       "status": "potential",
       "category": "暗号資産・鍵管理",
-      "as_of": "10/27 14:45 UTC改訂 / 今回原本を再確認・全体復旧は未確定",
+      "as_of": "資料更新：未確定 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "sources": [
         {
@@ -371,7 +379,7 @@
           "url": "https://kb.cert.org/vuls/id/701544"
         }
       ],
-      "monitoring_status": "rechecked-source",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z",
       "recovery_state": "not-established"
     },
@@ -391,10 +399,10 @@
       ],
       "event_date": "2026-10-19",
       "source_date": "2026-10-27",
-      "as_of": "資料更新：2026-10-27",
+      "as_of": "資料更新：2026-10-27 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "recovery_state": "response-in-progress",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
     },
     {
@@ -413,10 +421,10 @@
       ],
       "event_date": "2026-10-26",
       "source_date": "2026-10-28",
-      "as_of": "資料更新：2026-10-28",
+      "as_of": "資料更新：2026-10-28 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "recovery_state": "restored-per-organization",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
     },
     {
@@ -435,15 +443,16 @@
       ],
       "event_date": null,
       "source_date": "2026-10-28",
-      "as_of": "資料更新：2026-10-28",
+      "as_of": "資料更新：2026-10-28 / 前回資料の文脈・今回の本文再精査は未実施",
       "total_loss_jpy": null,
       "recovery_state": "not-established",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
     }
   ],
-  "cutoff_jst": "2026-10-29T14:01:25+09:00",
+  "cutoff_jst": "2026-10-30T19:31:35+09:00",
   "caveats": [
+    "更新対象以外は前回資料の文脈を保持。記載された確認日時を今回の再取得日時と読み替えない。",
     "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",
     "世界全体の被害統計ではなく、一次資料を確認した事例の一覧です。今回の新規事件数ではありません。",
     "発生・公表・更新・取得時刻を分け、金額・人数・件数は出典の単位を保持します。総損失の未公表を0円とはしません。",

@@ -3,26 +3,6 @@
   'use strict';
   const KEY = 'briefing-consent', LANGUAGE = 'briefing-lang';
   const VERSION = 1, LIFETIME = 180 * 24 * 60 * 60 * 1000;
-  const japanese = (new URLSearchParams(location.search).get('lang') || document.documentElement.lang || navigator.language || '').startsWith('ja');
-  const copy = japanese ? {
-    title: 'Cookieの利用について',
-    body: 'このサイトが独自に置く任意Cookieはありません。任意の保存は表示言語の記憶だけです。同意するまで保存せず、拒否してもすべての内容を閲覧できます。解析・広告用Cookieは導入していません。',
-    required: '配信・防御に必要なCloudflareのCookieや通信情報は、この任意設定の対象外です。選択自体は180日間、このブラウザーに保存します。',
-    reject: '拒否', accept: '同意',
-    policy: 'プライバシーポリシー', settings: 'Cookie設定',
-    unknown: '任意の保存：未選択（無効）', yes: '言語の保存：同意済み', no: '任意の保存：拒否済み',
-    saved: '選択を保存しました。Cookie設定からいつでも変更できます。',
-    temporary: 'このブラウザーでは保存できません。選択はこのページを開いている間だけ適用されます。'
-  } : {
-    title: 'Cookie notice',
-    body: 'We set no optional cookies of our own. Optional storage only remembers your display language. It stays off until you agree. You can reject it and still read everything. We do not use analytics or advertising cookies.',
-    required: 'Cloudflare delivery and security cookies and traffic processing are separate from this optional setting. Your choice is saved in this browser for 180 days.',
-    reject: 'Reject', accept: 'Accept',
-    policy: 'Privacy policy', settings: 'Cookie settings',
-    unknown: 'Optional storage: not chosen (off)', yes: 'Language storage: allowed', no: 'Optional storage: rejected',
-    saved: 'Choice saved. You can change it anytime in Cookie settings.',
-    temporary: 'Browser storage is unavailable. This choice applies only while this page remains open.'
-  };
   function get(key) { try { return localStorage.getItem(key); } catch (_) { return null; } }
   function remove(key) { try { localStorage.removeItem(key); } catch (_) { /* storage may be unavailable */ } }
   function put(key, value) { try { localStorage.setItem(key, value); return true; } catch (_) { return false; } }
@@ -42,6 +22,29 @@
   let persistent = !!choice;
   if (!choice || !choice.preferences) remove(LANGUAGE);
 
+  const entryLanguage = window.BRIEFING_LANGUAGE ? window.BRIEFING_LANGUAGE.resolve(getLanguage()) :
+    (new URLSearchParams(location.search).get('lang') || navigator.language || 'en');
+  const japanese = (document.getElementById('app') ? entryLanguage : document.documentElement.lang).startsWith('ja');
+  const copy = japanese ? {
+    title: 'Cookieの利用について',
+    body: 'このサイトが独自に置く任意Cookieはありません。任意の保存は表示言語の記憶だけです。同意するまで保存せず、拒否してもすべての内容を閲覧できます。解析・広告用Cookieは導入していません。',
+    required: '配信・防御に必要なCloudflareのCookieや通信情報は、この任意設定の対象外です。選択自体は180日間、このブラウザーに保存します。',
+    reject: '拒否', accept: '同意',
+    policy: 'プライバシーポリシー', settings: 'Cookie設定',
+    unknown: '任意の保存：未選択（無効）', yes: '言語の保存：同意済み', no: '任意の保存：拒否済み',
+    saved: '選択を保存しました。Cookie設定からいつでも変更できます。',
+    temporary: 'このブラウザーでは保存できません。選択はこのページを開いている間だけ適用されます。'
+  } : {
+    title: 'Cookie notice',
+    body: 'We set no optional cookies of our own. Optional storage only remembers your display language. It stays off until you agree. You can reject it and still read everything. We do not use analytics or advertising cookies.',
+    required: 'Cloudflare delivery and security cookies and traffic processing are separate from this optional setting. Your choice is saved in this browser for 180 days.',
+    reject: 'Reject', accept: 'Accept',
+    policy: 'Privacy policy', settings: 'Cookie settings',
+    unknown: 'Optional storage: not chosen (off)', yes: 'Language storage: allowed', no: 'Optional storage: rejected',
+    saved: 'Choice saved. You can change it anytime in Cookie settings.',
+    temporary: 'Browser storage is unavailable. This choice applies only while this page remains open.'
+  };
+
   const banner = document.createElement('section');
   banner.id = 'briefing-preferences'; banner.className = 'briefing-preferences';
   banner.setAttribute('role', 'region'); banner.setAttribute('aria-labelledby', 'privacy-title');
@@ -49,7 +52,7 @@
   const heading = document.createElement('h2'); heading.id = 'privacy-title'; heading.textContent = copy.title;
   const description = document.createElement('p'); description.textContent = copy.body;
   const detail = document.createElement('p'); detail.className = 'privacy-detail'; detail.textContent = copy.required;
-  const policy = document.createElement('a'); policy.href = '/privacypolicy/'; policy.textContent = copy.policy;
+  const policy = document.createElement('a'); policy.href = japanese ? '/privacypolicy/?lang=ja' : '/privacypolicy/index.en?lang=en'; policy.textContent = copy.policy;
   const copyBlock = document.createElement('div'); copyBlock.className = 'privacy-copy';
   copyBlock.append(heading, description, detail, policy);
   const actions = document.createElement('div'); actions.className = 'privacy-actions';

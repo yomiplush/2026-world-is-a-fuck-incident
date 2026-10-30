@@ -9,7 +9,8 @@ const run=async expression=>{const r=await cdp('Runtime.evaluate',{expression,re
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 try {
  await cdp('Page.enable');await cdp('Network.enable');await cdp('Network.setCacheDisabled',{cacheDisabled:true});
- await cdp('Page.navigate',{url:'http://127.0.0.1:8096/?entry-test='+Date.now()});await pause(300);
+ await cdp('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+ await cdp('Page.navigate',{url:'http://127.0.0.1:8096/?lang=ja&entry-test='+Date.now()});await pause(300);
  const heavy=await run("performance.getEntriesByType('resource').filter(r=>r.name.includes('/assets/motion-')||/\\/(data|rig3d|visuals|app|render)\\.js/.test(r.name)).length");
  assert.equal(heavy,0,'locked entrance must defer the briefing engine and data');
  assert.equal(await run("document.querySelectorAll('#cover .cover-title,#cover .cover-sub').length"),0,'entrance must use symbols instead of visible copy');
@@ -19,12 +20,12 @@ try {
  assert.equal(await run("document.querySelector('#entry-reading,.tailworm-feature,.latest-update,.timeline-entry')"),null);
  assert.equal(await run("getComputedStyle(document.querySelector('.privacy-dock')).display"),'none','initial splash hides visible preference text');
  assert.equal(await run("document.querySelector('.entry-library').textContent.trim()"),'');
- assert.equal(await run("document.querySelector('.entry-library').getAttribute('href')"),'/database');
- const patch=await run(`(() => {const a=document.getElementById('patch-link');if(!a)return null;const r=a.getBoundingClientRect(),g=document.getElementById('repo-link').getBoundingClientRect();return {href:a.href,label:a.getAttribute('aria-label'),svg:!!a.querySelector('svg'),width:r.width,height:r.height,right:r.right,githubLeft:g.left}})()`);
+ assert.equal(await run("document.querySelector('.entry-library').getAttribute('href')"),'/database?lang=ja');
+ const patch=await run(`(() => {const a=document.getElementById('patch-link');if(!a)return null;const r=a.getBoundingClientRect(),g=document.getElementById('repo-link').getBoundingClientRect();return {href:a.href,label:a.getAttribute('aria-label'),svg:!!a.querySelector('svg'),width:r.width,height:r.height,left:r.left,right:r.right,githubLeft:g.left,githubRight:g.right}})()`);
  assert.ok(patch,'Patch the Planet must be accessible before unlocking');
  assert.equal(patch.href,'https://patchtheplanet.org/');
  assert.ok(patch.label && patch.svg && patch.width>=44 && patch.height>=44);
- assert.ok(patch.right<=patch.githubLeft-4,'patch and GitHub links must not overlap');
+ assert.ok(patch.right<=patch.githubLeft-4||patch.left>=patch.githubRight+4,'patch and GitHub links must not overlap');
  await run("window.__patchClicked=false;document.getElementById('patch-link').addEventListener('click',e=>{e.preventDefault();__patchClicked=true});document.getElementById('patch-link').focus();true");
  await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter'});await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter'});
  assert.equal(await run('__patchClicked'),true,'Enter must activate the patch link');

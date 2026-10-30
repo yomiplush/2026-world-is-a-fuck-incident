@@ -33,8 +33,10 @@ test('both current articles open their own language at the first latest scene',(
  }
 });
 test('scope counts link to their stored research aggregation rather than only KEV',()=>{
- const {CONTENT:c}=load();const latest=JSON.parse(fs.readFileSync('data/latest.json','utf8'));
+ const {CONTENT:c}=load();const frozen='20261029T050117Z-dbf8f2';
+ const record=JSON.parse(fs.readFileSync('data/'+frozen+'/incident-register.json','utf8'));
+ assert.equal(c.scenes.find(s=>s.id==='latest-scope').metric.val,String(record.records.length),'dated scope counts must retain their original snapshot');
  const source=c.scenes.find(s=>s.id==='latest-scope').sources;
- assert.ok(source.some(s=>s.url.endsWith('/data/'+latest.collection_summary)),'scope must cite the frozen NVD/GHSA aggregation');
- assert.ok(source.some(s=>s.url.endsWith('/data/'+latest.impact_register)),'impact count must cite the frozen impact register');
+ assert.ok(source.some(s=>s.url.endsWith('/data/'+frozen+'/collection-summary.json')),'scope must cite the frozen NVD/GHSA aggregation');
+ assert.ok(source.some(s=>s.url.endsWith('/data/'+frozen+'/impact-register.json')),'impact count must cite the frozen impact register');
 });

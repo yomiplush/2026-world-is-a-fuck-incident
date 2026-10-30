@@ -58,10 +58,10 @@ try{
  assert.equal(await run('getComputedStyle(document.getElementById("briefing-preferences")).display!=="none"'),true,'saved choices must be reopenable from settings');
  await run('document.getElementById("privacy-accept").click();true');
  assert.equal(await run('PRIVACY.getChoice()'),true);
- await run('document.getElementById("lang-select").value="sv";document.getElementById("lang-select").dispatchEvent(new Event("change"));true');await pause(180);
- assert.equal(await run('localStorage.getItem("briefing-lang")'),'sv','consent must gate real preference storage');
- await open('/?still=1#1');assert.equal(await run('document.documentElement.lang'),'sv');
- await open('/privacypolicy/');
+ await run('document.getElementById("lang-select").value="ja";document.getElementById("lang-select").dispatchEvent(new Event("change"));true');await pause(180);
+ assert.equal(await run('localStorage.getItem("briefing-lang")'),'ja','consent must gate real preference storage');
+ await open('/?still=1#1');assert.equal(await run('document.documentElement.lang'),'ja');
+ await open('/privacypolicy/?lang=ja');
  assert.equal(await run('PRIVACY.getChoice()'),true,'policy page must share the same consent state');
  assert.ok(await run(`Array.from(document.links).some(a=>a.href==='mailto:contact@yomiplush.dev')`));
  await run('document.getElementById("privacy-settings").click();document.getElementById("privacy-reject").click();true');
@@ -79,7 +79,7 @@ try{
  assert.equal(await run('localStorage.getItem("briefing-lang")'),null,'failed consent persistence must not leave optional values behind');
  await cdp('Page.removeScriptToEvaluateOnNewDocument',{identifier:quota.identifier});
  for(const [width,height] of [[320,568],[390,844],[844,390],[1440,900]]){
-  await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<500});await open('/privacypolicy/');
+  await cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<500});await open('/privacypolicy/?lang=ja');
   await run('document.getElementById("privacy-settings").click();true');
   const size=await run(`({width:document.documentElement.scrollWidth,bottom:document.getElementById('briefing-preferences').getBoundingClientRect().bottom})`);
   assert.ok(size.width<=width+1,'privacy UI must not cause horizontal overflow');assert.ok(size.bottom<=height+1);

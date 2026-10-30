@@ -31,7 +31,19 @@
   let state = bypass ? 'loading' : 'locked', start = null, pending = null;
   let resolveReady;
   const connected = new Promise(resolve => { resolveReady = resolve; });
-  const japanese = (query.get('lang') || navigator.language || '').startsWith('ja');
+  const language = window.BRIEFING_LANGUAGE ? window.BRIEFING_LANGUAGE.resolve() :
+    ((query.get('lang') || navigator.language || '').startsWith('ja') ? 'ja' : 'en');
+  const japanese = language === 'ja';
+  document.documentElement.lang = language;
+  for (const link of document.querySelectorAll('[data-entry-ja]')) {
+    link.textContent = link.getAttribute('data-entry-' + language);
+    const label = link.getAttribute('data-entry-' + language + '-label');
+    if (label) link.setAttribute('aria-label', label);
+    const href = link.getAttribute('data-entry-' + language + '-href');
+    if (href) link.href = href;
+  }
+  const library = document.querySelector('.entry-library');
+  if (library) library.href = language === 'ja' ? '/database?lang=ja' : '/database.en?lang=en';
   button.setAttribute('aria-label', japanese ? '解錠してブリーフィングを開く' : 'Unlock the briefing');
   button.disabled = false;
 

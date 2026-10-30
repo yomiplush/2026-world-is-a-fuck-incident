@@ -2,9 +2,14 @@
 (function () {
   'use strict';
   function readingURL() {
-    var language = navigator.language || '';
+    var language = 'en';
+    var languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+    for (var i = 0; i < languages.length; i++) {
+      var code = String(languages[i]).toLowerCase().split(/[-_]/)[0];
+      if (code === 'ja' || code === 'en') { language = code; break; }
+    }
     var match = (window.location.search || '').match(/[?&]lang=([^&#]*)/);
-    if (match) language = match[1];
+    if (match && /^(ja|en)$/i.test(match[1])) language = match[1].toLowerCase();
     return language.indexOf('ja') === 0 ? '/briefing' : '/briefing.en';
   }
   function essential() {

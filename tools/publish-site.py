@@ -131,12 +131,24 @@ def root_reading(text):
     report=urlsplit(LATEST['site_report']).path
     text=re.sub(r'<nav class="entry-links"[^>]*>.*?</nav>\n?','',text,flags=re.S)
     text=re.sub(r'<a class="entry-(?:latest|impact|motion)"[^>]*>.*?</a>\n?','',text,flags=re.S)
-    link='<a class="entry-latest" href="'+esc(report)+'" aria-label="最新記事 / Latest report '+esc(label)+'">'+esc(label.removesuffix(' JST'))+' 最新記事 ↗</a>'
+    copy=json.loads((ROOT/'content/entry-languages.json').read_text())
+    def entry_link(kind,href,label_key=None):
+        attrs=''
+        for code in ('ja','en'):
+            value=copy[code][kind].replace('{date}',label.removesuffix(' JST'))
+            attrs+=f' data-entry-{code}="{esc(value)}"'
+            if label_key:attrs+=f' data-entry-{code}-label="{esc(copy[code][label_key].replace("{date}",label))}"'
+            target=href
+            if code=='en':
+                if href.startswith('/?lang=ja'):target=href.replace('lang=ja','lang=en',1)
+                else:target=href+'.en'
+            attrs+=f' data-entry-{code}-href="{esc(target)}"'
+        return f'<a class="entry-{kind}" href="{esc(href)}"{attrs}'+(f' aria-label="{esc(copy["ja"][label_key].replace("{date}",label))}"' if label_key else '')+'>'+esc(copy['ja'][kind].replace('{date}',label.removesuffix(' JST')))+'</a>'
+    link=entry_link('latest',report,'latest_label')
     config=ROOT/'content/motion-reviews.json'
     motion=json.loads(config.read_text()).get(report.lstrip('/')+'.html') if config.exists() else None
-    if motion:
-        link+='<a class="entry-motion" href="/?lang=ja#'+str(motion['start'])+'">立体図解 / 3D ↗</a>'
-    link+='<a class="entry-impact" href="/impact" aria-label="現実世界への影響を読む">影響一覧 ↗</a>'
+    if motion:link+=entry_link('motion','/?lang=ja#'+str(motion['start']))
+    link+=entry_link('impact','/impact','impact_label')
     group='<nav class="entry-links" aria-label="最新の調査資料 / Latest research">'+link+'</nav>\n'
     text=re.sub(r'(<a class="entry-library"[^>]*>.*?</a>)\n?',lambda m:m[1]+'\n'+group,text,flags=re.S)
     text=text.replace('<title>'+Info(text).title+'</title>','<title>インシデント・脆弱性と対策 | Infosec Briefing</title>')
@@ -149,6 +161,9 @@ def database_alternates():
     return [(Info(path.read_text()).language,canonical(path)) for path in sorted(SITE.glob('database*.html')) if path.name=='database.html' or path.name.startswith('database.')]
 
 def metadata(file,text):
+    if file.name != 'index.html' or file.parent != SITE:
+        if '/language-preference.js' not in text:
+            text=re.sub(r'(<head\b[^>]*>)',r'\1<script defer src="/language-preference.js"></script>',text,count=1)
     # Public contact information must remain readable without CDN-injected JS.
     # Cloudflare documents these comments as a per-address opt-out.
     text=re.sub(r'<!--email_off-->(.*?)<!--/email_off-->',r'\1',text,flags=re.S)

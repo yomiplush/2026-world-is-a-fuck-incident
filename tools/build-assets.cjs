@@ -23,7 +23,7 @@ const motion=javascript('motion',['data.js','chronology.js','render.js','rig3d.j
  BRIEFING_LOCALE_FILES:JSON.stringify(locales)
 });
 const platform=javascript('platform',['platform.js'],{},'es5');
-const boot=javascript('boot',['browser-ui.js','viewport.js','privacy.js','audio.js','entry.js'],{
+const boot=javascript('boot',['language-preference.js','browser-ui.js','viewport.js','privacy.js','audio.js','entry.js'],{
  BRIEFING_MOTION_FILE:JSON.stringify(motion)
 });
 const cssSource=['style.css','privacy.css','mobile.css','brave.css','publishing.css'].map(read).join('\n');

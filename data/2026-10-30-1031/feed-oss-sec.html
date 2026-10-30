@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Fri, 30 Oct 2026 03:00:04 GMT</pubDate>
+    <lastBuildDate>Fri, 30 Oct 2026 03:00:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>CVE-2026-65874: Apache Fineract: SQL injection via ORDER BY parameters in the Center and datatables endpoints</title>
+    <link>https://seclists.org/oss-sec/2026/q4/441</link>
+    <description>&lt;p&gt;Posted by Terence Monteiro on Oct 29&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Fineract through 1.15.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Fineract versions up to and including 1.15.0. The Center read endpoint (GET /api/v1/centers) &lt;br&gt;
+and the datatable entry read endpoints (GET /api/v1/datatables/{datatable}/{apptableId} and GET &lt;br&gt;
+/api/v1/datatables/{datatable}/{apptableId}/{datatableId}) concatenate caller-supplied ordering parameters (orderBy, &lt;br&gt;
+sortOrder, order)...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 03:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/441</guid>
+  </item>
+  <item>
+    <title>CVE-2026-64618: Apache Fineract: SQL injection vulnerability in Search API</title>
+    <link>https://seclists.org/oss-sec/2026/q4/440</link>
+    <description>&lt;p&gt;Posted by Terence Monteiro on Oct 29&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Fineract through 1.15.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Improper Neutralization of Special Elements used in an SQL Command (&amp;quot;SQL Injection&amp;quot;) vulnerability exists in Apache &lt;br&gt;
+Fineract (through version 1.15.0). The vulnerability affects the outStandingAmountPercentageCondition parameter of the &lt;br&gt;
+/fineract-provider/api/v1/search/advance HTTP API endpoint, allowing SQL injection due to insufficient input...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 02:58:06 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/440</guid>
+  </item>
+  <item>
+    <title>CVE-2026-115943: Spreadsheet::XLSX versions before 0.19 for Perl allow code execution via string eval of number format conditions in ExcelFmt</title>
+    <link>https://seclists.org/oss-sec/2026/q4/439</link>
+    <description>&lt;p&gt;Posted by Stig Palmquist on Oct 29&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-115943                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+        CVE ID:  CVE-2026-115943&lt;br&gt;
+&lt;br&gt;
+  Distribution:  Spreadsheet-XLSX&lt;br&gt;
+      Versions:  before 0.19&lt;br&gt;
+      MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Spreadsheet-XLSX&quot;&gt;https://metacpan.org/dist/Spreadsheet-XLSX&lt;/a&gt;&lt;br&gt;
+      VCS Repo:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/asb-capfan/Spreadsheet-XLSX&quot;&gt;https://github.com/asb-capfan/Spreadsheet-XLSX&lt;/a&gt;...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 00:30:35 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/439</guid>
+  </item>
+  <item>
+    <title>Multiple vulnerabilities in Suricata before 8.0.8</title>
+    <link>https://seclists.org/oss-sec/2026/q4/438</link>
+    <description>&lt;p&gt;Posted by Victor Julien on Oct 29&lt;/p&gt;Suricata 8.0.8 was released addressing a number of vulnerabilities.&lt;br&gt;
+&lt;br&gt;
+- HIGH: tftp: unbounded transaction retention can cause CPU exhaustion&lt;br&gt;
+   (Issue #9085)&lt;br&gt;
+&lt;br&gt;
+- HIGH: sip: quadratic complexity in TCP header processing (Issue #9101)&lt;br&gt;
+&lt;br&gt;
+- HIGH: http2: brotli decoders across many streams can exhaust memory&lt;br&gt;
+   (Issue #9104)&lt;br&gt;
+&lt;br&gt;
+- HIGH: doh2: xbits track-tx type confusion can crash Suricata (Issue&lt;br&gt;
+   #9133)&lt;br&gt;
+&lt;br&gt;
+- HIGH: http2: header inspection buffer can...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 00:28:43 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/438</guid>
+  </item>
+  <item>
+    <title>Fwd: Protecting against CVE-2026-98432 when using Go programs</title>
+    <link>https://seclists.org/oss-sec/2026/q4/437</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 29&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [security] Protecting against CVE-2026-98432&lt;br&gt;
+Date:   Thu, 29 Oct 2026 16:34:28 -0700 (PDT)&lt;br&gt;
+From:   Neal Patel &amp;lt;neal () golang org&amp;gt;&lt;br&gt;
+To:     golang-announce &amp;lt;golang-announce () googlegroups com&amp;gt;&lt;br&gt;
+&lt;br&gt;
+Hi Gophers,&lt;br&gt;
+&lt;br&gt;
+The recent disclosure of CVE-2026-98432 &lt;br&gt;
+&amp;lt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://nvd.nist.gov/vuln/detail/cve-2026-98432&quot;&gt;https://nvd.nist.gov/vuln/detail/cve-2026-98432&lt;/a&gt;&amp;gt; describes a use-after-free &lt;br&gt;
+issue which impacts IPv4 TCP connection handling in...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 00:23:38 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/437</guid>
+  </item>
+
+
+  <item>
+    <title>CPython [CVE-2026-116566] socket.getaddrinfo() accepts embedded null bytes in host and port</title>
+    <link>https://seclists.org/oss-sec/2026/q4/436</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 29&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [Security-announce][CVE-2026-116566] socket.getaddrinfo() accepts &lt;br&gt;
+embedded null bytes in host and port&lt;br&gt;
+Date:   Thu, 29 Oct 2026 17:46:30 +0000&lt;br&gt;
+From:   Seth Larson &amp;lt;seth () python org&amp;gt;&lt;br&gt;
+Reply-To:       security-sig () python org&lt;br&gt;
+To:     security-announce () python org&lt;br&gt;
+&lt;br&gt;
+There is a MEDIUM severity vulnerability affecting CPython.&lt;br&gt;
+&lt;br&gt;
+socket.getaddrinfo() previously accepted null bytes within...&lt;br&gt;</description>
+    <pubDate>Thu, 29 Oct 2026 17:58:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/436</guid>
+  </item>
+  <item>
+    <title>CVE-2025-60482: GPAC/MP4Box: Heap Use-After-Free in AC-4 Descriptor Cleanup</title>
+    <link>https://seclists.org/oss-sec/2026/q4/435</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Oct 29&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  2.5-DEV-rev1593-gfe88c3545-master (confirmed)&lt;br&gt;
+           Commit fe88c3545aadd597b250ccf23271d5d3de50ccc8&lt;br&gt;
+Fixed:     e02d1fd24cdc26acb1b236ab38b3832cffcae21b (upstream commit)&lt;br&gt;
+CVE:       CVE-2025-60482&lt;br&gt;
+CWE:       CWE-416 (Use After Free)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H;&lt;br&gt;
+           CISA ADP assessment in the CVE record)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:...&lt;br&gt;</description>
+    <pubDate>Thu, 29 Oct 2026 16:57:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/435</guid>
+  </item>
+  <item>
+    <title>[OSSA-2026-050] OpenStack keystonemiddleware: access_rules bypass via X-Service-Token (CVE-2026-115642)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/434</link>
+    <description>&lt;p&gt;Posted by Jeremy Stanley on Oct 29&lt;/p&gt;=========================================================================&lt;br&gt;
+OSSA-2026-050: keystonemiddleware access_rules bypass via X-Service-Token&lt;br&gt;
+=========================================================================&lt;br&gt;
+&lt;br&gt;
+:Date: October 29, 2026&lt;br&gt;
+:CVE: CVE-2026-115642&lt;br&gt;
+&lt;br&gt;
+Affects&lt;br&gt;
+~~~~~~~&lt;br&gt;
+- Keystonemiddleware: &lt;br&gt;
+   &amp;lt;10.9.2, &amp;gt;=10.10.0 &amp;lt;10.12.2, &amp;gt;=11.0.0 &amp;lt;12.0.1, &amp;gt;=13.0.0 &amp;lt;13.0.2&lt;br&gt;
+&lt;br&gt;
+Description&lt;br&gt;
+~~~~~~~~~~~&lt;br&gt;
+Nassim Abbaoui with OVHcloud...&lt;br&gt;</description>
+    <pubDate>Thu, 29 Oct 2026 14:56:11 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/434</guid>
+  </item>
+  <item>
+    <title>[OSSA-2026-049] Ironic: Conductor DoS via gzip bomb configdrive (CVE-2026-115638)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/433</link>
+    <description>&lt;p&gt;Posted by Jay Faulkner on Oct 29&lt;/p&gt;=============================================================&lt;br&gt;
+OSSA-2026-049: Ironic Conductor DoS via gzip bomb configdrive&lt;br&gt;
+=============================================================&lt;br&gt;
+&lt;br&gt;
+:Date: October 29, 2026&lt;br&gt;
+:CVE: CVE-2026-115638&lt;br&gt;
+&lt;br&gt;
+Affects&lt;br&gt;
+~~~~~~~&lt;br&gt;
+- Ironic: &amp;gt;=16.2.0 &amp;lt;29.1.1, &amp;gt;=30.0.0 &amp;lt;32.1.1, &amp;gt;=33.0.0 &amp;lt;35.1.1, &amp;gt;=36.0.0 &lt;br&gt;
+&amp;lt;39.0.1&lt;br&gt;
+&lt;br&gt;
+Description&lt;br&gt;
+~~~~~~~~~~~&lt;br&gt;
+Jay Faulkner of G-Research Open Source Software reported a...&lt;br&gt;</description>
+    <pubDate>Thu, 29 Oct 2026 14:49:43 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/433</guid>
+  </item>
+
+
+  <item>
+    <title>CVE-2026-115942: Apache Qpid Proton C: Verifying non compliant TLS wildcard cert can cause stack buffer overflow read</title>
+    <link>https://seclists.org/oss-sec/2026/q4/432</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+A misconfigured wildcard TLS certificate causes a stack read overflow.&lt;br&gt;
+&lt;br&gt;
+This issue does not affect any wildcard certificate issued to the RFC9525 standard - the fix only accepts certificates &lt;br&gt;
+that comply to this standard.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Qpid Proton C: through 0.40.0.&lt;br&gt;
+&lt;br&gt;
+Users are recommended to upgrade to version 0.41.1, which fixes the issue.&lt;br&gt;
+&lt;br&gt;
+This...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:47:46 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/432</guid>
+  </item>
+  <item>
+    <title>CVE-2026-114230: Apache Qpid Proton C: Potential authentication bypass: regular AMQP frames can be sent as SASL frames</title>
+    <link>https://seclists.org/oss-sec/2026/q4/431</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When dispatching SASL frames to authenticate the peer, Proton will also dispatch AMQP frames if they claim to be SASL &lt;br&gt;
+frames. This allows authentication bypass. However there will be no user name set so the effects depend on how the &lt;br&gt;
+application deals with this condition - which otherwise means that authentication has not completed yet.&lt;br&gt;
+&lt;br&gt;
+This issue...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:46:00 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/431</guid>
+  </item>
+  <item>
+    <title>CVE-2026-105042: Apache Qpid Proton C: Unbounded recursion in parsing AMQP message bodies can lead to crash</title>
+    <link>https://seclists.org/oss-sec/2026/q4/430</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+A message body that is deeply nested and decoded by pn_message_body() could overflow the stack and cause a crash.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Qpid Proton C: through 0.40.0.&lt;br&gt;
+&lt;br&gt;
+Users are recommended to upgrade to version 0.41.1, which fixes the issue.&lt;br&gt;
+&lt;br&gt;
+This issue is being tracked as PROTON-2976 &lt;br&gt;
+&lt;br&gt;
+Credit:&lt;br&gt;
+&lt;br&gt;
+zhangph () yandex com (finder)&lt;br&gt;
+Gjoko Krstic...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:44:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/430</guid>
+  </item>
+  <item>
+    <title>CVE-2026-105031: Apache Qpid Proton C: The OpenSSL TLS implementation adds a locally trusted certificate authority to the existing trusted system trust anchors.</title>
+    <link>https://seclists.org/oss-sec/2026/q4/429</link>
+    <description>&lt;p&gt;Posted by Andrew Stitcher on Oct 28&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Qpid Proton C through 0.40.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When using the OpenSSL TLS implementation, both the pn_ssl_domain_set_trusted_ca_db() &amp;amp; &lt;br&gt;
+pn_tls_config_set_trusted_certs() APIs added to rather than replaced the default system trust anchors. Leading to &lt;br&gt;
+potentially trusting unexpected peer certificates.&lt;br&gt;
+&lt;br&gt;
+This can be worked around by setting the SSL_CERT_FILE environment variable for the...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 20:42:21 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/429</guid>
+  </item>
+  <item>
+    <title>MIME-tools versions before 5.521 for Perl (10 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/428</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 28&lt;/p&gt;CVE-2026-116264&lt;br&gt;
+   MIME::Field::ParamVal versions before 5.521 for Perl allow one&lt;br&gt;
+   invalid Content-Type parameter to hide the parameters after it,&lt;br&gt;
+   including the multipart boundary&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116265&lt;br&gt;
+   MIME::Field::ParamVal versions before 5.521 for Perl do not flag an&lt;br&gt;
+   ambiguous multipart boundary written as RFC 2231 continuations&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116266&lt;br&gt;
+   MIME::Head versions from 5.518 before 5.521 for Perl decode a partly&lt;br&gt;
+   encoded...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 18:21:16 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/428</guid>
+  </item>
+  <item>
+    <title>HTTP::Body versions before 1.24_01 for Perl (9 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/427</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 28&lt;/p&gt;CVE-2026-116131&lt;br&gt;
+   HTTP::Body versions before 1.23_01 for Perl allow memory and&lt;br&gt;
+   temporary file exhaustion via an unlimited number of form fields and&lt;br&gt;
+   multipart parts&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116132&lt;br&gt;
+   HTTP::Body versions before 1.23_01 for Perl leave the temporary file&lt;br&gt;
+   of an incomplete multipart upload on disk&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116133&lt;br&gt;
+   HTTP::Body versions before 1.23_01 for Perl allow CPU exhaustion via&lt;br&gt;
+   quadratic rescanning of a multipart body with...&lt;br&gt;</description>
+    <pubDate>Wed, 28 Oct 2026 18:18:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/427</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

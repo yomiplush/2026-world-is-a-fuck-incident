@@ -1,28 +1,28 @@
 {
-  "cutoff": "2026-10-29T05:01:25Z",
-  "cutoff_jst": "2026-10-29T14:01:25+09:00",
+  "cutoff": "2026-10-30T10:31:35Z",
+  "cutoff_jst": "2026-10-30T19:31:35+09:00",
   "counts": {
-    "nvd_published": 772,
-    "nvd_modified": 2182,
-    "published_modified_overlap": 772,
-    "ghsa": 782,
-    "ghsa_unreviewed": 671,
-    "ghsa_reviewed": 92,
-    "ghsa_malware": 19,
-    "ghsa_modified": 1136,
-    "ghsa_published_modified_overlap": 782,
-    "ghsa_current_published_overlap": 701,
-    "ghsa_previous_published_overlap": 11,
-    "record_topic_groups": 116,
-    "delta_topic_groups": 48,
-    "scope_complement_topic_groups": 67,
+    "nvd_published": 703,
+    "nvd_modified": 1970,
+    "published_modified_overlap": 703,
+    "ghsa": 711,
+    "ghsa_unreviewed": 640,
+    "ghsa_reviewed": 25,
+    "ghsa_malware": 46,
+    "ghsa_modified": 1042,
+    "ghsa_published_modified_overlap": 711,
+    "ghsa_current_published_overlap": 628,
+    "ghsa_previous_published_overlap": 14,
+    "record_topic_groups": 135,
+    "delta_topic_groups": 21,
+    "scope_complement_topic_groups": 113,
     "reference_only_topic_groups": 1,
-    "verified_response_records": 70,
-    "deduplicated_previous_references": 21
+    "verified_response_records": 67,
+    "deduplicated_previous_references": 17
   },
   "caveats": [
-    "基準は2026-10-29 14:01:25 JST。前回2026-10-28 13:18:44 JSTからの窓を全件取得。原本は基準後の現行改訂で、過去の全ての版を復元しない。",
-    "前回の論点とIDを保持。既存事案の欄は記載された資料日付の文脈であり、今回の新規事件ではない。主要事件以外の本文は今回の全面再精査をしていない。",
+    "基準は2026-10-30 19:31:35 JST。前回2026-10-29 14:01:25 JSTからの固定窓。原本は基準後の現行改訂で、過去の全版を復元しない。",
+    "前回の論点とIDを保持。前回資料の文脈を保持した本文は今回の全面再精査をしていない。",
     "公開・改訂・CVE・GHSA・package・被害人数を合算しない。未評価のNVD記録も取得し、unreviewedを確認済み被害に自動変換しない。",
     "取得失敗、空のJavaScript画面、アクセス制限は成功した本文に含めない。世界全体の完全網羅や未掲載事案の不存在は主張しない。",
     "研究者の観測、被害組織の確認、悪用確認、復旧予定と完了を区別する。未知の損害額・対象版・人数を推計しない。"
@@ -30,26 +30,26 @@
   "records": [
     {
       "id": "gmo-domain-stop",
-      "title": "GMO：第15報は有力情報の精査、復旧・逮捕の確認ではない",
-      "body": "10月29日12:40の第15報で、犯人の特定に関する有力情報が寄せられ精査中と公表。11:30時点の情報提供270件は被害者数ではない。第14報の拡散防止対応を継続。犯人サイトの停止、情報の全回収、サービス復旧、逮捕は別の状態である。",
-      "action": "犯人サイトや流出物へアクセスせず、公式の個別連絡・代替環境・補償条件を確認する。認証情報や手数料を求める便乗連絡に応じない。",
+      "title": "GMO：お見舞金・代替サービスの個別連絡開始、情報提供428件",
+      "body": "10月30日15:30、お見舞金の受取手続きと代替サービスについて契約者への直接連絡を開始したと公表。第16報の同日18:00時点で情報提供は累計428件。これは被害者数や逮捕件数ではなく、支払完了・サービス復旧も未確認。",
+      "action": "公式の個別連絡で手続き・代替環境・補償条件を確認する。便乗した認証情報・手数料要求に応じない。",
       "sources": [
         {
-          "name": "GMO notice 15",
-          "url": "https://group.gmo/info/alert/20261029/"
+          "name": "GMO 10/30 customer notice",
+          "url": "https://group.gmo/info/alert/20261030/"
         },
         {
-          "name": "GMO notice 14",
-          "url": "https://group.gmo/info/alert/2026102802/"
+          "name": "GMO notice16",
+          "url": "https://group.gmo/info/alert/2026102902/"
         }
       ],
       "kind": "delta",
-      "time": "10/29 12:40 JST 第15報",
+      "time": "10/30 15:30・18:00 JST",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "date": "2026-10-29",
+      "date": "2026-10-30",
       "monitoring_status": "updated",
-      "last_editorial_review": "2026-10-28T04:18:44Z"
+      "last_editorial_review": "2026-10-30T10:31:35Z"
     },
     {
       "id": "atlink-beta",
@@ -67,18 +67,18 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/28 12:30 JST更新",
+      "time": "10/28 12:30 JST更新 / 今回再確認・新しい資料日付なし",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
       "monitoring_status": "rechecked-no-material-update",
-      "last_editorial_review": "2026-10-29T05:01:25Z"
+      "last_editorial_review": "2026-10-30T10:31:35Z"
     },
     {
       "id": "railway-signups",
-      "title": "Railway：新規登録は停止継続、次回報告予定は基準後",
-      "body": "10月27日15:19 UTCのstatus更新でも新規登録停止は継続、再開日は未定。既存deployの継続と、build・dashboard等の障害を分ける。約100,000workspaces・最大1.85%は環境変数の潜在影響範囲で確定漏えい人数ではない。",
-      "action": "旧secretを発行元で失効・再発行し監査する。次回10月28日16:00 UTCの予定を、今回基準時点の復旧実績として扱わない。",
+      "title": "Railway：10月29日更新も新規登録停止、再開日未定",
+      "body": "10月29日15:45 UTCのstatus更新でも新規登録停止が継続し、再開日は未定。既存顧客の信頼性確保を優先すると説明。約100,000workspaces・最大1.85%は環境変数の潜在影響範囲で、確定漏えい人数ではない。",
+      "action": "旧secretを発行元で失効・再発行し監査する。次回10月30日16:00 UTCの予定を今回基準時点の復旧実績として扱わない。",
       "sources": [
         {
           "name": "Railway status",
@@ -89,13 +89,13 @@
           "url": "https://blog.railway.com/p/preliminary-report-october-security-incident"
         }
       ],
-      "kind": "scope-complement",
-      "time": "10/28 00:19 JST status",
+      "kind": "delta",
+      "time": "10/30 00:45 JST status",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "date": "2026-10-28",
-      "monitoring_status": "rechecked-no-material-update",
-      "last_editorial_review": "2026-10-29T05:01:25Z"
+      "date": "2026-10-30",
+      "monitoring_status": "updated",
+      "last_editorial_review": "2026-10-30T10:31:35Z"
     },
     {
       "id": "studio-reporting",
@@ -109,12 +109,12 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/28 00:30 JST更新",
+      "time": "10/28 00:30 JST更新 / 今回再確認・新しい資料日付なし",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
       "monitoring_status": "rechecked-no-material-update",
-      "last_editorial_review": "2026-10-29T05:01:25Z"
+      "last_editorial_review": "2026-10-30T10:31:35Z"
     },
     {
       "id": "kev-brotli-commerce",
@@ -140,7 +140,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/28 04:00:02 JST catalog release / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/28 04:00:02 JST catalog release / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-111497",
         "CVE-2026-48356"
@@ -166,7 +166,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/25修正 / 10/26 Functions案内の継続確認 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/25修正 / 10/26 Functions案内の継続確認 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-111497"
       ],
@@ -187,7 +187,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "前回基準後の公式続報 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "前回基準後の公式続報 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-109618",
         "CVE-2026-109619"
@@ -209,7 +209,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/27公式改訂の現行表 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/27公式改訂の現行表 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-109618",
         "CVE-2026-109619"
@@ -239,7 +239,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/27公表 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/27公表 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-112709",
         "CVE-2026-112710",
@@ -270,7 +270,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/27公開 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/27公開 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -289,7 +289,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/27勧告 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/27勧告 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-104349"
       ],
@@ -318,7 +318,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:26:32Z 〜 2026-10-27T21:26:56Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:26:32Z 〜 2026-10-27T21:26:56Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116690",
         "CVE-2026-116691",
@@ -397,7 +397,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:07:25Z 〜 2026-10-27T21:07:25Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:07:25Z 〜 2026-10-27T21:07:25Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116693"
       ],
@@ -447,7 +447,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:07:12Z 〜 2026-10-27T21:07:12Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:07:12Z 〜 2026-10-27T21:07:12Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116675"
       ],
@@ -541,7 +541,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:05:29Z 〜 2026-10-27T21:06:59Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:05:29Z 〜 2026-10-27T21:06:59Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116684",
         "CVE-2026-116685",
@@ -647,7 +647,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:06:54Z 〜 2026-10-27T21:06:54Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:06:54Z 〜 2026-10-27T21:06:54Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116694"
       ],
@@ -692,7 +692,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:05:06Z 〜 2026-10-27T21:05:13Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:05:06Z 〜 2026-10-27T21:05:13Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116687",
         "CVE-2026-116688"
@@ -806,7 +806,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:04:57Z 〜 2026-10-27T21:04:57Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:04:57Z 〜 2026-10-27T21:04:57Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116679"
       ],
@@ -847,7 +847,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:04:50Z 〜 2026-10-27T21:04:50Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:04:50Z 〜 2026-10-27T21:04:50Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116676"
       ],
@@ -888,7 +888,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T21:04:40Z 〜 2026-10-27T21:04:40Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T21:04:40Z 〜 2026-10-27T21:04:40Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116682"
       ],
@@ -949,7 +949,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T16:09:45Z 〜 2026-10-27T19:02:31Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T16:09:45Z 〜 2026-10-27T19:02:31Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-109829",
         "CVE-2026-109383",
@@ -1157,7 +1157,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T19:02:00Z 〜 2026-10-27T19:02:00Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T19:02:00Z 〜 2026-10-27T19:02:00Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -1227,7 +1227,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T19:01:39Z 〜 2026-10-27T19:01:50Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T19:01:39Z 〜 2026-10-27T19:01:50Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-109413",
         "CVE-2026-108082"
@@ -1413,7 +1413,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T19:01:30Z 〜 2026-10-27T19:01:30Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T19:01:30Z 〜 2026-10-27T19:01:30Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116587"
       ],
@@ -1463,7 +1463,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T19:00:50Z 〜 2026-10-27T19:00:50Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T19:00:50Z 〜 2026-10-27T19:00:50Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116683"
       ],
@@ -1513,7 +1513,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T17:08:41Z 〜 2026-10-27T17:08:41Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T17:08:41Z 〜 2026-10-27T17:08:41Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -1561,7 +1561,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T16:10:55Z 〜 2026-10-27T16:10:55Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T16:10:55Z 〜 2026-10-27T16:10:55Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-110816"
       ],
@@ -1630,7 +1630,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:50:18Z 〜 2026-10-27T16:09:22Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:50:18Z 〜 2026-10-27T16:09:22Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114616",
         "CVE-2026-114620",
@@ -1816,7 +1816,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T16:08:36Z 〜 2026-10-27T16:08:59Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T16:08:36Z 〜 2026-10-27T16:08:59Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -1957,7 +1957,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:38:22Z 〜 2026-10-27T15:38:39Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:38:22Z 〜 2026-10-27T15:38:39Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-108360",
         "CVE-2026-108359",
@@ -2172,7 +2172,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:38:14Z 〜 2026-10-27T15:38:14Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:38:14Z 〜 2026-10-27T15:38:14Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116591"
       ],
@@ -2213,7 +2213,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:37:37Z 〜 2026-10-27T15:37:37Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:37:37Z 〜 2026-10-27T15:37:37Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114605"
       ],
@@ -2258,7 +2258,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:37:24Z 〜 2026-10-27T15:37:31Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:37:24Z 〜 2026-10-27T15:37:31Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-116588",
         "CVE-2026-116589"
@@ -2327,7 +2327,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:36:35Z 〜 2026-10-27T15:36:35Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:36:35Z 〜 2026-10-27T15:36:35Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-106435"
       ],
@@ -2372,7 +2372,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:45:53Z 〜 2026-10-27T15:36:17Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:45:53Z 〜 2026-10-27T15:36:17Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114053",
         "CVE-2026-94624"
@@ -2436,7 +2436,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:34:28Z 〜 2026-10-27T15:34:33Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:34:28Z 〜 2026-10-27T15:34:33Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -2501,7 +2501,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:33:22Z 〜 2026-10-27T15:33:42Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:33:22Z 〜 2026-10-27T15:33:42Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-93451",
         "CVE-2026-116590",
@@ -2580,7 +2580,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:32:45Z 〜 2026-10-27T15:32:45Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:32:45Z 〜 2026-10-27T15:32:45Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114510"
       ],
@@ -2629,7 +2629,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:04:14Z 〜 2026-10-27T15:32:36Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:04:14Z 〜 2026-10-27T15:32:36Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114612"
       ],
@@ -2754,7 +2754,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:49:53Z 〜 2026-10-27T15:32:25Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:49:53Z 〜 2026-10-27T15:32:25Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114607"
       ],
@@ -2887,7 +2887,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:26:24Z 〜 2026-10-27T15:28:03Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:26:24Z 〜 2026-10-27T15:28:03Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -3024,7 +3024,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:04:33Z 〜 2026-10-27T15:04:39Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:04:33Z 〜 2026-10-27T15:04:39Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -3099,7 +3099,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T15:04:07Z 〜 2026-10-27T15:04:07Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T15:04:07Z 〜 2026-10-27T15:04:07Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114613"
       ],
@@ -3140,7 +3140,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:50:30Z 〜 2026-10-27T14:50:30Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:50:30Z 〜 2026-10-27T14:50:30Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -3179,7 +3179,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:46:51Z 〜 2026-10-27T14:46:51Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:46:51Z 〜 2026-10-27T14:46:51Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114608"
       ],
@@ -3220,7 +3220,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:46:43Z 〜 2026-10-27T14:46:43Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:46:43Z 〜 2026-10-27T14:46:43Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-94545"
       ],
@@ -3261,7 +3261,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:45:36Z 〜 2026-10-27T14:45:36Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:45:36Z 〜 2026-10-27T14:45:36Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-115924"
       ],
@@ -3302,7 +3302,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:45:29Z 〜 2026-10-27T14:45:29Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:45:29Z 〜 2026-10-27T14:45:29Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-83813"
       ],
@@ -3343,7 +3343,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:44:19Z 〜 2026-10-27T14:44:19Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:44:19Z 〜 2026-10-27T14:44:19Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-103288"
       ],
@@ -3384,7 +3384,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:43:57Z 〜 2026-10-27T14:43:57Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:43:57Z 〜 2026-10-27T14:43:57Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-60083"
       ],
@@ -3429,7 +3429,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:43:16Z 〜 2026-10-27T14:43:19Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:43:16Z 〜 2026-10-27T14:43:19Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114610",
         "CVE-2026-114609"
@@ -3489,7 +3489,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T14:27:53Z 〜 2026-10-27T14:27:53Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T14:27:53Z 〜 2026-10-27T14:27:53Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-102554"
       ],
@@ -3530,7 +3530,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T13:30:41Z 〜 2026-10-27T13:30:41Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T13:30:41Z 〜 2026-10-27T13:30:41Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-35002"
       ],
@@ -3571,7 +3571,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T13:30:17Z 〜 2026-10-27T13:30:17Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T13:30:17Z 〜 2026-10-27T13:30:17Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-49272"
       ],
@@ -3612,7 +3612,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T13:30:10Z 〜 2026-10-27T13:30:10Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T13:30:10Z 〜 2026-10-27T13:30:10Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-48705"
       ],
@@ -3653,7 +3653,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T13:29:57Z 〜 2026-10-27T13:29:57Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T13:29:57Z 〜 2026-10-27T13:29:57Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-46350"
       ],
@@ -3694,7 +3694,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T13:29:47Z 〜 2026-10-27T13:29:47Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T13:29:47Z 〜 2026-10-27T13:29:47Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-34157"
       ],
@@ -3735,7 +3735,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T13:29:25Z 〜 2026-10-27T13:29:25Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T13:29:25Z 〜 2026-10-27T13:29:25Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-33944"
       ],
@@ -3776,7 +3776,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "GHSA公開：2026-10-27T13:27:58Z 〜 2026-10-27T13:27:58Z / 前回の文脈・今回の本文再精査は未実施",
+      "time": "GHSA公開：2026-10-27T13:27:58Z 〜 2026-10-27T13:27:58Z / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-27975"
       ],
@@ -3817,7 +3817,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/27 23:30 JST更新 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/27 23:30 JST更新 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -3844,7 +3844,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/26付bulletin / 10/27tagの継続確認 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/26付bulletin / 10/27tagの継続確認 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -3863,7 +3863,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/27 23:45 JST改訂 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/27 23:45 JST改訂 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-90975"
       ],
@@ -3888,7 +3888,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/27公式更新 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/27公式更新 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -3911,7 +3911,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "10/21事件 / 10/23分析の継続対応 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "10/21事件 / 10/23分析の継続対応 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
@@ -4585,7 +4585,7 @@
         }
       ],
       "kind": "scope-complement",
-      "time": "今回のGHSA公開窓 / malware分類 / 前回の文脈・今回の本文再精査は未実施",
+      "time": "今回のGHSA公開窓 / malware分類 / 前回の文脈・今回の本文再精査は未実施 / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
       "cve_ids": [],
@@ -4607,11 +4607,12 @@
         "CVE-2026-46300",
         "CVE-2026-41709"
       ],
-      "kind": "delta",
-      "time": "2026-10-29 / review",
+      "kind": "scope-complement",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "php-kernel-identity",
@@ -4634,10 +4635,11 @@
         "CVE-2026-46300"
       ],
       "kind": "scope-complement",
-      "time": "2026-10-29 / review",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-26",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "sonet-disclosure",
@@ -4652,10 +4654,11 @@
       ],
       "cve_ids": [],
       "kind": "scope-complement",
-      "time": "2026-10-29 / review",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-27",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "unm-recovery",
@@ -4669,11 +4672,12 @@
         }
       ],
       "cve_ids": [],
-      "kind": "delta",
-      "time": "2026-10-29 / review",
+      "kind": "scope-complement",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "silent-train",
@@ -4688,10 +4692,11 @@
       ],
       "cve_ids": [],
       "kind": "reference-only",
-      "time": "2026-10-28 / publication time unconfirmed",
+      "time": "2026-10-28 / publication time unconfirmed / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "yamaha-nwr100",
@@ -4708,11 +4713,12 @@
         "CVE-2026-97854",
         "CVE-2026-109822"
       ],
-      "kind": "delta",
-      "time": "2026-10-29 / review",
+      "kind": "scope-complement",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "yamaha-windows",
@@ -4733,11 +4739,12 @@
         "CVE-2026-103665",
         "CVE-2026-97860"
       ],
-      "kind": "delta",
-      "time": "2026-10-29 / review",
+      "kind": "scope-complement",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-28",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "struts-anysetter",
@@ -4751,11 +4758,12 @@
         }
       ],
       "cve_ids": [],
-      "kind": "delta",
-      "time": "2026-10-29 / review",
+      "kind": "scope-complement",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "edk2-pxe",
@@ -4772,10 +4780,11 @@
         "CVE-2026-97631"
       ],
       "kind": "scope-complement",
-      "time": "2026-10-29 / review",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-22",
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-tornado",
@@ -4793,11 +4802,11 @@
         "CVE-2026-116578",
         "CVE-2026-116577"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-r4j5-9xpp-3985",
@@ -4856,7 +4865,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-crass",
@@ -4872,11 +4882,11 @@
       "cve_ids": [
         "CVE-2026-116695"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-pq4g-8rxf-4g29",
@@ -4897,7 +4907,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-systeminformation",
@@ -4915,11 +4926,11 @@
         "CVE-2026-116673",
         "CVE-2026-116674"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-3f7j-7jwc-fxfj",
@@ -4978,7 +4989,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-backstage-plugin-catalog-backend",
@@ -4994,11 +5006,11 @@
       "cve_ids": [
         "CVE-2026-115923"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-w658-mh9p-ww8f",
@@ -5028,7 +5040,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-electrum",
@@ -5044,11 +5057,11 @@
       "cve_ids": [
         "CVE-2026-117601"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-6jp4-8v48-cc5v",
@@ -5069,7 +5082,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-knative-dev-pkg",
@@ -5083,11 +5097,11 @@
         }
       ],
       "cve_ids": [],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-2hw4-c9m4-f2fj",
@@ -5108,7 +5122,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-waline-vercel",
@@ -5122,11 +5137,11 @@
         }
       ],
       "cve_ids": [],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-jf75-q64q-g65r",
@@ -5147,7 +5162,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-seroval",
@@ -5167,11 +5183,11 @@
         "CVE-2026-116584",
         "CVE-2026-116580"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-f86p-h4j2-7qgj",
@@ -5277,7 +5293,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-mem0ai",
@@ -5293,11 +5310,11 @@
       "cve_ids": [
         "CVE-2026-116575"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-5324-3w58-qpp2",
@@ -5327,7 +5344,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-social-auth-core",
@@ -5343,11 +5361,11 @@
       "cve_ids": [
         "CVE-2026-115910"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-h2r5-x5m7-3935",
@@ -5368,7 +5386,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-onnx",
@@ -5387,11 +5406,11 @@
         "CVE-2026-115921",
         "CVE-2026-115919"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-6pwm-x34p-fvj2",
@@ -5469,7 +5488,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-vllm",
@@ -5492,11 +5512,11 @@
         "CVE-2026-115918",
         "CVE-2026-115911"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-vvpg-rrww-wpmh",
@@ -5650,7 +5670,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-wasmtime",
@@ -5666,11 +5687,11 @@
       "cve_ids": [
         "CVE-2026-115893"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-mghf-wjfp-p5xm",
@@ -5709,7 +5730,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-github-com-go-jose-go-jose-v4",
@@ -5726,11 +5748,11 @@
         "CVE-2026-116586",
         "CVE-2026-116585"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-vvm8-gf78-28g4",
@@ -5788,7 +5810,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-langgraph-cli",
@@ -5804,11 +5827,11 @@
       "cve_ids": [
         "CVE-2026-115885"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-8prr-f582-jqq3",
@@ -5829,7 +5852,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-graphql-scalars",
@@ -5845,11 +5869,11 @@
       "cve_ids": [
         "CVE-2026-115887"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-x8rm-f576-gq67",
@@ -5870,7 +5894,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-autobahn",
@@ -5886,11 +5911,11 @@
       "cve_ids": [
         "CVE-2026-116579"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-pjh6-c8mg-3x7m",
@@ -5911,7 +5936,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-i18next-http-backend",
@@ -5928,11 +5954,11 @@
         "CVE-2026-118258",
         "CVE-2026-115730"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-3cmx-xjww-583x",
@@ -5972,7 +5998,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-re2js",
@@ -5988,11 +6015,11 @@
       "cve_ids": [
         "CVE-2026-116795"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-gg6h-894w-4m9c",
@@ -6013,7 +6040,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-zip",
@@ -6029,11 +6057,11 @@
       "cve_ids": [
         "CVE-2026-115905"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-m665-v7pm-7grj",
@@ -6054,7 +6082,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-langgraph-api",
@@ -6070,11 +6099,11 @@
       "cve_ids": [
         "CVE-2026-118668"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-4hm6-w6qq-w73v",
@@ -6095,7 +6124,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-filelock",
@@ -6122,11 +6152,11 @@
         "CVE-2026-112934",
         "CVE-2026-112935"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-wfhq-q4j2-c37m",
@@ -6356,7 +6386,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-io-opentelemetry-opentelemetry-api",
@@ -6372,11 +6403,11 @@
       "cve_ids": [
         "CVE-2026-118259"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-ccrj-gw8r-854m",
@@ -6397,7 +6428,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-happy-dom",
@@ -6414,11 +6446,11 @@
         "CVE-2026-118660",
         "CVE-2026-118661"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-c8p4-j97h-3vg8",
@@ -6458,7 +6490,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-vue-i18n",
@@ -6475,11 +6508,11 @@
         "CVE-2026-118256",
         "CVE-2026-118257"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-8rc2-428q-7ww3",
@@ -6807,7 +6840,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-langgraph-sdk",
@@ -6823,11 +6857,11 @@
       "cve_ids": [
         "CVE-2026-118667"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-3fx2-cqw9-xr3c",
@@ -6857,7 +6891,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-graphql-tools-executor-legacy-ws",
@@ -6874,11 +6909,11 @@
         "CVE-2026-118665",
         "CVE-2026-118666"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-434m-5hcj-pxf3",
@@ -6918,7 +6953,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-hono-node-server",
@@ -6934,11 +6970,11 @@
       "cve_ids": [
         "CVE-2026-118663"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-rmxm-3fg6-px4f",
@@ -6959,7 +6995,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-github-com-labstack-echo-v5",
@@ -6984,11 +7021,11 @@
         "CVE-2026-118266",
         "CVE-2026-118651"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-2ffq-g2xg-c22p",
@@ -7270,7 +7307,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-highcharts-dashboards",
@@ -7291,11 +7329,11 @@
         "CVE-2026-118247",
         "CVE-2026-118243"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-6hgp-fmhr-mrg4",
@@ -7429,7 +7467,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-highcharts-grid-lite",
@@ -7446,11 +7485,11 @@
         "CVE-2026-118254",
         "CVE-2026-118242"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-r5wg-q8fc-p6w2",
@@ -7508,7 +7547,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-highcharts",
@@ -7529,11 +7569,11 @@
         "CVE-2026-118244",
         "CVE-2026-116796"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-5793-x2q3-c3q7",
@@ -7730,7 +7770,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-highcharts-grid-pro",
@@ -7746,11 +7787,11 @@
       "cve_ids": [
         "CVE-2026-116797"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-5ghw-9mgr-jvx2",
@@ -7780,7 +7821,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-mcp-sanitizer",
@@ -7794,11 +7836,11 @@
         }
       ],
       "cve_ids": [],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-4mfg-r38w-w8fg",
@@ -7838,7 +7880,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-rucio",
@@ -7854,11 +7897,11 @@
       "cve_ids": [
         "CVE-2026-58273"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-5j9r-fx4x-rpvg",
@@ -7897,7 +7940,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-mysqlconnector",
@@ -7911,11 +7955,11 @@
         }
       ],
       "cve_ids": [],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-473q-m89c-ghf8",
@@ -7936,7 +7980,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "ghsa-github-com-caddyserver-caddy-v2",
@@ -7952,11 +7997,11 @@
       "cve_ids": [
         "CVE-2026-55458"
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 GHSA publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-8qx7-j2v2-x6q5",
@@ -7977,7 +8022,8 @@
           ],
           "type": "reviewed"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "malware-window",
@@ -7991,11 +8037,11 @@
         }
       ],
       "cve_ids": [],
-      "kind": "delta",
-      "time": "2026-10-29 / review",
+      "kind": "scope-complement",
+      "time": "2026-10-29 / review / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "advisories": [
         {
           "id": "GHSA-fw7x-6chc-4244",
@@ -8475,7 +8521,8 @@
           ],
           "type": "malware"
         }
-      ]
+      ],
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "dell-backup",
@@ -8488,8 +8535,8 @@
           "url": "https://www.dell.com/support/kbdoc/en-us/000515178/dsa-2026-416-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities"
         }
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 NVD publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 NVD publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
       "cve_ids": [
@@ -8498,7 +8545,8 @@
         "CVE-2026-86397",
         "CVE-2026-86400"
       ],
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "fuxa-nodered",
@@ -8511,14 +8559,15 @@
           "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2026-2419"
         }
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 NVD publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 NVD publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
       "cve_ids": [
         "CVE-2026-42922"
       ],
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "juniper-nvd",
@@ -8531,15 +8580,16 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-28T04%3A18%3A44.000&pubEndDate=2026-10-29T05%3A01%3A25.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 NVD publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 NVD publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
       "cve_ids": [
         "CVE-2026-103406",
         "CVE-2026-103409"
       ],
-      "monitoring_status": "newly-covered"
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
     },
     {
       "id": "sophos-utm-nvd",
@@ -8552,16 +8602,2278 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-10-28T04%3A18%3A44.000&pubEndDate=2026-10-29T05%3A01%3A25.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
-      "time": "2026-10-28 / 2026-10-29 NVD publication window",
+      "kind": "scope-complement",
+      "time": "2026-10-28 / 2026-10-29 NVD publication window / 今回の本文再精査は未実施",
       "certainty": "confirmed-publication",
       "date": "2026-10-29",
       "cve_ids": [
         "CVE-2026-118633"
       ],
+      "monitoring_status": "retained-prior-context",
+      "last_editorial_review": "2026-10-29T05:01:25Z"
+    },
+    {
+      "id": "uri-decode-1030",
+      "title": "decode-uri-component：不正入力でCPU枯渇",
+      "body": "不正なpercent-encoded入力を処理すると計算量が増大。request bodyをdecodeする構成も対象で、通常のURL長制限だけでは保護できない。",
+      "action": "修正版：0.5.1。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-qr28-fpjm-wq7f",
+          "url": "https://github.com/advisories/GHSA-qr28-fpjm-wq7f"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:41:28Z 〜 2026-10-29T16:41:28Z",
+      "cve_ids": [
+        "CVE-2026-118664"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-qr28-fpjm-wq7f",
+          "summary": "decode-uri-component vulnerable to denial of service via quadratic replacement of percent-encoded runs",
+          "url": "https://github.com/advisories/GHSA-qr28-fpjm-wq7f",
+          "published_at": "2026-10-29T16:41:28Z",
+          "updated_at": "2026-10-29T16:41:29Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "decode-uri-component"
+              },
+              "vulnerable_version_range": "<= 0.5.0",
+              "first_patched_version": "0.5.1",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "twisted-1030",
+      "title": "Twisted：HTTP/2 Rapid Resetによるサービス妨害",
+      "body": "HTTP/2 serverで未認証の接続からstream resetを反復するとCPUを消費する。データ窃取やコード実行を示す勧告ではない。修正版はrelease candidate。",
+      "action": "修正版：26.10.0rc1。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-vpp8-g58w-m8mp",
+          "url": "https://github.com/advisories/GHSA-vpp8-g58w-m8mp"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:41:06Z 〜 2026-10-29T16:41:06Z",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-vpp8-g58w-m8mp",
+          "summary": "Twisted: Unauthenticated Remote Denial of Service in the Twisted HTTP/2 Server via Rapid Stream Reset",
+          "url": "https://github.com/advisories/GHSA-vpp8-g58w-m8mp",
+          "published_at": "2026-10-29T16:41:06Z",
+          "updated_at": "2026-10-29T16:41:06Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "Twisted"
+              },
+              "vulnerable_version_range": "<= 26.4.0",
+              "first_patched_version": "26.10.0rc1",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "zip-rs-1030",
+      "title": "Rust zip：展開先外への書込みと認証・資源消費",
+      "body": "細工ZIPのsymlinkで展開先外へ書込み、AES entryの早期EOFでHMACを検証しない問題、巨大な宣言サイズでの異常終了を含む。展開先外書込みは展開先pathを知る条件、legacy decoderの問題はlegacy-zip有効条件がある。",
+      "action": "修正版：9.0.0。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-9hj8-73fh-9963",
+          "url": "https://github.com/advisories/GHSA-9hj8-73fh-9963"
+        },
+        {
+          "name": "GHSA-hjqx-j4rw-g7xv",
+          "url": "https://github.com/advisories/GHSA-hjqx-j4rw-g7xv"
+        },
+        {
+          "name": "GHSA-8hxf-qr8p-62x4",
+          "url": "https://github.com/advisories/GHSA-8hxf-qr8p-62x4"
+        },
+        {
+          "name": "GHSA-q7v9-x93c-xqv3",
+          "url": "https://github.com/advisories/GHSA-q7v9-x93c-xqv3"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:40:01Z 〜 2026-10-29T16:40:19Z",
+      "cve_ids": [
+        "CVE-2026-115906",
+        "CVE-2026-115907",
+        "CVE-2026-115908",
+        "CVE-2026-115909"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-9hj8-73fh-9963",
+          "summary": "zip: legacy Shrink/Reduce/Implode decoder: denial of service from attacker-controlled ZIP64 uncompressed size",
+          "url": "https://github.com/advisories/GHSA-9hj8-73fh-9963",
+          "published_at": "2026-10-29T16:40:19Z",
+          "updated_at": "2026-10-29T16:40:21Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rust",
+                "name": "zip"
+              },
+              "vulnerable_version_range": ">= 5.1.0, < 9.0.0",
+              "first_patched_version": "9.0.0",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-hjqx-j4rw-g7xv",
+          "summary": "zip: Arbitrary file write outside the extraction directory, because ZipArchive::extract validates symlink targets lexically. ",
+          "url": "https://github.com/advisories/GHSA-hjqx-j4rw-g7xv",
+          "published_at": "2026-10-29T16:40:12Z",
+          "updated_at": "2026-10-29T16:40:14Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rust",
+                "name": "zip"
+              },
+              "vulnerable_version_range": ">= 7.2.0, < 9.0.0",
+              "first_patched_version": "9.0.0",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8hxf-qr8p-62x4",
+          "summary": "zip: AES Entry HMAC Authentication Bypass on Premature EOF",
+          "url": "https://github.com/advisories/GHSA-8hxf-qr8p-62x4",
+          "published_at": "2026-10-29T16:40:07Z",
+          "updated_at": "2026-10-29T16:40:09Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rust",
+                "name": "zip"
+              },
+              "vulnerable_version_range": ">= 0.6.0, < 9.0.0",
+              "first_patched_version": "9.0.0",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-q7v9-x93c-xqv3",
+          "summary": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
+          "url": "https://github.com/advisories/GHSA-q7v9-x93c-xqv3",
+          "published_at": "2026-10-29T16:40:01Z",
+          "updated_at": "2026-10-29T16:40:04Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rust",
+                "name": "zip"
+              },
+              "vulnerable_version_range": ">= 1.3.0, < 9.0.0",
+              "first_patched_version": "9.0.0",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "vite-1030",
+      "title": "Vite：開発serverのファイル拒否回避",
+      "body": "ネットワーク公開した開発serverで、allow範囲にありdeny patternで拒否したファイルがquery操作で取得される。通常の本番配信一般の問題として扱わない。",
+      "action": "修正版：6.4.5。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-8g5g-mxqh-grgj",
+          "url": "https://github.com/advisories/GHSA-8g5g-mxqh-grgj"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:39:56Z 〜 2026-10-29T16:39:56Z",
+      "cve_ids": [
+        "CVE-2026-118662"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-8g5g-mxqh-grgj",
+          "summary": "Vite: `server.fs.deny` bypassed with queries",
+          "url": "https://github.com/advisories/GHSA-8g5g-mxqh-grgj",
+          "published_at": "2026-10-29T16:39:56Z",
+          "updated_at": "2026-10-29T16:39:59Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vite"
+              },
+              "vulnerable_version_range": "= 6.4.4",
+              "first_patched_version": "6.4.5",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "shopify-1030",
+      "title": "shopify_app：shopの文脈混同",
+      "body": "token exchange認証後もqueryのshopを認可・tenant検索・保存token選択に使うappで別shopの文脈へ移る可能性。攻撃者には有効なshop session tokenが必要。",
+      "action": "修正版：23.0.3。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-6j52-38f8-qhxr",
+          "url": "https://github.com/advisories/GHSA-6j52-38f8-qhxr"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:39:49Z 〜 2026-10-29T16:39:49Z",
+      "cve_ids": [
+        "CVE-2026-63414"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-6j52-38f8-qhxr",
+          "summary": "Shopify App: Token exchange shop context confusion may allow cross-shop authorization bypass in affected apps",
+          "url": "https://github.com/advisories/GHSA-6j52-38f8-qhxr",
+          "published_at": "2026-10-29T16:39:49Z",
+          "updated_at": "2026-10-29T16:39:49Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "shopify_app"
+              },
+              "vulnerable_version_range": ">= 22.1.0, < 23.0.3",
+              "first_patched_version": "23.0.3",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "cert-manager-1030",
+      "title": "cert-manager：直接Challenge作成でDNS資格情報を流用",
+      "body": "namespace内でACME Challengeを作れる利用者が、利用可能なClusterIssuerを参照してsolver制約を回避する。DNS資格情報とcontroller構成が条件。acme-dnsでは攻撃者hostへの認証header送出による漏えいもある。",
+      "action": "修正版：1.19.6, 1.20.3。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-8rvj-mm4h-c258",
+          "url": "https://github.com/advisories/GHSA-8rvj-mm4h-c258"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:39:41Z 〜 2026-10-29T16:39:41Z",
+      "cve_ids": [
+        "CVE-2026-62290"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-8rvj-mm4h-c258",
+          "summary": "cert-manager: Direct ACME Challenge resources can bypass Issuer DNS01 solver policy and use ClusterIssuer DNS credentials",
+          "url": "https://github.com/advisories/GHSA-8rvj-mm4h-c258",
+          "published_at": "2026-10-29T16:39:41Z",
+          "updated_at": "2026-10-29T16:39:44Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/cert-manager/cert-manager"
+              },
+              "vulnerable_version_range": ">= 1.18.0, < 1.19.6",
+              "first_patched_version": "1.19.6",
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/cert-manager/cert-manager"
+              },
+              "vulnerable_version_range": ">= 1.20.0-alpha.0, < 1.20.3",
+              "first_patched_version": "1.20.3",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "keycloak-1030",
+      "title": "Keycloak：URI比較・UMA認可とclient再有効化",
+      "body": "認証済み利用者によるPolicy Enforcer認可回避、条件付きUMA permission迂回、管理権限を要するURI XSSとpath探索、既存Registration Access Tokenによる無効client再有効化を区別。全てが未認証攻撃ではない。",
+      "action": "修正版：26.0.10, 26.6.4。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-v3f7-2p4r-mwfw",
+          "url": "https://github.com/advisories/GHSA-v3f7-2p4r-mwfw"
+        },
+        {
+          "name": "GHSA-9jrw-8xf7-xqhq",
+          "url": "https://github.com/advisories/GHSA-9jrw-8xf7-xqhq"
+        },
+        {
+          "name": "GHSA-w3p3-7cjg-vgfw",
+          "url": "https://github.com/advisories/GHSA-w3p3-7cjg-vgfw"
+        },
+        {
+          "name": "GHSA-f5p5-6xmx-p252",
+          "url": "https://github.com/advisories/GHSA-f5p5-6xmx-p252"
+        },
+        {
+          "name": "GHSA-r7rc-c989-86g6",
+          "url": "https://github.com/advisories/GHSA-r7rc-c989-86g6"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:36:21Z 〜 2026-10-29T16:39:03Z",
+      "cve_ids": [
+        "CVE-2026-9083",
+        "CVE-2026-9086",
+        "CVE-2026-9705",
+        "CVE-2026-9799",
+        "CVE-2026-9800"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-v3f7-2p4r-mwfw",
+          "summary": "Keycloak vulnerable to cross-site scripting (xss) via case-insensitive uri validation bypass",
+          "url": "https://github.com/advisories/GHSA-v3f7-2p4r-mwfw",
+          "published_at": "2026-10-29T16:39:03Z",
+          "updated_at": "2026-10-29T16:39:04Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "maven",
+                "name": "org.keycloak:keycloak-services"
+              },
+              "vulnerable_version_range": "< 26.6.4",
+              "first_patched_version": "26.6.4",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-9jrw-8xf7-xqhq",
+          "summary": "Keycloak vulnerable to information disclosure through arbitrary filesystem path probing",
+          "url": "https://github.com/advisories/GHSA-9jrw-8xf7-xqhq",
+          "published_at": "2026-10-29T16:38:31Z",
+          "updated_at": "2026-10-29T16:38:34Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "maven",
+                "name": "org.keycloak:keycloak-services"
+              },
+              "vulnerable_version_range": "< 26.6.4",
+              "first_patched_version": "26.6.4",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w3p3-7cjg-vgfw",
+          "summary": "Keycloak allows unauthorized access to resources via uma permission ticket bypass",
+          "url": "https://github.com/advisories/GHSA-w3p3-7cjg-vgfw",
+          "published_at": "2026-10-29T16:37:57Z",
+          "updated_at": "2026-10-29T16:37:59Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "maven",
+                "name": "org.keycloak:keycloak-services"
+              },
+              "vulnerable_version_range": "< 26.6.4",
+              "first_patched_version": "26.6.4",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-f5p5-6xmx-p252",
+          "summary": "Keycloak vulnerable to authorization bypass via incorrect uri comparison",
+          "url": "https://github.com/advisories/GHSA-f5p5-6xmx-p252",
+          "published_at": "2026-10-29T16:37:26Z",
+          "updated_at": "2026-10-29T16:37:29Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "maven",
+                "name": "org.keycloak:keycloak-services"
+              },
+              "vulnerable_version_range": "< 26.6.4",
+              "first_patched_version": "26.6.4",
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "maven",
+                "name": "org.keycloak:keycloak-policy-enforcer"
+              },
+              "vulnerable_version_range": "< 26.0.10",
+              "first_patched_version": "26.0.10",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-r7rc-c989-86g6",
+          "summary": "Keycloak: Attacker can re-enable and take over disabled clients via registration access token",
+          "url": "https://github.com/advisories/GHSA-r7rc-c989-86g6",
+          "published_at": "2026-10-29T16:36:21Z",
+          "updated_at": "2026-10-29T16:36:23Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "maven",
+                "name": "org.keycloak:keycloak-services"
+              },
+              "vulnerable_version_range": "< 26.6.4",
+              "first_patched_version": "26.6.4",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "volto-chatbot-1030",
+      "title": "Volto chatbot：未認証proxyがDanswer資格情報を付与",
+      "body": "公開middlewareが認可・path制限・method制限をせずに上流Danswer APIへserverの資格情報を付与する。到達可能な攻撃者がservice accountの権限で操作できる。",
+      "action": "修正版：2.0.4。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-w9x9-j56r-h98r",
+          "url": "https://github.com/advisories/GHSA-w9x9-j56r-h98r"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:35:48Z 〜 2026-10-29T16:35:48Z",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-w9x9-j56r-h98r",
+          "summary": "@eeacms/volto-chatbot has Unauthenticated Danswer API Confused Deputy Proxy",
+          "url": "https://github.com/advisories/GHSA-w9x9-j56r-h98r",
+          "published_at": "2026-10-29T16:35:48Z",
+          "updated_at": "2026-10-29T16:35:49Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@eeacms/volto-chatbot"
+              },
+              "vulnerable_version_range": "<= 2.0.3",
+              "first_patched_version": "2.0.4",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "crass-1030",
+      "title": "Crass：CSS入力によるCPU・再帰・メモリ消費",
+      "body": "非ASCII入力の処理時間増大、連続commentの再帰、深く入れ子のblock/functionで異常終了やメモリ消費。攻撃者入力をCSS parserへ渡す構成を確認する。",
+      "action": "修正版：1.0.7。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-8vfg-2r28-hvhj",
+          "url": "https://github.com/advisories/GHSA-8vfg-2r28-hvhj"
+        },
+        {
+          "name": "GHSA-wwpr-jff3-395c",
+          "url": "https://github.com/advisories/GHSA-wwpr-jff3-395c"
+        },
+        {
+          "name": "GHSA-6jxj-px6v-747w",
+          "url": "https://github.com/advisories/GHSA-6jxj-px6v-747w"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:35:16Z 〜 2026-10-29T16:35:29Z",
+      "cve_ids": [
+        "CVE-2026-61846",
+        "CVE-2026-61847",
+        "CVE-2026-61848"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-8vfg-2r28-hvhj",
+          "summary": "Crass: Non-ASCII characters cause superlinear CPU consumption",
+          "url": "https://github.com/advisories/GHSA-8vfg-2r28-hvhj",
+          "published_at": "2026-10-29T16:35:29Z",
+          "updated_at": "2026-10-29T16:35:33Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "crass"
+              },
+              "vulnerable_version_range": "< 1.0.7",
+              "first_patched_version": "1.0.7",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-wwpr-jff3-395c",
+          "summary": "Crass: A large number of adjacent CSS comments can trigger a SystemStackError",
+          "url": "https://github.com/advisories/GHSA-wwpr-jff3-395c",
+          "published_at": "2026-10-29T16:35:23Z",
+          "updated_at": "2026-10-29T16:35:23Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "crass"
+              },
+              "vulnerable_version_range": "< 1.0.7",
+              "first_patched_version": "1.0.7",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-6jxj-px6v-747w",
+          "summary": "Crass: Deeply nested CSS blocks and functions can trigger a SystemStackError or excessive memory usage",
+          "url": "https://github.com/advisories/GHSA-6jxj-px6v-747w",
+          "published_at": "2026-10-29T16:35:16Z",
+          "updated_at": "2026-10-29T16:35:18Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "crass"
+              },
+              "vulnerable_version_range": "< 1.0.7",
+              "first_patched_version": "1.0.7",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "cedar-1030",
+      "title": "Cedar：不正なJSON templateのslot検証不足",
+      "body": "JSON形式のpolicy templateでis in条件のslot identifierが誤っている場合にpanicや認可結果の食い違いが起きる。正しい構文のpolicy一般は対象外。",
+      "action": "修正版：3.4.3, 4.11.1。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-c33x-vcv4-vg3g",
+          "url": "https://github.com/advisories/GHSA-c33x-vcv4-vg3g"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:35:04Z 〜 2026-10-29T16:35:04Z",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-c33x-vcv4-vg3g",
+          "summary": "Cedar: JSON template is in scope missing slot-id validation allows link panic and decision divergence",
+          "url": "https://github.com/advisories/GHSA-c33x-vcv4-vg3g",
+          "published_at": "2026-10-29T16:35:04Z",
+          "updated_at": "2026-10-29T16:35:08Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rust",
+                "name": "cedar-policy"
+              },
+              "vulnerable_version_range": ">= 4.0.0, < 4.11.1",
+              "first_patched_version": "4.11.1",
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "rust",
+                "name": "cedar-policy"
+              },
+              "vulnerable_version_range": ">= 3.0.0, < 3.4.3",
+              "first_patched_version": "3.4.3",
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@cedar-policy/cedar-wasm"
+              },
+              "vulnerable_version_range": ">= 4.0.1, < 4.11.1",
+              "first_patched_version": "4.11.1",
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@cedar-policy/cedar-wasm"
+              },
+              "vulnerable_version_range": ">= 3.2.0, < 3.4.3",
+              "first_patched_version": "3.4.3",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "pdf-mcp-1030",
+      "title": "PDF Reader MCP：HTTPのAPI key検証欠落",
+      "body": "任意のHTTP transportを有効化した場合、MCP_API_KEYを設定してもheaderを検証せずPDF toolを呼び出せる。serverが読めるPDFとURL取得に影響し、標準stdioは対象外。",
+      "action": "修正版：3.0.1。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-q344-5v34-gm84",
+          "url": "https://github.com/advisories/GHSA-q344-5v34-gm84"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:34:35Z 〜 2026-10-29T16:34:35Z",
+      "cve_ids": [
+        "CVE-2026-62264"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-q344-5v34-gm84",
+          "summary": "@sylphx/pdf-reader-mcp: HTTP transport accepts unauthenticated requests despite a configured MCP_API_KEY",
+          "url": "https://github.com/advisories/GHSA-q344-5v34-gm84",
+          "published_at": "2026-10-29T16:34:35Z",
+          "updated_at": "2026-10-29T16:34:38Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@sylphx/pdf-reader-mcp"
+              },
+              "vulnerable_version_range": ">= 2.2.0, < 3.0.1",
+              "first_patched_version": "3.0.1",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "praisonai-1030",
+      "title": "PraisonAI：workflowのAST sandbox回避",
+      "body": "job workflow実行を明示的に有効化し、信頼できないYAMLのscriptを実行する場合、許可されたos moduleからprocess権限でcommand実行が可能。",
+      "action": "修正版：4.6.78。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-26mh-57q7-jfvr",
+          "url": "https://github.com/advisories/GHSA-26mh-57q7-jfvr"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:34:26Z 〜 2026-10-29T16:34:26Z",
+      "cve_ids": [
+        "CVE-2026-61438"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-26mh-57q7-jfvr",
+          "summary": "PraisonAI vulnerable to Remote Code Execution via Broken AST Sandbox",
+          "url": "https://github.com/advisories/GHSA-26mh-57q7-jfvr",
+          "published_at": "2026-10-29T16:34:26Z",
+          "updated_at": "2026-10-29T16:34:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "praisonai"
+              },
+              "vulnerable_version_range": "< 4.6.78",
+              "first_patched_version": "4.6.78",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "parse-server-1030",
+      "title": "Parse Server：不正Content-Typeでstored XSS",
+      "body": "upload権限を持つ利用者が不正なContent-Typeを保存でき、同じ値を配信するstorage adapterでbrowserのMIME推定によりscriptが動く可能性。標準GridFSは対象外。",
+      "action": "修正版：8.6.84, 9.10.0-alpha.2。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-r899-h629-j84r",
+          "url": "https://github.com/advisories/GHSA-r899-h629-j84r"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:33:48Z 〜 2026-10-29T16:33:48Z",
+      "cve_ids": [
+        "CVE-2026-61448"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-r899-h629-j84r",
+          "summary": "Parse Server vulnerable to stored XSS via malformed Content-Type bypassing file upload extension blocklist",
+          "url": "https://github.com/advisories/GHSA-r899-h629-j84r",
+          "published_at": "2026-10-29T16:33:48Z",
+          "updated_at": "2026-10-29T16:33:49Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "parse-server"
+              },
+              "vulnerable_version_range": ">= 9.0.0, < 9.10.0-alpha.2",
+              "first_patched_version": "9.10.0-alpha.2",
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "parse-server"
+              },
+              "vulnerable_version_range": "<= 8.6.83",
+              "first_patched_version": "8.6.84",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "daptin-1030",
+      "title": "Daptin：Accept-LanguageでCPU消費",
+      "body": "未認証requestのAccept-Languageを制限なくparserへ渡し、underscoreを使う入力で既存のhyphen数制限を回避。今回APIの最低修正版は未記載。",
+      "action": "修正版：今回APIに記載なし。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-rhj7-vh3v-mcq6",
+          "url": "https://github.com/advisories/GHSA-rhj7-vh3v-mcq6"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:33:09Z 〜 2026-10-29T16:33:09Z",
+      "cve_ids": [
+        "CVE-2026-62160"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-rhj7-vh3v-mcq6",
+          "summary": "Daptin: ParseAcceptLanguage `_` separator bypass enables >250x CPU amplification via Accept-Language header in LanguageMiddleware",
+          "url": "https://github.com/advisories/GHSA-rhj7-vh3v-mcq6",
+          "published_at": "2026-10-29T16:33:09Z",
+          "updated_at": "2026-10-29T16:33:12Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/daptin/daptin"
+              },
+              "vulnerable_version_range": "<= 0.12.15",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "pocketmine-1030",
+      "title": "PocketMine-MP：login段階のpacket反復",
+      "body": "resource pack受信完了packetの反復で同じsessionに複数Playerが作られ、メモリと送信trafficを消費する。",
+      "action": "修正版：5.44.2。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-pg53-p7qp-65cv",
+          "url": "https://github.com/advisories/GHSA-pg53-p7qp-65cv"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:32:58Z 〜 2026-10-29T16:32:58Z",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-pg53-p7qp-65cv",
+          "summary": "PocketMine-MP has potential memory/network vulnerability from repeated ResourcePackClientResponsePacket packets",
+          "url": "https://github.com/advisories/GHSA-pg53-p7qp-65cv",
+          "published_at": "2026-10-29T16:32:58Z",
+          "updated_at": "2026-10-29T16:33:02Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "composer",
+                "name": "pocketmine/pocketmine-mp"
+              },
+              "vulnerable_version_range": "< 5.44.2",
+              "first_patched_version": "5.44.2",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "silverstripe-1030",
+      "title": "SilverStripe MFA：password resetでMFAを迂回",
+      "body": "CMSのpassword resetでMFA完了前にlogin sessionを得る問題。利用者のemail accountへのアクセスが必要。",
+      "action": "修正版：6.0.0。対象範囲・機能・権限を勧告と照合し、公開範囲を制限する。",
+      "sources": [
+        {
+          "name": "GHSA-68wq-phq7-p2vg",
+          "url": "https://github.com/advisories/GHSA-68wq-phq7-p2vg"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T16:32:39Z 〜 2026-10-29T16:32:39Z",
+      "cve_ids": [
+        "CVE-2026-55186"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-68wq-phq7-p2vg",
+          "summary": "MultiFactor Authentication for SilverStripe can bypass MFA during password reset flow",
+          "url": "https://github.com/advisories/GHSA-68wq-phq7-p2vg",
+          "published_at": "2026-10-29T16:32:39Z",
+          "updated_at": "2026-10-29T16:32:40Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "composer",
+                "name": "silverstripe/mfa"
+              },
+              "vulnerable_version_range": "< 6.0.0",
+              "first_patched_version": "6.0.0",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "malware-1030",
+      "title": "悪性package：登録情報を依存関係と照合",
+      "body": "今回公開のmalware勧告をpackage単位で保持。名称の類似だけで組織の感染や共通campaignを断定しない。修正版未記載を安全な版の存在と読み替えない。",
+      "action": "依存lockfileとbuild履歴を照合し、該当packageを隔離・除去する。実行歴があれば資格情報の露出を調査する。",
+      "sources": [
+        {
+          "name": "GHSA-73xg-497j-5qqr",
+          "url": "https://github.com/advisories/GHSA-73xg-497j-5qqr"
+        },
+        {
+          "name": "GHSA-9wjc-g5vf-3m22",
+          "url": "https://github.com/advisories/GHSA-9wjc-g5vf-3m22"
+        },
+        {
+          "name": "GHSA-w3jr-q4jr-xq95",
+          "url": "https://github.com/advisories/GHSA-w3jr-q4jr-xq95"
+        },
+        {
+          "name": "GHSA-cjmr-6xg2-vf8h",
+          "url": "https://github.com/advisories/GHSA-cjmr-6xg2-vf8h"
+        },
+        {
+          "name": "GHSA-j272-m9j4-g3v9",
+          "url": "https://github.com/advisories/GHSA-j272-m9j4-g3v9"
+        },
+        {
+          "name": "GHSA-5cmc-vx46-22wx",
+          "url": "https://github.com/advisories/GHSA-5cmc-vx46-22wx"
+        },
+        {
+          "name": "GHSA-h86m-7gvf-j79h",
+          "url": "https://github.com/advisories/GHSA-h86m-7gvf-j79h"
+        },
+        {
+          "name": "GHSA-p6mc-228w-6q75",
+          "url": "https://github.com/advisories/GHSA-p6mc-228w-6q75"
+        },
+        {
+          "name": "GHSA-9r7r-h4fq-xj8p",
+          "url": "https://github.com/advisories/GHSA-9r7r-h4fq-xj8p"
+        },
+        {
+          "name": "GHSA-526r-6j5j-v9pv",
+          "url": "https://github.com/advisories/GHSA-526r-6j5j-v9pv"
+        },
+        {
+          "name": "GHSA-w9pq-6r9f-pj96",
+          "url": "https://github.com/advisories/GHSA-w9pq-6r9f-pj96"
+        },
+        {
+          "name": "GHSA-jp74-4rg3-7ppj",
+          "url": "https://github.com/advisories/GHSA-jp74-4rg3-7ppj"
+        },
+        {
+          "name": "GHSA-g6j7-j669-23g6",
+          "url": "https://github.com/advisories/GHSA-g6j7-j669-23g6"
+        },
+        {
+          "name": "GHSA-4rjq-j97h-cqxc",
+          "url": "https://github.com/advisories/GHSA-4rjq-j97h-cqxc"
+        },
+        {
+          "name": "GHSA-f5mv-v4rc-qq2q",
+          "url": "https://github.com/advisories/GHSA-f5mv-v4rc-qq2q"
+        },
+        {
+          "name": "GHSA-wg3r-wqgc-7fgf",
+          "url": "https://github.com/advisories/GHSA-wg3r-wqgc-7fgf"
+        },
+        {
+          "name": "GHSA-6xqc-cfvp-q89v",
+          "url": "https://github.com/advisories/GHSA-6xqc-cfvp-q89v"
+        },
+        {
+          "name": "GHSA-rvxc-82gp-xpr6",
+          "url": "https://github.com/advisories/GHSA-rvxc-82gp-xpr6"
+        },
+        {
+          "name": "GHSA-q68g-454g-9qww",
+          "url": "https://github.com/advisories/GHSA-q68g-454g-9qww"
+        },
+        {
+          "name": "GHSA-gp92-xqcg-876c",
+          "url": "https://github.com/advisories/GHSA-gp92-xqcg-876c"
+        },
+        {
+          "name": "GHSA-cccw-qphx-7whg",
+          "url": "https://github.com/advisories/GHSA-cccw-qphx-7whg"
+        },
+        {
+          "name": "GHSA-6ggw-hqvq-8wcm",
+          "url": "https://github.com/advisories/GHSA-6ggw-hqvq-8wcm"
+        },
+        {
+          "name": "GHSA-x82c-crm3-jcwv",
+          "url": "https://github.com/advisories/GHSA-x82c-crm3-jcwv"
+        },
+        {
+          "name": "GHSA-3jx4-3p7f-pv7p",
+          "url": "https://github.com/advisories/GHSA-3jx4-3p7f-pv7p"
+        },
+        {
+          "name": "GHSA-jpgq-34qx-jwwc",
+          "url": "https://github.com/advisories/GHSA-jpgq-34qx-jwwc"
+        },
+        {
+          "name": "GHSA-prqg-vvv3-2xf8",
+          "url": "https://github.com/advisories/GHSA-prqg-vvv3-2xf8"
+        },
+        {
+          "name": "GHSA-h7h9-fmhv-56wh",
+          "url": "https://github.com/advisories/GHSA-h7h9-fmhv-56wh"
+        },
+        {
+          "name": "GHSA-qcg8-4xw5-5ccq",
+          "url": "https://github.com/advisories/GHSA-qcg8-4xw5-5ccq"
+        },
+        {
+          "name": "GHSA-j2r4-xxhh-xx58",
+          "url": "https://github.com/advisories/GHSA-j2r4-xxhh-xx58"
+        },
+        {
+          "name": "GHSA-w9j6-p46m-xvp4",
+          "url": "https://github.com/advisories/GHSA-w9j6-p46m-xvp4"
+        },
+        {
+          "name": "GHSA-88vx-c9pj-9527",
+          "url": "https://github.com/advisories/GHSA-88vx-c9pj-9527"
+        },
+        {
+          "name": "GHSA-vh6h-8m24-j9mj",
+          "url": "https://github.com/advisories/GHSA-vh6h-8m24-j9mj"
+        },
+        {
+          "name": "GHSA-7cm4-74gj-gfp2",
+          "url": "https://github.com/advisories/GHSA-7cm4-74gj-gfp2"
+        },
+        {
+          "name": "GHSA-4mf5-57pc-vj85",
+          "url": "https://github.com/advisories/GHSA-4mf5-57pc-vj85"
+        },
+        {
+          "name": "GHSA-282x-w96h-wv7f",
+          "url": "https://github.com/advisories/GHSA-282x-w96h-wv7f"
+        },
+        {
+          "name": "GHSA-pr23-gvcv-c422",
+          "url": "https://github.com/advisories/GHSA-pr23-gvcv-c422"
+        },
+        {
+          "name": "GHSA-v78q-7787-v9rq",
+          "url": "https://github.com/advisories/GHSA-v78q-7787-v9rq"
+        },
+        {
+          "name": "GHSA-2hrq-h3vj-5wxm",
+          "url": "https://github.com/advisories/GHSA-2hrq-h3vj-5wxm"
+        },
+        {
+          "name": "GHSA-48mf-mvf8-x4v3",
+          "url": "https://github.com/advisories/GHSA-48mf-mvf8-x4v3"
+        },
+        {
+          "name": "GHSA-j7r7-x5hv-p975",
+          "url": "https://github.com/advisories/GHSA-j7r7-x5hv-p975"
+        },
+        {
+          "name": "GHSA-g2vv-m33m-p9qf",
+          "url": "https://github.com/advisories/GHSA-g2vv-m33m-p9qf"
+        },
+        {
+          "name": "GHSA-98qv-v7qr-v3gx",
+          "url": "https://github.com/advisories/GHSA-98qv-v7qr-v3gx"
+        },
+        {
+          "name": "GHSA-4h9g-fh86-j87q",
+          "url": "https://github.com/advisories/GHSA-4h9g-fh86-j87q"
+        },
+        {
+          "name": "GHSA-2pph-m662-c8hg",
+          "url": "https://github.com/advisories/GHSA-2pph-m662-c8hg"
+        },
+        {
+          "name": "GHSA-8hr2-m7vq-fhpg",
+          "url": "https://github.com/advisories/GHSA-8hr2-m7vq-fhpg"
+        },
+        {
+          "name": "GHSA-r4m9-8735-g966",
+          "url": "https://github.com/advisories/GHSA-r4m9-8735-g966"
+        }
+      ],
+      "kind": "delta",
+      "time": "GHSA公開：2026-10-29T05:23:36Z 〜 2026-10-30T09:31:22Z",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "advisories": [
+        {
+          "id": "GHSA-73xg-497j-5qqr",
+          "summary": "Malicious code in claims-acct-unlock (npm)",
+          "url": "https://github.com/advisories/GHSA-73xg-497j-5qqr",
+          "published_at": "2026-10-30T09:31:22Z",
+          "updated_at": "2026-10-30T09:31:23Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "claims-acct-unlock"
+              },
+              "vulnerable_version_range": "= 25.2.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-9wjc-g5vf-3m22",
+          "summary": "Malicious code in test-01-rafamarrara-learning-dc (PyPI)",
+          "url": "https://github.com/advisories/GHSA-9wjc-g5vf-3m22",
+          "published_at": "2026-10-30T03:32:00Z",
+          "updated_at": "2026-10-30T03:32:00Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "test-01-rafamarrara-learning-dc"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w3jr-q4jr-xq95",
+          "summary": "Malicious code in twitter-request-diagnostics (PyPI)",
+          "url": "https://github.com/advisories/GHSA-w3jr-q4jr-xq95",
+          "published_at": "2026-10-30T03:32:00Z",
+          "updated_at": "2026-10-30T03:32:00Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "twitter-request-diagnostics"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-cjmr-6xg2-vf8h",
+          "summary": "Malware in dowload_ebok_lolita_by_vladimir_nabokov_oy1gy",
+          "url": "https://github.com/advisories/GHSA-cjmr-6xg2-vf8h",
+          "published_at": "2026-10-29T22:14:17Z",
+          "updated_at": "2026-10-29T22:14:23Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dowload_ebok_lolita_by_vladimir_nabokov_oy1gy"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-j272-m9j4-g3v9",
+          "summary": "Malware in dowload_ebok_el_piso_mil_el_piso_mil_1_by_katharine_mcgee_h1llc",
+          "url": "https://github.com/advisories/GHSA-j272-m9j4-g3v9",
+          "published_at": "2026-10-29T22:14:17Z",
+          "updated_at": "2026-10-29T22:14:18Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dowload_ebok_el_piso_mil_el_piso_mil_1_by_katharine_mcgee_h1llc"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-5cmc-vx46-22wx",
+          "summary": "Malware in dowload_ebok_nur_mal_schnell_das_mammut_retten_by_knut_kruger_eva_schoffmann_davidov_ouz6t",
+          "url": "https://github.com/advisories/GHSA-5cmc-vx46-22wx",
+          "published_at": "2026-10-29T22:14:16Z",
+          "updated_at": "2026-10-29T22:14:18Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dowload_ebok_nur_mal_schnell_das_mammut_retten_by_knut_kruger_eva_schoffmann_davidov_ouz6t"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-h86m-7gvf-j79h",
+          "summary": "Malware in dowload_ebok_reiki_sviluppa_e_usa_lenergia_reiki_by_matt_harvey_9q55p",
+          "url": "https://github.com/advisories/GHSA-h86m-7gvf-j79h",
+          "published_at": "2026-10-29T22:14:16Z",
+          "updated_at": "2026-10-29T22:14:17Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dowload_ebok_reiki_sviluppa_e_usa_lenergia_reiki_by_matt_harvey_9q55p"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-p6mc-228w-6q75",
+          "summary": "Malware in dowload_ebok_armageddon_by_max_hastings_kv3s4",
+          "url": "https://github.com/advisories/GHSA-p6mc-228w-6q75",
+          "published_at": "2026-10-29T22:14:16Z",
+          "updated_at": "2026-10-29T22:14:17Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dowload_ebok_armageddon_by_max_hastings_kv3s4"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-9r7r-h4fq-xj8p",
+          "summary": "Malicious code in bq-helix-recon-6ade983e (PyPI)",
+          "url": "https://github.com/advisories/GHSA-9r7r-h4fq-xj8p",
+          "published_at": "2026-10-29T21:30:26Z",
+          "updated_at": "2026-10-29T21:30:33Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "bq-helix-recon-6ade983e"
+              },
+              "vulnerable_version_range": "= 0.1.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "bq-helix-recon-6ade983e"
+              },
+              "vulnerable_version_range": "= 0.1.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-526r-6j5j-v9pv",
+          "summary": "Malicious code in bq-helix-build-hook-6ade983e (PyPI)",
+          "url": "https://github.com/advisories/GHSA-526r-6j5j-v9pv",
+          "published_at": "2026-10-29T21:30:24Z",
+          "updated_at": "2026-10-29T21:30:26Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "bq-helix-build-hook-6ade983e"
+              },
+              "vulnerable_version_range": "= 0.1.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w9pq-6r9f-pj96",
+          "summary": "Malware in orderbook-volt-plugin",
+          "url": "https://github.com/advisories/GHSA-w9pq-6r9f-pj96",
+          "published_at": "2026-10-29T18:47:30Z",
+          "updated_at": "2026-10-29T18:47:30Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "orderbook-volt-plugin"
+              },
+              "vulnerable_version_range": "= 0.0.0-stage",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "orderbook-volt-plugin"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "orderbook-volt-plugin"
+              },
+              "vulnerable_version_range": "= 0.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-jp74-4rg3-7ppj",
+          "summary": "Malware in react-native-drago-callkit",
+          "url": "https://github.com/advisories/GHSA-jp74-4rg3-7ppj",
+          "published_at": "2026-10-29T18:35:33Z",
+          "updated_at": "2026-10-29T18:35:33Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "react-native-drago-callkit"
+              },
+              "vulnerable_version_range": "= 0.0.0-stage",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "react-native-drago-callkit"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "react-native-drago-callkit"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "react-native-drago-callkit"
+              },
+              "vulnerable_version_range": "= 1.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "react-native-drago-callkit"
+              },
+              "vulnerable_version_range": "= 1.0.15",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "react-native-drago-callkit"
+              },
+              "vulnerable_version_range": "= 1.0.16",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-g6j7-j669-23g6",
+          "summary": "Malware in @chatunitycenter/baileys",
+          "url": "https://github.com/advisories/GHSA-g6j7-j669-23g6",
+          "published_at": "2026-10-29T16:52:21Z",
+          "updated_at": "2026-10-29T16:52:21Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@chatunitycenter/baileys"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4rjq-j97h-cqxc",
+          "summary": "Malware in 789bet-vip-login",
+          "url": "https://github.com/advisories/GHSA-4rjq-j97h-cqxc",
+          "published_at": "2026-10-29T15:37:28Z",
+          "updated_at": "2026-10-29T15:37:34Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "789bet-vip-login"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-f5mv-v4rc-qq2q",
+          "summary": "Malware in 789bet-vip-online-login",
+          "url": "https://github.com/advisories/GHSA-f5mv-v4rc-qq2q",
+          "published_at": "2026-10-29T15:37:28Z",
+          "updated_at": "2026-10-29T15:37:30Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "789bet-vip-online-login"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-wg3r-wqgc-7fgf",
+          "summary": "Malware in 789bet-login-th",
+          "url": "https://github.com/advisories/GHSA-wg3r-wqgc-7fgf",
+          "published_at": "2026-10-29T15:37:28Z",
+          "updated_at": "2026-10-29T15:37:29Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "789bet-login-th"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-6xqc-cfvp-q89v",
+          "summary": "Malware in 789bet-entrance",
+          "url": "https://github.com/advisories/GHSA-6xqc-cfvp-q89v",
+          "published_at": "2026-10-29T15:37:28Z",
+          "updated_at": "2026-10-29T15:37:29Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "789bet-entrance"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-rvxc-82gp-xpr6",
+          "summary": "Malware in 789bet-vip",
+          "url": "https://github.com/advisories/GHSA-rvxc-82gp-xpr6",
+          "published_at": "2026-10-29T15:37:28Z",
+          "updated_at": "2026-10-29T15:37:29Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "789bet-vip"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-q68g-454g-9qww",
+          "summary": "Malware in 789bet-slot",
+          "url": "https://github.com/advisories/GHSA-q68g-454g-9qww",
+          "published_at": "2026-10-29T15:37:28Z",
+          "updated_at": "2026-10-29T15:37:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "789bet-slot"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-gp92-xqcg-876c",
+          "summary": "Malware in m98vip",
+          "url": "https://github.com/advisories/GHSA-gp92-xqcg-876c",
+          "published_at": "2026-10-29T15:37:27Z",
+          "updated_at": "2026-10-29T15:37:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "m98vip"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-cccw-qphx-7whg",
+          "summary": "Malware in 789bet",
+          "url": "https://github.com/advisories/GHSA-cccw-qphx-7whg",
+          "published_at": "2026-10-29T15:37:27Z",
+          "updated_at": "2026-10-29T15:37:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "789bet"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-6ggw-hqvq-8wcm",
+          "summary": "Malware in m98bet",
+          "url": "https://github.com/advisories/GHSA-6ggw-hqvq-8wcm",
+          "published_at": "2026-10-29T15:37:27Z",
+          "updated_at": "2026-10-29T15:37:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "m98bet"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-x82c-crm3-jcwv",
+          "summary": "Malware in m98th",
+          "url": "https://github.com/advisories/GHSA-x82c-crm3-jcwv",
+          "published_at": "2026-10-29T15:37:27Z",
+          "updated_at": "2026-10-29T15:37:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "m98th"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-3jx4-3p7f-pv7p",
+          "summary": "Malicious code in siren-lament (npm)",
+          "url": "https://github.com/advisories/GHSA-3jx4-3p7f-pv7p",
+          "published_at": "2026-10-29T15:31:32Z",
+          "updated_at": "2026-10-29T15:31:33Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "siren-lament"
+              },
+              "vulnerable_version_range": "> 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "siren-lament"
+              },
+              "vulnerable_version_range": "= 2.14.827",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "siren-lament"
+              },
+              "vulnerable_version_range": "= 2.14.822",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "siren-lament"
+              },
+              "vulnerable_version_range": "= 2.14.824",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "siren-lament"
+              },
+              "vulnerable_version_range": "= 0.0.0-stage",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-jpgq-34qx-jwwc",
+          "summary": "Malicious code in spectral-core (npm)",
+          "url": "https://github.com/advisories/GHSA-jpgq-34qx-jwwc",
+          "published_at": "2026-10-29T15:31:27Z",
+          "updated_at": "2026-10-29T15:31:34Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.10",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.11",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.12",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-core"
+              },
+              "vulnerable_version_range": "= 3.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-prqg-vvv3-2xf8",
+          "summary": "Malicious code in @dmangal/curse-dependent-ecto (npm)",
+          "url": "https://github.com/advisories/GHSA-prqg-vvv3-2xf8",
+          "published_at": "2026-10-29T15:31:27Z",
+          "updated_at": "2026-10-29T15:31:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@dmangal/curse-dependent-ecto"
+              },
+              "vulnerable_version_range": "= 99999.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@dmangal/curse-dependent-ecto"
+              },
+              "vulnerable_version_range": "= 99999.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@dmangal/curse-dependent-ecto"
+              },
+              "vulnerable_version_range": "= 99999.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-h7h9-fmhv-56wh",
+          "summary": "Malicious code in poc-revshell (PyPI)",
+          "url": "https://github.com/advisories/GHSA-h7h9-fmhv-56wh",
+          "published_at": "2026-10-29T15:31:27Z",
+          "updated_at": "2026-10-29T15:31:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "poc-revshell"
+              },
+              "vulnerable_version_range": "= 0.1.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-qcg8-4xw5-5ccq",
+          "summary": "Malicious code in black-spindle-2 (npm)",
+          "url": "https://github.com/advisories/GHSA-qcg8-4xw5-5ccq",
+          "published_at": "2026-10-29T15:31:27Z",
+          "updated_at": "2026-10-29T15:31:28Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "black-spindle-2"
+              },
+              "vulnerable_version_range": "= 301.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "black-spindle-2"
+              },
+              "vulnerable_version_range": "= 100.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-j2r4-xxhh-xx58",
+          "summary": "Malware in tailwind-kinetic",
+          "url": "https://github.com/advisories/GHSA-j2r4-xxhh-xx58",
+          "published_at": "2026-10-29T15:17:25Z",
+          "updated_at": "2026-10-29T15:17:25Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-kinetic"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w9j6-p46m-xvp4",
+          "summary": "Malware in tailwind-animate-kit",
+          "url": "https://github.com/advisories/GHSA-w9j6-p46m-xvp4",
+          "published_at": "2026-10-29T15:17:25Z",
+          "updated_at": "2026-10-29T15:17:25Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-animate-kit"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-88vx-c9pj-9527",
+          "summary": "Malware in @jasperquinn/postcss-motion-helpers",
+          "url": "https://github.com/advisories/GHSA-88vx-c9pj-9527",
+          "published_at": "2026-10-29T15:14:59Z",
+          "updated_at": "2026-10-29T15:15:00Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@jasperquinn/postcss-motion-helpers"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-vh6h-8m24-j9mj",
+          "summary": "Malware in tailwind-keyframes",
+          "url": "https://github.com/advisories/GHSA-vh6h-8m24-j9mj",
+          "published_at": "2026-10-29T14:53:00Z",
+          "updated_at": "2026-10-29T14:53:02Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-keyframes"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-7cm4-74gj-gfp2",
+          "summary": "Malware in tailwind-animationlab",
+          "url": "https://github.com/advisories/GHSA-7cm4-74gj-gfp2",
+          "published_at": "2026-10-29T14:53:00Z",
+          "updated_at": "2026-10-29T14:53:01Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-animationlab"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4mf5-57pc-vj85",
+          "summary": "Malware in tailwindcss-animate-catalog",
+          "url": "https://github.com/advisories/GHSA-4mf5-57pc-vj85",
+          "published_at": "2026-10-29T14:49:35Z",
+          "updated_at": "2026-10-29T14:49:35Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwindcss-animate-catalog"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-282x-w96h-wv7f",
+          "summary": "Malware in tailwindcss-keyframe-kit",
+          "url": "https://github.com/advisories/GHSA-282x-w96h-wv7f",
+          "published_at": "2026-10-29T14:49:34Z",
+          "updated_at": "2026-10-29T14:49:35Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwindcss-keyframe-kit"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-pr23-gvcv-c422",
+          "summary": "Malware in cjlowuxbnexkhgpzq",
+          "url": "https://github.com/advisories/GHSA-pr23-gvcv-c422",
+          "published_at": "2026-10-29T14:23:51Z",
+          "updated_at": "2026-10-29T14:23:52Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "cjlowuxbnexkhgpzq"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-v78q-7787-v9rq",
+          "summary": "Malware in bcxhdh1kjlopsde",
+          "url": "https://github.com/advisories/GHSA-v78q-7787-v9rq",
+          "published_at": "2026-10-29T14:23:51Z",
+          "updated_at": "2026-10-29T14:23:52Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "bcxhdh1kjlopsde"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-2hrq-h3vj-5wxm",
+          "summary": "Malicious code in identity-two-factor (npm)",
+          "url": "https://github.com/advisories/GHSA-2hrq-h3vj-5wxm",
+          "published_at": "2026-10-29T09:31:29Z",
+          "updated_at": "2026-10-29T15:31:32Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "identity-two-factor"
+              },
+              "vulnerable_version_range": "= 999.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-48mf-mvf8-x4v3",
+          "summary": "Malicious code in spectral-net-probe (npm)",
+          "url": "https://github.com/advisories/GHSA-48mf-mvf8-x4v3",
+          "published_at": "2026-10-29T09:31:29Z",
+          "updated_at": "2026-10-29T15:31:34Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-net-probe"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-net-probe"
+              },
+              "vulnerable_version_range": "= 1.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "spectral-net-probe"
+              },
+              "vulnerable_version_range": "= 1.0.10",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-j7r7-x5hv-p975",
+          "summary": "Malicious code in mw-test-utils (npm)",
+          "url": "https://github.com/advisories/GHSA-j7r7-x5hv-p975",
+          "published_at": "2026-10-29T09:31:29Z",
+          "updated_at": "2026-10-29T15:31:33Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "mw-test-utils"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "mw-test-utils"
+              },
+              "vulnerable_version_range": "= 10.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "mw-test-utils"
+              },
+              "vulnerable_version_range": "= 10.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-g2vv-m33m-p9qf",
+          "summary": "Malicious code in @zmtcdn/ui (npm)",
+          "url": "https://github.com/advisories/GHSA-g2vv-m33m-p9qf",
+          "published_at": "2026-10-29T09:31:29Z",
+          "updated_at": "2026-10-29T15:31:32Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@zmtcdn/ui"
+              },
+              "vulnerable_version_range": "= 9999.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@zmtcdn/ui"
+              },
+              "vulnerable_version_range": "= 9999.0.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-98qv-v7qr-v3gx",
+          "summary": "Malicious code in mui-wrapper-x-date-pickers (npm)",
+          "url": "https://github.com/advisories/GHSA-98qv-v7qr-v3gx",
+          "published_at": "2026-10-29T09:31:29Z",
+          "updated_at": "2026-10-29T15:31:32Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "mui-wrapper-x-date-pickers"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "mui-wrapper-x-date-pickers"
+              },
+              "vulnerable_version_range": "= 10.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4h9g-fh86-j87q",
+          "summary": "Malicious code in mw-communication-client (npm)",
+          "url": "https://github.com/advisories/GHSA-4h9g-fh86-j87q",
+          "published_at": "2026-10-29T09:31:29Z",
+          "updated_at": "2026-10-29T15:31:32Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "mw-communication-client"
+              },
+              "vulnerable_version_range": "= 10.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "mw-communication-client"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-2pph-m662-c8hg",
+          "summary": "Malicious code in @zmtcdn/components (npm)",
+          "url": "https://github.com/advisories/GHSA-2pph-m662-c8hg",
+          "published_at": "2026-10-29T09:31:29Z",
+          "updated_at": "2026-10-29T15:31:32Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@zmtcdn/components"
+              },
+              "vulnerable_version_range": "= 9999.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8hr2-m7vq-fhpg",
+          "summary": "Malware in dsh-volcengine-provider",
+          "url": "https://github.com/advisories/GHSA-8hr2-m7vq-fhpg",
+          "published_at": "2026-10-29T09:28:33Z",
+          "updated_at": "2026-10-29T09:35:20Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dsh-volcengine-provider"
+              },
+              "vulnerable_version_range": "= 0.2.8",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dsh-volcengine-provider"
+              },
+              "vulnerable_version_range": "= 0.2.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-r4m9-8735-g966",
+          "summary": "Malware in dsh-redteam-mode",
+          "url": "https://github.com/advisories/GHSA-r4m9-8735-g966",
+          "published_at": "2026-10-29T05:23:36Z",
+          "updated_at": "2026-10-29T05:23:36Z",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dsh-redteam-mode"
+              },
+              "vulnerable_version_range": "= 0.15.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ],
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "kev-gitlab-1030",
+      "title": "GitLab：正規表現の問題をKEVに追加",
+      "body": "CISAはCI/CD正規表現のinteger overflowによる未認証コード実行をKEVに追加。GitLabは19.2.8・19.3.5・19.4.2で修正。共有するRuby/Onigmoの問題にも注意し、patch適用と侵害調査を分ける。",
+      "action": "対象製品と公開範囲を確認し、ベンダーの対策・修正版と侵害調査の案内を照合する。KEVの期限は11月1日。",
+      "sources": [
+        {
+          "name": "CISA KEV catalog",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        },
+        {
+          "name": "GitLab patch release",
+          "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-4-2-released/"
+        },
+        {
+          "name": "Ruby regexp fixes",
+          "url": "https://www.ruby-lang.org/en/news/2026/10/23/regexp-fixes-for-gitlab-cves"
+        }
+      ],
+      "kind": "delta",
+      "time": "KEV追加：2026-10-29",
+      "cve_ids": [
+        "CVE-2026-97229"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
+      "monitoring_status": "newly-covered"
+    },
+    {
+      "id": "kev-cisco-1030",
+      "title": "Cisco ASA/FTD：予期しないreloadをKEVに追加",
+      "body": "CISAがASA/FTDの予期しないreloadによるサービス妨害をKEVに追加し、Ciscoも悪用を確認。SSL VPNでsecondary authenticationを設定したtunnel groupが条件。修正はbranch別で、FTDの例は7.4.9・7.6.7。完全なworkaroundはなく、設定緩和はsecurity低下を伴うため公式条件を確認する。",
+      "action": "対象製品と公開範囲を確認し、ベンダーの対策・修正版と侵害調査の案内を照合する。KEVの期限は11月1日。",
+      "sources": [
+        {
+          "name": "CISA KEV catalog",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        },
+        {
+          "name": "Cisco advisory",
+          "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75"
+        }
+      ],
+      "kind": "delta",
+      "time": "KEV追加：2026-10-29",
+      "cve_ids": [
+        "CVE-2026-76418"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-10-30",
       "monitoring_status": "newly-covered"
     }
   ],
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/20261029T050117Z-dbf8f2/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-10-30-1031/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

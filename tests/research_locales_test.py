@@ -21,7 +21,9 @@ class ResearchLocales(unittest.TestCase):
     if code=='ar':self.assertEqual(page.direction,'rtl')
    package=json.loads((ROOT/'site/data/translations'/Path(latest['incident_register']).parent/(code+'.json')).read_text())
    self.assertEqual(package['database']['cutoff'],latest['cutoff'])
-   self.assertEqual(len(package['database']['records']),116)
+   original=json.loads((ROOT/'data'/latest['incident_register']).read_text())
+   self.assertEqual(len(package['database']['records']),len(original['records']))
+   self.assertEqual({r['id'] for r in package['database']['records']},{r['id'] for r in original['records']})
  def test_english_articles_keep_impact_language(self):
   import re
   text=(ROOT/'site/about.en.html').read_text()

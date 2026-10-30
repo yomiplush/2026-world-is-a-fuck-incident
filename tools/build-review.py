@@ -67,7 +67,7 @@ def main(path):
     content += f'<p>NVD新規{counts["nvd_published"]}件は改訂{counts["nvd_modified"]}件に{esc(nvd_note)}。{esc(ghsa_note)}KEVは{kev["catalog_version"]}版・{kev["count"]:,}件で、{esc(kev_note)}。収録・原本差分は攻撃開始時刻とは別です。非掲載を悪用不存在の証明にはしません。{counts["verified_response_records"]}応答のうち{counts["deduplicated_previous_references"]}件は過去原本への参照で重複保存を避けています。</p>'
     content += '<ul>' + ''.join(f'<li>{esc(c)}</li>' for c in record['caveats']) + '</ul>'
     links = [path.relative_to(ROOT).as_posix(), f'data/{stamp}/collection-summary.json',
-             f'data/{stamp}-vendors/collection-summary.json', f'docs/research-collection-{stamp}.md',
+             record.get('vendor_summary', f'data/{stamp}-vendors/collection-summary.json'), f'docs/research-collection-{stamp}.md',
              research_doc, 'data/latest.json']
     content += '<p>' + ' / '.join(anchor(REPO+p, p) for p in links) + '</p></section>'
     content += '<section><h2>前回の記録へ</h2>' + anchor('./'+report['previous'], report['previous_label']) + '</section>'
