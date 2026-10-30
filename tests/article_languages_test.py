@@ -15,6 +15,12 @@ class ArticleLanguages(unittest.TestCase):
   with self.assertRaises(ValueError):module.render(raw,{})
   with self.assertRaises(ValueError):module.render(raw,{**values,module.key('被害は16件。'):'15 cases were affected.'})
 
+ def test_generated_publication_labels_do_not_invalidate_saved_translations(self):
+  module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+  raw='<p>調査</p><!-- publication-dates:start --><p>公開: <time datetime="2026-10-30T10:00:00+09:00">2026-10-30T10:00:00+09:00</time></p><!-- publication-dates:end -->'
+  self.assertEqual(list(module.extract(raw).values()),['調査'])
+  self.assertIn('Research',module.render(raw,{module.key('調査'):'Research'}))
+
  def test_published_companions_and_identity(self):
   import json,re
   from html.parser import HTMLParser

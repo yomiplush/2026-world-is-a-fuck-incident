@@ -13,6 +13,11 @@ class Text(HTMLParser):
   super().__init__(convert_charrefs=False);self.raw=raw;self.rows=[];self.block=[];self.lines=[0]
   for m in re.finditer('\n',raw):self.lines.append(m.end())
   self.feed(raw)
+ def handle_comment(self,data):
+  # Each locale's publisher regenerates its own verified dates after translation.
+  data=data.strip()
+  if data=='publication-dates:start':self.block.append('publication-dates')
+  elif data=='publication-dates:end' and self.block and self.block[-1]=='publication-dates':self.block.pop()
  def handle_starttag(self,tag,attrs):
   if tag in ('script','style','select','noscript'):self.block.append(tag)
  def handle_endtag(self,tag):

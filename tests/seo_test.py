@@ -12,13 +12,14 @@ BASE = 'https://www.infosec-briefing.net/'
 
 class Page(HTMLParser):
     def __init__(self, text):
-        super().__init__(); self.canonical=[]; self.meta={}; self.schema=[]; self.alternates={}; self.title=''; self.in_title=False; self.in_json=False
+        super().__init__(); self.canonical=[]; self.meta={}; self.schema=[]; self.alternates={}; self.title=''; self.in_title=False; self.in_json=False; self.links=[]
         self.feed(text)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if tag=='link' and a.get('rel')=='canonical':self.canonical.append(a['href'])
         if tag=='link' and a.get('hreflang'):self.alternates[a['hreflang']]=a['href']
         if tag=='meta':self.meta[a.get('name',a.get('property'))]=a.get('content')
+        if tag=='a':self.links.append(a.get('href'))
         if tag=='title':self.in_title=True
         if tag=='script' and a.get('type')=='application/ld+json':self.in_json=True
     def handle_endtag(self,tag):
@@ -29,6 +30,79 @@ class Page(HTMLParser):
         if self.in_json:self.schema.append(json.loads(data))
 
 class Publication(unittest.TestCase):
+    def test_english_hub_has_static_routes_to_available_english_research(self):
+        path=SITE/'en/index.html'
+        self.assertTrue(path.is_file(), 'English search entry must be published')
+        text=path.read_text();page=Page(text)
+        self.assertEqual(page.canonical,[BASE+'en/'])
+        self.assertIn('"inLanguage":"en"',text)
+        class Links(HTMLParser):
+            def __init__(self):super().__init__();self.hrefs=[]
+            def handle_starttag(self,tag,attrs):
+                if tag=='a':self.hrefs.append(dict(attrs).get('href'))
+        links=Links();links.feed(text)
+        latest=json.loads((ROOT/'data/latest.json').read_text())['site_report']
+        latest_path=urlsplit(latest).path.removesuffix('.html')+'.en'
+        for href in [latest_path,'/database.en','/impact.en','/timeline.en','/about.en','/feed.en.xml']:
+            self.assertIn(href,links.hrefs)
+        self.assertNotIn('hreflang="ja"',text,'A distinct research hub is not a translation of the motion entrance')
+
+    def test_motion_entrance_exposes_english_links_without_javascript(self):
+        text=(SITE/'index.html').read_text()
+        self.assertIn('href="/en/"',text)
+        latest=json.loads((ROOT/'data/latest.json').read_text())['site_report']
+        path=urlsplit(latest).path.removesuffix('.html')+'.en'
+        self.assertIn('href="'+path+'"',text)
+
+    def test_english_rss_only_lists_complete_english_articles(self):
+        path=SITE/'feed.en.xml'
+        self.assertTrue(path.is_file(), 'English readers need an English feed')
+        rss=ET.parse(path)
+        self.assertEqual(rss.findtext('channel/language'),'en')
+        latest=json.loads((ROOT/'data/latest.json').read_text())['site_report']+'.en'
+        self.assertEqual(rss.findtext('channel/item/link'),latest)
+        for item in rss.findall('channel/item'):
+            route=urlsplit(item.findtext('link')).path
+            self.assertTrue(route.endswith('.en'))
+            self.assertTrue((SITE/(route.lstrip('/')+'.html')).is_file())
+        for file in SITE.rglob('*.html'):
+            page=Page(file.read_text())
+            if '"inLanguage":"en"' in file.read_text():
+                self.assertIn('href="/feed.en.xml"',file.read_text(),str(file))
+                self.assertNotIn('/feed.xml',page.links,str(file))
+
+    def test_article_dates_use_verified_publication_records_not_research_cutoffs(self):
+        import importlib.util
+        from unittest.mock import patch
+        spec=importlib.util.spec_from_file_location('publisher',ROOT/'tools/publish-site.py')
+        publisher=importlib.util.module_from_spec(spec);spec.loader.exec_module(publisher)
+        file=SITE/'update-fixture.en.html'
+        html='<html lang="en"><head><title>Authentication review</title><meta name="description" content="Evidence review"></head><body><main></main></body></html>'
+        dates={'/update-fixture.en':{'published':'2026-10-29T09:00:00+09:00','modified':'2026-10-30T10:00:00+09:00'}}
+        with patch.object(publisher,'PUBLICATION_DATES',dates,create=True):
+            text=publisher.metadata(file,html)
+        article=next(n for n in Page(text).schema[0]['@graph'] if n['@type']=='Article')
+        self.assertEqual(article.get('datePublished'),'2026-10-29T09:00:00+09:00')
+        self.assertEqual(article.get('dateModified'),'2026-10-30T10:00:00+09:00')
+        self.assertIn('datetime="2026-10-30T10:00:00+09:00"',text)
+        with patch.object(publisher,'PUBLICATION_DATES',{},create=True):
+            article=next(n for n in Page(publisher.metadata(file,html)).schema[0]['@graph'] if n['@type']=='Article')
+        self.assertNotIn('datePublished',article)
+        self.assertNotIn('dateModified',article)
+
+    def test_publication_records_reject_ambiguous_or_reversed_dates(self):
+        import importlib.util
+        from unittest.mock import patch
+        spec=importlib.util.spec_from_file_location('publisher',ROOT/'tools/publish-site.py')
+        publisher=importlib.util.module_from_spec(spec);spec.loader.exec_module(publisher)
+        for dates in [
+            {'published':'2026-10-30T10:00:00'},
+            {'modified':'2026-10-30T10:00:00+09:00'},
+            {'published':'2026-10-30T10:00:00+09:00','modified':'2026-10-29T10:00:00+09:00'},
+        ]:
+            with self.subTest(dates=dates), patch.object(publisher,'PUBLICATION_DATES',{'/fixture':dates}):
+                with self.assertRaises(ValueError):publisher.publication_dates(BASE+'fixture')
+
     def test_all_indexable_pages_have_canonical_identity_and_schema(self):
         titles=set()
         for file in SITE.rglob('*.html'):
