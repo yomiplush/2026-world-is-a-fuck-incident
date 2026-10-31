@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Sat, 31 Oct 2026 00:30:03 GMT</pubDate>
+    <lastBuildDate>Sat, 31 Oct 2026 00:30:03 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>Fwd: GNU mtools 4.0.50 released, fixes CVE-2026-118384</title>
+    <link>https://seclists.org/oss-sec/2026/q4/455</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Oct 30&lt;/p&gt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://www.cve.org/CVERecord?id=CVE-2026-118384&quot;&gt;https://www.cve.org/CVERecord?id=CVE-2026-118384&lt;/a&gt; says&lt;br&gt;
+&amp;quot;GNU mtools through 4.0.49 has an out-of-bounds write in parse_vses in vfat.c.&amp;quot;&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://lists.gnu.org/archive/html/info-mtools/2026-10/msg00002.html&quot;&gt;https://lists.gnu.org/archive/html/info-mtools/2026-10/msg00002.html&lt;/a&gt;&lt;br&gt;
+appears to be the bug report.&lt;br&gt;
+&lt;br&gt;
+-------- Forwarded Message --------&lt;br&gt;
+Subject:        GNU mtools 4.0.50 released&lt;br&gt;
+Date:   Fri, 30 Oct 2026 23:31:00 +0100&lt;br&gt;
+From:   Alain Knaff &amp;lt;alain () knaff lu&amp;gt;&lt;br&gt;
+To:     info-gnu () gnu org, info-mtools...&lt;br&gt;</description>
+    <pubDate>Sat, 31 Oct 2026 00:25:50 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/455</guid>
+  </item>
+
+
+  <item>
+    <title>Re: CVE-2026-102508: Apache PLC4X: OPC UA secure channel: integrity bypass, unverifiable server certificate, and silent downgrade</title>
+    <link>https://seclists.org/oss-sec/2026/q4/454</link>
+    <description>&lt;p&gt;Posted by Abhinav Agarwal on Oct 30&lt;/p&gt;Hi,&lt;br&gt;
+&lt;br&gt;
+I reported the findings behind CVE-2026-102508 and CVE-2026-102509 [1][2]. This follow-up gives the mechanisms and &lt;br&gt;
+triggers for both. Both are fixed in PLC4X 1.0.0; there is no fixed 0.13.x. PLC4X is a client library, so the attacker &lt;br&gt;
+is a malicious or impersonated server, or someone on the network path.&lt;br&gt;
+&lt;br&gt;
+CVE-2026-102508 (0.9.0 - 0.13.1)&lt;br&gt;
+--------------------------------&lt;br&gt;
+&lt;br&gt;
+Two defects in the OPC UA asymmetric receive path (0.12.0 - 0.13.1)....&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 18:45:21 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/454</guid>
+  </item>
+  <item>
+    <title>The GNU C Library security advisories update for 2026-10-30</title>
+    <link>https://seclists.org/oss-sec/2026/q4/453</link>
+    <description>&lt;p&gt;Posted by Adhemerval Zanella Netto on Oct 30&lt;/p&gt;The following security advisories have been published:&lt;br&gt;
+&lt;br&gt;
+GLIBC-SA-2026-0025:&lt;br&gt;
+===================&lt;br&gt;
+gettext: Directory traversal via the LANGUAGE environment variable&lt;br&gt;
+&lt;br&gt;
+The gettext family of functions in the GNU C Library version 2.0 and&lt;br&gt;
+later accept LANGUAGE environment variable entries that contain &amp;apos;/&amp;apos; or&lt;br&gt;
+that are equal to &amp;quot;..&amp;quot;, unless the program is setuid or setgid&lt;br&gt;
+(AT_SECURE).  An attacker who can set LANGUAGE in the...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 18:43:19 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/453</guid>
+  </item>
+  <item>
+    <title>CVE-2026-73322: Apache Pinot: Incorrect authorization in the single-stage query engine allows reading unauthorized dimension tables via lookup()</title>
+    <link>https://seclists.org/oss-sec/2026/q4/452</link>
+    <description>&lt;p&gt;Posted by Yash Mayya on Oct 30&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Pinot 0.7.0 before 1.6.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Incorrect Authorization vulnerability in the single-stage query engine of Apache Pinot.&lt;br&gt;
+&lt;br&gt;
+When broker access control is enabled, the single-stage query engine authorizes only the table named in the query&amp;apos;s &lt;br&gt;
+FROM clause. The lookup() transform function identifies its dimension table with a string literal argument rather than &lt;br&gt;
+through the FROM clause, so...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 16:20:04 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/452</guid>
+  </item>
+  <item>
+    <title>CallBackery versions before 0.62.0 for Perl (10 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/451</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 30&lt;/p&gt;CVE-2026-13576&lt;br&gt;
+   CallBackery versions before 0.62.0 for Perl store user passwords as&lt;br&gt;
+   unsalted HMAC-SHA1 hashes&lt;br&gt;
+&lt;br&gt;
+CVE-2026-118986&lt;br&gt;
+   CallBackery versions before 0.62.0 for Perl allow session cookie&lt;br&gt;
+   forgery via a signing secret generated with rand()&lt;br&gt;
+&lt;br&gt;
+CVE-2026-118987&lt;br&gt;
+   CallBackery versions before 0.62.0 for Perl accept session cookies of&lt;br&gt;
+   any age sent in the X-Session-Cookie header&lt;br&gt;
+&lt;br&gt;
+CVE-2026-118990&lt;br&gt;
+   CallBackery versions before...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 15:49:41 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/451</guid>
+  </item>
+  <item>
+    <title>Business::GoCardless versions before 1.01 for Perl (3 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/450</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 30&lt;/p&gt;CVE-2026-119036&lt;br&gt;
+   Business::GoCardless versions before 1.01 for Perl allow memory&lt;br&gt;
+   exhaustion by flattening legacy webhook payloads before checking&lt;br&gt;
+   their signature&lt;br&gt;
+&lt;br&gt;
+CVE-2026-119037&lt;br&gt;
+   Business::GoCardless versions before 1.01 for Perl accept forged&lt;br&gt;
+   webhooks when a configured webhook secret is undef or empty&lt;br&gt;
+&lt;br&gt;
+CVE-2026-119038&lt;br&gt;
+   Business::GoCardless versions before 1.01 for Perl complete redirect&lt;br&gt;
+   flows without checking the...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 15:47:38 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/450</guid>
+  </item>
+  <item>
+    <title>Starlet versions before 0.33 for Perl (4 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/449</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 30&lt;/p&gt;CVE-2026-115865&lt;br&gt;
+   Starlet versions before 0.33 for Perl allow a request declaring a&lt;br&gt;
+   large Content-Length to kill a worker by exhausting memory&lt;br&gt;
+&lt;br&gt;
+CVE-2026-115866&lt;br&gt;
+   Starlet versions from 0.20 before 0.33 for Perl allow CPU exhaustion&lt;br&gt;
+   via regular expression backtracking when decoding chunked request&lt;br&gt;
+   bodies&lt;br&gt;
+&lt;br&gt;
+CVE-2026-116127&lt;br&gt;
+   Starlet versions before 0.33 for Perl send a body in responses to&lt;br&gt;
+   HEAD requests, corrupting the next...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 15:45:26 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/449</guid>
+  </item>
+  <item>
+    <title>CVE-2026-116130: HTTP::Parser::XS versions before 0.18 for Perl truncate PATH_INFO at an encoded NUL byte in parse_http_request</title>
+    <link>https://seclists.org/oss-sec/2026/q4/448</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 30&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-116130                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-116130&lt;br&gt;
+&lt;br&gt;
+   Distribution:  HTTP-Parser-XS&lt;br&gt;
+       Versions:  before 0.18&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/HTTP-Parser-XS&quot;&gt;https://metacpan.org/dist/HTTP-Parser-XS&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 12:54:22 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/448</guid>
+  </item>
+  <item>
+    <title>CVE-2026-118988: CallBackery versions before 0.60.1 for Perl let unauthenticated clients read the POD of any file via path traversal in the /doc route</title>
+    <link>https://seclists.org/oss-sec/2026/q4/447</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 30&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-118988                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-118988&lt;br&gt;
+&lt;br&gt;
+   Distribution:  CallBackery&lt;br&gt;
+       Versions:  before 0.60.1&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/CallBackery&quot;&gt;https://metacpan.org/dist/CallBackery&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 12:52:30 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/447</guid>
+  </item>
+  <item>
+    <title>CVE-2026-87768: DateTime::Lite versions before 0.8.1 for Perl allow CPU exhaustion via a per-day loop when adding seconds</title>
+    <link>https://seclists.org/oss-sec/2026/q4/446</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Oct 30&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-87768                                       CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-87768&lt;br&gt;
+&lt;br&gt;
+   Distribution:  DateTime-Lite&lt;br&gt;
+       Versions:  before 0.8.1&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/DateTime-Lite&quot;&gt;https://metacpan.org/dist/DateTime-Lite&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 12:50:31 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/446</guid>
+  </item>
+  <item>
+    <title>Re: Non-OSS: Claude Code for VS Code extension compromised</title>
+    <link>https://seclists.org/oss-sec/2026/q4/445</link>
+    <description>&lt;p&gt;Posted by Henri Salo on Oct 30&lt;/p&gt;There is also related Cursor blog post:&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://cursor.com/blog/claude-code-extension-security-notice&quot;&gt;https://cursor.com/blog/claude-code-extension-security-notice&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 12:22:42 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/445</guid>
+  </item>
+  <item>
+    <title>CVE-2025-70102: dhcpcd: NULL Pointer Dereference in Configuration Option Parsing</title>
+    <link>https://seclists.org/oss-sec/2026/q4/444</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Oct 30&lt;/p&gt; Product:   dhcpcd&lt;br&gt;
+Affected:  10.3.0 as identified in the CVE description; reproduced at commit&lt;br&gt;
+           2de751b3691642151a4fdc49e444d6b4dc364e98&lt;br&gt;
+CWE:       CWE-476 (NULL Pointer Dereference)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  While processing crafted configuration input, parse_option() in&lt;br&gt;
+  src/if-options.c accesses members of a NULL struct dhcp_opt pointer.&lt;br&gt;
+  The affected branch tests ldop, a pointer to the option...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 12:20:38 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/444</guid>
+  </item>
+  <item>
+    <title>Non-OSS: Claude Code for VS Code extension compromised</title>
+    <link>https://seclists.org/oss-sec/2026/q4/443</link>
+    <description>&lt;p&gt;Posted by Valtteri Vuorikoski on Oct 30&lt;/p&gt;Apologies for posting a non-open-source item, but since I get the impression&lt;br&gt;
+that quite a few open-source maintainers use Anthropic products by various&lt;br&gt;
+means nowadays, this might be a compromise vector in such projects:&lt;br&gt;
+&lt;br&gt;
+Reportedly the official Claude Code for VS Code extension on the Open VSX&lt;br&gt;
+extension marketplace for VS Code derived editors such as Cursor (but allegedly&lt;br&gt;
+not the Microsoft Visual Studio Marketplace which serves apps released by...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 12:18:36 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/443</guid>
+  </item>
+  <item>
+    <title>Re: Protecting against CVE-2026-98432 when using Go programs</title>
+    <link>https://seclists.org/oss-sec/2026/q4/442</link>
+    <description>&lt;p&gt;Posted by John Haxby on Oct 30&lt;/p&gt;MPTCP can be disabled system-wide on Linux with `sysctl -w net.mptcp.enabled=0`  This will, of course, upset programs &lt;br&gt;
+that require mptcp although[1] suggests that while newly started Go programs will handle this just fine, running &lt;br&gt;
+programs may have unexpected errors on new connections.&lt;br&gt;
+&lt;br&gt;
+jch&lt;br&gt;
+&lt;br&gt;
+[1]: &lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://cs.opensource.google/go/go/+/refs/tags/go1.27.3:src/net/mptcpsock_linux.go;drc=68c6a73380e82a0ea9a93c1a75ab8a38f28f3a3d;l=36&quot;&gt;https://cs.opensource.google/go/go/+/refs/tags/go1.27.3:src/net/mptcpsock_linux.go;drc=68c6a73380e82a0ea9a93c1a75ab8a38f28f3a3d;l=36&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 12:16:31 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/442</guid>
+  </item>
+  <item>
+    <title>CVE-2026-65874: Apache Fineract: SQL injection via ORDER BY parameters in the Center and datatables endpoints</title>
+    <link>https://seclists.org/oss-sec/2026/q4/441</link>
+    <description>&lt;p&gt;Posted by Terence Monteiro on Oct 29&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Fineract through 1.15.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Fineract versions up to and including 1.15.0. The Center read endpoint (GET /api/v1/centers) &lt;br&gt;
+and the datatable entry read endpoints (GET /api/v1/datatables/{datatable}/{apptableId} and GET &lt;br&gt;
+/api/v1/datatables/{datatable}/{apptableId}/{datatableId}) concatenate caller-supplied ordering parameters (orderBy, &lt;br&gt;
+sortOrder, order)...&lt;br&gt;</description>
+    <pubDate>Fri, 30 Oct 2026 03:00:00 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/441</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

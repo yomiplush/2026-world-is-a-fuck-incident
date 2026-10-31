@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-10-30-1031",
-  "register_sha256": "63360f7ace05fc7380f3f3218e14a1d46b73b0a1a661d1e9d65f7fde75f3adba",
+  "snapshot": "2026-10-31-1010",
+  "register_sha256": "90515f6028f1f2e69f2b5430efedee04b5ba47fca5b1eb7f2fb9fad9553dc9b4",
   "status": "reviewed",
-  "reviewed_at": "2026-10-30T11:43:09.217004Z",
-  "source_register": "2026-10-30-1031/incident-register.json",
+  "reviewed_at": "2026-10-31T01:06:20.058152+00:00",
+  "source_register": "2026-10-31-1010/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -1496,6 +1496,398 @@
       "sources": [
         "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
         "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75"
+      ]
+    },
+    "kubeflow-pipelines-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8fmv-6rg5-5924",
+        "https://github.com/advisories/GHSA-wg5q-x4j9-qm54"
+      ]
+    },
+    "pypdf-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-5849-834g-hvw5",
+        "https://github.com/advisories/GHSA-cggf-277g-3q54",
+        "https://github.com/advisories/GHSA-mfr5-77xh-9j7h",
+        "https://github.com/advisories/GHSA-42gh-23hr-vphw",
+        "https://github.com/advisories/GHSA-4vqv-7265-gm2w",
+        "https://github.com/advisories/GHSA-62m5-6wh8-28x7",
+        "https://github.com/advisories/GHSA-x3rh-gjgm-fmqc"
+      ]
+    },
+    "joi-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-4528-x5fx-h6hg"
+      ]
+    },
+    "hapi-content-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8494-f6mr-cjpv"
+      ]
+    },
+    "minimatch-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-g3hv-75wg-m249"
+      ]
+    },
+    "glob-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-3g3m-2fjr-6pw4"
+      ]
+    },
+    "authlib-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-c73q-w75p-j82v"
+      ]
+    },
+    "pyasn1-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-2qm8-x737-gmw5",
+        "https://github.com/advisories/GHSA-mm57-4v3p-rchx",
+        "https://github.com/advisories/GHSA-9m75-vc3g-4x39",
+        "https://github.com/advisories/GHSA-fm9c-5rcf-2q5p"
+      ]
+    },
+    "node-forge-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-4642-5mcj-2rqw",
+        "https://github.com/advisories/GHSA-6wvx-3r32-xmcg",
+        "https://github.com/advisories/GHSA-525v-9gp9-w22h",
+        "https://github.com/advisories/GHSA-7wch-p9px-956x",
+        "https://github.com/advisories/GHSA-h6cr-wjv9-3cpp",
+        "https://github.com/advisories/GHSA-4487-j8r4-4g2f",
+        "https://github.com/advisories/GHSA-5cwg-6vw7-rj6p",
+        "https://github.com/advisories/GHSA-jc66-7q78-782g",
+        "https://github.com/advisories/GHSA-8hrf-8g6f-7xwp",
+        "https://github.com/advisories/GHSA-hqq3-7jhf-c5jx",
+        "https://github.com/advisories/GHSA-5x38-2vff-x55p"
+      ]
+    },
+    "phpunit-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-9vw2-f4vp-x7gf"
+      ]
+    },
+    "nuxt-dev-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-3xf4-9g3c-4h4w",
+        "https://github.com/advisories/GHSA-x287-wcfc-q46c",
+        "https://github.com/advisories/GHSA-648h-gw55-m2g7"
+      ]
+    },
+    "nuxt-routing-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-9v7c-q64q-vv33"
+      ]
+    },
+    "sigstore-oci-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-j63v-mwhm-56jx"
+      ]
+    },
+    "mariadb-connector-j-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-h599-m3w5-9m7x",
+        "https://github.com/advisories/GHSA-797x-p4mc-jwpm",
+        "https://github.com/advisories/GHSA-4jq2-8v3c-97w8",
+        "https://github.com/advisories/GHSA-fhx5-2xqw-2cgm",
+        "https://github.com/advisories/GHSA-grfq-r75j-rw9x"
+      ]
+    },
+    "follow-redirects-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-mrwp-f3q8-3g9p"
+      ]
+    },
+    "russh-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-vp5q-ff62-jwqv",
+        "https://github.com/advisories/GHSA-fw5c-8223-6h42",
+        "https://github.com/advisories/GHSA-9wfm-jcj8-jfv9",
+        "https://github.com/advisories/GHSA-4p9f-7p9m-5vfg"
+      ]
+    },
+    "pageant-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-662x-8wvj-2276"
+      ]
+    },
+    "graphql-core-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-mpqx-q82w-9x46"
+      ]
+    },
+    "oauthlib-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-7984-qgvg-3j9c"
+      ]
+    },
+    "openwisp-controller-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-9gh4-xw24-9xh5"
+      ]
+    },
+    "fiber-cors-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-g5jq-qmqr-qrwf"
+      ]
+    },
+    "signalk-icons-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-7wpf-ch8f-5f4x"
+      ]
+    },
+    "signalk-resources-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-4xm8-rg9h-jhq2"
+      ]
+    },
+    "imgproxy-ico-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-hff9-5pqw-6w9f",
+        "https://github.com/advisories/GHSA-494m-4556-wf5p",
+        "https://github.com/advisories/GHSA-mmq5-xm89-9pfg"
+      ]
+    },
+    "anacrolix-torrent-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-2wrx-84qj-4pcg"
+      ]
+    },
+    "adminneo-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-p96f-p2p2-2g3h",
+        "https://github.com/advisories/GHSA-6vfx-w7q3-42gq",
+        "https://github.com/advisories/GHSA-79wv-8rh2-9vp2",
+        "https://github.com/advisories/GHSA-rx7m-wxwq-vxr9",
+        "https://github.com/advisories/GHSA-q5mp-gfjf-cf2j",
+        "https://github.com/advisories/GHSA-wm25-49w3-5qrg",
+        "https://github.com/advisories/GHSA-jm85-8cpp-9cjc"
+      ]
+    },
+    "emissary-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-c6q7-wqw2-h65w"
+      ]
+    },
+    "pypi-publish-trust-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-5xjx-3w67-w9x9"
+      ]
+    },
+    "joserfc-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-9pg5-8c7x-5hfx",
+        "https://github.com/advisories/GHSA-jpxq-7h8p-2q76"
+      ]
+    },
+    "soft-serve-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-f3fj-9625-rv3m",
+        "https://github.com/advisories/GHSA-fgxm-5hvv-x4vh"
+      ]
+    },
+    "nx-java-plugins-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-qm8w-vx34-5j9j"
+      ]
+    },
+    "malware-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-w4v4-fj9q-cfj5",
+        "https://github.com/advisories/GHSA-x4jx-pc3h-93v6",
+        "https://github.com/advisories/GHSA-v8fw-jm5x-fgg2",
+        "https://github.com/advisories/GHSA-7r8m-hmch-q36r",
+        "https://github.com/advisories/GHSA-8j2v-vwh4-x2hm",
+        "https://github.com/advisories/GHSA-r7vf-2jch-g55h",
+        "https://github.com/advisories/GHSA-3p56-fv8q-65jf",
+        "https://github.com/advisories/GHSA-pqp6-xfcj-j37c",
+        "https://github.com/advisories/GHSA-3vw9-xvmr-x46h",
+        "https://github.com/advisories/GHSA-h5wr-6cx4-x5v4",
+        "https://github.com/advisories/GHSA-w7c9-wmgh-2r69",
+        "https://github.com/advisories/GHSA-7338-2qv3-86fw",
+        "https://github.com/advisories/GHSA-7p3p-8gfg-8grq",
+        "https://github.com/advisories/GHSA-367q-mf84-m8j3",
+        "https://github.com/advisories/GHSA-5vmf-xjrj-jqhh",
+        "https://github.com/advisories/GHSA-5qgv-v3j9-f64g",
+        "https://github.com/advisories/GHSA-gm35-cprq-hwp5",
+        "https://github.com/advisories/GHSA-7vq2-mvjp-g5gf",
+        "https://github.com/advisories/GHSA-2qvg-983g-prh5",
+        "https://github.com/advisories/GHSA-f37w-2g4f-58r3",
+        "https://github.com/advisories/GHSA-p485-mr88-5q38",
+        "https://github.com/advisories/GHSA-px86-h2q8-cjjr",
+        "https://github.com/advisories/GHSA-gm8f-99q4-fpjh",
+        "https://github.com/advisories/GHSA-9g52-4q2j-2cg3"
+      ]
+    },
+    "kev-ivanti-1031": {
+      "scope": "global",
+      "reason": {
+        "ja": "製品・packageの版と構成が適用範囲を決める技術勧告。情報源の国や言語による地域限定ではなく、世界各地の実被害を示す分類でもない。",
+        "en": "A technical advisory whose applicability follows product/package versions and configuration. Source country or language does not impose a regional restriction, and this classification does not establish victim impact worldwide."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
       ]
     }
   }

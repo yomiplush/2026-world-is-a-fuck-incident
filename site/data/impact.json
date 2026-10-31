@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-30T10:31:35Z",
+  "cutoff": "2026-10-31T01:02:11Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -90,7 +90,7 @@
       "source_date": "2026-10-30",
       "as_of": "資料更新：2026-10-30 / 個別連絡開始・全体復旧は未確定",
       "total_loss_jpy": null,
-      "monitoring_status": "updated",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
@@ -120,7 +120,7 @@
       "source_date": "2026-10-28",
       "as_of": "資料更新：2026-10-28 / 今回再確認・全体復旧は未確定",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-no-material-update",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
@@ -168,7 +168,7 @@
       "source_date": "2026-10-29",
       "as_of": "資料更新：2026-10-29 / 新規登録停止継続・再開日未定",
       "total_loss_jpy": null,
-      "monitoring_status": "updated",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
@@ -233,7 +233,7 @@
       "source_date": "2026-10-28",
       "as_of": "資料更新：2026-10-28 / 今回再確認・全体復旧は未確定",
       "total_loss_jpy": null,
-      "monitoring_status": "rechecked-no-material-update",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-30T10:31:35Z",
       "recovery_state": "not-established"
     },
@@ -450,7 +450,7 @@
       "checked_at": "2026-10-29T05:01:25Z"
     }
   ],
-  "cutoff_jst": "2026-10-30T19:31:35+09:00",
+  "cutoff_jst": "2026-10-31T10:02:11+09:00",
   "caveats": [
     "更新対象以外は前回資料の文脈を保持。記載された確認日時を今回の再取得日時と読み替えない。",
     "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",

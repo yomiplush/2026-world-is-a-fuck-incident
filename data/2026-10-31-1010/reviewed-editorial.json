@@ -1,0 +1,413 @@
+[
+  {
+    "id": "kubeflow-pipelines-1031",
+    "title": "Kubeflow Pipelines、アーカイブ展開とログ取得の境界を修正",
+    "body": "アップロードの展開が名前空間認可より先に行われ、到達可能な呼び出し元がメモリーを消費させる可能性。別件では実行IDとノード情報を知る呼び出し元が、APIサーバー権限でログを取得できる。外部認証・ネットワーク制限で到達条件は変わる。",
+    "action": "製品リリースは2.18.0へ更新し、カスタムロールのreadLog権限を確認。2.17.3までが影響対象と説明される一方、APIのGo修正版は各コミットの疑似バージョン表記であり、製品番号と混同しない。",
+    "title_en": "Kubeflow Pipelines fixes archive expansion and log authorization",
+    "body_en": "Archive uploads are decompressed before namespace authorization and can consume server memory when reachable. Separately, callers knowing a run ID and suitable node information can retrieve logs with API-server permissions. External authentication and network controls affect reachability.",
+    "action_en": "Upgrade the product to 2.18.0 and review readLog permissions in custom roles. The narrative identifies releases through 2.17.3; the API lists commit-based Go pseudo-versions, which are not product release numbers.",
+    "ghsa_ids": [
+      "GHSA-8fmv-6rg5-5924",
+      "GHSA-wg5q-x4j9-qm54"
+    ]
+  },
+  {
+    "id": "pypdf-1031",
+    "title": "pypdf、細工したPDFによるループ・資源消費を修正",
+    "body": "不完全なxref、辞書複製、共有リソースの多いページツリーで無限ループやメモリー消費が発生し得る。ページラベル、strictモードの不正辞書、誤ったCountを持つ暗号化PDF、xrefストリームにも処理時間・メモリーの問題がある。",
+    "action": "全件を含む6.21.4以降へ更新。外部PDFの処理には時間・メモリー制限も設ける。",
+    "title_en": "pypdf fixes loops and resource consumption in crafted PDFs",
+    "body_en": "Incomplete xref data, dictionary cloning and page trees with shared resources can trigger loops or memory consumption. Other paths affect page labels, invalid dictionaries in strict mode, encrypted PDFs with incorrect Count values and cross-reference streams.",
+    "action_en": "Upgrade to 6.21.4 or later to cover all seven advisories; also bound processing time and memory for untrusted PDFs.",
+    "ghsa_ids": [
+      "GHSA-5849-834g-hvw5",
+      "GHSA-cggf-277g-3q54",
+      "GHSA-mfr5-77xh-9j7h",
+      "GHSA-42gh-23hr-vphw",
+      "GHSA-4vqv-7265-gm2w",
+      "GHSA-62m5-6wh8-28x7",
+      "GHSA-x3rh-gjgm-fmqc"
+    ]
+  },
+  {
+    "id": "joi-1031",
+    "title": "Joi、複数メールアドレス検証でCPU枯渇",
+    "body": "string().email({ multiple: true })に長い空白列を渡すと分割が二次時間となり、イベントループを占有する。未信頼入力をこの設定で検証するアプリが対象。",
+    "action": "修正版へ更新。暫定策はemailより前にmaxを設定し、abortEarly: falseを使わない。旧@hapi/joiにはAPI上の修正版指定がないため移行を検討。",
+    "title_en": "Joi multiple-email validation can exhaust CPU",
+    "body_en": "Long whitespace runs cause quadratic splitting in string().email({ multiple: true }), blocking the event loop in applications validating untrusted input with this option.",
+    "action_en": "Upgrade to a patched release. As a workaround put max before email and avoid abortEarly: false. Consider migrating from legacy @hapi/joi, for which the API lists no patched release.",
+    "ghsa_ids": [
+      "GHSA-4528-x5fx-h6hg"
+    ]
+  },
+  {
+    "id": "hapi-content-1031",
+    "title": "@hapi/content、multipartヘッダー解析でDoS",
+    "body": "Content-Dispositionの長い不正パラメーターで正規表現処理が二次時間となる。hapiのmultipart有効ルートではハンドラー・入力検証より前に到達する。",
+    "action": "@hapi/content 6.0.3以降へ更新。旧contentからの移行も確認。payload.maxBytesの縮小は影響軽減にとどまる。",
+    "title_en": "@hapi/content multipart header parsing can cause DoS",
+    "body_en": "Long malformed Content-Disposition parameters cause quadratic regex processing. Multipart-enabled hapi routes reach this parser before handlers and input validation.",
+    "action_en": "Upgrade to @hapi/content 6.0.3 or later and review legacy content dependencies. Lowering payload.maxBytes only reduces the impact.",
+    "ghsa_ids": [
+      "GHSA-8494-f6mr-cjpv"
+    ]
+  },
+  {
+    "id": "minimatch-1031",
+    "title": "minimatch、最適化時のパターン増幅で資源消費",
+    "body": "optimizationLevelが2以上で、攻撃者がglobパターンを指定できる場合、前処理のパターン増殖と後続の比較処理がCPU・メモリーを消費し得る。",
+    "action": "11.0.1以降へ更新。未信頼パターンと最適化設定の利用箇所を確認。",
+    "title_en": "minimatch pattern optimization can amplify resource use",
+    "body_en": "With optimizationLevel at least 2, attacker-controlled glob patterns can expand preprocessing entries and trigger costly subsequent comparisons, consuming CPU and memory.",
+    "action_en": "Upgrade to 11.0.1 or later and review untrusted-pattern inputs and optimization settings.",
+    "ghsa_ids": [
+      "GHSA-g3hv-75wg-m249"
+    ]
+  },
+  {
+    "id": "glob-1031",
+    "title": "glob、中断後もファイル探索が継続",
+    "body": "AbortSignalで拒否・タイムアウトした後もディレクトリ探索が続く。未信頼パターンやディレクトリを扱い、中断を処理予算として使うサービスではバックグラウンド処理が積み重なり得る。",
+    "action": "14.0.2以降へ更新。タイムアウトだけで探索コストが止まる前提を見直す。",
+    "title_en": "glob traversal continues after cancellation",
+    "body_en": "Directory traversal can continue after AbortSignal cancellation or timeout. Services using cancellation as a budget for untrusted patterns or trees can accumulate background work.",
+    "action_en": "Upgrade to 14.0.2 or later and review assumptions that timeouts stop traversal costs.",
+    "ghsa_ids": [
+      "GHSA-3g3m-2fjr-6pw4"
+    ]
+  },
+  {
+    "id": "authlib-1031",
+    "title": "Authlib、動的クライアント管理の実装例に認可不足",
+    "body": "RFC 7592の例に登録アクセストークンと対象クライアントの紐付け確認がない。例をそのまま実装した提供者では、有効な別クライアントのトークンで登録の閲覧・変更・削除が可能になる。全導入環境に一律発生するライブラリーの強制動作ではない。",
+    "action": "1.9.1以降の修正例を参照し、独自authenticate_client・check_permissionでトークンの所有者と対象client_idを照合。",
+    "title_en": "Authlib client-management examples omit authorization binding",
+    "body_en": "RFC 7592 examples omit binding the registration access token to the target client. Providers following those examples can permit another valid client token to read, change or delete registrations; exposure depends on application implementations.",
+    "action_en": "Consult corrected examples in 1.9.1 or later and bind token ownership to the target client_id in custom authenticate_client and check_permission methods.",
+    "ghsa_ids": [
+      "GHSA-c73q-w75p-j82v"
+    ]
+  },
+  {
+    "id": "pyasn1-1031",
+    "title": "pyasn1、ASN.1デコードの複数経路で二次時間処理",
+    "body": "構成BIT STRING・文字列、バイナリーREAL、無期限長ANY、スキーマなしコンテナーで攻撃者入力がCPUを消費し得る。BER/CERに加えDERにも一部経路があり、対象は型・スキーマ・長さ形式によって異なる。",
+    "action": "0.6.5以降へ更新。従来のOIDやREAL変換の修正だけでは今回のデコード経路をカバーしない。",
+    "title_en": "pyasn1 fixes quadratic ASN.1 decoding paths",
+    "body_en": "Attacker-controlled constructed BIT STRINGs and strings, binary REALs, indefinite-length ANY values and schemaless containers can consume disproportionate CPU. Exposure includes BER/CER and some DER paths, depending on type, schema and length form.",
+    "action_en": "Upgrade to 0.6.5 or later. Earlier OID and REAL-conversion fixes do not cover these decoding paths.",
+    "ghsa_ids": [
+      "GHSA-2qm8-x737-gmw5",
+      "GHSA-mm57-4v3p-rchx",
+      "GHSA-9m75-vc3g-4x39",
+      "GHSA-fm9c-5rcf-2q5p"
+    ]
+  },
+  {
+    "id": "node-forge-1031",
+    "title": "node-forge、暗号処理・証明書・TLSなど11件を修正",
+    "body": "OID文字列の誤エンコード、forge.httpのCookie処理によるプロトタイプ汚染、PEM/TLSのDoS、負数modInverseのループなど。ゼロ相当tagLengthを渡すAES-GCM、反復数ゼロのPKCS#12、同一subjectのCAストア、旧OID拡張を含む証明書チェーンにも個別の検証問題がある。露出条件は使用APIと設定に依存する。",
+    "action": "1.4.1以降へ更新。AES-GCMの固定有効タグ長、未信頼PEM/PFX、forge独自TLSの使用箇所を確認。basicConstraints迂回には信頼CAが細工した拡張を含む証明書を発行する条件が必要。",
+    "title_en": "node-forge fixes 11 crypto, certificate and TLS issues",
+    "body_en": "Issues include OID misencoding, prototype pollution in forge.http cookies, PEM/TLS denial of service and negative-input modInverse loops. Separate validation flaws affect zero-like AES-GCM tagLength, zero-iteration PKCS#12, CA stores with duplicate subjects and certificate chains using deprecated extension OIDs. Exposure depends on APIs and settings.",
+    "action_en": "Upgrade to 1.4.1 or later. Review fixed valid GCM tag lengths, untrusted PEM/PFX inputs and forge TLS usage. The basicConstraints bypass requires a trusted CA to issue a certificate containing the crafted extension.",
+    "ghsa_ids": [
+      "GHSA-4642-5mcj-2rqw",
+      "GHSA-6wvx-3r32-xmcg",
+      "GHSA-525v-9gp9-w22h",
+      "GHSA-7wch-p9px-956x",
+      "GHSA-h6cr-wjv9-3cpp",
+      "GHSA-4487-j8r4-4g2f",
+      "GHSA-5cwg-6vw7-rj6p",
+      "GHSA-jc66-7q78-782g",
+      "GHSA-8hrf-8g6f-7xwp",
+      "GHSA-hqq3-7jhf-c5jx",
+      "GHSA-5x38-2vff-x55p"
+    ]
+  },
+  {
+    "id": "phpunit-1031",
+    "title": "PHPUnit、共有一時ディレクトリ経由のローカルコード実行",
+    "body": "13.4.0〜13.4.3でPHPTテストのカバレッジ取得時、別ローカルユーザーが先に作った共有一時ディレクトリ内のテストコードを差し替え得る。実行権限はテスト実行ユーザーの権限となる。",
+    "action": "13.4.4以降へ更新。暫定的にはユーザー専用TMPDIRなどで共有一時領域を分離。",
+    "title_en": "PHPUnit shared temporary directory permits local code execution",
+    "body_en": "During PHPT coverage runs in 13.4.0–13.4.3, another local user who creates the shared temporary directory first can replace test code and execute it as the test runner.",
+    "action_en": "Upgrade to 13.4.4 or later; use a private per-user TMPDIR as an interim isolation measure.",
+    "ghsa_ids": [
+      "GHSA-9vw2-f4vp-x7gf"
+    ]
+  },
+  {
+    "id": "nuxt-dev-1031",
+    "title": "Nuxt開発サーバー、秘密情報公開と任意ファイル読み取り",
+    "body": "ネットワークから到達できる開発サーバーで、生成appSecretやNitro 2の開発バンドルに埋め込まれた非公開設定が読まれ得る。4.6.0〜4.6.2のHMRエラー報告には開発プロセス権限で任意ファイルを読む別経路もある。製品ビルドは対象外。",
+    "action": "nuxtと@nuxt/vite-builderを4.6.3以降へ更新し、開発ポートの公開を制限。外部到達可能だった場合は露出条件に応じて開発秘密鍵・設定の認証情報を更新し、開発セッションを無効化。Nuxt 3はEOLで移行が必要。",
+    "title_en": "Nuxt development servers expose secrets and readable files",
+    "body_en": "Network-reachable development servers can expose generated appSecret files and private config embedded in Nitro 2 development bundles. In 4.6.0–4.6.2, HMR client-error reports also allow reading files accessible to the dev process. Production builds are unaffected.",
+    "action_en": "Upgrade nuxt and @nuxt/vite-builder to 4.6.3 or later and restrict dev-port exposure. Rotate potentially exposed credentials and invalidate dev sessions as applicable. Nuxt 3 is end of life and requires migration.",
+    "ghsa_ids": [
+      "GHSA-3xf4-9g3c-4h4w",
+      "GHSA-x287-wcfc-q46c",
+      "GHSA-648h-gw55-m2g7"
+    ]
+  },
+  {
+    "id": "nuxt-routing-1031",
+    "title": "Nuxt、ページルートのドットセグメントでパス検査を迂回",
+    "body": "4.6.0〜4.6.2ではページ描画とNitro側でパス正規化が異なり、ドットセグメントを含む要求がパス依存のserver/middlewareやルート規則を迂回し得る。APIハンドラーや解決後ルートに適用するappMiddlewareは対象外。",
+    "action": "nuxtと@nuxt/nitro-serverを4.6.3以降へ更新。暫定的には先行ミドルウェアでドットセグメントを拒否。",
+    "title_en": "Nuxt dot segments bypass page-route path checks",
+    "body_en": "In 4.6.0–4.6.2, inconsistent normalization between page rendering and Nitro can bypass path-based server/middleware and route rules. API handlers and appMiddleware applied to resolved routes are unaffected.",
+    "action_en": "Upgrade nuxt and @nuxt/nitro-server to 4.6.3 or later; reject dot segments in an early middleware as a workaround.",
+    "ghsa_ids": [
+      "GHSA-9v7c-q64q-vv33"
+    ]
+  },
+  {
+    "id": "sigstore-oci-1031",
+    "title": "@sigstore/oci、別ホストのアップロード先へ認証ヘッダー送信",
+    "body": "レジストリが返すblob-uploadのLocationを検証せず新規PUTに使い、元レジストリのAuthorizationや独自認証ヘッダーを付与する。悪意ある・侵害されたレジストリ応答が条件。通常のリダイレクト追従とは別経路で、報告はソース解析に基づく。",
+    "action": "0.7.2以降へ更新し、疑わしいレジストリを利用した場合は資格情報の影響を調査。",
+    "title_en": "@sigstore/oci sends registry credentials to cross-host upload locations",
+    "body_en": "An unchecked blob-upload Location is used for a fresh PUT carrying the registry Authorization and custom authentication headers. This requires a malicious or compromised registry response. The report traces source code rather than an observed hostile-registry exchange.",
+    "action_en": "Upgrade to 0.7.2 or later and assess credential exposure if suspicious registries were used.",
+    "ghsa_ids": [
+      "GHSA-j63v-mwhm-56jx"
+    ]
+  },
+  {
+    "id": "mariadb-connector-j-1031",
+    "title": "MariaDB Connector/J、悪意あるサーバー応答への検証を強化",
+    "body": "サーバー指定長の確保・整数切り詰め・XA回復データでメモリー消費や例外が発生し得る。allowLocalInfile有効時のSQL照合不備はクライアントファイル読み取りにつながり、文字セット変更の検知不足は文字列の整合性に影響する。いずれもサーバー側の制御または通信改変が条件。",
+    "action": "全件を含む3.3.7、3.4.5、3.5.11以降の対応系列へ更新。不要な場合はallowLocalInfile=falseとし、接続先の信頼性・TLS検証も確認。",
+    "title_en": "MariaDB Connector/J hardens handling of hostile server replies",
+    "body_en": "Server-declared lengths, integer truncation and XA recovery data can trigger allocations or exceptions. With allowLocalInfile enabled, SQL matching flaws can disclose client files; undetected charset changes affect string integrity. All require control of server-side replies or a MitM position.",
+    "action_en": "Upgrade to the applicable 3.3.7, 3.4.5 or 3.5.11 line covering all five issues. Disable allowLocalInfile when unnecessary and review trusted endpoints and TLS validation.",
+    "ghsa_ids": [
+      "GHSA-h599-m3w5-9m7x",
+      "GHSA-797x-p4mc-jwpm",
+      "GHSA-4jq2-8v3c-97w8",
+      "GHSA-fhx5-2xqw-2cgm",
+      "GHSA-grfq-r75j-rw9x"
+    ]
+  },
+  {
+    "id": "follow-redirects-1031",
+    "title": "follow-redirects、別realmの設定配列で独自認証ヘッダー漏えい",
+    "body": "1.16.0・1.16.1で別JavaScript realm由来のsensitiveHeaders配列が破棄され、指定した独自資格情報が別オリジンへのリダイレクトに送られ得る。組み込みAuthorization・Cookie保護は維持され、Axiosでの影響は報告されていない。",
+    "action": "1.16.2以降へ更新。独自ヘッダー設定を保持するラッパーやvm境界の利用箇所を確認。",
+    "title_en": "follow-redirects cross-realm arrays can expose custom credentials",
+    "body_en": "In 1.16.0 and 1.16.1, cross-realm sensitiveHeaders arrays are discarded, allowing declared custom credentials to follow cross-origin redirects. Built-in Authorization and Cookie protections remain effective; the report does not establish Axios exposure.",
+    "action_en": "Upgrade to 1.16.2 or later and review wrappers and vm boundaries preserving custom-header options.",
+    "ghsa_ids": [
+      "GHSA-mrwp-f3q8-3g9p"
+    ]
+  },
+  {
+    "id": "russh-1031",
+    "title": "russh、署名確認の欠落とSSH資源消費を修正",
+    "body": "エージェントのconfirm制約付き鍵がAgent::confirmを呼ばず署名されるほか、ソケット到達者が反復制約でメモリーを増加させ得る。悪意あるSSHピアの最大パケットサイズ0で書き込みが停止し、接続先サーバーの反復EXT_INFOでクライアントのメモリーが増加する問題もある。",
+    "action": "0.65.0以降へ更新。confirmの独自実装が再び呼ばれる互換性を確認し、エージェント転送先を制限。",
+    "title_en": "russh fixes missing signing confirmation and resource issues",
+    "body_en": "Confirm-constrained agent keys can sign without calling Agent::confirm; agent-socket peers can also grow memory with repeated constraints. A hostile SSH peer can stall writes with a 0 maximum packet size, while repeated server EXT_INFO packets grow client memory.",
+    "action_en": "Upgrade to 0.65.0 or later, check compatibility as custom confirm implementations are called again, and restrict agent forwarding.",
+    "ghsa_ids": [
+      "GHSA-vp5q-ff62-jwqv",
+      "GHSA-fw5c-8223-6h42",
+      "GHSA-9wfm-jcj8-jfv9",
+      "GHSA-4p9f-7p9m-5vfg"
+    ]
+  },
+  {
+    "id": "pageant-1031",
+    "title": "pageant、フレーム長未検証でメモリー消費",
+    "body": "PageantStreamが相手指定の長さを検証せずバッファリングする。実際の転送上限8KiBを超える要求でもメモリーを消費し、途中で送信を止めれば部分バッファが保持される。ストリーム入力を制御する相手が条件。",
+    "action": "0.2.5以降へ更新。SSHエージェント転送などで未信頼の相手へストリームが届く経路を確認。",
+    "title_en": "pageant unchecked frame lengths permit memory consumption",
+    "body_en": "PageantStream buffers peer-declared lengths without checking the transport’s 8 KiB limit. Oversized or incomplete frames consume retained memory when a peer controls stream bytes.",
+    "action_en": "Upgrade to 0.2.5 or later and review untrusted stream access through SSH agent forwarding or similar paths.",
+    "ghsa_ids": [
+      "GHSA-662x-8wvj-2276"
+    ]
+  },
+  {
+    "id": "graphql-core-1031",
+    "title": "GraphQL-core、中断した検証の例外保持でメモリー漏えい",
+    "body": "検証エラー数上限を超える文書を繰り返し処理すると、共有例外のトレースバックが文書・検証状態を保持し続ける。GraphQL-core 3.3系の問題で、3.2系とGraphQL.jsは対象外。",
+    "action": "3.3.1以降へ更新。実行前の検証で発生するため、実行時の深さ・複雑性制限だけに依存しない。",
+    "title_en": "GraphQL-core aborted validations retain memory",
+    "body_en": "Repeated documents exceeding the validation-error limit extend a shared exception traceback, retaining documents and validation state. This affects the 3.3 line; GraphQL-core 3.2 and GraphQL.js are unaffected.",
+    "action_en": "Upgrade to 3.3.1 or later. Execution-time depth or complexity limits alone do not address this validation-stage issue.",
+    "ghsa_ids": [
+      "GHSA-mpqx-q82w-9x46"
+    ]
+  },
+  {
+    "id": "oauthlib-1031",
+    "title": "OAuthLib、認証済みクライアントと認可対象IDの不一致",
+    "body": "client_credentials・passwordフローで、認証したクライアントと異なるclient_idを本文から認可検査へ渡せる。有効な低権限クライアント資格情報を持ち、検証実装が引数client_idで権限・scopeを判定する提供者が対象。",
+    "action": "4.0.0以降へ更新。独自検証では認証済みrequest.clientにIDを結び付け、不一致を認可検査前に拒否。",
+    "title_en": "OAuthLib token grants can authorize under a different client ID",
+    "body_en": "In client_credentials and password flows, a body-supplied client_id can differ from the authenticated client during authorization. Exposure requires valid lower-privilege client credentials and validators relying on the client_id argument for grants or scopes.",
+    "action_en": "Upgrade to 4.0.0 or later and bind authorization to request.client, rejecting explicit ID mismatches before validation.",
+    "ghsa_ids": [
+      "GHSA-7984-qgvg-3j9c"
+    ]
+  },
+  {
+    "id": "openwisp-controller-1031",
+    "title": "OpenWISP Controller、CRL取得APIの組織分離不足",
+    "body": "CA閲覧権限のある組織管理者が別組織CAのIDでCRLを取得できる。公開されるのは発行者情報・失効シリアルなどで、CA秘密鍵や変更機能ではない。既定ではCRL自体が公開のため、特にCRL保護を有効にした環境で確認が必要。",
+    "action": "1.3.2以降へ更新し、CRL APIの組織別アクセス制御を確認。",
+    "title_en": "OpenWISP Controller CRL API omits organization scoping",
+    "body_en": "Organization managers with CA-view permission can fetch another organization’s CRL by CA ID. Only issuer information and revoked serials are exposed, not private keys or modification capabilities. CRLs are public by default, making explicitly protected deployments more relevant.",
+    "action_en": "Upgrade to 1.3.2 or later and verify organization scoping for CRL downloads.",
+    "ghsa_ids": [
+      "GHSA-9gh4-xw24-9xh5"
+    ]
+  },
+  {
+    "id": "fiber-cors-1031",
+    "title": "Fiber、旧CORSワイルドカード照合で資格情報付き読み取り",
+    "body": "2.52.1・2.52.2でワイルドカードのドット境界とスキームを検査せず、似た末尾の別ドメインを許可する。AllowCredentials有効のアプリでは認証済み応答の別オリジン読み取りが可能になる。",
+    "action": "2.52.3以降、可能なら最新v2へ更新。別の照合強化は2.52.16であり、本件の影響範囲とは区別。",
+    "title_en": "Fiber legacy CORS matching permits credentialed reads",
+    "body_en": "In 2.52.1 and 2.52.2, wildcard matching omits dot-boundary and scheme checks, permitting unrelated domains with matching suffixes. Applications enabling AllowCredentials can expose authenticated responses cross-origin.",
+    "action_en": "Upgrade to at least 2.52.3, preferably the latest v2. Separate matching hardening in 2.52.16 does not broaden this advisory’s affected range.",
+    "ghsa_ids": [
+      "GHSA-g5jq-qmqr-qrwf"
+    ]
+  },
+  {
+    "id": "signalk-icons-1031",
+    "title": "Signal K、アプリストアのアイコン取得でSSRF",
+    "body": "ストア掲載プラグインの絶対http(s)アイコンURLをそのまま取得し、リダイレクトも追従する。プラグインを掲載できる攻撃者が、ストア閲覧時にサーバーから内部アドレスへの要求を誘発し得る。検証は実モジュール単体で行われた。",
+    "action": "signalk-server 2.34.0以降へ更新し、アイコン取得先と内部ネットワークへの送信制御を確認。",
+    "title_en": "Signal K app-store icons permit SSRF",
+    "body_en": "Absolute HTTP(S) icon URLs from listed plugins are fetched with redirects. An attacker able to list a plugin can induce server requests to internal addresses when the store is browsed. Testing exercised the real modules directly.",
+    "action_en": "Upgrade signalk-server to 2.34.0 or later and review icon destinations and internal-network egress controls.",
+    "ghsa_ids": [
+      "GHSA-7wpf-ch8f-5f4x"
+    ]
+  },
+  {
+    "id": "signalk-resources-1031",
+    "title": "Signal K、パストラバーサルから管理者権限・コード実行",
+    "body": "resources・applicationData APIのパス検証不足で保存先外のファイルへアクセスし得る。security.jsonのJWT秘密情報が読めると管理者トークンを偽造し、Executeプロバイダー経由のコード実行につながる。匿名読み取り有効時は未認証、既定ではreadonlyトークンが必要。",
+    "action": "signalk-server 2.34.0、@signalk/resources-provider 1.5.3以降へ更新。公開状況を調査し、影響が疑われるJWT秘密情報・資格情報を更新、永続化プロバイダー設定を確認。",
+    "title_en": "Signal K traversal can lead to admin takeover and code execution",
+    "body_en": "Insufficient path validation in resources and applicationData APIs permits access outside storage roots. Reading the JWT secret in security.json enables forged admin tokens and execution through an Execute provider. Anonymous access requires readonly access enabled; default deployments require a readonly token.",
+    "action_en": "Upgrade signalk-server to 2.34.0 and @signalk/resources-provider to 1.5.3 or later. Assess exposure, rotate potentially exposed JWT secrets and credentials, and inspect persisted provider settings.",
+    "ghsa_ids": [
+      "GHSA-4xm8-rg9h-jhq2"
+    ]
+  },
+  {
+    "id": "imgproxy-ico-1031",
+    "title": "imgproxy、ICO処理のヒープ破損と過大確保",
+    "body": "未信頼ICOのdata_sizeによる整数オーバーフロー、短すぎるBMPヘッダーの範囲外読み書き、無制限のメモリー確保を修正。細工した画像でワーカーが停止し得て、オーバーフローにはコード実行の可能性も報告される。実際のコード実行成立を示すものではない。",
+    "action": "全件を含む4.0.17以降へ更新。4.0.16ではBMPヘッダー再構築の問題が残るため追加更新が必要。",
+    "title_en": "imgproxy ICO loading flaws corrupt heaps and allocate excessive memory",
+    "body_en": "Untrusted ICO sizes trigger integer overflow, out-of-bounds BMP-header reconstruction or unbounded allocation. Crafted images can crash workers; the overflow also carries potential code-execution risk, without demonstrating successful code execution.",
+    "action_en": "Upgrade to 4.0.17 or later to cover all three issues. Version 4.0.16 does not include the BMP-header reconstruction fix.",
+    "ghsa_ids": [
+      "GHSA-hff9-5pqw-6w9f",
+      "GHSA-494m-4556-wf5p",
+      "GHSA-mmq5-xm89-9pfg"
+    ]
+  },
+  {
+    "id": "anacrolix-torrent-1031",
+    "title": "anacrolix/torrent、深いbencodeでスタック・CPU枯渇",
+    "body": "深さ制限のないbencodeデコーダーにより、細工したtorrentやピアからのメタデータで再帰のスタック超過が起こり得る。v2ファイルツリーでは部分木の再解析による二次時間処理もある。",
+    "action": "修正コミット76452a2c8a2fを含むバージョンへ更新。Go APIの修正版は1.61.1-0.20260911233437-76452a2c8a2f。未信頼メタデータの深さ・処理予算を確認。",
+    "title_en": "anacrolix/torrent deep bencode exhausts stack or CPU",
+    "body_en": "Unbounded bencode nesting in crafted torrent files or peer metadata can overflow the stack. Repeated subtree parsing in v2 file trees also causes quadratic CPU consumption.",
+    "action_en": "Upgrade to a version containing commit 76452a2c8a2f; the Go API identifies 1.61.1-0.20260911233437-76452a2c8a2f as patched. Review nesting and processing budgets for untrusted metadata.",
+    "ghsa_ids": [
+      "GHSA-2wrx-84qj-4pcg"
+    ]
+  },
+  {
+    "id": "adminneo-1031",
+    "title": "AdminNeo、SQLite・Cookie・XSS・CSRFなど7件を修正",
+    "body": "認証済みSQLite利用者のファイル作成・削除、未信頼X-Forwarded-PrefixによるCookie属性注入、悪意あるMySQLサーバーのバージョン文字列によるXSSを含む。観測したCSRFトークンからの偽造、バージョンキャッシュ汚染による継続的DoSも報告。コード実行はPHPで実行可能な場所への書き込みなど追加条件に依存する。",
+    "action": "5.5.1以降へ更新。プロキシは転送Prefixを信頼値に固定し、DB接続先・PHP書き込み権限を制限。DoS単独の修正は5.5.0だが残る6件には5.5.1が必要。",
+    "title_en": "AdminNeo fixes 7 SQLite, cookie, XSS, CSRF and cache issues",
+    "body_en": "Issues include file creation or deletion by authenticated SQLite users, cookie-attribute injection through untrusted X-Forwarded-Prefix and XSS from hostile MySQL version strings. Observed CSRF tokens permit forgery, while version-cache poisoning causes persistent DoS. Code execution depends on additional conditions such as writing to a PHP-executable location.",
+    "action_en": "Upgrade to 5.5.1 or later. Set trusted proxy prefixes and restrict database endpoints and PHP write permissions. Version 5.5.0 fixes the cache DoS alone; the other 6 require 5.5.1.",
+    "ghsa_ids": [
+      "GHSA-p96f-p2p2-2g3h",
+      "GHSA-6vfx-w7q3-42gq",
+      "GHSA-79wv-8rh2-9vp2",
+      "GHSA-rx7m-wxwq-vxr9",
+      "GHSA-q5mp-gfjf-cf2j",
+      "GHSA-wm25-49w3-5qrg",
+      "GHSA-jm85-8cpp-9cjc"
+    ]
+  },
+  {
+    "id": "emissary-1031",
+    "title": "Emissary、ナビゲーションURL検証の修正が不完全",
+    "body": "NavActionのURL正規表現がプロトコル相対URLや単一スラッシュ形式を許可し、オープンリダイレクトやSSRFにつながると報告。入力先・取得経路に依存するため、内部資格情報の窃取成立までは断定しない。",
+    "action": "APIで修正版とされる8.51.0以降へ更新し、URI解析と許可ホスト検証を確認。本文のコミット表記とパッケージ版の違いにも注意。",
+    "title_en": "Emissary navigation URL validation fix is incomplete",
+    "body_en": "The NavAction URL regex accepts protocol-relative and single-slash forms, reported to permit open redirects or SSRF. Actual exposure depends on input and fetching paths; successful internal credential theft is not established here.",
+    "action_en": "Upgrade to 8.51.0 or later as identified by the API and review URI parsing and allowed-host validation. Distinguish commit identifiers in the prose from package versions.",
+    "ghsa_ids": [
+      "GHSA-c6q7-wqw2-h65w"
+    ]
+  },
+  {
+    "id": "pypi-publish-trust-1031",
+    "title": "pypi-publish、失効対象CAを含む信頼ストアを更新",
+    "body": "Trusted Publishing・Digital Attestationsで利用するSigstore関連のcertifi信頼ストアからemSignルートCAを除去した通知。本文は1.14.2未満と説明するが、構造化APIは1.14.2以下を影響対象、1.14.3を修正版とする不一致がある。",
+    "action": "安全側にAPIの修正版1.14.3以降を選び、ワークフローの固定タグ・コミットを更新。本文だけを根拠に1.14.2を修正済みと扱わない。",
+    "title_en": "pypi-publish updates trust store after CA revocation",
+    "body_en": "The notice removes the emSign root CA from the certifi trust store used by Sigstore for Trusted Publishing and Digital Attestations. The prose says before 1.14.2, but the structured API marks versions through 1.14.2 affected and 1.14.3 patched.",
+    "action_en": "Use 1.14.3 or later to follow the conservative structured range and update pinned workflow references. Do not treat 1.14.2 as fixed based only on the prose.",
+    "ghsa_ids": [
+      "GHSA-5xjx-3w67-w9x9"
+    ]
+  },
+  {
+    "id": "joserfc-1031",
+    "title": "joserfc、JWS・JWEの資源制限不足",
+    "body": "Compact JWSでサイズ検査前にセグメントをコピーし、入力相当の追加メモリーを確保する。General JSON JWEでは受信者配列の上限がなく、RSA復号を受信者ごとに繰り返す。verify_all_recipients=Falseでも後者のCPUコストは減らない。",
+    "action": "両件を含む1.7.6以降へ更新。アプリ境界でもトークン長・受信者数を制限。",
+    "title_en": "joserfc JWS and JWE resource guards are insufficient",
+    "body_en": "Compact JWS copies segments before size checks, creating an additional input-sized allocation. General JSON JWE has no recipient-count bound and repeats RSA decryption per recipient; verify_all_recipients=False does not reduce that CPU work.",
+    "action_en": "Upgrade to 1.7.6 or later to cover both issues and bound token sizes and recipient counts at application boundaries.",
+    "ghsa_ids": [
+      "GHSA-9pg5-8c7x-5hfx",
+      "GHSA-jpxq-7h8p-2q76"
+    ]
+  },
+  {
+    "id": "soft-serve-1031",
+    "title": "Soft Serve、非公開化後の閲覧継続と名前漏えい",
+    "body": "公開から非公開への切り替え競合で古いキャッシュが残り、その後の追加コミットも読める場合がある。共有DBの複数プロセスでは競合なしで古い可視性が残る。別件のHTTP応答差・go-get処理は非公開リポジトリ名とURLを漏らすが、単独では内容を公開しない。",
+    "action": "0.12.3以降へ更新。暫定的な再起動は古い可視性を消すが競合の再発を防がないため、新規リポジトリを最初から非公開で作成。",
+    "title_en": "Soft Serve fixes stale private visibility and repository-name disclosure",
+    "body_en": "A race when making public repositories private can retain stale authorization and expose later commits. Multiple processes sharing a database can stay stale without a race. Separate HTTP response differences and go-get handling disclose private names and URLs, but not contents on their own.",
+    "action_en": "Upgrade to 0.12.3 or later. Restarting clears stale visibility but does not prevent recurrence; create new repositories private from the outset as an interim measure.",
+    "ghsa_ids": [
+      "GHSA-f3fj-9625-rv3m",
+      "GHSA-fgxm-5hvv-x4vh"
+    ]
+  },
+  {
+    "id": "nx-java-plugins-1031",
+    "title": "Nx Maven・Gradleプラグイン、設定値からコマンド注入",
+    "body": "対象プラグインを登録したワークスペースで、細工したnx.jsonのオプションがシェル経由の解析コマンドへ渡る。利用者が通常のnxコマンドを実行すると、その権限でコードが実行される。主な追加露出はビルドファイルの変更を制限しつつnx.jsonを信頼するCIなど。",
+    "action": "nx本体と対象@nx/maven・@nx/gradleをセットで22.7.9または23.1.2以降へ更新。プラグインだけの更新では修正が完結しない。",
+    "title_en": "Nx Maven and Gradle plugin options permit command injection",
+    "body_en": "In workspaces registering affected plugins, crafted nx.json options enter shell-based analyzer commands. An ordinary nx command then executes code as the caller. Additional exposure is narrow where build files are already trusted to execute code, but matters in CI trusting editable nx.json separately.",
+    "action_en": "Upgrade nx and the affected @nx/maven or @nx/gradle plugin together to 22.7.9 or 23.1.2 or later. Updating only the plugin is insufficient.",
+    "ghsa_ids": [
+      "GHSA-qm8w-vx34-5j9j"
+    ]
+  }
+]

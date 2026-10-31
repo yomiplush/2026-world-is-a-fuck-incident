@@ -9,7 +9,7 @@ class ScopeTests(unittest.TestCase):
   self.register=json.loads(self.path.read_text());self.audit=json.loads((ROOT/'content/research-scope.json').read_text())
  def test_current_partition_and_exceptions(self):
   groups=scope.groups(self.register,self.path,self.audit)
-  self.assertEqual([len(rows) for _,rows in groups],[129,4,2,0])
+  self.assertEqual([len(rows) for _,rows in groups],[162,4,2,0])
   decisions=scope.decisions(self.register,self.path,self.audit)
   self.assertEqual(decisions['unm-recovery']['scope'],'regional')
   self.assertEqual(decisions['yamaha-nwr100']['scope'],'global')
@@ -40,7 +40,7 @@ class ScopeTests(unittest.TestCase):
   for page in pages:
    self.assertEqual(len(page.ids),len(set(page.ids)))
    self.assertEqual(set(sum(page.sections.values(),[])),expected)
-   self.assertEqual([len(x) for x in page.sections.values()],[129,4,2,0])
+   self.assertEqual([len(x) for x in page.sections.values()],[162,4,2,0])
    self.assertTrue(all(link[1:] in page.ids for link in page.links if link.startswith('#')))
   self.assertEqual(pages[0].sections,pages[1].sections)
  def test_download_keeps_original_records_unchanged(self):
