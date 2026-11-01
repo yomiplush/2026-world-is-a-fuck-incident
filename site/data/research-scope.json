@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-10-31-1010",
-  "register_sha256": "90515f6028f1f2e69f2b5430efedee04b5ba47fca5b1eb7f2fb9fad9553dc9b4",
+  "snapshot": "2026-11-01-2133",
+  "register_sha256": "810ea8b9811f363d5b831d4526caac41983108d121d5879d3565382a9bdf553f",
   "status": "reviewed",
-  "reviewed_at": "2026-10-31T01:06:20.058152+00:00",
-  "source_register": "2026-10-31-1010/incident-register.json",
+  "reviewed_at": "2026-11-01T12:36:43.385571+00:00",
+  "source_register": "2026-11-01-2133/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -1888,6 +1888,101 @@
       },
       "sources": [
         "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "apache-mina-118636": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/118xxx/CVE-2026-118636.json"
+      ]
+    },
+    "pystr-codec-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-f93h-mc69-274w"
+      ]
+    },
+    "is-it-ai-chain-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-76h8-w3px-47hx",
+        "https://github.com/advisories/GHSA-r92r-m9r8-78vj",
+        "https://github.com/advisories/GHSA-7p4v-mm6f-8g5c",
+        "https://github.com/advisories/GHSA-vh26-86vj-f72g"
+      ]
+    },
+    "privacypass-py-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-45w4-c62g-5g5v"
+      ]
+    },
+    "npm-probes-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-mmpx-xm69-xmv9",
+        "https://github.com/advisories/GHSA-jh68-cxw4-pfj2"
+      ]
+    },
+    "npm-malware-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-fg5w-8hhw-8j6h",
+        "https://github.com/advisories/GHSA-7j62-5j84-72fv"
+      ]
+    },
+    "doctreelstm-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-5fxv-5qc2-53g8"
+      ]
+    },
+    "macs-shoaibs-pro17-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定地域に限定されない公開ソフトウェア・パッケージの利用条件に関する勧告。実被害の地域や件数を示す分類ではない。",
+        "en": "Advisory about usage conditions for publicly distributed software or packages without a stated regional restriction; this does not classify actual victim locations or counts."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-625f-xj7r-qh7w"
+      ]
+    },
+    "northflank-keys-1101": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がないクラウド基盤とAPIキーの利用者向け案内。利用者全員の所在地や被害件数を確定する分類ではない。",
+        "en": "Cloud-platform and API-key guidance without a stated regional restriction; this does not establish all user locations or victim counts."
+      },
+      "sources": [
+        "https://status.northflank.com/"
       ]
     }
   }

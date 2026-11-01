@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-31T01:02:11Z",
+  "cutoff": "2026-11-01T12:33:30Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -448,9 +448,31 @@
       "recovery_state": "not-established",
       "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
+    },
+    {
+      "id": "northflank-keys-impact",
+      "title": "Northflank：利用者からAI APIキーの不正利用報告",
+      "confirmed": "Northflank公式statusが、利用者からAI APIキーの不正利用報告を受けたと公表。監査ログと各DBのsecret rotation機能を全顧客へ順次開放した。",
+      "unknown": "不正利用を報告した顧客数・被害額・原因・全環境変数の実際の取得範囲は未公表。全変数を復号されたと想定する案内は予防指示であり、全件漏えいの確認ではない。全面復旧も未確認。",
+      "response": "キーの発行元で失効・再発行し、workloadへ反映する。AI利用・請求・監査ログを確認し、DB secretも更新する。",
+      "category": "認証情報・不正利用の報告",
+      "as_of": "公式statusの更新：2026-10-31T23:31Z / 今回確認",
+      "status": "confirmed-impact",
+      "sources": [
+        {
+          "name": "Northflank official status",
+          "url": "https://status.northflank.com/"
+        }
+      ],
+      "event_date": null,
+      "source_date": "2026-10-31",
+      "total_loss_jpy": null,
+      "monitoring_status": "newly-covered",
+      "checked_at": "2026-11-01T12:33:30Z",
+      "recovery_state": "not-established"
     }
   ],
-  "cutoff_jst": "2026-10-31T10:02:11+09:00",
+  "cutoff_jst": "2026-11-01T21:33:30+09:00",
   "caveats": [
     "更新対象以外は前回資料の文脈を保持。記載された確認日時を今回の再取得日時と読み替えない。",
     "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",
