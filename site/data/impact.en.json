@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-31T01:02:11Z",
+  "cutoff": "2026-11-01T12:33:30Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -448,9 +448,31 @@
       "recovery_state": "not-established",
       "monitoring_status": "retained-prior-context",
       "checked_at": "2026-10-29T05:01:25Z"
+    },
+    {
+      "id": "northflank-keys-impact",
+      "title": "Northflank: user reports of unauthorized AI API key use",
+      "confirmed": "Northflank officially disclosed receiving user reports of unauthorized AI API key use. Audit logs and secret rotation features for database add-ons were progressively made available to all customers.",
+      "unknown": "The number of reporting customers, financial losses, cause and actual extent of environment-variable access are not disclosed. Assuming all variables were decrypted is a precautionary instruction, not confirmation of a complete leak. Full recovery is also unconfirmed.",
+      "response": "Revoke and replace keys at the issuer and update workloads. Review AI usage, billing and audit logs, and rotate database secrets.",
+      "category": "Credential exposure and unauthorized-use reports",
+      "as_of": "Official status update: 2026-10-31T23:31Z / Checked in this review",
+      "status": "confirmed-impact",
+      "sources": [
+        {
+          "name": "Northflank official status",
+          "url": "https://status.northflank.com/"
+        }
+      ],
+      "event_date": null,
+      "source_date": "2026-10-31",
+      "total_loss_jpy": null,
+      "monitoring_status": "newly-covered",
+      "checked_at": "2026-11-01T12:33:30Z",
+      "recovery_state": "not-established"
     }
   ],
-  "cutoff_jst": "2026-10-31T10:02:11+09:00",
+  "cutoff_jst": "2026-11-01T21:33:30+09:00",
   "caveats": [
     "Rows outside the update scope retain prior source context. Their recorded check times are not new retrieval times.",
     "Selected examples. parent_incident indicates user-side effects of the same compromise and is not added as a separate incident. potential means actual acquisition is unconfirmed.",
@@ -462,8 +484,8 @@
   ],
   "locale": "en",
   "translation": {
-    "source_hash": "5308fe1ced78ed7ca2bd9caae7072f1acf33cc97193a35e3420797451a55ea81",
-    "register_hash": "59d991e390ca5e47ced043718e48b3836c02378540e5910461572ca14cfdc535",
+    "source_hash": "6dae02990b748f10b74774951a47e13d33017858eecf014690551fc6282609fa",
+    "register_hash": "11d63ab0a512a5e0eae0a18b1079ccd7e4043f02af1b0f152a903ce25380b334",
     "human_reviewed": false
   }
 }
