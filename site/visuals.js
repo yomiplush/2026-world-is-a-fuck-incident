@@ -904,7 +904,53 @@ window.VISUALS = (function () {
     heading(g,'VERIFY / PATCH / REVOKE / ROTATE',C.cyan);g.flush();
   };
 
-  // October 29: explanatory spatial models, never live telemetry.
+  // Review diagrams are explanatory relationships, never live telemetry.
+  scenes.reviewScope = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.58});
+    const labels=['NVD PUBLISHED','NVD MODIFIED','GHSA TYPES'];
+    for(let i=0;i<3;i++){
+      const p=[(i-1)*240,50-i*35,(i-1)*55];
+      g.prism(...p,130,16,6,i===1?C.amber:C.cyan,{alpha:.4,edge:.7,rot:i});
+      ring(g,p,145,i===1?C.amber:C.cyan);
+      label(g,[p[0],p[1]-180,p[2]],labels[i],C.cyan,10);
+      if(i<2)flow(g,p,[(i)*240,15-i*35,i*55],t,C.amber,i*.2);
+    }
+    heading(g,'OVERLAPPING RECORDS / DISTINCT CONDITIONS');g.flush();
+  };
+  scenes.reviewDatabase = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.25,pitch:.53});
+    const p=[[-330,40,40],[-70,-30,0],[260,20,-30]];
+    p.forEach((v,i)=>node(g,v,['AI SQL','PARSER','DATABASE'][i],i===1?C.amber:C.cyan,t,i,{hx:65,hy:65,hz:55,font:11}));
+    flow(g,p[0],p[1],t,C.amber);flow(g,p[1],p[2],t,C.amber,.3);
+    g.box(110,0,0,12,165,135,C.cyan,{alpha:.3,edge:.9});
+    ring(g,p[2],125,C.cyan,'xy');
+    label(g,[130,-220,0],'DB PRIVILEGES',C.cyan,12);
+    heading(g,'VALIDATE SQL / DENY WRITES AT THE DATABASE');g.flush();
+  };
+  scenes.reviewClaims = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.2,pitch:.5});
+    node(g,[-300,0,0],'SIGNED',C.cyan,t,0,{hx:75,hy:80,hz:55});
+    for(let i=0;i<4;i++){
+      const y=-160+i*100,missing=i===2;
+      g.box(90,y,0,90,25,65,missing?C.amber:C.cyan,{alpha:missing?.12:.65,edge:.8});
+      if(!missing)flow(g,[-225,0,0],[0,y,0],t,C.cyan,i*.15);
+      label(g,[250,y,0],missing?'MISSING?':'CLAIM',missing?C.amber:C.cyan,10);
+    }
+    heading(g,'REJECT MISSING REQUIRED CLAIMS');g.flush();
+  };
+  scenes.reviewPackages = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.25,pitch:.57});
+    for(let i=0;i<3;i++){
+      const x=-280+i*280;
+      g.box(x,50,0,75,75,75,i===1?C.amber:C.cyan,{alpha:.5,edge:.8});
+      ring(g,[x,50,0],105,i===1?C.amber:C.cyan);
+      label(g,[x,-110,0],['LOCKFILE','ISOLATE','REBUILD'][i],C.cyan,12);
+      if(i<2)flow(g,[x+80,50,0],[x+200,50,0],t,C.amber,i*.3);
+    }
+    heading(g,'PACKAGE / VERSION / EXECUTION HISTORY');g.flush();
+  };
+
+  // October 29: frozen historical diagrams.
   scenes.latestScope = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{yaw:.18,pitch:.58});
     for(let i=0;i<3;i++){

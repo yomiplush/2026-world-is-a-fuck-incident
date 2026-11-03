@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Tue, 03 Nov 2026 05:00:04 GMT</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2026 05:00:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>Re: CVE-2026-98432: init_on_free=1 as an additional interim mitigation</title>
+    <link>https://seclists.org/oss-sec/2026/q4/476</link>
+    <description>&lt;p&gt;Posted by Sultan Alsawaf on Nov 02&lt;/p&gt;Hi Rui,&lt;br&gt;
+&lt;br&gt;
+I&amp;apos;m a member of the kernel team at CIQ.&lt;br&gt;
+&lt;br&gt;
+I looked into your init_on_free=1 suggestion, and unfortunately it doesn&amp;apos;t do&lt;br&gt;
+anything meaningful against this CVE. The remote KASLR defeat uses pointers&lt;br&gt;
+leaked from _live_ slab objects via an out-of-bounds read on the freed object.&lt;br&gt;
+The previous contents of the freed object aren&amp;apos;t useful.&lt;br&gt;
+&lt;br&gt;
+I had Claude Mythos analyze the code and Anthropic&amp;apos;s exploit description [1],&lt;br&gt;
+and this is...&lt;br&gt;</description>
+    <pubDate>Tue, 03 Nov 2026 04:57:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/476</guid>
+  </item>
+
+
+  <item>
+    <title>Re: OATH Toolkit PSKC Signature Verification bypass in libpskc (CVE-2026-109117)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/475</link>
+    <description>&lt;p&gt;Posted by Simon Josefsson on Nov 02&lt;/p&gt;FYI - also via &lt;a  rel=&quot;nofollow&quot; href=&quot;https://oath-toolkit.codeberg.page/CVE-2026-109117.html&quot;&gt;https://oath-toolkit.codeberg.page/CVE-2026-109117.html&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+/Simon&lt;br&gt;
+&lt;br&gt;
+Simon Josefsson via OATH Toolkit general discussions&lt;br&gt;
+&amp;lt;oath-toolkit-help () nongnu org&amp;gt; writes:&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 22:02:25 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/475</guid>
+  </item>
+  <item>
+    <title>CVE-2026-114364: Apache Syncope: SQL injection via unsanitized opEvent in Audit Events search</title>
+    <link>https://seclists.org/oss-sec/2026/q4/474</link>
+    <description>&lt;p&gt;Posted by Francesco Chicchiriccò on Nov 02&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Syncope 3.0.0-M0 through 3.0.16&lt;br&gt;
+- Apache Syncope 4.0.0-M0 through 4.0.8&lt;br&gt;
+- Apache Syncope 4.1.0-M0 through 4.1.3&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Improper neutralization of special elements used in an SQL command (&amp;apos;SQL injection&amp;apos;) vulnerability in Apache Syncope.&lt;br&gt;
+&lt;br&gt;
+This CVE covers an incomplete fix for CVE-2026-77051: an administrator with adequate entitlements can achieve execution &lt;br&gt;
+of arbitrary SQL via...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 18:29:02 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/474</guid>
+  </item>
+  <item>
+    <title>CVE-2026-113687: Apache Syncope: RCE via ProcessGroovyMethodsSandbox bypass</title>
+    <link>https://seclists.org/oss-sec/2026/q4/473</link>
+    <description>&lt;p&gt;Posted by Francesco Chicchiriccò on Nov 02&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Syncope 3.0.0-M0 through 3.0.16&lt;br&gt;
+- Apache Syncope 4.0.0-M0 through 4.0.8&lt;br&gt;
+- Apache Syncope 4.1.0-M0 through 4.1.3&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Improper isolation or compartmentalization vulnerability in Apache Syncope.&lt;br&gt;
+&lt;br&gt;
+An administrator with adequate entitlements for Implementations can create a malicious Groovy class running untrusted &lt;br&gt;
+code on a separate Thread, thus bypassing the Groovy security sandbox.&lt;br&gt;
+&lt;br&gt;
+This...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 18:27:11 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/473</guid>
+  </item>
+  <item>
+    <title>CVE-2026-113511: Apache Syncope: Delegated administration boundaries can be bypassed for Realm update</title>
+    <link>https://seclists.org/oss-sec/2026/q4/472</link>
+    <description>&lt;p&gt;Posted by Francesco Chicchiriccò on Nov 02&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Syncope 3.0.0-M0 through 3.0.16&lt;br&gt;
+- Apache Syncope 4.0.0-M0 through 4.0.8&lt;br&gt;
+- Apache Syncope 4.1.0-M0 through 4.1.3&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Authorization bypass through User-Controlled key vulnerability in Apache Syncope.&lt;br&gt;
+&lt;br&gt;
+A delegated administrator can relocate a Realm subtree across administrative realm boundaries without permission for &lt;br&gt;
+the destination&lt;br&gt;
+This issue affects Apache Syncope: from 3.0.0-M0...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 18:25:09 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/472</guid>
+  </item>
+  <item>
+    <title>CVE-2026-110535: Apache Syncope: AuthProfile value escalation via self-service update</title>
+    <link>https://seclists.org/oss-sec/2026/q4/471</link>
+    <description>&lt;p&gt;Posted by Francesco Chicchiriccò on Nov 02&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Syncope 3.0.12 through 3.0.16&lt;br&gt;
+- Apache Syncope 4.0.0-M0 through 4.0.8&lt;br&gt;
+- Apache Syncope 4.1.0-M0 through 4.1.3&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Improper Privilege Management vulnerability in Apache Syncope.&lt;br&gt;
+&lt;br&gt;
+AuthProfile self-updates allow non-admin users to configure impersonation for WA surrogate authentication.&lt;br&gt;
+This issue affects Apache Syncope: from 3.0.12 through 3.0.16, from 4.0.0-M0 through 4.0.8, from...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 18:23:04 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/471</guid>
+  </item>
+  <item>
+    <title>CVE-2026-109083: Apache Syncope: Remote Code Execution via Flowable JUEL expression</title>
+    <link>https://seclists.org/oss-sec/2026/q4/470</link>
+    <description>&lt;p&gt;Posted by Francesco Chicchiriccò on Nov 02&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Syncope 3.0.0-M0 through 3.0.16&lt;br&gt;
+- Apache Syncope 4.0.0-M0 through 4.0.8&lt;br&gt;
+- Apache Syncope 4.1.0 through 4.1.3&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Improper isolation or compartmentalization vulnerability in Apache Syncope.&lt;br&gt;
+&lt;br&gt;
+An administrator with adequate entitlements can import arbitrary BPMN process definitions via the REST API and then &lt;br&gt;
+start the process. When a BPMN process containing a JUEL expression is imported...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 18:21:07 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/470</guid>
+  </item>
+  <item>
+    <title>libexpat 2.10.0 fixes two vulnerabilities</title>
+    <link>https://seclists.org/oss-sec/2026/q4/469</link>
+    <description>&lt;p&gt;Posted by Sebastian Pipping on Nov 02&lt;/p&gt;Hello oss-security,&lt;br&gt;
+&lt;br&gt;
+just a quick note that libexpat 2.10.0 (or &amp;quot;Expat 2.10.0&amp;quot;) released&lt;br&gt;
+today is fixing four vulnerabilities:&lt;br&gt;
+&lt;br&gt;
+- CVE-2026-113351&lt;br&gt;
+- CVE-2026-115506&lt;br&gt;
+- CVE-2026-117610&lt;br&gt;
+- CVE-2026-118370&lt;br&gt;
+&lt;br&gt;
+The related part of the change log is this:&lt;br&gt;
+&lt;br&gt;
+            #1431  CVE-2026-113351 -- Fix denial of service with use of&lt;br&gt;
+                     `XML_ParserReset`&lt;br&gt;
+   #1433 #1436 ..&lt;br&gt;
+   #1438 #1439 ..&lt;br&gt;
+            #1442  CVE-2026-115506 -- Detect...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 17:34:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/469</guid>
+  </item>
+  <item>
+    <title>CVE-2026-65059: Furl versions through 3.15 for Perl allow memory exhaustion via unbounded decompression of HTTP responses</title>
+    <link>https://seclists.org/oss-sec/2026/q4/468</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 02&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-65059                                       CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-65059&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Furl&lt;br&gt;
+       Versions:  through 3.15&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Furl&quot;&gt;https://metacpan.org/dist/Furl&lt;/a&gt;&lt;br&gt;
+       VCS Repo:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/tokuhirom/Furl&quot;&gt;https://github.com/tokuhirom/Furl&lt;/a&gt;...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 17:32:52 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/468</guid>
+  </item>
+  <item>
+    <title>CVE-2026-119641: Apache Oozie: workflow rerun bypasses the per-job ACL and reassigns ownership</title>
+    <link>https://seclists.org/oss-sec/2026/q4/467</link>
+    <description>&lt;p&gt;Posted by Arnout Engelen on Nov 02&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Oozie: all versions&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+** UNSUPPORTED WHEN ASSIGNED ** Improper input validation vulnerability in Apache Oozie. An authenticated Oozie user &lt;br&gt;
+can reconfigure another tenant&amp;apos;s&lt;br&gt;
+workflow job and change its ownership.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Oozie: all versions.&lt;br&gt;
+&lt;br&gt;
+As this project is retired, we do not plan to release a version that fixes this issue. Users are recommended to find an...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 17:30:53 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/467</guid>
+  </item>
+  <item>
+    <title>CVE-2026-119724: Apache JClouds: XML External Entity (XXE) in provider-response parsing</title>
+    <link>https://seclists.org/oss-sec/2026/q4/466</link>
+    <description>&lt;p&gt;Posted by Arnout Engelen on Nov 02&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache JClouds: all versions&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+** UNSUPPORTED WHEN ASSIGNED ** Improper restriction of recursive entity references in DTDs (&amp;apos;XML entity expansion&amp;apos;) &lt;br&gt;
+vulnerability in Apache JClouds.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache JClouds: all versions.&lt;br&gt;
+&lt;br&gt;
+As this project is retired, we do not plan to release a version that fixes this issue. Users are recommended to find an &lt;br&gt;
+alternative or restrict access...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 17:28:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/466</guid>
+  </item>
+  <item>
+    <title>CVE-2026-111959: Apache Arrow Rust: Improper validation of RunEndEncoded arrays allows out of bounds reads</title>
+    <link>https://seclists.org/oss-sec/2026/q4/465</link>
+    <description>&lt;p&gt;Posted by Jeffrey Vo on Nov 02&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Arrow Rust 60.0.0 before 60.1.0&lt;br&gt;
+- Apache Arrow Rust 59.0.0 through 59.3.1&lt;br&gt;
+- Apache Arrow Rust 58.0.0 through 58.4.0&lt;br&gt;
+- Apache Arrow Rust 33.0.0 through 57.3.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Out-of-bounds read vulnerability in Apache Arrow Rust (`arrow` crate), from version 33.0.0 through to versions 57.3.1, &lt;br&gt;
+58.4.0, 59.3.1 and 60.0.0.&lt;br&gt;
+&lt;br&gt;
+Improper validation of RunEndEncoded arrays in the ArrayData interface can...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 17:26:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/465</guid>
+  </item>
+  <item>
+    <title>Multiple vulnerabilities in C-Kermit</title>
+    <link>https://seclists.org/oss-sec/2026/q4/464</link>
+    <description>&lt;p&gt;Posted by John Goerzen on Nov 01&lt;/p&gt;A recent code quality sweep and audit uncovered multiple vulnerabilities&lt;br&gt;
+in C-Kermit, some of which can lead to an RCE when working with a&lt;br&gt;
+malicious peer.  They have been condensed into 3 advisories, and are&lt;br&gt;
+awaiting CVE allocation.&lt;br&gt;
+&lt;br&gt;
+The three are:&lt;br&gt;
+&lt;br&gt;
+Remote code execution in C-Kermit&lt;br&gt;
+  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/OpenKermit/ckermit/security/advisories/GHSA-c5px-7h4c-gj8p&quot;&gt;https://github.com/OpenKermit/ckermit/security/advisories/GHSA-c5px-7h4c-gj8p&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+Auth bypass and TLS cert spoofing...&lt;br&gt;</description>
+    <pubDate>Mon, 02 Nov 2026 04:35:02 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/464</guid>
+  </item>
+
+
+  <item>
+    <title>Apache Wicket: 19 CVEs fixed in 8.20.0, 9.25.0 and 10.12.0</title>
+    <link>https://seclists.org/oss-sec/2026/q4/463</link>
+    <description>&lt;p&gt;Posted by Emond Papegaaij on Nov 01&lt;/p&gt;On 1 November the Apache Wicket PMC published 19 security advisories. All of&lt;br&gt;
+the issues are fixed in Apache Wicket 8.20.0, 9.25.0 and 10.12.0, for the&lt;br&gt;
+release lines each one affects, and we recommend upgrading. 8.20.0 and&lt;br&gt;
+9.25.0 are the final releases of the 8.x and 9.x lines, which have now&lt;br&gt;
+reached end of life, so if you are on 8.x or 9.x, please plan your move to&lt;br&gt;
+Wicket 10 (LTS) or Wicket 11. Releases older than 8.x are no longer&lt;br&gt;
+supported and...&lt;br&gt;</description>
+    <pubDate>Sun, 01 Nov 2026 22:09:30 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/463</guid>
+  </item>
+  <item>
+    <title>Google::Auth for Perl (2 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/462</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 01&lt;/p&gt;CVE-2026-74759&lt;br&gt;
+   Google::Auth versions 0.12 for Perl allow server side request forgery&lt;br&gt;
+   via unvalidated credential_source URLs in AWS external account&lt;br&gt;
+   credentials&lt;br&gt;
+&lt;br&gt;
+CVE-2026-74760&lt;br&gt;
+   Google::Auth versions from 0.11 through 0.12 for Perl accept an&lt;br&gt;
+   authorization code from any local process because the gcloud-auth&lt;br&gt;
+   login callback does not check the OAuth state&lt;br&gt;
+&lt;br&gt;
+========================================================================...&lt;br&gt;</description>
+    <pubDate>Sun, 01 Nov 2026 17:58:36 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/462</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

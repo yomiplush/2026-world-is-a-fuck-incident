@@ -1,0 +1,697 @@
+{
+  "sources": [
+    {
+      "url": "https://github.com/advisories/GHSA-j656-3hf2-fvjc",
+      "path": "data/2026-11-03-1620/GHSA-j656-3hf2-fvjc.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.588285+00:00",
+      "sha256": "ef77eba0f55737016083371642464f160ed6668d4571e9b333ce1f0534195782"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6",
+      "path": "data/2026-11-03-1620/GHSA-f9j6-8p6x-r9j6.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.589342+00:00",
+      "sha256": "b49099f128c5051eca4bf9e157ea1f7b15106463b2ecd56c726c157f85feab92"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-45rq-6v9r-4475",
+      "path": "data/2026-11-03-1620/GHSA-45rq-6v9r-4475.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.590094+00:00",
+      "sha256": "6b0b0352327147984a3baa8cdccc9265c5a793710623d95ae5b089b1de455691"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-726f-wf9g-5893",
+      "path": "data/2026-11-03-1620/GHSA-726f-wf9g-5893.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.591007+00:00",
+      "sha256": "49462df2444c6e7400913e0d17a57b37c0efec8c47182536e01b5891fe636702"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-gj25-xrmw-6297",
+      "path": "data/2026-11-03-1620/GHSA-gj25-xrmw-6297.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.592173+00:00",
+      "sha256": "683eec32b97586f2b5131614d991170004fda3090cf27f0d1fe4c63b084eff2b"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-39ch-q3p3-3j33",
+      "path": "data/2026-11-03-1620/GHSA-39ch-q3p3-3j33.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.593197+00:00",
+      "sha256": "965f5bb1b5602e46f70bc3b6a648a3b28223f0be0ef95ef3a63faaab37555fa6"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-72x7-67fx-v24p",
+      "path": "data/2026-11-03-1620/GHSA-72x7-67fx-v24p.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.594040+00:00",
+      "sha256": "42d9ea85bae718cddb33fcc71ffa6c2771bbafcbba2b3420c8a2eb01ffe6f6ab"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-3hj7-wfw3-jm84",
+      "path": "data/2026-11-03-1620/GHSA-3hj7-wfw3-jm84.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:47.594751+00:00",
+      "sha256": "aa9e5b9cb1130a31b2b08c39970b3476635f11f5db7e47f891f4533742fc108b"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-fc2g-x424-gvq4",
+      "path": "data/2026-11-03-1620/GHSA-fc2g-x424-gvq4.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.281398+00:00",
+      "sha256": "0f5bba9dcafeef2fa6f57db4741df9a9b30803437573a60955b83f331bd8fcdc"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-332r-cpwr-xr6h",
+      "path": "data/2026-11-03-1620/GHSA-332r-cpwr-xr6h.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.377955+00:00",
+      "sha256": "05699e65d572b954f75fb4cac8261e63b7b807bd0702433a07f2a43703eb2de9"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-w544-4xh4-3m6v",
+      "path": "data/2026-11-03-1620/GHSA-w544-4xh4-3m6v.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.403728+00:00",
+      "sha256": "7565c8ebf16d4b1aa33ebc12eb671dc52e2a7b69ac23a3780fb7f7e748453d19"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-q8c5-hxhq-jprv",
+      "path": "data/2026-11-03-1620/GHSA-q8c5-hxhq-jprv.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.421840+00:00",
+      "sha256": "6857d239c5956aaacc11024771bdf173d1151935c5d1dfd4c2a3f71ff76666d0"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-89qx-w49w-4q48",
+      "path": "data/2026-11-03-1620/GHSA-89qx-w49w-4q48.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.483864+00:00",
+      "sha256": "da243e171764471008afc423102f231a7eb16db14a2cf1f6701f1676623950c1"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rg85-7qj4-rpcw",
+      "path": "data/2026-11-03-1620/GHSA-rg85-7qj4-rpcw.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.523349+00:00",
+      "sha256": "697a32bb105dfdbb70718b194c80a5fe4190b9c2102a56f15ee49ae267963840"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-q7mj-99p7-8363",
+      "path": "data/2026-11-03-1620/GHSA-q7mj-99p7-8363.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.551771+00:00",
+      "sha256": "9c17c5c8d70e988a2534b230b7d2f53587e32937488c5a394476876cf933fb0d"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-23g9-rf8p-3cj3",
+      "path": "data/2026-11-03-1620/GHSA-23g9-rf8p-3cj3.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:48.620762+00:00",
+      "sha256": "8e0cd5e81c9da0f2fcefa79d3e977339d6714112a0a7c5f566d9838319555002"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cw3v-7hh4-m39w",
+      "path": "data/2026-11-03-1620/GHSA-cw3v-7hh4-m39w.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.033435+00:00",
+      "sha256": "5c2de14cc329cad09a2fe5c23de50234ec77a5e2a1daf2a4a89bdb397d43d2ae"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-7j98-hxg2-v7pj",
+      "path": "data/2026-11-03-1620/GHSA-7j98-hxg2-v7pj.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.139303+00:00",
+      "sha256": "34d1acdbe2159b9e6dd3e5e2e750cb0e8326e9b3761b9138942d5e206fae0ade"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-8g27-6w2c-r34p",
+      "path": "data/2026-11-03-1620/GHSA-8g27-6w2c-r34p.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.180019+00:00",
+      "sha256": "834e1245e5c1ae2d7504bca42cc56cea52eae415cb5dcd0039b42e99ff7e03af"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-jchc-cxq2-2rx9",
+      "path": "data/2026-11-03-1620/GHSA-jchc-cxq2-2rx9.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.236048+00:00",
+      "sha256": "bdacc6e691ff439962cf62b313ebbb71978623dae48aea62959e843780314aa9"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-mp83-rh86-7fmp",
+      "path": "data/2026-11-03-1620/GHSA-mp83-rh86-7fmp.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.239321+00:00",
+      "sha256": "571c00565f3527281bf3202d18d8c9effe17b3f45ea8aed2545c189cc9a51c9f"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-8v7q-mrx4-jvfg",
+      "path": "data/2026-11-03-1620/GHSA-8v7q-mrx4-jvfg.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.245163+00:00",
+      "sha256": "5aaf6e91694cb4aadb77d4d1423000c55667106a69a042b8d760bc459d01c2fe"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-5m6m-8mwq-grp4",
+      "path": "data/2026-11-03-1620/GHSA-5m6m-8mwq-grp4.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.376400+00:00",
+      "sha256": "4b09d777f7f711706433d2296971a07d70ddbf5b17a6a41c953f17d89bce7713"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-r6m4-fv3j-rm7v",
+      "path": "data/2026-11-03-1620/GHSA-r6m4-fv3j-rm7v.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.607140+00:00",
+      "sha256": "ad70fbfac79b94fadd0f258089fb21c27329246874149cdb717f44a6706a468c"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-x9q7-g8cr-vw76",
+      "path": "data/2026-11-03-1620/GHSA-x9q7-g8cr-vw76.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.663067+00:00",
+      "sha256": "466484f32781492dacff472c53ed2e408522b5f79f29a4eff9406d0d549cb703"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-6668-jgqr-p263",
+      "path": "data/2026-11-03-1620/GHSA-6668-jgqr-p263.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:49.904645+00:00",
+      "sha256": "2413f413e9cf489f6fd4b13136dfa6515da847174cedb59882e5fb97768fdd40"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4fj7-5c6w-cmvh",
+      "path": "data/2026-11-03-1620/GHSA-4fj7-5c6w-cmvh.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.018210+00:00",
+      "sha256": "a94676d6031af2d64059425c6c2687d9a5372ae80becc558ec40a05a2eff4363"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g76x-w4rw-x5j8",
+      "path": "data/2026-11-03-1620/GHSA-g76x-w4rw-x5j8.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.040024+00:00",
+      "sha256": "bdb999e79bff1eed4b7f4f2c1fa1e0b4d3e11270e6cf6279c54bcf4e47355882"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g4rr-4xhm-6q58",
+      "path": "data/2026-11-03-1620/GHSA-g4rr-4xhm-6q58.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.106500+00:00",
+      "sha256": "814e06c7f6312edbd1b125d8bd7cd60e0eb5c6e3cb64bbfc96fbf23dc3054376"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-3vmc-mjw2-cmrq",
+      "path": "data/2026-11-03-1620/GHSA-3vmc-mjw2-cmrq.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.235746+00:00",
+      "sha256": "c8e7671c7aae23e67662e5dd9eeef6f866f49dab63410f1d9abe11c19d05aea4"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-78j7-7qrc-2j38",
+      "path": "data/2026-11-03-1620/GHSA-78j7-7qrc-2j38.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.268673+00:00",
+      "sha256": "64f87829c17ab12697bb121fbc9a4ff847d499bbca0e038e13b48c0492437ea1"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vwm6-r9cc-qg37",
+      "path": "data/2026-11-03-1620/GHSA-vwm6-r9cc-qg37.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.405105+00:00",
+      "sha256": "697408d1e17953dc32de9302a5f6041041e7277c165b74f850120f4bd098fe55"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hvpp-rx4h-crg5",
+      "path": "data/2026-11-03-1620/GHSA-hvpp-rx4h-crg5.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.435229+00:00",
+      "sha256": "dbee3adef0215bbe64f08d1a6e6e5aab71ca8f0511c4f6494ec36022621b3989"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-25jm-3g7h-jgf6",
+      "path": "data/2026-11-03-1620/GHSA-25jm-3g7h-jgf6.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.695125+00:00",
+      "sha256": "033243d8226e0b45769846047ab1947fd21aa2498deb056f289b7c843a1d30be"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4h5p-w547-9qmv",
+      "path": "data/2026-11-03-1620/GHSA-4h5p-w547-9qmv.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.731400+00:00",
+      "sha256": "c15da056ba5d22db02cff6a6760648a46a98498c916d40222e6c897acd3bf425"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-f826-46h5-5rcq",
+      "path": "data/2026-11-03-1620/GHSA-f826-46h5-5rcq.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.770408+00:00",
+      "sha256": "767af92a5e7111601b653b000b6d8771db4f6cb112d1845e115a339e2466afbc"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4q9j-4rv8-jp32",
+      "path": "data/2026-11-03-1620/GHSA-4q9j-4rv8-jp32.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.771442+00:00",
+      "sha256": "5f064cf3972ad3723d5f8fe95f37cf682821bf63b1116c9629128eef1fa696ce"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rvw8-22w3-342v",
+      "path": "data/2026-11-03-1620/GHSA-rvw8-22w3-342v.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.859484+00:00",
+      "sha256": "fba26b27fbdeb437a9705ea4c9abe692d1e8d9c2b7d8bf94f9dbbe75328956d9"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-pg3x-mr83-5crv",
+      "path": "data/2026-11-03-1620/GHSA-pg3x-mr83-5crv.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:50.978046+00:00",
+      "sha256": "af509a0fabdbe07e76a8aea73542ed5ccd267fe3594985bf4552d16f6fe341ed"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-whfc-859g-h5j3",
+      "path": "data/2026-11-03-1620/GHSA-whfc-859g-h5j3.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.091539+00:00",
+      "sha256": "3fcf4920ebf08af18a33b39a307ae3e02d6183eac88f10c2d3f43a8138487a65"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-m4h2-gmhc-mhcp",
+      "path": "data/2026-11-03-1620/GHSA-m4h2-gmhc-mhcp.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.144723+00:00",
+      "sha256": "f3a30a40fa58baa9238d95a2b06f5da681627832761be9f8836630673bf459bb"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-q7rp-q644-j8rp",
+      "path": "data/2026-11-03-1620/GHSA-q7rp-q644-j8rp.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.374015+00:00",
+      "sha256": "b31d46d552304ac70dc8788f860461eaf259b62e6db8a41493d951d1d685b0ba"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-x8mc-7393-54vr",
+      "path": "data/2026-11-03-1620/GHSA-x8mc-7393-54vr.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.399810+00:00",
+      "sha256": "f31e0f68fbfa114bb382b30b54443cdccdc49e1832f126f5068e2512a2b4c09a"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-93rf-36fj-m7gp",
+      "path": "data/2026-11-03-1620/GHSA-93rf-36fj-m7gp.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.445763+00:00",
+      "sha256": "9e6efb390631396b6bd0e18d6992f9405386b8e106010dc726377566f6c281d6"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g4x3-g43p-pwrw",
+      "path": "data/2026-11-03-1620/GHSA-g4x3-g43p-pwrw.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.464657+00:00",
+      "sha256": "95f960e26c31a2cc7211c6795beb481c7de7b75b84c0000be1d27414d4c89891"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cjqv-xvjx-m5q5",
+      "path": "data/2026-11-03-1620/GHSA-cjqv-xvjx-m5q5.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.529456+00:00",
+      "sha256": "3cad89968b6e088520f7e488a8a69ae26ef557a2e5e5b001d10575e9cd345c57"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-84hg-5759-2cgg",
+      "path": "data/2026-11-03-1620/GHSA-84hg-5759-2cgg.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.772981+00:00",
+      "sha256": "f6c6fd9cd167c9d86abf98ae864be665118117dd25acb07bf371e7bb35383de3"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-52vf-f48x-82m5",
+      "path": "data/2026-11-03-1620/GHSA-52vf-f48x-82m5.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.804008+00:00",
+      "sha256": "25e1eee321550412d64621201da66c31f026730ce1d397ac98b951de73ec35fd"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-gqvq-9m83-c527",
+      "path": "data/2026-11-03-1620/GHSA-gqvq-9m83-c527.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:51.930903+00:00",
+      "sha256": "b85bad615766dc578bff95c53e7ae52bcd1f788bdf1ada25f0871b58d93a27f7"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-wcx4-q6jx-3vhj",
+      "path": "data/2026-11-03-1620/GHSA-wcx4-q6jx-3vhj.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.026602+00:00",
+      "sha256": "915f26be4f70968d658f1a626b9f2f404312f2efd3a3b0bb3ba0b345b0119325"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rqhx-p7qj-qqc8",
+      "path": "data/2026-11-03-1620/GHSA-rqhx-p7qj-qqc8.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.090750+00:00",
+      "sha256": "0070b498ccbe08657a05458e9a31ee010d1984f0e0ac78f999c440958e899819"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rfxc-3373-jvfq",
+      "path": "data/2026-11-03-1620/GHSA-rfxc-3373-jvfq.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.118321+00:00",
+      "sha256": "989f4e87cfaf4923cd7434a3fd8069fa9c07973fa94f664e9c2c28128a94d5f2"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4hf4-p92p-5m6c",
+      "path": "data/2026-11-03-1620/GHSA-4hf4-p92p-5m6c.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.223854+00:00",
+      "sha256": "b9431296a8add88d682209481553c54fe47ce71229391dbf510747bf1114caa7"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vpvh-94mq-8h4j",
+      "path": "data/2026-11-03-1620/GHSA-vpvh-94mq-8h4j.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.240207+00:00",
+      "sha256": "a1b0d7ad3c222c55df588f8efbce1f00a7898d7e177d5a857abe6b676b554af5"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-89v8-j949-j3h5",
+      "path": "data/2026-11-03-1620/GHSA-89v8-j949-j3h5.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.447253+00:00",
+      "sha256": "abc77b67a628ef0915abd4662cbfd46878a08d8e4160452a5ea136c38ea45cd2"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2g3q-xxv2-vh4p",
+      "path": "data/2026-11-03-1620/GHSA-2g3q-xxv2-vh4p.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.508988+00:00",
+      "sha256": "40a260931887c6d2bd58a5ba732a5cdf8fbf523eabe40eb2ca5401bee087d4b9"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g94h-cm42-jgx8",
+      "path": "data/2026-11-03-1620/GHSA-g94h-cm42-jgx8.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.605925+00:00",
+      "sha256": "e1b00f3b5ae2be0fb20e9e6a17535bf969691d60f02f468593fe8fdf6749edfb"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-9h7q-53gw-grwc",
+      "path": "data/2026-11-03-1620/GHSA-9h7q-53gw-grwc.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.661407+00:00",
+      "sha256": "a3b60c985e54999bc7b14dd34055feb7ba2bb0e3be812cefa65b5254f23fda6f"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-43pw-v6x2-9gh4",
+      "path": "data/2026-11-03-1620/GHSA-43pw-v6x2-9gh4.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.737003+00:00",
+      "sha256": "80be4617e7e540639d2f98cf4acc81190db13cc2d1cc184777670a706f4fad1a"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-r55f-fj5f-qxf9",
+      "path": "data/2026-11-03-1620/GHSA-r55f-fj5f-qxf9.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.849984+00:00",
+      "sha256": "f1bef40d05252eeb473c7a1a37744cd6d6e9d99bc9613df566f5c11a59dfaa16"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-gmrr-hqfh-q4j3",
+      "path": "data/2026-11-03-1620/GHSA-gmrr-hqfh-q4j3.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.958311+00:00",
+      "sha256": "86635395995da5efc70c4994c78bebe34eb970ddc4e5bc0a7efad58c85a424e4"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-8cf8-9j3v-99g4",
+      "path": "data/2026-11-03-1620/GHSA-8cf8-9j3v-99g4.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:52.959945+00:00",
+      "sha256": "7e88b65ab5c211e253012ed9607e8bc6e26fe71226bdaf47196c10aa388522e6"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-fr4c-gqv9-5rgx",
+      "path": "data/2026-11-03-1620/GHSA-fr4c-gqv9-5rgx.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.112063+00:00",
+      "sha256": "1f2c3923c70c4f13b46803397053ef642ebacf8c7158a351b6d4852ca1a1b0cd"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-v4v4-v74v-86vq",
+      "path": "data/2026-11-03-1620/GHSA-v4v4-v74v-86vq.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.195875+00:00",
+      "sha256": "02c4d968f2814eb5b227d168129edbae265d848853ad025e880fc66bf8cb15e4"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-c6pj-8fr8-qq3c",
+      "path": "data/2026-11-03-1620/GHSA-c6pj-8fr8-qq3c.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.387170+00:00",
+      "sha256": "7ae2fd579fbf7305061b9bc64ad97aec4660b23c13512adef421ac1a2c697f69"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-mv5j-phwp-534j",
+      "path": "data/2026-11-03-1620/GHSA-mv5j-phwp-534j.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.406812+00:00",
+      "sha256": "765dfb42e4ead87a40813c1219b2dbaf1014518c382515d070aefcf40f75ee8d"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-8967-3p4r-vpwp",
+      "path": "data/2026-11-03-1620/GHSA-8967-3p4r-vpwp.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.424868+00:00",
+      "sha256": "a55f13b7a9dca4909c5b126aeb9151f1af562ded48fd10c756ce8f7154d9f1c2"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4q2f-q5qq-w9cm",
+      "path": "data/2026-11-03-1620/GHSA-4q2f-q5qq-w9cm.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.501450+00:00",
+      "sha256": "add447e314b067e132a813e932fe5c6f84700b876451cc8a5bcc736e240fbcb0"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cv4q-j2g9-xp9h",
+      "path": "data/2026-11-03-1620/GHSA-cv4q-j2g9-xp9h.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.582962+00:00",
+      "sha256": "9f5657d5a936d68b71d533e6076ffcc132816a0c3462dad902d01d485c48b270"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-frgx-cf5w-vxr5",
+      "path": "data/2026-11-03-1620/GHSA-frgx-cf5w-vxr5.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.890433+00:00",
+      "sha256": "1de28a8246f12af68b023940eca41acb7fe0eecf135db337df796aa77296ca4d"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-m4gq-5vx2-5x8c",
+      "path": "data/2026-11-03-1620/GHSA-m4gq-5vx2-5x8c.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:53.960442+00:00",
+      "sha256": "401788a17c22e73d7ec6d92f6abc60256d05b7bf0d30a8ab76c874977e741ffc"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-p5qq-93vh-5c8h",
+      "path": "data/2026-11-03-1620/GHSA-p5qq-93vh-5c8h.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.084323+00:00",
+      "sha256": "5dffea5e26605d186ce22e61c098506d49156af00bd132184bf0dbc7095ae32a"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-x49r-jpx2-h4h9",
+      "path": "data/2026-11-03-1620/GHSA-x49r-jpx2-h4h9.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.190694+00:00",
+      "sha256": "7607665b87ccdf8a966e98f03e21728a8e9e5c4c14c9d78cc5b56fe35f71191c"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-ppjw-cwjq-6w82",
+      "path": "data/2026-11-03-1620/GHSA-ppjw-cwjq-6w82.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.192760+00:00",
+      "sha256": "e735a28a8cc933b3ba953f1dee1094ed330a36ed84d3e161363467612c0df857"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2v69-q2gc-qm5j",
+      "path": "data/2026-11-03-1620/GHSA-2v69-q2gc-qm5j.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.213671+00:00",
+      "sha256": "0b792b32652fbe84fe0dac3dbadff6048b58073c143b2c4b9745fad977819d22"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-8wmf-9cp5-g5hq",
+      "path": "data/2026-11-03-1620/GHSA-8wmf-9cp5-g5hq.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.215940+00:00",
+      "sha256": "59db1959097a08fbb4ffb676c39a0ca2848138ec4903b79a3af29a38e8db981d"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-8cq9-2c2q-58ww",
+      "path": "data/2026-11-03-1620/GHSA-8cq9-2c2q-58ww.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.317025+00:00",
+      "sha256": "8d6949f6c90f1b03e47640069ed7f0b1cc7d7dc702900e9d949593bc92e49995"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-354j-r6m9-986p",
+      "path": "data/2026-11-03-1620/GHSA-354j-r6m9-986p.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.515021+00:00",
+      "sha256": "109d0cd364ba9e76f05dd8c181aadd767d35bf67e6684d358c53dd5178bfd6d5"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-9jxw-2pvm-5q9f",
+      "path": "data/2026-11-03-1620/GHSA-9jxw-2pvm-5q9f.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.620944+00:00",
+      "sha256": "57a7479cc41b390abebb08957efaadbd1479ed1c4b57faf5ed567bfac3393ee8"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-q54x-hhg5-963x",
+      "path": "data/2026-11-03-1620/GHSA-q54x-hhg5-963x.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.807491+00:00",
+      "sha256": "0bd3a28a7c8c14bf47e11be938adee8119db10d115521d9686299734eb9e49f3"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-v7f8-27g9-qx88",
+      "path": "data/2026-11-03-1620/GHSA-v7f8-27g9-qx88.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.868207+00:00",
+      "sha256": "da57040636b48d7c5206b2b140d94ff71b0f39e8718788a17818c871644b17f9"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-543q-wq5f-hmgh",
+      "path": "data/2026-11-03-1620/GHSA-543q-wq5f-hmgh.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.923346+00:00",
+      "sha256": "9e77768355dea3c8ff584bb6003af2715fe01cb99d13241b589d9dfe95cf1c3a"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-j2hf-rv9p-8jvr",
+      "path": "data/2026-11-03-1620/GHSA-j2hf-rv9p-8jvr.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.938589+00:00",
+      "sha256": "b792333f54953aa6aea59ea57b73bf1b1d1f10f97e150ceb9bb9eb573fb22c9a"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-q9p6-j8q4-8qh9",
+      "path": "data/2026-11-03-1620/GHSA-q9p6-j8q4-8qh9.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.958757+00:00",
+      "sha256": "5ae0933057ba0674709e1938657106c9102c591ae57c6a2fcaebb749d9e5f74d"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-pw4j-9v86-8c3g",
+      "path": "data/2026-11-03-1620/GHSA-pw4j-9v86-8c3g.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:54.986228+00:00",
+      "sha256": "b875fc4c3eaa8047d290be25b0b18de333172ee255b3dafc5e56391d3f714bc5"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-r89f-jjgp-3q97",
+      "path": "data/2026-11-03-1620/GHSA-r89f-jjgp-3q97.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.241178+00:00",
+      "sha256": "12159effec05f08ef3168bcf30afd195ef1fce70fec530089da5d6485efe3488"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-w48h-24q2-rjqx",
+      "path": "data/2026-11-03-1620/GHSA-w48h-24q2-rjqx.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.264653+00:00",
+      "sha256": "4c0769f6a68fde7edee84a0b191132581be99c72501014531dc1b90e7a9933d5"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xpgj-8rc5-pq44",
+      "path": "data/2026-11-03-1620/GHSA-xpgj-8rc5-pq44.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.493441+00:00",
+      "sha256": "244aa43095a7994a8fcc659fa0e44ce9f0a6785e60e02e5387488fb2f65f2986"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-p373-68vj-fvrh",
+      "path": "data/2026-11-03-1620/GHSA-p373-68vj-fvrh.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.591498+00:00",
+      "sha256": "5b181e1d692cdfdad0a63b5e5bf638e2dc2953e4e2d7799140ecb914fe2ddf3b"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-3x3m-5j3w-83rj",
+      "path": "data/2026-11-03-1620/GHSA-3x3m-5j3w-83rj.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.646836+00:00",
+      "sha256": "6ae1223012f2a8f1d62fef637855bc2eccad18222892597a933532f32aaed2cf"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-j62h-2r3r-ggh9",
+      "path": "data/2026-11-03-1620/GHSA-j62h-2r3r-ggh9.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.647126+00:00",
+      "sha256": "54b589f94c181899b4a079b07a8f2999fe73410e716e17b075066020a97bb614"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-69w5-x7cm-v78h",
+      "path": "data/2026-11-03-1620/GHSA-69w5-x7cm-v78h.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.716144+00:00",
+      "sha256": "450790cacc4a66e5b25fe22f9b91017de25a6ada116f5ea817d07bab7635b23b"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-v764-465v-vh59",
+      "path": "data/2026-11-03-1620/GHSA-v764-465v-vh59.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:55.744415+00:00",
+      "sha256": "f7838caa07cfbaede1e58255babcd4299ff28f1b1db7300783578a8e47c9180d"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-5mwr-h84x-47h6",
+      "path": "data/2026-11-03-1620/GHSA-5mwr-h84x-47h6.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:56.006839+00:00",
+      "sha256": "cbb91ac9a4fa0caa76208bbd3e5f85ee9672a14a7c76d6f017ae0ff245f03db3"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-9xq2-7mfg-rrmx",
+      "path": "data/2026-11-03-1620/GHSA-9xq2-7mfg-rrmx.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:56.153460+00:00",
+      "sha256": "488a38a3fdeaf7844a96686cf7fd7c7997ed48fe266e5dc343cd698e086bd54a"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rqw8-93vw-v2h5",
+      "path": "data/2026-11-03-1620/GHSA-rqw8-93vw-v2h5.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:56.256024+00:00",
+      "sha256": "f7ff96798b27e3124fddb4364a28d9dc2e4a47922c7dd0628b37912c2006d1b7"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xq83-5ggr-7222",
+      "path": "data/2026-11-03-1620/GHSA-xq83-5ggr-7222.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:56.309534+00:00",
+      "sha256": "659bf298bc65ad4b7ebc3ecefbbde0999eae66e693e2e25f5dd10af5855c87b9"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-6f53-8jrf-3x9j",
+      "path": "data/2026-11-03-1620/GHSA-6f53-8jrf-3x9j.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:56.437747+00:00",
+      "sha256": "b9d9cb5593707eafedb634d0a80348039b9f5aecf5adbeacd8af9cbafb8196d0"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vj43-6r45-847h",
+      "path": "data/2026-11-03-1620/GHSA-vj43-6r45-847h.html.gz",
+      "status": 200,
+      "fetched_at": "2026-11-03T07:20:56.495872+00:00",
+      "sha256": "145d7242947dd9249433de3014db8f7dabccc88ceee92e9e99c9d788e38ff25d"
+    }
+  ]
+}

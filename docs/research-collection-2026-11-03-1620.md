@@ -1,0 +1,15 @@
+# Collection provenance — November 3, 16:20 JST
+
+Fixed inclusive UTC window: 2026-11-01T12:33:30Z–2026-11-03T07:20:00Z. Collection began at 07:19:43Z and finished at 07:20:05Z. Responses reflect retrieval-time revisions; requests made just before cutoff can miss records indexed later. This does not recreate historical upstream content. Recollect into a fresh directory with `python3 tools/intel/snapshot-20261103.py --output-dir data/recollect-2026-11-03-1620`. Existing output directories are rejected.
+
+NVD: 561 published / 1,732 modified, with all 561 published IDs overlapping. GHSA: 632 published (2 reviewed, 533 unreviewed, 97 malware) / 909 modified, with all 632 published IDs overlapping. Published/modified API queries completed their pagination without a severity filter. KEV remains version 2026.10.30, 1,766 entries, byte-identical to the previous capture. These are database records, not incident or victim counts.
+
+The collector verified 66 response hashes, including 23 deduplicated references to earlier bodies. Its verification errors retain the inherited IPA feed 404 and ZCode redirect loop; neither is treated as a successful source. Separately, 99 new GHSA HTML responses were captured after collection, with HTTP status, actual UTC retrieval time and SHA-256 of stored gzip bytes in advisory-fetch.json. update-infosec-evidence.json preserves earlier source captures with their original retrieval timestamps and adds the new captures. The report's 66-response statistic covers the collector, not the additional HTML captures.
+
+Five authored groups cover DBHub, SD-JWT and the 97 malware advisories split by ecosystem (92 npm, 2 pip, 3 rubygems). Per-advisory package ranges, first-patched versions and update timestamps are copied from the raw API objects. SD-JWT core lists 0.20.0 as the first fix; decode does not list one. No fix is inferred for a null field. The unreviewed records remain available in the saved indices but are not automatically promoted to verified incidents.
+
+All earlier 177 topic IDs and 20 impact records remain. Their narratives are historical context, not a fresh verification of every incident. No new restoration, compensation completion, total loss or victim count is inferred. Regional scope decisions retain prior classifications and add the five unrestricted public-package groups to global coverage; this is applicability, not observed geographic distribution.
+
+Current English packages reuse unchanged, validated source strings and translate new prose. Source/register hashes, complete key sets, identifiers and numeric tokens are checked. Ten focused JA/EN pages and nine appended motion scenes summarize the records. Scene numbers 1–71 remain stable; 72–74 cover dated follow-ups and 75–80 cover the November 3 review. A build guard requires a motion chapter for the current database cutoff and current entrance links.
+
+Validation: Python unit tests, Node tests, asset freshness, motion locale completeness, and browser viewport/render checks. Raw API and captured HTML evidence remain the authority for individual advisory conditions.

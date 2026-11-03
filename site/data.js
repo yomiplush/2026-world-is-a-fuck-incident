@@ -3471,16 +3471,741 @@ window.CONTENT.scenes.find(scene => scene.id === 'latest-scope').sources.push(
   {name:'Review 10/29 14:01 JST',url:'https://www.infosec-briefing.net/update-20261029-1401'}
 );
 
+/* November 3 update: append-only scene IDs preserve every shared numeric link. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "review-1030-domestic",
+    "stamp": "10.30 · 19:31 JST",
+    "visual": {
+      "type": "latestDisclosure"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GMO 10/30 customer notice",
+        "url": "https://group.gmo/info/alert/20261030/"
+      },
+      {
+        "name": "GMO notice16",
+        "url": "https://group.gmo/info/alert/2026102902/"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "10/30 REVIEW · FOLLOW-UP",
+      "title": "連絡開始と、補償完了を分ける。",
+      "lede": "GMOの個別連絡開始と情報提供の件数を、復旧や支払の完了として扱いません。",
+      "points": [
+        "10月30日15:30に受取手続き・代替サービスの個別連絡開始を公表",
+        "18:00時点の情報提供428件は、被害者数や逮捕件数ではない",
+        "契約者は公式窓口で手続きと条件を確認。これは10月30日時点の記録"
+      ]
+    },
+    "en": {
+      "kicker": "10/30 REVIEW · FOLLOW-UP",
+      "title": "Contact started; payment completion remains separate.",
+      "lede": "GMO contact and information-report counts do not establish completed restoration or compensation.",
+      "points": [
+        "The October 30 15:30 notice announced direct contact about procedures and alternatives",
+        "428 information reports at 18:00 are not victim or arrest counts",
+        "Customers should confirm terms through official channels; this is the October 30 record"
+      ]
+    },
+    "chapterBreak": true
+  },
+  {
+    "id": "review-1031-package-boundaries",
+    "stamp": "10.31 · 10:02 JST",
+    "visual": {
+      "type": "agentPermissions"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "Dated primary-source review",
+        "url": "https://www.infosec-briefing.net/update-20261031-1002"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "10/31 REVIEW · DEPENDENCIES",
+      "title": "依存関係の実行条件を確認する。",
+      "lede": "アプリ本体だけでなく、AIツール・依存パッケージと接続権限を調べます。",
+      "points": [
+        "10月31日の記事は対象版と一次資料を保存",
+        "現在使用中の環境とlockfileを照合し、過去の記録を現在の安全保証にしない",
+        "新しい11月3日の勧告は次の章で別に説明"
+      ]
+    },
+    "en": {
+      "kicker": "10/31 REVIEW · DEPENDENCIES",
+      "title": "Check how dependencies execute.",
+      "lede": "Review AI tools, dependencies and connection privileges alongside the application.",
+      "points": [
+        "The October 31 report preserves affected versions and primary sources",
+        "Compare deployed environments and lockfiles; historical records do not establish present safety",
+        "The next chapter separately explains the new November 3 advisories"
+      ]
+    }
+  },
+  {
+    "id": "review-1101-secret-rotation",
+    "stamp": "11.01 · 21:33 JST",
+    "visual": {
+      "type": "trustRenewal"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "Northflank official status",
+        "url": "https://status.northflank.com/"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "11/01 REVIEW · SECRETS",
+      "title": "鍵の交換は、発行元と稼働環境の両方で。",
+      "lede": "Northflankの公式statusにある不正利用報告とsecret更新の案内を確認します。",
+      "points": [
+        "旧キーを発行元で失効し、再発行したキーでworkloadを更新",
+        "AI利用・請求と監査ログ、DB secretも確認する",
+        "機能提供や更新案内を、顧客側の更新完了・全面復旧と混同しない"
+      ]
+    },
+    "en": {
+      "kicker": "11/01 REVIEW · SECRETS",
+      "title": "Rotate at the issuer and in running workloads.",
+      "lede": "Review Northflank official reports of key misuse and secret-rotation guidance.",
+      "points": [
+        "Revoke old keys at the issuer and update workloads with newly issued keys",
+        "Check AI usage, billing, audit logs and database secrets",
+        "Available tooling and instructions do not establish customer completion or full recovery"
+      ]
+    }
+  },
+  {
+    "id": "review-1103-scope",
+    "stamp": "11.03 · 16:20 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "Saved API collection and counts",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-03-1620/collection-summary.json"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "11/03 REVIEW · SCOPE",
+      "title": "登録件数を、被害件数にしない。",
+      "lede": "11月1日21:33から11月3日16:20 JSTの固定窓を収集。新規・改訂・重複を分けます。",
+      "points": [
+        "NVD新規561件・改訂1,732件。新規561件は改訂にも含まれる",
+        "GHSA公開632件：reviewed 2件、unreviewed 533件、malware 97件",
+        "182論点のうち今回追加は5群。過去177論点は前回の文脈を保持"
+      ]
+    },
+    "en": {
+      "kicker": "11/03 REVIEW · SCOPE",
+      "title": "Database records are not incident counts.",
+      "lede": "Collection covers the fixed November 1 21:33 to November 3 16:20 JST window. Publication, modification and overlap stay separate.",
+      "points": [
+        "NVD: 561 published and 1,732 modified; all 561 published records overlap",
+        "GHSA: 632 published — 2 reviewed, 533 unreviewed and 97 malware",
+        "182 curated topics include 5 new groups; the earlier 177 retain their historical context"
+      ]
+    },
+    "reviewCutoff": "2026-11-03T07:20:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-dbhub-readonly-1103",
+    "stamp": "11.03 · 16:20 JST",
+    "visual": {
+      "type": "reviewDatabase"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GHSA-j656-3hf2-fvjc",
+        "url": "https://github.com/advisories/GHSA-j656-3hf2-fvjc"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "11/03 REVIEW · DATABASE",
+      "title": "AIのread-onlyを、DBの権限でも支える。",
+      "lede": "@bytebase/dbhubの0.22.6未満では、SQLコメントを解釈する差によりMySQL・MariaDBコネクタの読み取り専用検査を回避できる。AIが送るSQLへ影響でき、DB側の権限が許す場合に書き込みやDDLへ到達する。PostgreSQLはこの経路の対象外。",
+      "points": [
+        "@bytebase/dbhub 0.22.6未満：MySQL・MariaDBのSQLコメント解釈差",
+        "0.22.6へ更新。DBアカウントにも書き込み・DDLを許可しない",
+        "PostgreSQLはこの経路の対象外。影響条件と接続履歴を確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/03 REVIEW · DATABASE",
+      "title": "Enforce read-only at the database too.",
+      "lede": "Parser checks and database privileges must agree.",
+      "points": [
+        "@bytebase/dbhub below 0.22.6: SQL comment interpretation differs in MySQL/MariaDB",
+        "Update to 0.22.6 and deny writes and DDL at the database account",
+        "PostgreSQL is outside this path; check exposure conditions and connection history"
+      ]
+    },
+    "reviewCutoff": "2026-11-03T07:20:00Z"
+  },
+  {
+    "id": "motion-sdjwt-disclosure-1103",
+    "stamp": "11.03 · 16:20 JST",
+    "visual": {
+      "type": "reviewClaims"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GHSA-f9j6-8p6x-r9j6",
+        "url": "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "11/03 REVIEW · IDENTITY",
+      "title": "署名が正しくても、必要属性を確認する。",
+      "lede": "CVE-2026-62374では、不一致のDisclosureを拒否せず除外して成功扱いにする。署名が正しくても属性が減り、属性不在時に許可する実装で認可判断に影響する。key bindingを必須にすると経路上の改変は拒否されるが、holder自身による改変は別条件として残る。",
+      "points": [
+        "CVE-2026-62374：改変Disclosureが黙って除外され、成功扱いになる",
+        "@sd-jwt/coreは0.19.0以下が対象、0.20.0が最初の修正版",
+        "@sd-jwt/decodeの修正版欄は未記載。必要属性の欠落は拒否"
+      ]
+    },
+    "en": {
+      "kicker": "11/03 REVIEW · IDENTITY",
+      "title": "A valid signature still needs required claims.",
+      "lede": "Missing claims can change an authorization decision even when the issuer signature is valid.",
+      "points": [
+        "CVE-2026-62374: tampered Disclosures are silently dropped while verification returns success",
+        "@sd-jwt/core through 0.19.0 is affected; 0.20.0 is the first listed fix",
+        "@sd-jwt/decode has no first fix listed; reject missing required claims"
+      ]
+    },
+    "reviewCutoff": "2026-11-03T07:20:00Z"
+  },
+  {
+    "id": "motion-npm-malware-1103",
+    "stamp": "11.03 · 16:20 JST",
+    "visual": {
+      "type": "reviewPackages"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GHSA-45rq-6v9r-4475",
+        "url": "https://github.com/advisories/GHSA-45rq-6v9r-4475"
+      },
+      {
+        "name": "GHSA-726f-wf9g-5893",
+        "url": "https://github.com/advisories/GHSA-726f-wf9g-5893"
+      },
+      {
+        "name": "GHSA-gj25-xrmw-6297",
+        "url": "https://github.com/advisories/GHSA-gj25-xrmw-6297"
+      },
+      {
+        "name": "GHSA-39ch-q3p3-3j33",
+        "url": "https://github.com/advisories/GHSA-39ch-q3p3-3j33"
+      },
+      {
+        "name": "GHSA-72x7-67fx-v24p",
+        "url": "https://github.com/advisories/GHSA-72x7-67fx-v24p"
+      },
+      {
+        "name": "GHSA-3hj7-wfw3-jm84",
+        "url": "https://github.com/advisories/GHSA-3hj7-wfw3-jm84"
+      },
+      {
+        "name": "GHSA-fc2g-x424-gvq4",
+        "url": "https://github.com/advisories/GHSA-fc2g-x424-gvq4"
+      },
+      {
+        "name": "GHSA-332r-cpwr-xr6h",
+        "url": "https://github.com/advisories/GHSA-332r-cpwr-xr6h"
+      },
+      {
+        "name": "GHSA-w544-4xh4-3m6v",
+        "url": "https://github.com/advisories/GHSA-w544-4xh4-3m6v"
+      },
+      {
+        "name": "GHSA-q8c5-hxhq-jprv",
+        "url": "https://github.com/advisories/GHSA-q8c5-hxhq-jprv"
+      },
+      {
+        "name": "GHSA-89qx-w49w-4q48",
+        "url": "https://github.com/advisories/GHSA-89qx-w49w-4q48"
+      },
+      {
+        "name": "GHSA-rg85-7qj4-rpcw",
+        "url": "https://github.com/advisories/GHSA-rg85-7qj4-rpcw"
+      },
+      {
+        "name": "GHSA-q7mj-99p7-8363",
+        "url": "https://github.com/advisories/GHSA-q7mj-99p7-8363"
+      },
+      {
+        "name": "GHSA-23g9-rf8p-3cj3",
+        "url": "https://github.com/advisories/GHSA-23g9-rf8p-3cj3"
+      },
+      {
+        "name": "GHSA-cw3v-7hh4-m39w",
+        "url": "https://github.com/advisories/GHSA-cw3v-7hh4-m39w"
+      },
+      {
+        "name": "GHSA-7j98-hxg2-v7pj",
+        "url": "https://github.com/advisories/GHSA-7j98-hxg2-v7pj"
+      },
+      {
+        "name": "GHSA-8g27-6w2c-r34p",
+        "url": "https://github.com/advisories/GHSA-8g27-6w2c-r34p"
+      },
+      {
+        "name": "GHSA-jchc-cxq2-2rx9",
+        "url": "https://github.com/advisories/GHSA-jchc-cxq2-2rx9"
+      },
+      {
+        "name": "GHSA-mp83-rh86-7fmp",
+        "url": "https://github.com/advisories/GHSA-mp83-rh86-7fmp"
+      },
+      {
+        "name": "GHSA-5m6m-8mwq-grp4",
+        "url": "https://github.com/advisories/GHSA-5m6m-8mwq-grp4"
+      },
+      {
+        "name": "GHSA-r6m4-fv3j-rm7v",
+        "url": "https://github.com/advisories/GHSA-r6m4-fv3j-rm7v"
+      },
+      {
+        "name": "GHSA-x9q7-g8cr-vw76",
+        "url": "https://github.com/advisories/GHSA-x9q7-g8cr-vw76"
+      },
+      {
+        "name": "GHSA-6668-jgqr-p263",
+        "url": "https://github.com/advisories/GHSA-6668-jgqr-p263"
+      },
+      {
+        "name": "GHSA-4fj7-5c6w-cmvh",
+        "url": "https://github.com/advisories/GHSA-4fj7-5c6w-cmvh"
+      },
+      {
+        "name": "GHSA-g76x-w4rw-x5j8",
+        "url": "https://github.com/advisories/GHSA-g76x-w4rw-x5j8"
+      },
+      {
+        "name": "GHSA-g4rr-4xhm-6q58",
+        "url": "https://github.com/advisories/GHSA-g4rr-4xhm-6q58"
+      },
+      {
+        "name": "GHSA-3vmc-mjw2-cmrq",
+        "url": "https://github.com/advisories/GHSA-3vmc-mjw2-cmrq"
+      },
+      {
+        "name": "GHSA-78j7-7qrc-2j38",
+        "url": "https://github.com/advisories/GHSA-78j7-7qrc-2j38"
+      },
+      {
+        "name": "GHSA-vwm6-r9cc-qg37",
+        "url": "https://github.com/advisories/GHSA-vwm6-r9cc-qg37"
+      },
+      {
+        "name": "GHSA-hvpp-rx4h-crg5",
+        "url": "https://github.com/advisories/GHSA-hvpp-rx4h-crg5"
+      },
+      {
+        "name": "GHSA-4h5p-w547-9qmv",
+        "url": "https://github.com/advisories/GHSA-4h5p-w547-9qmv"
+      },
+      {
+        "name": "GHSA-f826-46h5-5rcq",
+        "url": "https://github.com/advisories/GHSA-f826-46h5-5rcq"
+      },
+      {
+        "name": "GHSA-4q9j-4rv8-jp32",
+        "url": "https://github.com/advisories/GHSA-4q9j-4rv8-jp32"
+      },
+      {
+        "name": "GHSA-rvw8-22w3-342v",
+        "url": "https://github.com/advisories/GHSA-rvw8-22w3-342v"
+      },
+      {
+        "name": "GHSA-pg3x-mr83-5crv",
+        "url": "https://github.com/advisories/GHSA-pg3x-mr83-5crv"
+      },
+      {
+        "name": "GHSA-whfc-859g-h5j3",
+        "url": "https://github.com/advisories/GHSA-whfc-859g-h5j3"
+      },
+      {
+        "name": "GHSA-m4h2-gmhc-mhcp",
+        "url": "https://github.com/advisories/GHSA-m4h2-gmhc-mhcp"
+      },
+      {
+        "name": "GHSA-q7rp-q644-j8rp",
+        "url": "https://github.com/advisories/GHSA-q7rp-q644-j8rp"
+      },
+      {
+        "name": "GHSA-x8mc-7393-54vr",
+        "url": "https://github.com/advisories/GHSA-x8mc-7393-54vr"
+      },
+      {
+        "name": "GHSA-93rf-36fj-m7gp",
+        "url": "https://github.com/advisories/GHSA-93rf-36fj-m7gp"
+      },
+      {
+        "name": "GHSA-g4x3-g43p-pwrw",
+        "url": "https://github.com/advisories/GHSA-g4x3-g43p-pwrw"
+      },
+      {
+        "name": "GHSA-cjqv-xvjx-m5q5",
+        "url": "https://github.com/advisories/GHSA-cjqv-xvjx-m5q5"
+      },
+      {
+        "name": "GHSA-84hg-5759-2cgg",
+        "url": "https://github.com/advisories/GHSA-84hg-5759-2cgg"
+      },
+      {
+        "name": "GHSA-52vf-f48x-82m5",
+        "url": "https://github.com/advisories/GHSA-52vf-f48x-82m5"
+      },
+      {
+        "name": "GHSA-gqvq-9m83-c527",
+        "url": "https://github.com/advisories/GHSA-gqvq-9m83-c527"
+      },
+      {
+        "name": "GHSA-wcx4-q6jx-3vhj",
+        "url": "https://github.com/advisories/GHSA-wcx4-q6jx-3vhj"
+      },
+      {
+        "name": "GHSA-rqhx-p7qj-qqc8",
+        "url": "https://github.com/advisories/GHSA-rqhx-p7qj-qqc8"
+      },
+      {
+        "name": "GHSA-rfxc-3373-jvfq",
+        "url": "https://github.com/advisories/GHSA-rfxc-3373-jvfq"
+      },
+      {
+        "name": "GHSA-4hf4-p92p-5m6c",
+        "url": "https://github.com/advisories/GHSA-4hf4-p92p-5m6c"
+      },
+      {
+        "name": "GHSA-vpvh-94mq-8h4j",
+        "url": "https://github.com/advisories/GHSA-vpvh-94mq-8h4j"
+      },
+      {
+        "name": "GHSA-89v8-j949-j3h5",
+        "url": "https://github.com/advisories/GHSA-89v8-j949-j3h5"
+      },
+      {
+        "name": "GHSA-2g3q-xxv2-vh4p",
+        "url": "https://github.com/advisories/GHSA-2g3q-xxv2-vh4p"
+      },
+      {
+        "name": "GHSA-g94h-cm42-jgx8",
+        "url": "https://github.com/advisories/GHSA-g94h-cm42-jgx8"
+      },
+      {
+        "name": "GHSA-9h7q-53gw-grwc",
+        "url": "https://github.com/advisories/GHSA-9h7q-53gw-grwc"
+      },
+      {
+        "name": "GHSA-43pw-v6x2-9gh4",
+        "url": "https://github.com/advisories/GHSA-43pw-v6x2-9gh4"
+      },
+      {
+        "name": "GHSA-r55f-fj5f-qxf9",
+        "url": "https://github.com/advisories/GHSA-r55f-fj5f-qxf9"
+      },
+      {
+        "name": "GHSA-gmrr-hqfh-q4j3",
+        "url": "https://github.com/advisories/GHSA-gmrr-hqfh-q4j3"
+      },
+      {
+        "name": "GHSA-8cf8-9j3v-99g4",
+        "url": "https://github.com/advisories/GHSA-8cf8-9j3v-99g4"
+      },
+      {
+        "name": "GHSA-fr4c-gqv9-5rgx",
+        "url": "https://github.com/advisories/GHSA-fr4c-gqv9-5rgx"
+      },
+      {
+        "name": "GHSA-v4v4-v74v-86vq",
+        "url": "https://github.com/advisories/GHSA-v4v4-v74v-86vq"
+      },
+      {
+        "name": "GHSA-c6pj-8fr8-qq3c",
+        "url": "https://github.com/advisories/GHSA-c6pj-8fr8-qq3c"
+      },
+      {
+        "name": "GHSA-mv5j-phwp-534j",
+        "url": "https://github.com/advisories/GHSA-mv5j-phwp-534j"
+      },
+      {
+        "name": "GHSA-8967-3p4r-vpwp",
+        "url": "https://github.com/advisories/GHSA-8967-3p4r-vpwp"
+      },
+      {
+        "name": "GHSA-4q2f-q5qq-w9cm",
+        "url": "https://github.com/advisories/GHSA-4q2f-q5qq-w9cm"
+      },
+      {
+        "name": "GHSA-cv4q-j2g9-xp9h",
+        "url": "https://github.com/advisories/GHSA-cv4q-j2g9-xp9h"
+      },
+      {
+        "name": "GHSA-frgx-cf5w-vxr5",
+        "url": "https://github.com/advisories/GHSA-frgx-cf5w-vxr5"
+      },
+      {
+        "name": "GHSA-m4gq-5vx2-5x8c",
+        "url": "https://github.com/advisories/GHSA-m4gq-5vx2-5x8c"
+      },
+      {
+        "name": "GHSA-p5qq-93vh-5c8h",
+        "url": "https://github.com/advisories/GHSA-p5qq-93vh-5c8h"
+      },
+      {
+        "name": "GHSA-2v69-q2gc-qm5j",
+        "url": "https://github.com/advisories/GHSA-2v69-q2gc-qm5j"
+      },
+      {
+        "name": "GHSA-8cq9-2c2q-58ww",
+        "url": "https://github.com/advisories/GHSA-8cq9-2c2q-58ww"
+      },
+      {
+        "name": "GHSA-354j-r6m9-986p",
+        "url": "https://github.com/advisories/GHSA-354j-r6m9-986p"
+      },
+      {
+        "name": "GHSA-9jxw-2pvm-5q9f",
+        "url": "https://github.com/advisories/GHSA-9jxw-2pvm-5q9f"
+      },
+      {
+        "name": "GHSA-q54x-hhg5-963x",
+        "url": "https://github.com/advisories/GHSA-q54x-hhg5-963x"
+      },
+      {
+        "name": "GHSA-v7f8-27g9-qx88",
+        "url": "https://github.com/advisories/GHSA-v7f8-27g9-qx88"
+      },
+      {
+        "name": "GHSA-543q-wq5f-hmgh",
+        "url": "https://github.com/advisories/GHSA-543q-wq5f-hmgh"
+      },
+      {
+        "name": "GHSA-j2hf-rv9p-8jvr",
+        "url": "https://github.com/advisories/GHSA-j2hf-rv9p-8jvr"
+      },
+      {
+        "name": "GHSA-q9p6-j8q4-8qh9",
+        "url": "https://github.com/advisories/GHSA-q9p6-j8q4-8qh9"
+      },
+      {
+        "name": "GHSA-pw4j-9v86-8c3g",
+        "url": "https://github.com/advisories/GHSA-pw4j-9v86-8c3g"
+      },
+      {
+        "name": "GHSA-r89f-jjgp-3q97",
+        "url": "https://github.com/advisories/GHSA-r89f-jjgp-3q97"
+      },
+      {
+        "name": "GHSA-w48h-24q2-rjqx",
+        "url": "https://github.com/advisories/GHSA-w48h-24q2-rjqx"
+      },
+      {
+        "name": "GHSA-xpgj-8rc5-pq44",
+        "url": "https://github.com/advisories/GHSA-xpgj-8rc5-pq44"
+      },
+      {
+        "name": "GHSA-p373-68vj-fvrh",
+        "url": "https://github.com/advisories/GHSA-p373-68vj-fvrh"
+      },
+      {
+        "name": "GHSA-3x3m-5j3w-83rj",
+        "url": "https://github.com/advisories/GHSA-3x3m-5j3w-83rj"
+      },
+      {
+        "name": "GHSA-j62h-2r3r-ggh9",
+        "url": "https://github.com/advisories/GHSA-j62h-2r3r-ggh9"
+      },
+      {
+        "name": "GHSA-69w5-x7cm-v78h",
+        "url": "https://github.com/advisories/GHSA-69w5-x7cm-v78h"
+      },
+      {
+        "name": "GHSA-v764-465v-vh59",
+        "url": "https://github.com/advisories/GHSA-v764-465v-vh59"
+      },
+      {
+        "name": "GHSA-5mwr-h84x-47h6",
+        "url": "https://github.com/advisories/GHSA-5mwr-h84x-47h6"
+      },
+      {
+        "name": "GHSA-9xq2-7mfg-rrmx",
+        "url": "https://github.com/advisories/GHSA-9xq2-7mfg-rrmx"
+      },
+      {
+        "name": "GHSA-rqw8-93vw-v2h5",
+        "url": "https://github.com/advisories/GHSA-rqw8-93vw-v2h5"
+      },
+      {
+        "name": "GHSA-xq83-5ggr-7222",
+        "url": "https://github.com/advisories/GHSA-xq83-5ggr-7222"
+      },
+      {
+        "name": "GHSA-6f53-8jrf-3x9j",
+        "url": "https://github.com/advisories/GHSA-6f53-8jrf-3x9j"
+      },
+      {
+        "name": "GHSA-vj43-6r45-847h",
+        "url": "https://github.com/advisories/GHSA-vj43-6r45-847h"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "11/03 REVIEW · NPM",
+      "title": "導入した版と、CIでの実行を確認する。",
+      "lede": "今回の公開窓でnpmのmalware勧告92件を確認。これは勧告数で、端末数・侵害件数ではない。各勧告のpackage名・対象バージョンは下表に原APIの条件を保持し、修正版未記載を安全な版へ置き換えない。",
+      "points": [
+        "npmのmalware勧告92件。勧告数を侵害端末数にしない",
+        "対象package・版をlockfileと照合し、install script・CI履歴を調査",
+        "修正版未記載を推測で埋めず、該当環境の隔離・再構築へ"
+      ]
+    },
+    "en": {
+      "kicker": "11/03 REVIEW · NPM",
+      "title": "Check installed versions and CI execution.",
+      "lede": "The register preserves exact package names and affected ranges from the advisory API.",
+      "points": [
+        "92 npm malware advisories; this is not a count of compromised machines",
+        "Match package names and versions against lockfiles and inspect install-script and CI history",
+        "Do not invent an unlisted fix; isolate and rebuild affected environments"
+      ]
+    },
+    "reviewCutoff": "2026-11-03T07:20:00Z"
+  },
+  {
+    "id": "motion-pip-malware-1103",
+    "stamp": "11.03 · 16:20 JST",
+    "visual": {
+      "type": "reviewPackages"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GHSA-25jm-3g7h-jgf6",
+        "url": "https://github.com/advisories/GHSA-25jm-3g7h-jgf6"
+      },
+      {
+        "name": "GHSA-8wmf-9cp5-g5hq",
+        "url": "https://github.com/advisories/GHSA-8wmf-9cp5-g5hq"
+      },
+      {
+        "name": "GHSA-8v7q-mrx4-jvfg",
+        "url": "https://github.com/advisories/GHSA-8v7q-mrx4-jvfg"
+      },
+      {
+        "name": "GHSA-x49r-jpx2-h4h9",
+        "url": "https://github.com/advisories/GHSA-x49r-jpx2-h4h9"
+      },
+      {
+        "name": "GHSA-ppjw-cwjq-6w82",
+        "url": "https://github.com/advisories/GHSA-ppjw-cwjq-6w82"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "11/03 REVIEW · PYTHON / RUBY",
+      "title": "Python起動・gem導入まで遡る。",
+      "lede": "今回の公開窓でPyPIのmalware勧告2件を確認。これは勧告数で、端末数・侵害件数ではない。各勧告のpackage名・対象バージョンは下表に原APIの条件を保持し、修正版未記載を安全な版へ置き換えない。",
+      "points": [
+        "PyPIのmalware勧告2件、RubyGemsは3件。対象版は各勧告で確認",
+        "import・起動・gem導入・CIの履歴と配布イメージを確認",
+        "パッケージ削除だけで常駐コードが消えたと判断しない"
+      ]
+    },
+    "en": {
+      "kicker": "11/03 REVIEW · PYTHON / RUBY",
+      "title": "Trace Python startup and gem installation.",
+      "lede": "Check execution history as well as the current dependency list.",
+      "points": [
+        "2 PyPI malware advisories and 3 RubyGems advisories; check each affected range",
+        "Review imports, startup, gem installation, CI history and distributed images",
+        "Package removal alone does not establish that persistence is gone"
+      ]
+    },
+    "reviewCutoff": "2026-11-03T07:20:00Z"
+  },
+  {
+    "id": "review-1103-response",
+    "stamp": "11.03 · 16:20 JST",
+    "visual": {
+      "type": "trustRenewal"
+    },
+    "cue": "blip",
+    "sources": [
+      {
+        "name": "GHSA-25jm-3g7h-jgf6",
+        "url": "https://github.com/advisories/GHSA-25jm-3g7h-jgf6"
+      },
+      {
+        "name": "GHSA-8wmf-9cp5-g5hq",
+        "url": "https://github.com/advisories/GHSA-8wmf-9cp5-g5hq"
+      }
+    ],
+    "metric": null,
+    "ja": {
+      "kicker": "11/03 REVIEW · RESPONSE",
+      "title": "隔離、鍵の失効、再構築を別々に確認。",
+      "lede": "安全な別環境を使い、漏れた可能性のある認証情報と実行済みコードの両方へ対応します。",
+      "points": [
+        "該当環境を隔離し、ログと導入履歴を保全",
+        "発行元で旧キーを失効・再発行し、利用先を更新",
+        "クリーンな構成で再構築。更新・削除だけで復旧完了としない"
+      ]
+    },
+    "en": {
+      "kicker": "11/03 REVIEW · RESPONSE",
+      "title": "Track isolation, revocation and rebuilding separately.",
+      "lede": "Use a separate clean environment to address both potentially exposed credentials and code already executed.",
+      "points": [
+        "Isolate affected environments and preserve logs and installation history",
+        "Revoke and reissue old keys at their issuer and update consumers",
+        "Rebuild from a clean configuration; updating or removal alone is not completed recovery"
+      ]
+    },
+    "reviewCutoff": "2026-11-03T07:20:00Z"
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-03T07:20:00Z", "label": "2026-11-03 16:20 JST", "report": "/update-20261103-1620"};
+for (const lang of ['ja', 'en']) {
+  const english = lang === 'en';
+  const report = window.CONTENT.review.report + (english ? '.en' : '');
+  window.CONTENT.scenes.find(s => s.id === 'intro')[lang].points[1] =
+    '<a href="' + report + '">11/03 16:20 ' + (english ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#72">' + (english ? '9 new motion scenes' : '追加9画面') + ' →</a> · <a href="/timeline' + (english ? '.en' : '') + '">' + (english ? 'Read by date' : '日付から読む') + ' →</a>';
+  window.CONTENT.ui[lang].coverSub = english
+    ? '80 dated scenes, including 9 new scenes through November 3, 16:20 JST. Historical scenes retain their original context.'
+    : '全80画面を日付順に。11/03 16:20 JSTまでの追加9画面。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 71,
-    "total": 71
+    "translated": 80,
+    "total": 80
   },
   "ja": {
     "ready": true,
-    "translated": 71,
-    "total": 71
+    "translated": 80,
+    "total": 80
   }
 };

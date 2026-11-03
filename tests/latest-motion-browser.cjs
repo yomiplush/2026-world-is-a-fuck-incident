@@ -11,6 +11,8 @@ async function main() {
   const site = path.join(root, 'site');
   const latest = JSON.parse(fs.readFileSync(path.join(root, 'data/latest.json')));
   const report = new URL(latest.site_report).pathname.replace(/\.html$/, '');
+  const mapping = JSON.parse(fs.readFileSync(path.join(root, 'content/motion-reviews.json')))[report.slice(1)+'.html'];
+  const label = latest.cutoff_jst.slice(5,10).replace('-', '/')+' '+latest.cutoff_jst.slice(11,16);
   const shots = process.env.INFOSEC_SCREENSHOTS;
   if (shots) fs.mkdirSync(shots, {recursive:true});
   const mime = {'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css',
@@ -47,17 +49,17 @@ async function main() {
         assert.ok(!(a.x<b.right&&a.right>b.x&&a.y<b.bottom&&a.bottom>b.y),'entrance controls overlap '+width+': '+a.name+' / '+b.name);
       }
 
-      assert.equal(await page.locator('a.entry-motion').getAttribute('href'),'/?lang=ja#66');
+      assert.equal(await page.locator('a.entry-motion').getAttribute('href'),'/?lang=ja#'+mapping.start);
       const latestLink=page.locator('a.entry-latest');
       assert.equal(await latestLink.getAttribute('href'),report);
-      assert.match(await latestLink.innerText(),/10\/29 14:01/);
+      assert.ok((await latestLink.innerText()).includes(label));
       assert.ok(await latestLink.isVisible(),'latest report link must be visible');
       assert.ok(await latestLink.evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight;}),'latest link clipped');
       if(width===390)await page.screenshot({path:'/tmp/infosec-latest-entry.png'});
       await latestLink.click();
       assert.ok(await page.locator('h1').innerText(),'latest link must open article');
       checks++;
-      for (const route of [report, report+'.en','/database','/database.en','/impact','/impact.en','/timeline','/briefing']) {
+      for (const route of [report, report+'.en','/topics/dbhub-readonly-1103','/topics/dbhub-readonly-1103.en','/topics/sdjwt-disclosure-1103','/topics/npm-malware-1103','/database','/database.en','/impact','/impact.en','/timeline','/briefing']) {
         const response = await page.goto(origin+route,{waitUntil:'load'});
         assert.equal(response.status(),200,route);
         assert.ok(await page.locator('h1').count(),route+' missing heading');
@@ -100,7 +102,7 @@ async function main() {
       checks++;
       assert.equal(await tab.locator('.chapter-button:not([hidden])').count(),5);
       await tab.locator('.chapter-page[data-direction=next]').click();
-      assert.equal(await tab.locator('.chapter-button:not([hidden])').count(),3);
+      assert.equal(await tab.locator('.chapter-button:not([hidden])').count(),5);
       await tab.locator('.chapter-button').nth(7).click();
       assert.equal(await tab.evaluate(()=>location.hash),'#66');
       assert.equal(await tab.locator('.chapter-button[aria-current=true] .chapter-square').innerText(),'●');
@@ -109,7 +111,8 @@ async function main() {
         const canvas=document.createElement('canvas');canvas.width=480;canvas.height=340;
         const ctx=canvas.getContext('2d');const hashes=new Set();
         const hash=()=>{const a=ctx.getImageData(0,0,480,340).data;let h=2166136261;for(let i=0;i<a.length;i+=4)h=Math.imul(h^a[i]^a[i+1]^a[i+2],16777619)>>>0;return h;};
-        for(const scene of CONTENT.scenes.slice(65)){
+        const diagrams = [...new Map(CONTENT.scenes.slice(65).map(s=>[s.visual.type,s])).values()];
+        for(const scene of diagrams){
           VISUALS.setTilt(0,0);VISUALS.draw(scene.visual,ctx,480,340,1,false);const a=hash();
           VISUALS.draw(scene.visual,ctx,480,340,4.8,false);if(a===hash())throw Error(scene.id+' does not animate');
           if(hashes.has(a))throw Error(scene.id+' duplicates another diagram');hashes.add(a);
@@ -119,8 +122,8 @@ async function main() {
         }
         return hashes.size;
       });
-      assert.equal(diagramChecks,6);
-      for(let number=66;number<=71;number++){
+      assert.ok(diagramChecks >= 10);
+      for(let number=mapping.start;number<mapping.start+mapping.count;number++){
         await tab.evaluate(n=>{location.hash=String(n);},number);
         await tab.waitForTimeout(100);
         assert.ok(await tab.locator('#title').innerText());

@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-11-01T12:33:30Z",
+  "cutoff": "2026-11-03T07:20:00Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -472,7 +472,7 @@
       "recovery_state": "not-established"
     }
   ],
-  "cutoff_jst": "2026-11-01T21:33:30+09:00",
+  "cutoff_jst": "2026-11-03T16:20:00+09:00",
   "caveats": [
     "Rows outside the update scope retain prior source context. Their recorded check times are not new retrieval times.",
     "Selected examples. parent_incident indicates user-side effects of the same compromise and is not added as a separate incident. potential means actual acquisition is unconfirmed.",
@@ -480,12 +480,13 @@
     "Separate occurrence, disclosure, update, and retrieval times; preserve source units for money, people, and records. Undisclosed total losses do not mean 0 yen.",
     "Retrieved material reflects current revisions after the cutoff. All historical text on dynamic pages cannot be fully reconstructed.",
     "User-side impacts on the same infrastructure are linked through parent_incident. Do not add them as duplicate incidents.",
-    "The newly covered healthcare recovery follows the institution’s official statement. Existing source dates remain; re-fetching does not make an incident new."
+    "The newly covered healthcare recovery follows the institution’s official statement. Existing source dates remain; re-fetching does not make an incident new.",
+    "The 11/3 update retains earlier impact narratives; restoration and compensation completion were not newly verified."
   ],
   "locale": "en",
   "translation": {
-    "source_hash": "6dae02990b748f10b74774951a47e13d33017858eecf014690551fc6282609fa",
-    "register_hash": "11d63ab0a512a5e0eae0a18b1079ccd7e4043f02af1b0f152a903ce25380b334",
+    "source_hash": "383a5676d9f409fe3a0d36617fa97c4330c0b12b2a378955ca9a5ce05fb0e967",
+    "register_hash": "2cfa3667b84541e5d3072dbb0f927f04c49bca061a5da6f52bea298b3f670309",
     "human_reviewed": false
   }
 }

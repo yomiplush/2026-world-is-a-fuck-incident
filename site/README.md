@@ -1,3 +1,9 @@
+## November 3 publication
+
+Current research cutoff: 2026-11-03 16:20 JST. 182 topics, with five new groups and 177 retained historical topics; 97 new malware advisories preserve individual affected-version tables. The latest report is `/update-20261103-1620`; `/topics/` contains ten focused Japanese/English pages. Motion has 80 scenes: #72–74 cover dated follow-ups, #75–80 the current review. All #1–71 targets remain stable.
+
+`npm run build` prepares reading translation sources, builds focused pages and rejects a database update without a current motion chapter and entrance links. It does not perform unattended editorial research. Recollection and limitations: `docs/research-collection-2026-11-03-1620.md`.
+
 ## Initial display language / 初回表示言語
 
 The entrance and reading pages choose the first supported Japanese/English language

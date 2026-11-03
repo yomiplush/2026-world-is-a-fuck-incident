@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-11-01-2133",
-  "register_sha256": "810ea8b9811f363d5b831d4526caac41983108d121d5879d3565382a9bdf553f",
+  "snapshot": "2026-11-03-1620",
+  "register_sha256": "6f6765483071ecc20f502792fbc7b362e69b114033bc2c21922f91a13ef145a4",
   "status": "reviewed",
-  "reviewed_at": "2026-11-01T12:36:43.385571+00:00",
-  "source_register": "2026-11-01-2133/incident-register.json",
+  "reviewed_at": "2026-11-03T07:20:00Z",
+  "source_register": "2026-11-03-1620/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -1983,6 +1983,150 @@
       },
       "sources": [
         "https://status.northflank.com/"
+      ]
+    },
+    "dbhub-readonly-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-j656-3hf2-fvjc"
+      ]
+    },
+    "sdjwt-disclosure-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6"
+      ]
+    },
+    "npm-malware-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-45rq-6v9r-4475",
+        "https://github.com/advisories/GHSA-726f-wf9g-5893",
+        "https://github.com/advisories/GHSA-gj25-xrmw-6297",
+        "https://github.com/advisories/GHSA-39ch-q3p3-3j33",
+        "https://github.com/advisories/GHSA-72x7-67fx-v24p",
+        "https://github.com/advisories/GHSA-3hj7-wfw3-jm84",
+        "https://github.com/advisories/GHSA-fc2g-x424-gvq4",
+        "https://github.com/advisories/GHSA-332r-cpwr-xr6h",
+        "https://github.com/advisories/GHSA-w544-4xh4-3m6v",
+        "https://github.com/advisories/GHSA-q8c5-hxhq-jprv",
+        "https://github.com/advisories/GHSA-89qx-w49w-4q48",
+        "https://github.com/advisories/GHSA-rg85-7qj4-rpcw",
+        "https://github.com/advisories/GHSA-q7mj-99p7-8363",
+        "https://github.com/advisories/GHSA-23g9-rf8p-3cj3",
+        "https://github.com/advisories/GHSA-cw3v-7hh4-m39w",
+        "https://github.com/advisories/GHSA-7j98-hxg2-v7pj",
+        "https://github.com/advisories/GHSA-8g27-6w2c-r34p",
+        "https://github.com/advisories/GHSA-jchc-cxq2-2rx9",
+        "https://github.com/advisories/GHSA-mp83-rh86-7fmp",
+        "https://github.com/advisories/GHSA-5m6m-8mwq-grp4",
+        "https://github.com/advisories/GHSA-r6m4-fv3j-rm7v",
+        "https://github.com/advisories/GHSA-x9q7-g8cr-vw76",
+        "https://github.com/advisories/GHSA-6668-jgqr-p263",
+        "https://github.com/advisories/GHSA-4fj7-5c6w-cmvh",
+        "https://github.com/advisories/GHSA-g76x-w4rw-x5j8",
+        "https://github.com/advisories/GHSA-g4rr-4xhm-6q58",
+        "https://github.com/advisories/GHSA-3vmc-mjw2-cmrq",
+        "https://github.com/advisories/GHSA-78j7-7qrc-2j38",
+        "https://github.com/advisories/GHSA-vwm6-r9cc-qg37",
+        "https://github.com/advisories/GHSA-hvpp-rx4h-crg5",
+        "https://github.com/advisories/GHSA-4h5p-w547-9qmv",
+        "https://github.com/advisories/GHSA-f826-46h5-5rcq",
+        "https://github.com/advisories/GHSA-4q9j-4rv8-jp32",
+        "https://github.com/advisories/GHSA-rvw8-22w3-342v",
+        "https://github.com/advisories/GHSA-pg3x-mr83-5crv",
+        "https://github.com/advisories/GHSA-whfc-859g-h5j3",
+        "https://github.com/advisories/GHSA-m4h2-gmhc-mhcp",
+        "https://github.com/advisories/GHSA-q7rp-q644-j8rp",
+        "https://github.com/advisories/GHSA-x8mc-7393-54vr",
+        "https://github.com/advisories/GHSA-93rf-36fj-m7gp",
+        "https://github.com/advisories/GHSA-g4x3-g43p-pwrw",
+        "https://github.com/advisories/GHSA-cjqv-xvjx-m5q5",
+        "https://github.com/advisories/GHSA-84hg-5759-2cgg",
+        "https://github.com/advisories/GHSA-52vf-f48x-82m5",
+        "https://github.com/advisories/GHSA-gqvq-9m83-c527",
+        "https://github.com/advisories/GHSA-wcx4-q6jx-3vhj",
+        "https://github.com/advisories/GHSA-rqhx-p7qj-qqc8",
+        "https://github.com/advisories/GHSA-rfxc-3373-jvfq",
+        "https://github.com/advisories/GHSA-4hf4-p92p-5m6c",
+        "https://github.com/advisories/GHSA-vpvh-94mq-8h4j",
+        "https://github.com/advisories/GHSA-89v8-j949-j3h5",
+        "https://github.com/advisories/GHSA-2g3q-xxv2-vh4p",
+        "https://github.com/advisories/GHSA-g94h-cm42-jgx8",
+        "https://github.com/advisories/GHSA-9h7q-53gw-grwc",
+        "https://github.com/advisories/GHSA-43pw-v6x2-9gh4",
+        "https://github.com/advisories/GHSA-r55f-fj5f-qxf9",
+        "https://github.com/advisories/GHSA-gmrr-hqfh-q4j3",
+        "https://github.com/advisories/GHSA-8cf8-9j3v-99g4",
+        "https://github.com/advisories/GHSA-fr4c-gqv9-5rgx",
+        "https://github.com/advisories/GHSA-v4v4-v74v-86vq",
+        "https://github.com/advisories/GHSA-c6pj-8fr8-qq3c",
+        "https://github.com/advisories/GHSA-mv5j-phwp-534j",
+        "https://github.com/advisories/GHSA-8967-3p4r-vpwp",
+        "https://github.com/advisories/GHSA-4q2f-q5qq-w9cm",
+        "https://github.com/advisories/GHSA-cv4q-j2g9-xp9h",
+        "https://github.com/advisories/GHSA-frgx-cf5w-vxr5",
+        "https://github.com/advisories/GHSA-m4gq-5vx2-5x8c",
+        "https://github.com/advisories/GHSA-p5qq-93vh-5c8h",
+        "https://github.com/advisories/GHSA-2v69-q2gc-qm5j",
+        "https://github.com/advisories/GHSA-8cq9-2c2q-58ww",
+        "https://github.com/advisories/GHSA-354j-r6m9-986p",
+        "https://github.com/advisories/GHSA-9jxw-2pvm-5q9f",
+        "https://github.com/advisories/GHSA-q54x-hhg5-963x",
+        "https://github.com/advisories/GHSA-v7f8-27g9-qx88",
+        "https://github.com/advisories/GHSA-543q-wq5f-hmgh",
+        "https://github.com/advisories/GHSA-j2hf-rv9p-8jvr",
+        "https://github.com/advisories/GHSA-q9p6-j8q4-8qh9",
+        "https://github.com/advisories/GHSA-pw4j-9v86-8c3g",
+        "https://github.com/advisories/GHSA-r89f-jjgp-3q97",
+        "https://github.com/advisories/GHSA-w48h-24q2-rjqx",
+        "https://github.com/advisories/GHSA-xpgj-8rc5-pq44",
+        "https://github.com/advisories/GHSA-p373-68vj-fvrh",
+        "https://github.com/advisories/GHSA-3x3m-5j3w-83rj",
+        "https://github.com/advisories/GHSA-j62h-2r3r-ggh9",
+        "https://github.com/advisories/GHSA-69w5-x7cm-v78h",
+        "https://github.com/advisories/GHSA-v764-465v-vh59",
+        "https://github.com/advisories/GHSA-5mwr-h84x-47h6",
+        "https://github.com/advisories/GHSA-9xq2-7mfg-rrmx",
+        "https://github.com/advisories/GHSA-rqw8-93vw-v2h5",
+        "https://github.com/advisories/GHSA-xq83-5ggr-7222",
+        "https://github.com/advisories/GHSA-6f53-8jrf-3x9j",
+        "https://github.com/advisories/GHSA-vj43-6r45-847h"
+      ]
+    },
+    "pip-malware-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-25jm-3g7h-jgf6",
+        "https://github.com/advisories/GHSA-8wmf-9cp5-g5hq"
+      ]
+    },
+    "rubygems-malware-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8v7q-mrx4-jvfg",
+        "https://github.com/advisories/GHSA-x49r-jpx2-h4h9",
+        "https://github.com/advisories/GHSA-ppjw-cwjq-6w82"
       ]
     }
   }

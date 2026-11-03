@@ -1,27 +1,27 @@
 {
-  "cutoff": "2026-11-01T12:33:30Z",
-  "cutoff_jst": "2026-11-01T21:33:30+09:00",
+  "cutoff": "2026-11-03T07:20:00Z",
+  "cutoff_jst": "2026-11-03T16:20:00+09:00",
   "counts": {
-    "nvd_published": 161,
-    "nvd_modified": 351,
-    "published_modified_overlap": 161,
-    "ghsa": 153,
-    "ghsa_unreviewed": 141,
-    "ghsa_reviewed": 0,
-    "ghsa_malware": 12,
-    "ghsa_modified": 196,
-    "ghsa_published_modified_overlap": 153,
-    "ghsa_current_published_overlap": 141,
+    "nvd_published": 561,
+    "nvd_modified": 1732,
+    "published_modified_overlap": 561,
+    "ghsa": 632,
+    "ghsa_unreviewed": 533,
+    "ghsa_reviewed": 2,
+    "ghsa_malware": 97,
+    "ghsa_modified": 909,
+    "ghsa_published_modified_overlap": 632,
+    "ghsa_current_published_overlap": 533,
     "ghsa_previous_published_overlap": 0,
-    "record_topic_groups": 177,
-    "delta_topic_groups": 9,
-    "scope_complement_topic_groups": 167,
+    "record_topic_groups": 182,
+    "delta_topic_groups": 5,
+    "scope_complement_topic_groups": 176,
     "reference_only_topic_groups": 1,
-    "verified_response_records": 55,
-    "deduplicated_previous_references": 34
+    "verified_response_records": 66,
+    "deduplicated_previous_references": 23
   },
   "caveats": [
-    "基準は2026-11-01 21:33:30 JST。前回2026-10-31 10:02:11 JSTからの固定窓。原本は基準後の現行改訂で、過去の全版を復元しない。",
+    "基準は2026-11-03 16:20:00 JST。前回2026-11-01 21:33:30 JSTからの固定窓。取得時点の現行改訂を保存し、過去の全版を復元しない。",
     "前回の論点とIDを保持。前回資料の文脈を保持した本文は今回の全面再精査をしていない。",
     "公開・改訂・CVE・GHSA・package・被害人数を合算しない。未評価のNVD記録も取得し、unreviewedを確認済み被害に自動変換しない。",
     "取得失敗、空のJavaScript画面、アクセス制限は成功した本文に含めない。世界全体の完全網羅や未掲載事案の不存在は主張しない。",
@@ -13812,14 +13812,14 @@
           "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/118xxx/CVE-2026-118636.json"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-10-31T20:17:11.191Z / Apache CNA公開・NVD登録は21:16:53 UTC",
       "date": "2026-10-31",
       "cve_ids": [
         "CVE-2026-118636"
       ],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z"
     },
     {
@@ -13833,12 +13833,12 @@
           "url": "https://github.com/advisories/GHSA-f93h-mc69-274w"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-01T03:30:23Z / GHSA公開時刻",
       "date": "2026-11-01",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z",
       "advisories": [
         {
@@ -13902,12 +13902,12 @@
           "url": "https://github.com/advisories/GHSA-vh26-86vj-f72g"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-10-31T15:30:24Z / GHSA公開時刻",
       "date": "2026-10-31",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z",
       "advisories": [
         {
@@ -14103,12 +14103,12 @@
           "url": "https://github.com/advisories/GHSA-45w4-c62g-5g5v"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-01T09:30:27Z / GHSA公開時刻",
       "date": "2026-11-01",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z",
       "advisories": [
         {
@@ -14164,12 +14164,12 @@
           "url": "https://github.com/advisories/GHSA-jh68-cxw4-pfj2"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-01T09:30:27Z / GHSA公開時刻",
       "date": "2026-11-01",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z",
       "advisories": [
         {
@@ -14234,12 +14234,12 @@
           "url": "https://github.com/advisories/GHSA-7j62-5j84-72fv"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-10-31T07:57:13Z – 2026-10-31T16:09:39Z / GHSA公開時刻",
       "date": "2026-10-31",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z",
       "advisories": [
         {
@@ -14318,12 +14318,12 @@
           "url": "https://github.com/advisories/GHSA-5fxv-5qc2-53g8"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-10-31T15:30:24Z / GHSA公開時刻",
       "date": "2026-10-31",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z",
       "advisories": [
         {
@@ -14366,12 +14366,12 @@
           "url": "https://github.com/advisories/GHSA-625f-xj7r-qh7w"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-01T12:30:23Z / GHSA公開時刻",
       "date": "2026-11-01",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z",
       "advisories": [
         {
@@ -14405,13 +14405,3178 @@
           "url": "https://status.northflank.com/"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-10-31T01:04Z – 2026-10-31T23:31Z / 公式status更新",
       "date": "2026-10-31",
       "cve_ids": [],
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-01T12:33:30Z"
+    },
+    {
+      "id": "dbhub-readonly-1103",
+      "title": "DBHub：MySQL・MariaDBでread-onlyを回避、0.22.6で修正",
+      "body": "@bytebase/dbhubの0.22.6未満では、SQLコメントを解釈する差によりMySQL・MariaDBコネクタの読み取り専用検査を回避できる。AIが送るSQLへ影響でき、DB側の権限が許す場合に書き込みやDDLへ到達する。PostgreSQLはこの経路の対象外。",
+      "action": "0.22.6以降へ更新し、DBアカウント自体も読み取り専用にする。AI入力と接続権限、監査ログを確認する。更新を過去の書き換え不存在の証明にしない。",
+      "kind": "delta",
+      "time": "2026-11-01T12:33:30Z – 2026-11-03T07:20:00Z / GHSA publication window",
+      "date": "2026-11-03",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-03T07:20:00Z",
+      "cve_ids": [],
+      "sources": [
+        {
+          "name": "GHSA-j656-3hf2-fvjc",
+          "url": "https://github.com/advisories/GHSA-j656-3hf2-fvjc"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-j656-3hf2-fvjc",
+          "url": "https://github.com/advisories/GHSA-j656-3hf2-fvjc",
+          "summary": "DBHub: MySQL and MariaDB comment interpretation bypasses read-only SQL validation",
+          "published_at": "2026-11-02T17:57:51Z",
+          "updated_at": "2026-11-02T17:57:52Z",
+          "type": "reviewed",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@bytebase/dbhub"
+              },
+              "vulnerable_version_range": "< 0.22.6",
+              "first_patched_version": "0.22.6",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sdjwt-disclosure-1103",
+      "title": "SD-JWT：改変Disclosureの黙示的な除外と認可条件",
+      "body": "CVE-2026-62374では、不一致のDisclosureを拒否せず除外して成功扱いにする。署名が正しくても属性が減り、属性不在時に許可する実装で認可判断に影響する。key bindingを必須にすると経路上の改変は拒否されるが、holder自身による改変は別条件として残る。",
+      "action": "@sd-jwt/coreは0.19.0以下が対象、最初の修正版は0.20.0。@sd-jwt/decodeは0.19.0以下が対象だが修正版欄は未記載。必要属性の欠落を拒否し、実際に使用する依存版を個別に確認する。",
+      "kind": "delta",
+      "time": "2026-11-01T12:33:30Z – 2026-11-03T07:20:00Z / GHSA publication window",
+      "date": "2026-11-03",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-03T07:20:00Z",
+      "cve_ids": [
+        "CVE-2026-62374"
+      ],
+      "sources": [
+        {
+          "name": "GHSA-f9j6-8p6x-r9j6",
+          "url": "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-f9j6-8p6x-r9j6",
+          "url": "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6",
+          "summary": "SD JWT JS: Tampered disclosures silently dropped instead of rejected",
+          "published_at": "2026-11-02T17:54:39Z",
+          "updated_at": "2026-11-02T17:54:41Z",
+          "type": "reviewed",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@sd-jwt/decode"
+              },
+              "vulnerable_version_range": "<= 0.19.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@sd-jwt/core"
+              },
+              "vulnerable_version_range": "<= 0.19.0",
+              "first_patched_version": "0.20.0",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npm-malware-1103",
+      "title": "npm：不正パッケージ92勧告、対象版と導入履歴を確認",
+      "body": "今回の公開窓でnpmのmalware勧告92件を確認。これは勧告数で、端末数・侵害件数ではない。各勧告のpackage名・対象バージョンは下表に原APIの条件を保持し、修正版未記載を安全な版へ置き換えない。",
+      "action": "install script・CIの履歴とlockfile・配布イメージを照合する。該当環境を隔離し、クリーンな別環境で鍵を失効・再発行する。削除だけで常駐コードが消えたと判断せず、再構築とログ調査を行う。",
+      "kind": "delta",
+      "time": "2026-11-01T12:33:30Z – 2026-11-03T07:20:00Z / GHSA publication window",
+      "date": "2026-11-03",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-03T07:20:00Z",
+      "cve_ids": [],
+      "sources": [
+        {
+          "name": "GHSA-45rq-6v9r-4475",
+          "url": "https://github.com/advisories/GHSA-45rq-6v9r-4475"
+        },
+        {
+          "name": "GHSA-726f-wf9g-5893",
+          "url": "https://github.com/advisories/GHSA-726f-wf9g-5893"
+        },
+        {
+          "name": "GHSA-gj25-xrmw-6297",
+          "url": "https://github.com/advisories/GHSA-gj25-xrmw-6297"
+        },
+        {
+          "name": "GHSA-39ch-q3p3-3j33",
+          "url": "https://github.com/advisories/GHSA-39ch-q3p3-3j33"
+        },
+        {
+          "name": "GHSA-72x7-67fx-v24p",
+          "url": "https://github.com/advisories/GHSA-72x7-67fx-v24p"
+        },
+        {
+          "name": "GHSA-3hj7-wfw3-jm84",
+          "url": "https://github.com/advisories/GHSA-3hj7-wfw3-jm84"
+        },
+        {
+          "name": "GHSA-fc2g-x424-gvq4",
+          "url": "https://github.com/advisories/GHSA-fc2g-x424-gvq4"
+        },
+        {
+          "name": "GHSA-332r-cpwr-xr6h",
+          "url": "https://github.com/advisories/GHSA-332r-cpwr-xr6h"
+        },
+        {
+          "name": "GHSA-w544-4xh4-3m6v",
+          "url": "https://github.com/advisories/GHSA-w544-4xh4-3m6v"
+        },
+        {
+          "name": "GHSA-q8c5-hxhq-jprv",
+          "url": "https://github.com/advisories/GHSA-q8c5-hxhq-jprv"
+        },
+        {
+          "name": "GHSA-89qx-w49w-4q48",
+          "url": "https://github.com/advisories/GHSA-89qx-w49w-4q48"
+        },
+        {
+          "name": "GHSA-rg85-7qj4-rpcw",
+          "url": "https://github.com/advisories/GHSA-rg85-7qj4-rpcw"
+        },
+        {
+          "name": "GHSA-q7mj-99p7-8363",
+          "url": "https://github.com/advisories/GHSA-q7mj-99p7-8363"
+        },
+        {
+          "name": "GHSA-23g9-rf8p-3cj3",
+          "url": "https://github.com/advisories/GHSA-23g9-rf8p-3cj3"
+        },
+        {
+          "name": "GHSA-cw3v-7hh4-m39w",
+          "url": "https://github.com/advisories/GHSA-cw3v-7hh4-m39w"
+        },
+        {
+          "name": "GHSA-7j98-hxg2-v7pj",
+          "url": "https://github.com/advisories/GHSA-7j98-hxg2-v7pj"
+        },
+        {
+          "name": "GHSA-8g27-6w2c-r34p",
+          "url": "https://github.com/advisories/GHSA-8g27-6w2c-r34p"
+        },
+        {
+          "name": "GHSA-jchc-cxq2-2rx9",
+          "url": "https://github.com/advisories/GHSA-jchc-cxq2-2rx9"
+        },
+        {
+          "name": "GHSA-mp83-rh86-7fmp",
+          "url": "https://github.com/advisories/GHSA-mp83-rh86-7fmp"
+        },
+        {
+          "name": "GHSA-5m6m-8mwq-grp4",
+          "url": "https://github.com/advisories/GHSA-5m6m-8mwq-grp4"
+        },
+        {
+          "name": "GHSA-r6m4-fv3j-rm7v",
+          "url": "https://github.com/advisories/GHSA-r6m4-fv3j-rm7v"
+        },
+        {
+          "name": "GHSA-x9q7-g8cr-vw76",
+          "url": "https://github.com/advisories/GHSA-x9q7-g8cr-vw76"
+        },
+        {
+          "name": "GHSA-6668-jgqr-p263",
+          "url": "https://github.com/advisories/GHSA-6668-jgqr-p263"
+        },
+        {
+          "name": "GHSA-4fj7-5c6w-cmvh",
+          "url": "https://github.com/advisories/GHSA-4fj7-5c6w-cmvh"
+        },
+        {
+          "name": "GHSA-g76x-w4rw-x5j8",
+          "url": "https://github.com/advisories/GHSA-g76x-w4rw-x5j8"
+        },
+        {
+          "name": "GHSA-g4rr-4xhm-6q58",
+          "url": "https://github.com/advisories/GHSA-g4rr-4xhm-6q58"
+        },
+        {
+          "name": "GHSA-3vmc-mjw2-cmrq",
+          "url": "https://github.com/advisories/GHSA-3vmc-mjw2-cmrq"
+        },
+        {
+          "name": "GHSA-78j7-7qrc-2j38",
+          "url": "https://github.com/advisories/GHSA-78j7-7qrc-2j38"
+        },
+        {
+          "name": "GHSA-vwm6-r9cc-qg37",
+          "url": "https://github.com/advisories/GHSA-vwm6-r9cc-qg37"
+        },
+        {
+          "name": "GHSA-hvpp-rx4h-crg5",
+          "url": "https://github.com/advisories/GHSA-hvpp-rx4h-crg5"
+        },
+        {
+          "name": "GHSA-4h5p-w547-9qmv",
+          "url": "https://github.com/advisories/GHSA-4h5p-w547-9qmv"
+        },
+        {
+          "name": "GHSA-f826-46h5-5rcq",
+          "url": "https://github.com/advisories/GHSA-f826-46h5-5rcq"
+        },
+        {
+          "name": "GHSA-4q9j-4rv8-jp32",
+          "url": "https://github.com/advisories/GHSA-4q9j-4rv8-jp32"
+        },
+        {
+          "name": "GHSA-rvw8-22w3-342v",
+          "url": "https://github.com/advisories/GHSA-rvw8-22w3-342v"
+        },
+        {
+          "name": "GHSA-pg3x-mr83-5crv",
+          "url": "https://github.com/advisories/GHSA-pg3x-mr83-5crv"
+        },
+        {
+          "name": "GHSA-whfc-859g-h5j3",
+          "url": "https://github.com/advisories/GHSA-whfc-859g-h5j3"
+        },
+        {
+          "name": "GHSA-m4h2-gmhc-mhcp",
+          "url": "https://github.com/advisories/GHSA-m4h2-gmhc-mhcp"
+        },
+        {
+          "name": "GHSA-q7rp-q644-j8rp",
+          "url": "https://github.com/advisories/GHSA-q7rp-q644-j8rp"
+        },
+        {
+          "name": "GHSA-x8mc-7393-54vr",
+          "url": "https://github.com/advisories/GHSA-x8mc-7393-54vr"
+        },
+        {
+          "name": "GHSA-93rf-36fj-m7gp",
+          "url": "https://github.com/advisories/GHSA-93rf-36fj-m7gp"
+        },
+        {
+          "name": "GHSA-g4x3-g43p-pwrw",
+          "url": "https://github.com/advisories/GHSA-g4x3-g43p-pwrw"
+        },
+        {
+          "name": "GHSA-cjqv-xvjx-m5q5",
+          "url": "https://github.com/advisories/GHSA-cjqv-xvjx-m5q5"
+        },
+        {
+          "name": "GHSA-84hg-5759-2cgg",
+          "url": "https://github.com/advisories/GHSA-84hg-5759-2cgg"
+        },
+        {
+          "name": "GHSA-52vf-f48x-82m5",
+          "url": "https://github.com/advisories/GHSA-52vf-f48x-82m5"
+        },
+        {
+          "name": "GHSA-gqvq-9m83-c527",
+          "url": "https://github.com/advisories/GHSA-gqvq-9m83-c527"
+        },
+        {
+          "name": "GHSA-wcx4-q6jx-3vhj",
+          "url": "https://github.com/advisories/GHSA-wcx4-q6jx-3vhj"
+        },
+        {
+          "name": "GHSA-rqhx-p7qj-qqc8",
+          "url": "https://github.com/advisories/GHSA-rqhx-p7qj-qqc8"
+        },
+        {
+          "name": "GHSA-rfxc-3373-jvfq",
+          "url": "https://github.com/advisories/GHSA-rfxc-3373-jvfq"
+        },
+        {
+          "name": "GHSA-4hf4-p92p-5m6c",
+          "url": "https://github.com/advisories/GHSA-4hf4-p92p-5m6c"
+        },
+        {
+          "name": "GHSA-vpvh-94mq-8h4j",
+          "url": "https://github.com/advisories/GHSA-vpvh-94mq-8h4j"
+        },
+        {
+          "name": "GHSA-89v8-j949-j3h5",
+          "url": "https://github.com/advisories/GHSA-89v8-j949-j3h5"
+        },
+        {
+          "name": "GHSA-2g3q-xxv2-vh4p",
+          "url": "https://github.com/advisories/GHSA-2g3q-xxv2-vh4p"
+        },
+        {
+          "name": "GHSA-g94h-cm42-jgx8",
+          "url": "https://github.com/advisories/GHSA-g94h-cm42-jgx8"
+        },
+        {
+          "name": "GHSA-9h7q-53gw-grwc",
+          "url": "https://github.com/advisories/GHSA-9h7q-53gw-grwc"
+        },
+        {
+          "name": "GHSA-43pw-v6x2-9gh4",
+          "url": "https://github.com/advisories/GHSA-43pw-v6x2-9gh4"
+        },
+        {
+          "name": "GHSA-r55f-fj5f-qxf9",
+          "url": "https://github.com/advisories/GHSA-r55f-fj5f-qxf9"
+        },
+        {
+          "name": "GHSA-gmrr-hqfh-q4j3",
+          "url": "https://github.com/advisories/GHSA-gmrr-hqfh-q4j3"
+        },
+        {
+          "name": "GHSA-8cf8-9j3v-99g4",
+          "url": "https://github.com/advisories/GHSA-8cf8-9j3v-99g4"
+        },
+        {
+          "name": "GHSA-fr4c-gqv9-5rgx",
+          "url": "https://github.com/advisories/GHSA-fr4c-gqv9-5rgx"
+        },
+        {
+          "name": "GHSA-v4v4-v74v-86vq",
+          "url": "https://github.com/advisories/GHSA-v4v4-v74v-86vq"
+        },
+        {
+          "name": "GHSA-c6pj-8fr8-qq3c",
+          "url": "https://github.com/advisories/GHSA-c6pj-8fr8-qq3c"
+        },
+        {
+          "name": "GHSA-mv5j-phwp-534j",
+          "url": "https://github.com/advisories/GHSA-mv5j-phwp-534j"
+        },
+        {
+          "name": "GHSA-8967-3p4r-vpwp",
+          "url": "https://github.com/advisories/GHSA-8967-3p4r-vpwp"
+        },
+        {
+          "name": "GHSA-4q2f-q5qq-w9cm",
+          "url": "https://github.com/advisories/GHSA-4q2f-q5qq-w9cm"
+        },
+        {
+          "name": "GHSA-cv4q-j2g9-xp9h",
+          "url": "https://github.com/advisories/GHSA-cv4q-j2g9-xp9h"
+        },
+        {
+          "name": "GHSA-frgx-cf5w-vxr5",
+          "url": "https://github.com/advisories/GHSA-frgx-cf5w-vxr5"
+        },
+        {
+          "name": "GHSA-m4gq-5vx2-5x8c",
+          "url": "https://github.com/advisories/GHSA-m4gq-5vx2-5x8c"
+        },
+        {
+          "name": "GHSA-p5qq-93vh-5c8h",
+          "url": "https://github.com/advisories/GHSA-p5qq-93vh-5c8h"
+        },
+        {
+          "name": "GHSA-2v69-q2gc-qm5j",
+          "url": "https://github.com/advisories/GHSA-2v69-q2gc-qm5j"
+        },
+        {
+          "name": "GHSA-8cq9-2c2q-58ww",
+          "url": "https://github.com/advisories/GHSA-8cq9-2c2q-58ww"
+        },
+        {
+          "name": "GHSA-354j-r6m9-986p",
+          "url": "https://github.com/advisories/GHSA-354j-r6m9-986p"
+        },
+        {
+          "name": "GHSA-9jxw-2pvm-5q9f",
+          "url": "https://github.com/advisories/GHSA-9jxw-2pvm-5q9f"
+        },
+        {
+          "name": "GHSA-q54x-hhg5-963x",
+          "url": "https://github.com/advisories/GHSA-q54x-hhg5-963x"
+        },
+        {
+          "name": "GHSA-v7f8-27g9-qx88",
+          "url": "https://github.com/advisories/GHSA-v7f8-27g9-qx88"
+        },
+        {
+          "name": "GHSA-543q-wq5f-hmgh",
+          "url": "https://github.com/advisories/GHSA-543q-wq5f-hmgh"
+        },
+        {
+          "name": "GHSA-j2hf-rv9p-8jvr",
+          "url": "https://github.com/advisories/GHSA-j2hf-rv9p-8jvr"
+        },
+        {
+          "name": "GHSA-q9p6-j8q4-8qh9",
+          "url": "https://github.com/advisories/GHSA-q9p6-j8q4-8qh9"
+        },
+        {
+          "name": "GHSA-pw4j-9v86-8c3g",
+          "url": "https://github.com/advisories/GHSA-pw4j-9v86-8c3g"
+        },
+        {
+          "name": "GHSA-r89f-jjgp-3q97",
+          "url": "https://github.com/advisories/GHSA-r89f-jjgp-3q97"
+        },
+        {
+          "name": "GHSA-w48h-24q2-rjqx",
+          "url": "https://github.com/advisories/GHSA-w48h-24q2-rjqx"
+        },
+        {
+          "name": "GHSA-xpgj-8rc5-pq44",
+          "url": "https://github.com/advisories/GHSA-xpgj-8rc5-pq44"
+        },
+        {
+          "name": "GHSA-p373-68vj-fvrh",
+          "url": "https://github.com/advisories/GHSA-p373-68vj-fvrh"
+        },
+        {
+          "name": "GHSA-3x3m-5j3w-83rj",
+          "url": "https://github.com/advisories/GHSA-3x3m-5j3w-83rj"
+        },
+        {
+          "name": "GHSA-j62h-2r3r-ggh9",
+          "url": "https://github.com/advisories/GHSA-j62h-2r3r-ggh9"
+        },
+        {
+          "name": "GHSA-69w5-x7cm-v78h",
+          "url": "https://github.com/advisories/GHSA-69w5-x7cm-v78h"
+        },
+        {
+          "name": "GHSA-v764-465v-vh59",
+          "url": "https://github.com/advisories/GHSA-v764-465v-vh59"
+        },
+        {
+          "name": "GHSA-5mwr-h84x-47h6",
+          "url": "https://github.com/advisories/GHSA-5mwr-h84x-47h6"
+        },
+        {
+          "name": "GHSA-9xq2-7mfg-rrmx",
+          "url": "https://github.com/advisories/GHSA-9xq2-7mfg-rrmx"
+        },
+        {
+          "name": "GHSA-rqw8-93vw-v2h5",
+          "url": "https://github.com/advisories/GHSA-rqw8-93vw-v2h5"
+        },
+        {
+          "name": "GHSA-xq83-5ggr-7222",
+          "url": "https://github.com/advisories/GHSA-xq83-5ggr-7222"
+        },
+        {
+          "name": "GHSA-6f53-8jrf-3x9j",
+          "url": "https://github.com/advisories/GHSA-6f53-8jrf-3x9j"
+        },
+        {
+          "name": "GHSA-vj43-6r45-847h",
+          "url": "https://github.com/advisories/GHSA-vj43-6r45-847h"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-45rq-6v9r-4475",
+          "url": "https://github.com/advisories/GHSA-45rq-6v9r-4475",
+          "summary": "Malware in luna-baileys",
+          "published_at": "2026-11-03T06:46:31Z",
+          "updated_at": "2026-11-03T06:46:31Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 0.0.0-stage",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 9.0.24",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 9.0.25",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 9.0.26",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 9.0.27",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 9.0.28",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "luna-baileys"
+              },
+              "vulnerable_version_range": "= 9.0.33",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-726f-wf9g-5893",
+          "url": "https://github.com/advisories/GHSA-726f-wf9g-5893",
+          "summary": "Malicious code in @goparrot-dashboard/store (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/store"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-gj25-xrmw-6297",
+          "url": "https://github.com/advisories/GHSA-gj25-xrmw-6297",
+          "summary": "Malicious code in @goparrot-dashboard/promotion (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/promotion"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-39ch-q3p3-3j33",
+          "url": "https://github.com/advisories/GHSA-39ch-q3p3-3j33",
+          "summary": "Malicious code in @atedone/workspace-context (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.23",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.14",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.25",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.22",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.20",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.15",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.19",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.13",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.12",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.18",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.21",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.24",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.16",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@atedone/workspace-context"
+              },
+              "vulnerable_version_range": "= 0.0.17",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-72x7-67fx-v24p",
+          "url": "https://github.com/advisories/GHSA-72x7-67fx-v24p",
+          "summary": "Malicious code in @goparrot-dashboard/homepages (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/homepages"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-3hj7-wfw3-jm84",
+          "url": "https://github.com/advisories/GHSA-3hj7-wfw3-jm84",
+          "summary": "Malicious code in @goparrot-dashboard/franchise-management (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:22Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/franchise-management"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-fc2g-x424-gvq4",
+          "url": "https://github.com/advisories/GHSA-fc2g-x424-gvq4",
+          "summary": "Malicious code in @goparrot-dashboard/order (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:22Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/order"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-332r-cpwr-xr6h",
+          "url": "https://github.com/advisories/GHSA-332r-cpwr-xr6h",
+          "summary": "Malicious code in @goparrot-dashboard/marketing (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/marketing"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w544-4xh4-3m6v",
+          "url": "https://github.com/advisories/GHSA-w544-4xh4-3m6v",
+          "summary": "Malicious code in @corexium/xbails (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@corexium/xbails"
+              },
+              "vulnerable_version_range": "= 0.0.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-q8c5-hxhq-jprv",
+          "url": "https://github.com/advisories/GHSA-q8c5-hxhq-jprv",
+          "summary": "Malicious code in @goparrot-dashboard/settings (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/settings"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-89qx-w49w-4q48",
+          "url": "https://github.com/advisories/GHSA-89qx-w49w-4q48",
+          "summary": "Malicious code in @goparrot-dashboard/franchise-menu-settings (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/franchise-menu-settings"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-rg85-7qj4-rpcw",
+          "url": "https://github.com/advisories/GHSA-rg85-7qj4-rpcw",
+          "summary": "Malicious code in @goparrot-dashboard/payment (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/payment"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-q7mj-99p7-8363",
+          "url": "https://github.com/advisories/GHSA-q7mj-99p7-8363",
+          "summary": "Malicious code in @goparrot-dashboard/i18n (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/i18n"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-23g9-rf8p-3cj3",
+          "url": "https://github.com/advisories/GHSA-23g9-rf8p-3cj3",
+          "summary": "Malicious code in @goparrot-dashboard/combos (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/combos"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-cw3v-7hh4-m39w",
+          "url": "https://github.com/advisories/GHSA-cw3v-7hh4-m39w",
+          "summary": "Malicious code in @goparrot-dashboard/loyalty (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/loyalty"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-7j98-hxg2-v7pj",
+          "url": "https://github.com/advisories/GHSA-7j98-hxg2-v7pj",
+          "summary": "Malicious code in @goparrot-dashboard/menu (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/menu"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8g27-6w2c-r34p",
+          "url": "https://github.com/advisories/GHSA-8g27-6w2c-r34p",
+          "summary": "Malicious code in @goparrot-dashboard/franchise-directory (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/franchise-directory"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-jchc-cxq2-2rx9",
+          "url": "https://github.com/advisories/GHSA-jchc-cxq2-2rx9",
+          "summary": "Malicious code in @goparrot-dashboard/franchise-marketing (npm)",
+          "published_at": "2026-11-03T06:31:20Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/franchise-marketing"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-mp83-rh86-7fmp",
+          "url": "https://github.com/advisories/GHSA-mp83-rh86-7fmp",
+          "summary": "Malicious code in @goparrot-dashboard/app (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/app"
+              },
+              "vulnerable_version_range": "= 0.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/app"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/app"
+              },
+              "vulnerable_version_range": "= 0.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-5m6m-8mwq-grp4",
+          "url": "https://github.com/advisories/GHSA-5m6m-8mwq-grp4",
+          "summary": "Malicious code in @goparrot-dashboard-api/store (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard-api/store"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-r6m4-fv3j-rm7v",
+          "url": "https://github.com/advisories/GHSA-r6m4-fv3j-rm7v",
+          "summary": "Malicious code in @goparrot-dashboard/auth (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/auth"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-x9q7-g8cr-vw76",
+          "url": "https://github.com/advisories/GHSA-x9q7-g8cr-vw76",
+          "summary": "Malicious code in @goparrot-dashboard/analytics (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/analytics"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-6668-jgqr-p263",
+          "url": "https://github.com/advisories/GHSA-6668-jgqr-p263",
+          "summary": "Malicious code in @goparrot-dashboard-api/role-v2 (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard-api/role-v2"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4fj7-5c6w-cmvh",
+          "url": "https://github.com/advisories/GHSA-4fj7-5c6w-cmvh",
+          "summary": "Malicious code in @goparrot-dashboard-api/shared (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard-api/shared"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-g76x-w4rw-x5j8",
+          "url": "https://github.com/advisories/GHSA-g76x-w4rw-x5j8",
+          "summary": "Malicious code in @goparrot-dashboard/category (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/category"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-g4rr-4xhm-6q58",
+          "url": "https://github.com/advisories/GHSA-g4rr-4xhm-6q58",
+          "summary": "Malicious code in @goparrot-dashboard-api/users (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard-api/users"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-3vmc-mjw2-cmrq",
+          "url": "https://github.com/advisories/GHSA-3vmc-mjw2-cmrq",
+          "summary": "Malicious code in @goparrot-dashboard/combo-group (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard/combo-group"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-78j7-7qrc-2j38",
+          "url": "https://github.com/advisories/GHSA-78j7-7qrc-2j38",
+          "summary": "Malicious code in @goparrot-dashboard-api/orchestration (npm)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:20Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@goparrot-dashboard-api/orchestration"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-vwm6-r9cc-qg37",
+          "url": "https://github.com/advisories/GHSA-vwm6-r9cc-qg37",
+          "summary": "Malware in paidwithtab",
+          "published_at": "2026-11-03T06:27:47Z",
+          "updated_at": "2026-11-03T06:27:52Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "paidwithtab"
+              },
+              "vulnerable_version_range": "= 3.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-hvpp-rx4h-crg5",
+          "url": "https://github.com/advisories/GHSA-hvpp-rx4h-crg5",
+          "summary": "Malware in scdn-jquery",
+          "published_at": "2026-11-03T03:47:14Z",
+          "updated_at": "2026-11-03T03:47:14Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "scdn-jquery"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4h5p-w547-9qmv",
+          "url": "https://github.com/advisories/GHSA-4h5p-w547-9qmv",
+          "summary": "Malicious code in @ifasn/mmdd-doc-mcp (npm)",
+          "published_at": "2026-11-02T21:31:27Z",
+          "updated_at": "2026-11-02T21:31:36Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.4-2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.8",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 2.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.9-2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 2.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.1.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-f826-46h5-5rcq",
+          "url": "https://github.com/advisories/GHSA-f826-46h5-5rcq",
+          "summary": "Malicious code in @ifasn/mmd-doc-mcp (npm)",
+          "published_at": "2026-11-02T21:31:26Z",
+          "updated_at": "2026-11-02T21:31:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mmd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4q9j-4rv8-jp32",
+          "url": "https://github.com/advisories/GHSA-4q9j-4rv8-jp32",
+          "summary": "Malicious code in @ifasn/mdd-doc-mcp (npm)",
+          "published_at": "2026-11-02T21:31:26Z",
+          "updated_at": "2026-11-02T21:31:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.8",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/mdd-doc-mcp"
+              },
+              "vulnerable_version_range": "= 2.0.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-rvw8-22w3-342v",
+          "url": "https://github.com/advisories/GHSA-rvw8-22w3-342v",
+          "summary": "Malicious code in @ifasn/md-doc-mcp (npm)",
+          "published_at": "2026-11-02T21:31:26Z",
+          "updated_at": "2026-11-02T21:31:26Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/md-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/md-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@ifasn/md-doc-mcp"
+              },
+              "vulnerable_version_range": "= 1.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-pg3x-mr83-5crv",
+          "url": "https://github.com/advisories/GHSA-pg3x-mr83-5crv",
+          "summary": "Malware in bfvkjmeikpwhqxc",
+          "published_at": "2026-11-02T17:32:07Z",
+          "updated_at": "2026-11-02T17:32:08Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "bfvkjmeikpwhqxc"
+              },
+              "vulnerable_version_range": "= 0.0.0-stage",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "bfvkjmeikpwhqxc"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "bfvkjmeikpwhqxc"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-whfc-859g-h5j3",
+          "url": "https://github.com/advisories/GHSA-whfc-859g-h5j3",
+          "summary": "Malware in internal-renderers",
+          "published_at": "2026-11-02T17:17:45Z",
+          "updated_at": "2026-11-02T17:17:46Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "internal-renderers"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-m4h2-gmhc-mhcp",
+          "url": "https://github.com/advisories/GHSA-m4h2-gmhc-mhcp",
+          "summary": "Malware in pandafortunerush",
+          "published_at": "2026-11-02T17:17:45Z",
+          "updated_at": "2026-11-02T17:17:45Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "pandafortunerush"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-q7rp-q644-j8rp",
+          "url": "https://github.com/advisories/GHSA-q7rp-q644-j8rp",
+          "summary": "Malware in ms-client-portal",
+          "published_at": "2026-11-02T17:17:45Z",
+          "updated_at": "2026-11-02T17:17:45Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "ms-client-portal"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-x8mc-7393-54vr",
+          "url": "https://github.com/advisories/GHSA-x8mc-7393-54vr",
+          "summary": "Malware in @levvicode/eslint-config",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:33Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@levvicode/eslint-config"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-93rf-36fj-m7gp",
+          "url": "https://github.com/advisories/GHSA-93rf-36fj-m7gp",
+          "summary": "Malware in justinofficial",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:25Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "justinofficial"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-g4x3-g43p-pwrw",
+          "url": "https://github.com/advisories/GHSA-g4x3-g43p-pwrw",
+          "summary": "Malware in @maulenv/baileys",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:25Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@maulenv/baileys"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-cjqv-xvjx-m5q5",
+          "url": "https://github.com/advisories/GHSA-cjqv-xvjx-m5q5",
+          "summary": "Malware in nachles",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:24Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "nachles"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-84hg-5759-2cgg",
+          "url": "https://github.com/advisories/GHSA-84hg-5759-2cgg",
+          "summary": "Malware in levvleys",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:24Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "levvleys"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-52vf-f48x-82m5",
+          "url": "https://github.com/advisories/GHSA-52vf-f48x-82m5",
+          "summary": "Malware in @levvicode/baileys",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:24Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@levvicode/baileys"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-gqvq-9m83-c527",
+          "url": "https://github.com/advisories/GHSA-gqvq-9m83-c527",
+          "summary": "Malware in aytidaoffc",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:24Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "aytidaoffc"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-wcx4-q6jx-3vhj",
+          "url": "https://github.com/advisories/GHSA-wcx4-q6jx-3vhj",
+          "summary": "Malware in @levvicode/libsignal-node",
+          "published_at": "2026-11-02T17:13:23Z",
+          "updated_at": "2026-11-02T17:13:23Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@levvicode/libsignal-node"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-rqhx-p7qj-qqc8",
+          "url": "https://github.com/advisories/GHSA-rqhx-p7qj-qqc8",
+          "summary": "Malware in tailwind-animate-engine",
+          "published_at": "2026-11-02T16:58:29Z",
+          "updated_at": "2026-11-02T16:58:36Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-animate-engine"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-rfxc-3373-jvfq",
+          "url": "https://github.com/advisories/GHSA-rfxc-3373-jvfq",
+          "summary": "Malware in tailwind-animatrix",
+          "published_at": "2026-11-02T16:58:29Z",
+          "updated_at": "2026-11-02T16:58:30Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-animatrix"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4hf4-p92p-5m6c",
+          "url": "https://github.com/advisories/GHSA-4hf4-p92p-5m6c",
+          "summary": "Malware in tailwind-animate-final",
+          "published_at": "2026-11-02T16:58:29Z",
+          "updated_at": "2026-11-02T16:58:30Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-animate-final"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-vpvh-94mq-8h4j",
+          "url": "https://github.com/advisories/GHSA-vpvh-94mq-8h4j",
+          "summary": "Malware in tailwind-animate-test",
+          "published_at": "2026-11-02T16:58:28Z",
+          "updated_at": "2026-11-02T16:58:29Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwind-animate-test"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-89v8-j949-j3h5",
+          "url": "https://github.com/advisories/GHSA-89v8-j949-j3h5",
+          "summary": "Malware in unjailed",
+          "published_at": "2026-11-02T16:58:28Z",
+          "updated_at": "2026-11-02T16:58:29Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "unjailed"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-2g3q-xxv2-vh4p",
+          "url": "https://github.com/advisories/GHSA-2g3q-xxv2-vh4p",
+          "summary": "Malware in @mrlegendbot/libsignal-node",
+          "published_at": "2026-11-02T16:56:27Z",
+          "updated_at": "2026-11-02T16:56:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@mrlegendbot/libsignal-node"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-g94h-cm42-jgx8",
+          "url": "https://github.com/advisories/GHSA-g94h-cm42-jgx8",
+          "summary": "Malware in @mrlegendbot/baileys",
+          "published_at": "2026-11-02T16:56:26Z",
+          "updated_at": "2026-11-02T16:56:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@mrlegendbot/baileys"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-9h7q-53gw-grwc",
+          "url": "https://github.com/advisories/GHSA-9h7q-53gw-grwc",
+          "summary": "Malware in wallet-adapter-base",
+          "published_at": "2026-11-02T16:25:55Z",
+          "updated_at": "2026-11-02T16:25:56Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "wallet-adapter-base"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-43pw-v6x2-9gh4",
+          "url": "https://github.com/advisories/GHSA-43pw-v6x2-9gh4",
+          "summary": "Malware in sol-wallet-adapter",
+          "published_at": "2026-11-02T16:14:49Z",
+          "updated_at": "2026-11-02T16:14:50Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "sol-wallet-adapter"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-r55f-fj5f-qxf9",
+          "url": "https://github.com/advisories/GHSA-r55f-fj5f-qxf9",
+          "summary": "Malware in contracts-upgradeable",
+          "published_at": "2026-11-02T16:14:49Z",
+          "updated_at": "2026-11-02T16:14:50Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "contracts-upgradeable"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-gmrr-hqfh-q4j3",
+          "url": "https://github.com/advisories/GHSA-gmrr-hqfh-q4j3",
+          "summary": "Malware in calculator-preinstall-chain-demo",
+          "published_at": "2026-11-02T16:14:49Z",
+          "updated_at": "2026-11-02T16:14:50Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "calculator-preinstall-chain-demo"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8cf8-9j3v-99g4",
+          "url": "https://github.com/advisories/GHSA-8cf8-9j3v-99g4",
+          "summary": "Malware in axelarjs-sdk",
+          "published_at": "2026-11-02T16:14:49Z",
+          "updated_at": "2026-11-02T16:14:50Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "axelarjs-sdk"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-fr4c-gqv9-5rgx",
+          "url": "https://github.com/advisories/GHSA-fr4c-gqv9-5rgx",
+          "summary": "Malware in @bigdevin55/calculator-install-demo",
+          "published_at": "2026-11-02T16:14:49Z",
+          "updated_at": "2026-11-02T16:14:49Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@bigdevin55/calculator-install-demo"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-v4v4-v74v-86vq",
+          "url": "https://github.com/advisories/GHSA-v4v4-v74v-86vq",
+          "summary": "Malware in @bigdevin55/calculator-install-hook",
+          "published_at": "2026-11-02T16:14:48Z",
+          "updated_at": "2026-11-02T16:14:50Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@bigdevin55/calculator-install-hook"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-c6pj-8fr8-qq3c",
+          "url": "https://github.com/advisories/GHSA-c6pj-8fr8-qq3c",
+          "summary": "Malware in calculator-preinstall-hook-demo",
+          "published_at": "2026-11-02T16:14:48Z",
+          "updated_at": "2026-11-02T16:14:49Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "calculator-preinstall-hook-demo"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-mv5j-phwp-534j",
+          "url": "https://github.com/advisories/GHSA-mv5j-phwp-534j",
+          "summary": "Malware in @nuxzofficial/baileys",
+          "published_at": "2026-11-02T16:04:02Z",
+          "updated_at": "2026-11-02T16:04:02Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@nuxzofficial/baileys"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8967-3p4r-vpwp",
+          "url": "https://github.com/advisories/GHSA-8967-3p4r-vpwp",
+          "summary": "Malware in nuxzofficial",
+          "published_at": "2026-11-02T16:04:01Z",
+          "updated_at": "2026-11-02T16:04:02Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "nuxzofficial"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4q2f-q5qq-w9cm",
+          "url": "https://github.com/advisories/GHSA-4q2f-q5qq-w9cm",
+          "summary": "Malware in tailwindcss-animate-bridge",
+          "published_at": "2026-11-02T15:50:44Z",
+          "updated_at": "2026-11-02T15:50:45Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "tailwindcss-animate-bridge"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-cv4q-j2g9-xp9h",
+          "url": "https://github.com/advisories/GHSA-cv4q-j2g9-xp9h",
+          "summary": "Malware in @utilitycraft/tailwindcss-motion-atelier",
+          "published_at": "2026-11-02T15:50:44Z",
+          "updated_at": "2026-11-02T15:50:45Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@utilitycraft/tailwindcss-motion-atelier"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-frgx-cf5w-vxr5",
+          "url": "https://github.com/advisories/GHSA-frgx-cf5w-vxr5",
+          "summary": "Malware in atlassian-wallboard-plugin1",
+          "published_at": "2026-11-02T13:34:28Z",
+          "updated_at": "2026-11-02T13:34:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "atlassian-wallboard-plugin1"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-m4gq-5vx2-5x8c",
+          "url": "https://github.com/advisories/GHSA-m4gq-5vx2-5x8c",
+          "summary": "Malware in atlassian-wallboard-plugin",
+          "published_at": "2026-11-02T13:34:27Z",
+          "updated_at": "2026-11-02T13:34:33Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "atlassian-wallboard-plugin"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-p5qq-93vh-5c8h",
+          "url": "https://github.com/advisories/GHSA-p5qq-93vh-5c8h",
+          "summary": "Malware in claims-ac1",
+          "published_at": "2026-11-02T13:34:27Z",
+          "updated_at": "2026-11-02T13:34:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "claims-ac1"
+              },
+              "vulnerable_version_range": ">= 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-2v69-q2gc-qm5j",
+          "url": "https://github.com/advisories/GHSA-2v69-q2gc-qm5j",
+          "summary": "Malware in persona-ai-sdk",
+          "published_at": "2026-11-02T11:02:02Z",
+          "updated_at": "2026-11-02T11:02:02Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "persona-ai-sdk"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8cq9-2c2q-58ww",
+          "url": "https://github.com/advisories/GHSA-8cq9-2c2q-58ww",
+          "summary": "Malicious code in @notrainer/nobtrainer-sdk (npm)",
+          "published_at": "2026-11-02T06:31:29Z",
+          "updated_at": "2026-11-02T06:31:35Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@notrainer/nobtrainer-sdk"
+              },
+              "vulnerable_version_range": "> 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@notrainer/nobtrainer-sdk"
+              },
+              "vulnerable_version_range": "= 1.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@notrainer/nobtrainer-sdk"
+              },
+              "vulnerable_version_range": "= 1.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@notrainer/nobtrainer-sdk"
+              },
+              "vulnerable_version_range": "= 1.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@notrainer/nobtrainer-sdk"
+              },
+              "vulnerable_version_range": "= 1.0.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-354j-r6m9-986p",
+          "url": "https://github.com/advisories/GHSA-354j-r6m9-986p",
+          "summary": "Malicious code in self-v8 (npm)",
+          "published_at": "2026-11-02T06:31:29Z",
+          "updated_at": "2026-11-02T06:31:34Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "> 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 2.1.8",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 2.1.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 8.1.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 8.3.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 8.5.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 8.7.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "self-v8"
+              },
+              "vulnerable_version_range": "= 8.9.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-9jxw-2pvm-5q9f",
+          "url": "https://github.com/advisories/GHSA-9jxw-2pvm-5q9f",
+          "summary": "Malicious code in litecore-lib-ltc (npm)",
+          "published_at": "2026-11-02T06:31:29Z",
+          "updated_at": "2026-11-02T06:31:30Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "> 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.8",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.10",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.11",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.12",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.13",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "litecore-lib-ltc"
+              },
+              "vulnerable_version_range": "= 1.9.14",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-q54x-hhg5-963x",
+          "url": "https://github.com/advisories/GHSA-q54x-hhg5-963x",
+          "summary": "Malicious code in @mobile-platform/magnetic-components (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:35Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@mobile-platform/magnetic-components"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@mobile-platform/magnetic-components"
+              },
+              "vulnerable_version_range": "= 0.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@mobile-platform/magnetic-components"
+              },
+              "vulnerable_version_range": "= 0.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-v7f8-27g9-qx88",
+          "url": "https://github.com/advisories/GHSA-v7f8-27g9-qx88",
+          "summary": "Malicious code in contracts-upgradeable (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:35Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "contracts-upgradeable"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-543q-wq5f-hmgh",
+          "url": "https://github.com/advisories/GHSA-543q-wq5f-hmgh",
+          "summary": "Malicious code in scdn-jquery (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:34Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "scdn-jquery"
+              },
+              "vulnerable_version_range": "= 0.1.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-j2hf-rv9p-8jvr",
+          "url": "https://github.com/advisories/GHSA-j2hf-rv9p-8jvr",
+          "summary": "Malicious code in bigbob22-test (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T21:31:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "bigbob22-test"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-q9p6-j8q4-8qh9",
+          "url": "https://github.com/advisories/GHSA-q9p6-j8q4-8qh9",
+          "summary": "Malicious code in ms-client-portal (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:34Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "ms-client-portal"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "ms-client-portal"
+              },
+              "vulnerable_version_range": "= 10.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-pw4j-9v86-8c3g",
+          "url": "https://github.com/advisories/GHSA-pw4j-9v86-8c3g",
+          "summary": "Malicious code in cutekitten-test (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:34Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "cutekitten-test"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-r89f-jjgp-3q97",
+          "url": "https://github.com/advisories/GHSA-r89f-jjgp-3q97",
+          "summary": "Malicious code in wallet-adapter-base (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:34Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "wallet-adapter-base"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w48h-24q2-rjqx",
+          "url": "https://github.com/advisories/GHSA-w48h-24q2-rjqx",
+          "summary": "Malicious code in @johnruff215-dev/solana-wallet-tracker (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:29Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@johnruff215-dev/solana-wallet-tracker"
+              },
+              "vulnerable_version_range": "> 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@johnruff215-dev/solana-wallet-tracker"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@johnruff215-dev/solana-wallet-tracker"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-xpgj-8rc5-pq44",
+          "url": "https://github.com/advisories/GHSA-xpgj-8rc5-pq44",
+          "summary": "Malicious code in zystcdemo (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:29Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "zystcdemo"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-p373-68vj-fvrh",
+          "url": "https://github.com/advisories/GHSA-p373-68vj-fvrh",
+          "summary": "Malicious code in calculator-preinstall-hook-demo (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:29Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "calculator-preinstall-hook-demo"
+              },
+              "vulnerable_version_range": "= 1.1.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-3x3m-5j3w-83rj",
+          "url": "https://github.com/advisories/GHSA-3x3m-5j3w-83rj",
+          "summary": "Malicious code in claims-ac1 (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:29Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "claims-ac1"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-j62h-2r3r-ggh9",
+          "url": "https://github.com/advisories/GHSA-j62h-2r3r-ggh9",
+          "summary": "Malicious code in sol-wallet-adapter (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "sol-wallet-adapter"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "sol-wallet-adapter"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "sol-wallet-adapter"
+              },
+              "vulnerable_version_range": "= 1.0.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-69w5-x7cm-v78h",
+          "url": "https://github.com/advisories/GHSA-69w5-x7cm-v78h",
+          "summary": "Malicious code in axelarjs-sdk (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "axelarjs-sdk"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-v764-465v-vh59",
+          "url": "https://github.com/advisories/GHSA-v764-465v-vh59",
+          "summary": "Malicious code in dependencykfee-2 (npm)",
+          "published_at": "2026-11-02T06:31:28Z",
+          "updated_at": "2026-11-02T06:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dependencykfee-2"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-5mwr-h84x-47h6",
+          "url": "https://github.com/advisories/GHSA-5mwr-h84x-47h6",
+          "summary": "Malicious code in calculator-preinstall-chain-demo (npm)",
+          "published_at": "2026-11-02T06:31:27Z",
+          "updated_at": "2026-11-02T06:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "calculator-preinstall-chain-demo"
+              },
+              "vulnerable_version_range": "= 1.1.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "calculator-preinstall-chain-demo"
+              },
+              "vulnerable_version_range": "= 1.1.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-9xq2-7mfg-rrmx",
+          "url": "https://github.com/advisories/GHSA-9xq2-7mfg-rrmx",
+          "summary": "Malicious code in @bil-rgb/baileys (npm)",
+          "published_at": "2026-11-02T03:30:37Z",
+          "updated_at": "2026-11-02T03:30:45Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@bil-rgb/baileys"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@bil-rgb/baileys"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-rqw8-93vw-v2h5",
+          "url": "https://github.com/advisories/GHSA-rqw8-93vw-v2h5",
+          "summary": "Malicious code in @axo_cuy/baileys (npm)",
+          "published_at": "2026-11-02T03:30:37Z",
+          "updated_at": "2026-11-02T03:30:45Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@axo_cuy/baileys"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-xq83-5ggr-7222",
+          "url": "https://github.com/advisories/GHSA-xq83-5ggr-7222",
+          "summary": "Malicious code in @an1mshnpmb9c84920/pipeprobe-obf-m19n5 (npm)",
+          "published_at": "2026-11-02T03:30:37Z",
+          "updated_at": "2026-11-02T03:30:45Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@an1mshnpmb9c84920/pipeprobe-obf-m19n5"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-6f53-8jrf-3x9j",
+          "url": "https://github.com/advisories/GHSA-6f53-8jrf-3x9j",
+          "summary": "Malware in dsh-screenshot-native",
+          "published_at": "2026-11-01T22:50:30Z",
+          "updated_at": "2026-11-01T22:50:30Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dsh-screenshot-native"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-vj43-6r45-847h",
+          "url": "https://github.com/advisories/GHSA-vj43-6r45-847h",
+          "summary": "Malicious code in atlassian-wallboard-plugin (npm)",
+          "published_at": "2026-11-01T18:30:25Z",
+          "updated_at": "2026-11-01T18:30:26Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "atlassian-wallboard-plugin"
+              },
+              "vulnerable_version_range": "= 10.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pip-malware-1103",
+      "title": "PyPI：不正パッケージ2勧告、対象版と導入履歴を確認",
+      "body": "今回の公開窓でPyPIのmalware勧告2件を確認。これは勧告数で、端末数・侵害件数ではない。各勧告のpackage名・対象バージョンは下表に原APIの条件を保持し、修正版未記載を安全な版へ置き換えない。",
+      "action": "Python起動・importの履歴とlockfile・配布イメージを照合する。該当環境を隔離し、クリーンな別環境で鍵を失効・再発行する。削除だけで常駐コードが消えたと判断せず、再構築とログ調査を行う。",
+      "kind": "delta",
+      "time": "2026-11-01T12:33:30Z – 2026-11-03T07:20:00Z / GHSA publication window",
+      "date": "2026-11-03",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-03T07:20:00Z",
+      "cve_ids": [],
+      "sources": [
+        {
+          "name": "GHSA-25jm-3g7h-jgf6",
+          "url": "https://github.com/advisories/GHSA-25jm-3g7h-jgf6"
+        },
+        {
+          "name": "GHSA-8wmf-9cp5-g5hq",
+          "url": "https://github.com/advisories/GHSA-8wmf-9cp5-g5hq"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-25jm-3g7h-jgf6",
+          "url": "https://github.com/advisories/GHSA-25jm-3g7h-jgf6",
+          "summary": "Malicious code in pyprig (PyPI)",
+          "published_at": "2026-11-03T00:31:13Z",
+          "updated_at": "2026-11-03T00:31:14Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "pyprig"
+              },
+              "vulnerable_version_range": "= 1.2.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "pyprig"
+              },
+              "vulnerable_version_range": "= 1.2.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "pyprig"
+              },
+              "vulnerable_version_range": "= 1.2.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8wmf-9cp5-g5hq",
+          "url": "https://github.com/advisories/GHSA-8wmf-9cp5-g5hq",
+          "summary": "Malicious code in wallet-tracking (PyPI)",
+          "published_at": "2026-11-02T06:31:29Z",
+          "updated_at": "2026-11-02T06:31:35Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "wallet-tracking"
+              },
+              "vulnerable_version_range": "> 0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "wallet-tracking"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "wallet-tracking"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "wallet-tracking"
+              },
+              "vulnerable_version_range": "= 1.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "wallet-tracking"
+              },
+              "vulnerable_version_range": "= 1.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "wallet-tracking"
+              },
+              "vulnerable_version_range": "= 1.0.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "wallet-tracking"
+              },
+              "vulnerable_version_range": "= 1.0.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rubygems-malware-1103",
+      "title": "RubyGems：不正パッケージ3勧告、対象版と導入履歴を確認",
+      "body": "今回の公開窓でRubyGemsのmalware勧告3件を確認。これは勧告数で、端末数・侵害件数ではない。各勧告のpackage名・対象バージョンは下表に原APIの条件を保持し、修正版未記載を安全な版へ置き換えない。",
+      "action": "gem導入・CIの履歴とlockfile・配布イメージを照合する。該当環境を隔離し、クリーンな別環境で鍵を失効・再発行する。削除だけで常駐コードが消えたと判断せず、再構築とログ調査を行う。",
+      "kind": "delta",
+      "time": "2026-11-01T12:33:30Z – 2026-11-03T07:20:00Z / GHSA publication window",
+      "date": "2026-11-03",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-03T07:20:00Z",
+      "cve_ids": [],
+      "sources": [
+        {
+          "name": "GHSA-8v7q-mrx4-jvfg",
+          "url": "https://github.com/advisories/GHSA-8v7q-mrx4-jvfg"
+        },
+        {
+          "name": "GHSA-x49r-jpx2-h4h9",
+          "url": "https://github.com/advisories/GHSA-x49r-jpx2-h4h9"
+        },
+        {
+          "name": "GHSA-ppjw-cwjq-6w82",
+          "url": "https://github.com/advisories/GHSA-ppjw-cwjq-6w82"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-8v7q-mrx4-jvfg",
+          "url": "https://github.com/advisories/GHSA-8v7q-mrx4-jvfg",
+          "summary": "Malicious code in dopc-client (RubyGems)",
+          "published_at": "2026-11-03T06:31:19Z",
+          "updated_at": "2026-11-03T06:31:21Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "dopc-client"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "dopc-client"
+              },
+              "vulnerable_version_range": "= 10.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-x49r-jpx2-h4h9",
+          "url": "https://github.com/advisories/GHSA-x49r-jpx2-h4h9",
+          "summary": "Malicious code in shoaib-unity (RubyGems)",
+          "published_at": "2026-11-02T12:30:27Z",
+          "updated_at": "2026-11-02T21:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "shoaib-unity"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-ppjw-cwjq-6w82",
+          "url": "https://github.com/advisories/GHSA-ppjw-cwjq-6w82",
+          "summary": "Malicious code in intercom-react-native-example-e2e-tests (RubyGems)",
+          "published_at": "2026-11-02T12:30:26Z",
+          "updated_at": "2026-11-02T21:31:28Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "rubygems",
+                "name": "intercom-react-native-example-e2e-tests"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
     }
   ],
   "research_scope": {
@@ -16393,8 +19558,152 @@
       "sources": [
         "https://status.northflank.com/"
       ]
+    },
+    "dbhub-readonly-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-j656-3hf2-fvjc"
+      ]
+    },
+    "sdjwt-disclosure-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6"
+      ]
+    },
+    "npm-malware-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-45rq-6v9r-4475",
+        "https://github.com/advisories/GHSA-726f-wf9g-5893",
+        "https://github.com/advisories/GHSA-gj25-xrmw-6297",
+        "https://github.com/advisories/GHSA-39ch-q3p3-3j33",
+        "https://github.com/advisories/GHSA-72x7-67fx-v24p",
+        "https://github.com/advisories/GHSA-3hj7-wfw3-jm84",
+        "https://github.com/advisories/GHSA-fc2g-x424-gvq4",
+        "https://github.com/advisories/GHSA-332r-cpwr-xr6h",
+        "https://github.com/advisories/GHSA-w544-4xh4-3m6v",
+        "https://github.com/advisories/GHSA-q8c5-hxhq-jprv",
+        "https://github.com/advisories/GHSA-89qx-w49w-4q48",
+        "https://github.com/advisories/GHSA-rg85-7qj4-rpcw",
+        "https://github.com/advisories/GHSA-q7mj-99p7-8363",
+        "https://github.com/advisories/GHSA-23g9-rf8p-3cj3",
+        "https://github.com/advisories/GHSA-cw3v-7hh4-m39w",
+        "https://github.com/advisories/GHSA-7j98-hxg2-v7pj",
+        "https://github.com/advisories/GHSA-8g27-6w2c-r34p",
+        "https://github.com/advisories/GHSA-jchc-cxq2-2rx9",
+        "https://github.com/advisories/GHSA-mp83-rh86-7fmp",
+        "https://github.com/advisories/GHSA-5m6m-8mwq-grp4",
+        "https://github.com/advisories/GHSA-r6m4-fv3j-rm7v",
+        "https://github.com/advisories/GHSA-x9q7-g8cr-vw76",
+        "https://github.com/advisories/GHSA-6668-jgqr-p263",
+        "https://github.com/advisories/GHSA-4fj7-5c6w-cmvh",
+        "https://github.com/advisories/GHSA-g76x-w4rw-x5j8",
+        "https://github.com/advisories/GHSA-g4rr-4xhm-6q58",
+        "https://github.com/advisories/GHSA-3vmc-mjw2-cmrq",
+        "https://github.com/advisories/GHSA-78j7-7qrc-2j38",
+        "https://github.com/advisories/GHSA-vwm6-r9cc-qg37",
+        "https://github.com/advisories/GHSA-hvpp-rx4h-crg5",
+        "https://github.com/advisories/GHSA-4h5p-w547-9qmv",
+        "https://github.com/advisories/GHSA-f826-46h5-5rcq",
+        "https://github.com/advisories/GHSA-4q9j-4rv8-jp32",
+        "https://github.com/advisories/GHSA-rvw8-22w3-342v",
+        "https://github.com/advisories/GHSA-pg3x-mr83-5crv",
+        "https://github.com/advisories/GHSA-whfc-859g-h5j3",
+        "https://github.com/advisories/GHSA-m4h2-gmhc-mhcp",
+        "https://github.com/advisories/GHSA-q7rp-q644-j8rp",
+        "https://github.com/advisories/GHSA-x8mc-7393-54vr",
+        "https://github.com/advisories/GHSA-93rf-36fj-m7gp",
+        "https://github.com/advisories/GHSA-g4x3-g43p-pwrw",
+        "https://github.com/advisories/GHSA-cjqv-xvjx-m5q5",
+        "https://github.com/advisories/GHSA-84hg-5759-2cgg",
+        "https://github.com/advisories/GHSA-52vf-f48x-82m5",
+        "https://github.com/advisories/GHSA-gqvq-9m83-c527",
+        "https://github.com/advisories/GHSA-wcx4-q6jx-3vhj",
+        "https://github.com/advisories/GHSA-rqhx-p7qj-qqc8",
+        "https://github.com/advisories/GHSA-rfxc-3373-jvfq",
+        "https://github.com/advisories/GHSA-4hf4-p92p-5m6c",
+        "https://github.com/advisories/GHSA-vpvh-94mq-8h4j",
+        "https://github.com/advisories/GHSA-89v8-j949-j3h5",
+        "https://github.com/advisories/GHSA-2g3q-xxv2-vh4p",
+        "https://github.com/advisories/GHSA-g94h-cm42-jgx8",
+        "https://github.com/advisories/GHSA-9h7q-53gw-grwc",
+        "https://github.com/advisories/GHSA-43pw-v6x2-9gh4",
+        "https://github.com/advisories/GHSA-r55f-fj5f-qxf9",
+        "https://github.com/advisories/GHSA-gmrr-hqfh-q4j3",
+        "https://github.com/advisories/GHSA-8cf8-9j3v-99g4",
+        "https://github.com/advisories/GHSA-fr4c-gqv9-5rgx",
+        "https://github.com/advisories/GHSA-v4v4-v74v-86vq",
+        "https://github.com/advisories/GHSA-c6pj-8fr8-qq3c",
+        "https://github.com/advisories/GHSA-mv5j-phwp-534j",
+        "https://github.com/advisories/GHSA-8967-3p4r-vpwp",
+        "https://github.com/advisories/GHSA-4q2f-q5qq-w9cm",
+        "https://github.com/advisories/GHSA-cv4q-j2g9-xp9h",
+        "https://github.com/advisories/GHSA-frgx-cf5w-vxr5",
+        "https://github.com/advisories/GHSA-m4gq-5vx2-5x8c",
+        "https://github.com/advisories/GHSA-p5qq-93vh-5c8h",
+        "https://github.com/advisories/GHSA-2v69-q2gc-qm5j",
+        "https://github.com/advisories/GHSA-8cq9-2c2q-58ww",
+        "https://github.com/advisories/GHSA-354j-r6m9-986p",
+        "https://github.com/advisories/GHSA-9jxw-2pvm-5q9f",
+        "https://github.com/advisories/GHSA-q54x-hhg5-963x",
+        "https://github.com/advisories/GHSA-v7f8-27g9-qx88",
+        "https://github.com/advisories/GHSA-543q-wq5f-hmgh",
+        "https://github.com/advisories/GHSA-j2hf-rv9p-8jvr",
+        "https://github.com/advisories/GHSA-q9p6-j8q4-8qh9",
+        "https://github.com/advisories/GHSA-pw4j-9v86-8c3g",
+        "https://github.com/advisories/GHSA-r89f-jjgp-3q97",
+        "https://github.com/advisories/GHSA-w48h-24q2-rjqx",
+        "https://github.com/advisories/GHSA-xpgj-8rc5-pq44",
+        "https://github.com/advisories/GHSA-p373-68vj-fvrh",
+        "https://github.com/advisories/GHSA-3x3m-5j3w-83rj",
+        "https://github.com/advisories/GHSA-j62h-2r3r-ggh9",
+        "https://github.com/advisories/GHSA-69w5-x7cm-v78h",
+        "https://github.com/advisories/GHSA-v764-465v-vh59",
+        "https://github.com/advisories/GHSA-5mwr-h84x-47h6",
+        "https://github.com/advisories/GHSA-9xq2-7mfg-rrmx",
+        "https://github.com/advisories/GHSA-rqw8-93vw-v2h5",
+        "https://github.com/advisories/GHSA-xq83-5ggr-7222",
+        "https://github.com/advisories/GHSA-6f53-8jrf-3x9j",
+        "https://github.com/advisories/GHSA-vj43-6r45-847h"
+      ]
+    },
+    "pip-malware-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-25jm-3g7h-jgf6",
+        "https://github.com/advisories/GHSA-8wmf-9cp5-g5hq"
+      ]
+    },
+    "rubygems-malware-1103": {
+      "scope": "global",
+      "reason": {
+        "ja": "地域限定の記載がない公開パッケージの勧告。対象版と実際の利用条件で適用を判断する。",
+        "en": "Public-package advisory without a stated regional restriction; applicability depends on affected versions and deployment conditions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8v7q-mrx4-jvfg",
+        "https://github.com/advisories/GHSA-x49r-jpx2-h4h9",
+        "https://github.com/advisories/GHSA-ppjw-cwjq-6w82"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-01-2133/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-03-1620/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }
