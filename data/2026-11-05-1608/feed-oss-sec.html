@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Wed, 04 Nov 2026 22:00:04 GMT</pubDate>
+    <lastBuildDate>Wed, 04 Nov 2026 22:00:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>CVE-2026-109518: RCE in apt(1) (DSA 6607-1)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/519</link>
+    <description>&lt;p&gt;Posted by Jan Schaumann on Nov 04&lt;/p&gt;This Debian Security Advisory for CVE-2026-109518&lt;br&gt;
+in apt(1) seems worth sharing more widely:&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://lists.debian.org/debian-security-announce/2026/msg00526.html&quot;&gt;https://lists.debian.org/debian-security-announce/2026/msg00526.html&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+| Max Justicz discovered a vulnerability in the APT&lt;br&gt;
+| package manager. APT can merge two different package&lt;br&gt;
+| downloads after an HTTP redirect gives them the same&lt;br&gt;
+| URI. Improper file handling when resuming an HTTP&lt;br&gt;
+| download allows a man-in-the-middle attacker to&lt;br&gt;
+| replace a package...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 21:53:41 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/519</guid>
+  </item>
+  <item>
+    <title>GodotSteam 4.17 through 4.23.2: any multiplayer peer can claim the server&apos;s peer ID</title>
+    <link>https://seclists.org/oss-sec/2026/q4/518</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Nov 04&lt;/p&gt;GodotSteam lets any player in a session claim to be the server. Godot&lt;br&gt;
+names players by a peer ID, and ID 1 means the server. Steam verifies&lt;br&gt;
+the account behind each connection, but GodotSteam accepts whatever&lt;br&gt;
+peer ID the sender writes into its first packet and never compares the&lt;br&gt;
+two. A player who writes 1 is treated as the server and can issue the&lt;br&gt;
+commands a server issues. I published this on 2026-11-04 [1].&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+GodotSteam v4.17...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 18:42:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/518</guid>
+  </item>
+  <item>
+    <title>The GNU C Library security advisories update for 2026-11-04</title>
+    <link>https://seclists.org/oss-sec/2026/q4/517</link>
+    <description>&lt;p&gt;Posted by Carlos O&apos;Donell on Nov 04&lt;/p&gt;The following security advisories have been published:&lt;br&gt;
+&lt;br&gt;
+GLIBC-SA-2026-0026:&lt;br&gt;
+===================&lt;br&gt;
+BIG-HKSCS decoding hang on crafted input&lt;br&gt;
+&lt;br&gt;
+Converting crafted BIG-HKSCS input to UCS-4 or the internal wide&lt;br&gt;
+character encoding, for example with iconv, in the GNU C Library version&lt;br&gt;
+2.18 through 2.31 may result in the converter making no progress,&lt;br&gt;
+causing the calling application to hang.&lt;br&gt;
+&lt;br&gt;
+When decoding input in the BIG5-HKSCS character set, four...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 17:04:02 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/517</guid>
+  </item>
+  <item>
+    <title>Apache OFBiz: CVE Announcements</title>
+    <link>https://seclists.org/oss-sec/2026/q4/516</link>
+    <description>&lt;p&gt;Posted by Jacopo Cappellato on Nov 04&lt;/p&gt;Multiple security vulnerabilities have been identified in Apache&lt;br&gt;
+OFBiz, including some critical issues.&lt;br&gt;
+&lt;br&gt;
+Affected versions: All versions prior to 24.09.08.&lt;br&gt;
+&lt;br&gt;
+Mitigation:&lt;br&gt;
+Users are advised to upgrade to Apache OFBiz 24.09.08, which addresses&lt;br&gt;
+these vulnerabilities.&lt;br&gt;
+&lt;br&gt;
+Vulnerabilities:&lt;br&gt;
+CVE-2026-66903: Authenticated Path Traversal in Catalog Image Management&lt;br&gt;
+CVE-2026-68524: Pre-Authentication Remote Code Execution via&lt;br&gt;
+Attacker-Controlled Screen...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 16:33:47 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/516</guid>
+  </item>
+  <item>
+    <title>libtar: incomplete fix for CVE-2021-33643/CVE-2021-33644 (heap out-of-bounds read)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/515</link>
+    <description>&lt;p&gt;Posted by nick on Nov 04&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+libtar&amp;apos;s fix for CVE-2021-33643 and CVE-2021-33644 is incomplete. A crafted tar archive can still cause a heap &lt;br&gt;
+out-of-bounds read, including on distro builds that carry that fix (confirmed on Debian 1.2.20-8+deb12u1).&lt;br&gt;
+&lt;br&gt;
+libtar appears to be unmaintained. I reported this to the Debian security team on 2026-11-02, and they cleared it for &lt;br&gt;
+publication on 2026-11-03. A CVE ID has been requested from MITRE and is pending.&lt;br&gt;
+&lt;br&gt;
+Details&lt;br&gt;
+&lt;br&gt;
+The...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 16:17:05 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/515</guid>
+  </item>
+  <item>
+    <title>[SECURITY] Apache Juneau 9.2.1 fixes multiple vulnerabilities (CVE-2026-73095, CVE-2026-121489, CVE-2026-96677, CVE-2026-73099, CVE-2026-73100, CVE-2026-73101, CVE-2026-73098, CVE-2026-73116, CVE-2026-73117)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/514</link>
+    <description>&lt;p&gt;Posted by James Bognar on Nov 04&lt;/p&gt;Apache Juneau 9.2.1, released on 2026-11-03, fixes the following&lt;br&gt;
+vulnerabilities. All affect Apache Juneau through 9.2.0. Users are recommended&lt;br&gt;
+to upgrade to version 9.2.1, which fixes these issues.&lt;br&gt;
+&lt;br&gt;
+The juneau-shaded-* and other aggregate artifacts embed the affected modules&lt;br&gt;
+and are affected in the same way; upgrade them to 9.2.1 as well.&lt;br&gt;
+&lt;br&gt;
+Download: &lt;a  rel=&quot;nofollow&quot; href=&quot;https://downloads.apache.org/juneau/9.2.1/&quot;&gt;https://downloads.apache.org/juneau/9.2.1/&lt;/a&gt;&lt;br&gt;
+Maven: org.apache.juneau, version 9.2.1&lt;br&gt;
+&lt;br&gt;
+Upgrading...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 16:04:48 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/514</guid>
+  </item>
+  <item>
+    <title>SQL-Abstract versions before 2.000001_04 for Perl (3 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/513</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 04&lt;/p&gt;CVE-2026-121007&lt;br&gt;
+   SQL::Abstract versions from 1.90_01 before 2.000001_04 for Perl allow&lt;br&gt;
+   SQL injection via the where values of a nested statement in an&lt;br&gt;
+   identifier position&lt;br&gt;
+&lt;br&gt;
+CVE-2026-121008&lt;br&gt;
+   SQL::Abstract::Tree versions before 2.000001_04 for Perl allow&lt;br&gt;
+   cross-site scripting via unescaped SQL text and bind values in the&lt;br&gt;
+   html profile&lt;br&gt;
+&lt;br&gt;
+CVE-2026-121009&lt;br&gt;
+   SQL::Abstract versions from 1.90_01 before 2.000001_04 for Perl skip&lt;br&gt;
+   the...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 16:02:31 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/513</guid>
+  </item>
+  <item>
+    <title>CVE-2026-114627: Web::Simple versions before 0.036 for Perl do not escape values interpolated into double-quoted strings in HTML::Tags output</title>
+    <link>https://seclists.org/oss-sec/2026/q4/512</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 04&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-114627                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-114627&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Web-Simple&lt;br&gt;
+       Versions:  before 0.036&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Web-Simple&quot;&gt;https://metacpan.org/dist/Web-Simple&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 16:00:15 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/512</guid>
+  </item>
+  <item>
+    <title>CVE-2026-121632: Data::MuForm versions through 0.05 for Perl render attribute values and option labels into HTML without escaping</title>
+    <link>https://seclists.org/oss-sec/2026/q4/511</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 04&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-121632                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-121632&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Data-MuForm&lt;br&gt;
+       Versions:  through 0.05&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Data-MuForm&quot;&gt;https://metacpan.org/dist/Data-MuForm&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 15:58:12 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/511</guid>
+  </item>
+  <item>
+    <title>Node.js security release pre-alert</title>
+    <link>https://seclists.org/oss-sec/2026/q4/510</link>
+    <description>&lt;p&gt;Posted by Antoine du Hamel on Nov 04&lt;/p&gt;We will release new versions of Node.js 22, 24, and 26 release lines on or shortly&lt;br&gt;
+after 2026-11-11 in order to address security vulnerabilities.&lt;br&gt;
+The highest severity issue fixed in this release is HIGH.&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://nodejs.org/en/blog/vulnerability/november-2026-security-releases&quot;&gt;https://nodejs.org/en/blog/vulnerability/november-2026-security-releases&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 09:26:03 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/510</guid>
+  </item>
+  <item>
+    <title>Rails security releases: 8.0.5.2 and 8.1.4.1</title>
+    <link>https://seclists.org/oss-sec/2026/q4/509</link>
+    <description>&lt;p&gt;Posted by Mike Dalessio on Nov 03&lt;/p&gt;Rails Versions 8.0.5.2 and 8.1.4.1 have been released. These are **security&lt;br&gt;
+updates** addressing 21 security issues. We strongly recommend upgrading as&lt;br&gt;
+soon as possible.&lt;br&gt;
+&lt;br&gt;
+Older versions of Rails are unsupported, and users are recommended to&lt;br&gt;
+upgrade to at least the 8.0 series. Security support for the 8.0 series&lt;br&gt;
+ends on November 7, 2026. See our [maintenance policy](&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://rubyonrails.org/maintenance&quot;&gt;https://rubyonrails.org/maintenance&lt;/a&gt;) for details.&lt;br&gt;
+&lt;br&gt;
+Here is a list of security...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 06:14:01 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/509</guid>
+  </item>
+  <item>
+    <title>CGI versions before 5.00 for Perl (20 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/508</link>
+    <description>&lt;p&gt;Posted by Stig Palmquist on Nov 03&lt;/p&gt;CVE-2026-120631&lt;br&gt;
+  CGI::Cookie versions from 4.67 before 5.00 for Perl allow denial of&lt;br&gt;
+  service via the client cookie expires value used as a regex in parse&lt;br&gt;
+&lt;br&gt;
+CVE-2026-120632&lt;br&gt;
+  CGI versions before 5.00 for Perl allow CPU exhaustion via a&lt;br&gt;
+  backtracking regex on the XForms multipart/related Content-Type&lt;br&gt;
+&lt;br&gt;
+CVE-2026-120633&lt;br&gt;
+  CGI versions before 5.00 for Perl trust the client X-Forwarded-Host&lt;br&gt;
+  header in url, self_url, virtual_host and virtual_port...&lt;br&gt;</description>
+    <pubDate>Wed, 04 Nov 2026 01:02:38 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/508</guid>
+  </item>
+
+
+  <item>
+    <title>CVE-2026-90634: Apache OpenOffice: Out-of-bounds write when importing encrypted PDF files</title>
+    <link>https://seclists.org/oss-sec/2026/q4/507</link>
+    <description>&lt;p&gt;Posted by Arrigo Marchiori on Nov 03&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache OpenOffice through 4.1.16&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+An uncontrolled memory access in the PDF import code of Apache OpenOffice versions through 4.1.16 allows a crafted PDF &lt;br&gt;
+to cause an out-of-bounds memory write, causing program crash or memory corruption.&lt;br&gt;
+Users are recommended to upgrade to version 4.1.17, which fixes this issue.&lt;br&gt;
+&lt;br&gt;
+Credit:&lt;br&gt;
+&lt;br&gt;
+Anonymous working with TrendAI Zero Day Initiative (finder)...&lt;br&gt;</description>
+    <pubDate>Tue, 03 Nov 2026 22:02:53 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/507</guid>
+  </item>
+  <item>
+    <title>CVE-2026-90632: Apache OpenOffice: Local file inclusion via GStreamer plugin</title>
+    <link>https://seclists.org/oss-sec/2026/q4/506</link>
+    <description>&lt;p&gt;Posted by Arrigo Marchiori on Nov 03&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache OpenOffice through 4.1.16&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Apache OpenOffice documents can include multimedia content (audio, video, etc.)&lt;br&gt;
+&lt;br&gt;
+A crafted document could exploit the GStreamer multimedia component of Apache OpenOffice version through 4.1.16 to load &lt;br&gt;
+the contents of any local file, and include them when the document is saved or exported, for example as PDF.&lt;br&gt;
+&lt;br&gt;
+Users are recommended to upgrade to version...&lt;br&gt;</description>
+    <pubDate>Tue, 03 Nov 2026 22:00:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/506</guid>
+  </item>
+  <item>
+    <title>CVE-2026-90631: Apache OpenOffice: Remote document loaded without prompt, possibiy leaking environment variables</title>
+    <link>https://seclists.org/oss-sec/2026/q4/505</link>
+    <description>&lt;p&gt;Posted by Arrigo Marchiori on Nov 03&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache OpenOffice through 4.1.16&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Apache OpenOffice documents can contain links. A missing Authorization vulnerability in Apache OpenOffice allowed an &lt;br&gt;
+attacker to craft a document that would cause external links &lt;br&gt;
+to be loaded without prompt, possibly transferring the contents of environment variables in the process.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache OpenOffice: through 4.1.16.&lt;br&gt;
+&lt;br&gt;
+Users are...&lt;br&gt;</description>
+    <pubDate>Tue, 03 Nov 2026 21:59:04 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/505</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

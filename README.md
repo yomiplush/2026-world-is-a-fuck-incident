@@ -1,5 +1,7 @@
 # Infosec Briefing — independent research and open source
 
+**Database review — 2026-11-05 16:08 JST:** [Latest report](https://www.infosec-briefing.net/update-20261105-1608.en) · [199-topic register](data/2026-11-05-1608/incident-register.json) · [Research](docs/research-2026-11-05-1608.en.md). 17 newly covered groups: Keycloak, Stanza, Elo, Arc and other advisories; 206 malware advisories and 2 KEV additions. Six new motion scenes. Prior 182 topics and 20 impact records retain their earlier context. Database counts are not incident counts.
+
 [Website](https://www.infosec-briefing.net/) · [日本語](README_jp.md) · [Research & Open Source](https://www.infosec-briefing.net/about.en#research-open-source) · [MIT license](LICENSE)
 
 Infosec Briefing organizes public cybersecurity information into sourced reports,

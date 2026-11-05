@@ -4196,16 +4196,270 @@ for (const lang of ['ja', 'en']) {
     : '全80画面を日付順に。11/03 16:20 JSTまでの追加9画面。過去の場面は記載時点の記録です。';
 }
 
+
+/* November 5: source-attributed explanatory motion chapter. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1105-scope",
+    "stamp": "11.05 · 16:08 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/05 REVIEW",
+      "title": "登録と改訂を、被害件数にしない。",
+      "lede": "11月3日16:20〜11月5日16:08 JSTの固定窓。",
+      "points": [
+        "NVD新規1,236件・改訂4,431件。新規は全件重複",
+        "GHSA公開1,310件：reviewed 13・unreviewed 1,091・malware 206",
+        "199論点：今回追加17群。過去182群は前回の文脈を保持"
+      ]
+    },
+    "en": {
+      "kicker": "11/05 REVIEW",
+      "title": "Separate publication, revision and victim counts.",
+      "lede": "Fixed November 3 16:20 to November 5 16:08 JST window.",
+      "points": [
+        "NVD: 1,236 published and 4,431 modified; all published records overlap",
+        "GHSA: 1,310 published — 13 reviewed, 1,091 unreviewed and 206 malware",
+        "199 topics: 17 newly covered groups; 182 retain earlier context"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-05-1608/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-05T07:08:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1105-identity",
+    "stamp": "11.05 · 16:08 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "CLIENT KEY",
+        "JWT GRANT",
+        "USER TOKEN"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/05 REVIEW",
+      "title": "Keycloak：JWT Authorization Grantの署名検証回避",
+      "lede": "有効なclient credentialを持つ攻撃者が、JWT Authorization Grant flowのalgorithm confusionで署名検証を回避し、対象Identity Providerへ紐付くfederated userのtokenを発行し得る。資格情報不要の全利用者向け攻撃とはしない。",
+      "points": [
+        "keycloak-servicesを26.6.4へ更新する。対象flow・Identity Providerとclient credentialを確認し、不正token発行のログを調査する。"
+      ]
+    },
+    "en": {
+      "kicker": "11/05 REVIEW",
+      "title": "Keycloak: signature verification bypass in JWT Authorization Grant",
+      "lede": "An attacker with valid client credentials can exploit algorithm confusion in the JWT Authorization Grant flow to bypass signature verification and issue tokens for federated users linked to the affected Identity Provider. This does not establish an attack without credentials against every user.",
+      "points": [
+        "Upgrade keycloak-services to 26.6.4. Review the affected flow, Identity Provider and client credentials and investigate unauthorized token issuance."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-j97h-3f8r-mrjr",
+        "url": "https://github.com/advisories/GHSA-j97h-3f8r-mrjr"
+      }
+    ],
+    "reviewCutoff": "2026-11-05T07:08:00Z"
+  },
+  {
+    "id": "motion-1105-execution",
+    "stamp": "11.05 · 16:08 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "UNTRUSTED",
+        "MODEL / DSL",
+        "HOST CODE"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/05 REVIEW",
+      "title": "Stanza：モデル内のpickleはweights_onlyの外側",
+      "lede": "1.14.0のlemmatizerが、モデル内の圧縮pickleを無制限に復元する。攻撃者提供のlemma .ptを読み込むと、読込み利用者の権限でコード実行に至ると勧告が報告。torch.loadのweights_only=Trueだけでは内部pickleを検査できない。",
+      "points": [
+        "1.15.0へ更新し、出所不明のモデルを読み込まない。既に読込みを行った環境は実行履歴・資格情報の露出を調べる。",
+        "@enspirit/eloを1.0.1へ更新する。信頼できない入力から生成したコードは、秘密やホスト権限を持つプロセスで実行しない。"
+      ]
+    },
+    "en": {
+      "kicker": "11/05 REVIEW",
+      "title": "Stanza: nested pickle escapes weights_only checks",
+      "lede": "The lemmatizer in 1.14.0 performs unrestricted deserialization of compressed pickle inside a model. The advisory reports code execution as the loading user from an attacker-supplied lemma .pt. torch.load with weights_only=True does not inspect that inner pickle.",
+      "points": [
+        "Upgrade to 1.15.0 and reject models of unknown origin. Investigate execution history and credential exposure in environments that already loaded them.",
+        "Upgrade @enspirit/elo to 1.0.1. Do not execute code generated from untrusted input in a process with secrets or host privileges."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-gh9r-c94j-cmp5",
+        "url": "https://github.com/advisories/GHSA-gh9r-c94j-cmp5"
+      },
+      {
+        "name": "GHSA-33r5-xmm8-v6x5",
+        "url": "https://github.com/advisories/GHSA-33r5-xmm8-v6x5"
+      }
+    ],
+    "reviewCutoff": "2026-11-05T07:08:00Z"
+  },
+  {
+    "id": "motion-1105-arc",
+    "stamp": "11.05 · 16:08 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "TOKEN",
+        "DB BOUNDARY",
+        "DATA / LOGS"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/05 REVIEW",
+      "title": "Arc：DuckDBの別名とテナント境界",
+      "lede": "認証済みトークンからDuckDBのI/O別名を通じ、同一ストレージルート内の他DBを読めると勧告が報告。本文は26.06.2を含む状態で未解決とする一方、構造化APIには修正コミット相当の版が入り、記述が一致していない。",
+      "points": [
+        "APIの修正版欄だけで解決済みとしない。DBごとのファイルアクセス境界を検証し、共有ルートへのアクセスを制限する。",
+        "logs routeを認証・管理者認可の後ろへ移し、不要なら遮断する。下表の修正コミットを含む配布物を確認し、保存logの機微情報を調べる。"
+      ]
+    },
+    "en": {
+      "kicker": "11/05 REVIEW",
+      "title": "Arc: DuckDB aliases and tenant boundaries",
+      "lede": "The advisory reports cross-database reads by authenticated tokens through DuckDB I/O aliases within the shared storage root. Its prose describes an unresolved issue including 26.06.2, while the structured API names a fix-equivalent commit version; these claims conflict.",
+      "points": [
+        "Do not infer resolution from the API fix field alone. Verify file access boundaries per database and restrict access to the shared root.",
+        "Place the logs route behind authentication and administrator authorization or block it if unused. Verify artifacts contain the fix commit in the table and review sensitive data in stored logs."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-93cm-2v4m-c56c",
+        "url": "https://github.com/advisories/GHSA-93cm-2v4m-c56c"
+      },
+      {
+        "name": "GHSA-m3qr-fvp4-78xj",
+        "url": "https://github.com/advisories/GHSA-m3qr-fvp4-78xj"
+      }
+    ],
+    "reviewCutoff": "2026-11-05T07:08:00Z"
+  },
+  {
+    "id": "motion-1105-kev",
+    "stamp": "11.05 · 16:08 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "KEV",
+        "PRECONDITIONS",
+        "VENDOR FIX"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/05 REVIEW",
+      "title": "KEV：WordPressとAppleの2件を追加",
+      "lede": "11月3日追加のWordPress CVE-2026-119977はcore upgrade窓の未認証コード実行、11月4日追加のApple CVE-2024-27834は任意読書き能力を前提とするpointer authentication回避。KEV追加は今回発生した2事件という意味ではない。",
+      "points": [
+        "WordPressの更新窓と公開staging pathを優先確認し、公式対策に従う。Appleも対象OSの公式更新を確認する。KEVのdueDateはWordPressが11月6日、Appleが11月18日で、全組織共通の法的期限とはしない。"
+      ]
+    },
+    "en": {
+      "kicker": "11/05 REVIEW",
+      "title": "GMO: individual contact begins for payments and alternatives; 428 tips",
+      "lede": "At 15:30 on 10/30, GMO announced that direct contact had begun about condolence-payment procedures and alternative services. Notice16 records 428 cumulative tips at 18:00 that day. Tips do not count victims or arrests; completed payments and service recovery remain unconfirmed.",
+      "points": [
+        "Use official individual contact to confirm procedures, alternative services and compensation conditions. Reject opportunistic requests for credentials or fees."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA KEV JSON",
+        "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-05T07:08:00Z"
+  },
+  {
+    "id": "motion-1105-packages",
+    "stamp": "11.05 · 16:08 JST",
+    "visual": {
+      "type": "reviewPackages"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/05 REVIEW",
+      "title": "206勧告を、導入履歴と照合。",
+      "lede": "悪意あるpackageの削除だけで、実行されたコードや漏えいした鍵は元に戻りません。",
+      "points": [
+        "npm：不正パッケージ194勧告",
+        "pip：不正パッケージ10勧告",
+        "rubygems：不正パッケージ2勧告",
+        "隔離 → クリーンな環境で鍵を失効 → ログ調査・再構築"
+      ]
+    },
+    "en": {
+      "kicker": "11/05 REVIEW",
+      "title": "Match 206 advisories to installation history.",
+      "lede": "Deleting a malicious package does not undo executed code or revoke exposed secrets.",
+      "points": [
+        "npm: 194 malicious-package advisories",
+        "pip: 10 malicious-package advisories",
+        "rubygems: 2 malicious-package advisories",
+        "Isolate → revoke secrets from a clean environment → investigate and rebuild"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-c9vc-x2gg-hw32",
+        "url": "https://github.com/advisories/GHSA-c9vc-x2gg-hw32"
+      },
+      {
+        "name": "GHSA-2f6v-p6wj-6gq4",
+        "url": "https://github.com/advisories/GHSA-2f6v-p6wj-6gq4"
+      },
+      {
+        "name": "GHSA-cv4q-gcjm-77v8",
+        "url": "https://github.com/advisories/GHSA-cv4q-gcjm-77v8"
+      }
+    ],
+    "reviewCutoff": "2026-11-05T07:08:00Z"
+  }
+]);
+window.CONTENT.review = {cutoff:"2026-11-05T07:08:00Z",label:"2026-11-05 16:08 JST",report:"/update-20261105-1608"};
+for (const lang of ['ja','en']) {
+  const english=lang==='en', report=window.CONTENT.review.report+(english?'.en':'');
+  window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]='<a href="'+report+'">11/05 16:08 '+(english?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#81">'+(english?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/timeline'+(english?'.en':'')+'">'+(english?'Read by date':'日付から読む')+' →</a>';
+  window.CONTENT.ui[lang].coverSub=english?'86 dated scenes, including 6 new scenes through November 5, 16:08 JST. Historical scenes retain their original context.':'全86画面を日付順に。11/05 16:08 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 80,
-    "total": 80
+    "translated": 86,
+    "total": 86
   },
   "ja": {
     "ready": true,
-    "translated": 80,
-    "total": 80
+    "translated": 86,
+    "total": 86
   }
 };
