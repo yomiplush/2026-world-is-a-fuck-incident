@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Sat, 07 Nov 2026 04:30:04 GMT</pubDate>
+    <lastBuildDate>Sat, 07 Nov 2026 04:30:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/570</link>
+    <description>&lt;p&gt;Posted by Jacob Bachmeyer on Nov 06&lt;/p&gt;Does it even entirely work?  What if there is no salt to borrow?&lt;br&gt;
+&lt;br&gt;
+Thinking about this, I think I see another information leak: does sshd &lt;br&gt;
+produce a &amp;quot;fake salt&amp;quot; or fail the authentication quickly, thus leaking &lt;br&gt;
+the fact that no accounts on the box have a valid password?&lt;br&gt;
+&lt;br&gt;
+There was a time when a salt could be assumed to exist, but that was &lt;br&gt;
+before cloud VM images that have no console and therefore can be &lt;br&gt;
+network-login-with-SSH-key...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 04:28:39 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/570</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/569</link>
+    <description>&lt;p&gt;Posted by theknell on Nov 06&lt;/p&gt;Said I&amp;apos;d figure it out, so here we go. Two things in this thread&lt;br&gt;
+stayed stuck at the arguing stage: what crypt() actually hands back&lt;br&gt;
+when it fails, in each implementation, and Jeff&amp;apos;s timing point. I&lt;br&gt;
+measured both, on my own machines — OpenSSH 10.6p2 built&lt;br&gt;
+--without-pam, glibc 2.39 / libxcrypt 4.4.36 (Ubuntu 24.04), musl&lt;br&gt;
+1.2.5 (Alpine 3.21). Harnesses and raw data available on request.&lt;br&gt;
+&lt;br&gt;
+First, the return values, because this is where...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 04:26:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/569</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/568</link>
+    <description>&lt;p&gt;Posted by Matt Johnston on Nov 06&lt;/p&gt;I view avoiding account existence exposure as more of a&lt;br&gt;
+privacy feature than security. &lt;br&gt;
+If you iterate all the internet&amp;apos;s ipv4 sshds (not hard) for&lt;br&gt;
+ones that accept say &amp;quot;pgut001&amp;quot;, then you&amp;apos;ve found someone&amp;apos;s&lt;br&gt;
+IP. Maybe that&amp;apos;s already exposed in other ways, but maybe not.&lt;br&gt;
+&lt;br&gt;
+As purely a security feature I agree the added complexity&lt;br&gt;
+isn&amp;apos;t worth it.&lt;br&gt;
+&lt;br&gt;
+Cheers,&lt;br&gt;
+Matt&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 04:25:01 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/568</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/567</link>
+    <description>&lt;p&gt;Posted by Michael Orlitzky on Nov 06&lt;/p&gt;It was easy to lose in the noise, but musl is not the only one doing&lt;br&gt;
+this:&lt;br&gt;
+&lt;br&gt;
+  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/besser82/libxcrypt/blob/develop/configure.ac#L322&quot;&gt;https://github.com/besser82/libxcrypt/blob/develop/configure.ac#L322&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 02:02:36 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/567</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/566</link>
+    <description>&lt;p&gt;Posted by Loganaden Velvindron on Nov 06&lt;/p&gt;I&amp;apos;ve done some auditing of crypt() usage in the Linux ecosystem.&lt;br&gt;
+Most software is now handling NULL from crypt() but there are some issues like&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/InfrastructureServices/vsftpd/pull/9&quot;&gt;https://github.com/InfrastructureServices/vsftpd/pull/9&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+I think it&amp;apos;s time for musl libc to revisit the idea and return NULL on&lt;br&gt;
+failure and see&lt;br&gt;
+which software is still breaking.&lt;br&gt;
+&lt;br&gt;
+The commit in musl dates back to 2012. A lot has happened since 2012:...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 01:31:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/566</guid>
+  </item>
+  <item>
+    <title>CVE-2026-118196: Apache Allura: OAuth1 rebinding</title>
+    <link>https://seclists.org/oss-sec/2026/q4/565</link>
+    <description>&lt;p&gt;Posted by Dave Brondsema on Nov 06&lt;/p&gt;Severity: critical&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Allura through 1.22.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+OAuth 1 rebinding vulnerability in Apache Allura.&lt;br&gt;
+&lt;br&gt;
+This issue affects Apache Allura: through 1.22.0.&lt;br&gt;
+&lt;br&gt;
+Users are recommended to upgrade to version 1.22.1, which fixes the issue.&lt;br&gt;
+&lt;br&gt;
+Credit:&lt;br&gt;
+&lt;br&gt;
+hataehoon (reporter)&lt;br&gt;
+&lt;br&gt;
+References:&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://allura.apache.org/&quot;&gt;https://allura.apache.org/&lt;/a&gt;&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://www.cve.org/CVERecord?id=CVE-2026-118196&quot;&gt;https://www.cve.org/CVERecord?id=CVE-2026-118196&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 01:29:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/565</guid>
+  </item>
+
+
+  <item>
+    <title>[oss-security][CVE-2026-119170] Regression in FIPS enforcement of hash algorithms affecting only Python 3.14.10</title>
+    <link>https://seclists.org/oss-sec/2026/q4/564</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Nov 06&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [Security-announce][CVE-2026-119170] Regression in FIPS enforcement of &lt;br&gt;
+hash algorithms affecting only Python 3.14.10&lt;br&gt;
+Date:   Fri, 6 Nov 2026 14:45:25 +0000&lt;br&gt;
+From:   Seth Larson &amp;lt;seth () python org&amp;gt;&lt;br&gt;
+Reply-To:       security-sig () python org&lt;br&gt;
+To:     security-announce () python org&lt;br&gt;
+&lt;br&gt;
+There is a HIGH severity vulnerability affecting CPython.&lt;br&gt;
+&lt;br&gt;
+There was a regression in how FIPS algorithms were...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 21:41:26 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/564</guid>
+  </item>
+  <item>
+    <title>InfiniteWP Client: the NOSSL signing key has 31 bits of secret — recovered live in 291.9 seconds</title>
+    <link>https://seclists.org/oss-sec/2026/q4/563</link>
+    <description>&lt;p&gt;Posted by theknell on Nov 06&lt;/p&gt;InfiniteWP Client 1.13.10 — a WordPress management plugin on roughly&lt;br&gt;
+200,000 installs — speaks to its management panel through two&lt;br&gt;
+authentication branches. The strong branch verifies an RSA&lt;br&gt;
+signature. The other, NOSSL, is selected by the enrolling panel&lt;br&gt;
+setting one request parameter, on hosts fully capable of RSA. Once&lt;br&gt;
+its key is stored, the selection is permanent and the RSA branch is&lt;br&gt;
+unreachable.&lt;br&gt;
+&lt;br&gt;
+The stored key is generated as:...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 18:32:40 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/563</guid>
+  </item>
+  <item>
+    <title>CVE-2026-123779: Apache Axis2/Java: exposeServiceMetadata not enforced on all metadata routes</title>
+    <link>https://seclists.org/oss-sec/2026/q4/562</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 06&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/Java before 2.0.2&lt;br&gt;
+- Apache Axis2/Java before 2.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Direct Request (&amp;apos;Forced Browsing&amp;apos;) vulnerability in Apache Axis2/Java. The exposeServiceMetadata service parameter was &lt;br&gt;
+enforced only on the ?wsdl, ?wsdl2 and ?xsd queries. For a service that had disabled it, the packaged .wsdl and .xsd &lt;br&gt;
+file routes, the named-WSDL ?wsdl=NAME route of the standalone HTTP server, the...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 18:30:34 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/562</guid>
+  </item>
+  <item>
+    <title>CVE-2026-120832: Apache Axis2/Java: SSRF via WSDL/XSD schema import resolution</title>
+    <link>https://seclists.org/oss-sec/2026/q4/561</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 06&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/Java before 2.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Server-Side Request Forgery (SSRF) vulnerability in Apache Axis2/Java. When Axis2 built a service description from a &lt;br&gt;
+WSDL, through ServiceClient, AxisService.createClientSideAxisService or WSDLToAxisServiceBuilder, it fetched the &lt;br&gt;
+absolute URLs in wsdl:import locations and in xsd:import and xsd:include schemaLocations with no scheme or host &lt;br&gt;
+restriction; the...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 18:28:46 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/561</guid>
+  </item>
+  <item>
+    <title>CVE-2026-120367: Apache Axis2/Java: unbounded JSON request body buffering</title>
+    <link>https://seclists.org/oss-sec/2026/q4/560</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 06&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/Java before 2.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Allocation of Resources Without Limits or Throttling vulnerability in Apache Axis2/Java. The JSON message builders, &lt;br&gt;
+including the Gson, Moshi and HTTP/2 variants, buffered the entire request body with no size limit, so an &lt;br&gt;
+unauthenticated caller could exhaust server memory with a large JSON request. Version 2.0.2 bounds JSON request bodies &lt;br&gt;
+with the configurable...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 18:26:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/560</guid>
+  </item>
+  <item>
+    <title>CVE-2026-123770: Apache Axis2/Java: Unbounded multipart and form-encoded request bodies</title>
+    <link>https://seclists.org/oss-sec/2026/q4/559</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 06&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/Java before 2.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Allocation of Resources Without Limits or Throttling vulnerability in Apache Axis2/Java. The multipart/form-data and &lt;br&gt;
+application/x-www-form-urlencoded message builders read the request body directly from the transport stream with no &lt;br&gt;
+size limit, so the servlet container&amp;apos;s post-size limit did not apply, and multipart temporary files were not deleted. &lt;br&gt;
+An...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 17:42:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/559</guid>
+  </item>
+  <item>
+    <title>CVE-2026-123766: Apache Axis2/Java: Cross-site scripting in the OpenAPI module&apos;s Swagger UI page</title>
+    <link>https://seclists.org/oss-sec/2026/q4/558</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 06&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/Java 2.0.1 before 2.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Improper Neutralization of Input During Web Page Generation (Cross-site Scripting) vulnerability in the OpenAPI module &lt;br&gt;
+of Apache Axis2/Java. The Swagger UI page served by the OpenAPI module wrote a value derived from the request&amp;apos;s Host &lt;br&gt;
+header into the page without encoding, allowing script injection in the context of the Axis2 origin. This issue...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 17:41:03 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/558</guid>
+  </item>
+  <item>
+    <title>CVE-2026-123753: Apache Axis2/Java: SSRF via WS-Addressing ReplyTo and FaultTo endpoints</title>
+    <link>https://seclists.org/oss-sec/2026/q4/557</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 06&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/Java before 2.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Server-Side Request Forgery (SSRF) vulnerability in Apache Axis2/Java. An unauthenticated caller could supply a &lt;br&gt;
+non-anonymous WS-Addressing wsa:ReplyTo or wsa:FaultTo address, and Axis2 would open a connection to that address to &lt;br&gt;
+deliver the response or fault, allowing requests to internal hosts and delivery of response content to a host of the...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 17:38:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/557</guid>
+  </item>
+  <item>
+    <title>CVE-2026-120761: Apache Axis2/Java: XML External Entity (XXE) injection via imported WSDL/XSD documents</title>
+    <link>https://seclists.org/oss-sec/2026/q4/556</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 06&lt;/p&gt;Severity: important &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/Java before 2.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Improper Restriction of XML External Entity Reference vulnerability in Apache Axis2/Java. When a client built an &lt;br&gt;
+AxisService from a WSDL URL, through ServiceClient or AxisService.createClientSideAxisService, wsdl4j import resolution &lt;br&gt;
+was enabled and the documents named by wsdl:import and xsd:import were parsed by wsdl4j&amp;apos;s own XML parser, which...&lt;br&gt;</description>
+    <pubDate>Fri, 06 Nov 2026 17:36:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/556</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

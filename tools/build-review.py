@@ -73,6 +73,7 @@ def main(path):
     content += '<section><h2>前回の記録へ</h2>' + anchor('./'+report['previous'], report['previous_label']) + '</section>'
     result = daily.shell(report['path'], report['title'], report['intro'], content)
     result = result.replace('基準 2026-10-26 10:27 JST / 01:27 UTC。', '基準 '+report['cutoff_jst_label']+'。')
+    result = result.replace('取得は基準後。', '取得日時は各原本に記録。')
     result = result.replace('docs/29-snapshot-20261026-1027.ja.md', research_doc)
     (ROOT / 'site' / report['path']).write_text(result)
     print(f'Built {report["path"]}: {len(record["records"])} editorial topic groups')

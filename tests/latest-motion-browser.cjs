@@ -106,7 +106,8 @@ async function main() {
       await tab.locator('.chapter-button').nth(7).click();
       assert.equal(await tab.evaluate(()=>location.hash),'#66');
       assert.equal(await tab.locator('.chapter-button[aria-current=true] .chapter-square').innerText(),'●');
-      assert.ok(await tab.locator('.chapter-page[data-direction=next]').isDisabled());
+      assert.equal(await tab.locator('.chapter-page[data-direction=next]').isDisabled(),
+        await tab.locator('.chapter-button').count() <= 10);
       const diagramChecks=await tab.evaluate(()=>{
         const canvas=document.createElement('canvas');canvas.width=480;canvas.height=340;
         const ctx=canvas.getContext('2d');const hashes=new Set();

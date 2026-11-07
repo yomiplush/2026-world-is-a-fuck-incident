@@ -4382,10 +4382,10 @@ window.CONTENT.scenes.push(...[
     },
     "en": {
       "kicker": "11/05 REVIEW",
-      "title": "GMO: individual contact begins for payments and alternatives; 428 tips",
-      "lede": "At 15:30 on 10/30, GMO announced that direct contact had begun about condolence-payment procedures and alternative services. Notice16 records 428 cumulative tips at 18:00 that day. Tips do not count victims or arrests; completed payments and service recovery remain unconfirmed.",
+      "title": "KEV: 2 additions for WordPress and Apple",
+      "lede": "WordPress CVE-2026-119977, added November 3, concerns unauthenticated code execution during the core-upgrade window. Apple CVE-2024-27834, added November 4, bypasses pointer authentication given arbitrary read/write capability. These are not 2 newly occurring incidents.",
       "points": [
-        "Use official individual contact to confirm procedures, alternative services and compensation conditions. Reject opportunistic requests for credentials or fees."
+        "Prioritize the WordPress upgrade window and publicly reachable staging paths and follow official mitigations. Check official updates for affected Apple operating systems. KEV dueDates are November 6 for WordPress and November 18 for Apple; these are not legal deadlines shared by every organization."
       ]
     },
     "sources": [
@@ -4450,16 +4450,494 @@ for (const lang of ['ja','en']) {
   window.CONTENT.ui[lang].coverSub=english?'86 dated scenes, including 6 new scenes through November 5, 16:08 JST. Historical scenes retain their original context.':'全86画面を日付順に。11/05 16:08 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
 }
 
+/* November 7: source-attributed explanatory motion chapter. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1107-scope",
+    "stamp": "11.07 · 13:36 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/07 REVIEW",
+      "title": "登録・改訂と被害を分ける。",
+      "lede": "11月5日16:08〜11月7日13:36 JSTの固定窓。",
+      "points": [
+        "NVD新規1,064件・改訂6,328件。新規は全件重複",
+        "GHSA公開854件：reviewed 20・unreviewed 787・malware 47",
+        "214論点：今回15群を追加。過去199群は文脈を保持"
+      ]
+    },
+    "en": {
+      "kicker": "11/07 REVIEW",
+      "title": "Separate database changes from victim counts.",
+      "lede": "Fixed November 5 16:08 to November 7 13:36 JST window.",
+      "points": [
+        "NVD: 1,064 published and 6,328 modified; all published records overlap",
+        "GHSA: 854 published — 20 reviewed, 787 unreviewed, 47 malware",
+        "214 topics: 15 added; 199 retain their earlier context"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-07-1336/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-07T04:36:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1107-kaniko",
+    "stamp": "11.07 · 13:36 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "DOCKERFILE",
+        "AZURE TOKEN",
+        "LOOKALIKE HOST"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/07 REVIEW",
+      "title": "kaniko：push前でもtokenが漏れる。",
+      "lede": "信頼できないDockerfileと、利用可能なAzure identityが条件。",
+      "points": [
+        "RUN・push・ACR利用は不要。資格情報交換だけでは発行済みtokenを失効しない",
+        "1.25.20以降からexecutor・warmer・helperを再ビルド",
+        "Entra・Azureログ、identity権限と参照可能だった秘密を調査"
+      ]
+    },
+    "en": {
+      "kicker": "11/07 REVIEW",
+      "title": "kaniko: tokens can leak before a push.",
+      "lede": "Requires untrusted Dockerfiles and an available Azure identity.",
+      "points": [
+        "No RUN, push or ACR use required. Credential rotation does not revoke issued tokens",
+        "Rebuild executor, warmer and helper from 1.25.20 or later",
+        "Investigate Entra and Azure logs, identity roles and accessible secrets"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-5q7h-w9jf-cx97",
+        "url": "https://github.com/advisories/GHSA-5q7h-w9jf-cx97"
+      }
+    ],
+    "reviewCutoff": "2026-11-07T04:36:00Z"
+  },
+  {
+    "id": "motion-1107-lxd",
+    "stamp": "11.07 · 13:36 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "IMAGE / SNAPSHOT",
+        "PROJECT CHECK",
+        "HOST / VOLUME"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/07 REVIEW",
+      "title": "LXD：取込・copy・guestの境界。",
+      "lede": "11勧告を、snapshot・認可・image・backup・SSRFの5論点に整理。",
+      "points": [
+        "snapshot復元とimage取込の権限、copy元の閲覧権限を点検",
+        "DevLXDの同一project内guest分離とproject間copyは別の問題",
+        "Go pseudo-versionを配布版やIncusの版へ読み替えない"
+      ]
+    },
+    "en": {
+      "kicker": "11/07 REVIEW",
+      "title": "LXD: import, copy and guest boundaries.",
+      "lede": "11 advisories organized into 5 topics: snapshots, authorization, images, backups and SSRF.",
+      "points": [
+        "Review snapshot restore, image import and permission to view copy sources",
+        "DevLXD guest isolation within a project differs from cross-project copying",
+        "Do not convert Go pseudo-versions into distribution or Incus releases"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-47w9-6r3f-938g",
+        "url": "https://github.com/advisories/GHSA-47w9-6r3f-938g"
+      },
+      {
+        "name": "GHSA-7mr3-28h5-m5vx",
+        "url": "https://github.com/advisories/GHSA-7mr3-28h5-m5vx"
+      },
+      {
+        "name": "GHSA-qx75-2p3r-pwm5",
+        "url": "https://github.com/advisories/GHSA-qx75-2p3r-pwm5"
+      },
+      {
+        "name": "GHSA-hhf9-qw4v-72xp",
+        "url": "https://github.com/advisories/GHSA-hhf9-qw4v-72xp"
+      },
+      {
+        "name": "GHSA-pjff-c2wc-f6jm",
+        "url": "https://github.com/advisories/GHSA-pjff-c2wc-f6jm"
+      },
+      {
+        "name": "GHSA-vghh-5rfx-xhq8",
+        "url": "https://github.com/advisories/GHSA-vghh-5rfx-xhq8"
+      },
+      {
+        "name": "GHSA-jpf8-86f3-wp38",
+        "url": "https://github.com/advisories/GHSA-jpf8-86f3-wp38"
+      },
+      {
+        "name": "GHSA-9j25-mm2h-2f76",
+        "url": "https://github.com/advisories/GHSA-9j25-mm2h-2f76"
+      },
+      {
+        "name": "GHSA-j93m-3j9p-m5m8",
+        "url": "https://github.com/advisories/GHSA-j93m-3j9p-m5m8"
+      },
+      {
+        "name": "GHSA-fmc8-p6q7-75cc",
+        "url": "https://github.com/advisories/GHSA-fmc8-p6q7-75cc"
+      },
+      {
+        "name": "GHSA-3gq2-x4qg-p4g6",
+        "url": "https://github.com/advisories/GHSA-3gq2-x4qg-p4g6"
+      }
+    ],
+    "reviewCutoff": "2026-11-07T04:36:00Z"
+  },
+  {
+    "id": "motion-1107-tools",
+    "stamp": "11.07 · 13:36 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "PROMPT / SECRET",
+        "TOOL RESOLUTION",
+        "PROCESS / POD"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/07 REVIEW",
+      "title": "promptとkubeconfigを、実行権限にしない。",
+      "lede": "BanksのTool.import_pathとOSACのexec pluginは別経路。",
+      "points": [
+        "Banksは攻撃者が影響できるpromptとtool callが条件。2.4.3へ更新しallowlistを確認",
+        "OSACは対象Secretの書込権限とremote/auto modeが条件。0.0.4の修正を配置で確認",
+        "Jinja sandboxだけでは不十分。pod内の実行をhost rootと混同しない"
+      ]
+    },
+    "en": {
+      "kicker": "11/07 REVIEW",
+      "title": "Do not turn prompts or kubeconfigs into execution authority.",
+      "lede": "Banks Tool.import_path and OSAC exec plugins are separate paths.",
+      "points": [
+        "Banks requires attacker-influenced prompts and tool calls. Update to 2.4.3 and verify allowlists",
+        "OSAC requires target Secret writes and remote/auto mode. Verify deployment of the 0.0.4 fix",
+        "A Jinja sandbox alone is insufficient. Pod execution does not establish host root"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-64vx-6h2c-rjh7",
+        "url": "https://github.com/advisories/GHSA-64vx-6h2c-rjh7"
+      },
+      {
+        "name": "GHSA-5w5g-j6hw-6p8f",
+        "url": "https://github.com/advisories/GHSA-5w5g-j6hw-6p8f"
+      }
+    ],
+    "reviewCutoff": "2026-11-07T04:36:00Z"
+  },
+  {
+    "id": "motion-1107-kev",
+    "stamp": "11.07 · 13:36 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "VALID CREDENTIAL",
+        "ALTERNATE AUTH",
+        "SAML / MFA"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/07 REVIEW",
+      "title": "SonicWall：有効な別認証の資格情報が条件。",
+      "lede": "KEVは11月6日にCVE-2026-19868を追加。",
+      "points": [
+        "SonicOS SSLVPNの代替認証からSAML制御・MFAを回避し得るという記載",
+        "公式PSIRTはJavaScript shellのみ。今回の取得から最低修正版は未確認",
+        "KEVのdueDateは11月20日。全組織共通の法的期限ではない"
+      ]
+    },
+    "en": {
+      "kicker": "11/07 REVIEW",
+      "title": "SonicWall: valid alternate credentials are required.",
+      "lede": "KEV added CVE-2026-19868 on November 6.",
+      "points": [
+        "SonicOS SSLVPN alternate authentication may bypass SAML controls and MFA",
+        "Official PSIRT retrieval was only a JavaScript shell; no minimum fix verified from that body",
+        "KEV dueDate: November 20; not a legal deadline shared by every organization"
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA KEV JSON",
+        "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-07T04:36:00Z"
+  },
+  {
+    "id": "motion-1107-packages",
+    "stamp": "11.07 · 13:36 JST",
+    "visual": {
+      "type": "reviewPackages"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/07 REVIEW",
+      "title": "47勧告を、導入・実行履歴と照合。",
+      "lede": "不正packageの削除と、漏れた鍵の失効を分ける。",
+      "points": [
+        "npm 39勧告・pip 8勧告。被害件数ではない",
+        "lockfile・CI・起動履歴を確認し、該当環境を隔離",
+        "クリーンな環境で鍵を失効・再発行し、ログ調査と再構築"
+      ]
+    },
+    "en": {
+      "kicker": "11/07 REVIEW",
+      "title": "Match 47 advisories to installation and execution history.",
+      "lede": "Package removal and revocation of exposed secrets are separate actions.",
+      "points": [
+        "39 npm and 8 pip advisories; these are not victim counts",
+        "Review lockfiles, CI and execution history; isolate affected environments",
+        "Revoke and reissue secrets from a clean environment, investigate and rebuild"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-q8jp-gq6p-hwpx",
+        "url": "https://github.com/advisories/GHSA-q8jp-gq6p-hwpx"
+      },
+      {
+        "name": "GHSA-mqqf-4p32-jgph",
+        "url": "https://github.com/advisories/GHSA-mqqf-4p32-jgph"
+      },
+      {
+        "name": "GHSA-6r42-frvg-f73q",
+        "url": "https://github.com/advisories/GHSA-6r42-frvg-f73q"
+      },
+      {
+        "name": "GHSA-j6x3-5wfw-v23f",
+        "url": "https://github.com/advisories/GHSA-j6x3-5wfw-v23f"
+      },
+      {
+        "name": "GHSA-96vr-mq8q-pxcc",
+        "url": "https://github.com/advisories/GHSA-96vr-mq8q-pxcc"
+      },
+      {
+        "name": "GHSA-rxx3-78r3-w9qw",
+        "url": "https://github.com/advisories/GHSA-rxx3-78r3-w9qw"
+      },
+      {
+        "name": "GHSA-3h2m-23f2-wjcx",
+        "url": "https://github.com/advisories/GHSA-3h2m-23f2-wjcx"
+      },
+      {
+        "name": "GHSA-chcp-mhw3-w5hq",
+        "url": "https://github.com/advisories/GHSA-chcp-mhw3-w5hq"
+      },
+      {
+        "name": "GHSA-xmwx-vmwg-j2pp",
+        "url": "https://github.com/advisories/GHSA-xmwx-vmwg-j2pp"
+      },
+      {
+        "name": "GHSA-3r7f-mx9r-h22h",
+        "url": "https://github.com/advisories/GHSA-3r7f-mx9r-h22h"
+      },
+      {
+        "name": "GHSA-pc8x-j8xp-chwx",
+        "url": "https://github.com/advisories/GHSA-pc8x-j8xp-chwx"
+      },
+      {
+        "name": "GHSA-w94v-q73c-48mf",
+        "url": "https://github.com/advisories/GHSA-w94v-q73c-48mf"
+      },
+      {
+        "name": "GHSA-8qcq-2278-9c4c",
+        "url": "https://github.com/advisories/GHSA-8qcq-2278-9c4c"
+      },
+      {
+        "name": "GHSA-v24v-jw84-cp3h",
+        "url": "https://github.com/advisories/GHSA-v24v-jw84-cp3h"
+      },
+      {
+        "name": "GHSA-8592-4qmq-q59w",
+        "url": "https://github.com/advisories/GHSA-8592-4qmq-q59w"
+      },
+      {
+        "name": "GHSA-h4v8-6rq8-9pg3",
+        "url": "https://github.com/advisories/GHSA-h4v8-6rq8-9pg3"
+      },
+      {
+        "name": "GHSA-79c7-wq2p-hx6p",
+        "url": "https://github.com/advisories/GHSA-79c7-wq2p-hx6p"
+      },
+      {
+        "name": "GHSA-fpx9-gqqh-c483",
+        "url": "https://github.com/advisories/GHSA-fpx9-gqqh-c483"
+      },
+      {
+        "name": "GHSA-qcjv-pgw5-h2f5",
+        "url": "https://github.com/advisories/GHSA-qcjv-pgw5-h2f5"
+      },
+      {
+        "name": "GHSA-h4xm-rc72-8jph",
+        "url": "https://github.com/advisories/GHSA-h4xm-rc72-8jph"
+      },
+      {
+        "name": "GHSA-pwrj-3qm6-97g6",
+        "url": "https://github.com/advisories/GHSA-pwrj-3qm6-97g6"
+      },
+      {
+        "name": "GHSA-ch75-7hv2-w5hw",
+        "url": "https://github.com/advisories/GHSA-ch75-7hv2-w5hw"
+      },
+      {
+        "name": "GHSA-f64g-9rx5-4jxf",
+        "url": "https://github.com/advisories/GHSA-f64g-9rx5-4jxf"
+      },
+      {
+        "name": "GHSA-jxh5-v495-r962",
+        "url": "https://github.com/advisories/GHSA-jxh5-v495-r962"
+      },
+      {
+        "name": "GHSA-g42p-gwv6-w549",
+        "url": "https://github.com/advisories/GHSA-g42p-gwv6-w549"
+      },
+      {
+        "name": "GHSA-9fv3-7f93-gcqh",
+        "url": "https://github.com/advisories/GHSA-9fv3-7f93-gcqh"
+      },
+      {
+        "name": "GHSA-9j99-fw58-88hg",
+        "url": "https://github.com/advisories/GHSA-9j99-fw58-88hg"
+      },
+      {
+        "name": "GHSA-h8q9-4jrq-9vfq",
+        "url": "https://github.com/advisories/GHSA-h8q9-4jrq-9vfq"
+      },
+      {
+        "name": "GHSA-gv3w-r6c7-9p4m",
+        "url": "https://github.com/advisories/GHSA-gv3w-r6c7-9p4m"
+      },
+      {
+        "name": "GHSA-wmf5-rghr-gxcf",
+        "url": "https://github.com/advisories/GHSA-wmf5-rghr-gxcf"
+      },
+      {
+        "name": "GHSA-2g7c-j9mq-h3xp",
+        "url": "https://github.com/advisories/GHSA-2g7c-j9mq-h3xp"
+      },
+      {
+        "name": "GHSA-w25j-c6g4-mhwq",
+        "url": "https://github.com/advisories/GHSA-w25j-c6g4-mhwq"
+      },
+      {
+        "name": "GHSA-w2fv-53fr-6qwg",
+        "url": "https://github.com/advisories/GHSA-w2fv-53fr-6qwg"
+      },
+      {
+        "name": "GHSA-3x5r-f82m-84w9",
+        "url": "https://github.com/advisories/GHSA-3x5r-f82m-84w9"
+      },
+      {
+        "name": "GHSA-28wv-5h54-vmjx",
+        "url": "https://github.com/advisories/GHSA-28wv-5h54-vmjx"
+      },
+      {
+        "name": "GHSA-fwf6-6x3c-6g3h",
+        "url": "https://github.com/advisories/GHSA-fwf6-6x3c-6g3h"
+      },
+      {
+        "name": "GHSA-jfvg-hq3f-9865",
+        "url": "https://github.com/advisories/GHSA-jfvg-hq3f-9865"
+      },
+      {
+        "name": "GHSA-fq5g-5qrm-crjh",
+        "url": "https://github.com/advisories/GHSA-fq5g-5qrm-crjh"
+      },
+      {
+        "name": "GHSA-w7xp-2vj9-g24m",
+        "url": "https://github.com/advisories/GHSA-w7xp-2vj9-g24m"
+      },
+      {
+        "name": "GHSA-r2x4-9cgv-hpxj",
+        "url": "https://github.com/advisories/GHSA-r2x4-9cgv-hpxj"
+      },
+      {
+        "name": "GHSA-xmqc-r2gw-32q8",
+        "url": "https://github.com/advisories/GHSA-xmqc-r2gw-32q8"
+      },
+      {
+        "name": "GHSA-ppff-fr7x-wg5c",
+        "url": "https://github.com/advisories/GHSA-ppff-fr7x-wg5c"
+      },
+      {
+        "name": "GHSA-4jvw-4gcg-35jg",
+        "url": "https://github.com/advisories/GHSA-4jvw-4gcg-35jg"
+      },
+      {
+        "name": "GHSA-v3cx-96jw-mv99",
+        "url": "https://github.com/advisories/GHSA-v3cx-96jw-mv99"
+      },
+      {
+        "name": "GHSA-w2mh-fxh2-j425",
+        "url": "https://github.com/advisories/GHSA-w2mh-fxh2-j425"
+      },
+      {
+        "name": "GHSA-v98v-h2h9-7j3h",
+        "url": "https://github.com/advisories/GHSA-v98v-h2h9-7j3h"
+      },
+      {
+        "name": "GHSA-jcpx-v43r-522m",
+        "url": "https://github.com/advisories/GHSA-jcpx-v43r-522m"
+      }
+    ],
+    "reviewCutoff": "2026-11-07T04:36:00Z"
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-07T04:36:00Z", "label": "2026-11-07 13:36 JST", "report": "/update-20261107-1336"};
+for (const lang of ['ja', 'en']) {
+  const en = lang === 'en';
+  window.CONTENT.scenes.find(s => s.id === 'intro')[lang].points[1] =
+    '<a href="' + window.CONTENT.review.report + (en ? '.en' : '') + '">11/07 13:36 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#87">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/timeline' + (en ? '.en' : '') + '">' + (en ? 'Read by date' : '日付から読む') + ' →</a>';
+  window.CONTENT.ui[lang].coverSub = en
+    ? '92 dated scenes, including 6 new scenes through November 7, 13:36 JST. Historical scenes retain their original context.'
+    : '全92画面を日付順に。11/07 13:36 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 86,
-    "total": 86
+    "translated": 92,
+    "total": 92
   },
   "ja": {
     "ready": true,
-    "translated": 86,
-    "total": 86
+    "translated": 92,
+    "total": 92
   }
 };

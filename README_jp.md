@@ -1,5 +1,7 @@
 # Infosec Briefing — 独立調査とオープンソース
 
+**データベース更新 — 2026-11-07 13:36 JST：** [最新レポート](https://www.infosec-briefing.net/update-20261107-1336) · [214論点の台帳](data/2026-11-07-1336/incident-register.json) · [調査](docs/research-2026-11-07-1336.md)。kaniko・LXD・Banks等の20勧告、不正パッケージ47勧告、SonicWallのKEV追加を15論点に整理。モーション6画面追加。過去199論点・実影響20事例は前回文脈を保持。DB件数は事件数ではありません。
+
 **データベース更新 — 2026-11-05 16:08 JST：** [最新記事](https://www.infosec-briefing.net/update-20261105-1608) · [199論点の台帳](data/2026-11-05-1608/incident-register.json) · [調査資料](docs/research-2026-11-05-1608.md)。17論点を追加。Keycloak・Stanza・Elo・Arc等の勧告、不正パッケージ206勧告、KEV追加2件を整理し、モーション6画面を追加。過去182論点と20影響記録は前回の文脈を保持。登録件数を被害件数として合算しません。
 
 [公開サイト](https://www.infosec-briefing.net/) · [English](README.md) · [研究とオープンソース](https://www.infosec-briefing.net/about#research-open-source) · [MITライセンス](LICENSE)
