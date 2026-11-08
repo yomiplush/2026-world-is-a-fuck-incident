@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-11-07-1336",
-  "register_sha256": "9f3e9432fb4c490ff02532112cdf3101504f2735ba131377157d39e2bf11042f",
+  "snapshot": "2026-11-08-1113",
+  "register_sha256": "a95a203cca5469b42093cf7b94f40e15ea5e18007025fd506f01f60a5a6ac78f",
   "status": "reviewed",
-  "reviewed_at": "2026-11-07T04:36:00Z",
-  "source_register": "2026-11-07-1336/incident-register.json",
+  "reviewed_at": "2026-11-08T02:13:00Z",
+  "source_register": "2026-11-08-1113/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -2703,6 +2703,95 @@
       },
       "sources": [
         "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "ibm-apic-auth-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7295635",
+        "https://www.ibm.com/support/pages/node/7295637"
+      ]
+    },
+    "ibm-apic-execution-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7295635",
+        "https://www.ibm.com/support/pages/node/7295637"
+      ]
+    },
+    "keycloak-client-policy-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-120984.json"
+      ]
+    },
+    "fiber-admin-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://wpscan.com/vulnerability/42b9773d-9c69-4435-be20-ae86f52b4608/"
+      ]
+    },
+    "latepoint-reset-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-07T04%3A36%3A00.000&pubEndDate=2026-11-08T02%3A13%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "woocommerce-registration-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-07T04%3A36%3A00.000&pubEndDate=2026-11-08T02%3A13%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "npm-malware-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-xf64-9h92-4jxq"
+      ]
+    },
+    "pip-malware-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-3qwc-2vj2-6vc8",
+        "https://github.com/advisories/GHSA-c8hx-79hf-pwfm",
+        "https://github.com/advisories/GHSA-h276-9v4j-fwr7",
+        "https://github.com/advisories/GHSA-43g4-m7g8-p53p",
+        "https://github.com/advisories/GHSA-4h5h-42vv-83c5",
+        "https://github.com/advisories/GHSA-5h9m-426q-pqq2",
+        "https://github.com/advisories/GHSA-x5mc-3hph-2r64",
+        "https://github.com/advisories/GHSA-hgx4-jxgh-hjpf"
       ]
     }
   }

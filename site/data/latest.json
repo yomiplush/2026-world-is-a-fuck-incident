@@ -1,31 +1,32 @@
 {
-  "cutoff": "2026-11-07T04:36:00Z",
-  "cutoff_jst": "2026-11-07T13:36:00+09:00",
+  "cutoff": "2026-11-08T02:13:00Z",
+  "cutoff_jst": "2026-11-08T11:13:00+09:00",
   "counts": {
-    "nvd_published": 1064,
-    "nvd_modified": 6328,
-    "published_modified_overlap": 1064,
-    "ghsa": 854,
-    "ghsa_unreviewed": 787,
-    "ghsa_reviewed": 20,
-    "ghsa_malware": 47,
-    "ghsa_modified": 1469,
-    "ghsa_published_modified_overlap": 854,
-    "ghsa_current_published_overlap": 789,
-    "ghsa_previous_published_overlap": 0,
-    "record_topic_groups": 214,
-    "delta_topic_groups": 15,
-    "scope_complement_topic_groups": 198,
+    "nvd_published": 440,
+    "nvd_modified": 1018,
+    "published_modified_overlap": 440,
+    "ghsa": 457,
+    "ghsa_unreviewed": 448,
+    "ghsa_reviewed": 0,
+    "ghsa_malware": 9,
+    "ghsa_modified": 509,
+    "ghsa_published_modified_overlap": 457,
+    "ghsa_current_published_overlap": 440,
+    "ghsa_previous_published_overlap": 8,
+    "record_topic_groups": 222,
+    "delta_topic_groups": 8,
+    "scope_complement_topic_groups": 213,
     "reference_only_topic_groups": 1,
-    "verified_response_records": 164,
-    "deduplicated_previous_references": 22
+    "verified_response_records": 76,
+    "deduplicated_previous_references": 35
   },
   "caveats": [
-    "基準は2026-11-07 13:36:00 JST。前回2026-11-05 16:08:00 JSTからの固定窓。収集開始は基準の4秒前で、API照会は基準後。取得時点の現行改訂を保存し、過去の全版を復元しない。",
+    "基準は2026-11-08 11:13:00 JST。前回2026-11-07 13:36:00 JSTからの固定窓。収集開始は基準の1秒前。API照会は基準後で、取得時点の現行改訂を保存し、過去の全版を復元しない。",
     "前回の論点とIDを保持。前回資料の文脈を保持した本文は今回の全面再精査をしていない。",
     "公開・改訂・CVE・GHSA・package・被害人数を合算しない。未評価のNVD記録も取得し、unreviewedを確認済み被害に自動変換しない。",
     "取得失敗、空のJavaScript画面、アクセス制限は成功した本文に含めない。世界全体の完全網羅や未掲載事案の不存在は主張しない。",
-    "研究者の観測、被害組織の確認、悪用確認、復旧予定と完了を区別する。未知の損害額・対象版・人数を推計しない。"
+    "研究者の観測、被害組織の確認、悪用確認、復旧予定と完了を区別する。未知の損害額・対象版・人数を推計しない。",
+    "Wordfenceの2ページはHTTP成功でも空本文。Red Hat public_dateとNVD登録日の不一致を保持。修正版や公表時刻を空欄から推測しない。"
   ],
   "records": [
     {
@@ -25740,11 +25741,11 @@
       "title": "kaniko：ビルド時のAzureトークンを偽装レジストリへ送信",
       "body": "信頼できないDockerfileやbuild引数をAzure identityが利用可能な環境で処理すると、ACRに似たホスト名への要求でARM access tokenが漏れる。RUNやpushは不要で、ACR未使用でも条件が成立する。修正は1.25.20だが、このリポジトリはバイナリ・イメージを配布しない。元のacr-env moduleには修正版がない。",
       "action": "executor・warmer・credential helperを1.25.20以降のソースから再ビルドする。疑わしいビルド期間のEntra・Azureログと権限を確認する。資格情報の交換だけでは発行済みトークンを失効できないため、有効期限までの悪用と、参照可能だった秘密の漏えいも調査する。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-105769"
@@ -25782,11 +25783,11 @@
       "title": "LXD：snapshot復元によるrestricted project制限の回避",
       "body": "持ち込まれたsnapshotがlowlevel hook制限を回避し、ホスト権限でのコマンド実行につながると勧告が報告。snapshotの転送・復元権限が前提で、公開APIが直ちに未認証RCEになるという意味ではない。本文はIncusの報告を引用するが、下表はLXDのGo module境界である。",
       "action": "snapshotの持込・転送・復元権限を棚卸しし、公式勧告の該当系列を更新する。Go pseudo-versionをLXDの配布版やIncusの版番号へ機械的に読み替えない。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [],
       "sources": [
@@ -25822,11 +25823,11 @@
       "title": "LXD：copy元の認可とDevLXDのvolume所有権",
       "body": "instance・custom volumeのproject間copyで、copy先の権限確認だけではcopy元の閲覧権限を保証しない。別のDevLXD問題は同一projectでvolume管理が有効なguestから他guestのvolumeを読書きできるという報告。project間copyと同一project内のguest分離は別の境界である。",
       "action": "copy権限・元projectの可視性・DevLXD volume管理設定を確認する。不要なguest管理権限を制限し、異常なcopy・device変更と秘密へのアクセスを調べる。各勧告のmodule境界を保持し、単一の版番号へ丸めない。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-12411"
@@ -25910,11 +25911,11 @@
       "title": "LXD：信頼できないimageとホストのファイル境界",
       "body": "image hash headerの検証順序、rootfs・templates・exec-outputのsymlinkを介したホストファイルアクセスを4勧告が扱う。攻撃者が影響できるimageやimage serverの取込と、その後の操作が条件。ファイル書込と可能なコマンド実行を区別し、すべて同じ修正境界とは扱わない。",
       "action": "imageの取得元を制限し、import・instance file API・exec出力の利用権限を点検する。各勧告の修正を適用し、疑わしいimageを使用したhostを調査する。hash検証失敗だけを、書込が起きなかった証拠にしない。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [],
       "sources": [
@@ -26019,11 +26020,11 @@
       "title": "LXD：backup取込の停止と圧縮引数の検証",
       "body": "認証済みでstorage volume作成権限を持つ利用者が、不完全なsnapshot expiryを含むbackupでdaemonを停止できるという報告。別勧告はbackup圧縮方式の追加引数によるホスト書込・可能なコード実行。既存のnil検査修正だけで隣接fieldまで修復済みとは判断しない。",
       "action": "backup importとexportの権限・入力を制限し、下表の別々の修正境界を確認する。daemon再起動を恒久修正とはせず、ホスト書込の可能性も別に調査する。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-9639"
@@ -26084,11 +26085,11 @@
       "title": "LXD：image URL取込からの内部ネットワーク探索",
       "body": "can_create_imagesを持つ認証済み利用者が、URL取込でdaemonのネットワーク位置から内部HTTPサービスへ要求できる。勧告の確認範囲はエラーからのport推測などであり、response本文の取得はhash検証で阻まれる。内部データの完全流出を確認したという説明ではない。",
       "action": "image作成権限とdaemonのegress・metadata到達性を制限し、公式修正を適用する。ネットワーク探索と本文持出しを区別してログを調査する。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-28385"
@@ -26126,11 +26127,11 @@
       "title": "GeoNode：metadata・upload・layer名に別々の修正境界",
       "body": "document abstractのstored XSSとupload検証回避は5.0.3が修正版。一方、細工したvector fileのlayer名によるOS command injectionは5.1.0が境界である。5.0.3を全勧告共通の修正版としない。実際の認証・upload権限は利用環境で確認する。",
       "action": "使っている機能と稼働版を照合し、該当する修正を含む系列へ更新する。upload履歴・metadata変更・不審な子processを調査し、信頼できないfileの処理権限を制限する。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-33050",
@@ -26216,11 +26217,11 @@
       "title": "listmonk：export経路だけに欠けたtable認可",
       "body": "subscribers:sql_queryとsubscribers:get_allを持つ認証済み利用者によるexport経路のSQL injection。通常query側のtable制限がexportに欠け、password hash・SMTP資格情報等へのアクセスが報告される。勧告はread-only外のCTE書込にも言及。未認証の一般公開SQL injectionとは扱わない。",
       "action": "該当権限を制限し、公式修正を含むbuildへ更新する。表のGo pseudo-versionをそのまま製品release番号としない。export・DB変更と資格情報へのアクセスを調査する。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-62361"
@@ -26258,11 +26259,11 @@
       "title": "OSAC：kubeconfigのexec pluginがproxy内で実行",
       "body": "remoteまたはauto VM cluster modeで、proxyが読めるnamespaceの対象label付きSecretを作成・変更できるprincipalが条件。kubeconfig exec pluginがconsole-proxy podの権限で実行され、server URLにはSSRFの経路もある。local mode専用配置は非該当。修正版は0.0.4と記載されるが、本文は提供releaseの確認も求める。",
       "action": "該当namespaceのSecret書込権限を制限し、配置したimageが修正を含むことを確認する。pod内実行をhost rootと読み替えず、service accountの権限・到達先・Secret変更履歴を調査する。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-62284"
@@ -26300,11 +26301,11 @@
       "title": "hawkBit：認証済みdeviceによる同一tenant内firmware取得",
       "body": "1.0.3以前のDDIで、認証済みdeviceが割当外のfirmware artifactを同一tenant内で取得できる。認証回避やtenant間越境の確認ではない。metadata listingが対象探索を補助する。APIの修正版は1.0.4。",
       "action": "1.0.4以降の該当修正へ更新し、device credential・artifact download・tenant内の割当を確認する。firmware内に秘密を埋め込まず、配布済みartifactのアクセスも調査する。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-16454"
@@ -26342,11 +26343,11 @@
       "title": "filecoin-pin：DAG pinningに資源上限がない",
       "body": "1.1.0以前でcaller指定CIDのDAG全体を上限なく取得し、disk・network・CPU等を消費する。通常は認証済みcallerが必要だが、ALLOW_NO_AUTH=trueなら未認証経路も成立する。APIの修正版は1.1.1。",
       "action": "1.1.1以降の修正を適用し、pin request・disk・同時処理・timeoutの制限と監視を確認する。公開配置の認証設定を確認し、有効なCIDであることだけを安全性の条件としない。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-62300"
@@ -26384,11 +26385,11 @@
       "title": "Banks：template sandboxの外に残るTool.import_path",
       "body": "攻撃者が影響できるprompt bodyからTool JSONを読み、LLMが対応するtool callを出すと、任意のPython callableをhosting processで実行できる。2.4.2のJinja sandbox修正とは別経路。APIは2.4.2以前を対象、2.4.3を修正版とする。本文の未修正時点の説明と現在のpackage metadataを区別する。",
       "action": "2.4.3以降へ更新し、起動時に登録したtoolのallowlistのみで解決することを確認する。prompt registry・共有fileの書込権限を制限し、既存のJinja sandboxだけで防げると判断しない。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-61536"
@@ -26426,11 +26427,11 @@
       "title": "npm：不正パッケージ39勧告",
       "body": "公開窓でnpmのmalware勧告39件を確認。下表のpackage名・対象版・修正版未記載を原APIのまま保持する。勧告数は被害件数や実行端末数ではない。",
       "action": "導入・起動・CI履歴とlockfileを照合する。該当環境を隔離し、クリーンな環境から鍵を失効・再発行する。削除だけで解決とせず、ログ調査と再構築を行う。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [],
       "sources": [
@@ -27349,11 +27350,11 @@
       "title": "pip：不正パッケージ8勧告",
       "body": "公開窓でpipのmalware勧告8件を確認。下表のpackage名・対象版・修正版未記載を原APIのまま保持する。勧告数は被害件数や実行端末数ではない。",
       "action": "導入・起動・CI履歴とlockfileを照合する。該当環境を隔離し、クリーンな環境から鍵を失効・再発行する。削除だけで解決とせず、ログ調査と再構築を行う。",
-      "kind": "delta",
-      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window",
+      "kind": "scope-complement",
+      "time": "2026-11-05T07:08:00Z – 2026-11-07T04:36:00Z / GHSA publication window / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-07",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [],
       "sources": [
@@ -27577,11 +27578,11 @@
       "title": "KEV：SonicOS SSLVPNのSAML・MFA回避を追加",
       "body": "11月6日のKEV追加はCVE-2026-19868。代替認証方式の有効な資格情報を持つ利用者がSAML認証制御、場合によってはSAML側のMFAも回避できるという記載。認証情報なしの一般的なMFA破りではない。公式PSIRTの取得結果はJavaScript shellのみで、今回その本文から最低修正版は確認できていない。",
       "action": "SonicWallの公式勧告で対象機種・設定・修正版を確認し、SSLVPNの代替認証と公開範囲を点検する。KEVのdueDateは2026-11-20であり、すべての組織に共通の法的期限とはしない。ログ調査と資格情報の見直しを継続する。",
-      "kind": "delta",
-      "time": "2026-11-06 / CISA KEV dateAdded",
+      "kind": "scope-complement",
+      "time": "2026-11-06 / CISA KEV dateAdded / 前回資料の文脈・今回の本文再精査は未実施",
       "date": "2026-11-06",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-07T04:36:00Z",
       "cve_ids": [
         "CVE-2026-19868"
@@ -27590,6 +27591,546 @@
         {
           "name": "CISA KEV JSON",
           "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ]
+    },
+    {
+      "id": "ibm-apic-auth-1108",
+      "title": "IBM API Connect：認証と固定資格情報の境界",
+      "body": "別利用者のaccess token取得と固定資格情報による管理権限取得を扱う。CVE-2026-16720とCVE-2026-17403は10.0.8.0〜10.0.8.12、12.1.0.0〜12.1.1.2が対象。CVE-2026-17360は12.1.0.0〜12.1.1.2。IBMの初回公表日は11月5日で、今回の11月7日のNVD登録を攻撃開始日とはしない。",
+      "action": "対象系列を10.0.8.13または12.1.1.3へ更新する。公開範囲、directory連携と不審なtoken発行・管理操作を調査し、更新と既存資格情報の評価を別々に行う。今回の資料から個別環境の侵害有無は確定しない。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / NVD publication window",
+      "date": "2026-11-08",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [
+        "CVE-2026-16720",
+        "CVE-2026-17360",
+        "CVE-2026-17403"
+      ],
+      "sources": [
+        {
+          "name": "IBM API Connect V12 bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7295635"
+        },
+        {
+          "name": "IBM API Connect V10 bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7295637"
+        }
+      ]
+    },
+    {
+      "id": "ibm-apic-execution-1108",
+      "title": "IBM API Connect：未認証のコード実行と系列別修正",
+      "body": "CVE-2026-17340は12.1.0.0〜12.1.1.2のpath traversalからのコード実行、CVE-2026-17408は10.0.8.0〜10.0.8.12と12.1.0.0〜12.1.1.2のOS command処理を扱う。IBMのCVSSはともに9.8。認証済み利用者だけを前提とする別CVEと混ぜない。今回選んだCVEは勧告全体の全件一覧ではない。",
+      "action": "10.0.8.13または12.1.1.3を適用し、gateway・管理系の到達性、子process、ファイル変更と監査ログを確認する。修正版を配置した事実だけで過去の不正実行がなかったとは判断しない。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / NVD publication window",
+      "date": "2026-11-08",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [
+        "CVE-2026-17340",
+        "CVE-2026-17408"
+      ],
+      "sources": [
+        {
+          "name": "IBM API Connect V12 bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7295635"
+        },
+        {
+          "name": "IBM API Connect V10 bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7295637"
+        }
+      ]
+    },
+    {
+      "id": "keycloak-client-policy-1108",
+      "title": "Keycloak：client管理権限からJavaScript policy実行",
+      "body": "authorization servicesを有効にしたclientの作成・import時のsession状態が、inline JavaScript policyのupload制限を回避させる。認証済みで委任されたclient管理権限が必要。Red HatはCVSS 9.1とImportantを併記し、対象packageをAffectedと記載するが修正版は示さない。public_dateは2026-01-07で、今回のNVD登録日と一致しない。",
+      "action": "manage-clients相当の委任権限、client importとpolicy変更履歴を確認する。Red Hatの製品別更新情報で修正提供を追跡し、修正版を推測しない。defaultのscript制限だけで当該経路を防げるとは判断しない。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / NVD publication window",
+      "date": "2026-11-08",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [
+        "CVE-2026-120984"
+      ],
+      "sources": [
+        {
+          "name": "Red Hat CVE JSON",
+          "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-120984.json"
+        }
+      ]
+    },
+    {
+      "id": "fiber-admin-1108",
+      "title": "Fiber Admin：error page設定と競合が必要なRCE",
+      "body": "4.0.1未満で、custom database error pageが有効な場合に、管理者の設定保存と競合してrequest headerがPHP fileへ書かれる。未認証で到達できるが、error pageと競合の条件を省略しない。WPScanは4.0.1を修正版、11月5日を初回公表日とする。",
+      "action": "4.0.1以降の修正へ更新し、custom database error page設定と生成PHP fileの改変を確認する。機能の無効化を正式な更新完了と同一視せず、設定保存時刻とアクセスログも調査する。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / NVD publication window",
+      "date": "2026-11-08",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [
+        "CVE-2026-121491"
+      ],
+      "sources": [
+        {
+          "name": "WPScan / CNA",
+          "url": "https://wpscan.com/vulnerability/42b9773d-9c69-4435-be20-ae86f52b4608/"
+        }
+      ]
+    },
+    {
+      "id": "latepoint-reset-1108",
+      "title": "LatePoint：password reset tokenとSQL条件の混同",
+      "body": "NVDのCNA本文は5.7.6以前の予約pluginで、password resetの値がSQL条件として扱われる問題を記載する。顧客accountの乗っ取りと予約・個人情報へのアクセス、設定次第で連携WordPress accountへの影響がある。5.7.5のscalar検査だけでは解決しない。WordfenceのページはHTTP成功でも空本文で、修正版の本文確認はできなかった。",
+      "action": "LatePointの公式更新とCNAの修正案内を確認し、実際に稼働する修正を検証する。今回確認した本文から最低修正版を断定しない。password reset、顧客account変更、予約情報へのアクセスを調査する。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / NVD publication window",
+      "date": "2026-11-08",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [
+        "CVE-2026-118066"
+      ],
+      "sources": [
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-07T04%3A36%3A00.000&pubEndDate=2026-11-08T02%3A13%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ]
+    },
+    {
+      "id": "woocommerce-registration-1108",
+      "title": "WooCommerce Registration Form：checkout側のrole認可",
+      "body": "NVDのCNA本文は1.1.4以前でcheckout登録時のrole allowlistが欠け、未認証利用者が管理者へ昇格できると記載する。My Account側の検査はcheckout側の安全を保証しない。1.1.5へのchangeset参照はあるが、Wordfenceの空本文だけから提供版を確認済みとはしない。",
+      "action": "checkoutでaccount作成を許す設定とpluginの更新案内を確認し、修正を含む稼働版を検証する。管理者accountの作成・role変更履歴を調査し、不要な高権限accountとsessionを失効する。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / NVD publication window",
+      "date": "2026-11-08",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [
+        "CVE-2026-119075"
+      ],
+      "sources": [
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-07T04%3A36%3A00.000&pubEndDate=2026-11-08T02%3A13%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ]
+    },
+    {
+      "id": "npm-malware-1108",
+      "title": "npm：不正パッケージ1勧告",
+      "body": "公開窓のnpm malware勧告1件を原APIのpackage名・対象版のまま保持する。修正版は未記載であり、安全な置換版を推測しない。勧告数は被害端末数ではない。",
+      "action": "lockfile、導入・起動・CI履歴を照合する。該当環境を隔離し、クリーンな環境から鍵を失効・再発行する。package削除と侵害調査・再構築を分ける。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / GHSA publication window",
+      "date": "2026-11-08",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [],
+      "sources": [
+        {
+          "name": "GHSA-xf64-9h92-4jxq",
+          "url": "https://github.com/advisories/GHSA-xf64-9h92-4jxq"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-xf64-9h92-4jxq",
+          "url": "https://github.com/advisories/GHSA-xf64-9h92-4jxq",
+          "summary": "Malware in dsh-notify-focus",
+          "published_at": "2026-11-07T08:25:08Z",
+          "updated_at": "2026-11-07T08:28:54Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dsh-notify-focus"
+              },
+              "vulnerable_version_range": "= 0.7.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dsh-notify-focus"
+              },
+              "vulnerable_version_range": "= 0.5.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "dsh-notify-focus"
+              },
+              "vulnerable_version_range": "= 0.7.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pip-malware-1108",
+      "title": "pip：不正パッケージ8勧告",
+      "body": "公開窓のpip malware勧告8件を原APIのpackage名・対象版のまま保持する。修正版は未記載であり、安全な置換版を推測しない。勧告数は被害端末数ではない。",
+      "action": "lockfile、導入・起動・CI履歴を照合する。該当環境を隔離し、クリーンな環境から鍵を失効・再発行する。package削除と侵害調査・再構築を分ける。",
+      "kind": "delta",
+      "time": "2026-11-07T04:36:00Z – 2026-11-08T02:13:00Z / GHSA publication window",
+      "date": "2026-11-08",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-08T02:13:00Z",
+      "cve_ids": [],
+      "sources": [
+        {
+          "name": "GHSA-3qwc-2vj2-6vc8",
+          "url": "https://github.com/advisories/GHSA-3qwc-2vj2-6vc8"
+        },
+        {
+          "name": "GHSA-c8hx-79hf-pwfm",
+          "url": "https://github.com/advisories/GHSA-c8hx-79hf-pwfm"
+        },
+        {
+          "name": "GHSA-h276-9v4j-fwr7",
+          "url": "https://github.com/advisories/GHSA-h276-9v4j-fwr7"
+        },
+        {
+          "name": "GHSA-43g4-m7g8-p53p",
+          "url": "https://github.com/advisories/GHSA-43g4-m7g8-p53p"
+        },
+        {
+          "name": "GHSA-4h5h-42vv-83c5",
+          "url": "https://github.com/advisories/GHSA-4h5h-42vv-83c5"
+        },
+        {
+          "name": "GHSA-5h9m-426q-pqq2",
+          "url": "https://github.com/advisories/GHSA-5h9m-426q-pqq2"
+        },
+        {
+          "name": "GHSA-x5mc-3hph-2r64",
+          "url": "https://github.com/advisories/GHSA-x5mc-3hph-2r64"
+        },
+        {
+          "name": "GHSA-hgx4-jxgh-hjpf",
+          "url": "https://github.com/advisories/GHSA-hgx4-jxgh-hjpf"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-3qwc-2vj2-6vc8",
+          "url": "https://github.com/advisories/GHSA-3qwc-2vj2-6vc8",
+          "summary": "Malicious code in gcp-log-poc (PyPI)",
+          "published_at": "2026-11-07T21:31:12Z",
+          "updated_at": "2026-11-07T21:31:13Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gcp-log-poc"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gcp-log-poc"
+              },
+              "vulnerable_version_range": "= 0.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gcp-log-poc"
+              },
+              "vulnerable_version_range": "= 0.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-c8hx-79hf-pwfm",
+          "url": "https://github.com/advisories/GHSA-c8hx-79hf-pwfm",
+          "summary": "Malicious code in qzc690384 (PyPI)",
+          "published_at": "2026-11-07T15:30:26Z",
+          "updated_at": "2026-11-07T21:31:12Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690384"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-h276-9v4j-fwr7",
+          "url": "https://github.com/advisories/GHSA-h276-9v4j-fwr7",
+          "summary": "Malicious code in qzc690385 (PyPI)",
+          "published_at": "2026-11-07T12:31:46Z",
+          "updated_at": "2026-11-07T21:32:15Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.6",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.7",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.8",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.0.9",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.1.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.1.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.1.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690385"
+              },
+              "vulnerable_version_range": "= 1.1.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-43g4-m7g8-p53p",
+          "url": "https://github.com/advisories/GHSA-43g4-m7g8-p53p",
+          "summary": "Malicious code in qzc690383 (PyPI)",
+          "published_at": "2026-11-07T12:31:46Z",
+          "updated_at": "2026-11-07T15:30:26Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690383"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-4h5h-42vv-83c5",
+          "url": "https://github.com/advisories/GHSA-4h5h-42vv-83c5",
+          "summary": "Malicious code in qzc690382 (PyPI)",
+          "published_at": "2026-11-07T12:31:46Z",
+          "updated_at": "2026-11-07T15:30:27Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "qzc690382"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-5h9m-426q-pqq2",
+          "url": "https://github.com/advisories/GHSA-5h9m-426q-pqq2",
+          "summary": "Malicious code in genblaze-fal (PyPI)",
+          "published_at": "2026-11-07T09:30:24Z",
+          "updated_at": "2026-11-07T09:30:24Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "genblaze-fal"
+              },
+              "vulnerable_version_range": "= 0.1.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-x5mc-3hph-2r64",
+          "url": "https://github.com/advisories/GHSA-x5mc-3hph-2r64",
+          "summary": "Malicious code in pulumi-doppler (PyPI)",
+          "published_at": "2026-11-07T09:30:24Z",
+          "updated_at": "2026-11-07T09:30:24Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "pulumi-doppler"
+              },
+              "vulnerable_version_range": "= 0.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "pulumi-doppler"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-hgx4-jxgh-hjpf",
+          "url": "https://github.com/advisories/GHSA-hgx4-jxgh-hjpf",
+          "summary": "Malicious code in genblaze-atlascloud (PyPI)",
+          "published_at": "2026-11-07T09:30:24Z",
+          "updated_at": "2026-11-07T09:30:24Z",
+          "type": "malware",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "genblaze-atlascloud"
+              },
+              "vulnerable_version_range": "= 0.1.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
         }
       ]
     }
@@ -30293,8 +30834,97 @@
       "sources": [
         "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
       ]
+    },
+    "ibm-apic-auth-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7295635",
+        "https://www.ibm.com/support/pages/node/7295637"
+      ]
+    },
+    "ibm-apic-execution-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7295635",
+        "https://www.ibm.com/support/pages/node/7295637"
+      ]
+    },
+    "keycloak-client-policy-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-120984.json"
+      ]
+    },
+    "fiber-admin-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://wpscan.com/vulnerability/42b9773d-9c69-4435-be20-ae86f52b4608/"
+      ]
+    },
+    "latepoint-reset-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-07T04%3A36%3A00.000&pubEndDate=2026-11-08T02%3A13%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "woocommerce-registration-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-07T04%3A36%3A00.000&pubEndDate=2026-11-08T02%3A13%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "npm-malware-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-xf64-9h92-4jxq"
+      ]
+    },
+    "pip-malware-1108": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-3qwc-2vj2-6vc8",
+        "https://github.com/advisories/GHSA-c8hx-79hf-pwfm",
+        "https://github.com/advisories/GHSA-h276-9v4j-fwr7",
+        "https://github.com/advisories/GHSA-43g4-m7g8-p53p",
+        "https://github.com/advisories/GHSA-4h5h-42vv-83c5",
+        "https://github.com/advisories/GHSA-5h9m-426q-pqq2",
+        "https://github.com/advisories/GHSA-x5mc-3hph-2r64",
+        "https://github.com/advisories/GHSA-hgx4-jxgh-hjpf"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-07-1336/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-08-1113/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

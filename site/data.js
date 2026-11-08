@@ -4928,16 +4928,302 @@ for (const lang of ['ja', 'en']) {
     : '全92画面を日付順に。11/07 13:36 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
 }
 
+/* November 8: source-attributed explanatory motion chapter. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1108-scope",
+    "stamp": "11.08 · 11:13 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/08 REVIEW",
+      "title": "DB登録日と公表日を分ける。",
+      "lede": "11月7日13:36〜11月8日11:13 JSTの固定窓。",
+      "points": [
+        "NVD新規440件・改訂1,018件。新規は全件重複",
+        "GHSA公開457件：reviewed 0・unreviewed 448・malware 9",
+        "222論点：今回8群を追加。KEV追加0件。事件数ではない"
+      ]
+    },
+    "en": {
+      "kicker": "11/08 REVIEW",
+      "title": "Separate registration from disclosure.",
+      "lede": "Fixed November 7 13:36 to November 8 11:13 JST window.",
+      "points": [
+        "NVD: 440 published, 1,018 modified; all published records overlap",
+        "GHSA: 457 published — 0 reviewed, 448 unreviewed, 9 malware",
+        "222 topics: 8 added; 0 KEV additions. These are not incident counts"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-08-1113/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T02:13:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1108-apic",
+    "stamp": "11.08 · 11:13 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "DIRECTORY / INPUT",
+        "TOKEN / EXECUTION",
+        "TENANT / HOST"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/08 REVIEW",
+      "title": "API Connect：認証と実行を点検。",
+      "lede": "IBM初回公表は11月5日。今回のNVD登録とは別。",
+      "points": [
+        "対象系列を10.0.8.13／12.1.1.3へ更新",
+        "固定資格情報、他利用者token、未認証実行は別のCVE",
+        "公開範囲・token発行・管理操作と不審processを調査"
+      ]
+    },
+    "en": {
+      "kicker": "11/08 REVIEW",
+      "title": "API Connect: inspect authentication and execution.",
+      "lede": "IBM initially published on November 5, before this NVD registration.",
+      "points": [
+        "Update the applicable line to 10.0.8.13 / 12.1.1.3",
+        "Hard-coded credentials, other-user tokens and execution are distinct CVEs",
+        "Review exposure, token issuance, administrative actions and processes"
+      ]
+    },
+    "sources": [
+      {
+        "name": "IBM API Connect V12 bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7295635"
+      },
+      {
+        "name": "IBM API Connect V10 bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7295637"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T02:13:00Z"
+  },
+  {
+    "id": "motion-1108-keycloak",
+    "stamp": "11.08 · 11:13 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "MANAGE CLIENTS",
+        "POLICY IMPORT",
+        "SERVER PROCESS"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/08 REVIEW",
+      "title": "Keycloak：委任された管理権限が条件。",
+      "lede": "client作成・import後のpolicy評価でJavaScriptが実行。",
+      "points": [
+        "未認証の一般的RCEとは説明しない",
+        "Red HatはImportant・CVSS 9.1。取得JSONに修正版なし",
+        "client管理権限とpolicy変更履歴を確認し、公式修正を追跡"
+      ]
+    },
+    "en": {
+      "kicker": "11/08 REVIEW",
+      "title": "Keycloak: delegated management roles are required.",
+      "lede": "Policy evaluation executes JavaScript after client creation or import.",
+      "points": [
+        "This is not a general unauthenticated RCE",
+        "Red Hat: Important and CVSS 9.1; no fixed release in retrieved JSON",
+        "Review client-management permissions and policy changes; track official fixes"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Red Hat CVE JSON",
+        "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-120984.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T02:13:00Z"
+  },
+  {
+    "id": "motion-1108-fiber",
+    "stamp": "11.08 · 11:13 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "ERROR PAGE ON",
+        "SETTINGS RACE",
+        "GENERATED PHP"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/08 REVIEW",
+      "title": "Fiber Admin：設定と競合を省略しない。",
+      "lede": "未認証でも、error page有効化と設定保存との競合が必要。",
+      "points": [
+        "4.0.1未満が対象。WPScanは4.0.1を修正版と記載",
+        "request headerが生成PHPへ書かれる経路",
+        "更新後も生成fileと設定保存・アクセス履歴を調査"
+      ]
+    },
+    "en": {
+      "kicker": "11/08 REVIEW",
+      "title": "Fiber Admin: configuration and a race matter.",
+      "lede": "No login is needed, but an enabled error page and a settings-save race are required.",
+      "points": [
+        "Affected before 4.0.1; WPScan lists 4.0.1 as fixed",
+        "Request headers reach generated PHP files",
+        "After updating, inspect files, settings-save times and access history"
+      ]
+    },
+    "sources": [
+      {
+        "name": "WPScan / CNA",
+        "url": "https://wpscan.com/vulnerability/42b9773d-9c69-4435-be20-ae86f52b4608/"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T02:13:00Z"
+  },
+  {
+    "id": "motion-1108-wordpress",
+    "stamp": "11.08 · 11:13 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "RESET / CHECKOUT",
+        "MISSING CHECK",
+        "ACCOUNT / ROLE"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/08 REVIEW",
+      "title": "resetとcheckoutの認可を分ける。",
+      "lede": "LatePointとRegistration Formは異なる経路。",
+      "points": [
+        "LatePoint 5.7.6以前：reset値とSQL条件の混同",
+        "Registration Form 1.1.4以前：checkoutのrole allowlist欠落",
+        "Wordfenceは空本文。提供修正版を推測せず、公式案内と稼働版を確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/08 REVIEW",
+      "title": "Separate reset and checkout authorization.",
+      "lede": "LatePoint and Registration Form follow different paths.",
+      "points": [
+        "LatePoint through 5.7.6: reset values become SQL conditions",
+        "Registration Form through 1.1.4: missing checkout role allowlist",
+        "Wordfence bodies were empty. Verify official fixes and running builds without guessing"
+      ]
+    },
+    "sources": [
+      {
+        "name": "NVD saved CNA records",
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-07T04%3A36%3A00.000&pubEndDate=2026-11-08T02%3A13%3A00.000&resultsPerPage=2000&startIndex=0"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T02:13:00Z"
+  },
+  {
+    "id": "motion-1108-packages",
+    "stamp": "11.08 · 11:13 JST",
+    "visual": {
+      "type": "reviewPackages"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/08 REVIEW",
+      "title": "9勧告を、導入・実行履歴へ照合。",
+      "lede": "npm 1勧告・pip 8勧告。修正版は未記載。",
+      "points": [
+        "package名と対象版をlockfile・CI履歴で確認",
+        "隔離、クリーンな環境で鍵の失効・再発行",
+        "削除、侵害調査、再構築を別々に確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/08 REVIEW",
+      "title": "Match 9 advisories to installation and execution history.",
+      "lede": "1 npm and 8 pip advisories; fixed releases are unspecified.",
+      "points": [
+        "Match package names and affected ranges to lockfiles and CI history",
+        "Isolate, then revoke and reissue secrets from a clean environment",
+        "Verify removal, investigation and rebuilding separately"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-xf64-9h92-4jxq",
+        "url": "https://github.com/advisories/GHSA-xf64-9h92-4jxq"
+      },
+      {
+        "name": "GHSA-3qwc-2vj2-6vc8",
+        "url": "https://github.com/advisories/GHSA-3qwc-2vj2-6vc8"
+      },
+      {
+        "name": "GHSA-c8hx-79hf-pwfm",
+        "url": "https://github.com/advisories/GHSA-c8hx-79hf-pwfm"
+      },
+      {
+        "name": "GHSA-h276-9v4j-fwr7",
+        "url": "https://github.com/advisories/GHSA-h276-9v4j-fwr7"
+      },
+      {
+        "name": "GHSA-43g4-m7g8-p53p",
+        "url": "https://github.com/advisories/GHSA-43g4-m7g8-p53p"
+      },
+      {
+        "name": "GHSA-4h5h-42vv-83c5",
+        "url": "https://github.com/advisories/GHSA-4h5h-42vv-83c5"
+      },
+      {
+        "name": "GHSA-5h9m-426q-pqq2",
+        "url": "https://github.com/advisories/GHSA-5h9m-426q-pqq2"
+      },
+      {
+        "name": "GHSA-x5mc-3hph-2r64",
+        "url": "https://github.com/advisories/GHSA-x5mc-3hph-2r64"
+      },
+      {
+        "name": "GHSA-hgx4-jxgh-hjpf",
+        "url": "https://github.com/advisories/GHSA-hgx4-jxgh-hjpf"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T02:13:00Z"
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-08T02:13:00Z", "label": "2026-11-08 11:13 JST", "report": "/update-20261108-1113"};
+for (const lang of ['ja', 'en']) {
+  const en = lang === 'en';
+  window.CONTENT.scenes.find(s => s.id === 'intro')[lang].points[1] =
+    '<a href="' + window.CONTENT.review.report + (en ? '.en' : '') + '">11/08 11:13 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#93">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/timeline' + (en ? '.en' : '') + '">' + (en ? 'Read by date' : '日付から読む') + ' →</a>';
+  window.CONTENT.ui[lang].coverSub = en
+    ? '98 dated scenes, including 6 new scenes through November 8, 11:13 JST. Historical scenes retain their original context.'
+    : '全98画面を日付順に。11/08 11:13 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 92,
-    "total": 92
+    "translated": 98,
+    "total": 98
   },
   "ja": {
     "ready": true,
-    "translated": 92,
-    "total": 92
+    "translated": 98,
+    "total": 98
   }
 };

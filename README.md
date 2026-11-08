@@ -1,5 +1,7 @@
 # Infosec Briefing — independent research and open source
 
+**Database review — 2026-11-08 11:13 JST:** [Latest report](https://www.infosec-briefing.net/update-20261108-1113.en) · [222-topic register](data/2026-11-08-1113/incident-register.json) · [Research](docs/research-2026-11-08-1113.en.md). 8 new groups cover selected API Connect, Keycloak and WordPress records and 9 malware advisories. Six new motion scenes. Prior 214 topics and 20 impact records retain historical context; no KEV additions. Database counts are not incident counts.
+
 **Database review — 2026-11-07 13:36 JST:** [Latest report](https://www.infosec-briefing.net/update-20261107-1336.en) · [214-topic register](data/2026-11-07-1336/incident-register.json) · [Research](docs/research-2026-11-07-1336.en.md). 15 new groups cover 20 reviewed advisories, 47 malware advisories and the SonicWall KEV addition. Six new motion scenes; 199 prior topics and 20 impact records retain historical context. Database counts are not incident counts.
 
 **Database review — 2026-11-05 16:08 JST:** [Latest report](https://www.infosec-briefing.net/update-20261105-1608.en) · [199-topic register](data/2026-11-05-1608/incident-register.json) · [Research](docs/research-2026-11-05-1608.en.md). 17 newly covered groups: Keycloak, Stanza, Elo, Arc and other advisories; 206 malware advisories and 2 KEV additions. Six new motion scenes. Prior 182 topics and 20 impact records retain their earlier context. Database counts are not incident counts.
