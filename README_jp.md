@@ -1,5 +1,7 @@
 # Infosec Briefing — 独立調査とオープンソース
 
+**データベース更新 — 2026-11-09 00:53 JST：** [最新レポート](https://www.infosec-briefing.net/update-20261109-0053) · [231論点の台帳](data/2026-11-09-0053/incident-register.json) · [調査](docs/research-2026-11-09-0053.md)。OpenAM・OpenEMR・Kyverno・Craft CMS・imgproxy・Hickory DNSと不正パッケージ16勧告を9論点に整理。モーション6画面追加。過去222論点・実影響20事例は前回文脈を保持。KEV追加0件。DB件数は事件数ではありません。
+
 **データベース更新 — 2026-11-08 11:13 JST：** [最新レポート](https://www.infosec-briefing.net/update-20261108-1113) · [222論点の台帳](data/2026-11-08-1113/incident-register.json) · [調査](docs/research-2026-11-08-1113.md)。API Connect・Keycloak・WordPressと不正パッケージ9勧告を8論点に整理。モーション6画面追加。過去214論点・実影響20事例は前回文脈を保持。KEV追加0件。DB件数は事件数ではありません。
 
 **データベース更新 — 2026-11-07 13:36 JST：** [最新レポート](https://www.infosec-briefing.net/update-20261107-1336) · [214論点の台帳](data/2026-11-07-1336/incident-register.json) · [調査](docs/research-2026-11-07-1336.md)。kaniko・LXD・Banks等の20勧告、不正パッケージ47勧告、SonicWallのKEV追加を15論点に整理。モーション6画面追加。過去199論点・実影響20事例は前回文脈を保持。DB件数は事件数ではありません。

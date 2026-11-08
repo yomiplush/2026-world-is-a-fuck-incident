@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshot": "2026-11-08-1113",
-  "register_sha256": "a95a203cca5469b42093cf7b94f40e15ea5e18007025fd506f01f60a5a6ac78f",
-  "reviewed_at": "2026-11-08T02:13:00Z",
+  "snapshot": "2026-11-09-0053",
+  "register_sha256": "7966f0e46891b28ced2585e2fa216c8844e5e0ea236c82d5c1b1533f1529793c",
+  "reviewed_at": "2026-11-08T15:53:00Z",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -2790,6 +2790,124 @@
         "https://github.com/advisories/GHSA-5h9m-426q-pqq2",
         "https://github.com/advisories/GHSA-x5mc-3hph-2r64",
         "https://github.com/advisories/GHSA-hgx4-jxgh-hjpf"
+      ]
+    },
+    "openam-auth-session-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-5c3q-hp86-xjr8",
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-3j2f-qhrc-rjfj",
+        "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-jv8f-m88g-h6mm",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T02%3A13%3A00.000&pubEndDate=2026-11-08T15%3A53%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "openemr-clinical-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/openemr/openemr/security/advisories/GHSA-cg8c-2v5q-29g7",
+        "https://github.com/openemr/openemr/security/advisories/GHSA-wf4w-mx2w-j4vv",
+        "https://github.com/openemr/openemr/security/advisories/GHSA-xg3m-9pfq-c8r6",
+        "https://github.com/openemr/openemr/security/advisories/GHSA-p4v7-crwp-qq7q",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T02%3A13%3A00.000&pubEndDate=2026-11-08T15%3A53%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "kyverno-namespace-clamp-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/kyverno/kyverno/security/advisories/GHSA-39w8-hv5g-f73w",
+        "https://github.com/kyverno/kyverno/security/advisories/GHSA-vjfx-fp68-rh4v",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T02%3A13%3A00.000&pubEndDate=2026-11-08T15%3A53%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "craftcms-graphql-signing-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/craftcms/cms/security/advisories/GHSA-xpg7-m6gm-4xfh",
+        "https://github.com/craftcms/cms/security/advisories/GHSA-qj3q-j7r4-428p",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T02%3A13%3A00.000&pubEndDate=2026-11-08T15%3A53%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "imgproxy-ico-loader-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/imgproxy/imgproxy/security/advisories/GHSA-hff9-5pqw-6w9f",
+        "https://github.com/imgproxy/imgproxy/security/advisories/GHSA-494m-4556-wf5p",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T02%3A13%3A00.000&pubEndDate=2026-11-08T15%3A53%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "hickory-dns-dnssec-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/hickory-dns/hickory-dns/security/advisories/GHSA-qw83-5pm2-ggp5",
+        "https://github.com/hickory-dns/hickory-dns/security/advisories/GHSA-2vgh-3wfw-qj7c",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T02%3A13%3A00.000&pubEndDate=2026-11-08T15%3A53%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "npm-malware-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-r6cf-96rv-f56v"
+      ]
+    },
+    "rubygems-malware-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-cjv6-h9qm-8rh2",
+        "https://github.com/advisories/GHSA-cp9w-g6w9-gq4r",
+        "https://github.com/advisories/GHSA-37p4-q3w5-83pw",
+        "https://github.com/advisories/GHSA-g75m-rp8v-87w3"
+      ]
+    },
+    "pip-malware-1109": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-c9jc-238p-3h46",
+        "https://github.com/advisories/GHSA-38w4-mg4v-26q2",
+        "https://github.com/advisories/GHSA-fh9h-99qg-6xm4",
+        "https://github.com/advisories/GHSA-cj88-j9xh-9cwj",
+        "https://github.com/advisories/GHSA-q9wx-v688-22hj",
+        "https://github.com/advisories/GHSA-95c3-v4h5-2pg5",
+        "https://github.com/advisories/GHSA-6j7m-w72r-qp6x",
+        "https://github.com/advisories/GHSA-rvcx-2w35-f7xf",
+        "https://github.com/advisories/GHSA-q95f-rr76-j36f",
+        "https://github.com/advisories/GHSA-j4qg-f3r8-33f3",
+        "https://github.com/advisories/GHSA-hqrq-q4mq-qwpp"
       ]
     }
   }

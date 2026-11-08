@@ -5214,16 +5214,326 @@ for (const lang of ['ja', 'en']) {
     : '全98画面を日付順に。11/08 11:13 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
 }
 
+/* November 9: source-attributed explanatory motion chapter. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1109-scope",
+    "stamp": "11.09 · 00:53 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 REVIEW",
+      "title": "NVD登録日と段階的修正版を分ける。",
+      "lede": "11月8日11:13〜11月9日00:53 JSTの固定窓。",
+      "points": [
+        "NVD新規226件・改訂304件。新規は全件重複",
+        "GHSA公開242件：reviewed 0・unreviewed 226・malware 16",
+        "231論点：今回9群を追加。KEV追加0件。事件数ではない"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 REVIEW",
+      "title": "Separate NVD registration from staged fixes.",
+      "lede": "Fixed November 8 11:13 to November 9 00:53 JST window.",
+      "points": [
+        "NVD: 226 published, 304 modified; all published records overlap",
+        "GHSA: 242 published — 0 reviewed, 226 unreviewed, 16 malware",
+        "231 topics: 9 added; 0 KEV additions. These are not incident counts"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-09-0053/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T15:53:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1109-openam",
+    "stamp": "11.09 · 00:53 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "ID-FF FORWARD",
+        "WEBSOCKET TOKEN",
+        "ADMIN SESSION"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 REVIEW",
+      "title": "OpenAM：WebSocket露出とSAML・自己登録。",
+      "lede": "GitHub初回公表は10月22日。16.1.4が修正版。",
+      "points": [
+        "14.0.0〜16.1.3で内部転送から通知WebSocketのlive token露出",
+        "WantAssertionsSigned無効時の未署名SAMLと自己登録の属性設定",
+        "16.1.4更新と既存session・不正accountの失効・監査を分離"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 REVIEW",
+      "title": "OpenAM: WebSocket tokens, SAML and registration.",
+      "lede": "GitHub advisories published October 22; fixed in 16.1.4.",
+      "points": [
+        "14.0.0–16.1.3 exposes live tokens on the notification WebSocket",
+        "Unsigned SAML assertions when disabled and self-registration attributes",
+        "Separate updating to 16.1.4 from revoking sessions and auditing accounts"
+      ]
+    },
+    "sources": [
+      {
+        "name": "OpenAM GHSA-5c3q-hp86-xjr8",
+        "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-5c3q-hp86-xjr8"
+      },
+      {
+        "name": "OpenAM GHSA-3j2f-qhrc-rjfj",
+        "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-3j2f-qhrc-rjfj"
+      },
+      {
+        "name": "OpenAM GHSA-jv8f-m88g-h6mm",
+        "url": "https://github.com/OpenIdentityPlatform/OpenAM/security/advisories/GHSA-jv8f-m88g-h6mm"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T15:53:00Z"
+  },
+  {
+    "id": "motion-1109-openemr",
+    "stamp": "11.09 · 00:53 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "8.3.0 FIXES",
+        "8.4.0 FIXES",
+        "CLINICAL DATA"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 REVIEW",
+      "title": "OpenEMR：8.3.0と8.4.0の修正境界。",
+      "lede": "8.3.0への更新だけでは8.4.0修正分は残る。",
+      "points": [
+        "Fee Sheet SQLiとdisposeDocument任意file操作は8.3.0で修正",
+        "OneTimeAuth token再利用とESign LFI連鎖RCEは8.4.0で修正",
+        "8.4.0以降を確認し、fax/sms・ESign設定とportal履歴を調査"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 REVIEW",
+      "title": "OpenEMR: 8.3.0 vs. 8.4.0 fix boundaries.",
+      "lede": "Updating only to 8.3.0 leaves 8.4.0 issues unpatched.",
+      "points": [
+        "Fee Sheet SQLi and disposeDocument file access are fixed in 8.3.0",
+        "OneTimeAuth token replay and ESign LFI RCE are fixed in 8.4.0",
+        "Verify 8.4.0+ and inspect fax/sms, ESign and portal token logs"
+      ]
+    },
+    "sources": [
+      {
+        "name": "OpenEMR GHSA-cg8c-2v5q-29g7",
+        "url": "https://github.com/openemr/openemr/security/advisories/GHSA-cg8c-2v5q-29g7"
+      },
+      {
+        "name": "OpenEMR GHSA-xg3m-9pfq-c8r6",
+        "url": "https://github.com/openemr/openemr/security/advisories/GHSA-xg3m-9pfq-c8r6"
+      },
+      {
+        "name": "OpenEMR GHSA-p4v7-crwp-qq7q",
+        "url": "https://github.com/openemr/openemr/security/advisories/GHSA-p4v7-crwp-qq7q"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T15:53:00Z"
+  },
+  {
+    "id": "motion-1109-kyverno",
+    "stamp": "11.09 · 00:53 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "TENANT POLICY",
+        "CLAMP / GENERATE",
+        "CLUSTER ADMIN"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 REVIEW",
+      "title": "KyvernoとCraft CMS：委任権限と公開範囲。",
+      "lede": "namespace内のPolicy権限やGraphQL公開条件を確認。",
+      "points": [
+        "Kyverno 1.19.2未満：apiCallと変数化generateでnamespace越境",
+        "Craft CMS 5.11.2未満：GraphQL越境参照とcontrol panel署名オラクル",
+        "委任Policy・RoleBinding履歴とGraphQL schema・要求ログを監査"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 REVIEW",
+      "title": "Kyverno and Craft CMS: delegated roles and scopes.",
+      "lede": "Check namespaced Policy rights and GraphQL exposure.",
+      "points": [
+        "Kyverno before 1.19.2: cross-namespace apiCall and variable generate",
+        "Craft CMS before 5.11.2: out-of-scope GraphQL reads and signing oracle",
+        "Audit delegated Policies, RoleBindings, GraphQL schemas and logs"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Kyverno GHSA-39w8-hv5g-f73w",
+        "url": "https://github.com/kyverno/kyverno/security/advisories/GHSA-39w8-hv5g-f73w"
+      },
+      {
+        "name": "Kyverno GHSA-vjfx-fp68-rh4v",
+        "url": "https://github.com/kyverno/kyverno/security/advisories/GHSA-vjfx-fp68-rh4v"
+      },
+      {
+        "name": "Craft CMS GHSA-xpg7-m6gm-4xfh",
+        "url": "https://github.com/craftcms/cms/security/advisories/GHSA-xpg7-m6gm-4xfh"
+      },
+      {
+        "name": "Craft CMS GHSA-qj3q-j7r4-428p",
+        "url": "https://github.com/craftcms/cms/security/advisories/GHSA-qj3q-j7r4-428p"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T15:53:00Z"
+  },
+  {
+    "id": "motion-1109-imgproxy-hickory",
+    "stamp": "11.09 · 00:53 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "PARTIAL / LEGACY",
+        "4.0.17 / 0.26.2",
+        "VERIFIED BUILD"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 REVIEW",
+      "title": "imgproxyとHickory DNS：部分修正と未提供。",
+      "lede": "imgproxy 4.0.16と旧hickory-protoの留保を明示。",
+      "points": [
+        "imgproxy：4.0.16修正後もBMP再構築の境界外書込が4.0.17まで残る",
+        "Hickory DNS：hickory-netは0.26.2で修正、旧hickory-protoは修正版なし",
+        "4.0.17以降およびhickory-net 0.26.2以降への移行を確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 REVIEW",
+      "title": "imgproxy and Hickory DNS: staged and unprovided fixes.",
+      "lede": "Note imgproxy 4.0.16 limits and unpatched legacy hickory-proto.",
+      "points": [
+        "imgproxy: BMP header out-of-bounds write remains until 4.0.17",
+        "Hickory DNS: hickory-net fixed in 0.26.2; legacy hickory-proto has None",
+        "Verify imgproxy 4.0.17+ and migration to hickory-net 0.26.2+"
+      ]
+    },
+    "sources": [
+      {
+        "name": "imgproxy GHSA-hff9-5pqw-6w9f",
+        "url": "https://github.com/imgproxy/imgproxy/security/advisories/GHSA-hff9-5pqw-6w9f"
+      },
+      {
+        "name": "imgproxy GHSA-494m-4556-wf5p",
+        "url": "https://github.com/imgproxy/imgproxy/security/advisories/GHSA-494m-4556-wf5p"
+      },
+      {
+        "name": "Hickory DNS GHSA-2vgh-3wfw-qj7c",
+        "url": "https://github.com/hickory-dns/hickory-dns/security/advisories/GHSA-2vgh-3wfw-qj7c"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T15:53:00Z"
+  },
+  {
+    "id": "motion-1109-packages",
+    "stamp": "11.09 · 00:53 JST",
+    "visual": {
+      "type": "BeforeAfter",
+      "left": {
+        "title": "ADVISORY",
+        "lines": [
+          "1 npm / 4 rubygems / 11 pip",
+          "affected ranges",
+          "no safe version"
+        ]
+      },
+      "right": {
+        "title": "RESPONSE",
+        "lines": [
+          "lockfile check",
+          "secret rotation",
+          "clean rebuild"
+        ]
+      }
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 REVIEW",
+      "title": "16勧告を、導入・実行履歴へ照合。",
+      "lede": "npm 1・rubygems 4・pip 11勧告。修正版は未記載。",
+      "points": [
+        "package名と対象版をlockfile・Gemfile.lock・CI履歴で確認",
+        "隔離、クリーンな環境で鍵の失効・再発行",
+        "削除、侵害調査、再構築を別々に確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 REVIEW",
+      "title": "Match 16 advisories to installation and execution history.",
+      "lede": "1 npm, 4 rubygems and 11 pip advisories; fixed releases are unspecified.",
+      "points": [
+        "Match package names and affected ranges to lockfiles and CI history",
+        "Isolate, then revoke and reissue secrets from a clean environment",
+        "Verify removal, investigation and rebuilding separately"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-r6cf-96rv-f56v",
+        "url": "https://github.com/advisories/GHSA-r6cf-96rv-f56v"
+      },
+      {
+        "name": "GHSA-cjv6-h9qm-8rh2",
+        "url": "https://github.com/advisories/GHSA-cjv6-h9qm-8rh2"
+      },
+      {
+        "name": "GHSA-c9jc-238p-3h46",
+        "url": "https://github.com/advisories/GHSA-c9jc-238p-3h46"
+      }
+    ],
+    "reviewCutoff": "2026-11-08T15:53:00Z"
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-08T15:53:00Z", "label": "2026-11-09 00:53 JST", "report": "/update-20261109-0053"};
+for (const lang of ['ja', 'en']) {
+  const en = lang === 'en';
+  window.CONTENT.scenes.find(s => s.id === 'intro')[lang].points[1] =
+    '<a href="' + window.CONTENT.review.report + (en ? '.en' : '') + '">11/09 00:53 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#99">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/timeline' + (en ? '.en' : '') + '">' + (en ? 'Read by date' : '日付から読む') + ' →</a>';
+  window.CONTENT.ui[lang].coverSub = en
+    ? '104 dated scenes, including 6 new scenes through November 9, 00:53 JST. Historical scenes retain their original context.'
+    : '全104画面を日付順に。11/09 00:53 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 98,
-    "total": 98
+    "translated": 104,
+    "total": 104
   },
   "ja": {
     "ready": true,
-    "translated": 98,
-    "total": 98
+    "translated": 104,
+    "total": 104
   }
 };
