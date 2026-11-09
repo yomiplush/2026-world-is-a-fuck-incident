@@ -11,7 +11,9 @@ test('HTML and generated entry refer to the same content-hashed production asset
  assert.ok(boot.includes(manifest.current.motion),'entry must load its matching motion bundle');
  assert.ok(!html.includes('src="./entry.js'),'uncompressed entry must not also execute');
  assert.equal((html.match(/<link rel="stylesheet"/g)||[]).length,1);
- assert.equal((html.match(/<script src=/g)||[]).length,2);
+ // Two hashed runtime assets plus the consent-gated AdSense loader.
+ assert.equal((html.match(/<script src=/g)||[]).length,3);
+ assert.ok(html.includes('src="/ads.js?v='),'entry must load the consent-gated AdSense loader');
  const motion=fs.readFileSync('site/'+manifest.current.motion,'utf8');
  assert.equal(/async\s+function\s/.test(motion),false,'motion must not require native async syntax');
 });

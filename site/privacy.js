@@ -1,4 +1,5 @@
-/* First-party preference consent. No network requests, cookies or analytics. */
+/* First-party preference consent. This script makes no network requests itself;
+   ads.js reads the stored choice and only then loads Google AdSense. */
 (function () {
   'use strict';
   const KEY = 'briefing-consent', LANGUAGE = 'briefing-lang';
@@ -27,20 +28,20 @@
   const japanese = (document.getElementById('app') ? entryLanguage : document.documentElement.lang).startsWith('ja');
   const copy = japanese ? {
     title: 'Cookieの利用について',
-    body: 'このサイトが独自に置く任意Cookieはありません。任意の保存は表示言語の記憶だけです。同意するまで保存せず、拒否してもすべての内容を閲覧できます。解析・広告用Cookieは導入していません。',
+    body: 'このサイトが独自に置く任意Cookieはありません。任意の保存は表示言語の記憶だけで、同意するとGoogle AdSenseによる広告も読み込みます。同意するまで広告は読み込まず、拒否してもすべての内容を閲覧できます。',
     required: '配信・防御に必要なCloudflareのCookieや通信情報は、この任意設定の対象外です。選択自体は180日間、このブラウザーに保存します。',
     reject: '拒否', accept: '同意',
     policy: 'プライバシーポリシー', settings: 'Cookie設定',
-    unknown: '任意の保存：未選択（無効）', yes: '言語の保存：同意済み', no: '任意の保存：拒否済み',
+    unknown: '任意の保存：未選択（無効）', yes: '言語の保存・広告：同意済み', no: '任意の保存・広告：拒否済み',
     saved: '選択を保存しました。Cookie設定からいつでも変更できます。',
     temporary: 'このブラウザーでは保存できません。選択はこのページを開いている間だけ適用されます。'
   } : {
     title: 'Cookie notice',
-    body: 'We set no optional cookies of our own. Optional storage only remembers your display language. It stays off until you agree. You can reject it and still read everything. We do not use analytics or advertising cookies.',
+    body: 'We set no optional cookies of our own. Optional storage remembers your display language, and agreeing also loads Google AdSense ads. Nothing is requested from Google until you agree, and you can reject it and still read everything.',
     required: 'Cloudflare delivery and security cookies and traffic processing are separate from this optional setting. Your choice is saved in this browser for 180 days.',
     reject: 'Reject', accept: 'Accept',
     policy: 'Privacy policy', settings: 'Cookie settings',
-    unknown: 'Optional storage: not chosen (off)', yes: 'Language storage: allowed', no: 'Optional storage: rejected',
+    unknown: 'Optional storage: not chosen (off)', yes: 'Language storage & ads: allowed', no: 'Optional storage & ads: rejected',
     saved: 'Choice saved. You can change it anytime in Cookie settings.',
     temporary: 'Browser storage is unavailable. This choice applies only while this page remains open.'
   };

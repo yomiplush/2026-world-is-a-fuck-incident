@@ -461,7 +461,14 @@ versions, client-decode conditions, support status and source uncertainty.
 CMP scripts or network calls. The persistent footer links to the notice and
 reopens equal-prominence accept/reject choices. Continued browsing is not consent.
 
-Only language persistence is optional; no analytics or advertising was added.
+Only language persistence is optional. Google AdSense is loaded by `ads.js`
+only after the visitor accepts, and withdrawn consent removes the loader and
+expires the Google ad cookies set on this domain; rejecting it sends nothing to
+Google. `site/ads.txt` pins the authorised seller. The CSP in `site/_headers`
+allows the Google ad hosts for that consent-gated loader and nothing else.
+The English companion of the policy page is generated from the Japanese page
+through `article_languages.publish`, so its strings live in
+`data/article-translations/en.json`.
 The existing `briefing-lang` value is now accessed through `PRIVACY`, which keeps
 it off before consent and removes legacy/withdrawn/expired values. The necessary
 `briefing-consent` record stores version, boolean choice and timestamps for 180

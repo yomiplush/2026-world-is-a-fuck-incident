@@ -2,10 +2,12 @@
 # the first one's headers entirely). No content hashing here, so everything is
 # revalidated: a new deploy must never pair new HTML with a cached old script
 # (that is what broke the language toggle in a normal Brave session).
+# The Google ad hosts below are reachable only because ads.js loads AdSense
+# after an explicit opt-in; site/ads.txt pins the authorised seller.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; media-src 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data: https://pagead2.googlesyndication.com https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; style-src 'self' 'unsafe-inline'; script-src 'self' https://pagead2.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://www.googletagservices.com https://adservice.google.com https://www.google.com https://www.gstatic.com https://ep1.adtrafficquality.google; connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://adservice.google.com https://ep1.adtrafficquality.google; media-src 'self'; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://pagead2.googlesyndication.com https://ep2.adtrafficquality.google; frame-ancestors 'none'
   Cache-Control: no-cache
