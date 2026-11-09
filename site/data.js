@@ -5524,16 +5524,314 @@ for (const lang of ['ja', 'en']) {
     : '全104画面を日付順に。11/09 00:53 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
 }
 
+/* November 9 09:00 JST: source-attributed explanatory motion chapter. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1109-0900-scope",
+    "stamp": "11.09 · 09:00 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "IF001境界と表記不整合を原資料で照合。",
+      "lede": "11月9日00:53〜11月9日09:00 JSTの固定窓。",
+      "points": [
+        "NVD新規94件・改訂265件。新規は全94件が改訂と重複",
+        "GHSA公開89件：reviewed 0・unreviewed 89・malware 0",
+        "237論点：今回6群を追加。KEV追加0件。事件数ではない"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "Check IF001 boundaries and table discrepancies.",
+      "lede": "Fixed November 9 00:53 to November 9 09:00 JST window.",
+      "points": [
+        "NVD: 94 published, 265 modified; all 94 published records overlap",
+        "GHSA: 89 published — 0 reviewed, 89 unreviewed, 0 malware",
+        "237 topics: 6 added; 0 KEV additions. These are not incident counts"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-09-0900/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-09T00:00:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1109-0900-concert",
+    "stamp": "11.09 · 09:00 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "CONCERT 3.1.0",
+        "DATASTAGE PATCH 8",
+        "HOST / FILE AUDIT"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "IBM Concert・DataStage：コマンド実行と経路横断。",
+      "lede": "IBM初回公表は10月29日と10月27日。認証条件を区別。",
+      "points": [
+        "Concert 1.0〜3.0.1.1：CVE-2026-6715・CVE-2026-15266でOSコマンド実行",
+        "DataStage 5.4.0.0：CVE-2026-107331等の経路横断・SSRF・ファイル操作",
+        "Concert 3.1.0とDataStage 5.4 patch 8を確認し実行・改変履歴を監査"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "IBM Concert and DataStage: command execution and traversal.",
+      "lede": "Bulletins published October 29 and October 27; separate auth conditions.",
+      "points": [
+        "Concert 1.0–3.0.1.1: OS command execution in CVE-2026-6715 and CVE-2026-15266",
+        "DataStage 5.4.0.0: path traversal, SSRF and file access in CVE-2026-107331",
+        "Verify Concert 3.1.0 and DataStage 5.4 patch 8; audit host and file logs"
+      ]
+    },
+    "sources": [
+      {
+        "name": "IBM Concert bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7294607"
+      },
+      {
+        "name": "IBM DataStage bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7294270"
+      }
+    ],
+    "reviewCutoff": "2026-11-09T00:00:00Z"
+  },
+  {
+    "id": "motion-1109-0900-process-mining",
+    "stamp": "11.09 · 09:00 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "2.2.1 AFFECTED",
+        "2.2.1 IF001 FIX",
+        "ON-PREM CASE"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "IBM Process Mining：2.2.1と2.2.1 IF001の境界。",
+      "lede": "2.2.1は影響版。On-PremはSupport case経由でIF001配信。",
+      "points": [
+        "2.0.0〜2.2.1で情報取得（CVE-2026-114464）やファイルupload等4件",
+        "修正版は2.2.1 IF001であり、2.2.1単体を修正済みと扱わない",
+        "OCP版とOn-Prem版（Support case申請）の適用手順・upload履歴を確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "IBM Process Mining: 2.2.1 vs. 2.2.1 IF001 boundary.",
+      "lede": "2.2.1 is affected; On-Prem requires a Support case for IF001.",
+      "points": [
+        "2.0.0–2.2.1 covers info disclosure (CVE-2026-114464) and file upload flaws",
+        "The fix is 2.2.1 IF001; do not treat base 2.2.1 as patched",
+        "Check OCP vs. On-Prem Support case delivery and file upload logs"
+      ]
+    },
+    "sources": [
+      {
+        "name": "IBM Process Mining bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7294875"
+      }
+    ],
+    "reviewCutoff": "2026-11-09T00:00:00Z"
+  },
+  {
+    "id": "motion-1109-0900-qiskit",
+    "stamp": "11.09 · 09:00 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "QPY / C API",
+        "v2.6.2 TABLE CONFLICT",
+        "SYMPY PATCH CHECK"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "Qiskit SDK：QPY逆直列化とv2.6.2表記の不整合。",
+      "lede": "CVE-2026-116499は影響版と修正版の双方にv2.6.2を記載。",
+      "points": [
+        "CVE-2026-116501・CVE-2026-116500はv2.4.0〜v2.6.1対象、v2.6.2修正",
+        "CVE-2026-116499（QPY v13未満のコード実行）はv1.4.2〜v2.6.2対象と表記矛盾",
+        "SymPy非使用化パッチの実適用を確認し、未信頼QPYをloadしない"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "Qiskit SDK: QPY deserialization and v2.6.2 table conflict.",
+      "lede": "CVE-2026-116499 lists v2.6.2 as both affected and fixed.",
+      "points": [
+        "CVE-2026-116501 and CVE-2026-116500 affect v2.4.0–v2.6.1, fixed in v2.6.2",
+        "CVE-2026-116499 (QPY <13 RCE) lists v1.4.2–v2.6.2 affected alongside v2.6.2 fix",
+        "Verify the SymPy-removal patch state and reject untrusted QPY payloads"
+      ]
+    },
+    "sources": [
+      {
+        "name": "IBM Qiskit CVE-2026-116499",
+        "url": "https://www.ibm.com/support/pages/node/7295238"
+      },
+      {
+        "name": "IBM Qiskit CVE-2026-116501",
+        "url": "https://www.ibm.com/support/pages/node/7295237"
+      },
+      {
+        "name": "IBM Qiskit CVE-2026-116500",
+        "url": "https://www.ibm.com/support/pages/node/7295235"
+      }
+    ],
+    "reviewCutoff": "2026-11-09T00:00:00Z"
+  },
+  {
+    "id": "motion-1109-0900-verify-webmethods",
+    "stamp": "11.09 · 09:00 JST",
+    "visual": {
+      "type": "chain",
+      "nodes": [
+        "SESSION / GET AUTH",
+        "2FA BACKUP CODE",
+        "FIX + LOG AUDIT"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "Verify Directory・webMethods：セッションと2FA境界。",
+      "lede": "修正版適用とGETログ・既存セッションの失効を分ける。",
+      "points": [
+        "Verify Directory：session固定化とGET認証露出をv10.0.4.4／v11.0.1.2で修正",
+        "webMethods 12.1：2FAとbackup code検証回避をIS_12.1_Core_Fix1で修正",
+        "ログ・履歴に残るGET認証情報や2FA通過セッションを監査・失効"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "Verify Directory and webMethods: session and 2FA checks.",
+      "lede": "Separate patching from revoking GET-logged credentials and sessions.",
+      "points": [
+        "Verify Directory: session fixation and GET auth fixed in v10.0.4.4 / v11.0.1.2",
+        "webMethods 12.1: 2FA and backup-code bypass fixed in IS_12.1_Core_Fix1",
+        "Audit and revoke credentials in GET logs and active 2FA sessions"
+      ]
+    },
+    "sources": [
+      {
+        "name": "IBM Verify Directory bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7293828"
+      },
+      {
+        "name": "IBM webMethods CVE-2026-117545",
+        "url": "https://www.ibm.com/support/pages/node/7295298"
+      },
+      {
+        "name": "IBM webMethods CVE-2026-118904",
+        "url": "https://www.ibm.com/support/pages/node/7295306"
+      }
+    ],
+    "reviewCutoff": "2026-11-09T00:00:00Z"
+  },
+  {
+    "id": "motion-1109-0900-mcp-wp",
+    "stamp": "11.09 · 09:00 JST",
+    "visual": {
+      "type": "BeforeAfter",
+      "left": {
+        "title": "EXPOSURE",
+        "lines": [
+          "Bob Shell 1.0.4–2.0.1 MCP",
+          "Langflow 1.0.0–1.12.2 files",
+          "WP plugins <= 1.3.0"
+        ]
+      },
+      "right": {
+        "title": "VERIFIED ACTION",
+        "lines": [
+          "Bob 2.0.2 / Langflow 1.12.3",
+          "Melapress 1.4.0 / AE 1.3.1",
+          "audit roles & secrets"
+        ]
+      }
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "MCP部分的緩和・Langflow隔離・WP重複CVE。",
+      "lede": "Bob Shellの注意喚起は部分的。WP pluginは重複CVEに注意。",
+      "points": [
+        "Bob Shell 2.0.2とLangflow OSS 1.12.3へ更新し秘密情報露出を点検",
+        "Melapress Role Editor 1.4.0とAnyWhere Elementor 1.3.1へ更新",
+        "CVE-2026-114189とCVE-2026-103914の重複を二重計上せず権限を監査"
+      ]
+    },
+    "en": {
+      "kicker": "11/09 09:00 REVIEW",
+      "title": "Partial MCP mitigation, Langflow isolation and WP CVEs.",
+      "lede": "Bob Shell precautions are partial; note colliding WP plugin CVEs.",
+      "points": [
+        "Update to Bob Shell 2.0.2 and Langflow OSS 1.12.3; check exposed secrets",
+        "Update Melapress Role Editor to 1.4.0 and AnyWhere Elementor to 1.3.1",
+        "Do not double-count colliding CVE-2026-114189 / CVE-2026-103914; audit roles"
+      ]
+    },
+    "sources": [
+      {
+        "name": "IBM Bob Shell bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7291535"
+      },
+      {
+        "name": "IBM Langflow OSS bulletin",
+        "url": "https://www.ibm.com/support/pages/node/7290694"
+      },
+      {
+        "name": "Patchstack CVE-2026-109900",
+        "url": "https://patchstack.com/database/wordpress/plugin/melapress-role-editor/vulnerability/wordpress-melapress-role-editor-plugin-1-3-0-privilege-escalation-vulnerability?_s_id=cve"
+      },
+      {
+        "name": "Patchstack CVE-2026-114189",
+        "url": "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-sql-injection-vulnerability?_s_id=cve"
+      }
+    ],
+    "reviewCutoff": "2026-11-09T00:00:00Z"
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-09T00:00:00Z", "label": "2026-11-09 09:00 JST", "report": "/update-20261109-0900"};
+for (const lang of ['ja', 'en']) {
+  const en = lang === 'en';
+  window.CONTENT.scenes.find(s => s.id === 'intro')[lang].points[1] =
+    '<a href="' + window.CONTENT.review.report + (en ? '.en' : '') + '">11/09 09:00 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#105">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/timeline' + (en ? '.en' : '') + '">' + (en ? 'Read by date' : '日付から読む') + ' →</a>';
+  window.CONTENT.ui[lang].coverSub = en
+    ? '110 dated scenes, including 6 new scenes through November 9, 09:00 JST. Historical scenes retain their original context.'
+    : '全110画面を日付順に。11/09 09:00 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 104,
-    "total": 104
+    "translated": 110,
+    "total": 110
   },
   "ja": {
     "ready": true,
-    "translated": 104,
-    "total": 104
+    "translated": 110,
+    "total": 110
   }
 };

@@ -1,32 +1,32 @@
 {
-  "cutoff": "2026-11-08T15:53:00Z",
-  "cutoff_jst": "2026-11-09T00:53:00+09:00",
+  "cutoff": "2026-11-09T00:00:00Z",
+  "cutoff_jst": "2026-11-09T09:00:00+09:00",
   "counts": {
-    "nvd_published": 226,
-    "nvd_modified": 304,
-    "published_modified_overlap": 226,
-    "ghsa": 242,
-    "ghsa_unreviewed": 226,
+    "nvd_published": 94,
+    "nvd_modified": 265,
+    "published_modified_overlap": 94,
+    "ghsa": 89,
+    "ghsa_unreviewed": 89,
     "ghsa_reviewed": 0,
-    "ghsa_malware": 16,
-    "ghsa_modified": 250,
-    "ghsa_published_modified_overlap": 242,
-    "ghsa_current_published_overlap": 226,
+    "ghsa_malware": 0,
+    "ghsa_modified": 137,
+    "ghsa_published_modified_overlap": 89,
+    "ghsa_current_published_overlap": 89,
     "ghsa_previous_published_overlap": 0,
-    "record_topic_groups": 231,
-    "delta_topic_groups": 9,
-    "scope_complement_topic_groups": 221,
+    "record_topic_groups": 237,
+    "delta_topic_groups": 6,
+    "scope_complement_topic_groups": 230,
     "reference_only_topic_groups": 1,
-    "verified_response_records": 88,
+    "verified_response_records": 70,
     "deduplicated_previous_references": 36
   },
   "caveats": [
-    "基準は2026-11-09 00:53:00 JST。前回2026-11-08 11:13:00 JSTからの固定窓。API照会は基準後で、取得時点の現行改訂を保存し、過去の全版を復元しない。",
-    "前回の222論点とIDを保持。前回資料の文脈を保持した本文は今回の全面再精査をしていない。",
+    "基準は2026-11-09 09:00:00 JST。前回2026-11-09 00:53:00 JSTからの固定窓。API照会は基準後で、取得時点の現行改訂を保存し、過去の全版を復元しない。",
+    "前回の231論点とIDを保持。前回資料の文脈を保持した本文は今回の全面再精査をしていない。",
     "公開・改訂・CVE・GHSA・package・被害人数を合算しない。未評価のNVD記録も取得し、unreviewedを確認済み被害に自動変換しない。",
     "取得失敗、空のJavaScript画面、アクセス制限は成功した本文に含めない。世界全体の完全網羅や未掲載事案の不存在は主張しない。",
     "研究者の観測、被害組織の確認、悪用確認、復旧予定と完了を区別する。未知の損害額・対象版・人数を推計しない。",
-    "OpenEMR（8.3.0と8.4.0）、imgproxy（4.0.16と4.0.17）、Hickory DNS（hickory-net 0.26.2と旧hickory-proto修正版未提供）の版境界を保持し、単一の修正版へ丸めない。"
+    "IBM Process Mining（影響版2.2.1と修正版2.2.1 IF001・On-Prem個別配信）、Qiskit SDK（CVE-2026-116499のv2.6.2表記不整合）、IBM Bob Shell（回避策は部分的）の条件を丸めずに保持する。"
   ],
   "records": [
     {
@@ -28139,11 +28139,11 @@
       "title": "OpenAM：通知WebSocketのsession token露出とSAML・自己登録の認証境界",
       "body": "CVE-2026-123551は14.0.0以上16.1.4未満で、legacy Liberty ID-FF endpointの内部転送から通知WebSocketへ未認証到達し、稼働中のiPlanetDirectoryPro tokenを取得できる。CVE-2026-123550は16.1.4未満でWantAssertionsSignedが無効な場合にECP（PAOS）とHTTP-Artifact bindingが未署名assertionを受け入れる。CVE-2026-123549は16.1.4未満の自己登録がValid Creation Attributesを強制せず、管理者groupへの参加を許す。GitHub勧告の公表は10月22日で、今回のNVD登録日とは異なる。",
       "action": "16.1.4へ更新し、通知WebSocket・Liberty ID-FFの公開範囲、SAML SPのWantAssertionsSigned設定、自己登録の有効有無を点検する。更新配置と既存session・不正作成accountの失効・監査を区別する。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / NVD publication window",
       "date": "2026-11-09",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [
         "CVE-2026-123551",
@@ -28174,11 +28174,11 @@
       "title": "OpenEMR：8.3.0／8.4.0の系列別修正とSQLi・file操作・OneTimeAuth",
       "body": "CVE-2026-124469（Fee SheetのORDER BY句SQLi）とCVE-2026-124450（fax/sms moduleのdisposeDocumentによる任意file読み書き）は8.3.0未満が対象で8.3.0が修正版。一方、CVE-2026-124445（7.0.1以上8.4.0未満のOneTimeAuth token再利用・PIN総当たり）とCVE-2026-124467（8.4.0未満のESign router LFIとfax uploadの連鎖RCE）は8.4.0が修正版。8.3.0への更新だけでは8.4.0修正分は解消しない。GitHub勧告の初回公表は8月・9月。",
       "action": "8.4.0以降の修正版を確認し、8.3.0修正分と8.4.0修正分を混同しない。fax/smsやESign moduleの有効状態、sqlconf.phpや一時upload先への不審アクセス、patient portalのtoken利用履歴を調査する。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / NVD publication window",
       "date": "2026-11-09",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [
         "CVE-2026-124469",
@@ -28214,11 +28214,11 @@
       "title": "Kyverno：apiCallとgenerate変数によるnamespace境界の越境",
       "body": "CVE-2026-124440は1.19.1以上1.19.2未満で、不正なパーセントエンコードによりapiCallのnamespace制限を回避し、admission-controllerのServiceAccount権限で他namespaceやcluster-scoped APIを呼び出せる。CVE-2026-124441は1.19.2未満でgenerate ruleのkindとnamespaceを変数化すると認可検査が飛ばされ、background-controller経由で任意のnamespaceへリソースを生成できる。いずれもnamespace内のPolicy作成権限が前提。",
       "action": "1.19.2へ更新し、テナントに委任したnamespaced Policy作成権限、apiCallや変数化generateを使うPolicy、意図しないMutatingWebhookやRoleBindingの作成履歴を監査する。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / NVD publication window",
       "date": "2026-11-09",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [
         "CVE-2026-124440",
@@ -28244,11 +28244,11 @@
       "title": "Craft CMS：GraphQLの領域越境参照とcontrol panel署名オラクル",
       "body": "CVE-2026-124427は5.0.0以上5.11.2未満で、公開GraphQL schemaまたは限定tokenからprev/nextを辿り、対象外sectionのentryを読み取れる。CVE-2026-124430は5.10.0以上5.11.2未満で、非管理者のcontrol panel利用者がapp/render-elementsからHMAC署名付きTwig templateを取得し、login redirect経由でコード実行に至る。未認証GraphQL条件とcontrol panel権限条件を区別する。",
       "action": "5.11.2へ更新する。公開GraphQL schemaの有効状態とtoken範囲、非管理者のcontrol panel権限、app/render-elementsへの要求ログを確認する。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / NVD publication window",
       "date": "2026-11-09",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [
         "CVE-2026-124427",
@@ -28274,11 +28274,11 @@
       "title": "imgproxy：ICO loaderの整数overflowと4.0.16／4.0.17の段階的修正",
       "body": "CVE-2026-123614は4.0.0以上4.0.16未満でICOのdata_size整数overflowによりheap破損・RCEを起こし、修正版は4.0.16。一方、CVE-2026-123615は3.3.0以上4.0.17未満で小さなICO data bufferに対するBMP header再構築がheap境界外読み書きを起こし、修正版は4.0.17。4.0.16ではCVE-2026-123615が残るため、影響版と修正版を混同しない。",
       "action": "4.0.17以降へ更新する。4.0.16を両CVEの完全修正版として扱わず、外部画像URLを受け付ける経路とworkerの異常終了履歴を確認する。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / NVD publication window",
       "date": "2026-11-09",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [
         "CVE-2026-123614",
@@ -28304,11 +28304,11 @@
       "title": "Hickory DNS：DNSSEC検証回避と旧hickory-protoの未修正範囲",
       "body": "CVE-2026-123587はhickory-net 0.26.0以上0.26.2未満で未検証SOAとの比較によりwraparound NSEC不在証明の偽造を許す。CVE-2026-123605はRRSIGのSigner名と対象RRsetのzone一致を確認せず別zoneの鍵による署名を許すもので、hickory-netは0.26.2が修正版だが、旧hickory-proto 0.1〜0.25.0-alpha.3はGitHub勧告上でPatched versionsがNone（未提供）となっている。",
       "action": "hickory-netを0.26.2以降へ更新する。旧hickory-proto 0.1〜0.25.0-alpha.3は同系統内の修正版が未提供のため、hickory-net 0.26.2以降への移行を要する点を明示し、DNSSEC検証を利用する依存構成を確認する。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / NVD publication window",
       "date": "2026-11-09",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [
         "CVE-2026-123587",
@@ -28334,11 +28334,11 @@
       "title": "npm：不正パッケージ1勧告",
       "body": "公開窓のnpm malware勧告1件を原APIのpackage名・対象版のまま保持する。修正版は未記載であり、安全な置換版を推測しない。勧告数は被害端末数ではない。",
       "action": "lockfile、導入・起動・CI履歴を照合する。該当環境を隔離し、クリーンな環境から鍵を失効・再発行する。package削除と侵害調査・再構築を分ける。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / GHSA publication window",
       "date": "2026-11-09",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [],
       "sources": [
@@ -28374,11 +28374,11 @@
       "title": "rubygems：不正パッケージ4勧告",
       "body": "公開窓のrubygems malware勧告4件を原APIのpackage名・対象版のまま保持する。修正版は未記載であり、安全な置換版を推測しない。勧告数は被害端末数ではない。",
       "action": "Gemfile.lock、導入・起動・CI履歴を照合する。該当環境を隔離し、クリーンな環境から鍵を失効・再発行する。package削除と侵害調査・再構築を分ける。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / GHSA publication window",
       "date": "2026-11-09",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [],
       "sources": [
@@ -28483,11 +28483,11 @@
       "title": "pip：不正パッケージ11勧告",
       "body": "公開窓のpip malware勧告11件を原APIのpackage名・対象版のまま保持する。修正版は未記載であり、安全な置換版を推測しない。勧告数は被害端末数ではない。",
       "action": "lockfile、導入・起動・CI履歴を照合する。該当環境を隔離し、クリーンな環境から鍵を失効・再発行する。package削除と侵害調査・再構築を分ける。",
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "2026-11-08T02:13:00Z – 2026-11-08T15:53:00Z / GHSA publication window",
       "date": "2026-11-09",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-08T15:53:00Z",
       "cve_ids": [],
       "sources": [
@@ -28934,6 +28934,219 @@
               "vulnerable_functions": []
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "ibm-concert-datastage-1109-0900",
+      "title": "IBM Concert・DataStage：OSコマンド実行と経路横断",
+      "body": "IBM Concert 1.0〜3.0.1.1はCVE-2026-6715とCVE-2026-15266（ともにCVSS 9.8）で細工された入力やコンポーネントからOSコマンド実行に至る。DataStage on Cloud Pak for Data 5.4.0.0はCVE-2026-107331（CVSS 9.9、絶対パスtraversal）やCVE-2026-107330（SSRF）、CVE-2026-16427・CVE-2026-16433・CVE-2026-81542（任意ファイル書込・削除）等を含む。IBM勧告の初回公表は10月29日と10月27日で、今回のNVD登録日とは異なる。",
+      "action": "IBM Concertを3.1.0へ、DataStage on Cloud Pak for Data 5.4.0.0を5.4 patch 8以降へ更新する。認証要否（Concertの未認証到達条件とDataStageの認証済み条件）を区別し、ホスト上のコマンド実行・ファイル改変履歴を監査する。",
+      "kind": "delta",
+      "time": "2026-11-08T15:53:00Z – 2026-11-09T00:00:00Z / NVD publication window",
+      "date": "2026-11-09",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-09T00:00:00Z",
+      "cve_ids": [
+        "CVE-2026-6715",
+        "CVE-2026-15266",
+        "CVE-2026-107331",
+        "CVE-2026-107330",
+        "CVE-2026-16427",
+        "CVE-2026-16433",
+        "CVE-2026-81542",
+        "CVE-2026-80435",
+        "CVE-2026-16325"
+      ],
+      "sources": [
+        {
+          "name": "IBM Concert bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7294607"
+        },
+        {
+          "name": "IBM DataStage bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7294270"
+        },
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ]
+    },
+    {
+      "id": "ibm-process-mining-if001-1109-0900",
+      "title": "IBM Process Mining：2.2.1と2.2.1 IF001の境界・On-Prem個別申請",
+      "body": "IBM Process Mining 2.0.0〜2.2.1はCVE-2026-114464（CVSS 9.3、アクセス制御不備による情報取得）、CVE-2026-108292（危険な型のファイルupload）、CVE-2026-112369（client側セキュリティ強制）、CVE-2026-93005（通知メールのレート制限不備）の影響を受ける。2.2.1は影響を受ける版であり、修正を含む版は2.2.1 IF001。On-Prem版はIBM Supportでcaseを開いて2.2.1 IF001の個別配信を受ける手順が案内されている。",
+      "action": "2.2.1を修正済みと誤認せず、2.2.1 IF001の適用状態を確認する。OCP版とOn-Prem版（Support case経由の個別配信）の入手経路を区別し、不正なファイルuploadや情報取得の履歴を点検する。",
+      "kind": "delta",
+      "time": "2026-11-08T15:53:00Z – 2026-11-09T00:00:00Z / NVD publication window",
+      "date": "2026-11-09",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-09T00:00:00Z",
+      "cve_ids": [
+        "CVE-2026-114464",
+        "CVE-2026-108292",
+        "CVE-2026-112369",
+        "CVE-2026-93005"
+      ],
+      "sources": [
+        {
+          "name": "IBM Process Mining bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7294875"
+        },
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ]
+    },
+    {
+      "id": "qiskit-qpy-version-anomaly-1109-0900",
+      "title": "Qiskit SDK：QPY逆直列化・C API境界外書込とv2.6.2表記の不整合",
+      "body": "CVE-2026-116501（qk_circuit_inst_unitaryの境界外書込）とCVE-2026-116500（QPY v13以上の無限再帰DoS）はv2.4.0〜v2.6.1が対象で修正版はv2.6.2。一方、CVE-2026-116499（QPY v13未満のqiskit.qpy.loadによる任意Pythonコード実行）はIBM勧告とNVDがAffectedをv1.4.2〜v2.6.2と記載しつつRemediationもv2.6.2と記載しており、v2.6.2の扱いが自己矛盾している。",
+      "action": "v2.6.2以降の導入状態と実際のcommit・SymPy非使用化パッチの有無を確認し、外部や信頼できないQPYバイナリをqiskit.qpy.load()やC APIへ直接渡さない。勧告上のv2.6.2表記の矛盾を丸めずに扱う。",
+      "kind": "delta",
+      "time": "2026-11-08T15:53:00Z – 2026-11-09T00:00:00Z / NVD publication window",
+      "date": "2026-11-09",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-09T00:00:00Z",
+      "cve_ids": [
+        "CVE-2026-116499",
+        "CVE-2026-116501",
+        "CVE-2026-116500"
+      ],
+      "sources": [
+        {
+          "name": "IBM Qiskit CVE-2026-116499",
+          "url": "https://www.ibm.com/support/pages/node/7295238"
+        },
+        {
+          "name": "IBM Qiskit CVE-2026-116501",
+          "url": "https://www.ibm.com/support/pages/node/7295237"
+        },
+        {
+          "name": "IBM Qiskit CVE-2026-116500",
+          "url": "https://www.ibm.com/support/pages/node/7295235"
+        },
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ]
+    },
+    {
+      "id": "ibm-verify-webmethods-2fa-1109-0900",
+      "title": "IBM Verify Directory・webMethods：セッション固定化と2FA回避",
+      "body": "IBM Security Verify Directory 10.0.0〜10.0.4とIBM Verify Directory 11.0.0はCVE-2026-8639（管理コンソールのsession fixation）、CVE-2026-8860（GETパラメータ認証によるパスワード露出）、CVE-2026-8642（debug endpoint露出）、CVE-2026-8640（SameSite未設定）を含み、修正版はv10.0.4.4とv11.0.1.2。IBM webMethods Integration Server 12.1はCVE-2026-117545とCVE-2026-118904で2FAおよびbackup code検証の回避があり、修正はIS_12.1_Core_Fix1以降。",
+      "action": "Verify Directoryをv10.0.4.4／v11.0.1.2へ、webMethods Integration Server 12.1をIS_12.1_Core_Fix1以降へ更新する。アクセスログやブラウザ履歴に残ったGET認証情報、既存セッション、2FA通過履歴を監査・失効する。",
+      "kind": "delta",
+      "time": "2026-11-08T15:53:00Z – 2026-11-09T00:00:00Z / NVD publication window",
+      "date": "2026-11-09",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-09T00:00:00Z",
+      "cve_ids": [
+        "CVE-2026-8639",
+        "CVE-2026-8860",
+        "CVE-2026-8642",
+        "CVE-2026-8640",
+        "CVE-2026-117545",
+        "CVE-2026-118904"
+      ],
+      "sources": [
+        {
+          "name": "IBM Verify Directory bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7293828"
+        },
+        {
+          "name": "IBM webMethods CVE-2026-117545",
+          "url": "https://www.ibm.com/support/pages/node/7295298"
+        },
+        {
+          "name": "IBM webMethods CVE-2026-118904",
+          "url": "https://www.ibm.com/support/pages/node/7295306"
+        },
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ]
+    },
+    {
+      "id": "ibm-bob-langflow-mcp-1109-0900",
+      "title": "IBM Bob Shell・Langflow OSS：MCP自動実行とローカル隔離回避",
+      "body": "IBM Bob Shell 1.0.4〜2.0.1（CVE-2026-9764）は信頼できないリポジトリを開いた際にworkspace内のMCP server設定を同意なく自動実行し、2.0.2でWorkspace Folder Trustにより修正された。IBM勧告は信頼済みリポジトリのみを開く回避策を「部分的（do not fully address）」と明記する。Langflow OSS 1.0.0〜1.12.2（CVE-2026-97677）は認証済みflow作成者がローカルファイル隔離を回避して設定・秘密情報・DBファイルを読み書きでき、修正版は1.12.3。",
+      "action": "IBM Bob Shellを2.0.2以降、Langflow OSSを1.12.3以降へ更新する。運用上の注意を完全修正と扱わず、過去に開いたリポジトリのMCP設定やLangflowのdataディレクトリ・秘密情報の露出有無を確認する。",
+      "kind": "delta",
+      "time": "2026-11-08T15:53:00Z – 2026-11-09T00:00:00Z / NVD publication window",
+      "date": "2026-11-09",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-09T00:00:00Z",
+      "cve_ids": [
+        "CVE-2026-9764",
+        "CVE-2026-97677"
+      ],
+      "sources": [
+        {
+          "name": "IBM Bob Shell bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7291535"
+        },
+        {
+          "name": "IBM Langflow OSS bulletin",
+          "url": "https://www.ibm.com/support/pages/node/7290694"
+        },
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ]
+    },
+    {
+      "id": "wp-melapress-anywhere-elementor-1109-0900",
+      "title": "Melapress Role Editor・AnyWhere Elementor：権限昇格と重複CVE",
+      "body": "Melapress Role Editor 1.3.0以下はCVE-2026-109900（CVSS 9.6、未認証開始・要ユーザー操作の権限昇格）とCVE-2026-109899（Subscriber権限のアクセス制御不備）があり、修正版は1.4.0。AnyWhere Elementor 1.3.0以下はCVE-2026-114189（Subscriber権限のBlind SQLi、別CNAのCVE-2026-103914と重複記載）、CVE-2026-114186、CVE-2026-114188があり、修正版は1.3.1。",
+      "action": "Melapress Role Editorを1.4.0以降、AnyWhere Elementorを1.3.1以降へ更新する。重複CVE（CVE-2026-114189とCVE-2026-103914）を別々の2件として二重計上せず、不審な管理者ロール付与やSubscriber操作履歴を確認する。",
+      "kind": "delta",
+      "time": "2026-11-08T15:53:00Z – 2026-11-09T00:00:00Z / NVD publication window",
+      "date": "2026-11-09",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-09T00:00:00Z",
+      "cve_ids": [
+        "CVE-2026-109900",
+        "CVE-2026-109899",
+        "CVE-2026-114189",
+        "CVE-2026-114186",
+        "CVE-2026-114188"
+      ],
+      "sources": [
+        {
+          "name": "Patchstack CVE-2026-109900",
+          "url": "https://patchstack.com/database/wordpress/plugin/melapress-role-editor/vulnerability/wordpress-melapress-role-editor-plugin-1-3-0-privilege-escalation-vulnerability?_s_id=cve"
+        },
+        {
+          "name": "Patchstack CVE-2026-109899",
+          "url": "https://patchstack.com/database/wordpress/plugin/melapress-role-editor/vulnerability/wordpress-melapress-role-editor-plugin-1-3-0-broken-access-control-vulnerability?_s_id=cve"
+        },
+        {
+          "name": "Patchstack CVE-2026-114189",
+          "url": "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-sql-injection-vulnerability?_s_id=cve"
+        },
+        {
+          "name": "Patchstack CVE-2026-114186",
+          "url": "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-broken-access-control-vulnerability-2?_s_id=cve"
+        },
+        {
+          "name": "Patchstack CVE-2026-114188",
+          "url": "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-cross-site-scripting-xss-vulnerability-2?_s_id=cve"
+        },
+        {
+          "name": "NVD saved CNA records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ]
     }
@@ -31844,8 +32057,84 @@
         "https://github.com/advisories/GHSA-j4qg-f3r8-33f3",
         "https://github.com/advisories/GHSA-hqrq-q4mq-qwpp"
       ]
+    },
+    "ibm-concert-datastage-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7294607",
+        "https://www.ibm.com/support/pages/node/7294270",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "ibm-process-mining-if001-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7294875",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "qiskit-qpy-version-anomaly-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7295238",
+        "https://www.ibm.com/support/pages/node/7295237",
+        "https://www.ibm.com/support/pages/node/7295235",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "ibm-verify-webmethods-2fa-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7293828",
+        "https://www.ibm.com/support/pages/node/7295298",
+        "https://www.ibm.com/support/pages/node/7295306",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "ibm-bob-langflow-mcp-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7291535",
+        "https://www.ibm.com/support/pages/node/7290694",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "wp-melapress-anywhere-elementor-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://patchstack.com/database/wordpress/plugin/melapress-role-editor/vulnerability/wordpress-melapress-role-editor-plugin-1-3-0-privilege-escalation-vulnerability?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/melapress-role-editor/vulnerability/wordpress-melapress-role-editor-plugin-1-3-0-broken-access-control-vulnerability?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-sql-injection-vulnerability?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-broken-access-control-vulnerability-2?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-cross-site-scripting-xss-vulnerability-2?_s_id=cve",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-09-0053/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-09-0900/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

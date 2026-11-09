@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Mon, 09 Nov 2026 00:00:04 GMT</pubDate>
+    <lastBuildDate>Mon, 09 Nov 2026 00:00:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>[vim-security]: Heap Buffer Overflow with Crafted Spell File in Vim &lt; 9.2.1309</title>
+    <link>https://seclists.org/oss-sec/2026/q4/580</link>
+    <description>&lt;p&gt;Posted by Christian Brabandt on Nov 08&lt;/p&gt;Heap Buffer Overflow with Crafted Spell File in Vim &amp;lt; 9.2.1309&lt;br&gt;
+==============================================================&lt;br&gt;
+Date: 08.11.2026&lt;br&gt;
+Severity: Low&lt;br&gt;
+CVE: *requested, not yet assigned*&lt;br&gt;
+CWE: Access of Resource Using Incompatible Type (CWE-843), Out-of-bounds Read&lt;br&gt;
+(CWE-125)&lt;br&gt;
+&lt;br&gt;
+## Summary&lt;br&gt;
+A crafted spell file (`.spl`) containing two SN_SOFO sections causes Vim to&lt;br&gt;
+free the soundfolding items of the first section as if they were SN_SAL&lt;br&gt;
+items,...&lt;br&gt;</description>
+    <pubDate>Sun, 08 Nov 2026 23:46:57 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/580</guid>
+  </item>
+  <item>
+    <title>[vim-security] Insecure Socket Directory in Vim &lt; 9.2.1308</title>
+    <link>https://seclists.org/oss-sec/2026/q4/579</link>
+    <description>&lt;p&gt;Posted by Christian Brabandt on Nov 08&lt;/p&gt;Insecure Socket Directory in Vim &amp;lt; 9.2.1308&lt;br&gt;
+===========================================&lt;br&gt;
+Date: 08.11.2026&lt;br&gt;
+Severity: Medium&lt;br&gt;
+CVE: *requested, not yet assigned*&lt;br&gt;
+CWE: Unverified Ownership (CWE-283), Incorrect Default Permissions (CWE-276)&lt;br&gt;
+&lt;br&gt;
+## Summary&lt;br&gt;
+When using the socketserver backend of the clientserver feature, Vim places&lt;br&gt;
+its socket in a per-user directory such as `/tmp/vim-&amp;lt;uid&amp;gt;`.  An existing&lt;br&gt;
+directory was used without checking its owner...&lt;br&gt;</description>
+    <pubDate>Sun, 08 Nov 2026 23:45:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/579</guid>
+  </item>
+  <item>
+    <title>Home Assistant: the password is not the key — token secrets in cleartext, two token classes never expire, password change revokes none (2026.11.0, live-proven)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/578</link>
+    <description>&lt;p&gt;Posted by theknell on Nov 08&lt;/p&gt;Home Assistant&amp;apos;s documentation tells users: &amp;quot;Your password is the key&lt;br&gt;
+to your home, so choose a strong, unique one.&amp;quot; Home Assistant is&lt;br&gt;
+installed in two million homes by the vendor&amp;apos;s own published count,&lt;br&gt;
+and in those homes it holds the locks, the alarm, the garage, the&lt;br&gt;
+cameras, and the record of who is home.&lt;br&gt;
+&lt;br&gt;
+The password is not the key. Tested against home-assistant/core&lt;br&gt;
+2026.11.0 (frontend 20261028.4, hass-nabucasa 2.8.1):...&lt;br&gt;</description>
+    <pubDate>Sun, 08 Nov 2026 23:43:28 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/578</guid>
+  </item>
+  <item>
+    <title>Re: GodotSteam 4.17 through 4.23.2: any multiplayer peer can claim the server&apos;s peer ID</title>
+    <link>https://seclists.org/oss-sec/2026/q4/577</link>
+    <description>&lt;p&gt;Posted by Tomasz Kaye on Nov 08&lt;/p&gt;A fix for this issue has been merged upstream.&lt;br&gt;
+&lt;br&gt;
+PR #923, &amp;quot;Peer ID Claim Fix&amp;quot;, merged into the godot4 branch on&lt;br&gt;
+2026-11-05 (merge commit 945529af15):&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://codeberg.org/godotsteam/godotsteam/pulls/923&quot;&gt;https://codeberg.org/godotsteam/godotsteam/pulls/923&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Sun, 08 Nov 2026 23:22:25 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/577</guid>
+  </item>
+  <item>
+    <title>UnrealIRCd 6.2.7.1 released &amp; hot-patch (CVE-2026-114713)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/576</link>
+    <description>&lt;p&gt;Posted by Bram Matthys on Nov 08&lt;/p&gt;Last Saturday, 7-Nov-2026, I put out a security release and hot-patch&lt;br&gt;
+for UnrealIRCd. The CVE entry CVE-2026-114713 has been published now.&lt;br&gt;
+&lt;br&gt;
+This is an escaping bug in UnrealIRCd&amp;apos;s implementation of the IRCv3&lt;br&gt;
+&amp;quot;label&amp;quot; message tag. Any user can inject newlines (\n) and other things&lt;br&gt;
+into server-to-server traffic. In a text protocol like IRC this means&lt;br&gt;
+one can issue arbitrary commands, in this case with server authority.&lt;br&gt;
+&lt;br&gt;
+What is...&lt;br&gt;</description>
+    <pubDate>Sun, 08 Nov 2026 09:09:07 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/576</guid>
+  </item>
+
+
+  <item>
+    <title>CVE-2026-123776: RRD::CGI::Image versions through 0.01 for Perl pass CGI query parameters containting &quot;tz&quot; to tzset(), , so a FIFO or device path blocks the CGI process</title>
+    <link>https://seclists.org/oss-sec/2026/q4/575</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 07&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-123776                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-123776&lt;br&gt;
+&lt;br&gt;
+   Distribution:  RRD-CGI-Image&lt;br&gt;
+       Versions:  through 0.01&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/RRD-CGI-Image&quot;&gt;https://metacpan.org/dist/RRD-CGI-Image&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+RRD::CGI::Image versions through 0.01...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 18:55:08 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/575</guid>
+  </item>
+  <item>
+    <title>CVE-2026-121265: SQL::Abstract versions before 2.000003 for Perl allow SQL injection via an arrayref column value in insert and update</title>
+    <link>https://seclists.org/oss-sec/2026/q4/574</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 07&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-121265                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-121265&lt;br&gt;
+&lt;br&gt;
+   Distribution:  SQL-Abstract&lt;br&gt;
+       Versions:  before 2.000003&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/SQL-Abstract&quot;&gt;https://metacpan.org/dist/SQL-Abstract&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 18:53:17 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/574</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/573</link>
+    <description>&lt;p&gt;Posted by theknell on Nov 07&lt;/p&gt;Following up on my measurements post from last night. The question&lt;br&gt;
+of whether those numbers were actually measured has come up since&lt;br&gt;
+— privately, mostly — so the full raw log is public now:&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://archive.org/details/knell-sshole-receipts&quot;&gt;https://archive.org/details/knell-sshole-receipts&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+82,236 lines: the crypt() census output, the end-to-end sshd timing&lt;br&gt;
+runs on both rigs (mixed accounts and the all-locked box), every&lt;br&gt;
+data file with its timestamp and SHA-256, and the harness sources&lt;br&gt;
+that...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 18:51:22 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/573</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/572</link>
+    <description>&lt;p&gt;Posted by Richard Kettlewell on Nov 07&lt;/p&gt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/besser82/libxcrypt/blob/develop/lib/util-make-failure-token.c&quot;&gt;https://github.com/besser82/libxcrypt/blob/develop/lib/util-make-failure-token.c&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+Pedantically: the result will be &amp;quot;*&amp;quot; if the buffer is only two bytes &lt;br&gt;
+(L37-42). I don&amp;apos;t whether any real-life callers do this.&lt;br&gt;
+&lt;br&gt;
+ttfn/rjk&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 18:49:21 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/572</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/571</link>
+    <description>&lt;p&gt;Posted by theknell on Nov 06&lt;/p&gt;Jacob — you asked whether it even entirely works when there&lt;br&gt;
+is no salt to borrow. The rigs were still up, so I built&lt;br&gt;
+the box. OpenSSH 10.6p2 --without-pam, shadow file with no&lt;br&gt;
+valid password in it anywhere: accounts locked as *, !, !!,&lt;br&gt;
+*LK*, and a locked yescrypt hash (!$y$...), password auth&lt;br&gt;
+still on. 60 interleaved samples per account, auth-request&lt;br&gt;
+time only, glibc/libxcrypt and musl both. Harnesses and&lt;br&gt;
+raw data available on request.&lt;br&gt;
+&lt;br&gt;
+Nothing...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 05:53:35 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/571</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/570</link>
+    <description>&lt;p&gt;Posted by Jacob Bachmeyer on Nov 06&lt;/p&gt;Does it even entirely work?  What if there is no salt to borrow?&lt;br&gt;
+&lt;br&gt;
+Thinking about this, I think I see another information leak: does sshd &lt;br&gt;
+produce a &amp;quot;fake salt&amp;quot; or fail the authentication quickly, thus leaking &lt;br&gt;
+the fact that no accounts on the box have a valid password?&lt;br&gt;
+&lt;br&gt;
+There was a time when a salt could be assumed to exist, but that was &lt;br&gt;
+before cloud VM images that have no console and therefore can be &lt;br&gt;
+network-login-with-SSH-key...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 04:28:39 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/570</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/569</link>
+    <description>&lt;p&gt;Posted by theknell on Nov 06&lt;/p&gt;Said I&amp;apos;d figure it out, so here we go. Two things in this thread&lt;br&gt;
+stayed stuck at the arguing stage: what crypt() actually hands back&lt;br&gt;
+when it fails, in each implementation, and Jeff&amp;apos;s timing point. I&lt;br&gt;
+measured both, on my own machines — OpenSSH 10.6p2 built&lt;br&gt;
+--without-pam, glibc 2.39 / libxcrypt 4.4.36 (Ubuntu 24.04), musl&lt;br&gt;
+1.2.5 (Alpine 3.21). Harnesses and raw data available on request.&lt;br&gt;
+&lt;br&gt;
+First, the return values, because this is where...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 04:26:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/569</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/568</link>
+    <description>&lt;p&gt;Posted by Matt Johnston on Nov 06&lt;/p&gt;I view avoiding account existence exposure as more of a&lt;br&gt;
+privacy feature than security. &lt;br&gt;
+If you iterate all the internet&amp;apos;s ipv4 sshds (not hard) for&lt;br&gt;
+ones that accept say &amp;quot;pgut001&amp;quot;, then you&amp;apos;ve found someone&amp;apos;s&lt;br&gt;
+IP. Maybe that&amp;apos;s already exposed in other ways, but maybe not.&lt;br&gt;
+&lt;br&gt;
+As purely a security feature I agree the added complexity&lt;br&gt;
+isn&amp;apos;t worth it.&lt;br&gt;
+&lt;br&gt;
+Cheers,&lt;br&gt;
+Matt&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 04:25:01 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/568</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/567</link>
+    <description>&lt;p&gt;Posted by Michael Orlitzky on Nov 06&lt;/p&gt;It was easy to lose in the noise, but musl is not the only one doing&lt;br&gt;
+this:&lt;br&gt;
+&lt;br&gt;
+  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/besser82/libxcrypt/blob/develop/configure.ac#L322&quot;&gt;https://github.com/besser82/libxcrypt/blob/develop/configure.ac#L322&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 02:02:36 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/567</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/566</link>
+    <description>&lt;p&gt;Posted by Loganaden Velvindron on Nov 06&lt;/p&gt;I&amp;apos;ve done some auditing of crypt() usage in the Linux ecosystem.&lt;br&gt;
+Most software is now handling NULL from crypt() but there are some issues like&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/InfrastructureServices/vsftpd/pull/9&quot;&gt;https://github.com/InfrastructureServices/vsftpd/pull/9&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+I think it&amp;apos;s time for musl libc to revisit the idea and return NULL on&lt;br&gt;
+failure and see&lt;br&gt;
+which software is still breaking.&lt;br&gt;
+&lt;br&gt;
+The commit in musl dates back to 2012. A lot has happened since 2012:...&lt;br&gt;</description>
+    <pubDate>Sat, 07 Nov 2026 01:31:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/566</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

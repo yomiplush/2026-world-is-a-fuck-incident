@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshot": "2026-11-09-0053",
-  "register_sha256": "7966f0e46891b28ced2585e2fa216c8844e5e0ea236c82d5c1b1533f1529793c",
-  "reviewed_at": "2026-11-08T15:53:00Z",
+  "snapshot": "2026-11-09-0900",
+  "register_sha256": "c152ba4069d7dc9322d59411ed31f8445c437801e5f124bb5f06102fee095a32",
+  "reviewed_at": "2026-11-09T09:00:00+09:00",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -2908,6 +2908,82 @@
         "https://github.com/advisories/GHSA-q95f-rr76-j36f",
         "https://github.com/advisories/GHSA-j4qg-f3r8-33f3",
         "https://github.com/advisories/GHSA-hqrq-q4mq-qwpp"
+      ]
+    },
+    "ibm-concert-datastage-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7294607",
+        "https://www.ibm.com/support/pages/node/7294270",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "ibm-process-mining-if001-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7294875",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "qiskit-qpy-version-anomaly-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7295238",
+        "https://www.ibm.com/support/pages/node/7295237",
+        "https://www.ibm.com/support/pages/node/7295235",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "ibm-verify-webmethods-2fa-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7293828",
+        "https://www.ibm.com/support/pages/node/7295298",
+        "https://www.ibm.com/support/pages/node/7295306",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "ibm-bob-langflow-mcp-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://www.ibm.com/support/pages/node/7291535",
+        "https://www.ibm.com/support/pages/node/7290694",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "wp-melapress-anywhere-elementor-1109-0900": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・packageまたは複数製品の勧告。日本の特定組織に限定した被害事例ではない。実際の地域別被害数は示さない。",
+        "en": "Advisory about publicly available software, packages or multiple products, rather than a victim case limited to a particular Japanese organization. This classification does not establish victim counts by region."
+      },
+      "sources": [
+        "https://patchstack.com/database/wordpress/plugin/melapress-role-editor/vulnerability/wordpress-melapress-role-editor-plugin-1-3-0-privilege-escalation-vulnerability?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/melapress-role-editor/vulnerability/wordpress-melapress-role-editor-plugin-1-3-0-broken-access-control-vulnerability?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-sql-injection-vulnerability?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-broken-access-control-vulnerability-2?_s_id=cve",
+        "https://patchstack.com/database/wordpress/plugin/anywhere-elementor/vulnerability/wordpress-anywhere-elementor-plugin-1-3-0-cross-site-scripting-xss-vulnerability-2?_s_id=cve",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-08T15%3A53%3A00.000&pubEndDate=2026-11-09T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
       ]
     }
   }

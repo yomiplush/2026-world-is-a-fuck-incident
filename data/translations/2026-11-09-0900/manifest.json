@@ -1,0 +1,36 @@
+{
+  "snapshot": "2026-11-09-0900",
+  "source_hash": "e5417c9fabff6cc3db71ffe26273ecfe33d13534756ecfb7edfee7207926ad82",
+  "register_hash": "c152ba4069d7dc9322d59411ed31f8445c437801e5f124bb5f06102fee095a32",
+  "target_count": 2,
+  "ready_count": 2,
+  "languages": {
+    "en": {
+      "language": {
+        "code": "en",
+        "native": "English",
+        "html": "en",
+        "dir": "ltr",
+        "en": "English",
+        "ja": "英語"
+      },
+      "status": "translated",
+      "file": "data/translations/2026-11-09-0900/en.json",
+      "source_hash": "e5417c9fabff6cc3db71ffe26273ecfe33d13534756ecfb7edfee7207926ad82"
+    },
+    "ja": {
+      "language": {
+        "code": "ja",
+        "native": "日本語",
+        "html": "ja",
+        "dir": "ltr",
+        "en": "Japanese",
+        "ja": "日本語"
+      },
+      "status": "source",
+      "file": "data/translations/2026-11-09-0900/ja.json",
+      "source_hash": "e5417c9fabff6cc3db71ffe26273ecfe33d13534756ecfb7edfee7207926ad82"
+    }
+  },
+  "note": "Only complete source-matched Codex translations are published. Pending/unsupported languages are never filled with another language."
+}
