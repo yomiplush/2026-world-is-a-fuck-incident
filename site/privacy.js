@@ -1,5 +1,5 @@
 /* First-party preference consent for optional language storage only.
-   The Google AdSense tag loads independently on every page. */
+   No ad, analytics or other third-party script runs on this site. */
 (function () {
   'use strict';
   const KEY = 'briefing-consent', LANGUAGE = 'briefing-lang';
@@ -28,7 +28,7 @@
   const japanese = (document.getElementById('app') ? entryLanguage : document.documentElement.lang).startsWith('ja');
   const copy = japanese ? {
     title: 'Cookieの利用について',
-    body: 'このサイトが独自に置く任意Cookieはありません。任意の保存は表示言語の記憶だけです。広告はGoogle AdSenseが配信し、ページの表示時に読み込みます。同意しなくてもすべての内容を閲覧でき、言語は保存されません。',
+    body: 'このサイトが独自に置く任意Cookieはありません。任意の保存は表示言語の記憶だけです。広告は掲載しておらず、広告配信スクリプトも読み込みません。同意しなくてもすべての内容を閲覧でき、言語は保存されません。',
     required: '配信・防御に必要なCloudflareのCookieや通信情報は、この任意設定の対象外です。選択自体は180日間、このブラウザーに保存します。',
     reject: '拒否', accept: '同意',
     policy: 'プライバシーポリシー', settings: 'Cookie設定',
@@ -37,7 +37,7 @@
     temporary: 'このブラウザーでは保存できません。選択はこのページを開いている間だけ適用されます。'
   } : {
     title: 'Cookie notice',
-    body: 'We set no optional cookies of our own. Optional storage only remembers your display language. Ads are served by Google AdSense, which loads with the page. You can decline and still read everything; only your language is not saved.',
+    body: 'We set no optional cookies of our own. Optional storage only remembers your display language. This site carries no advertising and loads no ad script. You can decline and still read everything; only your language is not saved.',
     required: 'Cloudflare delivery and security cookies and traffic processing are separate from this optional setting. Your choice is saved in this browser for 180 days.',
     reject: 'Reject', accept: 'Accept',
     policy: 'Privacy policy', settings: 'Cookie settings',

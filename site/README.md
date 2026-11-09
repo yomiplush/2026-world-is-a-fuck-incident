@@ -461,14 +461,14 @@ versions, client-decode conditions, support status and source uncertainty.
 CMP scripts or network calls. The persistent footer links to the notice and
 reopens equal-prominence accept/reject choices. Continued browsing is not consent.
 
-Only language persistence is optional. The Google AdSense site tag and the
-`google-adsense-account` meta tag sit in every page head, because Auto ads and
-the AdSense site check need them before any visitor choice. `site/ads.txt`
-pins the authorised seller and the CSP in `site/_headers` allows the Google ad
-hosts. The consent choice in `privacy.js` covers optional language storage only
-and does not gate the ad tag; the policy says so explicitly. The English
-companion of the policy page is committed and its strings are recorded in
-`data/article-translations/en.json`, so `article_languages.publish` keeps it.
+Only language persistence is optional. The site carries no advertising: no
+AdSense tag, no `google-adsense-account` meta tag, no `site/ads.txt` and no
+Google ad hosts in the CSP, because `tools/publish-site.py` no longer injects
+one. Pages load nothing from a third party, so the policy states that directly
+and the consent choice in `privacy.js` covers optional language storage only.
+The English companion of the policy page is committed and its strings are
+recorded in `data/article-translations/en.json`, so `article_languages.publish`
+keeps it.
 The existing `briefing-lang` value is now accessed through `PRIVACY`, which keeps
 it off before consent and removes legacy/withdrawn/expired values. The necessary
 `briefing-consent` record stores version, boolean choice and timestamps for 180

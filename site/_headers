@@ -2,12 +2,13 @@
 # the first one's headers entirely). No content hashing here, so everything is
 # revalidated: a new deploy must never pair new HTML with a cached old script
 # (that is what broke the language toggle in a normal Brave session).
-# The Google ad hosts below are reachable only because ads.js loads AdSense
-# after an explicit opt-in; site/ads.txt pins the authorised seller.
+# The site is self-contained: no ads, no analytics and no third-party script, so
+# the CSP below allows first-party resources only. The inline JSON-LD blocks are
+# data, not executable script, and do not need a script hash.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data: https://pagead2.googlesyndication.com https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com; style-src 'self' 'unsafe-inline'; script-src 'self' https://pagead2.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://www.googletagservices.com https://adservice.google.com https://www.google.com https://www.gstatic.com https://ep1.adtrafficquality.google https://fundingchoicesmessages.google.com; connect-src 'self' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://adservice.google.com https://ep1.adtrafficquality.google https://fundingchoicesmessages.google.com; media-src 'self'; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://pagead2.googlesyndication.com https://ep2.adtrafficquality.google https://fundingchoicesmessages.google.com; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; frame-ancestors 'none'
   Cache-Control: no-cache
