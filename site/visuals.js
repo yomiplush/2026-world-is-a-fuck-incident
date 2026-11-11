@@ -1020,6 +1020,74 @@ window.VISUALS = (function () {
     heading(g,'CARE CONTINUITY / DATA CLAIMS NEED SEPARATE EVIDENCE');g.flush();
   };
 
+  // November 11: explanatory models, not observed attack telemetry.
+  scenes.nov11ReactBranches = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.14,pitch:.5});
+    const root=[-390,0,0];node(g,root,'RSC SERVER',C.amber,t,0,{hx:70,hy:55,hz:48});
+    const fixes=['19.0.9','19.1.10','19.2.9','19.3.1'];
+    fixes.forEach((v,i)=>{
+      const p=[200,-210+i*135,(i-1.5)*35];
+      curve(g,root,p,t,C.cyan,i*.18,40);
+      g.box(...p,100,27,35,C.green,{alpha:.55+enter(t,i*.12)*.2,edge:.7});
+      label(g,[p[0],p[1]-5,p[2]-40],v,C.ink,14,{bold:true});
+    });
+    label(g,[-350,210,0],'SERVER + RSC + REACHABLE INPUT',C.amber,10);
+    heading(g,'REACT RSC / FOUR FIXED BRANCHES');g.flush();
+  };
+  scenes.nov11Proxy = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:-.2,pitch:.55});
+    const client=[-390,60,0],proxy=[-80,-70,0],api=[300,60,0];
+    node(g,client,'REMOTE',C.amber,t,0,{hx:48,hy:48,hz:48});
+    node(g,proxy,'PROXY',C.cyan,t,1,{hx:65,hy:80,hz:55});
+    node(g,api,'GPUSTACK',C.cyan,t,2,{hx:75,hy:65,hz:65});
+    flow(g,client,proxy,t,C.amber);flow(g,proxy,api,t,C.amber,.3);
+    curve(g,client,api,t,C.red,.5,210);
+    gate(g,[115,50,0],C.green,'AUTH');
+    label(g,[-50,-230,0],'TCP PEER / IP HEADER',C.amber,11);
+    label(g,[280,260,0],'2.2.0 + KEY AUDIT',C.green,12);
+    heading(g,'LOOPBACK IS NOT AN IDENTITY');g.flush();
+  };
+  scenes.nov11Restart = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.55});
+    g.box(-285,70,0,135,115,80,C.cyan,{alpha:.45,edge:.8});
+    label(g,[-285,-125,0],'PACKAGE ON DISK',C.cyan,11);
+    const daemon=[270,25,0];ring(g,daemon,140,C.amber,'xy');
+    const a=t*.6;g.octa(daemon[0]+Math.cos(a)*100,daemon[1]+Math.sin(a)*100,0,18,C.amber,{alpha:.8});
+    node(g,daemon,'SSHD',C.amber,t,1,{hx:60,hy:60,hz:60});
+    flow(g,[-140,60,0],[120,60,0],t,C.green,0,.15);
+    label(g,[0,170,0],'RESTART',C.green,15,{bold:true});
+    label(g,[270,260,0],'CHECK RUNNING DAEMON',C.green,10);
+    label(g,[-285,260,0],'BRANCH-SPECIFIC FIX',C.cyan,10);
+    heading(g,'INSTALL → RESTART → VERIFY');g.flush();
+  };
+  scenes.nov11Decoder = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.1,pitch:.54});
+    const upload=[-380,0,0],ext=[-85,0,0],ff=[270,-150,0],im=[270,150,0];
+    g.box(...upload,50,80,14,C.amber,{alpha:.6,edge:.9});
+    label(g,[-380,-150,0],'UPLOAD',C.amber,12);
+    node(g,ext,'EXTENSION',C.cyan,t,1,{hx:65,hy:50,hz:45});
+    flow(g,upload,ext,t,C.amber);curve(g,ext,ff,t,C.amber,.2,30);curve(g,ext,im,t,C.cyan,.5,30);
+    node(g,ff,'FFMPEG',C.amber,t,2,{hx:75,hy:45,hz:45});
+    node(g,im,'IMAGEMAGICK',C.cyan,t,3,{hx:85,hy:45,hz:45});
+    label(g,[240,-275,0],'AVISYNTH? BUILD + RUNTIME',C.amber,9);
+    label(g,[0,285,0],'PATCH + INVESTIGATE EXPOSED SECRETS',C.green,11);
+    heading(g,'ACTIVE STORAGE / DECODER PRECONDITIONS');g.flush();
+  };
+  scenes.nov11PackageOrbit = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.2,pitch:.65});
+    const names=['NPM 377','PIP 6','RUST 2','RUBYGEMS 1'];
+    names.forEach((name,i)=>{
+      const a=i*Math.PI/2,p=[Math.cos(a)*315,40,Math.sin(a)*260];
+      g.box(...p,65,45+Math.sin(t*.8+i)*5,60,i===0?C.amber:C.cyan,{alpha:.6,edge:.65});
+      label(g,[p[0],p[1]-105,p[2]],name,C.ink,11);
+      curve(g,p,[0,-75,0],t,C.amber,i*.2,55);
+    });
+    g.prism(0,-75,0,95,22,6,C.green,{alpha:.6,edge:.8});
+    label(g,[0,-220,0],'LOCKFILE / CI HISTORY',C.green,12);
+    label(g,[0,285,0],'ISOLATE → REVOKE → REBUILD',C.green,11);
+    heading(g,'386 ADVISORIES / NOT VICTIM COUNTS');g.flush();
+  };
+
   function frame(ctx,w,h,t) {
     ctx.save();ctx.strokeStyle=A(C.steel,.28);ctx.lineWidth=.75;
     const m=8,L=14;

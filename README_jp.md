@@ -1,3 +1,5 @@
+**最新調査 — 2026-11-11 20:40 JST:** [読むレポート](https://www.infosec-briefing.net/update-20261111-2040) · [256論点の台帳](data/2026-11-11-2040/incident-register.json) · [構図の異なる6画面](https://www.infosec-briefing.net/?lang=ja#111)。19群追加、KEV追加10件、不正package386勧告。過去237論点と実影響20事例は前回文脈。論点数は事件数ではありません。
+
 # Infosec Briefing — 独立調査とオープンソース
 
 **データベース更新 — 2026-11-09 09:00 JST：** [最新レポート](https://www.infosec-briefing.net/update-20261109-0900) · [237論点の台帳](data/2026-11-09-0900/incident-register.json) · [調査](docs/research-2026-11-09-0900.md)。IBM Concert・DataStage・Process Mining・Qiskit SDK・Verify Directory・webMethods・Bob Shell・Langflow OSS・WordPress pluginの計29 CVEを6論点に整理。モーション6画面追加。過去231論点・実影響20事例は前回文脈を保持。KEV・GHSA malware追加0件。DB件数は事件数ではありません。

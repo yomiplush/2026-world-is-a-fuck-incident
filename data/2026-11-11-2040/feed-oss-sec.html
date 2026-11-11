@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Wed, 11 Nov 2026 03:30:04 GMT</pubDate>
+    <lastBuildDate>Wed, 11 Nov 2026 03:30:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>CVE-2026-124496: Apache Storm: DRPC HTTP doAsUser bypasses the impersonation authorizer</title>
+    <link>https://seclists.org/oss-sec/2026/q4/654</link>
+    <description>&lt;p&gt;Posted by Rui Abreu on Nov 10&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Storm (org.apache.storm:storm-server) 3.0.0 before 3.2.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+The DRPC HTTP endpoint lets an authenticated client act as another user without applying the configured impersonation &lt;br&gt;
+authorizer. An authenticated user can execute DRPC functions that are restricted to another user. Users are recommended &lt;br&gt;
+to upgrade to version 3.2.0, which fixes the issue.&lt;br&gt;
+&lt;br&gt;
+Credit:&lt;br&gt;
+&lt;br&gt;
+Javier García Herrera (finder)...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 03:25:06 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/654</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124495: Apache Storm: Logviewer follows worker symlinks across topology ACLs</title>
+    <link>https://seclists.org/oss-sec/2026/q4/653</link>
+    <description>&lt;p&gt;Posted by Rui Abreu on Nov 10&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Storm (org.apache.storm:storm-webapp) 3.0.0 before 3.2.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When workers run as the topology owner, the Logviewer serves files that a worker has placed in its own log directory as &lt;br&gt;
+links to other files. A user who is allowed to submit topologies can read the worker logs of other users&amp;apos; topologies, &lt;br&gt;
+and other files the Logviewer process can read. Users are recommended to upgrade to...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 03:23:20 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/653</guid>
+  </item>
+  <item>
+    <title>CVE-2026-94125: Apache Storm: Supervisor page discloses worker placement of other users&apos; topologies</title>
+    <link>https://seclists.org/oss-sec/2026/q4/652</link>
+    <description>&lt;p&gt;Posted by Rui Abreu on Nov 10&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Storm (org.apache.storm:storm-server) 2.0.0 before 3.2.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Nimbus returns the worker placement of every topology running on a supervisor, including the host, port, owner and &lt;br&gt;
+resource assignment of topologies the caller is not authorized to read. In a multi-tenant cluster, an authenticated &lt;br&gt;
+user who is allowed to access Nimbus can learn where the workers of other users&amp;apos; topologies...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 03:21:33 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/652</guid>
+  </item>
+  <item>
+    <title>Re: Xen Security Advisory 525 v1 (CVE-2024-36350,CVE-2024-36357,CVE-2026-0004) - x86: Transient Scheduler Attacks (update)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/651</link>
+    <description>&lt;p&gt;Posted by Andrew Cooper on Nov 10&lt;/p&gt;My apologies.  Both references to 3031 should have been 3055 instead.&lt;br&gt;
+&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3055.html&quot;&gt;https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3055.html&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+~Andrew&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 03:18:34 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/651</guid>
+  </item>
+  <item>
+    <title>Plone security fix 20261110: remote code execution</title>
+    <link>https://seclists.org/oss-sec/2026/q4/650</link>
+    <description>&lt;p&gt;Posted by Maurits van Rees on Nov 10&lt;/p&gt;This is a copy of this announcement:&lt;br&gt;
+&lt;a  rel=&quot;nofollow&quot; href=&quot;https://community.plone.org/t/plone-security-hotfix-20261110/23313&quot;&gt;https://community.plone.org/t/plone-security-hotfix-20261110/23313&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+On behalf of the Plone/Zope Security Team: today we release fixes for a &lt;br&gt;
+**remote code execution** vulnerability in Plone.&lt;br&gt;
+We announced this last week in the &lt;br&gt;
+[pre-announcement](&lt;a  rel=&quot;nofollow&quot; href=&quot;https://community.plone.org/t/pre-announcement-plone-security-fix-20261110/23303&quot;&gt;https://community.plone.org/t/pre-announcement-plone-security-fix-20261110/23303&lt;/a&gt;).&lt;br&gt;
+&lt;br&gt;
+All supported Plone versions are affected: 6.0, 6.1 and 6.2.&lt;br&gt;
+Older versions are...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 03:16:25 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/650</guid>
+  </item>
+
+
+  <item>
+    <title>CPython: [CVE-2026-115559] imaplib STARTTLS serves plaintext bytes buffered before the handshake as if they came over TLS</title>
+    <link>https://seclists.org/oss-sec/2026/q4/649</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Nov 10&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [Security-announce][CVE-2026-115559] imaplib STARTTLS serves plaintext &lt;br&gt;
+bytes buffered before the handshake as if they came over TLS&lt;br&gt;
+Date:   Tue, 10 Nov 2026 09:41:54 -0800&lt;br&gt;
+From:   Jelle Zijlstra via Security-announce &amp;lt;security-announce () python org&amp;gt;&lt;br&gt;
+Reply-To:       security-sig () python org&lt;br&gt;
+To:     security-announce () python org&lt;br&gt;
+CC:     Jelle Zijlstra &amp;lt;jelle.zijlstra () gmail...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 22:34:37 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/649</guid>
+  </item>
+  <item>
+    <title>CPython: [CVE-2026-115791] Prevent shadowing stdlib in gzip/tarfile/zipfile CLI</title>
+    <link>https://seclists.org/oss-sec/2026/q4/648</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Nov 10&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [Security-announce][CVE-2026-115791] Prevent shadowing stdlib in gzip/tarfile/zipfile CLI&lt;br&gt;
+Date:   Tue, 10 Nov 2026 17:00:26 +0100&lt;br&gt;
+From:   Victor Stinner &amp;lt;vstinner () python org&amp;gt;&lt;br&gt;
+Reply-To:       security-sig () python org&lt;br&gt;
+To:     security-announce () python org&lt;br&gt;
+&lt;br&gt;
+There is a MEDIUM severity vulnerability affecting CPython.&lt;br&gt;
+&lt;br&gt;
+When tarfile or zipfile command line interface (CLI) is used to...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 22:32:29 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/648</guid>
+  </item>
+  <item>
+    <title>CVE-2026-122096: Apache DataSketches Java: Uncontrolled resource consumption when deserializing crafted sketch images</title>
+    <link>https://seclists.org/oss-sec/2026/q4/647</link>
+    <description>&lt;p&gt;Posted by Lee Rhodes on Nov 10&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache DataSketches Java through 9.0.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Uncontrolled Resource Consumption vulnerability in the sketch deserialization of Apache DataSketches Java.&lt;br&gt;
+&lt;br&gt;
+Several deserializers trusted sizes and counts declared in the serialized input. A small crafted input could make an &lt;br&gt;
+application allocate an excessive amount of memory, leading to an OutOfMemoryError. A crafted string passed to...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 20:33:05 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/647</guid>
+  </item>
+  <item>
+    <title>Go 1.27.4 and Go 1.26.11 are released with 12 security fixes</title>
+    <link>https://seclists.org/oss-sec/2026/q4/646</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Nov 10&lt;/p&gt;-------- Forwarded Message --------&lt;br&gt;
+Subject:        [security] Go 1.27.4 and Go 1.26.11 are released&lt;br&gt;
+Date:   Tue, 10 Nov 2026 17:14:54 +0000&lt;br&gt;
+From:   announce () golang org&lt;br&gt;
+To:     golang-nuts () googlegroups com&lt;br&gt;
+&lt;br&gt;
+Hello gophers,&lt;br&gt;
+&lt;br&gt;
+We have just released Go versions 1.27.4 and 1.26.11, minor point releases.&lt;br&gt;
+&lt;br&gt;
+These releases include 12 security fixes following the security policy &amp;lt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://go.dev/doc/security/policy&quot;&gt;https://go.dev/doc/security/policy&lt;/a&gt;&amp;gt;:&lt;br&gt;
+&lt;br&gt;
+   * net/http: HTTP/1 server...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 20:17:48 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/646</guid>
+  </item>
+  <item>
+    <title>Re: [Coordinated disclosure] sblim-sfcb: pre-auth remote DoS (and latent OOB NUL write) via unbounded quoted-attribute scan in CIM-XML parser (cimXmlParser.c getValue)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/645</link>
+    <description>&lt;p&gt;Posted by Eun0us / Espilon on Nov 10&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+Alan, you are right, and the earlier reply was right that this is public information now. oss-security is a public &lt;br&gt;
+list, not the MITRE CNA, and our message disclosed the issue the moment it went out. It was meant for the distribution &lt;br&gt;
+security teams only. That was our mistake, and the embargo date in it no longer applies.&lt;br&gt;
+&lt;br&gt;
+We also need to correct the impact we stated. sfcb handles each connection in a forked child process (doFork...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 19:09:58 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/645</guid>
+  </item>
+  <item>
+    <title>Xen Security Advisory 532 v1 (CVE-2026-99287) - Linux xen-netback: guest can trigger double unmap of memory</title>
+    <link>https://seclists.org/oss-sec/2026/q4/644</link>
+    <description>&lt;p&gt;Posted by Xen . org security team on Nov 10&lt;/p&gt;            Xen Security Advisory CVE-2026-99287 / XSA-532&lt;br&gt;
+&lt;br&gt;
+      Linux xen-netback: guest can trigger double unmap of memory&lt;br&gt;
+&lt;br&gt;
+ISSUE DESCRIPTION&lt;br&gt;
+=================&lt;br&gt;
+&lt;br&gt;
+When xen-netback is setting up the connection to a frontend, it is&lt;br&gt;
+mapping the ring pages and then validating the ring pages&amp;apos; contents.&lt;br&gt;
+In case the ring index values are illegal, xen-netback tries to unmap&lt;br&gt;
+all allocated resources of the connection.  Due to a missing test for...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 19:08:01 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/644</guid>
+  </item>
+  <item>
+    <title>Xen Security Advisory 531 v1 (CVE-2026-99286) - Linux xen-netback: guest can trigger use-after-free for network statistics reads</title>
+    <link>https://seclists.org/oss-sec/2026/q4/643</link>
+    <description>&lt;p&gt;Posted by Xen . org security team on Nov 10&lt;/p&gt;            Xen Security Advisory CVE-2026-99286 / XSA-531&lt;br&gt;
+&lt;br&gt;
+ Linux xen-netback: guest can trigger use-after-free for network statistics reads&lt;br&gt;
+&lt;br&gt;
+ISSUE DESCRIPTION&lt;br&gt;
+=================&lt;br&gt;
+&lt;br&gt;
+The network statistic data in the driver is protected by RCU.&lt;br&gt;
+Unfortunately when tearing down the queues after an error during&lt;br&gt;
+connecting to the frontend (e.g. due to illegal Xenstore data filled&lt;br&gt;
+in by the guest), there was missing RCU synchronization before freeing&lt;br&gt;
+the...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 19:06:05 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/643</guid>
+  </item>
+  <item>
+    <title>Xen Security Advisory 530 v2 (CVE-2026-102706,CVE-2026-102707,CVE-2026-102708,CVE-2026-119779,CVE-2026-119780) - XAPI: Multiple RBAC issues (update)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/642</link>
+    <description>&lt;p&gt;Posted by Xen . org security team on Nov 10&lt;/p&gt; Xen Security Advisory CVE-2026-102706,CVE-2026-102707,CVE-2026-102708,CVE-2026-119779,CVE-2026-119780 / XSA-530&lt;br&gt;
+                                                    version 2&lt;br&gt;
+&lt;br&gt;
+                  XAPI: Multiple RBAC issues (update)&lt;br&gt;
+&lt;br&gt;
+UPDATES IN VERSION 2&lt;br&gt;
+====================&lt;br&gt;
+&lt;br&gt;
+Public release.&lt;br&gt;
+&lt;br&gt;
+ISSUE DESCRIPTION&lt;br&gt;
+=================&lt;br&gt;
+&lt;br&gt;
+XAPI can configure different users with different roles, using Role&lt;br&gt;
+Based Access Control.  For more details, see:...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 19:03:38 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/642</guid>
+  </item>
+  <item>
+    <title>Xen Security Advisory 529 v2 (CVE-2026-102705) - XAPI: data-dependent compare function used for Pool Secret</title>
+    <link>https://seclists.org/oss-sec/2026/q4/641</link>
+    <description>&lt;p&gt;Posted by Xen . org security team on Nov 10&lt;/p&gt;           Xen Security Advisory CVE-2026-102705 / XSA-529&lt;br&gt;
+                              version 2&lt;br&gt;
+&lt;br&gt;
+      XAPI: data-dependent compare function used for Pool Secret&lt;br&gt;
+&lt;br&gt;
+UPDATES IN VERSION 2&lt;br&gt;
+====================&lt;br&gt;
+&lt;br&gt;
+Public release.&lt;br&gt;
+&lt;br&gt;
+ISSUE DESCRIPTION&lt;br&gt;
+=================&lt;br&gt;
+&lt;br&gt;
+XAPI has a bearer token used to authenticate requests made between hosts&lt;br&gt;
+in a pool, known as the Pool Secret.&lt;br&gt;
+&lt;br&gt;
+Comparison of this token is performed with a function which has...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 19:01:18 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/641</guid>
+  </item>
+  <item>
+    <title>Xen Security Advisory 525 v1 (CVE-2024-36350,CVE-2024-36357,CVE-2026-0004) - x86: Transient Scheduler Attacks (update)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/640</link>
+    <description>&lt;p&gt;Posted by Xen . org security team on Nov 10&lt;/p&gt; Xen Security Advisory CVE-2024-36350,CVE-2024-36357,CVE-2026-0004 / XSA-525&lt;br&gt;
+&lt;br&gt;
+               x86: Transient Scheduler Attacks (update)&lt;br&gt;
+&lt;br&gt;
+ISSUE DESCRIPTION&lt;br&gt;
+=================&lt;br&gt;
+&lt;br&gt;
+AMD have discovered further properties of Transient Scheduler Attacks.&lt;br&gt;
+&lt;br&gt;
+The previously published XSA-471 dealt with two TSA variants, TSA-SQ&lt;br&gt;
+and TSA-L1 on Zen3 and Zen4 CPUs.  For details, see XSA-471.&lt;br&gt;
+&lt;br&gt;
+AMD had previously said that Zen5 CPUs were not vulnerable to TSA-SQ and...&lt;br&gt;</description>
+    <pubDate>Tue, 10 Nov 2026 18:59:19 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/640</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

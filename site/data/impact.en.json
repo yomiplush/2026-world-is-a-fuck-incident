@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-11-09T00:00:00Z",
+  "cutoff": "2026-11-11T11:40:00Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -472,7 +472,7 @@
       "recovery_state": "not-established"
     }
   ],
-  "cutoff_jst": "2026-11-09T09:00:00+09:00",
+  "cutoff_jst": "2026-11-11T20:40:00+09:00",
   "caveats": [
     "Rows outside the update scope retain prior source context. Their recorded check times are not new retrieval times.",
     "Selected examples. parent_incident indicates user-side effects of the same compromise and is not added as a separate incident. potential means actual acquisition is unconfirmed.",
@@ -486,7 +486,7 @@
   "locale": "en",
   "translation": {
     "source_hash": "383a5676d9f409fe3a0d36617fa97c4330c0b12b2a378955ca9a5ce05fb0e967",
-    "register_hash": "ccba4cc69f6be8850514327f10bc7de8973952943652f2aaed7f8f633669a608",
+    "register_hash": "29f10fdb264b20a08e11eacd679f41d3a7d5e0c31258e49b9f12a924fff73708",
     "human_reviewed": false
   }
 }

@@ -15,7 +15,9 @@ test('chapter windows keep every chapter reachable with at most five chapter con
 test('six latest scenes form a dedicated chapter and keep all 65 historical URLs',()=>{
  const {CONTENT:c,BRIEFING_NAV:nav}=load();
  const ids=['latest-scope','latest-chain','latest-audit','latest-disclosure','latest-passwords','latest-care'];
- assert.equal(c.scenes.length,110);
+ const latest=JSON.parse(fs.readFileSync('data/latest.json','utf8'));
+ const mapping=JSON.parse(fs.readFileSync('content/motion-reviews.json','utf8'))[new URL(latest.site_report).pathname.slice(1)+'.html'];
+ assert.equal(c.scenes.length,mapping.start-1+mapping.count);
  for(let i=0;i<ids.length;i++){
   const scene=c.scenes[65+i];assert.equal(scene.id,ids[i]);assert.ok(scene.ja.title&&scene.en.title&&scene.sources.length);
   assert.equal(scene.stamp,'10.29 · 14:01 JST');assert.ok(scene.visual.type.startsWith('latest'));
@@ -23,7 +25,10 @@ test('six latest scenes form a dedicated chapter and keep all 65 historical URLs
  }
  assert.equal(nav.numberFor(nav.indexFor(53)),53);
  assert.equal(nav.scenes[nav.indexFor(53)].id,'closing');
- assert.deepEqual(Array.from(nav.chapters,g=>g.end-g.start),[10,10,10,10,10,10,4,6,3,6,6,6,6,6,7]);
+ assert.deepEqual(Array.from(nav.chapters.slice(0,14),g=>g.end-g.start),[10,10,10,10,10,10,4,6,3,6,6,6,6,6]);
+ assert.ok(nav.chapters.every(g=>g.end-g.start<=10));
+ const currentChapter=nav.chapterFor(nav.indexFor(mapping.start));
+ assert.equal(currentChapter.end-currentChapter.start,mapping.count+1); // closing scene follows the latest review
  for(let n=1;n<=65;n++)assert.equal(nav.numberFor(nav.indexFor(n)),n);
 });
 test('both current articles open their own language at the first latest scene',()=>{

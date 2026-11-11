@@ -1,3 +1,5 @@
+**Latest review — 2026-11-11 20:40 JST:** [Reading report](https://www.infosec-briefing.net/update-20261111-2040) · [256-topic register](data/2026-11-11-2040/incident-register.json) · [Six varied motion diagrams](https://www.infosec-briefing.net/?lang=en#111). 19 new groups, 10 KEV additions and 386 malicious-package advisories; prior 237 topics and 20 impact records retain historical context. Counts are not incidents.
+
 # Infosec Briefing — independent research and open source
 
 **Database review — 2026-11-09 09:00 JST:** [Latest report](https://www.infosec-briefing.net/update-20261109-0900.en) · [237-topic register](data/2026-11-09-0900/incident-register.json) · [Research](docs/research-2026-11-09-0900.en.md). 6 new groups cover selected IBM Concert, DataStage, Process Mining, Qiskit SDK, Verify Directory, webMethods, Bob Shell, Langflow OSS and WordPress plugin records. Six new motion scenes. Prior 231 topics and 20 impact records retain historical context; no KEV or GHSA malware additions. Database counts are not incident counts.

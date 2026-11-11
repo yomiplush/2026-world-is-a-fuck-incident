@@ -5822,16 +5822,246 @@ for (const lang of ['ja', 'en']) {
     : '全110画面を日付順に。11/09 09:00 JSTまでの追加6画面。過去の場面は記載時点の記録です。';
 }
 
+/* November 11: six distinct sourced explanatory compositions. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1111-scope",
+    "stamp": "11.11 · 20:40 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "増えた記録と、確認した悪用を分ける。",
+      "lede": "11/09 09:00〜11/11 20:40 JSTの固定窓。",
+      "points": [
+        "NVD新規2,768・改訂6,054。新規は全件が改訂と重複",
+        "GHSA公開3,059：reviewed 144・unreviewed 2,529・malware 386",
+        "256論点へ19群追加。KEV追加10件。事件数ではない"
+      ]
+    },
+    "en": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "Separate added records from confirmed exploitation.",
+      "lede": "Fixed 11/09 09:00–11/11 20:40 JST window.",
+      "points": [
+        "NVD: 2,768 published / 6,054 modified; all published records overlap",
+        "GHSA: 3,059 published — 144 reviewed / 2,529 unreviewed / 386 malware",
+        "256 topics after 19 additions; 10 KEV additions. These are not incident counts"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-11-2040/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-11T11:40:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1111-react",
+    "stamp": "11.11 · 20:40 JST",
+    "visual": {
+      "type": "nov11ReactBranches"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "Reactの利用だけでは、対象と決まらない。",
+      "lede": "RSCの到達条件と4つの修正branch。",
+      "points": [
+        "RSC対応serverの応答で、複数typed arrayと攻撃者制御値をtransportする条件",
+        "webpack／parcel／turbopack：19.0.9・19.1.10・19.2.9・19.3.1",
+        "serverなし・RSC非対応の構成は対象外。更新後は再build・再deploy"
+      ]
+    },
+    "en": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "Using React alone does not establish exposure.",
+      "lede": "RSC preconditions and 4 fixed branches.",
+      "points": [
+        "RSC-capable server responses transport multiple typed arrays and attacker-controlled data",
+        "webpack/parcel/turbopack: 19.0.9 / 19.1.10 / 19.2.9 / 19.3.1",
+        "Client-only and non-RSC configurations are excluded; rebuild and redeploy after upgrading"
+      ]
+    },
+    "sources": [
+      {
+        "name": "React advisory",
+        "url": "https://github.com/advisories/GHSA-xqc2-xf4c-x3h3"
+      }
+    ],
+    "reviewCutoff": "2026-11-11T11:40:00Z"
+  },
+  {
+    "id": "motion-1111-proxy",
+    "stamp": "11.11 · 20:40 JST",
+    "visual": {
+      "type": "nov11Proxy"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "proxy越しのlocalhostを、認証としない。",
+      "lede": "GPUStackのloopback自動admin。",
+      "points": [
+        "同一host proxyのTCP peer、またはX-GPUStack-Real-IPでloopback扱い",
+        "2.2.0で修正。実悪用報告があり、KEVに追加された",
+        "更新と別に、発行API鍵・worker設定・provider秘密情報を監査・失効"
+      ]
+    },
+    "en": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "Localhost behind a proxy is not authentication.",
+      "lede": "GPUStack loopback auto-admin.",
+      "points": [
+        "A same-host proxy peer or X-GPUStack-Real-IP can trigger loopback trust",
+        "Fixed in 2.2.0; exploitation is reported and the issue is in KEV",
+        "Separately audit/revoke minted API keys, worker configuration and provider secrets"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GPUStack advisory",
+        "url": "https://github.com/advisories/GHSA-gj9m-f8ph-pmhr"
+      }
+    ],
+    "reviewCutoff": "2026-11-11T11:40:00Z"
+  },
+  {
+    "id": "motion-1111-restart",
+    "stamp": "11.11 · 20:40 JST",
+    "visual": {
+      "type": "nov11Restart"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "package更新と、動作中daemonの修正は別。",
+      "lede": "OpenSSH・musl・非PAM認証。",
+      "points": [
+        "password認証・*のaccount・別accountの$5$/$6$ hashなどを照合",
+        "Alpineのbranch別修正を適用し、sshdを再起動する",
+        "鍵loginの確認、Accepted password・doas・追加鍵の調査まで分けて確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "A package update and a repaired running daemon differ.",
+      "lede": "OpenSSH with musl and non-PAM authentication.",
+      "points": [
+        "Check password authentication, a * account and another account with a $5$/$6$ hash",
+        "Install the relevant Alpine branch fix and restart sshd",
+        "Verify key login and separately investigate Accepted password logs, doas use and added keys"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Alpine security advisory",
+        "url": "https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/"
+      }
+    ],
+    "reviewCutoff": "2026-11-11T11:40:00Z"
+  },
+  {
+    "id": "motion-1111-decoder",
+    "stamp": "11.11 · 20:40 JST",
+    "visual": {
+      "type": "nov11Decoder"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "uploadの拡張子が、外部decoderを選ぶ。",
+      "lede": "Active Storageの条件付きfile読出し・RCE。",
+      "points": [
+        "未信頼uploadと解析・preview・ImageMagick処理の組合せ",
+        "AviSynth経路には対応FFmpeg buildとruntimeが追加で必要",
+        "activestorage 8.0.5.2／8.1.4.1へ。該当secretの変更・失効は別工程"
+      ]
+    },
+    "en": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "An upload extension can select an external decoder.",
+      "lede": "Conditional file reads and RCE in Active Storage.",
+      "points": [
+        "Untrusted uploads combined with analysis, previews or ImageMagick processing",
+        "The AviSynth path additionally needs an enabled FFmpeg build and runtime",
+        "Upgrade activestorage to 8.0.5.2 / 8.1.4.1; rotate/revoke exposed secrets separately"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Rails Active Storage advisory",
+        "url": "https://github.com/advisories/GHSA-v924-7rp8-4mxh"
+      }
+    ],
+    "reviewCutoff": "2026-11-11T11:40:00Z"
+  },
+  {
+    "id": "motion-1111-packages",
+    "stamp": "11.11 · 20:40 JST",
+    "visual": {
+      "type": "nov11PackageOrbit"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "package名だけで終わらず、実行履歴へ。",
+      "lede": "不正package386勧告とCIの境界。",
+      "points": [
+        "npm 377・pip 6・rust 2・rubygems 1。勧告数は被害者数ではない",
+        "lockfile・cache・CIの導入版と実行有無を照合する",
+        "該当時は隔離、secret露出の調査・鍵失効、信頼できる環境から再build"
+      ]
+    },
+    "en": {
+      "kicker": "11/11 20:40 REVIEW",
+      "title": "Follow package names through to execution history.",
+      "lede": "386 malicious-package advisories and CI boundaries.",
+      "points": [
+        "npm 377 / pip 6 / rust 2 / rubygems 1; advisories are not victims",
+        "Match installed versions and execution against lockfiles, caches and CI",
+        "When affected: isolate, investigate secrets, revoke credentials and rebuild from a trusted environment"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Saved advisory register",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-11-2040/incident-register.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-11T11:40:00Z"
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-11T11:40:00Z", "label": "2026-11-11 20:40 JST", "report": "/update-20261111-2040"};
+for (const lang of ['ja', 'en']) {
+  const en = lang === 'en';
+  window.CONTENT.scenes.find(s => s.id === 'intro')[lang].points[1] =
+    '<a href="' + window.CONTENT.review.report + (en ? '.en' : '') + '">11/11 20:40 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#111">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/timeline' + (en ? '.en' : '') + '">' + (en ? 'Read by date' : '日付から読む') + ' →</a>';
+  window.CONTENT.ui[lang].coverSub = en
+    ? '116 dated scenes, including 6 varied scenes through November 11, 20:40 JST. Historical scenes retain their original context.'
+    : '全116画面を日付順に。11/11 20:40 JSTまでの追加6画面。話題ごとに異なる立体図解、過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 110,
-    "total": 110
+    "translated": 116,
+    "total": 116
   },
   "ja": {
     "ready": true,
-    "translated": 110,
-    "total": 110
+    "translated": 116,
+    "total": 116
   }
 };

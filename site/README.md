@@ -1,3 +1,9 @@
+## November 11 publication
+
+Current cutoff: 2026-11-11 20:40 JST. 256 topics (19 new), 20 retained impact records and 116 motion scenes. New six scenes #111–116 use six distinct compositions; all earlier numbers remain stable. Japanese and English report: `/update-20261111-2040`. Review API overlaps, 10 KEV additions, 144 reviewed and 386 malware advisory tables; these are not victim counts.
+
+Collection: `python3 tools/intel/snapshot-20261111.py --github-auth --output-dir data/recollect-2026-11-11-2040` (fresh directory; uses current upstream revisions, not historical reconstruction). Separate captured advisory URLs and limitations: `docs/research-collection-2026-11-11-2040.md`.
+
 ## November 3 publication
 
 Current research cutoff: 2026-11-03 16:20 JST. 182 topics, with five new groups and 177 retained historical topics; 97 new malware advisories preserve individual affected-version tables. The latest report is `/update-20261103-1620`; `/topics/` contains ten focused Japanese/English pages. Motion has 80 scenes: #72–74 cover dated follow-ups, #75–80 the current review. All #1–71 targets remain stable.
