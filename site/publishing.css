@@ -52,4 +52,4 @@ html[dir="rtl"] .research-tabs a{text-align:center}
 .entry-links a:focus-visible{outline:2px solid #58e0ff;outline-offset:2px}
 body:not(.entry-locked) .entry-links{display:none}
 @media(max-width:600px) and (orientation:portrait){.cover{padding-top:240px;padding-bottom:50px}.entry-control{width:min(70vw,40dvh,320px)}}
-@media(max-height:560px) and (orientation:landscape){.entry-links{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 66px)}.english-entry{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 172px)}.cover{padding-left:270px}.entry-control{width:min(50vw,65dvh,280px)}}
+@media(max-height:560px) and (orientation:landscape){.entry-links{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 66px)}.english-entry{max-width:240px;left:max(12px,env(safe-area-inset-left));top:calc(var(--viewport-top,0px) + env(safe-area-inset-top) + 192px)}.cover{padding-left:270px}.entry-control{width:min(50vw,65dvh,280px)}}

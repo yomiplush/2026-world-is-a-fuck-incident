@@ -6052,16 +6052,262 @@ for (const lang of ['ja', 'en']) {
     : '全116画面を日付順に。11/11 20:40 JSTまでの追加6画面。話題ごとに異なる立体図解、過去の場面は記載時点の記録です。';
 }
 
+/* November 13: fixed-window research and boundary explanations. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1113-scope",
+    "stamp": "11.13 · 18:25 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "登録と改訂の重複を、事件数にしない。",
+      "lede": "11/11 20:40〜11/13 18:25 JSTの固定窓。",
+      "points": [
+        "NVD新規984・改訂4,762。新規984はすべて改訂と重複",
+        "GHSA公開1,017：reviewed 50・unreviewed 828・malware 139",
+        "27論点追加で283論点。KEVは1,779件で前回原本と同一"
+      ]
+    },
+    "en": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "Do not turn overlapping records into incident counts.",
+      "lede": "Fixed 11/11 20:40–11/13 18:25 JST window.",
+      "points": [
+        "NVD: 984 published / 4,762 modified; all 984 published records overlap",
+        "GHSA: 1,017 published — 50 reviewed / 828 unreviewed / 139 malware",
+        "27 additions bring the register to 283 topics; KEV remains byte-identical at 1,779 entries"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Saved collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-13-1825/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-13T09:25:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1113-rucio",
+    "stamp": "11.13 · 18:25 JST",
+    "visual": {
+      "type": "nov13TokenSplit"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "challengeは、認証済みの身分証ではない。",
+      "lede": "Rucioのnonceと認証tokenの混同。",
+      "points": [
+        "未認証で任意accountのSSH challengeを要求できる",
+        "短命nonceをAPI認証に受理するため管理者にもなりすませる",
+        "branch別35.9.1／38.6.1／40.4.2／41.1.1へ更新し権限操作を点検"
+      ]
+    },
+    "en": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "A challenge is not an authenticated identity.",
+      "lede": "Rucio confuses nonces with authentication tokens.",
+      "points": [
+        "Unauthenticated callers can request an SSH challenge for an arbitrary account",
+        "Accepting a short-lived nonce as an API credential permits administrator impersonation",
+        "Update the relevant branch to 35.9.1 / 38.6.1 / 40.4.2 / 41.1.1 and review privileged operations"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GitHub reviewed advisory API — saved publication window",
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      },
+      {
+        "name": "Rucio maintainer advisory",
+        "url": "https://github.com/rucio/rucio/security/advisories/GHSA-x585-4vv8-2mh2"
+      }
+    ],
+    "reviewCutoff": "2026-11-13T09:25:00Z"
+  },
+  {
+    "id": "motion-1113-image-policy",
+    "stamp": "11.13 · 18:25 JST",
+    "visual": {
+      "type": "nov13ImagePolicy"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "previewを作らなくても、添付で解析に届く。",
+      "lede": "Rails・ImageMagickの実効policyを確認。",
+      "points": [
+        "未信頼upload＋mini_magick＋関連coderが許可されたpolicyが条件",
+        "activestorage 8.0.5.2／8.1.4.1とmini_magick >= 5.1を確認",
+        "Disk serviceで読めたsecretは変更・失効。旧secretをfallbackに残さない"
+      ]
+    },
+    "en": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "Attaching a file can reach analysis without a preview.",
+      "lede": "Check the effective Rails/ImageMagick policy.",
+      "points": [
+        "Prerequisites: untrusted uploads, mini_magick and a policy allowing the relevant coders",
+        "Check activestorage 8.0.5.2 / 8.1.4.1 and mini_magick >= 5.1",
+        "Rotate/revoke readable Disk service secrets; do not retain exposed secrets as fallbacks"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GitHub reviewed advisory API — saved publication window",
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      },
+      {
+        "name": "Rails maintainer advisory",
+        "url": "https://github.com/rails/rails/security/advisories/GHSA-f3w6-w445-fwh9"
+      },
+      {
+        "name": "JVN ImageMagick notice",
+        "url": "https://jvn.jp/vu/JVNVU95718857/"
+      }
+    ],
+    "reviewCutoff": "2026-11-13T09:25:00Z"
+  },
+  {
+    "id": "motion-1113-paths",
+    "stamp": "11.13 · 18:25 JST",
+    "visual": {
+      "type": "nov13PathLanes"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "同じrequestでも、境界ごとにpathが変わる。",
+      "lede": "Hono coreとNode adapterを別々に確認。",
+      "points": [
+        "mount・wildcard認証の問題はhono 4.13.16へ",
+        "proxyとNode adapterのraw backslash解釈差は1.19.18／2.1.6へ",
+        "内側appの認証も検証し、PreparedRegExpRouter dataを再生成"
+      ]
+    },
+    "en": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "The same request can become different paths at each boundary.",
+      "lede": "Check Hono core and its Node adapter separately.",
+      "points": [
+        "Use hono 4.13.16 for mount/wildcard authentication issues",
+        "Fix proxy/Node adapter raw-backslash disagreement with 1.19.18 / 2.1.6",
+        "Verify authentication inside the mounted app and regenerate PreparedRegExpRouter data"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GitHub reviewed advisory API — saved publication window",
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      }
+    ],
+    "reviewCutoff": "2026-11-13T09:25:00Z"
+  },
+  {
+    "id": "motion-1113-rag",
+    "stamp": "11.13 · 18:25 JST",
+    "visual": {
+      "type": "nov13TenantIndex"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "普通の同時queryが、共有indexで交差する。",
+      "lede": "pgEdge RAGのtenant境界と修正後の調査。",
+      "points": [
+        "BM25 indexのclear・投入・検索が別lockで、他tenant文書が混在し得る",
+        "RAG Server 2.0.0へ。Go pseudo-versionと製品releaseを分ける",
+        "影響responseはserver logだけで事後特定できない。鍵露出も別途対応"
+      ]
+    },
+    "en": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "Ordinary concurrent queries cross through a shared index.",
+      "lede": "pgEdge RAG tenant boundaries and post-update assessment.",
+      "points": [
+        "Separate locks for BM25 clear/populate/search can mix another tenant’s documents",
+        "Upgrade RAG Server to 2.0.0; distinguish Go pseudo-versions from product releases",
+        "Server logs alone cannot identify affected responses retrospectively; address key exposure separately"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GitHub reviewed advisory API — saved publication window",
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      },
+      {
+        "name": "pgEdge RAG maintainer advisory",
+        "url": "https://github.com/pgEdge/pgedge-rag-server/security/advisories/GHSA-w437-9mwm-j6vq"
+      }
+    ],
+    "reviewCutoff": "2026-11-13T09:25:00Z"
+  },
+  {
+    "id": "motion-1113-msp",
+    "stamp": "11.13 · 18:25 JST",
+    "visual": {
+      "type": "nov13TechnicianBoundary"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "技術者clientを更新しても、侵害の除去は別工程。",
+      "lede": "ScreenConnectの予防措置と調査範囲。",
+      "points": [
+        "約400環境はextension設置に基づく予防措置の対象。侵害確定数ではない",
+        "全技術者clientを26.6.5以降へ。console更新だけでは足りない",
+        "extension無効化・session失効・独立した調査と証拠保存・永続化除去を確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/13 18:25 REVIEW",
+      "title": "A technician-client update does not remove an existing compromise.",
+      "lede": "ScreenConnect precautions and investigation scope.",
+      "points": [
+        "Approximately 400 environments had relevant extensions; these are not confirmed compromises",
+        "Verify every technician client is at 26.6.5 or later; a console update alone is insufficient",
+        "Keep extensions disabled, revoke sessions, investigate independently, preserve evidence and remove persistence"
+      ]
+    },
+    "sources": [
+      {
+        "name": "ConnectWise Trust Center advisory",
+        "url": "https://www.connectwise.com/company/trust/advisories"
+      }
+    ],
+    "reviewCutoff": "2026-11-13T09:25:00Z"
+  }
+]);
+window.CONTENT.review = {cutoff:"2026-11-13T09:25:00Z",label:"2026-11-13 18:25 JST",report:"/update-20261113-1825"};
+for (const lang of ['ja','en']) {
+  const en=lang==='en';
+  window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]=
+    '<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/13 18:25 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#117">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/timeline'+(en?'.en':'')+'">'+(en?'Read by date':'日付から読む')+' →</a>';
+  window.CONTENT.ui[lang].coverSub=en
+    ? '122 dated scenes, including 6 explanations through November 13, 18:25 JST. Historical scenes retain their original context.'
+    : '全122画面を日付順に。11/13 18:25 JSTまでの追加6画面。認証・画像処理・経路・tenant・MSPの境界を図解します。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 116,
-    "total": 116
+    "translated": 122,
+    "total": 122
   },
   "ja": {
     "ready": true,
-    "translated": 116,
-    "total": 116
+    "translated": 122,
+    "total": 122
   }
 };

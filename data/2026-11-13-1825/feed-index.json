@@ -1,0 +1,2121 @@
+[
+  {
+    "name": "feed-project-zero",
+    "status": "ok",
+    "url": "https://googleprojectzero.blogspot.com/feeds/posts/default?alt=rss&max-results=20",
+    "entries": [
+      {
+        "title": "Fuzzers vs. AI: Comparing Fuzzilli and BigSleep on JavaScript Engines",
+        "url": "https://projectzero.google/2026/10/fuzzing-v-AI.html",
+        "published": "2026-10-27T00:00:00-07:00",
+        "updated": "2026-10-27T00:00:00-07:00",
+        "publication_utc": "2026-10-27T07:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "How to fix a bug in a fix",
+        "url": "https://projectzero.google/2026/10/emergency-patching.html",
+        "published": "2026-10-06T00:00:00-07:00",
+        "updated": "2026-10-06T00:00:00-07:00",
+        "publication_utc": "2026-10-06T07:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Windows Exploitation Techniques: Dangling COM Object Registrations",
+        "url": "https://projectzero.google/2026/09/windows-dangling-com.html",
+        "published": "2026-09-21T00:00:00-07:00",
+        "updated": "2026-09-21T00:00:00-07:00",
+        "publication_utc": "2026-09-21T07:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Testing race conditions with memory access tracing and stack-based delay injection",
+        "url": "https://projectzero.google/2026/09/maccconc-race-condition.html",
+        "published": "2026-09-08T00:00:00-07:00",
+        "updated": "2026-09-08T00:00:00-07:00",
+        "publication_utc": "2026-09-08T07:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens",
+        "url": "https://projectzero.google/2026/05/pixel-10-exploit.html",
+        "published": "2026-05-13T00:00:00-07:00",
+        "updated": "2026-05-13T00:00:00-07:00",
+        "publication_utc": "2026-05-13T07:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "On the Effectiveness of Mutational Grammar Fuzzing",
+        "url": "https://projectzero.google/2026/03/mutational-grammar-fuzzing.html",
+        "published": "2026-03-05T00:00:00-08:00",
+        "updated": "2026-03-05T00:00:00-08:00",
+        "publication_utc": "2026-03-05T08:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "A Deep Dive into the GetProcessHandleFromHwnd API",
+        "url": "https://projectzero.google/2026/02/gphfh-deep-dive.html",
+        "published": "2026-02-26T00:00:00-08:00",
+        "updated": "2026-02-26T00:00:00-08:00",
+        "publication_utc": "2026-02-26T08:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Bypassing Administrator Protection by Abusing UI Access",
+        "url": "https://projectzero.google/2026/02/windows-administrator-protection.html",
+        "published": "2026-02-12T00:00:00-08:00",
+        "updated": "2026-02-12T00:00:00-08:00",
+        "publication_utc": "2026-02-12T08:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529",
+        "url": "https://projectzero.google/2026/01/sound-barrier-2.html",
+        "published": "2026-01-30T00:00:00-08:00",
+        "updated": "2026-01-30T00:00:00-08:00",
+        "publication_utc": "2026-01-30T08:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Bypassing Windows Administrator Protection",
+        "url": "https://projectzero.google/2026/26/windows-administrator-protection.html",
+        "published": "2026-01-26T00:00:00-08:00",
+        "updated": "2026-01-26T00:00:00-08:00",
+        "publication_utc": "2026-01-26T08:00:00+00:00",
+        "in_publication_window": false
+      }
+    ]
+  },
+  {
+    "name": "feed-portswigger-research",
+    "status": "ok",
+    "url": "https://portswigger.net/research/rss",
+    "entries": [
+      {
+        "pubDate": "Wed, 11 Nov 2026 14:26:01 GMT",
+        "title": "Blind trust: stealing credentials through CSP",
+        "url": "https://portswigger.net/research/blind-trust-stealing-credentials-through-csp",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 04 Nov 2026 15:12:29 GMT",
+        "title": "Making HTTP header injection critical with one prompt",
+        "url": "https://portswigger.net/research/making-http-header-injection-critical-with-one-prompt",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 27 Oct 2026 14:29:26 GMT",
+        "title": "Scalable Vector Grief",
+        "url": "https://portswigger.net/research/scalable-vector-grief",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 06 Oct 2026 17:14:53 GMT",
+        "title": "The model isn't cooperating",
+        "url": "https://portswigger.net/research/the-model-isnt-cooperating",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Mon, 05 Oct 2026 15:04:55 GMT",
+        "title": "Smashing the token limit with overlapping fragments",
+        "url": "https://portswigger.net/research/smashing-the-token-limit",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 23 Sep 2026 14:00:00 GMT",
+        "title": "HTTP/3 in Burp Suite - it’s time to find a bigger wordlist",
+        "url": "https://portswigger.net/research/http3-in-burp-suite",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 25 Aug 2026 14:24:32 GMT",
+        "title": "What's in a tag name? JavaScript, apparently",
+        "url": "https://portswigger.net/research/whats-in-a-tag-name-javascript-apparently",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Thu, 06 Aug 2026 22:00:00 GMT",
+        "title": "CSS:the bomb inside your inbox",
+        "url": "https://portswigger.net/research/css-the-bomb-inside-your-inbox",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 05 Aug 2026 23:30:00 GMT",
+        "title": "CRLF-Powered Desync Attacks: Beheading HTTP Streams",
+        "url": "https://portswigger.net/research/crlf-powered-desync-attacks",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 05 Aug 2026 19:30:00 GMT",
+        "title": "Can AI do novel security research? Meet the HTTP Terminator",
+        "url": "https://portswigger.net/research/can-ai-do-novel-security-research",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Thu, 05 Feb 2026 15:28:08 GMT",
+        "title": "Top 10 web hacking techniques of 2025",
+        "url": "https://portswigger.net/research/top-10-web-hacking-techniques-of-2025",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 06 Jan 2026 15:31:28 GMT",
+        "title": " \tTop 10 web hacking techniques of 2025: call for nominations",
+        "url": "https://portswigger.net/research/top-10-web-hacking-techniques-of-2025-nominations-open",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 10 Dec 2025 12:32:00 GMT",
+        "title": "The Fragile Lock:&nbsp;Novel Bypasses For SAML Authentication",
+        "url": "https://portswigger.net/research/the-fragile-lock",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 11 Nov 2025 14:41:53 GMT",
+        "title": "Introducing HTTP Anomaly Rank",
+        "url": "https://portswigger.net/research/introducing-http-anomaly-rank",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 17 Sep 2025 12:40:06 GMT",
+        "title": "WebSocket Turbo Intruder: Unearthing the WebSocket Goldmine",
+        "url": "https://portswigger.net/research/websocket-turbo-intruder-unearthing-the-websocket-goldmine",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 03 Sep 2025 14:46:23 GMT",
+        "title": "Cookie Chaos: How to bypass __Host and __Secure cookie prefixes",
+        "url": "https://portswigger.net/research/cookie-chaos-how-to-bypass-host-and-secure-cookie-prefixes",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 26 Aug 2025 12:54:03 GMT",
+        "title": "Inline Style Exfiltration: leaking data with chained CSS conditionals",
+        "url": "https://portswigger.net/research/inline-style-exfiltration",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 19 Aug 2025 14:30:44 GMT",
+        "title": "Beware the false false-positive: how to distinguish HTTP pipelining from request smuggling",
+        "url": "https://portswigger.net/research/how-to-distinguish-http-pipelining-from-request-smuggling",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 06 Aug 2025 22:20:00 GMT",
+        "title": "HTTP/1.1 must die: the desync endgame",
+        "url": "https://portswigger.net/research/http1-must-die",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 15 Jul 2025 13:46:37 GMT",
+        "title": "Repeater Strike: manual testing, amplified",
+        "url": "https://portswigger.net/research/repeater-strike-manual-testing-amplified",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 30 Apr 2025 12:37:11 GMT",
+        "title": "Drag and Pwnd: Leverage ASCII characters to exploit VS Code",
+        "url": "https://portswigger.net/research/drag-and-pwnd-leverage-ascii-characters-to-exploit-vs-code",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 23 Apr 2025 13:17:24 GMT",
+        "title": "Document My Pentest: you hack, the AI writes it up!",
+        "url": "https://portswigger.net/research/document-my-pentest",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 18 Mar 2025 14:55:43 GMT",
+        "title": "SAML roulette: the hacker always wins",
+        "url": "https://portswigger.net/research/saml-roulette-the-hacker-always-wins",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Thu, 20 Feb 2025 13:20:19 GMT",
+        "title": "Shadow Repeater:AI-enhanced manual testing",
+        "url": "https://portswigger.net/research/shadow-repeater-ai-enhanced-manual-testing",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 04 Feb 2025 15:01:48 GMT",
+        "title": "Top 10 web hacking techniques of 2024",
+        "url": "https://portswigger.net/research/top-10-web-hacking-techniques-of-2024",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 28 Jan 2025 13:58:28 GMT",
+        "title": "Bypassing character blocklists with unicode overflows",
+        "url": "https://portswigger.net/research/bypassing-character-blocklists-with-unicode-overflows",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 22 Jan 2025 14:45:11 GMT",
+        "title": "Stealing HttpOnly cookies with the cookie sandwich technique",
+        "url": "https://portswigger.net/research/stealing-httponly-cookies-with-the-cookie-sandwich-technique",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 08 Jan 2025 14:07:27 GMT",
+        "title": "Top 10 web hacking techniques of 2024: nominations open",
+        "url": "https://portswigger.net/research/top-10-web-hacking-techniques-of-2024-nominations-open",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 04 Dec 2024 15:03:35 GMT",
+        "title": "Bypassing WAFs with the phantom $Version cookie ",
+        "url": "https://portswigger.net/research/bypassing-wafs-with-the-phantom-version-cookie",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 29 Oct 2024 13:59:13 GMT",
+        "title": "New crazy payloads in the URL Validation Bypass Cheat Sheet",
+        "url": "https://portswigger.net/research/new-crazy-payloads-in-the-url-validation-bypass-cheat-sheet",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 23 Oct 2024 12:59:05 GMT",
+        "title": "Concealing payloads in URL credentials",
+        "url": "https://portswigger.net/research/concealing-payloads-in-url-credentials",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 03 Sep 2024 14:52:12 GMT",
+        "title": "Introducing the URL validation bypass cheat sheet",
+        "url": "https://portswigger.net/research/introducing-the-url-validation-bypass-cheat-sheet",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Thu, 08 Aug 2024 22:27:46 GMT",
+        "title": "Gotta cache 'em all: bending the rules of web cache exploitation",
+        "url": "https://portswigger.net/research/gotta-cache-em-all",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 07 Aug 2024 21:32:47 GMT",
+        "title": "Splitting the email atom: exploiting parsers to bypass access controls",
+        "url": "https://portswigger.net/research/splitting-the-email-atom",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 07 Aug 2024 18:10:21 GMT",
+        "title": "Listen to the whispers: web timing attacks that actually work",
+        "url": "https://portswigger.net/research/listen-to-the-whispers-web-timing-attacks-that-actually-work",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 09 Jul 2024 12:51:22 GMT",
+        "title": "Fickle PDFs: exploiting browser rendering discrepancies",
+        "url": "https://portswigger.net/research/fickle-pdfs-exploiting-browser-rendering-discrepancies",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 02 Jul 2024 12:57:08 GMT",
+        "title": "A hacking hat-trick: previewing three PortSwigger Research publications coming to DEF CON &amp; Black Hat USA",
+        "url": "https://portswigger.net/research/a-hacking-hat-trick-previewing-three-portswigger-research-publications-coming-to-def-con-amp-black-hat-usa",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Tue, 11 Jun 2024 14:58:29 GMT",
+        "title": "onwebkitplaybacktargetavailabilitychanged?! New exotic events in the XSS cheat sheet",
+        "url": "https://portswigger.net/research/new-exotic-events-in-the-xss-cheat-sheet",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 29 May 2024 13:31:49 GMT",
+        "title": "Refining your HTTP perspective, with bambdas",
+        "url": "https://portswigger.net/research/adjusting-your-http-perspective-with-bambdas",
+        "date_parse_error": true
+      },
+      {
+        "pubDate": "Wed, 22 May 2024 12:37:00 GMT",
+        "title": "Introducing SignSaboteur: forge signed web tokens with ease",
+        "url": "https://portswigger.net/research/introducing-signsaboteur-forge-signed-web-tokens-with-ease",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-trail-of-bits",
+    "status": "ok",
+    "url": "https://blog.trailofbits.com/feed/",
+    "entries": [
+      {
+        "title": "After Binance, check what your signing systems can approve",
+        "url": "https://blog.trailofbits.com/2026/11/06/after-binance-check-what-your-signing-systems-can-approve/",
+        "pubDate": "Fri, 06 Nov 2026 07:00:00 -0500",
+        "publication_utc": "2026-11-06T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "The cryptography behind electronic voting (and why paper ballots are still essential)",
+        "url": "https://blog.trailofbits.com/2026/11/03/the-cryptography-behind-electronic-voting-and-why-paper-ballots-are-still-essential/",
+        "pubDate": "Tue, 03 Nov 2026 07:00:00 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Backporting security fixes at scale with Codex",
+        "url": "https://blog.trailofbits.com/2026/11/02/backporting-security-fixes-at-scale-with-codex/",
+        "pubDate": "Mon, 02 Nov 2026 07:00:00 -0500",
+        "publication_utc": "2026-11-02T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Your AI agent fixed the bug, but what else did it change?",
+        "url": "https://blog.trailofbits.com/2026/10/21/your-ai-agent-fixed-the-bug-but-what-else-did-it-change/",
+        "pubDate": "Wed, 21 Oct 2026 11:00:00 -0400",
+        "publication_utc": "2026-10-21T15:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Package managers have an integrity problem",
+        "url": "https://blog.trailofbits.com/2026/10/14/package-managers-have-an-integrity-problem/",
+        "pubDate": "Wed, 14 Oct 2026 07:00:00 -0400",
+        "publication_utc": "2026-10-14T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "SequenceHash: multihashing for the rest of us",
+        "url": "https://blog.trailofbits.com/2026/10/02/sequencehash-multihashing-for-the-rest-of-us/",
+        "pubDate": "Fri, 02 Oct 2026 07:00:00 -0400",
+        "publication_utc": "2026-10-02T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Don't let TEEs break your MPC",
+        "url": "https://blog.trailofbits.com/2026/09/25/dont-let-tees-break-your-mpc/",
+        "pubDate": "Fri, 25 Sep 2026 07:00:00 -0400",
+        "publication_utc": "2026-09-25T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "SAML: A fractal of bad design",
+        "url": "https://blog.trailofbits.com/2026/09/21/saml-a-fractal-of-bad-design/",
+        "pubDate": "Mon, 21 Sep 2026 07:00:00 -0400",
+        "publication_utc": "2026-09-21T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Auditing in the age of (good enough) AI",
+        "url": "https://blog.trailofbits.com/2026/09/18/auditing-in-the-age-of-good-enough-ai/",
+        "pubDate": "Fri, 18 Sep 2026 07:00:00 -0400",
+        "publication_utc": "2026-09-18T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "1Password's AI patching benchmark is misleading",
+        "url": "https://blog.trailofbits.com/2026/09/15/1passwords-ai-patching-benchmark-is-misleading/",
+        "pubDate": "Tue, 15 Sep 2026 07:00:00 -0400",
+        "date_parse_error": true
+      },
+      {
+        "title": "A “proof” of Fermat’s Last Theorem that fits the margin",
+        "url": "https://blog.trailofbits.com/2026/09/09/a-proof-of-fermats-last-theorem-that-fits-the-margin/",
+        "pubDate": "Wed, 09 Sep 2026 07:00:00 -0400",
+        "publication_utc": "2026-09-09T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "VMs won't contain cyber-capable agents",
+        "url": "https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/",
+        "pubDate": "Wed, 26 Aug 2026 07:00:00 -0400",
+        "publication_utc": "2026-08-26T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "State divergence enables unauthorized access",
+        "url": "https://blog.trailofbits.com/2026/08/25/state-divergence-enables-unauthorized-access/",
+        "pubDate": "Tue, 25 Aug 2026 07:00:00 -0400",
+        "date_parse_error": true
+      },
+      {
+        "title": "How Trail of Bits helps verify the integrity of your Signal chats",
+        "url": "https://blog.trailofbits.com/2026/08/11/how-trail-of-bits-helps-verify-the-integrity-of-your-signal-chats/",
+        "pubDate": "Tue, 11 Aug 2026 13:30:00 -0400",
+        "date_parse_error": true
+      },
+      {
+        "title": "A few notes on AWS Nitro Enclaves: KMS integration",
+        "url": "https://blog.trailofbits.com/2026/08/05/a-few-notes-on-aws-nitro-enclaves-kms-integration/",
+        "pubDate": "Wed, 05 Aug 2026 07:00:00 -0400",
+        "publication_utc": "2026-08-05T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Building secure Uniswap v4 hooks",
+        "url": "https://blog.trailofbits.com/2026/07/30/building-secure-uniswap-v4-hooks/",
+        "pubDate": "Thu, 30 Jul 2026 07:00:00 -0400",
+        "date_parse_error": true
+      },
+      {
+        "title": "How we use /goal to find bugs in Patch the Planet",
+        "url": "https://blog.trailofbits.com/2026/07/28/how-we-use-goal-to-find-bugs-in-patch-the-planet/",
+        "pubDate": "Tue, 28 Jul 2026 07:00:00 -0400",
+        "date_parse_error": true
+      },
+      {
+        "title": "Rust-proof your code with our new Testing Handbook chapter",
+        "url": "https://blog.trailofbits.com/2026/07/13/rust-proof-your-code-with-our-new-testing-handbook-chapter/",
+        "pubDate": "Mon, 13 Jul 2026 07:00:00 -0400",
+        "publication_utc": "2026-07-13T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Mutation testing comes to DAML",
+        "url": "https://blog.trailofbits.com/2026/07/08/mutation-testing-comes-to-daml/",
+        "pubDate": "Wed, 08 Jul 2026 07:00:00 -0400",
+        "publication_utc": "2026-07-08T11:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "GPT-5.5-Cyber built a zlib fuzzing lab in a day",
+        "url": "https://blog.trailofbits.com/2026/07/02/field-reports-from-patch-the-planet/",
+        "pubDate": "Thu, 02 Jul 2026 07:00:00 -0400",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-github-security",
+    "status": "ok",
+    "url": "https://github.blog/security/feed/",
+    "entries": [
+      {
+        "title": "Git security vulnerabilities announced",
+        "url": "https://github.blog/open-source/git/git-security-vulnerabilities-announced-7/",
+        "pubDate": "Tue, 10 Nov 2026 18:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "How bug bounty sharpens one researcher’s security skills",
+        "url": "https://github.blog/security/how-bug-bounty-sharpens-one-researchers-security-skills/",
+        "pubDate": "Thu, 22 Oct 2026 17:21:30 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "GitHub’s model for secret detection: Finding more secrets with less noise",
+        "url": "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/",
+        "pubDate": "Tue, 13 Oct 2026 17:56:33 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "How one bug bounty researcher chooses the features they investigate",
+        "url": "https://github.blog/security/how-one-bug-bounty-researcher-chooses-the-features-they-investigate/",
+        "pubDate": "Thu, 08 Oct 2026 17:02:52 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "How we found 24 Android vulnerabilities using our open source AI security agent",
+        "url": "https://github.blog/security/how-we-found-24-android-vulnerabilities-using-our-open-source-ai-security-agent/",
+        "pubDate": "Mon, 28 Sep 2026 19:00:00 +0000",
+        "publication_utc": "2026-09-28T19:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "AI-powered fuzzing with the GitHub Security Lab Taskflow Agent",
+        "url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
+        "pubDate": "Thu, 24 Sep 2026 18:26:12 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "OpenClaw went viral. Meet the maintainers building and securing it.",
+        "url": "https://github.blog/open-source/maintainers/openclaw-went-viral-meet-the-maintainers-building-and-securing-it/",
+        "pubDate": "Thu, 27 Aug 2026 16:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "What 50 open source projects taught us about security in the AI era",
+        "url": "https://github.blog/open-source/maintainers/what-50-open-source-projects-taught-us-about-security-in-the-ai-era/",
+        "pubDate": "Thu, 13 Aug 2026 16:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "How we took malware advisories beyond npm",
+        "url": "https://github.blog/security/supply-chain-security/how-we-took-malware-advisories-beyond-npm/",
+        "pubDate": "Thu, 06 Aug 2026 16:51:12 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Tame Dependabot: Group your updates, slow the cadence, keep security fast",
+        "url": "https://github.blog/security/supply-chain-security/tame-dependabot-group-your-updates-slow-the-cadence-keep-security-fast/",
+        "pubDate": "Wed, 29 Jul 2026 16:00:00 +0000",
+        "publication_utc": "2026-07-29T16:00:00+00:00",
+        "in_publication_window": false
+      }
+    ]
+  },
+  {
+    "name": "feed-unit42",
+    "status": "ok",
+    "url": "https://unit42.paloaltonetworks.com/feed/",
+    "entries": [
+      {
+        "title": "Attackers Use Autonomous AI to Target Semiconductor, Defense and Civil Society Sectors",
+        "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+        "pubDate": "Thu, 12 Nov 2026 15:00:31 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "ARTEX and AI-Powered Red Teaming Tools: What Defenders Need to Know",
+        "url": "https://unit42.paloaltonetworks.com/artex-and-ai-powered-red-teaming-tools/",
+        "pubDate": "Wed, 11 Nov 2026 23:00:53 +0000",
+        "publication_utc": "2026-11-11T23:00:53+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "The XG Files: Falcon C2 Flying Under The (Browser) Radar",
+        "url": "https://unit42.paloaltonetworks.com/falcon-c2-browser-compromise/",
+        "pubDate": "Wed, 11 Nov 2026 15:00:23 +0000",
+        "publication_utc": "2026-11-11T15:00:23+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Turning Up the Heat: Inside the Attacks on Europe’s Refrigeration Systems",
+        "url": "https://unit42.paloaltonetworks.com/europes-refrigeration-systems-attacks/",
+        "pubDate": "Fri, 06 Nov 2026 21:15:09 +0000",
+        "publication_utc": "2026-11-06T21:15:09+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Unit 42 Threat Intelligence Highlights - Nov. 2, 2026",
+        "url": "https://unit42.paloaltonetworks.com/u42-threat-intelligence-highlights-oct-2026/",
+        "pubDate": "Mon, 02 Nov 2026 23:00:45 +0000",
+        "publication_utc": "2026-11-02T23:00:45+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619 (Updated October 29)",
+        "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+        "pubDate": "Thu, 29 Oct 2026 18:00:34 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Unwrapping Retail Peak Season Cyber Threats",
+        "url": "https://unit42.paloaltonetworks.com/unwrapping-retail-cyber-threats/",
+        "pubDate": "Wed, 28 Oct 2026 18:00:10 +0000",
+        "publication_utc": "2026-10-28T18:00:10+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "EMudhra Intermediate CA Certificates Compromised",
+        "url": "https://unit42.paloaltonetworks.com/emudhra-certificate-compromise/",
+        "pubDate": "Thu, 22 Oct 2026 17:15:32 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "The Current Landscape of OAuth Attacks",
+        "url": "https://unit42.paloaltonetworks.com/current-landscape-oauth-attacks/",
+        "pubDate": "Thu, 22 Oct 2026 17:00:25 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "“Next Exploit Opportunities”: How a Threat Actor Used AI to Help Plan and Execute Multiple Types of Cybercrime Activities",
+        "url": "https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis/",
+        "pubDate": "Wed, 21 Oct 2026 14:00:24 +0000",
+        "publication_utc": "2026-10-21T14:00:24+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Active Exploitation of May 2026 PAN-OS CVE-2026-0257 (Updated October 20)",
+        "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/",
+        "pubDate": "Tue, 20 Oct 2026 20:30:42 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Top 5 Initial Access Threat Vectors Observed by Unit 42 in September 2026",
+        "url": "https://unit42.paloaltonetworks.com/top-5-initial-access-vectors-september-2026/",
+        "pubDate": "Fri, 16 Oct 2026 17:47:54 +0000",
+        "publication_utc": "2026-10-16T17:47:54+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "AI-Powered Espionage Campaign Targets Government Linux Infrastructure",
+        "url": "https://unit42.paloaltonetworks.com/ai-campaign-targets-linux-infrastructure/",
+        "pubDate": "Thu, 15 Oct 2026 22:00:09 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Unit 42 Uncovers PEERSTITCH, a Stealthy FortiGate Implant",
+        "url": "https://unit42.paloaltonetworks.com/fortimanager-cve-2024-47575-peerstitch-malware/",
+        "pubDate": "Wed, 14 Oct 2026 22:00:44 +0000",
+        "publication_utc": "2026-10-14T22:00:44+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "The Noise Inside the Network: How an Unsophisticated Attack Exposed a Third-Party Risk",
+        "url": "https://unit42.paloaltonetworks.com/noise-inside-network-third-party-risk/",
+        "pubDate": "Tue, 13 Oct 2026 22:00:04 +0000",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-talos",
+    "status": "ok",
+    "url": "https://blog.talosintelligence.com/rss/",
+    "entries": [
+      {
+        "title": "Never be afraid to ask questions",
+        "url": "https://blog.talosintelligence.com/never-be-afraid-to-ask-questions/",
+        "pubDate": "Thu, 12 Nov 2026 19:00:00 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Microsoft Patch Tuesday for November 2026 — Snort rules and prominent vulnerabilities",
+        "url": "https://blog.talosintelligence.com/microsoft-patch-tuesday-for-november-2026/",
+        "pubDate": "Wed, 11 Nov 2026 01:41:17 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Bring a tent, I've got the coffee: Lessons from it-sa",
+        "url": "https://blog.talosintelligence.com/bring-a-tent-ive-got-the-coffee-lessons-from-it-sa/",
+        "pubDate": "Thu, 05 Nov 2026 19:00:00 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Appraisal by AI: Model-driven victim prioritization in the VOLTA infostealer",
+        "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+        "pubDate": "Sat, 31 Oct 2026 12:00:00 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "A quiet week in infosec <.<",
+        "url": "https://blog.talosintelligence.com/a-quiet-week-in-infosec/",
+        "pubDate": "Thu, 29 Oct 2026 18:00:00 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "IR trends Q3 2026: Actors impersonate IT help desks in vishing attacks as ransomware activity increases",
+        "url": "https://blog.talosintelligence.com/ir-trends-q3-2026/",
+        "pubDate": "Thu, 29 Oct 2026 14:00:00 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "NIK C2: The new AI-enabled command-and-control framework",
+        "url": "https://blog.talosintelligence.com/nik-c2-new-ai-enabled-framework/",
+        "pubDate": "Thu, 29 Oct 2026 10:00:00 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
+        "url": "https://blog.talosintelligence.com/uat-11473-keydrift/",
+        "pubDate": "Wed, 28 Oct 2026 21:32:02 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "From federal SOCs to Talos: Ryan Fetterman on practical security research",
+        "url": "https://blog.talosintelligence.com/from-federal-socs-to-talos-ryan-fetterman-on-practical-security-research/",
+        "pubDate": "Tue, 27 Oct 2026 10:00:21 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "I had plans for that second",
+        "url": "https://blog.talosintelligence.com/i-had-plans-for-that-second/",
+        "pubDate": "Thu, 22 Oct 2026 18:04:32 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Compromised eMudhra intermediate certificates",
+        "url": "https://blog.talosintelligence.com/compromised-intermediate-certificates/",
+        "pubDate": "Wed, 21 Oct 2026 20:43:29 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Two critical RCEs in PHP core",
+        "url": "https://blog.talosintelligence.com/two-critical-rces-in-php-core/",
+        "pubDate": "Wed, 21 Oct 2026 15:10:53 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Parasitizing trust: How legitimate infrastructure becomes a delivery pipeline for attackers",
+        "url": "https://blog.talosintelligence.com/parasitizing-trust-how-legitimate-infrastructure-becomes-a-delivery-pipeline-for-attackers/",
+        "pubDate": "Wed, 21 Oct 2026 10:00:00 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "There's only so much code: the rise in vulnerability numbers",
+        "url": "https://blog.talosintelligence.com/theres-only-so-much-code-the-rise-in-vulnerability-numbers/",
+        "pubDate": "Tue, 20 Oct 2026 15:31:22 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "The Q3 Vulnerability Pulse: Discovery ≠ Exploitation",
+        "url": "https://blog.talosintelligence.com/the-q3-vulnerability-pulse-discovery-exploitation/",
+        "pubDate": "Thu, 15 Oct 2026 18:00:00 GMT",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-microsoft-security",
+    "status": "ok",
+    "url": "https://www.microsoft.com/security/blog/feed/",
+    "entries": [
+      {
+        "title": "Trained to betray: How post-training supply chain attacks hijack coding agents",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
+        "pubDate": "Thu, 12 Nov 2026 17:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "The global socket: how threat actors are weaponizing GSocket for stealthy C2",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2/",
+        "pubDate": "Wed, 11 Nov 2026 19:49:57 +0000",
+        "publication_utc": "2026-11-11T19:49:57+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Lessons from 59 Linux Kernel Bug Reports",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/lessons-from-59-linux-kernel-bug-reports/",
+        "pubDate": "Wed, 11 Nov 2026 16:55:00 +0000",
+        "publication_utc": "2026-11-11T16:55:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Detecting sleeper agents hiding in AI model neurons",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+        "pubDate": "Tue, 10 Nov 2026 23:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "FORGE Lab uses agentic tools to identify memory safety issues in Rust",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/09/forge-lab-uses-agentic-tools-to-identify-memory-safety-issues-in-rust/",
+        "pubDate": "Mon, 09 Nov 2026 20:17:31 +0000",
+        "publication_utc": "2026-11-09T20:17:31+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "ARTEX abuse expands as cybercriminals target financial sector",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
+        "pubDate": "Sat, 07 Nov 2026 02:44:34 +0000",
+        "publication_utc": "2026-11-07T02:44:34+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Threat actors use agentic AI tooling to find and abuse exposed secrets",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+        "pubDate": "Thu, 05 Nov 2026 23:46:50 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "New investments to reduce on-premises security risk",
+        "url": "https://techcommunity.microsoft.com/blog/microsoft-security-blog/new-investments-to-reduce-on-premises-security-risk/4570381",
+        "pubDate": "Thu, 05 Nov 2026 17:10:14 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "​​​​What’s new in Microsoft Security: November 2026",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026/",
+        "pubDate": "Thu, 05 Nov 2026 17:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Email threat landscape: Q3 2026 trends and insights",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/email-threat-landscape-q3-2026-trends-and-insights/",
+        "pubDate": "Thu, 05 Nov 2026 16:00:00 +0000",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-sans-isc",
+    "status": "ok",
+    "url": "https://isc.sans.edu/rssfeed.xml",
+    "entries": [
+      {
+        "title": "Macfinger ClickFix campaign sends DownTheDRAIN infostealer for macOS, (Fri, Nov 13th)",
+        "url": "https://isc.sans.edu/diary/rss/33518",
+        "pubDate": "Fri, 13 Nov 2026 03:41:41 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "ISC Stormcast For Friday, November 13th, 2026 https://isc.sans.edu/podcastdetail/10178, (Fri, Nov 13th)",
+        "url": "https://isc.sans.edu/diary/rss/33516",
+        "pubDate": "Fri, 13 Nov 2026 02:00:03 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Exploit Attempts for GPUStack Authentication Bypass (CVE-2026-102895), (Thu, Nov 12th)",
+        "url": "https://isc.sans.edu/diary/rss/33514",
+        "pubDate": "Thu, 12 Nov 2026 11:56:24 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "ISC Stormcast For Thursday, November 12th, 2026 https://isc.sans.edu/podcastdetail/10176, (Thu, Nov 12th)",
+        "url": "https://isc.sans.edu/diary/rss/33512",
+        "pubDate": "Thu, 12 Nov 2026 02:00:03 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Microsoft Patch Tuesday November 2026, (Tue, Nov 10th)",
+        "url": "https://isc.sans.edu/diary/rss/33508",
+        "pubDate": "Wed, 11 Nov 2026 18:28:43 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "ISC Stormcast For Wednesday, November 11th, 2026 https://isc.sans.edu/podcastdetail/10174, (Wed, Nov 11th)",
+        "url": "https://isc.sans.edu/diary/rss/33510",
+        "pubDate": "Wed, 11 Nov 2026 02:00:03 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Apple Patches Everyting: November 2026 Edition, (Tue, Nov 10th)",
+        "url": "https://isc.sans.edu/diary/rss/33506",
+        "pubDate": "Tue, 10 Nov 2026 12:48:55 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "ISC Stormcast For Tuesday, November 10th, 2026 https://isc.sans.edu/podcastdetail/10172, (Tue, Nov 10th)",
+        "url": "https://isc.sans.edu/diary/rss/33504",
+        "pubDate": "Tue, 10 Nov 2026 02:00:02 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Attackers Searching for SAP Netweaver Webshells, (Mon, Nov 9th)",
+        "url": "https://isc.sans.edu/diary/rss/33502",
+        "pubDate": "Mon, 09 Nov 2026 18:18:15 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "ISC Stormcast For Monday, November 9th, 2026 https://isc.sans.edu/podcastdetail/10170, (Mon, Nov 9th)",
+        "url": "https://isc.sans.edu/diary/rss/33500",
+        "pubDate": "Mon, 09 Nov 2026 02:05:10 GMT",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-dfir-report",
+    "status": "ok",
+    "url": "https://thedfirreport.com/feed/",
+    "entries": [
+      {
+        "title": "BengalSEO Part 1: Anatomy of the Operation",
+        "url": "https://thedfirreport.com/2026/08/24/bengalseo-part-1-anatomy-of-the-operation/",
+        "pubDate": "Mon, 24 Aug 2026 14:28:41 +0000",
+        "publication_utc": "2026-08-24T14:28:41+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "From Bing Search to Ransomware: Bumblebee and AdaptixC2 Deliver Akira",
+        "url": "https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/",
+        "pubDate": "Mon, 29 Jun 2026 13:07:17 +0000",
+        "publication_utc": "2026-06-29T13:07:17+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Flash Alert: EtherRat and TukTuk C2 End in The Gentleman Ransomware",
+        "url": "https://thedfirreport.com/2026/05/11/flash-alert-etherrat-and-tuktuk-c2-end-in-the-gentleman-ransomware/",
+        "pubDate": "Mon, 11 May 2026 14:05:04 +0000",
+        "publication_utc": "2026-05-11T14:05:04+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Bissa Scanner Exposed: AI-Assisted Mass Exploitation and Credential Harvesting",
+        "url": "https://thedfirreport.com/2026/04/22/bissa-scanner-exposed-ai-assisted-mass-exploitation-and-credential-harvesting/",
+        "pubDate": "Wed, 22 Apr 2026 14:51:21 +0000",
+        "publication_utc": "2026-04-22T14:51:21+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Apache ActiveMQ Exploit Leads to LockBit Ransomware",
+        "url": "https://thedfirreport.com/2026/02/23/apache-activemq-exploit-leads-to-lockbit-ransomware/",
+        "pubDate": "Mon, 23 Feb 2026 14:09:43 +0000",
+        "publication_utc": "2026-02-23T14:09:43+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Cat’s Got Your Files: Lynx Ransomware",
+        "url": "https://thedfirreport.com/2025/12/17/cats-got-your-files-lynx-ransomware/",
+        "pubDate": "Wed, 17 Dec 2025 19:07:07 +0000",
+        "publication_utc": "2025-12-17T19:07:07+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "From a Single Click: How Lunar Spider Enabled a Near Two-Month Intrusion",
+        "url": "https://thedfirreport.com/2025/09/29/from-a-single-click-how-lunar-spider-enabled-a-near-two-month-intrusion/",
+        "pubDate": "Mon, 29 Sep 2025 14:30:06 +0000",
+        "publication_utc": "2025-09-29T14:30:06+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Blurring the Lines: Intrusion Shows Connection With Three Major Ransomware Gangs",
+        "url": "https://thedfirreport.com/2025/09/08/blurring-the-lines-intrusion-shows-connection-with-three-major-ransomware-gangs/",
+        "pubDate": "Mon, 08 Sep 2025 14:20:31 +0000",
+        "publication_utc": "2025-09-08T14:20:31+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Flash Alert: From Bing Search to Ransomware: Bumblebee and AdaptixC2 Deliver Akira",
+        "url": "https://thedfirreport.com/2025/08/05/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-2/",
+        "pubDate": "Tue, 05 Aug 2025 21:30:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "KongTuke FileFix Leads to New Interlock RAT Variant",
+        "url": "https://thedfirreport.com/2025/07/14/kongtuke-filefix-leads-to-new-interlock-rat-variant/",
+        "pubDate": "Mon, 14 Jul 2025 00:50:41 +0000",
+        "publication_utc": "2025-07-14T00:50:41+00:00",
+        "in_publication_window": false
+      }
+    ]
+  },
+  {
+    "name": "feed-oss-sec",
+    "status": "ok",
+    "url": "https://seclists.org/rss/oss-sec.rss",
+    "entries": [
+      {
+        "title": "CVE-2026-123338: Apache DataSketches C++: Out-of-bounds write in REQ sketch deserialization allows memory corruption via a crafted sketch",
+        "url": "https://seclists.org/oss-sec/2026/q4/688",
+        "pubDate": "Fri, 13 Nov 2026 04:35:13 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-123274: Apache DataSketches C++: Out-of-bounds write in KLL sketch deserialization allows memory corruption via a crafted sketch",
+        "url": "https://seclists.org/oss-sec/2026/q4/687",
+        "pubDate": "Fri, 13 Nov 2026 04:29:52 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Fw: New cabextract 1.12 and libmspack 0.12alpha release",
+        "url": "https://seclists.org/oss-sec/2026/q4/686",
+        "pubDate": "Thu, 12 Nov 2026 23:42:59 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "[vim-security] Command Execution via CSS Omni-Completion in Vim < 9.2.1342",
+        "url": "https://seclists.org/oss-sec/2026/q4/685",
+        "pubDate": "Thu, 12 Nov 2026 20:39:51 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-126641: ansible-pylibssh / ansible.netcommon libssh: changed SSH host key accepted when host_key_auto_add is enabled",
+        "url": "https://seclists.org/oss-sec/2026/q4/684",
+        "pubDate": "Thu, 12 Nov 2026 19:27:11 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "dbus: multiple denial-of-service issues",
+        "url": "https://seclists.org/oss-sec/2026/q4/683",
+        "pubDate": "Thu, 12 Nov 2026 19:20:51 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "PostgreSQL 18.7, 17.12, 16.16, 15.20, 14.25, and 19 RC 2 Released, fixes 52 security vulnerabilities",
+        "url": "https://seclists.org/oss-sec/2026/q4/682",
+        "pubDate": "Thu, 12 Nov 2026 18:02:44 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Apache TomEE: 38 CVEs addressed in 10.3.0 and 11.0.0-M2 (combined announcement)",
+        "url": "https://seclists.org/oss-sec/2026/q4/681",
+        "pubDate": "Thu, 12 Nov 2026 15:43:43 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-126673: Data::Dump::Streamer versions before 3.00 for Perl allow code injection via unescaped Regexp patterns in _dump_qr",
+        "url": "https://seclists.org/oss-sec/2026/q4/680",
+        "pubDate": "Thu, 12 Nov 2026 03:13:06 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-124023: Apache Axis2/C: Out-of-bounds read in the Guththila XML reader wrapper",
+        "url": "https://seclists.org/oss-sec/2026/q4/679",
+        "pubDate": "Thu, 12 Nov 2026 03:11:08 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-124308: VVdeC/vvdecapp: Heap Use-After-Free in DecLibRecon::createSubPicRefBufs during Subpicture Reconstruction",
+        "url": "https://seclists.org/oss-sec/2026/q4/678",
+        "pubDate": "Wed, 11 Nov 2026 21:21:32 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-124309: VVdeC/vvdecapp: Heap Out-of-Bounds Read in HRD::setBufferingPeriodSEI via Scalable-Nesting SEI",
+        "url": "https://seclists.org/oss-sec/2026/q4/677",
+        "pubDate": "Wed, 11 Nov 2026 21:19:32 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-108472 - xfs_admin allows for OS command injection",
+        "url": "https://seclists.org/oss-sec/2026/q4/676",
+        "pubDate": "Wed, 11 Nov 2026 21:17:33 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "CVE-2026-93404: rsyslog 8.1901.0 through pre-2026-11-11 daily stable omclickhouse SQL injection",
+        "url": "https://seclists.org/oss-sec/2026/q4/675",
+        "pubDate": "Wed, 11 Nov 2026 21:15:29 GMT",
+        "date_parse_error": true
+      },
+      {
+        "title": "Re: Node.js security release pre-alert",
+        "url": "https://seclists.org/oss-sec/2026/q4/674",
+        "pubDate": "Wed, 11 Nov 2026 17:32:02 GMT",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-cisa-advisories",
+    "status": "ok",
+    "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+    "entries": [
+      {
+        "title": "Siemens Desigo, Gridscale",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-02",
+        "pubDate": "Thu, 12 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens RUGGEDCOM APE1808",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-05",
+        "pubDate": "Thu, 12 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens RUGGEDCOM APE1808",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-04",
+        "pubDate": "Thu, 12 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens Building Automation and Energy Products",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-01",
+        "pubDate": "Thu, 12 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens Industrial Edge Management",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-03",
+        "pubDate": "Thu, 12 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds Six Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog",
+        "pubDate": "Tue, 10 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/11/09/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+        "pubDate": "Mon, 09 Nov 26 12:00:00 +0000",
+        "publication_utc": "2026-11-09T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/11/06/cisa-adds-one-known-exploited-vulnerability-catalog",
+        "pubDate": "Fri, 06 Nov 26 12:00:00 +0000",
+        "publication_utc": "2026-11-06T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Post-Quantum Questions to Ask Your Vendors",
+        "url": "https://www.cisa.gov/resources-tools/resources/post-quantum-questions-ask-your-vendors",
+        "pubDate": "Thu, 05 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "US Government Partners Urge Hardening Industrial Refrigeration and Cold Chain Monitoring Systems",
+        "url": "https://www.cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems",
+        "pubDate": "Thu, 05 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/11/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+        "pubDate": "Wed, 04 Nov 26 12:00:00 +0000",
+        "publication_utc": "2026-11-04T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog",
+        "pubDate": "Tue, 03 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Subnet Solutions PowerSYSTEM Center",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-307-01",
+        "pubDate": "Tue, 03 Nov 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+        "pubDate": "Fri, 30 Oct 26 12:00:00 +0000",
+        "publication_utc": "2026-10-30T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Hitachi Energy TRO600 series products",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-02",
+        "pubDate": "Thu, 29 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/10/29/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+        "pubDate": "Thu, 29 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Hitachi Energy CoreTec Product",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03",
+        "pubDate": "Thu, 29 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens Mendix SAML Module",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01",
+        "pubDate": "Thu, 29 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/10/28/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+        "pubDate": "Wed, 28 Oct 26 12:00:00 +0000",
+        "publication_utc": "2026-10-28T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Mitsubishi Electric and Mitsubishi Electric Iconics Digital Solutions GENESIS, GENESIS64, ICONICS Suite, Hyper Historian, AnalytiX, MobileHMI, IoTWorX, MC Works64, GENESIS32 and BizViz",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-02",
+        "pubDate": "Tue, 27 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/10/27/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+        "pubDate": "Tue, 27 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "EPICS Base",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01",
+        "pubDate": "Tue, 27 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/10/26/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+        "pubDate": "Mon, 26 Oct 26 12:00:00 +0000",
+        "publication_utc": "2026-10-26T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0",
+        "pubDate": "Fri, 23 Oct 26 12:00:00 +0000",
+        "publication_utc": "2026-10-23T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+        "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog",
+        "pubDate": "Fri, 23 Oct 26 12:00:00 +0000",
+        "publication_utc": "2026-10-23T12:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Siemens SIMATIC S7-1500 TM MFP",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-16",
+        "pubDate": "Thu, 22 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens SIMATIC S7-1500 CPU 1518(F)-4 PN/DP MFP",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-11",
+        "pubDate": "Thu, 22 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens SIMATIC S7 PLCs Web Server",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-14",
+        "pubDate": "Thu, 22 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens Industrial Edge Device Kit",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-09",
+        "pubDate": "Thu, 22 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Siemens Capital Embedded AR Classic",
+        "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-04",
+        "pubDate": "Thu, 22 Oct 26 12:00:00 +0000",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-jpcert",
+    "status": "ok",
+    "url": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+    "entries": [
+      {
+        "title": "注意喚起: 2026年11月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (公開)",
+        "url": "https://www.jpcert.or.jp/at/2026/at260035.html",
+        "date": "2026-11-11T11:20+09:00",
+        "publication_utc": "2026-11-11T02:20:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "注意喚起: PHPにおける複数の脆弱性（CVE-2026-109618、CVE-2026-109619）に関する注意喚起  (更新)",
+        "url": "https://www.jpcert.or.jp/at/2026/at260033.html",
+        "date": "2026-10-29T15:43+09:00",
+        "publication_utc": "2026-10-29T06:43:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "注意喚起: BrotliのC言語実装における境界外書き込みの脆弱性（CVE-2026-111497）に関する注意喚起  (公開)",
+        "url": "https://www.jpcert.or.jp/at/2026/at260034.html",
+        "date": "2026-10-26T16:25+09:00",
+        "publication_utc": "2026-10-26T07:25:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "注意喚起: 直近で相次いでいる国内組織における不正アクセスに関する注意喚起  (更新)",
+        "url": "https://www.jpcert.or.jp/at/2026/at260030.html",
+        "date": "2026-10-23T11:37+09:00",
+        "publication_utc": "2026-10-23T02:37:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "注意喚起: SiteGuard Server EditionにおけるOSコマンドインジェクションの脆弱性（CVE-2026-106931）に関する注意喚起  (公開)",
+        "url": "https://www.jpcert.or.jp/at/2026/at260032.html",
+        "date": "2026-10-14T14:18+09:00",
+        "publication_utc": "2026-10-14T05:18:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "注意喚起: 2026年10月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (公開)",
+        "url": "https://www.jpcert.or.jp/at/2026/at260031.html",
+        "date": "2026-10-14T11:25+09:00",
+        "publication_utc": "2026-10-14T02:25:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: Cloud Software GroupのXenServerに複数の脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#1",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: Puppet ServerおよびOpenVoxに複数の脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#2",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: Airbyteに任意のコード実行につながる脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#3",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: Firefoxにバッファエラーの脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#4",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: 複数のManageEngine製品に脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#5",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: 複数のZyxel Networks製品に脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#6",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: Microsoft Edgeに複数の脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#7",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: 複数のAbsolute Security製品に脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#8",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: 複数のElastic製品に脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#9",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: Google Chromeに複数の脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#10",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: Androidに複数の脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#11",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: 複数のBarracuda Networks製品に脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#12",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: 複数のPostgreSQL向けツールに脆弱性",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#13",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Weekly Report: NCOが「個人情報の漏えい等につながる不正アクセスへの対策について - ウェブサイトやモバイルアプリに関する基本的な対策の徹底 -」を公開",
+        "url": "https://www.jpcert.or.jp/wr/2026/wr261111.html#14",
+        "date": "2026-11-11T09:07+09:00",
+        "publication_utc": "2026-11-11T00:07:00+00:00",
+        "in_publication_window": false
+      }
+    ]
+  },
+  {
+    "name": "feed-imperva",
+    "status": "ok",
+    "url": "https://www.imperva.com/blog/feed/",
+    "entries": [
+      {
+        "title": "Critical Apache HTTP/2 Vulnerability (CVE-2026-119618): How Imperva Protects Customers",
+        "url": "https://www.imperva.com/blog/critical-apache-http-2-vulnerability-cve-2026-119618-how-imperva-protects-customers/",
+        "pubDate": "Thu, 12 Nov 2026 17:57:05 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Bring Your Own CA: Palo Alto Networks Joins the Imperva SSL Integration Center",
+        "url": "https://www.imperva.com/blog/ssl-integration-center-palo-alto-networks-venafi/",
+        "pubDate": "Thu, 12 Nov 2026 10:11:02 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Bring Your Own CLM: Keyfactor Command Joins the Thales Imperva SSL Integration Center",
+        "url": "https://www.imperva.com/blog/ssl-integration-center-keyfactor-command/",
+        "pubDate": "Mon, 09 Nov 2026 21:33:52 +0000",
+        "publication_utc": "2026-11-09T21:33:52+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "StyleSmuggler Exploitation Deploys PSK Agent RAT Against Magento Stores",
+        "url": "https://www.imperva.com/blog/stylesmuggler-exploitation-deploys-psk-agent-rat-against-magento-stores/",
+        "pubDate": "Mon, 02 Nov 2026 20:26:20 +0000",
+        "publication_utc": "2026-11-02T20:26:20+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Strengthening API and MCP Security Through Token Risk Detection with Thales Imperva API Security",
+        "url": "https://www.imperva.com/blog/strengthening-api-and-mcp-security-through-token-risk-detection-with-thales-imperva-api-security/",
+        "pubDate": "Thu, 29 Oct 2026 07:18:18 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Three Lessons Cloud Customers Have Taught Us About Multi-Cloud Security",
+        "url": "https://www.imperva.com/blog/three-multi-cloud-security-lessons-from-cloud-customers/",
+        "pubDate": "Sat, 24 Oct 2026 21:28:56 +0000",
+        "publication_utc": "2026-10-24T21:28:56+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "PHP2Shell: Early Attack Activity Through Imperva’s Lens",
+        "url": "https://www.imperva.com/blog/php2shell-early-attack-activity-through-impervas-lens/",
+        "pubDate": "Thu, 22 Oct 2026 16:30:48 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Node2Shell: From Brotli Data to Remote Code Execution",
+        "url": "https://www.imperva.com/blog/node2shell-from-brotli-data-to-remote-code-execution/",
+        "pubDate": "Thu, 22 Oct 2026 12:22:01 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "PHP2Shell: When PHP Runs Out of Memory at the Wrong Moment",
+        "url": "https://www.imperva.com/blog/php2shell-vulnerability-updates/",
+        "pubDate": "Wed, 21 Oct 2026 13:47:21 +0000",
+        "publication_utc": "2026-10-21T13:47:21+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "CVE-2026-21589: Critical Pre-Authentication File Read Affects Atlassian Data Center Products",
+        "url": "https://www.imperva.com/blog/cve-2026-21589-critical-pre-authentication-file-read-affects-atlassian-data-center-products/",
+        "pubDate": "Thu, 08 Oct 2026 22:39:55 +0000",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-citizenlab",
+    "status": "ok",
+    "url": "https://citizenlab.ca/feed/",
+    "entries": [
+      {
+        "title": "Security Agencies Worldwide Found to Use Ad-Based Surveillance System",
+        "url": "https://citizenlab.ca/security-agencies-worldwide-found-to-use-ad-based-surveillance-system/",
+        "pubDate": "Thu, 12 Nov 2026 20:31:26 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Citizen Lab Researchers Win IRTF Applied Networking Research Prize",
+        "url": "https://citizenlab.ca/citizen-lab-researchers-win-irtf-applied-networking-research-prize/",
+        "pubDate": "Tue, 03 Nov 2026 16:19:27 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Politicians in U.S. and E.U. Say Targeted Ads Are a Security Risk",
+        "url": "https://citizenlab.ca/politicians-in-u-s-and-e-u-say-targeted-ads-are-a-security-risk/",
+        "pubDate": "Wed, 28 Oct 2026 14:26:42 +0000",
+        "publication_utc": "2026-10-28T14:26:42+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Serbian Prosecutor Who Investigated Belgrade Trump Tower Project ‘Targeted with Spyware’",
+        "url": "https://citizenlab.ca/serbian-prosecutor-who-investigated-belgrade-trump-tower-project-targeted-with-spyware/",
+        "pubDate": "Tue, 27 Oct 2026 16:49:55 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Built-In Weakness: Lawful Access and Encryption in the Age of AI-Powered Cyber Threats",
+        "url": "https://citizenlab.ca/built-in-weakness-lawful-access-and-encryption-in-the-age-of-ai-powered-cyber-threats/",
+        "pubDate": "Fri, 23 Oct 2026 16:17:06 +0000",
+        "publication_utc": "2026-10-23T16:17:06+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "How Generative AI is Scaling Transnational Repression",
+        "url": "https://citizenlab.ca/how-generative-ai-is-scaling-transnational-repression/",
+        "pubDate": "Thu, 22 Oct 2026 15:53:35 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Citizen Lab Director Slams Trump Administration, ‘Techno-Fascist’ Executives",
+        "url": "https://citizenlab.ca/citizen-lab-director-slams-trump-administration-techno-fascist-executives/",
+        "pubDate": "Wed, 21 Oct 2026 18:19:19 +0000",
+        "publication_utc": "2026-10-21T18:19:19+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "The Lawful Access Act’s threats to Canada’s national security",
+        "url": "https://citizenlab.ca/the-lawful-access-acts-threats-to-canadas-national-security/",
+        "pubDate": "Fri, 16 Oct 2026 15:10:49 +0000",
+        "publication_utc": "2026-10-16T15:10:49+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "The Secrets of a US Spyware King",
+        "url": "https://citizenlab.ca/the-secrets-of-a-us-spyware-king/",
+        "pubDate": "Thu, 08 Oct 2026 13:42:47 +0000",
+        "date_parse_error": true
+      },
+      {
+        "title": "Toronto-Based VPN Provider Plans to Quit Canada Over Lawful-Access Bill",
+        "url": "https://citizenlab.ca/toronto-based-vpn-provider-plans-to-quit-canada-over-lawful-access-bill/",
+        "pubDate": "Tue, 06 Oct 2026 18:13:30 +0000",
+        "date_parse_error": true
+      }
+    ]
+  },
+  {
+    "name": "feed-thehackernews",
+    "status": "ok",
+    "url": "https://feeds.feedburner.com/TheHackersNews",
+    "entries": [
+      {
+        "title": "Hackers Exploit PHP2Shell Flaws in Check Point Gateways to Deploy TSGA Backdoor and Wipe ESXi Files",
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html",
+        "pubDate": "Fri, 13 Nov 2026 13:35:49 +0530",
+        "publication_utc": "2026-11-13T08:05:49+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Hackers Exploit N-central Flaws to Infect 21 Servers, Including 19 Running Hotfix 2",
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html",
+        "pubDate": "Fri, 13 Nov 2026 11:13:28 +0530",
+        "publication_utc": "2026-11-13T05:43:28+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Webinar: See How Identity Blind Spots Put Your SOC at Risk and How to Close Them",
+        "url": "https://thehackernews.com/2026/11/your-soc-sees-alert-but-does-it-know.html",
+        "pubDate": "Thu, 12 Nov 2026 23:37:15 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "ThreatsDay: 59 Linux Kernel Bugs, Falcon Spyware, GSocket Backdoors + 17 More Stories",
+        "url": "https://thehackernews.com/2026/11/threatsday-59-linux-kernel-bugs-falcon.html",
+        "pubDate": "Thu, 12 Nov 2026 23:32:51 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Access",
+        "url": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html",
+        "pubDate": "Thu, 12 Nov 2026 23:20:27 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Critical Red Hat Quay Flaw Lets Attackers Read and Overwrite All Private Container Images in a Registry",
+        "url": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html",
+        "pubDate": "Thu, 12 Nov 2026 21:57:01 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Citrix Patches 12 NetScaler and Secure Access Client Flaws, Including Authentication Bypass",
+        "url": "https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html",
+        "pubDate": "Thu, 12 Nov 2026 21:08:49 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "186 Fake AI Domains Redirect Users to ClickFix Lures, Browser Malware, and Search Hijackers",
+        "url": "https://thehackernews.com/2026/11/186-fake-ai-domains-redirect-users-to.html",
+        "pubDate": "Thu, 12 Nov 2026 20:45:40 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "SCKit Malware Turns ScreenConnect Support Sessions Into Potential MSP Attack Paths",
+        "url": "https://thehackernews.com/2026/11/sckit-malware-targets-screenconnect.html",
+        "pubDate": "Thu, 12 Nov 2026 18:38:28 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Google Cloud Warns Three AMD Turin CPU Flaws Could Leak Data Across Processes in VMs",
+        "url": "https://thehackernews.com/2026/11/google-cloud-warns-three-amd-turin-cpu.html",
+        "pubDate": "Thu, 12 Nov 2026 17:39:14 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "New N-central Exploits Work Against Patched Servers, Enable Root RCE and Windows SYSTEM Access",
+        "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
+        "pubDate": "Thu, 12 Nov 2026 17:21:43 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Calendar Invites and Live Proxies: Inside a Google Session Hijacking Campaign",
+        "url": "https://thehackernews.com/2026/11/calendar-invites-and-live-proxies.html",
+        "pubDate": "Thu, 12 Nov 2026 17:21:31 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "PTC Patches Critical Windchill and FlexPLM Flaw That Could Enable Remote Code Execution",
+        "url": "https://thehackernews.com/2026/11/ptc-patches-critical-windchill-and.html",
+        "pubDate": "Thu, 12 Nov 2026 17:03:15 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Critical Pre-Auth MongoDB Flaw (CVE-2026-118383) Can Crash Lagging Servers on Failover",
+        "url": "https://thehackernews.com/2026/11/critical-pre-auth-mongodb-flaw-cve-2026.html",
+        "pubDate": "Thu, 12 Nov 2026 14:55:00 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Node.js Fixes 16 Flaws, Including HTTP/2 Bugs That Crash Servers and Leak Other Connections' Data",
+        "url": "https://thehackernews.com/2026/11/nodejs-fixes-16-flaws-including-http2.html",
+        "pubDate": "Thu, 12 Nov 2026 13:50:37 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Attacker Used 4,837 Hijacked GitHub Accounts to Run a CI Secret Stealer in 1,806+ Repositories",
+        "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html",
+        "pubDate": "Thu, 12 Nov 2026 12:12:47 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Critical Apache HTTP/2 Flaw Could Let Unauthenticated Attackers Execute Code Remotely",
+        "url": "https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html",
+        "pubDate": "Thu, 12 Nov 2026 10:42:26 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "ScreenConnect Attacks Target at Least 288 Endpoints Across 48 Organizations With Rogue Clients",
+        "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
+        "pubDate": "Thu, 12 Nov 2026 10:09:48 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Critical Zoom Workplace Flaw Could Allow Unauthenticated Remote Privilege Escalation",
+        "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html",
+        "pubDate": "Wed, 11 Nov 2026 21:42:46 +0530",
+        "publication_utc": "2026-11-11T16:12:46+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "AntiFox AI Pentesting Platform Linked to Attacks That Accessed AWS Production Secrets",
+        "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html",
+        "pubDate": "Wed, 11 Nov 2026 21:04:27 +0530",
+        "publication_utc": "2026-11-11T15:34:27+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Hackers Target Qlik Sense Servers With Reverse Shells, Stage ActiveMQ and Veeam Exploits",
+        "url": "https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html",
+        "pubDate": "Wed, 11 Nov 2026 19:31:00 +0530",
+        "publication_utc": "2026-11-11T14:01:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Over 35,000 Grok-Built Apps Exposed Online, Some Leaking Confidential Data and Passwords",
+        "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html",
+        "pubDate": "Wed, 11 Nov 2026 17:49:40 +0530",
+        "publication_utc": "2026-11-11T12:19:40+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "We Built An Agent That Broke All of Our Security Rules. Here's What We Learned.",
+        "url": "https://thehackernews.com/2026/11/we-built-agent-that-broke-all-of-our.html",
+        "pubDate": "Wed, 11 Nov 2026 17:31:59 +0530",
+        "publication_utc": "2026-11-11T12:01:59+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "eMudhra Revokes 8 More CAs It Previously Declared Unaffected by Key Compromise",
+        "url": "https://thehackernews.com/2026/11/emudhra-revokes-8-more-cas-it.html",
+        "pubDate": "Wed, 11 Nov 2026 17:30:53 +0530",
+        "publication_utc": "2026-11-11T12:00:53+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Microsoft Patches 1,259 Flaws, Including Exploited Outlook Bug That May Expose NTLMv2 Hashes",
+        "url": "https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html",
+        "pubDate": "Wed, 11 Nov 2026 13:47:53 +0530",
+        "publication_utc": "2026-11-11T08:17:53+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Railway Says Stolen Customer AI Keys Led to $740,000 in Estimated Unauthorized Usage Charges",
+        "url": "https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html",
+        "pubDate": "Wed, 11 Nov 2026 13:19:04 +0530",
+        "publication_utc": "2026-11-11T07:49:04+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Microsoft Researchers Show AI Agents Can Be Backdoored by Editing Fewer Than 10 Neurons",
+        "url": "https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html",
+        "pubDate": "Wed, 11 Nov 2026 12:51:05 +0530",
+        "publication_utc": "2026-11-11T07:21:05+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Cisco BroadWorks and Openwave Flaws Actively Exploited Despite Available Patches",
+        "url": "https://thehackernews.com/2026/11/cisco-broadworks-and-openwave-flaws.html",
+        "pubDate": "Wed, 11 Nov 2026 11:34:02 +0530",
+        "publication_utc": "2026-11-11T06:04:02+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Git Patches Flaw That Lets Malicious Repositories Execute Code During Recursive Clones",
+        "url": "https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html",
+        "pubDate": "Wed, 11 Nov 2026 00:53:10 +0530",
+        "publication_utc": "2026-11-10T19:23:10+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "SGLang RCE Exploit Breaches NEAR AI, Steals Data From 18 Agents and About 100 Users",
+        "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
+        "pubDate": "Wed, 11 Nov 2026 00:49:39 +0530",
+        "publication_utc": "2026-11-10T19:19:39+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Hackers Exploit Critical Xen Orchestra Auth Bypass Flaw to Gain Admin Access",
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html",
+        "pubDate": "Tue, 10 Nov 2026 23:42:21 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Three China-Nexus Espionage Campaigns Linked Through Sparrow Malware Ecosystem",
+        "url": "https://thehackernews.com/2026/11/three-china-nexus-espionage-campaigns.html",
+        "pubDate": "Tue, 10 Nov 2026 23:13:23 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Attackers Exploit AhsayCBS Flaws to Deploy Sandbox-Evading Python Backdoor",
+        "url": "https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html",
+        "pubDate": "Tue, 10 Nov 2026 21:30:55 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Blind Eagle Uses Fake Court Notices to Deliver Remote Access Trojan Across Latin America",
+        "url": "https://thehackernews.com/2026/11/blind-eagle-uses-fake-court-notices-to.html",
+        "pubDate": "Tue, 10 Nov 2026 21:28:44 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Fireworks AI Confirms Wider Breach Affecting Customer Datasets, Model Weights and Notion AI Chats",
+        "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
+        "pubDate": "Tue, 10 Nov 2026 21:03:59 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Binance Warns of iOS Sandbox Escape That Could Expose Crypto Wallet Keys, No Fix Confirmed",
+        "url": "https://thehackernews.com/2026/11/binance-warns-of-ios-sandbox-escape.html",
+        "pubDate": "Tue, 10 Nov 2026 17:45:31 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Beyond the Alert: The Case for Rich Network Data",
+        "url": "https://thehackernews.com/2026/11/beyond-alert-case-for-rich-network-data.html",
+        "pubDate": "Tue, 10 Nov 2026 17:08:13 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Apple Patches iMessage Group Chat Privacy Flaws and Bluetooth Pairing Vulnerabilities",
+        "url": "https://thehackernews.com/2026/11/apple-patches-imessage-group-chat.html",
+        "pubDate": "Tue, 10 Nov 2026 15:46:51 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Russian Turla Hackers Use New Cereal Malware to Steal Emails From Government Exchange Servers",
+        "url": "https://thehackernews.com/2026/11/russian-turla-hackers-use-new-cereal.html",
+        "pubDate": "Tue, 10 Nov 2026 15:37:29 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "SAP Patches Four CVSS 10.0 Flaws, Including Two Enabling Remote Code Execution",
+        "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html",
+        "pubDate": "Tue, 10 Nov 2026 15:32:40 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "France Blames Iran for Sabotage Attack on Refrigeration Controllers at About 700 Retail Sites",
+        "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html",
+        "pubDate": "Tue, 10 Nov 2026 14:38:20 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Anthropic's Claude Fable 5.2 Beats GPT-6 Cyber in Multi-Stage Cyberattack Benchmark",
+        "url": "https://thehackernews.com/2026/11/anthropics-claude-fable-52-beats-gpt-6.html",
+        "pubDate": "Tue, 10 Nov 2026 13:46:14 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Google Issues Chrome Security Update for Eighth Actively Exploited Zero-Day of 2026",
+        "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
+        "pubDate": "Tue, 10 Nov 2026 12:22:54 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "N-able Takes N-central Cloud Offline After Researcher Discloses 33 Zero-Days with PoC Exploits",
+        "url": "https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html",
+        "pubDate": "Tue, 10 Nov 2026 12:14:36 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "CISA Warns of Active Exploitation of OpenSSH, GPUStack, FreeSWITCH, and IBM Flaws",
+        "url": "https://thehackernews.com/2026/11/cisa-warns-of-active-exploitation-of.html",
+        "pubDate": "Tue, 10 Nov 2026 12:01:42 +0530",
+        "date_parse_error": true
+      },
+      {
+        "title": "Hackers Exploit Qubole's Trusted AWS Access to Breach Customer Accounts and Steal Data",
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
+        "pubDate": "Mon, 09 Nov 2026 23:21:21 +0530",
+        "publication_utc": "2026-11-09T17:51:21+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Hackers Compromise Ethersphere's bee-js and Swarm Desktop to Deliver Wallet-Stealing Malware",
+        "url": "https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html",
+        "pubDate": "Mon, 09 Nov 2026 23:06:28 +0530",
+        "publication_utc": "2026-11-09T17:36:28+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Bitter Hackers Deploy New PapRAT Backdoor in Cyberespionage Campaign Targeting South Asia",
+        "url": "https://thehackernews.com/2026/11/bitter-hackers-deploy-new-paprat.html",
+        "pubDate": "Mon, 09 Nov 2026 20:01:29 +0530",
+        "publication_utc": "2026-11-09T14:31:29+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "⚡ Weekly Recap: SSHole Exploited, APT Root RCE, Robot Takeovers, 15K Hacked Sites, and More",
+        "url": "https://thehackernews.com/2026/11/weekly-recap-sshole-exploited-apt-root.html",
+        "pubDate": "Mon, 09 Nov 2026 18:58:25 +0530",
+        "publication_utc": "2026-11-09T13:28:25+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Default 'admin:admin' Server Password Helps Researchers Hack Two Automakers, Unlock and Start Cars",
+        "url": "https://thehackernews.com/2026/11/default-adminadmin-server-password.html",
+        "pubDate": "Mon, 09 Nov 2026 16:57:53 +0530",
+        "publication_utc": "2026-11-09T11:27:53+00:00",
+        "in_publication_window": false
+      }
+    ]
+  },
+  {
+    "name": "feed-bleepingcomputer",
+    "status": "ok",
+    "url": "https://www.bleepingcomputer.com/feed/",
+    "entries": [
+      {
+        "title": "Police arrest 354 suspects in dark web cybercrime crackdown",
+        "url": "https://www.bleepingcomputer.com/news/security/police-arrest-354-vendors-buyers-in-global-cybercrime-crackdown/",
+        "pubDate": "Fri, 13 Nov 2026 03:34:20 -0500",
+        "publication_utc": "2026-11-13T08:34:20+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+        "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+        "pubDate": "Thu, 12 Nov 2026 17:53:10 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Hackers compromise 4,800 GitHub accounts to steal cloud credentials",
+        "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/",
+        "pubDate": "Thu, 12 Nov 2026 17:25:30 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Massive Microsoft 365 outage disrupts Outlook, Teams, Copilot worldwide",
+        "url": "https://www.bleepingcomputer.com/news/microsoft/massive-microsoft-365-outage-disrupts-outlook-teams-copilot-worldwide/",
+        "pubDate": "Thu, 12 Nov 2026 15:15:16 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "New N-able \"4EverAble2Shell\" zero-day exploited hours after PoC released",
+        "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
+        "pubDate": "Thu, 12 Nov 2026 14:51:16 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Apache HTTP Server patches critical HTTP/2 remote code execution flaw",
+        "url": "https://www.bleepingcomputer.com/news/security/apache-http-server-patches-critical-http-2-remote-code-execution-flaw/",
+        "pubDate": "Thu, 12 Nov 2026 14:12:55 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+        "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+        "pubDate": "Thu, 12 Nov 2026 11:04:00 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Police dismantle Gootloader, CastleRAT, StealC malware infrastructure",
+        "url": "https://www.bleepingcomputer.com/news/security/police-dismantles-gootloader-castlerat-stealc-malware-infrastructure/",
+        "pubDate": "Thu, 12 Nov 2026 10:07:20 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Your Endpoint Management Platform Could Be Your Biggest Security Risk",
+        "url": "https://www.bleepingcomputer.com/news/security/your-endpoint-management-platform-could-be-your-biggest-security-risk/",
+        "pubDate": "Thu, 12 Nov 2026 10:00:10 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Apify rotates API tokens, prompts 2FA resets after breach",
+        "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
+        "pubDate": "Thu, 12 Nov 2026 09:36:47 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Microsoft: Recent Windows updates cause SQL Server performance issues",
+        "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-recent-windows-updates-cause-sql-server-performance-issues/",
+        "pubDate": "Thu, 12 Nov 2026 07:11:11 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Microsoft confirms Windows security updates installation issues",
+        "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-kb5132061-installation-issues-0x80070306-0x800f0989-0x800f0993-errors/",
+        "pubDate": "Thu, 12 Nov 2026 05:24:07 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Hackers plant GSocket on Linux servers for persistent access",
+        "url": "https://www.bleepingcomputer.com/news/security/hackers-plant-gsocket-on-linux-servers-for-persistent-access/",
+        "pubDate": "Thu, 12 Nov 2026 04:38:00 -0500",
+        "date_parse_error": true
+      },
+      {
+        "title": "Baker Tilly notifies clients of data breach at third-party provider",
+        "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/",
+        "pubDate": "Wed, 11 Nov 2026 18:01:31 -0500",
+        "publication_utc": "2026-11-11T23:01:31+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Active ScreenConnect attacks breach MSPs, impact dozens of organizations",
+        "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/",
+        "pubDate": "Wed, 11 Nov 2026 17:56:21 -0500",
+        "publication_utc": "2026-11-11T22:56:21+00:00",
+        "in_publication_window": true
+      }
+    ]
+  },
+  {
+    "name": "feed-jvn",
+    "status": "ok",
+    "url": "https://jvn.jp/rss/jvn.rdf",
+    "entries": [
+      {
+        "title": "JetBrains製YouTrackにおけるクロスサイトスクリプティングの脆弱性",
+        "url": "https://jvn.jp/jp/JVN76799957/",
+        "date": "2026-11-13T12:00:00+09:00",
+        "publication_utc": "2026-11-13T03:00:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "CISA ICS Advisory / ICS Medical Advisory（2026年11月12日）",
+        "url": "https://jvn.jp/vu/JVNVU90821966/",
+        "date": "2026-11-13T11:00:40+09:00",
+        "publication_utc": "2026-11-13T02:00:40+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "TightVNCおよびUltraVNCのWindows Viewerにおけるヒープベースのバッファオーバーフローの脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU92656681/",
+        "date": "2026-11-13T11:00:30+09:00",
+        "publication_utc": "2026-11-13T02:00:30+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "ImageMagickを利用したアプリケーションにおける任意ファイル読み書きの脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU95718857/",
+        "date": "2026-11-13T11:00:20+09:00",
+        "publication_utc": "2026-11-13T02:00:20+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "PromZardにおけるリモートコード実行の脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU98641453/",
+        "date": "2026-11-13T11:00:10+09:00",
+        "publication_utc": "2026-11-13T02:00:10+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "ComfyUIのComfyUI-Easy-Use拡張機能における認証不要のパストラバーサルの脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU99429639/",
+        "date": "2026-11-13T11:00:00+09:00",
+        "publication_utc": "2026-11-13T02:00:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "KUSANAGIにおけるHTTPヘッダーインジェクションの脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU92635551/",
+        "date": "2026-11-12T16:10:00+09:00",
+        "publication_utc": "2026-11-12T07:10:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "BrotliのC言語実装における境界外書き込みの脆弱性（CVE-2026-111497）",
+        "url": "https://jvn.jp/vu/JVNVU97400824/",
+        "date": "2026-11-12T13:40:00+09:00",
+        "publication_utc": "2026-11-12T04:40:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "三菱電機数値制御装置におけるサービス運用妨害（DoS）の脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU95523788/",
+        "date": "2026-11-12T12:15:00+09:00",
+        "publication_utc": "2026-11-12T03:15:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "SoftBank製Airターミナル6におけるOSコマンドインジェクションの脆弱性",
+        "url": "https://jvn.jp/jp/JVN64740097/",
+        "date": "2026-11-12T12:00:00+09:00",
+        "publication_utc": "2026-11-12T03:00:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Apache HTTP Server 2.4における複数の脆弱性に対するアップデート（2026年11月11日）",
+        "url": "https://jvn.jp/vu/JVNVU90805396/",
+        "date": "2026-11-12T09:00:00+09:00",
+        "publication_utc": "2026-11-12T00:00:00+00:00",
+        "in_publication_window": true
+      },
+      {
+        "title": "Intel製品に対するアップデート（2026年11月）",
+        "url": "https://jvn.jp/vu/JVNVU93337738/",
+        "date": "2026-11-11T14:15:00+09:00",
+        "publication_utc": "2026-11-11T05:15:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Sleipnir Mobile for iPhone / iPadにおける不適切な証明書検証の脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU93068550/",
+        "date": "2026-11-11T13:30:00+09:00",
+        "publication_utc": "2026-11-11T04:30:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "PHPにおける複数の任意のコードが実行可能な脆弱性（CVE-2026-109618、CVE-2026-109619）",
+        "url": "https://jvn.jp/vu/JVNVU99905564/",
+        "date": "2026-11-11T12:10:00+09:00",
+        "publication_utc": "2026-11-11T03:10:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Movable Typeにおけるコードインジェクションの脆弱性",
+        "url": "https://jvn.jp/jp/JVN11786640/",
+        "date": "2026-11-11T12:00:00+09:00",
+        "publication_utc": "2026-11-11T03:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "OpenSSLにおける脆弱性に対するアップデート（2026年11月10日）",
+        "url": "https://jvn.jp/vu/JVNVU92618679/",
+        "date": "2026-11-11T10:15:00+09:00",
+        "publication_utc": "2026-11-11T01:15:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Siemens製品に対するアップデート（2026年11月）",
+        "url": "https://jvn.jp/vu/JVNVU98354779/",
+        "date": "2026-11-11T10:00:00+09:00",
+        "publication_utc": "2026-11-11T01:00:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "FrodoBots EarthRover Mini+における複数の脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU96830794/",
+        "date": "2026-11-10T09:30:15+09:00",
+        "publication_utc": "2026-11-10T00:30:15+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "PrestaShopのPerformance DebugモードにおけるPHPコードインジェクションの脆弱性",
+        "url": "https://jvn.jp/vu/JVNVU98836795/",
+        "date": "2026-11-10T09:30:00+09:00",
+        "publication_utc": "2026-11-10T00:30:00+00:00",
+        "in_publication_window": false
+      },
+      {
+        "title": "Airbyteにおける任意のコードが実行可能な脆弱性",
+        "url": "https://jvn.jp/jp/JVN12040144/",
+        "date": "2026-11-10T09:00:00+09:00",
+        "publication_utc": "2026-11-10T00:00:00+00:00",
+        "in_publication_window": false
+      }
+    ]
+  },
+  {
+    "name": "feed-ipa",
+    "status": "error",
+    "url": "https://www.ipa.go.jp/security/alert/index.html",
+    "entries": []
+  }
+]

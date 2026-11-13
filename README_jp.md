@@ -1,3 +1,5 @@
+**最新調査 — 2026-11-13 18:25 JST：** [日本語レポート](https://www.infosec-briefing.net/update-20261113-1825) · [283論点の台帳](data/2026-11-13-1825/incident-register.json) · [追加6画面の図解](https://www.infosec-briefing.net/?lang=ja#117)。27論点・8件の日英詳細ページを追加し、不正package139勧告の対象版を保存。KEVは前回と同一。過去256論点・実影響20事例の文脈を保持し、ScreenConnectの現在の公表状況を実影響事例へ追加。件数は被害件数ではありません。
+
 **最新調査 — 2026-11-11 20:40 JST:** [読むレポート](https://www.infosec-briefing.net/update-20261111-2040) · [256論点の台帳](data/2026-11-11-2040/incident-register.json) · [構図の異なる6画面](https://www.infosec-briefing.net/?lang=ja#111)。19群追加、KEV追加10件、不正package386勧告。過去237論点と実影響20事例は前回文脈。論点数は事件数ではありません。
 
 # Infosec Briefing — 独立調査とオープンソース
