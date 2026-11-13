@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-11-11T11:40:00Z",
+  "cutoff": "2026-11-13T09:25:00Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -470,9 +470,31 @@
       "monitoring_status": "newly-covered",
       "checked_at": "2026-11-01T12:33:30Z",
       "recovery_state": "not-established"
+    },
+    {
+      "id": "screenconnect-extension-impact",
+      "title": "ScreenConnect：partner環境への不正accessと予防的extension無効化",
+      "confirmed": "ConnectWiseはpartner環境への不正accessと不正remote-access softwareの展開を調査中。RMM+系extensionを持つ約400環境は予防措置の対象で、侵害確定数ではない。26.6.5以降の技術者clientは報告されたendpointから技術者への拡散手法を阻止する。",
+      "unknown": "全侵害環境数・被害者数・総損失・全面復旧は未確定。ConnectWiseは初期侵入後のpartner環境内telemetryを持たず、約400を被害件数として使えない。client更新は既存侵害の除去を証明しない。",
+      "response": "技術者clientを26.6.5以降へ更新し、対象extensionを無効のまま維持。信頼できる別経路でsession失効・証拠保存・不正clientと永続化の調査除去を行い、再接続前に検証する。",
+      "category": "MSP・remote access環境の侵害調査",
+      "as_of": "11/12 18:45 UTC公式更新 / 11/13 18:26 JST以降取得の現行本文",
+      "status": "confirmed-impact",
+      "sources": [
+        {
+          "name": "ConnectWise Trust Center",
+          "url": "https://www.connectwise.com/company/trust/advisories"
+        }
+      ],
+      "event_date": null,
+      "source_date": "2026-11-12",
+      "total_loss_jpy": null,
+      "monitoring_status": "newly-covered",
+      "checked_at": "2026-11-13T09:26:33Z",
+      "recovery_state": "not-established"
     }
   ],
-  "cutoff_jst": "2026-11-11T20:40:00+09:00",
+  "cutoff_jst": "2026-11-13T18:25:00+09:00",
   "caveats": [
     "更新対象以外は前回資料の文脈を保持。記載された確認日時を今回の再取得日時と読み替えない。",
     "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",

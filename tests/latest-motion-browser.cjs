@@ -14,6 +14,10 @@ async function main() {
   const mapping = JSON.parse(fs.readFileSync(path.join(root, 'content/motion-reviews.json')))[report.slice(1)+'.html'];
   const label = latest.cutoff_jst.slice(5,10).replace('-', '/')+' '+latest.cutoff_jst.slice(11,16);
   const shots = process.env.INFOSEC_SCREENSHOTS;
+  const topicConfig = JSON.parse(fs.readFileSync(path.join(root, 'content/topic-pages.json')));
+  const currentTopics = [topicConfig, ...(topicConfig.collections || [])]
+    .filter(collection => collection.snapshot === latest.incident_register.split('/')[0])
+    .flatMap(collection => collection.ids.flatMap(id => ['/topics/'+id, '/topics/'+id+'.en']));
   if (shots) fs.mkdirSync(shots, {recursive:true});
   const mime = {'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css',
     '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png',
@@ -59,7 +63,7 @@ async function main() {
       await latestLink.click();
       assert.ok(await page.locator('h1').innerText(),'latest link must open article');
       checks++;
-      for (const route of [report, report+'.en','/topics/dbhub-readonly-1103','/topics/dbhub-readonly-1103.en','/topics/sdjwt-disclosure-1103','/topics/npm-malware-1103','/database','/database.en','/impact','/impact.en','/timeline','/briefing']) {
+      for (const route of [report, report+'.en','/topics/dbhub-readonly-1103','/topics/dbhub-readonly-1103.en','/topics/sdjwt-disclosure-1103','/topics/npm-malware-1103','/database','/database.en','/impact','/impact.en','/timeline','/briefing', ...currentTopics]) {
         const response = await page.goto(origin+route,{waitUntil:'load'});
         assert.equal(response.status(),200,route);
         assert.ok(await page.locator('h1').count(),route+' missing heading');

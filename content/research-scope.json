@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshot": "2026-11-11-2040",
-  "register_sha256": "d8bc0296d129eccb6ad023c27badff9b8bf011f379c2ebe039c6f5700f4a5979",
-  "reviewed_at": "2026-11-11T20:40:00+09:00",
+  "snapshot": "2026-11-13-1825",
+  "register_sha256": "6225d98734955e6fcb09fd93ef75ad3f301bce74bef9ef8f0336c59e699eb532",
+  "reviewed_at": "2026-11-13T18:25:00+09:00",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -3174,6 +3174,284 @@
       },
       "sources": [
         "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-09T00%3A00%3A00Z..2026-11-11T11%3A40%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xMFQwMDozMjowNVrOAAgUFA%3D%3D"
+      ]
+    },
+    "rucio-auth-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z",
+        "https://github.com/rucio/rucio/security/advisories/GHSA-x585-4vv8-2mh2"
+      ]
+    },
+    "rails-imagemagick-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z",
+        "https://github.com/rails/rails/security/advisories/GHSA-f3w6-w445-fwh9",
+        "https://jvn.jp/vu/JVNVU95718857/"
+      ]
+    },
+    "rails-web-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "aspire-dashboard-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z",
+        "https://github.com/microsoft/aspire/security/advisories/GHSA-4g86-54fm-h9h8"
+      ]
+    },
+    "hono-routing-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "hono-node-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "pgedge-rag-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z",
+        "https://github.com/pgEdge/pgedge-rag-server/security/advisories/GHSA-w437-9mwm-j6vq"
+      ]
+    },
+    "pgedge-llm-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z",
+        "https://github.com/pgEdge/pgedge-go-llm-lib/security/advisories/GHSA-8835-xmqj-354h"
+      ]
+    },
+    "pgedge-control-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "pillow-tiff-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "soupsieve-selectors-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "grpc-xds-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "ruby-msgpack-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "addressable-uri-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "loofah-sanitizers-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "astro-slots-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "basic-ftp-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "signalk-logs-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "sharp-backend-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "malware-npm-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xMlQwNjozMDoyOVrOAAgfuA%3D%3D"
+      ]
+    },
+    "malware-pip-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xMlQwNjozMDoyOVrOAAgfuA%3D%3D"
+      ]
+    },
+    "malware-rubygems-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "malware-rust-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-11T11%3A40%3A00Z..2026-11-13T09%3A25%3A00Z"
+      ]
+    },
+    "screenconnect-response-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://www.connectwise.com/company/trust/advisories"
+      ]
+    },
+    "air-terminal6-1113": {
+      "scope": "japan",
+      "reason": {
+        "ja": "日本向け通信機器の製品案内。すべての利用者の所在地を確定した分類ではありません。",
+        "en": "Product notice for Japanese telecommunications equipment; this does not establish every user’s location."
+      },
+      "sources": [
+        "https://jvn.jp/jp/JVN64740097/"
+      ]
+    },
+    "kusanagi-nginx-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://jvn.jp/vu/JVNVU92635551/"
+      ]
+    },
+    "apache-httpd-1113": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://jvn.jp/vu/JVNVU90805396/"
       ]
     }
   }

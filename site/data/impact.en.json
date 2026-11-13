@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-11-11T11:40:00Z",
+  "cutoff": "2026-11-13T09:25:00Z",
   "records": [
     {
       "id": "idcf-real-impact",
@@ -470,9 +470,31 @@
       "monitoring_status": "newly-covered",
       "checked_at": "2026-11-01T12:33:30Z",
       "recovery_state": "not-established"
+    },
+    {
+      "id": "screenconnect-extension-impact",
+      "title": "ScreenConnect: partner-environment access and precautionary extension disabling",
+      "confirmed": "ConnectWise is investigating unauthorized access to partner environments and deployment of unauthorized remote-access software. Approximately 400 environments with RMM+ extensions are subject to precautionary action, not confirmed compromises. Technician clients at 26.6.5 or later block the reported endpoint-to-technician spread technique.",
+      "unknown": "The total compromised environments, victims, financial loss and full restoration are not established. ConnectWise lacks telemetry inside partner environments after initial access; approximately 400 cannot be used as a victim count. Client updates do not prove removal of an existing compromise.",
+      "response": "Update technician clients to 26.6.5 or later and keep the identified extensions disabled. Use trusted out-of-band methods to revoke sessions, preserve evidence, investigate and remove unauthorized clients/persistence, and validate before reconnecting.",
+      "category": "MSP and remote-access compromise investigation",
+      "as_of": "11/12 18:45 UTC official update / current text retrieved from 11/13 18:26 JST",
+      "status": "confirmed-impact",
+      "sources": [
+        {
+          "name": "ConnectWise Trust Center",
+          "url": "https://www.connectwise.com/company/trust/advisories"
+        }
+      ],
+      "event_date": null,
+      "source_date": "2026-11-12",
+      "total_loss_jpy": null,
+      "monitoring_status": "newly-covered",
+      "checked_at": "2026-11-13T09:26:33Z",
+      "recovery_state": "not-established"
     }
   ],
-  "cutoff_jst": "2026-11-11T20:40:00+09:00",
+  "cutoff_jst": "2026-11-13T18:25:00+09:00",
   "caveats": [
     "Rows outside the update scope retain prior source context. Their recorded check times are not new retrieval times.",
     "Selected examples. parent_incident indicates user-side effects of the same compromise and is not added as a separate incident. potential means actual acquisition is unconfirmed.",
@@ -485,8 +507,8 @@
   ],
   "locale": "en",
   "translation": {
-    "source_hash": "383a5676d9f409fe3a0d36617fa97c4330c0b12b2a378955ca9a5ce05fb0e967",
-    "register_hash": "29f10fdb264b20a08e11eacd679f41d3a7d5e0c31258e49b9f12a924fff73708",
+    "source_hash": "a108fb90f9e869bcc45eb9d1fa6b9ab783da0c0d911805cf94e995c5e7436ac0",
+    "register_hash": "c4f64e5609be05757613c0326b294a82e5c29f45ff0a72bbb6a5b848f12402dc",
     "human_reviewed": false
   }
 }

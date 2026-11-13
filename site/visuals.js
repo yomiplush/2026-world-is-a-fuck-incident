@@ -1088,6 +1088,79 @@ window.VISUALS = (function () {
     heading(g,'386 ADVISORIES / NOT VICTIM COUNTS');g.flush();
   };
 
+  // November 13: explanatory boundary models, not captured attack traffic.
+  scenes.nov13TokenSplit = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.13,pitch:.54});
+    const request=[-340,80,0],table=[0,0,0],api=[340,70,0];
+    node(g,request,'NO LOGIN',C.amber,t,0,{hx:65,hy:50,hz:50});
+    node(g,table,'TOKEN TABLE',C.cyan,t,1,{hx:95,hy:80,hz:60});
+    node(g,api,'ADMIN API',C.red,t,2,{hx:65,hy:60,hz:60});
+    flow(g,request,table,t,C.amber);flow(g,table,api,t,C.red,.3);
+    g.octa(-25,-160,0,22,C.amber,{alpha:.85});
+    label(g,[-25,-225,0],'CHALLENGE NONCE',C.amber,11);
+    gate(g,[170,75,0],C.green,'TYPE CHECK');
+    label(g,[0,270,0],'SEPARATE CHALLENGES FROM AUTH TOKENS',C.green,10);
+    heading(g,'RUCIO / NONCE IS NOT IDENTITY');g.flush();
+  };
+  scenes.nov13ImagePolicy = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:-.12,pitch:.56});
+    const upload=[-355,40,0],coder=[0,40,0],disk=[340,-110,0];
+    g.box(...upload,48,80,15,C.amber,{alpha:.65,edge:.8});
+    label(g,[-355,-105,0],'ATTACH',C.amber,13);
+    node(g,coder,'IMAGEMAGICK',C.cyan,t,1,{hx:90,hy:60,hz:55});
+    flow(g,upload,coder,t,C.amber);
+    for(let i=0;i<4;i++)g.box(165,-165+i*95,0,12,24,70,i===1?C.green:C.steel,{alpha:.6,edge:.8});
+    label(g,[160,-265,0],'POLICY',C.green,12);
+    curve(g,coder,disk,t,C.red,.3,45);
+    node(g,disk,'DISK + KEYS',C.red,t,2,{hx:65,hy:50,hz:50});
+    label(g,[0,265,0],'PATCH / VERIFY POLICY / ROTATE SECRETS',C.green,10);
+    heading(g,'NO PREVIEW REQUIRED / POLICY MUST APPLY');g.flush();
+  };
+  scenes.nov13PathLanes = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.12,pitch:.52});
+    for(let lane=0;lane<2;lane++){
+      const y=lane?155:-130,tone=lane?C.green:C.amber;
+      const points=[[-340,y,0],[-20,y,0],[320,y,0]];
+      points.forEach((p,i)=>node(g,p,(lane?['RAW PATH','REJECT / AUTH','APP']:['PROXY PATH','NORMALIZE','INNER PATH'])[i],tone,t,i+lane,{hx:65,hy:40,hz:40,font:10}));
+      flow(g,points[0],points[1],t,tone,lane*.2);
+      if(lane)gate(g,[160,y,0],C.green,'CHECK');
+      flow(g,points[1],points[2],t,tone,.4+lane*.2);
+    }
+    label(g,[0,285,0],'CORE + NODE ADAPTER / CHECK BOTH',C.green,11);
+    heading(g,'HONO / PATH INTERPRETATION AT TWO BOUNDARIES');g.flush();
+  };
+  scenes.nov13TenantIndex = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.17,pitch:.6});
+    const a=[-330,-125,0],b=[-330,160,0],shared=[0,20,0];
+    node(g,a,'TENANT A',C.cyan,t,0,{hx:65,hy:45,hz:45});
+    node(g,b,'TENANT B',C.amber,t,1,{hx:65,hy:45,hz:45});
+    g.prism(...shared,100,45,6,C.red,{alpha:.45,edge:.8,rot:t*.1});
+    label(g,[0,-165,0],'SHARED BM25',C.red,12);
+    curve(g,a,shared,t,C.cyan,0,30);curve(g,b,shared,t,C.amber,.4,30);
+    for(let i=0;i<2;i++){
+      const p=[330,-120+i*270,0],tone=i?C.amber:C.cyan;
+      node(g,p,i?'INDEX B':'INDEX A',tone,t,i+2,{hx:65,hy:45,hz:45});
+      ring(g,p,100,tone);wire(g,shared,p,C.steel);
+    }
+    label(g,[0,285,0],'FIX: REQUEST-LOCAL INDEX / ASSESS EXPOSURE',C.green,10);
+    heading(g,'NORMAL CONCURRENCY / NO INJECTION REQUIRED');g.flush();
+  };
+  scenes.nov13TechnicianBoundary = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.2,pitch:.57});
+    const endpoint=[-330,40,0],tech=[0,40,0],response=[325,40,0];
+    node(g,endpoint,'ENDPOINT',C.amber,t,0,{hx:65,hy:65,hz:55});
+    node(g,tech,'TECH CLIENT',C.cyan,t,1,{hx:65,hy:65,hz:55});
+    curve(g,endpoint,tech,t,C.amber,0,85);gate(g,[-165,20,0],C.green,'26.6.5+');
+    for(let i=0;i<3;i++){
+      const p=[response[0],-150+i*175,0];
+      g.box(...p,100,32,42,[C.green,C.cyan,C.amber][i],{alpha:.55,edge:.65});
+      label(g,[p[0],p[1]-65,0],['REVOKE','INVESTIGATE','REMOVE'][i],C.ink,11);
+    }
+    ring(g,tech,125,C.green);flow(g,tech,response,t,C.cyan,.4);
+    label(g,[0,285,0],'CONSOLE VERSION ≠ EVERY TECHNICIAN CLIENT',C.green,10);
+    heading(g,'PROTECT THE CLIENT / REMEDIATE THE COMPROMISE');g.flush();
+  };
+
   function frame(ctx,w,h,t) {
     ctx.save();ctx.strokeStyle=A(C.steel,.28);ctx.lineWidth=.75;
     const m=8,L=14;

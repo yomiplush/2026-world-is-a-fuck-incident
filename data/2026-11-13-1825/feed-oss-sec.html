@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Fri, 13 Nov 2026 04:45:04 GMT</pubDate>
+    <lastBuildDate>Fri, 13 Nov 2026 04:45:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>CVE-2026-123338: Apache DataSketches C++: Out-of-bounds write in REQ sketch deserialization allows memory corruption via a crafted sketch</title>
+    <link>https://seclists.org/oss-sec/2026/q4/688</link>
+    <description>&lt;p&gt;Posted by Lee Rhodes on Nov 12&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache DataSketches C++ 3.0.0 through 5.3.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Out-of-bounds Write vulnerability in Apache DataSketches C++. An&lt;br&gt;
+  application that deserializes a REQ sketch from an untrusted source&lt;br&gt;
+  can have heap memory corrupted by a crafted sketch, because the&lt;br&gt;
+  serialized compactor headers were not validated.&lt;br&gt;
+&lt;br&gt;
+  This issue affects Apache DataSketches C++: from 3.0.0 through 5.3.0.&lt;br&gt;
+&lt;br&gt;
+  Users are...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 04:35:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/688</guid>
+  </item>
+  <item>
+    <title>CVE-2026-123274: Apache DataSketches C++: Out-of-bounds write in KLL sketch deserialization allows memory corruption via a crafted sketch</title>
+    <link>https://seclists.org/oss-sec/2026/q4/687</link>
+    <description>&lt;p&gt;Posted by Lee Rhodes on Nov 12&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache DataSketches C++ 2.0.0-incubating through 5.3.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Out-of-bounds Write vulnerability in Apache DataSketches C++. An&lt;br&gt;
+  application that deserializes a KLL sketch from an untrusted source&lt;br&gt;
+  can have heap memory corrupted by a crafted sketch, because the&lt;br&gt;
+  serialized level boundaries were not validated.&lt;br&gt;
+&lt;br&gt;
+  This issue affects Apache DataSketches C++: 2.0.0 through 5.3.0.&lt;br&gt;
+&lt;br&gt;
+  Users are...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 04:29:52 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/687</guid>
+  </item>
+
+
+  <item>
+    <title>Fw: New cabextract 1.12 and libmspack 0.12alpha release</title>
+    <link>https://seclists.org/oss-sec/2026/q4/686</link>
+    <description>&lt;p&gt;Posted by Hanno Böck on Nov 12&lt;/p&gt;Hi,&lt;br&gt;
+&lt;br&gt;
+Forwarding this, various security issues fixed in cabextract and&lt;br&gt;
+libmspack.&lt;br&gt;
+&lt;br&gt;
+Begin forwarded message:&lt;br&gt;
+&lt;br&gt;
+Date: Thu, 12 Nov 2026 10:18:43 +0000&lt;br&gt;
+Subject: New cabextract 1.12 and libmspack 0.12alpha release&lt;br&gt;
+&lt;br&gt;
+[...]&lt;br&gt;
+&lt;br&gt;
+cabextract 1.12 and libmspack 0.12alpha have been released. This &lt;br&gt;
+corrects security issues and bugs reported recently, mainly:&lt;br&gt;
+&lt;br&gt;
+- An LZX uncompressed block header with invalid R0/R1/R2 values&lt;br&gt;
+  followed by a verbatim/aligned block...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 23:42:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/686</guid>
+  </item>
+  <item>
+    <title>[vim-security] Command Execution via CSS Omni-Completion in Vim &lt; 9.2.1342</title>
+    <link>https://seclists.org/oss-sec/2026/q4/685</link>
+    <description>&lt;p&gt;Posted by Christian Brabandt on Nov 12&lt;/p&gt;Command Execution via CSS Omni-Completion in Vim &amp;lt; 9.2.1342&lt;br&gt;
+===========================================================&lt;br&gt;
+Date: 12.11.2026&lt;br&gt;
+Severity: Low&lt;br&gt;
+CVE: *requested, not yet assigned*&lt;br&gt;
+CWE: Improper Neutralization of Special Elements used in an OS Command&lt;br&gt;
+     (CWE-78)&lt;br&gt;
+&lt;br&gt;
+## Summary&lt;br&gt;
+The CSS omni-completion script in `runtime/autoload/csscomplete.vim` passes&lt;br&gt;
+the file name after an `@import` rule from the buffer to `glob()` without&lt;br&gt;
+escaping it....&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 20:39:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/685</guid>
+  </item>
+  <item>
+    <title>CVE-2026-126641: ansible-pylibssh / ansible.netcommon libssh: changed SSH host key accepted when host_key_auto_add is enabled</title>
+    <link>https://seclists.org/oss-sec/2026/q4/684</link>
+    <description>&lt;p&gt;Posted by Ryo utomo on Nov 12&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+This is a public disclosure of CVE-2026-126641, a host key verification&lt;br&gt;
+flaw in ansible-pylibssh and in the ansible.netcommon libssh connection&lt;br&gt;
+plugin. Red Hat Product Security confirmed the issue, assigned the CVE&lt;br&gt;
+and lifted the embargo on 2026-11-12.&lt;br&gt;
+&lt;br&gt;
+Summary&lt;br&gt;
+-------&lt;br&gt;
+&lt;br&gt;
+When trust-on-first-use is enabled (host_key_auto_add on the&lt;br&gt;
+ansible.netcommon libssh plugin, or AutoAddPolicy in pylibssh), a host&lt;br&gt;
+that is already in known_hosts but now...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 19:27:11 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/684</guid>
+  </item>
+  <item>
+    <title>dbus: multiple denial-of-service issues</title>
+    <link>https://seclists.org/oss-sec/2026/q4/683</link>
+    <description>&lt;p&gt;Posted by Simon McVittie on Nov 12&lt;/p&gt;Today&amp;apos;s dbus 1.16.4 release includes fixes for several denial-of-service&lt;br&gt;
+issues. Another local denial of service, dbus#589 (see below), is known&lt;br&gt;
+and not yet fixed.&lt;br&gt;
+&lt;br&gt;
+CVE IDs have been requested from Red Hat&amp;apos;s CNA, please do not allocate&lt;br&gt;
+other CVE IDs for these issues. The upstream issue reports linked below&lt;br&gt;
+will be updated if CVE IDs are allocated.&lt;br&gt;
+&lt;br&gt;
+All reasonably recent versions of dbus are affected. Some of these issues&lt;br&gt;
+do not affect...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 19:20:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/683</guid>
+  </item>
+  <item>
+    <title>PostgreSQL 18.7, 17.12, 16.16, 15.20, 14.25, and 19 RC 2 Released, fixes 52 security vulnerabilities</title>
+    <link>https://seclists.org/oss-sec/2026/q4/682</link>
+    <description>&lt;p&gt;Posted by Alan Coopersmith on Nov 12&lt;/p&gt;&lt;a  rel=&quot;nofollow&quot; href=&quot;https://www.postgresql.org/about/news/postgresql-187-1712-1616-1520-1425-and-19-rc-2-released-3442/&quot;&gt;https://www.postgresql.org/about/news/postgresql-187-1712-1616-1520-1425-and-19-rc-2-released-3442/&lt;/a&gt;&lt;br&gt;
+announces:&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 18:02:44 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/682</guid>
+  </item>
+  <item>
+    <title>Apache TomEE: 38 CVEs addressed in 10.3.0 and 11.0.0-M2 (combined announcement)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/681</link>
+    <description>&lt;p&gt;Posted by Markus Jung on Nov 12&lt;/p&gt;On 10 November 2026, the Apache TomEE project published 38 security&lt;br&gt;
+advisories on users () tomee apache org. This message consolidates those&lt;br&gt;
+announcements for oss-security.&lt;br&gt;
+&lt;br&gt;
+Apache TomEE 10.3.0 and 11.0.0-M2 fix 26 of the vulnerabilities. The&lt;br&gt;
+other 12 affect optional modules removed from both releases: the&lt;br&gt;
+embedded OpenEJB HTTP server, Hessian remoting, and the SSH&lt;br&gt;
+administration shell. There is no fixed version of those removed&lt;br&gt;
+modules. If...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 15:43:43 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/681</guid>
+  </item>
+  <item>
+    <title>CVE-2026-126673: Data::Dump::Streamer versions before 3.00 for Perl allow code injection via unescaped Regexp patterns in _dump_qr</title>
+    <link>https://seclists.org/oss-sec/2026/q4/680</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 11&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2026-126673                                      CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2026-126673&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Data-Dump-Streamer&lt;br&gt;
+       Versions:  before 3.00&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Data-Dump-Streamer&quot;&gt;https://metacpan.org/dist/Data-Dump-Streamer&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 03:13:06 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/680</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124023: Apache Axis2/C: Out-of-bounds read in the Guththila XML reader wrapper</title>
+    <link>https://seclists.org/oss-sec/2026/q4/679</link>
+    <description>&lt;p&gt;Posted by Robert Lazarski on Nov 11&lt;/p&gt;Severity: low &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Axis2/C f2b30c159720cf63ada72f19183828533154c749 before 23110287924e79d05a5b4712298c355d1f05c606&lt;br&gt;
+- Apache Axis2/C through 2.0.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Out-of-bounds Read vulnerability in the Guththila XML parser wrapper of Apache Axis2/C. On some malformed XML input the &lt;br&gt;
+Guththila parser returned a raw input byte in place of an event code, and the AXIOM reader wrapper used that value as &lt;br&gt;
+an index into a...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 03:11:08 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/679</guid>
+  </item>
+
+
+  <item>
+    <title>CVE-2026-124308: VVdeC/vvdecapp: Heap Use-After-Free in DecLibRecon::createSubPicRefBufs during Subpicture Reconstruction</title>
+    <link>https://seclists.org/oss-sec/2026/q4/678</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 11&lt;/p&gt;Product:   VVdeC (vvdecapp)&lt;br&gt;
+Affected:  Versions before 3.2.1&lt;br&gt;
+           Reproduced build: 3.3.0-dev&lt;br&gt;
+           Commit e493ce51f13a2dea72cd58354652ed4e0f509a0e&lt;br&gt;
+Fixed:     8a0def8ba6050412d33e69a6f1e66e287b039083&lt;br&gt;
+CVE:       CVE-2026-124308&lt;br&gt;
+CWE:       CWE-416 (Use After Free)&lt;br&gt;
+CVSS 3.1:  5.8 MEDIUM (AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  Subpicture border-extension tasks retain raw pointers...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 21:21:32 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/678</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124309: VVdeC/vvdecapp: Heap Out-of-Bounds Read in HRD::setBufferingPeriodSEI via Scalable-Nesting SEI</title>
+    <link>https://seclists.org/oss-sec/2026/q4/677</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 11&lt;/p&gt;Product:   VVdeC (vvdecapp)&lt;br&gt;
+Affected:  Versions before 3.2.1&lt;br&gt;
+           Reproduced build: 3.3.0-dev&lt;br&gt;
+           Commit e493ce51f13a2dea72cd58354652ed4e0f509a0e&lt;br&gt;
+Fixed:     1d657c7a822987d2ff935e9c227c5faf5318ca06&lt;br&gt;
+CVE:       CVE-2026-124309&lt;br&gt;
+CWE:       CWE-125 (Out-of-bounds Read)&lt;br&gt;
+CVSS 3.1:  6.1 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  While parsing a scalable-nesting SEI,...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 21:19:32 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/677</guid>
+  </item>
+  <item>
+    <title>CVE-2026-108472 - xfs_admin allows for OS command injection</title>
+    <link>https://seclists.org/oss-sec/2026/q4/676</link>
+    <description>&lt;p&gt;Posted by Marco Benatto on Nov 11&lt;/p&gt;Hello all,&lt;br&gt;
+&lt;br&gt;
+on behalf of Red Hat Product Security team I&amp;apos;m disclosing a flaw in&lt;br&gt;
+the xfs_admin utility&lt;br&gt;
+present in the xfsprogs suite, where xfs_admin lacks use input validation.&lt;br&gt;
+&lt;br&gt;
+This allows OS command injection and under certain circumstances,&lt;br&gt;
+results in local privilege escalation.&lt;br&gt;
+&lt;br&gt;
+Red Hat Product Security has assigned CVE-2026-108472 for this issue,&lt;br&gt;
+with the severity of Important and the following CVSSv3.1 scoring:&lt;br&gt;
+&lt;br&gt;
+7.8...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 21:17:33 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/676</guid>
+  </item>
+  <item>
+    <title>CVE-2026-93404: rsyslog 8.1901.0 through pre-2026-11-11 daily stable omclickhouse SQL injection</title>
+    <link>https://seclists.org/oss-sec/2026/q4/675</link>
+    <description>&lt;p&gt;Posted by Rainer Gerhards on Nov 11&lt;/p&gt;An SQL injection issue affects rsyslog deployments using the optional&lt;br&gt;
+omclickhouse output module. The module is not loaded by default.&lt;br&gt;
+&lt;br&gt;
+CVE: CVE-2026-93404&lt;br&gt;
+Advisory: &lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/rsyslog/rsyslog/security/advisories/GHSA-8rx7-ww92-p4vr&quot;&gt;https://github.com/rsyslog/rsyslog/security/advisories/GHSA-8rx7-ww92-p4vr&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+The built-in ClickHouse INSERT template used SQL escaping that did not&lt;br&gt;
+account for ClickHouse backslash escapes. A sender able to submit a log&lt;br&gt;
+message routed to an affected action could alter the SQL sent to...&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 21:15:29 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/675</guid>
+  </item>
+  <item>
+    <title>Re: Node.js security release pre-alert</title>
+    <link>https://seclists.org/oss-sec/2026/q4/674</link>
+    <description>&lt;p&gt;Posted by Antoine du Hamel on Nov 11&lt;/p&gt;Releases are out, more info at &lt;a  rel=&quot;nofollow&quot; href=&quot;https://nodejs.org/en/blog/vulnerability/november-2026-security-releases&quot;&gt;https://nodejs.org/en/blog/vulnerability/november-2026-security-releases&lt;/a&gt;&lt;br&gt;</description>
+    <pubDate>Wed, 11 Nov 2026 17:32:02 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/674</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>
