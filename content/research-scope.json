@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshot": "2026-11-13-1825",
-  "register_sha256": "6225d98734955e6fcb09fd93ef75ad3f301bce74bef9ef8f0336c59e699eb532",
-  "reviewed_at": "2026-11-13T18:25:00+09:00",
+  "snapshot": "2026-11-14-0900",
+  "register_sha256": "2509d488ba52655e91d7ea50417e8114d0b53c41430674956b57c642497f0214",
+  "reviewed_at": "2026-11-14T00:00:00Z",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -3452,6 +3452,295 @@
       },
       "sources": [
         "https://jvn.jp/vu/JVNVU90805396/"
+      ]
+    },
+    "kev-unrealircd-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+        "https://www.openwall.com/lists/oss-security/2026/11/08/1",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-13T09%3A25%3A00.000&lastModEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "kev-checkpoint-dynamiccli-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+        "https://support.checkpoint.com/results/sk/sk1000362",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-13T09%3A25%3A00.000&lastModEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "screenconnect-sckit-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/",
+        "https://www.connectwise.com/company/trust/advisories"
+      ]
+    },
+    "apisix-auth-mcp-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-13T09%3A25%3A00.000&pubEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://seclists.org/oss-sec/2026/q4/691",
+        "https://seclists.org/oss-sec/2026/q4/692",
+        "https://seclists.org/oss-sec/2026/q4/693",
+        "https://seclists.org/oss-sec/2026/q4/694",
+        "https://seclists.org/oss-sec/2026/q4/695",
+        "https://seclists.org/oss-sec/2026/q4/696",
+        "https://seclists.org/oss-sec/2026/q4/697"
+      ]
+    },
+    "dropbear-streamlocal-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://seclists.org/oss-sec/2026/q4/690"
+      ]
+    },
+    "nltk-canonical-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "nltk-withdrawn-duplicates-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "sveltekit-adapters-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "nuxt-nitro-schema-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "astro-image-tags-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "opentelemetry-js-go-py-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "automapper-maxdepth-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "russh-kex-agent-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "rails-html-sanitizer-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "soupsieve-302-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "dnspython-wks-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "tornado-redirect-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "laravel-concurrency-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "sqlite3-ruby-truncation-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "envd-requirements-toctou-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "filebrowser-trailing-slash-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "ag-psd-dimensions-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
+      ]
+    },
+    "frankenphp-nocodb-openemr-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-13T09%3A25%3A00.000&pubEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "buildpiper-tacticalrmm-keep-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-13T09%3A25%3A00.000&pubEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "malware-npm-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMTozMDoyMFrOAAgmMA%3D%3D",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMToyMzo1N1rOAAglzA%3D%3D",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMToxMTo0MVrOAAglZw%3D%3D",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDo1ODo0MVrOAAglAQ%3D%3D",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDo0NzozNlrOAAgkmw%3D%3D",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
+      ]
+    },
+    "malware-pip-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z",
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
+      ]
+    },
+    "malware-rubygems-1114": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
       ]
     }
   }

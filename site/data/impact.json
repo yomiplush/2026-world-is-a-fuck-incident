@@ -1,5 +1,11 @@
 {
-  "cutoff": "2026-11-13T09:25:00Z",
+  "cutoff": "2026-11-14T00:00:00Z",
+  "cutoff_jst": "2026-11-14T09:00:00+09:00",
+  "caveats": [
+    "金銭被害は公式資料に金額がある項目だけを記載し、総損失額を推定しません。",
+    "件数・人数・契約数・環境数は単位が異なるため合算しません。",
+    "過去21事例は前回文脈を保持し、ScreenConnectのMicrosoft続報反映とCheck Point CVE-2026-123039の実悪用報告1事例を追加しています。"
+  ],
   "records": [
     {
       "id": "idcf-real-impact",
@@ -467,42 +473,61 @@
       "event_date": null,
       "source_date": "2026-10-31",
       "total_loss_jpy": null,
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "checked_at": "2026-11-01T12:33:30Z",
       "recovery_state": "not-established"
     },
     {
       "id": "screenconnect-extension-impact",
       "title": "ScreenConnect：partner環境への不正accessと予防的extension無効化",
-      "confirmed": "ConnectWiseはpartner環境への不正accessと不正remote-access softwareの展開を調査中。RMM+系extensionを持つ約400環境は予防措置の対象で、侵害確定数ではない。26.6.5以降の技術者clientは報告されたendpointから技術者への拡散手法を阻止する。",
+      "confirmed": "ConnectWiseはpartner環境への不正accessと不正remote-access software展開を調査中。RMM+系extensionを持つ約400環境は予防措置の対象で侵害確定数ではない。Microsoftは11/13にSCKitとRelayTrap（技術者端末への拡散手法、client 26.6.5以降で阻止）の解析と永続化手法を公表した。",
       "unknown": "全侵害環境数・被害者数・総損失・全面復旧は未確定。ConnectWiseは初期侵入後のpartner環境内telemetryを持たず、約400を被害件数として使えない。client更新は既存侵害の除去を証明しない。",
-      "response": "技術者clientを26.6.5以降へ更新し、対象extensionを無効のまま維持。信頼できる別経路でsession失効・証拠保存・不正clientと永続化の調査除去を行い、再接続前に検証する。",
+      "response": "技術者clientを26.6.5以降へ更新し、対象extensionを無効のまま維持。不正clientの削除だけではscheduled taskやregistry Runの永続化・既存sessionは消えないため、信頼できる別経路で技術者端末と顧客endpoint双方を調査・除去する。",
       "category": "MSP・remote access環境の侵害調査",
-      "as_of": "11/12 18:45 UTC公式更新 / 11/13 18:26 JST以降取得の現行本文",
+      "as_of": "ConnectWise 11/12更新・Microsoft 11/13公表 / 11/14 09:04 JST取得の現行本文",
       "status": "confirmed-impact",
       "sources": [
         {
           "name": "ConnectWise Trust Center",
           "url": "https://www.connectwise.com/company/trust/advisories"
+        },
+        {
+          "name": "Microsoft Security Blog SCKit analysis",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
         }
       ],
       "event_date": null,
-      "source_date": "2026-11-12",
+      "source_date": "2026-11-13",
+      "total_loss_jpy": null,
+      "monitoring_status": "retained-prior-context",
+      "checked_at": "2026-11-14T00:04:14Z",
+      "recovery_state": "not-established"
+    },
+    {
+      "id": "checkpoint-dynamiccli-impact",
+      "title": "Check Point機器：DynamicCLI local socket脆弱性（CVE-2026-123039）の実悪用報告",
+      "confirmed": "Check Pointはsk1000362で、CVE-2026-123039（`/tmp/dynamic_socket` を介したlocal root昇格）について数十顧客（a couple of dozen customers）に対する実悪用を確認したと公表し、CISAが11/13にKEVへ追加した。",
+      "unknown": "悪用が確認された具体的な顧客名、初期侵入に使われた別経路の内訳、被害総額、各環境の復旧完了有無は未公表。「数十顧客」は概数であり、全稼働機器の侵害を意味しない。",
+      "response": "R82.20 Take 14／R82.10 Take 52／R82 Take 132／R81.20 Take 174以降のJumbo Hotfixを適用し、`/tmp/dynamic_socket` が `0660` であることを確認する。`/var/log/dynamicCli.log` で正規wrapper外のcommand実行履歴を監査する。",
+      "category": "境界機器・実悪用の確認",
+      "as_of": "sk1000362 11/12改訂・KEV 11/13追加 / 11/14 09:04 JST以降取得",
+      "status": "confirmed-impact",
+      "sources": [
+        {
+          "name": "Check Point sk1000362 advisory",
+          "url": "https://support.checkpoint.com/results/sk/sk1000362"
+        },
+        {
+          "name": "CISA KEV catalog",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "event_date": null,
+      "source_date": "2026-11-13",
       "total_loss_jpy": null,
       "monitoring_status": "newly-covered",
-      "checked_at": "2026-11-13T09:26:33Z",
+      "checked_at": "2026-11-14T00:04:14Z",
       "recovery_state": "not-established"
     }
-  ],
-  "cutoff_jst": "2026-11-13T18:25:00+09:00",
-  "caveats": [
-    "更新対象以外は前回資料の文脈を保持。記載された確認日時を今回の再取得日時と読み替えない。",
-    "選定事例。parent_incidentは同じ侵害の利用者側影響であり別事件として合算しない。potentialは実取得未確認を表す。",
-    "世界全体の被害統計ではなく、一次資料を確認した事例の一覧です。今回の新規事件数ではありません。",
-    "発生・公表・更新・取得時刻を分け、金額・人数・件数は出典の単位を保持します。総損失の未公表を0円とはしません。",
-    "資料取得は基準時刻後の現行改訂。動的ページの過去の全記述は完全復元できません。",
-    "同一基盤の利用者側の影響例はparent_incidentで関連付けています。重複する事件として合算しないでください。",
-    "今回追加した医療の復旧は組織の公式発表に基づく。既存事案の資料日付は保持し、今回原本を再取得しても新規事件として数え直さない。",
-    "11月3日更新では過去の実影響本文を保持。復旧・補償完了の新規確認は行っていない。"
   ]
 }

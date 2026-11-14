@@ -6298,16 +6298,262 @@ for (const lang of ['ja','en']) {
     : '全122画面を日付順に。11/13 18:25 JSTまでの追加6画面。認証・画像処理・経路・tenant・MSPの境界を図解します。過去の場面は記載時点の記録です。';
 }
 
+/* November 14: fixed-window research and boundary explanations. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1114-scope",
+    "stamp": "11.14 · 09:00 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "KEV 2件追加と重複・撤回勧告の切り分け。",
+      "lede": "11/13 18:25〜11/14 09:00 JSTの固定窓。",
+      "points": [
+        "NVD新規673・改訂1,466。新規673はすべて改訂と重複",
+        "GHSA公開1,329：reviewed 39（うち撤回重複7）・unreviewed 593・malware 697",
+        "27論点追加で310論点。KEVは2件追加で1,781件（2026.11.13）"
+      ]
+    },
+    "en": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "Two KEV additions and separating withdrawn duplicate advisories.",
+      "lede": "Fixed 11/13 18:25–11/14 09:00 JST window.",
+      "points": [
+        "NVD: 673 published / 1,466 modified; all 673 published records overlap",
+        "GHSA: 1,329 published — 39 reviewed (7 withdrawn duplicates) / 593 unreviewed / 697 malware",
+        "27 additions bring the register to 310 topics; KEV adds 2 entries to reach 1,781 (2026.11.13)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Saved collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-14-0900/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-14T00:00:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1114-unrealircd",
+    "stamp": "11.14 · 09:00 JST",
+    "visual": {
+      "type": "nov14UnrealLabel"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "clientのlabel tagが、server間の権限commandに化ける。",
+      "lede": "UnrealIRCdのKEV追加（CVE-2026-114713）。",
+      "points": [
+        "2台以上のserverがlinkされたnetworkでIRCv3 labeled-responseに改行注入",
+        "一般userがserverやIRCOp権限でKILL・GLINE等を挿入できる",
+        "6.2.7.1更新またはhot-patch bundle-20261107適用とmodule-status確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "A client label tag turns into privileged server-to-server commands.",
+      "lede": "UnrealIRCd added to CISA KEV (CVE-2026-114713).",
+      "points": [
+        "Newlines in IRCv3 labeled-response tags on networks with 2+ linked servers",
+        "Ordinary users can inject KILL, GLINE and other server/IRCOp commands",
+        "Upgrade to 6.2.7.1 or apply hot-patch bundle-20261107 and verify module-status"
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      },
+      {
+        "name": "UnrealIRCd 6.2.7.1 Security Advisory (Openwall oss-security)",
+        "url": "https://www.openwall.com/lists/oss-security/2026/11/08/1"
+      }
+    ],
+    "reviewCutoff": "2026-11-14T00:00:00Z"
+  },
+  {
+    "id": "motion-1114-checkpoint",
+    "stamp": "11.14 · 09:00 JST",
+    "visual": {
+      "type": "nov14DynamicSocket"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "0777の内部socketが、local権限をrootへ引き上げる。",
+      "lede": "Check Point Gaia OSのKEV追加（CVE-2026-123039）。",
+      "points": [
+        "dynamic_serverが/tmp/dynamic_socketを0777で生成し任意コマンドをroot実行",
+        "Check Pointが数十顧客での悪用（Local Privilege Escalation）を公表",
+        "Jumbo Hotfix適用、socket権限0660確認、/var/log/dynamicCli.logを監査"
+      ]
+    },
+    "en": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "A 0777 internal socket elevates local access to root.",
+      "lede": "Check Point Gaia OS added to CISA KEV (CVE-2026-123039).",
+      "points": [
+        "dynamic_server creates /tmp/dynamic_socket with 0777 permissions and runs commands as root",
+        "Check Point reports active exploitation against a couple of dozen customers",
+        "Apply Jumbo Hotfix, verify 0660 socket permissions and audit /var/log/dynamicCli.log"
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      },
+      {
+        "name": "Check Point Security Advisory sk1000362",
+        "url": "https://support.checkpoint.com/results/sk/sk1000362"
+      }
+    ],
+    "reviewCutoff": "2026-11-14T00:00:00Z"
+  },
+  {
+    "id": "motion-1114-sckit",
+    "stamp": "11.14 · 09:00 JST",
+    "visual": {
+      "type": "nov14SCKitSurface"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "server側のextension侵入と、技術者PCへの逆流は別の面。",
+      "lede": "MicrosoftによるSCKitとRelayTrapの解析。",
+      "points": [
+        "RMM+ 1.0.31／1.0.32の空access key受理（server側）とRelayTrap（技術者client側）を分離",
+        "RelayTrapはclient 26.6.5以降のCVE-2026-84869修正で遮断される",
+        "別ScreenConnect clientの静音導入・scheduled task・registry Run永続化を除去"
+      ]
+    },
+    "en": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "Server extension entry and technician-client pivot are separate surfaces.",
+      "lede": "Microsoft analysis of SCKit and RelayTrap.",
+      "points": [
+        "Distinguishes RMM+ 1.0.31/1.0.32 empty access keys (server) from RelayTrap (technician client)",
+        "RelayTrap is blocked once technician clients are updated to 26.6.5+ (CVE-2026-84869)",
+        "Hunt and remove rogue ScreenConnect clients, scheduled tasks and registry Run persistence"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Microsoft Security Blog — SCKit & RelayTrap analysis",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
+      },
+      {
+        "name": "ConnectWise Trust Center advisory",
+        "url": "https://www.connectwise.com/company/trust/advisories"
+      }
+    ],
+    "reviewCutoff": "2026-11-14T00:00:00Z"
+  },
+  {
+    "id": "motion-1114-apisix",
+    "stamp": "11.14 · 09:00 JST",
+    "visual": {
+      "type": "nov14ApisixBoundary"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "fallback後の身分headerと、MCP変換の相対path。",
+      "lede": "Apache APISIX 3.20.0の7件を機能別に点検。",
+      "points": [
+        "multi-auth・jwe-decrypt・forward-authでclient指定の身分headerが上流へ残る問題",
+        "encoded dot segmentの経路差、authz-keycloakのscope判定、mTLS除外regexの迂回",
+        "openapi-to-mcpの身分なりすましと未宣言API到達。3.20.0へ更新"
+      ]
+    },
+    "en": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "Surviving identity headers on fallback and relative paths in MCP.",
+      "lede": "Check the seven Apache APISIX 3.20.0 fixes by feature.",
+      "points": [
+        "Client-supplied identity headers survive in multi-auth, jwe-decrypt and forward-auth degradation",
+        "Encoded dot-segment route bypass, authz-keycloak scope matching and mTLS regex bypass",
+        "Identity spoofing and relative path traversal in openapi-to-mcp; upgrade to 3.20.0"
+      ]
+    },
+    "sources": [
+      {
+        "name": "NVD API 2.0 — saved publication window",
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-13T09%3A25%3A00.000&pubEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      },
+      {
+        "name": "Openwall oss-security — Apache APISIX CVE-2026-124666",
+        "url": "https://www.openwall.com/lists/oss-security/2026/11/12/4"
+      }
+    ],
+    "reviewCutoff": "2026-11-14T00:00:00Z"
+  },
+  {
+    "id": "motion-1114-dropbear",
+    "stamp": "11.14 · 09:00 JST",
+    "visual": {
+      "type": "nov14DropbearSocket"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "TCPを絞った鍵でも、Unix socket転送は別の通路を通る。",
+      "lede": "Dropbear SSHのstreamlocal転送と未修正の留保。",
+      "points": [
+        "authorized_keysのpermitopen／permitlistenはTCP転送（svr-tcpfwd.c）のみ検査",
+        "既定有効のstreamlocal転送は制限を参照せず、docker.sock等へ届き得る",
+        "上流修正は未提供。OSのgroup権限分離またはcompile時の機能無効化で対処"
+      ]
+    },
+    "en": {
+      "kicker": "11/14 09:00 REVIEW",
+      "title": "Keys restricted on TCP still pass through Unix socket forwarding.",
+      "lede": "Dropbear SSH streamlocal forwarding and unpatched status.",
+      "points": [
+        "authorized_keys permitopen/permitlisten are enforced only on TCP forwarding (svr-tcpfwd.c)",
+        "Default-enabled streamlocal forwarding ignores those limits and can reach docker.sock",
+        "No upstream patch yet; isolate OS group permissions or disable streamlocal at compile time"
+      ]
+    },
+    "sources": [
+      {
+        "name": "oss-sec disclosure — Dropbear SSH streamlocal forwarding",
+        "url": "https://seclists.org/oss-sec/2026/q4/690"
+      }
+    ],
+    "reviewCutoff": "2026-11-14T00:00:00Z"
+  }
+]);
+window.CONTENT.review = {cutoff:"2026-11-14T00:00:00Z",label:"2026-11-14 09:00 JST",report:"/update-20261114-0900"};
+for (const lang of ['ja','en']) {
+  const en=lang==='en';
+  window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]=
+    '<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/14 09:00 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#123">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/timeline'+(en?'.en':'')+'">'+(en?'Read by date':'日付から読む')+' →</a>';
+  window.CONTENT.ui[lang].coverSub=en
+    ? '128 dated scenes, including 6 explanations through November 14, 09:00 JST. Historical scenes retain their original context.'
+    : '全128画面を日付順に。11/14 09:00 JSTまでの追加6画面。KEV 2件・SCKit・APISIX・Dropbearの境界を図解します。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 122,
-    "total": 122
+    "translated": 128,
+    "total": 128
   },
   "ja": {
     "ready": true,
-    "translated": 122,
-    "total": 122
+    "translated": 128,
+    "total": 128
   }
 };

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Fri, 13 Nov 2026 21:30:04 GMT</pubDate>
+    <lastBuildDate>Fri, 13 Nov 2026 21:30:04 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>CVE-2026-124726: Apache APISIX: openapi-to-mcp tool call can reach an API path the document does not declare</title>
+    <link>https://seclists.org/oss-sec/2026/q4/697</link>
+    <description>&lt;p&gt;Posted by Abhishek Choudhary on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 6.9 (medium) CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:N/SC:H/SI:L/SA:N&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache APISIX 3.19.0 before 3.20.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Relative Path Traversal, with Unintended Proxy vulnerability in Apache APISIX.&lt;br&gt;
+&lt;br&gt;
+A caller of the MCP endpoint can invoke endpoints the OpenAPI document&lt;br&gt;
+never declared, under the declared tool&amp;apos;s HTTP method, using the credentials the&lt;br&gt;
+Route adds. This issue affects Apache...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:23:28 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/697</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124723: Apache APISIX: unauthorized access to mTLS protected resources</title>
+    <link>https://seclists.org/oss-sec/2026/q4/696</link>
+    <description>&lt;p&gt;Posted by Abhishek Choudhary on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 6.3 (medium) CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache APISIX 3.18.0 through 3.19.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Interpretation Conflict, leading to Incorrect Authorization vulnerability in Apache APISIX.&lt;br&gt;
+&lt;br&gt;
+With match_uri_encoded_slash enabled and skip_mtls_uri_regex&lt;br&gt;
+configured, a client without a certificate can reach an upstream&lt;br&gt;
+behind a route that requires one, limited to request...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:21:39 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/696</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124719: Apache APISIX: identity spoofing in openapi-to-mcp</title>
+    <link>https://seclists.org/oss-sec/2026/q4/695</link>
+    <description>&lt;p&gt;Posted by Abhishek Choudhary on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 2.3 (low) CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache APISIX 3.19.0 before 3.20.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Authentication bypass by spoofing vulnerability in Apache APISIX.&lt;br&gt;
+&lt;br&gt;
+When a Route&amp;apos;s configured headers carry a caller identity and the OpenAPI document declares&lt;br&gt;
+the same header, a caller can act as another identity against the&lt;br&gt;
+upstream API. This issue affects Apache APISIX:...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:19:47 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/695</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124716: Apache APISIX: authz-keycloak authorization scope mismatch</title>
+    <link>https://seclists.org/oss-sec/2026/q4/694</link>
+    <description>&lt;p&gt;Posted by Abhishek Choudhary on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 6.4 (medium) CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:N/VI:N/VA:N/SC:H/SI:H/SA:N&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache APISIX 1.4.0 through 3.19.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Incorrect Authorization vulnerability in Apache APISIX.&lt;br&gt;
+&lt;br&gt;
+An authenticated user who holds any one of a route&amp;apos;s required permissions or scopes can reach the protected upstream &lt;br&gt;
+without the others, including HTTP methods the authorization server denied.&lt;br&gt;
+&lt;br&gt;
+This issue affects...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:17:55 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/694</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124680: Apache APISIX: Route-level authentication bypass via path normalization mismatch between routing and upstream forwarding</title>
+    <link>https://seclists.org/oss-sec/2026/q4/693</link>
+    <description>&lt;p&gt;Posted by Abhishek Choudhary on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 7.0 (high) CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:N/SC:H/SI:H/SA:N&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache APISIX 0.9 through 3.19.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Interpretation Conflict, resulting in (Incorrect Authorization) vulnerability in Apache APISIX.&lt;br&gt;
+&lt;br&gt;
+An unauthenticated client can reach upstream paths protected&lt;br&gt;
+by a route-level auth plugin when a route without auth exists on the&lt;br&gt;
+same upstream and the upstream does not collapse...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:16:02 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/693</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124679: Apache APISIX: jwe-decrypt and forward-auth may pass a client-supplied identity header</title>
+    <link>https://seclists.org/oss-sec/2026/q4/692</link>
+    <description>&lt;p&gt;Posted by Abhishek Choudhary on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 7.8 (high) CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:L/SI:H/SA:N&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache APISIX 3.18.0 through 3.19.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Authentication bypass by spoofing vulnerability in Apache APISIX.&lt;br&gt;
+&lt;br&gt;
+On routes using jwe-decrypt with strict: false and a&lt;br&gt;
+forward_header distinct from the token header an unauthenticated&lt;br&gt;
+client can supply the value the upstream treats as gateway-decrypted&lt;br&gt;
+plaintext. Similar can...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:14:08 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/692</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124666: Apache APISIX: Multi-auth preserves client-supplied Wolf identity headers</title>
+    <link>https://seclists.org/oss-sec/2026/q4/691</link>
+    <description>&lt;p&gt;Posted by Abhishek Choudhary on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 6.4 (medium) CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:N/VI:N/VA:N/SC:H/SI:H/SA:N&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache APISIX 3.8.0 through 3.19.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Authentication bypass by spoofing vulnerability in Apache APISIX.&lt;br&gt;
+&lt;br&gt;
+On a route where multi-auth falls back from wolf-rbac to another successful authenticator, client-supplied Wolf &lt;br&gt;
+identity headers can remain in the request. A downstream service that relies on those...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:12:15 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/691</guid>
+  </item>
+  <item>
+    <title>Dropbear: the restriction names an address — permitopen/permitlisten not enforced for unix-socket forwarding, docker.sock reachable (HEAD 99baf182, live-proven)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/690</link>
+    <description>&lt;p&gt;Posted by theknell on Nov 13&lt;/p&gt;Dropbear is the SSH server that ships where OpenSSH is too big: routers,&lt;br&gt;
+embedded systems, rescue images, appliances — anywhere a small, hardened&lt;br&gt;
+sshd is wanted. It has been fuzzed and audited for two decades, and its&lt;br&gt;
+handling of restricted keys is one of the reasons administrators trust it&lt;br&gt;
+with narrow jobs. A key in authorized_keys can carry permitopen=&amp;quot;host:port&amp;quot;&lt;br&gt;
+and permitlisten=&amp;quot;host:port&amp;quot;: this key may forward to that...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:10:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/690</guid>
+  </item>
+  <item>
+    <title>CVE-2026-128239: GPAC/MP4Box: NULL Pointer Dereference in MPEG-4 Form Handlers via Crafted XMT Input</title>
+    <link>https://seclists.org/oss-sec/2026/q4/689</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 13&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  Through 26.07.0 (per the published CVE record)&lt;br&gt;
+           Reproduced on 26.08-DEV-rev263-g3f056542b-master&lt;br&gt;
+           Commit 3f056542b377cc73677d19490bfe1b46c52c9be7&lt;br&gt;
+Fixed:     bc416b997622e43de65afab3bae9b7d05d72f2b0&lt;br&gt;
+CVE:       CVE-2026-128239&lt;br&gt;
+CWE:       CWE-476 (NULL Pointer Dereference)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 21:06:42 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/689</guid>
+  </item>
+  <item>
+    <title>CVE-2026-123338: Apache DataSketches C++: Out-of-bounds write in REQ sketch deserialization allows memory corruption via a crafted sketch</title>
+    <link>https://seclists.org/oss-sec/2026/q4/688</link>
+    <description>&lt;p&gt;Posted by Lee Rhodes on Nov 12&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache DataSketches C++ 3.0.0 through 5.3.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Out-of-bounds Write vulnerability in Apache DataSketches C++. An&lt;br&gt;
+  application that deserializes a REQ sketch from an untrusted source&lt;br&gt;
+  can have heap memory corrupted by a crafted sketch, because the&lt;br&gt;
+  serialized compactor headers were not validated.&lt;br&gt;
+&lt;br&gt;
+  This issue affects Apache DataSketches C++: from 3.0.0 through 5.3.0.&lt;br&gt;
+&lt;br&gt;
+  Users are...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 04:35:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/688</guid>
+  </item>
+  <item>
+    <title>CVE-2026-123274: Apache DataSketches C++: Out-of-bounds write in KLL sketch deserialization allows memory corruption via a crafted sketch</title>
+    <link>https://seclists.org/oss-sec/2026/q4/687</link>
+    <description>&lt;p&gt;Posted by Lee Rhodes on Nov 12&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache DataSketches C++ 2.0.0-incubating through 5.3.0&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Out-of-bounds Write vulnerability in Apache DataSketches C++. An&lt;br&gt;
+  application that deserializes a KLL sketch from an untrusted source&lt;br&gt;
+  can have heap memory corrupted by a crafted sketch, because the&lt;br&gt;
+  serialized level boundaries were not validated.&lt;br&gt;
+&lt;br&gt;
+  This issue affects Apache DataSketches C++: 2.0.0 through 5.3.0.&lt;br&gt;
+&lt;br&gt;
+  Users are...&lt;br&gt;</description>
+    <pubDate>Fri, 13 Nov 2026 04:29:52 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/687</guid>
+  </item>
+
+
+  <item>
+    <title>Fw: New cabextract 1.12 and libmspack 0.12alpha release</title>
+    <link>https://seclists.org/oss-sec/2026/q4/686</link>
+    <description>&lt;p&gt;Posted by Hanno Böck on Nov 12&lt;/p&gt;Hi,&lt;br&gt;
+&lt;br&gt;
+Forwarding this, various security issues fixed in cabextract and&lt;br&gt;
+libmspack.&lt;br&gt;
+&lt;br&gt;
+Begin forwarded message:&lt;br&gt;
+&lt;br&gt;
+Date: Thu, 12 Nov 2026 10:18:43 +0000&lt;br&gt;
+Subject: New cabextract 1.12 and libmspack 0.12alpha release&lt;br&gt;
+&lt;br&gt;
+[...]&lt;br&gt;
+&lt;br&gt;
+cabextract 1.12 and libmspack 0.12alpha have been released. This &lt;br&gt;
+corrects security issues and bugs reported recently, mainly:&lt;br&gt;
+&lt;br&gt;
+- An LZX uncompressed block header with invalid R0/R1/R2 values&lt;br&gt;
+  followed by a verbatim/aligned block...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 23:42:59 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/686</guid>
+  </item>
+  <item>
+    <title>[vim-security] Command Execution via CSS Omni-Completion in Vim &lt; 9.2.1342</title>
+    <link>https://seclists.org/oss-sec/2026/q4/685</link>
+    <description>&lt;p&gt;Posted by Christian Brabandt on Nov 12&lt;/p&gt;Command Execution via CSS Omni-Completion in Vim &amp;lt; 9.2.1342&lt;br&gt;
+===========================================================&lt;br&gt;
+Date: 12.11.2026&lt;br&gt;
+Severity: Low&lt;br&gt;
+CVE: *requested, not yet assigned*&lt;br&gt;
+CWE: Improper Neutralization of Special Elements used in an OS Command&lt;br&gt;
+     (CWE-78)&lt;br&gt;
+&lt;br&gt;
+## Summary&lt;br&gt;
+The CSS omni-completion script in `runtime/autoload/csscomplete.vim` passes&lt;br&gt;
+the file name after an `@import` rule from the buffer to `glob()` without&lt;br&gt;
+escaping it....&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 20:39:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/685</guid>
+  </item>
+  <item>
+    <title>CVE-2026-126641: ansible-pylibssh / ansible.netcommon libssh: changed SSH host key accepted when host_key_auto_add is enabled</title>
+    <link>https://seclists.org/oss-sec/2026/q4/684</link>
+    <description>&lt;p&gt;Posted by Ryo utomo on Nov 12&lt;/p&gt;Hello,&lt;br&gt;
+&lt;br&gt;
+This is a public disclosure of CVE-2026-126641, a host key verification&lt;br&gt;
+flaw in ansible-pylibssh and in the ansible.netcommon libssh connection&lt;br&gt;
+plugin. Red Hat Product Security confirmed the issue, assigned the CVE&lt;br&gt;
+and lifted the embargo on 2026-11-12.&lt;br&gt;
+&lt;br&gt;
+Summary&lt;br&gt;
+-------&lt;br&gt;
+&lt;br&gt;
+When trust-on-first-use is enabled (host_key_auto_add on the&lt;br&gt;
+ansible.netcommon libssh plugin, or AutoAddPolicy in pylibssh), a host&lt;br&gt;
+that is already in known_hosts but now...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 19:27:11 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/684</guid>
+  </item>
+  <item>
+    <title>dbus: multiple denial-of-service issues</title>
+    <link>https://seclists.org/oss-sec/2026/q4/683</link>
+    <description>&lt;p&gt;Posted by Simon McVittie on Nov 12&lt;/p&gt;Today&amp;apos;s dbus 1.16.4 release includes fixes for several denial-of-service&lt;br&gt;
+issues. Another local denial of service, dbus#589 (see below), is known&lt;br&gt;
+and not yet fixed.&lt;br&gt;
+&lt;br&gt;
+CVE IDs have been requested from Red Hat&amp;apos;s CNA, please do not allocate&lt;br&gt;
+other CVE IDs for these issues. The upstream issue reports linked below&lt;br&gt;
+will be updated if CVE IDs are allocated.&lt;br&gt;
+&lt;br&gt;
+All reasonably recent versions of dbus are affected. Some of these issues&lt;br&gt;
+do not affect...&lt;br&gt;</description>
+    <pubDate>Thu, 12 Nov 2026 19:20:51 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/683</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

@@ -1,3 +1,5 @@
+**最新調査 — 2026-11-14 09:00 JST：** [日本語レポート](https://www.infosec-briefing.net/update-20261114-0900) · [310論点の台帳](data/2026-11-14-0900/incident-register.json) · [追加6画面の図解](https://www.infosec-briefing.net/?lang=ja#123)。27論点・8件の日英詳細ページを追加し、KEV追加2件（UnrealIRCd・Check Point DynamicCLI）と不正package697勧告の対象版を保存。過去283論点・実影響21事例の文脈を保持し、Check Point CVE-2026-123039の悪用報告を実影響台帳へ追加。件数は被害件数ではありません。
+
 **最新調査 — 2026-11-13 18:25 JST：** [日本語レポート](https://www.infosec-briefing.net/update-20261113-1825) · [283論点の台帳](data/2026-11-13-1825/incident-register.json) · [追加6画面の図解](https://www.infosec-briefing.net/?lang=ja#117)。27論点・8件の日英詳細ページを追加し、不正package139勧告の対象版を保存。KEVは前回と同一。過去256論点・実影響20事例の文脈を保持し、ScreenConnectの現在の公表状況を実影響事例へ追加。件数は被害件数ではありません。
 
 **最新調査 — 2026-11-11 20:40 JST:** [読むレポート](https://www.infosec-briefing.net/update-20261111-2040) · [256論点の台帳](data/2026-11-11-2040/incident-register.json) · [構図の異なる6画面](https://www.infosec-briefing.net/?lang=ja#111)。19群追加、KEV追加10件、不正package386勧告。過去237論点と実影響20事例は前回文脈。論点数は事件数ではありません。

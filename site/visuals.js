@@ -1161,6 +1161,76 @@ window.VISUALS = (function () {
     heading(g,'PROTECT THE CLIENT / REMEDIATE THE COMPROMISE');g.flush();
   };
 
+  scenes.nov14UnrealLabel = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.21,pitch:.56});
+    const client=[-335,20,0],s1=[-65,20,0],s2=[265,20,0];
+    node(g,client,"USER TAG",C.amber,t,0,{hx:65,hy:55,hz:48,font:10});
+    node(g,s1,"SERVER A",C.cyan,t,1,{hx:72,hy:65,hz:55});
+    node(g,s2,"LINKED S2S",C.red,t,2,{hx:75,hy:65,hz:55,font:10});
+    flow(g,client,s1,t,C.amber);
+    curve(g,s1,s2,t,C.red,.2,75);
+    gate(g,[95,10,0],C.green,"6.2.7.1");
+    ring(g,s2,125,C.red);
+    label(g,[0,285,0],"HOT-PATCH OR 6.2.7.1 / CHECK LABELED-RESPONSE",C.green,10);
+    heading(g,"UNREALIRCD / S2S LABEL TAG INJECTION");g.flush();
+  };
+  scenes.nov14DynamicSocket = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.19,pitch:.58});
+    const local=[-330,30,0],sock=[-15,30,0],daemon=[310,30,0];
+    node(g,local,"LOCAL USER",C.amber,t,0,{hx:68,hy:55,hz:48,font:10});
+    g.prism(...sock,95,40,6,C.red,{alpha:.48,edge:.85,rot:t*.09});
+    label(g,[sock[0],sock[1]-145,0],"0777 SOCKET",C.red,11);
+    node(g,daemon,"ROOT DAEMON",C.cyan,t,2,{hx:75,hy:68,hz:55,font:10});
+    flow(g,local,sock,t,C.amber);
+    gate(g,[145,20,0],C.green,"0660");
+    flow(g,sock,daemon,t,C.red,.35);
+    label(g,[0,285,0],"JUMBO HOTFIX / AUDIT DYNAMICCLI.LOG",C.green,10);
+    heading(g,"CHECK POINT / DYNAMIC_SOCKET PRIVILEGE BOUNDARY");g.flush();
+  };
+  scenes.nov14SCKitSurface = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.22,pitch:.55});
+    const rmm=[-325,-120,0],ep=[-325,145,0],srv=[0,-120,0],tech=[0,145,0],persist=[320,15,0];
+    node(g,rmm,"RMM+ EXT",C.amber,t,0,{hx:65,hy:42,hz:42,font:10});
+    node(g,srv,"SERVER API",C.cyan,t,1,{hx:68,hy:42,hz:42,font:10});
+    node(g,ep,"ENDPOINT",C.amber,t,2,{hx:65,hy:42,hz:42,font:10});
+    node(g,tech,"TECH 26.6.5+",C.green,t,3,{hx:72,hy:42,hz:42,font:10});
+    node(g,persist,"PERSISTENCE",C.red,t,4,{hx:75,hy:58,hz:48,font:10});
+    flow(g,rmm,srv,t,C.amber);flow(g,ep,tech,t,C.amber,.25);
+    gate(g,[-160,135,0],C.green,"26.6.5+");
+    curve(g,srv,persist,t,C.red,.15,45);curve(g,tech,persist,t,C.cyan,.45,-45);
+    label(g,[0,285,0],"TWO SURFACES / REMOVE TASKS AND RUN KEYS",C.green,10);
+    heading(g,"SCREENCONNECT / SCKIT & RELAYTRAP");g.flush();
+  };
+  scenes.nov14ApisixBoundary = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.24,pitch:.56});
+    const req=[-340,20,0],gw=[-20,20,0],up=[315,-95,0],mcp=[315,140,0];
+    node(g,req,"CLIENT HDR",C.amber,t,0,{hx:68,hy:55,hz:48,font:10});
+    node(g,gw,"APISIX 3.20.0",C.cyan,t,1,{hx:80,hy:68,hz:55,font:10});
+    node(g,up,"UPSTREAM",C.green,t,2,{hx:68,hy:45,hz:45,font:10});
+    node(g,mcp,"MCP BRIDGE",C.amber,t,3,{hx:68,hy:45,hz:45,font:10});
+    flow(g,req,gw,t,C.amber);
+    gate(g,[-180,10,0],C.green,"STRIP");
+    flow(g,gw,up,t,C.cyan,.2);flow(g,gw,mcp,t,C.amber,.45);
+    ring(g,gw,130,C.cyan);
+    label(g,[0,285,0],"7 FIXES / HEADERS, DOT SEGMENTS, MTLS & MCP",C.green,10);
+    heading(g,"APACHE APISIX / GATEWAY & MCP BOUNDARIES");g.flush();
+  };
+  scenes.nov14DropbearSocket = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.58});
+    const key=[-335,20,0],tcp=[20,-125,0],unix=[20,145,0],docker=[325,145,0];
+    node(g,key,"PERMITOPEN",C.cyan,t,0,{hx:70,hy:58,hz:48,font:10});
+    node(g,tcp,"TCP FWD",C.green,t,1,{hx:65,hy:42,hz:42,font:10});
+    node(g,unix,"STREAMLOCAL",C.amber,t,2,{hx:72,hy:42,hz:42,font:10});
+    node(g,docker,"DOCKER.SOCK",C.red,t,3,{hx:75,hy:48,hz:45,font:10});
+    flow(g,key,tcp,t,C.green);
+    gate(g,[-150,-60,0],C.green,"CHECKED");
+    flow(g,key,unix,t,C.amber,.3);
+    flow(g,unix,docker,t,C.red,.5);
+    ring(g,docker,110,C.red);
+    label(g,[0,285,0],"NO UPSTREAM PATCH YET / SEPARATE OS GROUPS",C.amber,10);
+    heading(g,"DROPBEAR SSH / TCP VS UNIX SOCKET FORWARDING");g.flush();
+  };
+
   function frame(ctx,w,h,t) {
     ctx.save();ctx.strokeStyle=A(C.steel,.28);ctx.lineWidth=.75;
     const m=8,L=14;
