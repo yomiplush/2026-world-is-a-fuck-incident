@@ -6544,16 +6544,258 @@ for (const lang of ['ja','en']) {
     : '全128画面を日付順に。11/14 09:00 JSTまでの追加6画面。KEV 2件・SCKit・APISIX・Dropbearの境界を図解します。過去の場面は記載時点の記録です。';
 }
 
+/* November 15: fixed-window research and boundary explanations. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1115-scope",
+    "stamp": "11.15 · 09:00 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "Shiro 8件とPerl JSON::XS、BGP属性23の境界整理。",
+      "lede": "11/14 09:00〜11/15 09:00 JSTの固定窓。",
+      "points": [
+        "NVD新規64・改訂258。新規64はすべて改訂と重複",
+        "GHSA公開110：reviewed 3・unreviewed 98・malware 9（改訂133）",
+        "10論点追加で320論点。KEVは1,781件（2026.11.13・追加0件）"
+      ]
+    },
+    "en": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "Eight Apache Shiro advisories, Perl JSON::XS and BGP attribute 23 boundaries.",
+      "lede": "Fixed 11/14 09:00–11/15 09:00 JST window.",
+      "points": [
+        "NVD: 64 published / 258 modified; all 64 published records overlap",
+        "GHSA: 110 published — 3 reviewed / 98 unreviewed / 9 malware (133 modified)",
+        "10 additions bring the register to 320 topics; KEV remains 1,781 (2026.11.13, 0 added)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Saved collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-15-0900/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-15T00:00:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1115-shiro",
+    "stamp": "11.15 · 09:00 JST",
+    "visual": {
+      "type": "nov15ShiroCache"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "LDAP認証をキャッシュすると、既定マッチャが全パスワードを通す。",
+      "lede": "Apache Shiroの8件（3.0.1／3.0.2で修正）。",
+      "points": [
+        "DefaultLdapRealmでauthenticationCachingEnabled=true時、2回目以降は任意のパスワードが通る（CVE-2026-129349）",
+        "RememberMeのセッション固定化（CVE-2026-74762）やインターフェース上の認可アノテーション未適用（CVE-2026-74763）",
+        "3.0.2へ更新。未更新時はLDAP認証キャッシュ無効化と実装メソッドへのアノテーション直接付与を確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "When LDAP authentication is cached, the default matcher accepts any password.",
+      "lede": "Eight Apache Shiro advisories fixed across 3.0.1 and 3.0.2.",
+      "points": [
+        "With authenticationCachingEnabled=true on DefaultLdapRealm, subsequent logins accept any password (CVE-2026-129349)",
+        "Also covers RememberMe session fixation (CVE-2026-74762) and unenforced interface authorization annotations (CVE-2026-74763)",
+        "Upgrade to 3.0.2, or disable LDAP auth caching and place annotations directly on implementing methods"
+      ]
+    },
+    "sources": [
+      {
+        "name": "oss-sec — Apache Shiro CVE-2026-129349",
+        "url": "https://seclists.org/oss-sec/2026/q4/705"
+      },
+      {
+        "name": "oss-sec — Apache Shiro CVE-2026-74763",
+        "url": "https://seclists.org/oss-sec/2026/q4/701"
+      }
+    ],
+    "reviewCutoff": "2026-11-15T00:00:00Z"
+  },
+  {
+    "id": "motion-1115-perl",
+    "stamp": "11.15 · 09:00 JST",
+    "visual": {
+      "type": "nov15PerlJsonSession"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "段階解析の1バイト塊と、未検証のセッションCookie。",
+      "lede": "Perl JSON::XS 4.05（7件）とHTTP::Session・Dancer。",
+      "points": [
+        "JSON::XSのincr_parseで1バイト範囲外書込み、incr_skipの長さ巻き戻り、NUL後のmax_size突破",
+        "HTTP::Session（0.43未満）はCookieのCRLFでmemcached注入、Dancer（1.3400未満）はセッションID未検証",
+        "JSON::XS 4.05・Dancer 1.3400へ更新し、非推奨のHTTP::SessionはPlack::Middleware::Session等へ移行"
+      ]
+    },
+    "en": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "One-byte incremental chunks and unvalidated session cookies.",
+      "lede": "Seven Perl JSON::XS 4.05 fixes plus HTTP::Session and Dancer.",
+      "points": [
+        "JSON::XS incr_parse 1-byte heap OOB write, incr_skip length wraparound and post-NUL max_size bypass",
+        "HTTP::Session (< 0.43) allows memcached CRLF injection; Dancer (< 1.3400) passes unvalidated session IDs",
+        "Upgrade to JSON::XS 4.05 and Dancer 1.3400; migrate off deprecated HTTP::Session"
+      ]
+    },
+    "sources": [
+      {
+        "name": "oss-sec — JSON-XS versions before 4.05 for Perl (7 CVEs)",
+        "url": "https://seclists.org/oss-sec/2026/q4/706"
+      },
+      {
+        "name": "oss-sec — HTTP::Session CVE-2011-10042 & Dancer CVE-2015-10149",
+        "url": "https://seclists.org/oss-sec/2026/q4/707"
+      }
+    ],
+    "reviewCutoff": "2026-11-15T00:00:00Z"
+  },
+  {
+    "id": "motion-1115-frrouting",
+    "stamp": "11.15 · 09:00 JST",
+    "visual": {
+      "type": "nov15FrrBgpTlv"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "長さ不一致のBGP属性23が、経路撤回時に二重解放を起こす。",
+      "lede": "FRRouting bgpd（CVE-2026-129456）とEttercapの範囲外読出し。",
+      "points": [
+        "bgpdが外側TLV長不一致のTunnel Encapsulation属性（type 23）を処理しsub-TLV参照カウントが破綻",
+        "経路の置換・撤回時に解放済みメモリを再度解放してbgpdが異常終了し、全BGPセッションが切断される",
+        "修正コミット適用とeBGPでの属性23破棄を確認。Ettercap 0.8.5.1以下はSOCKS5／mountd解析に注意"
+      ]
+    },
+    "en": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "Mismatched BGP attribute 23 lengths trigger double free on route withdrawal.",
+      "lede": "FRRouting bgpd (CVE-2026-129456) and Ettercap out-of-bounds reads.",
+      "points": [
+        "bgpd processes Tunnel Encapsulation attributes (type 23) with mismatched outer TLV lengths, corrupting refcounts",
+        "Replacing or withdrawing routes writes to and double-frees memory, aborting bgpd and dropping all BGP sessions",
+        "Apply FRR fix commits and filter attribute 23 on eBGP; note Ettercap <= 0.8.5.1 SOCKS5/mountd OOB reads"
+      ]
+    },
+    "sources": [
+      {
+        "name": "NVD API 2.0 — saved publication window",
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      }
+    ],
+    "reviewCutoff": "2026-11-15T00:00:00Z"
+  },
+  {
+    "id": "motion-1115-dokploy",
+    "stamp": "11.15 · 09:00 JST",
+    "visual": {
+      "type": "nov15DokployPulse"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "バックアップ設定のserviceNameが、定期実行でrootシェルに変わる。",
+      "lede": "Dokploy 0.31.1とPulse 6.8.0の権限境界。",
+      "points": [
+        "Dokploy 0.31.1未満はbackup.create／updateのserviceNameでrootコマンド注入（CVE-2026-129433）",
+        "Pulse 5.0.17〜6.8.0未満は/api/ai/approvalsの認可欠落でviewerが承認操作可能（CVE-2026-129428）",
+        "Dokploy 0.31.1・Pulse 6.8.0へ更新し、登録済みバックアップ設定とAI承認ログを監査"
+      ]
+    },
+    "en": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "A backup serviceName turns into a root shell when scheduled backups run.",
+      "lede": "Privilege boundaries in Dokploy 0.31.1 and Pulse 6.8.0.",
+      "points": [
+        "Dokploy < 0.31.1 allows root command injection via serviceName in backup.create/update (CVE-2026-129433)",
+        "Pulse 5.0.17 to < 6.8.0 lets viewer accounts list and approve AI requests on /api/ai/approvals (CVE-2026-129428)",
+        "Upgrade to Dokploy 0.31.1 and Pulse 6.8.0, and audit stored backup configs and approval logs"
+      ]
+    },
+    "sources": [
+      {
+        "name": "NVD API 2.0 — saved publication window",
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      }
+    ],
+    "reviewCutoff": "2026-11-15T00:00:00Z"
+  },
+  {
+    "id": "motion-1115-vim-media",
+    "stamp": "11.15 · 09:00 JST",
+    "visual": {
+      "type": "nov15VimMedia"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "PowerShellの類型引用符と、NLTK・メディア解析の境界。",
+      "lede": "Vim 9.2.1346、NLTK 3.10.4追加3件、GPAC・libdca。",
+      "points": [
+        "Vim 9.2.1346未満のps1.vimはU+2018〜U+201Bを単一引用符としてエスケープせずVisual選択+Kで任意実行",
+        "NLTK 3.10.3以下はCCG辞書・Chomsky標準形・CoNLL SRLの純Pythonループ3件でもO(n^2) CPU枯渇",
+        "GPAC（26.07.0以下）のXMT型混同・UAFと、保守終了したlibdcaのDTS範囲外読出し（上流修正なし）を切り分け"
+      ]
+    },
+    "en": {
+      "kicker": "11/15 09:00 REVIEW",
+      "title": "PowerShell typographic quotes, NLTK loops and media parser boundaries.",
+      "lede": "Vim 9.2.1346, three more NLTK 3.10.4 advisories, GPAC and libdca.",
+      "points": [
+        "Vim < 9.2.1346 ps1.vim does not escape U+2018..U+201B quotes, allowing code execution on Visual K",
+        "NLTK <= 3.10.3 adds three quadratic CPU DoS advisories in CCG lexicon, Chomsky normal form and CoNLL SRL",
+        "Separates GPAC (<= 26.07.0) XMT type confusion/UAF from unmaintained libdca DTS OOB read (no upstream fix)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "oss-sec — Vim < 9.2.1346 PowerShell Keyword Lookup",
+        "url": "https://seclists.org/oss-sec/2026/q4/708"
+      },
+      {
+        "name": "GitHub reviewed advisory API — NLTK 3.10.4 advisories",
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+      }
+    ],
+    "reviewCutoff": "2026-11-15T00:00:00Z"
+  }
+]);
+window.CONTENT.review = {cutoff:"2026-11-15T00:00:00Z",label:"2026-11-15 09:00 JST",report:"/update-20261115-0900"};
+for (const lang of ['ja','en']) {
+  const en=lang==='en';
+  window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]=
+    '<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/15 09:00 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#129">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/timeline'+(en?'.en':'')+'">'+(en?'Read by date':'日付から読む')+' →</a>';
+  window.CONTENT.ui[lang].coverSub=en
+    ? '134 dated scenes, including 6 explanations through November 15, 09:00 JST. Historical scenes retain their original context.'
+    : '全134画面を日付順に。11/15 09:00 JSTまでの追加6画面。Shiro・Perl JSON::XS・FRRouting・Dokploy・Vimの境界を図解します。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 128,
-    "total": 128
+    "translated": 134,
+    "total": 134
   },
   "ja": {
     "ready": true,
-    "translated": 128,
-    "total": 128
+    "translated": 134,
+    "total": 134
   }
 };

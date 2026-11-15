@@ -1,32 +1,32 @@
 {
-  "cutoff": "2026-11-14T00:00:00Z",
-  "cutoff_jst": "2026-11-14T09:00:00+09:00",
+  "cutoff": "2026-11-15T00:00:00Z",
+  "cutoff_jst": "2026-11-15T09:00:00+09:00",
   "counts": {
-    "nvd_published": 673,
-    "nvd_modified": 1466,
-    "published_modified_overlap": 673,
-    "ghsa": 1329,
-    "ghsa_unreviewed": 593,
-    "ghsa_reviewed": 39,
-    "ghsa_malware": 697,
-    "ghsa_modified": 1544,
-    "ghsa_published_modified_overlap": 1329,
-    "ghsa_current_published_overlap": 574,
-    "ghsa_previous_published_overlap": 48,
-    "record_topic_groups": 310,
-    "delta_topic_groups": 27,
-    "scope_complement_topic_groups": 283,
+    "nvd_published": 64,
+    "nvd_modified": 258,
+    "published_modified_overlap": 64,
+    "ghsa": 110,
+    "ghsa_unreviewed": 98,
+    "ghsa_reviewed": 3,
+    "ghsa_malware": 9,
+    "ghsa_modified": 133,
+    "ghsa_published_modified_overlap": 110,
+    "ghsa_current_published_overlap": 61,
+    "ghsa_previous_published_overlap": 40,
+    "record_topic_groups": 320,
+    "delta_topic_groups": 10,
+    "scope_complement_topic_groups": 310,
     "reference_only_topic_groups": 0,
-    "verified_response_records": 78,
-    "deduplicated_previous_references": 24
+    "verified_response_records": 53,
+    "deduplicated_previous_references": 35
   },
   "caveats": [
     "件数はDB記録・編集上の論点で、攻撃や被害の件数ではありません。NVD／GHSAおよび公開／改訂の重複を合算しません。",
-    "過去283論点と実影響21事例は前回文脈を保持し、Check Point CVE-2026-123039の実悪用報告を実影響1事例として追加（計22事例）。過去全件の本文再精査や復旧確認はしていません。",
+    "過去310論点と実影響22事例は前回文脈を保持しています。過去全件の本文再精査や復旧確認はしていません。",
     "API照会は基準後。公表・登録・改訂・取得時刻を区別し、取得時点の本文から過去の全改訂は復元しません。",
-    "GHSA reviewed 39勧告（うちNLTK重複撤回7件を分離保持）とmalware 697勧告は対象版表を保存。unreviewed 593記録は原本・索引へ保存し、全本文を独立検証したとは主張しません。",
-    "KEVは2026.11.13版・1,781件で2件追加（CVE-2026-114713、CVE-2026-123039）。IPA旧feedは404（fallback成功）、Feishuはredirect loop、php.net archive 2026は取得timeoutです。",
-    "NVD本文やGHSAで修正版が未記載（null）の項目（Dropbear streamlocal、`@astrojs/node`、Tactical RMM、Keep等）に推測で修正版番号を補いません。"
+    "GHSA reviewed 3勧告とmalware 9勧告は対象版表を保存。unreviewed 98記録は原本・索引へ保存し、全本文を独立検証したとは主張しません。",
+    "KEVは2026.11.13版・1,781件で前回と同一バイト（追加0件）。IPA旧feedは404（fallback成功）、Feishuはredirect loop、tailscale-bulletinsは取得timeoutです。",
+    "一次資料で修正リリース版が未記載・未提供の項目（Ettercap 0.8.5.1以下、GPAC 26.07.0以下、保守終了のlibdca、一部のWordPressプラグイン等）に推測で修正版番号を補いません。"
   ],
   "records": [
     {
@@ -56188,14 +56188,14 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-13T09%3A25%3A00.000&lastModEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 KEV追加・11/08 oss-security公表 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-114713"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z"
     },
     {
@@ -56217,14 +56217,14 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-13T09%3A25%3A00.000&lastModEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 KEV追加・11/12 sk1000362改訂 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-123039"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z"
     },
     {
@@ -56242,14 +56242,14 @@
           "url": "https://www.connectwise.com/company/trust/advisories"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 21:31 UTC Microsoft公表 / 取得時点の現行本文",
       "cve_ids": [
         "CVE-2026-84869"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z"
     },
     {
@@ -56291,7 +56291,7 @@
           "url": "https://seclists.org/oss-sec/2026/q4/697"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 oss-security・NVD公表 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-124666",
@@ -56304,7 +56304,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z"
     },
     {
@@ -56318,12 +56318,12 @@
           "url": "https://seclists.org/oss-sec/2026/q4/690"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 oss-security公表 / 取得時点の本文・修正版未提供",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z"
     },
     {
@@ -56337,7 +56337,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-126295",
@@ -56347,7 +56347,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -56458,12 +56458,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 撤回済み重複記録",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -56612,7 +56612,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128117",
@@ -56622,7 +56622,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -56768,7 +56768,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128070",
@@ -56776,7 +56776,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -56830,7 +56830,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-126361",
@@ -56838,7 +56838,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -56901,7 +56901,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-126360",
@@ -56911,7 +56911,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57030,7 +57030,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128081",
@@ -57038,7 +57038,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57110,7 +57110,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128087",
@@ -57118,7 +57118,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57172,7 +57172,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128068",
@@ -57180,7 +57180,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57234,7 +57234,7 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-126191",
@@ -57242,7 +57242,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57296,14 +57296,14 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128089"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57338,14 +57338,14 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-126347"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57380,14 +57380,14 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128083"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57431,14 +57431,14 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128084"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57473,14 +57473,14 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-128079"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57515,14 +57515,14 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-62683"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57557,14 +57557,14 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-62297"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -57599,7 +57599,7 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-13T09%3A25%3A00.000&pubEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTのNVD登録窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-126285",
@@ -57608,7 +57608,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z"
     },
     {
@@ -57622,7 +57622,7 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-13T09%3A25%3A00.000&pubEndDate=2026-11-14T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTのNVD登録窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-127073",
@@ -57632,7 +57632,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z"
     },
     {
@@ -57670,12 +57670,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -70925,12 +70925,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -71003,12 +71003,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/13 18:25〜11/14 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-14",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-14T00:00:00Z",
       "advisories": [
         {
@@ -71025,6 +71025,616 @@
                 "name": "tdesign-vue-mono"
               },
               "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apache-shiro-auth-1115",
+      "title": "Apache Shiro：DefaultLdapRealmキャッシュ時の任意パスワード受理とアノテーション・セッション8件",
+      "body": "11/14にoss-securityでApache Shiroの8件が公表。DefaultLdapRealm（またはJndiLdapRealm）で非既定の `authenticationCachingEnabled=true` を有効にした構成（3.0.0以前）では、1度ログイン成功した利用者のキャッシュ認証でLDAP bindが省略され、既定の `AllowAllCredentialsMatcher` が任意のパスワードを受理する（CVE-2026-129349、CVSS 4.0 9.1）。併せてRememberMe復元時のセッション固定化とURL書き換え無効時のURL内セッションID受理（CVE-2026-74762、3.0.0以前）、`shiro-guice`・`shiro-aspectj`・`shiro-cdi`・`shiro-jakarta-ee` でのインターフェース／親クラス認可アノテーション未適用（CVE-2026-74763、3.0.1以前）、`shiro-jakarta-ee` の保存フォーム再送によるCookie属性脱落・外部送信（CVE-2026-88019、2.0.0-alpha-0〜3.0.1）、`shiro-spring` 3.0.1で手動生成した `ShiroFilterFactoryBean` の大文字小文字区別による静的ファイル認証迂回（CVE-2026-114737、CVE-2026-23903の修正不備）、空の保存資格情報と空パスワードの一致（CVE-2026-129347、3.0.1以前）、`PropertiesRealm` 再読込時の削除済み利用者・縮小権限の残留（CVE-2026-129348、3.0.1以前）、`shiro:principal` タグ出力の未エスケープXSS（CVE-2026-129320、3.0.1以前）が公表された。",
+      "action": "Apache Shiroを3.0.2以降へ更新する（CVE-2026-129349とCVE-2026-74762は3.0.1で修正、残り6件は3.0.2で修正）。即時更新できない場合はDefaultLdapRealmの認証キャッシュ無効化（既定）または `SimpleCredentialsMatcher` 等の設定、実装メソッドへの認可アノテーション直接付与、手動 `ShiroFilterFactoryBean` での `setCaseInsensitive(true)` 指定を確認する。",
+      "sources": [
+        {
+          "name": "oss-sec CVE-2026-114737",
+          "url": "https://seclists.org/oss-sec/2026/q4/698"
+        },
+        {
+          "name": "oss-sec CVE-2026-129320",
+          "url": "https://seclists.org/oss-sec/2026/q4/699"
+        },
+        {
+          "name": "oss-sec CVE-2026-88019",
+          "url": "https://seclists.org/oss-sec/2026/q4/700"
+        },
+        {
+          "name": "oss-sec CVE-2026-74763",
+          "url": "https://seclists.org/oss-sec/2026/q4/701"
+        },
+        {
+          "name": "oss-sec CVE-2026-74762",
+          "url": "https://seclists.org/oss-sec/2026/q4/702"
+        },
+        {
+          "name": "oss-sec CVE-2026-129347",
+          "url": "https://seclists.org/oss-sec/2026/q4/703"
+        },
+        {
+          "name": "oss-sec CVE-2026-129348",
+          "url": "https://seclists.org/oss-sec/2026/q4/704"
+        },
+        {
+          "name": "oss-sec CVE-2026-129349",
+          "url": "https://seclists.org/oss-sec/2026/q4/705"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 oss-security公表 / 取得時点の本文",
+      "cve_ids": [
+        "CVE-2026-114737",
+        "CVE-2026-129320",
+        "CVE-2026-88019",
+        "CVE-2026-74763",
+        "CVE-2026-74762",
+        "CVE-2026-129347",
+        "CVE-2026-129348",
+        "CVE-2026-129349"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z"
+    },
+    {
+      "id": "perl-json-xs-session-1115",
+      "title": "Perl JSON::XS（7件）とHTTP::Session・Dancer：段階解析バッファ破壊とセッションID注入",
+      "body": "PerlのJSON::XS 4.05未満に関する7件と、HTTP::Session・DancerのセッションID未検証2件がNVDおよびoss-securityで公表された。JSON::XSでは `incr_parse` に1バイト塊を追加した際の1バイトヒープ範囲外書込み（CVE-2026-129114、3.04〜4.05未満）、先頭数値後の `incr_skip` によるバッファ長アンダーフロー（CVE-2026-129113、4.0_00〜4.05未満）、NULバイト後の `max_size` 超過バッファリング（CVE-2026-124536、4.05未満）、`allow_tags` 有効時の `FREEZE` 再割り当てによる解放済みスタック読出し（CVE-2026-129115、3.0〜4.05未満）および入れ子タグによるCスタック枯渇（CVE-2026-124540、4.05未満）、不正JSON拒否時のメモリリーク2件（CVE-2026-124539・CVE-2026-124541、4.05未満）が確認された。またHTTP::Session 0.43未満の `HTTP::Session::Store::Memcached` におけるCookie由来セッションIDのCRLF memcachedコマンド注入（CVE-2011-10042、0.54で非推奨化）と、Dancer 1.3400未満の `read_session_id` 文字種未検証によるセッションエンジンへの経路遡り・注入（CVE-2015-10149）が採番された。",
+      "action": "JSON::XSを4.05以降へ、Dancerを1.3400以降へ更新する。HTTP::Sessionは0.43で当該修正が入っているが0.54で非推奨（deprecated）とされたため、`Plack::Middleware::Session` 等の代替実装へ移行する。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "oss-sec JSON-XS 7 CVEs",
+          "url": "https://seclists.org/oss-sec/2026/q4/706"
+        },
+        {
+          "name": "oss-sec CVE-2011-10042",
+          "url": "https://seclists.org/oss-sec/2026/q4/707"
+        },
+        {
+          "name": "oss-sec CVE-2015-10149",
+          "url": "https://seclists.org/oss-sec/2026/q4/712"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14〜11/15 NVD・oss-security公表 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-124536",
+        "CVE-2026-124539",
+        "CVE-2026-124540",
+        "CVE-2026-124541",
+        "CVE-2026-129113",
+        "CVE-2026-129114",
+        "CVE-2026-129115",
+        "CVE-2011-10042",
+        "CVE-2015-10149"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z"
+    },
+    {
+      "id": "frrouting-ettercap-network-1115",
+      "title": "FRRouting bgpdとEttercap：BGP属性23の二重解放・セッション切断とSOCKS5／MOUNTD範囲外読出し",
+      "body": "FRRoutingの `bgpd` は、外側TLV長と属性長が一致しないTunnel Encapsulation属性（type 23）をログ出力のみで処理し、確立済みBGPピアからの細工UPDATEで内部sub-TLV鎖の参照カウントが不整合を起こす（CVE-2026-129456）。経路の置換・撤回・切断時に解放済みメモリへの書込みと二重解放が発生し、bgpdが異常終了してルータ上の全BGPセッションが切断される（RFC 9012はeBGPでの既定破棄を求めるが、bgpdは明示破棄しない限りeBGPからも処理する）。別件としてEttercap 0.8.5.1以下では、SOCKS5認証パケットのユーザー名・パスワード長未検証（`dissector_socks()`、CVE-2026-129431）とNFS mountdのRPC認証情報・ディレクトリ長検査不備（`dissector_mountd()`、CVE-2026-129432）により、隣接ネットワークからのパケットでヒープ範囲外メモリが画面・ログへ露出する。",
+      "action": "FRRoutingは修正コミット（`abef07b5`／`bebf95f0`、PR #21176）の適用を確認し、不要なeBGPピアからのBGP属性23（Tunnel Encapsulation）をフィルタリングする。Ettercap（0.8.5.1以下）は取得時点のNVDに修正リリース版の記載がないため（PR #1340・#1341）、未信頼セグメントでのSOCKS5／mountd解析を避ける。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129456",
+        "CVE-2026-129431",
+        "CVE-2026-129432"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z"
+    },
+    {
+      "id": "dokploy-pulse-control-1115",
+      "title": "DokployとPulse：Composeバックアップ名からのrootコマンド注入とAI承認APIの権限検証欠落",
+      "body": "Dokploy 0.31.1未満の `getComposeContainerCommand()` は、認証済み組織メンバーが `backup.create`／`backup.update` のtRPC手続きで保存した `serviceName` をシェルメタ文字未検証のまま用い、定期バックアップ実行時にroot権限で任意コマンドを実行される（CVE-2026-129433、CVSS 9.9、マウントされたDockerソケット経由でホスト掌握に至る）。また監視基盤Pulse 5.0.17〜6.8.0未満では `/api/ai/approvals` エンドポイントに権限検査がなく、閲覧権限（viewer）の利用者が承認待ちコマンド・対象一覧の取得や他者の要求の承認・却下を行える（CVE-2026-129428）。",
+      "action": "Dokployを0.31.1以降へ、Pulseを6.8.0以降へ更新する。Dokployの既存バックアップ設定に不審な `serviceName` が保存されていないか、PulseのAI承認履歴に不審な承認操作がないかを監査する。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129433",
+        "CVE-2026-129428"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z"
+    },
+    {
+      "id": "nltk-parsers-1115",
+      "title": "NLTK：CCG・Chomsky標準形・CoNLL SRL解析の二次時間CPU枯渇3件と重複撤回2件の更新",
+      "body": "公開窓のGHSA reviewed 3件として、NLTK 3.10.3以下の純Pythonループに起因する二次時間（O(n^2)）CPU枯渇3件が追加公表された。`nltk.ccg.lexicon.fromstring`（および `nltk.ccg.chart.fromstring`）の括弧本体・演算子連鎖のスライス再コピー（CVE-2026-126299／GHSA-89p3-fcch-88ph）、`Tree.chomsky_normal_form()` の既定right-factor分岐における `list.pop(0)` 反復（CVE-2026-126298／GHSA-r53h-rw34-8h97）、`ConllCorpusReader.srl_instances()` の述語・スパン列二重走査（CVE-2026-126297／GHSA-v8f3-6phw-6mh9）で、いずれも再帰深さ制限（`MAX_PARSE_DEPTH`）や正規表現タイムアウトでは防げず、数MBの未信頼入力でワーカーのCPUを数十秒占有する。なお改訂窓のGHSA reviewed 5件は当該正本3件と、重複として撤回された2件（GHSA-6665-2vj3-h76r、GHSA-qvhx-rvgc-jhwf）である。",
+      "action": "NLTKを修正版の3.10.4以降へ更新する。外部入力のCCG辞書、構文木（Treebank）、CoNLL SRLコーパスを解析するサービスでは入力長・サイズ上限とワーカーの実行時間制限を併用する。",
+      "sources": [
+        {
+          "name": "GitHub reviewed advisory API — saved publication window",
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-126297",
+        "CVE-2026-126298",
+        "CVE-2026-126299"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z",
+      "advisories": [
+        {
+          "id": "GHSA-89p3-fcch-88ph",
+          "summary": "NLTK: Quadratic-time CPU denial of service in CCG lexicon parser (fromstring) on wide bracket bodies and operator chains",
+          "url": "https://github.com/advisories/GHSA-89p3-fcch-88ph",
+          "published_at": "2026-11-14T00:08:50Z",
+          "updated_at": "2026-11-14T00:08:50Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "nltk"
+              },
+              "vulnerable_version_range": "<= 3.10.3",
+              "first_patched_version": "3.10.4",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-r53h-rw34-8h97",
+          "summary": "NLTK: Quadratic-time CPU denial of service in Tree.chomsky_normal_form right-factor binarization via list.pop(0)",
+          "url": "https://github.com/advisories/GHSA-r53h-rw34-8h97",
+          "published_at": "2026-11-14T00:07:59Z",
+          "updated_at": "2026-11-14T00:08:00Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "nltk"
+              },
+              "vulnerable_version_range": "<= 3.10.3",
+              "first_patched_version": "3.10.4",
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-v8f3-6phw-6mh9",
+          "summary": "NLTK: Quadratic-time CPU denial of service in ConllCorpusReader SRL instance builder via nested span rescan",
+          "url": "https://github.com/advisories/GHSA-v8f3-6phw-6mh9",
+          "published_at": "2026-11-14T00:05:57Z",
+          "updated_at": "2026-11-14T00:05:58Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "nltk"
+              },
+              "vulnerable_version_range": "<= 3.10.3",
+              "first_patched_version": "3.10.4",
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vim-gpac-libdca-sox-1115",
+      "title": "Vim・GPAC／MP4Box・libdca・sox_ng：PowerShellヘルプ検索の引用符迂回とメディア解析の境界",
+      "body": "Vim 9.2.1346未満のPowerShellファイルタイププラグイン（`runtime/ftplugin/ps1.vim`）は、GHSA-r5v6-q6j8-8qw2の修正でASCII単一引用符 `'` のみを二重化していたが、PowerShellが単一引用符として扱う類型引用符（U+2018・U+2019・U+201A・U+201B）をエスケープしておらず、Visualモードで細工行を選択して `K` を押すと任意コマンドが実行される（CVE未採番）。またメディア処理系では、GPAC／MP4Box 26.07.0以下のXMTシーン読込における型混同2件と解放後使用1件（CVE-2026-124030・CVE-2026-124031・CVE-2026-128240、修正コミット `1359c4da`・`43a8329a`・`a2e5c62c`、リリース版番号は未記載）、保守終了したVideoLAN `libdca`（HEAD `95c4bd8`）の差分スケールファクタ計算におけるテーブル範囲外読出し（CVE申請中・上流修正なし）、`sox_ng` 14.8.1以下のVOCデコーダ `read_samples_voc` における範囲外書込み（CVE-2026-129264、パッチ `0b40408b`）が公表された。",
+      "action": "Vimを9.2.1346以降へ更新し、未更新環境では未信頼のPowerShellスクリプト上でVisual選択からの `K` 実行を避ける。GPACと `sox_ng` は該当修正コミットを含むビルドへ更新し、上流保守が終了している `libdca` はディストリビューションのパッチ適用またはVLC 4.0系と同様に代替デコーダへの移行を確認する。",
+      "sources": [
+        {
+          "name": "oss-sec Vim PowerShell keywordprg",
+          "url": "https://seclists.org/oss-sec/2026/q4/708"
+        },
+        {
+          "name": "oss-sec GPAC CVE-2026-124030",
+          "url": "https://seclists.org/oss-sec/2026/q4/709"
+        },
+        {
+          "name": "oss-sec GPAC CVE-2026-124031",
+          "url": "https://seclists.org/oss-sec/2026/q4/710"
+        },
+        {
+          "name": "oss-sec GPAC CVE-2026-128240",
+          "url": "https://seclists.org/oss-sec/2026/q4/711"
+        },
+        {
+          "name": "oss-sec libdca scale-factor OOB read",
+          "url": "https://seclists.org/oss-sec/2026/q4/713"
+        },
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "NVD modified CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-14T00%3A00%3A00.000&lastModEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14〜11/15 oss-security・NVD公表 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-124030",
+        "CVE-2026-124031",
+        "CVE-2026-128240",
+        "CVE-2026-129264"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z"
+    },
+    {
+      "id": "create-ecdh-kroki-payroll-1115",
+      "title": "create-ecdh・Kroki・Frappe india-payroll・angular-editor：楕円曲線公開鍵未検証とSVG／エディタXSS",
+      "body": "`create-ecdh` 4.0.4以下のJavaScript実装（`browser.js`、ブラウザバンドル環境等で利用）は相手公開鍵が曲線・素数位数部分群上にあるか検証せず、静的秘密鍵を再利用する環境でinvalid-curve／small-subgroup攻撃により秘密鍵の復元や予測可能な共有秘密を許す（CVE-2026-129319、現行Node.jsのネイティブ再エクスポートは対象外、4.0.5で修正）。またKroki 0.36.0未満の `/dbml/svg` エンドポイントにおけるDBML属性経由の `javascript:` リンク注入XSS（CVE-2026-129447、0.36.0で修正）、Frappe `india-payroll` 16.0.4未満の `tax_regime_selector.py` 認可欠落による他従業員の給与参照・税制区分変更（CVE-2026-129429、16.0.4で修正）、`@kolkov/angular-editor` の `DomSanitizer` 未適用によるXSS 2件（CVE-2025-71465は3.0.3で、CVE-2025-71464は3.0.4で修正）が公表された。",
+      "action": "ブラウザ向けバンドルに含まれる `create-ecdh` を4.0.5以降へ、Krokiを0.36.0以降へ、Frappe `india-payroll` を16.0.4以降へ、`@kolkov/angular-editor` を3.0.4以降へ更新する。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129319",
+        "CVE-2026-129447",
+        "CVE-2026-129429",
+        "CVE-2025-71464",
+        "CVE-2025-71465"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z"
+    },
+    {
+      "id": "wordpress-plugins-auth-file-1115",
+      "title": "WordPressプラグイン・テーマ：Shipo・AutomatorWP Pro・MemberDash・Cloud Storage Manager・Optimole等の認証迂回とファイル操作",
+      "body": "公開窓でWordPressプラグイン・テーマの脆弱性が多数登録された。特にShipo 1.6〜1.8.0の署名未検証 `LOGGED_IN_COOKIE` 解析とクエリ文字列によるREST経路制限迂回（CVE-2026-19907、未認証での管理者なりすまし）、Swipe 1.4以下の未認証管理者セッションCookie発行（CVE-2026-119258）、AutomatorWP Pro Webhookアドオン 1.4.4以下のUser ID空欄設定時における未認証の任意パスワード再設定（CVE-2026-126173）、MemberDash 1.8.7以下の `user_account_manager()` 一括代入（mass-assignment）による管理者メール・パスワード上書き（CVE-2026-18053）、Cloud Storage Manager for Fluent Forms 1.2.0以下の未認証Google Drive接続保存とファイル名経路遡りによる任意ファイル書込み（CVE-2026-120522）、Optimole 4.2.19以下の管理者リネーム操作を契機とする任意ファイル削除（CVE-2026-124969、4.2.20で修正）、SEOJuice 2.12.0未満のサイト全体REST nonce保護無効化（CVE-2026-123046）、Quick Page/Post Redirect Plugin 5.2.4未満の隠し更新機構（CVE-2026-126697）が含まれる。",
+      "action": "該当プラグインを使用している場合は修正済み版（Optimole 4.2.20、SEOJuice 2.12.0、Quick Page/Post Redirect Plugin 5.2.4、Changeset 3701532適用後のShipo、Changeset 3656663適用後のCloud Storage Manager等）への更新またはプラグインの停止・削除を行い、不審な管理者アカウント追加やREST API経由の設定変更を確認する（NVD本文に修正版番号が未記載の項目は推測で補わずベンダ案内を確認）。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-19907",
+        "CVE-2026-119258",
+        "CVE-2026-126173",
+        "CVE-2026-18053",
+        "CVE-2026-120522",
+        "CVE-2026-124969",
+        "CVE-2026-123046",
+        "CVE-2026-126697"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z"
+    },
+    {
+      "id": "malware-npm-1115",
+      "title": "npm：不正パッケージ2勧告（testpackage83・@sfunction/dsh-screenshot）と対象版を保存",
+      "body": "公開窓のGHSA malware勧告9件のうちnpm対象は2件。`testpackage83`（`= 1.0.0`、GHSA-ccgw-9w4v-vqh2）は `postinstall` および初回 `require()`／`import` 時に平文HTTPの直接IPv4（`185.212.128.180/chromedriver.bat`）から実行ファイルを取得して `~/.celest/bin/chrome` として起動し、`CELEST_SKIP_DOWNLOAD` でも利用時ダウンロードが発火する。`@sfunction/dsh-screenshot`（`= 0.1.1`、GHSA-7jf6-qwv2-qppp）は導入端末の完全侵害として秘密鍵・資格情報の別端末からの即時ローテーションが勧告されている。",
+      "action": "該当パッケージと対象バージョンをlockfile・ビルド環境・開発端末で照合し、導入履歴がある場合はパッケージ削除にとどめず別端末から全秘密情報・API鍵をローテーションする。",
+      "sources": [
+        {
+          "name": "GitHub malware advisory API — saved publication window",
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z",
+      "advisories": [
+        {
+          "id": "GHSA-ccgw-9w4v-vqh2",
+          "summary": "Malicious code in testpackage83 (npm)",
+          "url": "https://github.com/advisories/GHSA-ccgw-9w4v-vqh2",
+          "published_at": "2026-11-14T21:31:21Z",
+          "updated_at": "2026-11-14T21:31:21Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "testpackage83"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-7jf6-qwv2-qppp",
+          "summary": "Malware in @sfunction/dsh-screenshot",
+          "url": "https://github.com/advisories/GHSA-7jf6-qwv2-qppp",
+          "published_at": "2026-11-14T08:18:25Z",
+          "updated_at": "2026-11-14T08:18:26Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@sfunction/dsh-screenshot"
+              },
+              "vulnerable_version_range": "= 0.1.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "malware-pip-1115",
+      "title": "pip：不正パッケージ7勧告（ps-bool・gateio系・trezortranslate等）と対象版を保存",
+      "body": "公開窓のGHSA malware勧告9件のうちPyPI（`pip`）対象は7件。`ps-bool`（`0.2.0`〜`0.2.5`、GHSA-fmcm-6g66-p65w）はインポート時に難読化コードでAndroid端末の写真・文書をTelegramボットへ送信する。`gateio-sdk`（`99.99.1`・`99.99.2`、GHSA-xjgf-m5q9-6gpf）と `gateio-ws`（`99.99.1`・`99.99.2`、GHSA-h6gp-mprh-hhhv）はタイポスクワッティングと `setup.py` のinstall上書きにより環境変数等を外部送信し、`gateio-client`（`99.99.1`、GHSA-29h4-x5fq-cp34）、`demo-pingtest-xyz`（`0.0.1`、GHSA-7r7f-5mcw-j79p）、`xrfdc`（`0.0.0`・`2.0`、GHSA-fmq9-qj28-89vh）、`trezortranslate`（`0.0.0`・`1.0.0`、GHSA-9fc6-4mrc-h6pp）もインストールまたはインポート時にホスト情報を外部送信する。",
+      "action": "Python仮想環境・CIキャッシュ・`requirements.txt`／`poetry.lock` 等で7パッケージの対象版を照合し、導入履歴がある環境は資格情報の失効と環境再構築を行う。",
+      "sources": [
+        {
+          "name": "GitHub malware advisory API — saved publication window",
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-15",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-15T00:00:00Z",
+      "advisories": [
+        {
+          "id": "GHSA-29h4-x5fq-cp34",
+          "summary": "Malicious code in gateio-client (PyPI)",
+          "url": "https://github.com/advisories/GHSA-29h4-x5fq-cp34",
+          "published_at": "2026-11-14T18:30:22Z",
+          "updated_at": "2026-11-14T18:30:27Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gateio-client"
+              },
+              "vulnerable_version_range": "= 99.99.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-xjgf-m5q9-6gpf",
+          "summary": "Malicious code in gateio-sdk (PyPI)",
+          "url": "https://github.com/advisories/GHSA-xjgf-m5q9-6gpf",
+          "published_at": "2026-11-14T18:30:22Z",
+          "updated_at": "2026-11-14T18:30:27Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gateio-sdk"
+              },
+              "vulnerable_version_range": "= 99.99.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gateio-sdk"
+              },
+              "vulnerable_version_range": "= 99.99.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-fmcm-6g66-p65w",
+          "summary": "Malicious code in ps-bool (PyPI)",
+          "url": "https://github.com/advisories/GHSA-fmcm-6g66-p65w",
+          "published_at": "2026-11-14T18:30:22Z",
+          "updated_at": "2026-11-14T21:31:22Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "ps-bool"
+              },
+              "vulnerable_version_range": "= 0.2.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "ps-bool"
+              },
+              "vulnerable_version_range": "= 0.2.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "ps-bool"
+              },
+              "vulnerable_version_range": "= 0.2.3",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "ps-bool"
+              },
+              "vulnerable_version_range": "= 0.2.4",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "ps-bool"
+              },
+              "vulnerable_version_range": "= 0.2.5",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-h6gp-mprh-hhhv",
+          "summary": "Malicious code in gateio-ws (PyPI)",
+          "url": "https://github.com/advisories/GHSA-h6gp-mprh-hhhv",
+          "published_at": "2026-11-14T18:30:22Z",
+          "updated_at": "2026-11-14T18:30:22Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gateio-ws"
+              },
+              "vulnerable_version_range": "= 99.99.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gateio-ws"
+              },
+              "vulnerable_version_range": "= 99.99.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-7r7f-5mcw-j79p",
+          "summary": "Malicious code in demo-pingtest-xyz (PyPI)",
+          "url": "https://github.com/advisories/GHSA-7r7f-5mcw-j79p",
+          "published_at": "2026-11-14T18:30:22Z",
+          "updated_at": "2026-11-14T18:30:22Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "demo-pingtest-xyz"
+              },
+              "vulnerable_version_range": "= 0.0.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-fmq9-qj28-89vh",
+          "summary": "Malicious code in xrfdc (PyPI)",
+          "url": "https://github.com/advisories/GHSA-fmq9-qj28-89vh",
+          "published_at": "2026-11-14T12:31:18Z",
+          "updated_at": "2026-11-14T12:31:19Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "xrfdc"
+              },
+              "vulnerable_version_range": "= 0.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "xrfdc"
+              },
+              "vulnerable_version_range": "= 2.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-9fc6-4mrc-h6pp",
+          "summary": "Malicious code in trezortranslate (PyPI)",
+          "url": "https://github.com/advisories/GHSA-9fc6-4mrc-h6pp",
+          "published_at": "2026-11-14T09:31:14Z",
+          "updated_at": "2026-11-14T09:31:15Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "trezortranslate"
+              },
+              "vulnerable_version_range": "= 0.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "trezortranslate"
+              },
+              "vulnerable_version_range": "= 1.0.0",
               "first_patched_version": null,
               "vulnerable_functions": []
             }
@@ -74772,8 +75382,124 @@
       "sources": [
         "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
       ]
+    },
+    "apache-shiro-auth-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://seclists.org/oss-sec/2026/q4/698",
+        "https://seclists.org/oss-sec/2026/q4/699",
+        "https://seclists.org/oss-sec/2026/q4/700",
+        "https://seclists.org/oss-sec/2026/q4/701",
+        "https://seclists.org/oss-sec/2026/q4/702",
+        "https://seclists.org/oss-sec/2026/q4/703",
+        "https://seclists.org/oss-sec/2026/q4/704",
+        "https://seclists.org/oss-sec/2026/q4/705"
+      ]
+    },
+    "perl-json-xs-session-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://seclists.org/oss-sec/2026/q4/706",
+        "https://seclists.org/oss-sec/2026/q4/707",
+        "https://seclists.org/oss-sec/2026/q4/712"
+      ]
+    },
+    "frrouting-ettercap-network-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "dokploy-pulse-control-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "nltk-parsers-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+      ]
+    },
+    "vim-gpac-libdca-sox-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://seclists.org/oss-sec/2026/q4/708",
+        "https://seclists.org/oss-sec/2026/q4/709",
+        "https://seclists.org/oss-sec/2026/q4/710",
+        "https://seclists.org/oss-sec/2026/q4/711",
+        "https://seclists.org/oss-sec/2026/q4/713",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-14T00%3A00%3A00.000&lastModEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "create-ecdh-kroki-payroll-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "wordpress-plugins-auth-file-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "malware-npm-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+      ]
+    },
+    "malware-pip-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-14-0900/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-15-0900/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

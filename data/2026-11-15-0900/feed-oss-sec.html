@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Sat, 14 Nov 2026 23:45:05 GMT</pubDate>
+    <lastBuildDate>Sat, 14 Nov 2026 23:45:05 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>libdca (VideoLAN DTS decoder, unmaintained): out-of-bounds read in scale-factor parsing</title>
+    <link>https://seclists.org/oss-sec/2026/q4/713</link>
+    <description>&lt;p&gt;Posted by Osvaldo J. Filho on Nov 14&lt;/p&gt;Hi,&lt;br&gt;
+&lt;br&gt;
+libdca is VideoLAN&amp;apos;s DTS Coherent Acoustics decoder. It&amp;apos;s effectively&lt;br&gt;
+unmaintained (VideoLAN confirmed to me it&amp;apos;s abandoned and it was dropped&lt;br&gt;
+from VLC 4.0), but several distros still ship it as a library, so I&amp;apos;m&lt;br&gt;
+reporting here.&lt;br&gt;
+&lt;br&gt;
+There&amp;apos;s an out-of-bounds read in the scale-factor parser, reachable from a&lt;br&gt;
+crafted DTS frame. I verified it against the current tree at...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 23:38:03 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/713</guid>
+  </item>
+  <item>
+    <title>CVE-2015-10149: Dancer versions before 1.3400 for Perl pass unvalidated session ids from the session cookie to the session engine</title>
+    <link>https://seclists.org/oss-sec/2026/q4/712</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 14&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2015-10149                                       CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2015-10149&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Dancer&lt;br&gt;
+       Versions:  before 1.3400&lt;br&gt;
+       MetaCPAN: &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Dancer&quot;&gt;https://metacpan.org/dist/Dancer&lt;/a&gt;&lt;br&gt;
+       VCS Repo:...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 20:28:35 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/712</guid>
+  </item>
+  <item>
+    <title>CVE-2026-128240: GPAC/MP4Box: Use-After-Free in gf_sg_proto_del During XMT Scene Teardown</title>
+    <link>https://seclists.org/oss-sec/2026/q4/711</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 14&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  Through 26.07.0 (per the published CVE record)&lt;br&gt;
+           Reproduced on 26.08-DEV-rev263-g3f056542b-master&lt;br&gt;
+           Commit 3f056542b377cc73677d19490bfe1b46c52c9be7&lt;br&gt;
+Fixed:     a2e5c62c213b5329a4572fe8e7c333e1ca26d028&lt;br&gt;
+CVE:       CVE-2026-128240&lt;br&gt;
+CWE:       CWE-416 (Use After Free)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  After...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 19:16:47 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/711</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124031: GPAC/MP4Box: Type Confusion in Appearance Handling via Crafted XMT Input</title>
+    <link>https://seclists.org/oss-sec/2026/q4/710</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 14&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  Through 26.07.0 (per the published CVE record)&lt;br&gt;
+           Reproduced on 26.08-DEV-rev263-g3f056542b-master&lt;br&gt;
+           Commit 3f056542b377cc73677d19490bfe1b46c52c9be7&lt;br&gt;
+Fixed:     43a8329a90ae2907716b593cc3746458516c7c39&lt;br&gt;
+CVE:       CVE-2026-124031&lt;br&gt;
+CWE:       CWE-843 (Type Confusion)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  During...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 19:14:52 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/710</guid>
+  </item>
+  <item>
+    <title>CVE-2026-124030: GPAC/MP4Box: Type Confusion in XMT Field-Replace Commands</title>
+    <link>https://seclists.org/oss-sec/2026/q4/709</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 14&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  Through 26.07.0 (per the published CVE record)&lt;br&gt;
+           Reproduced on 26.08-DEV-rev263-g3f056542b-master&lt;br&gt;
+           Commit 3f056542b377cc73677d19490bfe1b46c52c9be7&lt;br&gt;
+Fixed:     1359c4da9329cedceeb8fcfeab6d97e0927236e1&lt;br&gt;
+CVE:       CVE-2026-124030&lt;br&gt;
+CWE:       CWE-843 (Type Confusion)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  While...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 19:12:54 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/709</guid>
+  </item>
+  <item>
+    <title>[vim-security] Command Execution via PowerShell Keyword Lookup in Vim &lt; 9.2.1346</title>
+    <link>https://seclists.org/oss-sec/2026/q4/708</link>
+    <description>&lt;p&gt;Posted by Christian Brabandt on Nov 14&lt;/p&gt;Command Execution via PowerShell Keyword Lookup in Vim &amp;lt; 9.2.1346&lt;br&gt;
+=================================================================&lt;br&gt;
+&lt;br&gt;
+Date: 14.11.2026&lt;br&gt;
+Severity: Low&lt;br&gt;
+CVE: *requested, not yet assigned*&lt;br&gt;
+CWE: Improper Neutralization of Special Elements used in an OS Command&lt;br&gt;
+     (CWE-78)&lt;br&gt;
+&lt;br&gt;
+## Summary&lt;br&gt;
+&lt;br&gt;
+The fix for [GHSA-r5v6-q6j8-8qw2](&lt;a  rel=&quot;nofollow&quot; href=&quot;https://github.com/vim/vim/security/advisories/GHSA-r5v6-q6j8-8qw2&quot;&gt;https://github.com/vim/vim/security/advisories/GHSA-r5v6-q6j8-8qw2&lt;/a&gt;)&lt;br&gt;
+in `runtime/ftplugin/ps1.vim` quotes the...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 18:41:28 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/708</guid>
+  </item>
+  <item>
+    <title>CVE-2011-10042: HTTP::Session versions before 0.43 for Perl allow memcached command injection via unfiltered session ids in HTTP::Session::Store::Memcached</title>
+    <link>https://seclists.org/oss-sec/2026/q4/707</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 14&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2011-10042                                       CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2011-10042&lt;br&gt;
+&lt;br&gt;
+   Distribution:  http-session&lt;br&gt;
+       Versions:  before 0.43&lt;br&gt;
+       MetaCPAN:  &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/http-session&quot;&gt;https://metacpan.org/dist/http-session&lt;/a&gt;&lt;br&gt;
+       VCS Repo: ...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 18:39:39 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/707</guid>
+  </item>
+  <item>
+    <title>JSON-XS versions before 4.05 for Perl (7 CVEs)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/706</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 14&lt;/p&gt;CVE-2026-124536&lt;br&gt;
+   JSON::XS versions before 4.05 for Perl allow memory exhaustion by&lt;br&gt;
+   buffering incremental input past max_size after a NUL byte in&lt;br&gt;
+   incr_parse&lt;br&gt;
+&lt;br&gt;
+CVE-2026-124539&lt;br&gt;
+   JSON::XS versions before 4.05 for Perl leak the decoded key of an&lt;br&gt;
+   object rejected for a missing colon in decode_hv&lt;br&gt;
+&lt;br&gt;
+CVE-2026-124540&lt;br&gt;
+   JSON::XS versions before 4.05 for Perl allow stack exhaustion via&lt;br&gt;
+   nested tagged values under allow_tags in decode_tag...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 18:37:41 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/706</guid>
+  </item>
+  <item>
+    <title>CVE-2026-129349: Apache Shiro: DefaultLdapRealm accepts any password when authentication caching is enabled</title>
+    <link>https://seclists.org/oss-sec/2026/q4/705</link>
+    <description>&lt;p&gt;Posted by Lenny Primak on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 9.1 (critical) CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N/S:N/AU:Y/R:U/V:C/RE:L/U:Red&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-core) before 3.0.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When authentication caching is enabled on DefaultLdapRealm, after a user logs in successfully once, subsequent logins &lt;br&gt;
+for that user succeed with any password.&lt;br&gt;
+A cached authentication skips the LDAP bind, and the...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 06:00:44 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/705</guid>
+  </item>
+  <item>
+    <title>CVE-2026-129348: Apache Shiro: PropertiesRealm reload does not remove deleted users or narrowed permissions</title>
+    <link>https://seclists.org/oss-sec/2026/q4/704</link>
+    <description>&lt;p&gt;Posted by Lenny Primak on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 2.3 (low) CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N/S:N/AU:N/V:D/RE:L/U:Green&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-core) before 3.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When PropertiesRealm reloads its properties file, removed users and narrowed permissions could remain in effect.&lt;br&gt;
+This issue affects all Apache Shiro versions through 3.0.1, only when PropertiesRealm`loads its properties from a...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 05:58:50 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/704</guid>
+  </item>
+  <item>
+    <title>CVE-2026-129347: Apache Shiro: Empty stored credential matches an empty submitted password</title>
+    <link>https://seclists.org/oss-sec/2026/q4/703</link>
+    <description>&lt;p&gt;Posted by Lenny Primak on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 2.3 (low) CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N/S:N/AU:N/V:D/RE:L/U:Green&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-core) before 3.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+`DefaultPasswordService` and `SimpleCredentialsMatcher` could treat an empty stored credential as a match for an empty &lt;br&gt;
+submitted password.&lt;br&gt;
+This issue affects all Apache Shiro versions through 3.0.1, only when accounts with an...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 05:56:53 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/703</guid>
+  </item>
+  <item>
+    <title>CVE-2026-74762: Apache Shiro: Possible session fixation with RememberMe</title>
+    <link>https://seclists.org/oss-sec/2026/q4/702</link>
+    <description>&lt;p&gt;Posted by Lenny Primak on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 5.9 (medium) CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:A/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N/S:N/AU:N/R:U/V:D/RE:L/U:Amber&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-core) before 3.0.1&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-web) before 3.0.1&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Apache Shiro is vulnerable to session fixation when a user is authenticated via the &amp;quot;Remember me&amp;quot; functionality. In &lt;br&gt;
+affected versions, when a subject is...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 05:06:57 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/702</guid>
+  </item>
+  <item>
+    <title>CVE-2026-74763: Apache Shiro: Authorization annotations not always enforced, depending on where they are placed</title>
+    <link>https://seclists.org/oss-sec/2026/q4/701</link>
+    <description>&lt;p&gt;Posted by Lenny Primak on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 6.3 (medium) CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N/S:N/AU:N/V:D/RE:L/U:Amber&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-guice) before 3.0.2&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-aspectj) before 3.0.2&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-cdi) 2.0.0-alpha-0 before 3.0.2&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-jakarta-ee) 2.0.0-alpha-0 before 3.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Authorization...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 04:53:48 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/701</guid>
+  </item>
+  <item>
+    <title>CVE-2026-88019: Apache Shiro: Saved form replay may weaken cookie security and expose form data</title>
+    <link>https://seclists.org/oss-sec/2026/q4/700</link>
+    <description>&lt;p&gt;Posted by Lenny Primak on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 6.0 (medium) CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N/S:N/AU:N/R:U/V:D/RE:L/U:Amber&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-jakarta-ee) 2.0.0-alpha-0 before 3.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+When Apache Shiro is used with the Jakarta EE integration module, the automatic form saving feature weakens the &lt;br&gt;
+security of a form that is resubmitted after login.&lt;br&gt;
+Cookies set by the application during...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 04:51:52 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/700</guid>
+  </item>
+  <item>
+    <title>CVE-2026-129320: Apache Shiro: Principal tags in Jakarta Pages and Jakarta Faces do not escape output, allowing cross-site scripting</title>
+    <link>https://seclists.org/oss-sec/2026/q4/699</link>
+    <description>&lt;p&gt;Posted by Lenny Primak on Nov 13&lt;/p&gt;Severity: &lt;br&gt;
+    CVSS 4.0: 2.1 (low) CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N/S:N/AU:N/V:D/RE:L/U:Green&lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-web) before 3.0.2&lt;br&gt;
+- Apache Shiro (org.apache.shiro:shiro-jakarta-ee) 2.0.0-alpha-0 before 3.0.2&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+The shiro:principal tags in shiro-web (Jakarta Pages) and shiro-jakarta-ee (Jakarta Faces) did not escape their output, &lt;br&gt;
+which could allow cross-site...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 01:41:04 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/699</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

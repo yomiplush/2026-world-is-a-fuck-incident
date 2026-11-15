@@ -1231,6 +1231,77 @@ window.VISUALS = (function () {
     heading(g,"DROPBEAR SSH / TCP VS UNIX SOCKET FORWARDING");g.flush();
   };
 
+  scenes.nov15ShiroCache = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.21,pitch:.56});
+    const user=[-335,20,0],cache=[-40,-110,0],ldap=[-40,145,0],matcher=[295,20,0];
+    node(g,user,"ANY PASSWD",C.amber,t,0,{hx:68,hy:52,hz:45,font:10});
+    node(g,cache,"LDAP CACHE",C.cyan,t,1,{hx:72,hy:48,hz:45,font:10});
+    node(g,ldap,"LDAP BIND",C.green,t,2,{hx:70,hy:45,hz:45,font:10});
+    node(g,matcher,"ALLOW ALL",C.red,t,3,{hx:75,hy:58,hz:48,font:10});
+    flow(g,user,cache,t,C.amber);
+    flow(g,cache,matcher,t,C.red,.25);
+    gate(g,[130,10,0],C.green,"3.0.2");
+    ring(g,matcher,115,C.red);
+    label(g,[0,285,0],"SHIRO 3.0.2 / DISABLE LDAP AUTH CACHE OR SET MATCHER",C.green,10);
+    heading(g,"APACHE SHIRO / DEFAULTLDAPREALM & ANNOTATIONS");g.flush();
+  };
+  scenes.nov15PerlJsonSession = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.19,pitch:.58});
+    const chunk=[-335,-110,0],cookie=[-335,140,0],incr=[0,-110,0],sess=[0,140,0],mem=[315,15,0];
+    node(g,chunk,"1-BYTE / NUL",C.amber,t,0,{hx:70,hy:44,hz:42,font:10});
+    node(g,incr,"INCR_PARSE",C.cyan,t,1,{hx:72,hy:46,hz:44,font:10});
+    node(g,cookie,"SESSION ID",C.amber,t,2,{hx:68,hy:44,hz:42,font:10});
+    node(g,sess,"MEMCACHED",C.red,t,3,{hx:72,hy:46,hz:44,font:10});
+    node(g,mem,"JSON::XS 4.05",C.green,t,4,{hx:78,hy:58,hz:48,font:10});
+    flow(g,chunk,incr,t,C.amber);flow(g,cookie,sess,t,C.red,.2);
+    gate(g,[160,-60,0],C.green,"4.05");
+    curve(g,incr,mem,t,C.cyan,.15,35);curve(g,sess,mem,t,C.amber,.4,-35);
+    label(g,[0,285,0],"JSON::XS 4.05 & DANCER 1.3400 / REPLACE HTTP::SESSION",C.green,10);
+    heading(g,"PERL JSON::XS & SESSION ID BOUNDARIES");g.flush();
+  };
+  scenes.nov15FrrBgpTlv = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.23,pitch:.56});
+    const peer=[-335,20,0],tlv=[-25,20,0],rib=[305,-100,0],socks=[305,140,0];
+    node(g,peer,"BGP UPDATE",C.amber,t,0,{hx:70,hy:55,hz:46,font:10});
+    node(g,tlv,"ATTR 23 TLV",C.red,t,1,{hx:76,hy:62,hz:52,font:10});
+    node(g,rib,"RIB REFCOUNT",C.cyan,t,2,{hx:75,hy:46,hz:44,font:10});
+    node(g,socks,"ETTERCAP OOB",C.amber,t,3,{hx:75,hy:46,hz:44,font:10});
+    flow(g,peer,tlv,t,C.amber);
+    gate(g,[-180,10,0],C.green,"FILTER");
+    flow(g,tlv,rib,t,C.red,.25);flow(g,tlv,socks,t,C.amber,.45);
+    ring(g,tlv,120,C.red);
+    label(g,[0,285,0],"FILTER EBGP ATTR 23 / PATCH FRR & AVOID UNTRUSTED PCAP",C.green,10);
+    heading(g,"FRROUTING BGPD & ETTERCAP DISSECTORS");g.flush();
+  };
+  scenes.nov15DokployPulse = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.20,pitch:.57});
+    const svc=[-330,-115,0],view=[-330,140,0],cron=[10,-115,0],api=[10,140,0],host=[320,15,0];
+    node(g,svc,"SERVICENAME",C.amber,t,0,{hx:72,hy:44,hz:42,font:10});
+    node(g,cron,"BACKUP CRON",C.red,t,1,{hx:74,hy:46,hz:44,font:10});
+    node(g,view,"VIEWER ROLE",C.amber,t,2,{hx:70,hy:44,hz:42,font:10});
+    node(g,api,"AI APPROVALS",C.cyan,t,3,{hx:74,hy:46,hz:44,font:10});
+    node(g,host,"ROOT / AUDIT",C.green,t,4,{hx:76,hy:58,hz:48,font:10});
+    flow(g,svc,cron,t,C.amber);flow(g,view,api,t,C.amber,.25);
+    gate(g,[165,-60,0],C.green,"0.31.1");gate(g,[165,95,0],C.green,"6.8.0");
+    curve(g,cron,host,t,C.red,.15,35);curve(g,api,host,t,C.cyan,.4,-35);
+    label(g,[0,285,0],"DOKPLOY 0.31.1 & PULSE 6.8.0 / AUDIT BACKUPS & APPROVALS",C.green,10);
+    heading(g,"DOKPLOY BACKUP SHELL & PULSE AI APPROVALS");g.flush();
+  };
+  scenes.nov15VimMedia = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.58});
+    const ps1=[-335,-110,0],xmt=[-335,140,0],vim=[15,-110,0],dec=[15,140,0],fix=[320,15,0];
+    node(g,ps1,"U+2018..201B",C.amber,t,0,{hx:72,hy:44,hz:42,font:10});
+    node(g,vim,"VIM PS1 K",C.cyan,t,1,{hx:68,hy:46,hz:44,font:10});
+    node(g,xmt,"XMT / DTS",C.amber,t,2,{hx:68,hy:44,hz:42,font:10});
+    node(g,dec,"GPAC / LIBDCA",C.red,t,3,{hx:76,hy:46,hz:44,font:10});
+    node(g,fix,"9.2.1346 / 3.10.4",C.green,t,4,{hx:82,hy:58,hz:48,font:10});
+    flow(g,ps1,vim,t,C.amber);flow(g,xmt,dec,t,C.red,.25);
+    gate(g,[170,-55,0],C.green,"ESCAPE");
+    curve(g,vim,fix,t,C.cyan,.2,35);curve(g,dec,fix,t,C.amber,.45,-35);
+    label(g,[0,285,0],"VIM 9.2.1346 & NLTK 3.10.4 / CHECK GPAC & UNMAINTAINED LIBDCA",C.green,10);
+    heading(g,"VIM POWERSHELL QUOTES, MEDIA & NLTK PARSERS");g.flush();
+  };
+
   function frame(ctx,w,h,t) {
     ctx.save();ctx.strokeStyle=A(C.steel,.28);ctx.lineWidth=.75;
     const m=8,L=14;

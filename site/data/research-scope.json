@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-11-14-0900",
-  "register_sha256": "2509d488ba52655e91d7ea50417e8114d0b53c41430674956b57c642497f0214",
+  "snapshot": "2026-11-15-0900",
+  "register_sha256": "95b26ad8127860540ffe7aba722c9e2371cd073cd3a08412c04e84e652e06b21",
   "status": "reviewed",
-  "reviewed_at": "2026-11-14T00:00:00Z",
-  "source_register": "2026-11-14-0900/incident-register.json",
+  "reviewed_at": "2026-11-15T00:00:00Z",
+  "source_register": "2026-11-15-0900/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -3743,6 +3743,122 @@
       },
       "sources": [
         "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-13T09%3A25%3A00Z..2026-11-14T00%3A00%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xM1QyMDoyMzo1MVrOAAgkMw%3D%3D"
+      ]
+    },
+    "apache-shiro-auth-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://seclists.org/oss-sec/2026/q4/698",
+        "https://seclists.org/oss-sec/2026/q4/699",
+        "https://seclists.org/oss-sec/2026/q4/700",
+        "https://seclists.org/oss-sec/2026/q4/701",
+        "https://seclists.org/oss-sec/2026/q4/702",
+        "https://seclists.org/oss-sec/2026/q4/703",
+        "https://seclists.org/oss-sec/2026/q4/704",
+        "https://seclists.org/oss-sec/2026/q4/705"
+      ]
+    },
+    "perl-json-xs-session-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://seclists.org/oss-sec/2026/q4/706",
+        "https://seclists.org/oss-sec/2026/q4/707",
+        "https://seclists.org/oss-sec/2026/q4/712"
+      ]
+    },
+    "frrouting-ettercap-network-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "dokploy-pulse-control-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "nltk-parsers-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+      ]
+    },
+    "vim-gpac-libdca-sox-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://seclists.org/oss-sec/2026/q4/708",
+        "https://seclists.org/oss-sec/2026/q4/709",
+        "https://seclists.org/oss-sec/2026/q4/710",
+        "https://seclists.org/oss-sec/2026/q4/711",
+        "https://seclists.org/oss-sec/2026/q4/713",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-14T00%3A00%3A00.000&lastModEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "create-ecdh-kroki-payroll-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "wordpress-plugins-auth-file-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "malware-npm-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
+      ]
+    },
+    "malware-pip-1115": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
       ]
     }
   }
