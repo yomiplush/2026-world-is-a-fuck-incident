@@ -58,6 +58,14 @@ later reviews.
 
 # 2026 — Tailworm / Tailscale / PHP / Node.js / Java / CA incidents
 
+## Latest follow-up — 2026-11-16 11:33 JST
+
+[Current report](https://www.infosec-briefing.net/update-20261116-1133.en) · [Monthly archive](https://www.infosec-briefing.net/months.en) · [Research database](https://www.infosec-briefing.net/database.en) · [Six new motion explanations](https://www.infosec-briefing.net/?lang=en#141)
+
+CloudPaste WebDAV credentials, VoAPI signing-key exposure, comment and mention boundaries, SSCMS, Starfish/Linux revisions and two malicious npm versions. Seven added topics and one revised GMO follow-up bring the register to **337 topics**; historical context remains explicitly separate from newly reviewed material. NVD **9 published / 10 modified** (nine overlap); GHSA **2 published / 2 modified** (the same malware advisories). KEV remains 2026.11.13, 1,781 entries. All **41 saved response hashes** verified. Japanese/English month indexes preserve same-day reviews and older daily pages; four focused explanations and six motion scenes were added (**146 total scenes**).
+
+[Research and limitations](docs/research-2026-11-16-1133.md) · [Collection](docs/research-collection-2026-11-16-1133.md) · [Structured register](data/2026-11-16-1133/incident-register.json)
+
 ## Latest review — 2026-10-27 18:47 JST
 
 **[Current report](https://www.infosec-briefing.net/update-20261027-1847) · [Research database](https://www.infosec-briefing.net/database) · [Four new motion diagrams](https://www.infosec-briefing.net/?lang=en#62)**

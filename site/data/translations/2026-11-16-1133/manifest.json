@@ -1,0 +1,32 @@
+{
+  "snapshot": "2026-11-16-1133",
+  "source_hash": "0fa14f2ca90e566303fdd20804f72acb24fba95be89751af0bce0ae1e64c1f90",
+  "register_hash": "880a44e462f5781dbc26850913138e5363bada1d3a30f299582cce706b48779d",
+  "target_count": 2,
+  "ready_count": 2,
+  "note": "Only complete source-matched Codex translations are published. Pending/unsupported languages are never filled with another language.",
+  "languages": [
+    {
+      "code": "en",
+      "native": "English",
+      "html": "en",
+      "dir": "ltr",
+      "en": "English",
+      "ja": "英語",
+      "status": "translated",
+      "url": "/database.en",
+      "archive": null
+    },
+    {
+      "code": "ja",
+      "native": "日本語",
+      "html": "ja",
+      "dir": "ltr",
+      "en": "Japanese",
+      "ja": "日本語",
+      "status": "source",
+      "url": "/database",
+      "archive": null
+    }
+  ]
+}

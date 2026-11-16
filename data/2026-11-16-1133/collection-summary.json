@@ -1,0 +1,544 @@
+{
+  "cutoff": "2026-11-16T02:33:00Z",
+  "cutoff_jst": "2026-11-16T11:33:00+09:00",
+  "delta_start": "2026-11-16T00:00:00Z",
+  "started_at": "2026-11-16T02:34:29+00:00",
+  "note": "Retrieval-time revisions; publication, modification and incidents differ.",
+  "sources": [
+    {
+      "name": "kev",
+      "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+      "retrieved_at": "2026-11-16T02:31:07.936267+00:00",
+      "final_url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+      "content_type": "text/plain; charset=utf-8",
+      "status": "ok",
+      "file": "kev.gz",
+      "bytes": 1854379,
+      "sha256": "4028ec035856331a717d3305e87e45be37d400fc500da34a5464f05fc2773764",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "tailscale-findings",
+      "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes",
+      "retrieved_at": "2026-11-16T02:31:07.936994+00:00",
+      "final_url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes",
+      "content_type": "text/html; charset=utf-8",
+      "status": "ok",
+      "file": "tailscale-findings.gz",
+      "bytes": 134422,
+      "sha256": "1a448bbefc21cebf07e541103c2bc6609087c34da405d5724fddc14aac05ef4e",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "tailscale-bulletins",
+      "url": "https://tailscale.com/security-bulletins",
+      "retrieved_at": "2026-11-16T02:31:07.937468+00:00",
+      "final_url": "https://tailscale.com/security-bulletins",
+      "content_type": "text/html; charset=utf-8",
+      "status": "ok",
+      "file": "tailscale-bulletins.gz",
+      "bytes": 413403,
+      "sha256": "98ae3d8b95588846c559de342562583099201140028d9b1aa9ace1d20c2d8eb2",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "ts-014",
+      "url": "https://tailscale.com/security-bulletins/ts-2026-014",
+      "retrieved_at": "2026-11-16T02:31:07.937900+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "ts-015",
+      "url": "https://tailscale.com/security-bulletins/ts-2026-015",
+      "retrieved_at": "2026-11-16T02:31:07.939093+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "ts-016",
+      "url": "https://tailscale.com/security-bulletins/ts-2026-016",
+      "retrieved_at": "2026-11-16T02:31:07.942205+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "ts-017",
+      "url": "https://tailscale.com/security-bulletins/ts-2026-017",
+      "retrieved_at": "2026-11-16T02:31:08.361975+00:00",
+      "status": "error",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "tailscale-changelog",
+      "url": "https://tailscale.com/changelog",
+      "retrieved_at": "2026-11-16T02:31:08.412681+00:00",
+      "final_url": "https://tailscale.com/changelog",
+      "content_type": "text/html; charset=utf-8",
+      "status": "ok",
+      "file": "tailscale-changelog.gz",
+      "bytes": 1770569,
+      "sha256": "f3ba32d7d43e6ddb9cfd71ad0d93a3398e14dbee1b85931e116147b58ba83566",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "headscale-releases",
+      "url": "https://api.github.com/repos/juanfont/headscale/releases?per_page=5",
+      "retrieved_at": "2026-11-16T02:31:08.415033+00:00",
+      "final_url": "https://api.github.com/repos/juanfont/headscale/releases?per_page=5",
+      "content_type": "application/json; charset=utf-8",
+      "status": "ok",
+      "file": "headscale-releases.gz",
+      "bytes": 116498,
+      "sha256": "48a88918c9010f57c3795addbdab24a73aed257eaf15608cfa654add3d6232a6",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "gmo-compensation",
+      "url": "https://group.gmo/info/alert/20261106/",
+      "retrieved_at": "2026-11-16T02:31:08.522842+00:00",
+      "final_url": "https://group.gmo/info/alert/20261106/",
+      "content_type": "text/html; charset=UTF-8",
+      "status": "ok",
+      "file": "gmo-compensation.gz",
+      "bytes": 46644,
+      "sha256": "795385239c498fc952a3b0b14675ddde9c9c1b918c49a76220d1610071747790",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "gmo-briefing",
+      "url": "https://group.gmo/info/alert/20261102/",
+      "retrieved_at": "2026-11-16T02:31:08.625670+00:00",
+      "final_url": "https://group.gmo/",
+      "content_type": "text/html; charset=UTF-8",
+      "status": "ok",
+      "file": "gmo-briefing.gz",
+      "bytes": 71741,
+      "sha256": "0add141f488959495ead668d594e63eae1d8ff674f10658bbe5f4fb17111d726",
+      "sha256_is": "decompressed bytes",
+      "content_warning": "Redirected to corporate homepage; not a November 2 briefing and not evidence for a dated notice"
+    },
+    {
+      "name": "jpcert-november",
+      "url": "https://www.jpcert.or.jp/at/2026/at260035.html",
+      "retrieved_at": "2026-11-16T02:31:08.797439+00:00",
+      "final_url": "https://www.jpcert.or.jp/at/2026/at260035.html",
+      "content_type": "text/html",
+      "status": "ok",
+      "file": "jpcert-november.gz",
+      "bytes": 28239,
+      "sha256": "fd18cddc9463ddc6881e58895f93d33799f64605d4fa143bcaf066ab76e9901c",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "msrc-november",
+      "url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Nov",
+      "retrieved_at": "2026-11-16T02:31:08.871592+00:00",
+      "final_url": "https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2026-Nov",
+      "content_type": "application/xml; charset=utf-8",
+      "status": "ok",
+      "file": "msrc-november.gz",
+      "bytes": 29506033,
+      "sha256": "222538c6c78aacfea7d0a1e0889bc60924240ef57f86dd70a48baab41aaf3d7b",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "openssh-releases",
+      "url": "https://www.openssh.org/releasenotes.html",
+      "retrieved_at": "2026-11-16T02:31:08.873055+00:00",
+      "final_url": "https://www.openssh.org/releasenotes.html",
+      "content_type": "text/html",
+      "status": "ok",
+      "file": "openssh-releases.gz",
+      "bytes": 785160,
+      "sha256": "0219fe09a6fd2a5b442540235c883262edb0ff05d901ed932da29bfd6c2b7452",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "sonicwall",
+      "url": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0016",
+      "retrieved_at": "2026-11-16T02:31:08.929557+00:00",
+      "final_url": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0016",
+      "content_type": "text/html",
+      "status": "ok",
+      "file": "sonicwall.gz",
+      "bytes": 729,
+      "sha256": "e7f0026e34e37ba03ee2ce84f89e1ebaa0933c4de6cba2228dcc1236436b09e1",
+      "sha256_is": "decompressed bytes",
+      "content_warning": "Tiny response; advisory content not verified and not used in this review"
+    },
+    {
+      "name": "php-releases",
+      "url": "https://www.php.net/releases/index.php?json",
+      "retrieved_at": "2026-11-16T02:31:08.975443+00:00",
+      "final_url": "https://www.php.net/releases/index.php?json",
+      "content_type": "application/json",
+      "status": "ok",
+      "file": "php-releases.gz",
+      "bytes": 2774,
+      "sha256": "fcd8b43f566bf97ffb4285693aa72c7d762c75d90735f9abc36c9522d85639c0",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "node-security",
+      "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
+      "retrieved_at": "2026-11-16T02:31:09.082727+00:00",
+      "final_url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
+      "content_type": "text/html; charset=utf-8",
+      "status": "ok",
+      "file": "node-security.gz",
+      "bytes": 326779,
+      "sha256": "08c8242af26e3565582d3fdc6e70813ca903a3ce3f89b836385ecd9f800449cb",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "jpcert-feed",
+      "url": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+      "retrieved_at": "2026-11-16T02:31:09.218765+00:00",
+      "final_url": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+      "content_type": "application/rdf+xml",
+      "status": "ok",
+      "file": "jpcert-feed.gz",
+      "bytes": 13461,
+      "sha256": "a6f34f9e6c68b306fe63c236a378152d898073b3ead79a6363afd28d3f0eb05c",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "ipa",
+      "url": "https://www.ipa.go.jp/security/security-alert/",
+      "retrieved_at": "2026-11-16T02:31:09.257936+00:00",
+      "final_url": "https://www.ipa.go.jp/security/security-alert/",
+      "content_type": "text/html",
+      "status": "ok",
+      "file": "ipa.gz",
+      "bytes": 231741,
+      "sha256": "164e83bb2f38aba65e83965a5a6c46d88b80aecae17276c61c46c7bdcc8a91b6",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "connectwise",
+      "url": "https://www.connectwise.com/company/trust/advisories",
+      "retrieved_at": "2026-11-16T02:31:09.277774+00:00",
+      "final_url": "https://www.connectwise.com/company/trust/advisories",
+      "content_type": "text/html; charset=utf-8",
+      "status": "ok",
+      "file": "connectwise.gz",
+      "bytes": 424411,
+      "sha256": "1a487a90c715d7a8d3b685d4ab491c2bce7a53fce80050e89f7d59c58b5545f2",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "atlink",
+      "url": "https://at-link.net/information/アットリンクへの不正アクセスおよびサービスの/",
+      "retrieved_at": "2026-11-16T02:31:09.287429+00:00",
+      "status": "error",
+      "error": "'ascii' codec can't encode characters in position 17-38: ordinal not in range(128)"
+    },
+    {
+      "name": "production",
+      "url": "https://www.infosec-briefing.net/data/latest.json",
+      "retrieved_at": "2026-11-16T02:31:09.287697+00:00",
+      "final_url": "https://www.infosec-briefing.net/data/latest.json",
+      "content_type": "application/json",
+      "status": "ok",
+      "file": "production.gz",
+      "bytes": 3013411,
+      "sha256": "8e0ca6928c12bd87af81bb975d59595cdb72804050998c2d62ec801aa1d53fa3",
+      "sha256_is": "decompressed bytes"
+    }
+  ],
+  "ghsa-modified": {
+    "mode": "modified",
+    "complete": true,
+    "returned": 2,
+    "pages": [
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=reviewed&modified=2026-11-16T00%3A00%3A00Z..2026-11-16T02%3A33%3A00Z",
+        "retrieved_at": "2026-11-16T02:34:29+00:00",
+        "file": "ghsa-modified-reviewed-1.json",
+        "type": "reviewed",
+        "returned": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&modified=2026-11-16T00%3A00%3A00Z..2026-11-16T02%3A33%3A00Z",
+        "retrieved_at": "2026-11-16T02:34:30+00:00",
+        "file": "ghsa-modified-unreviewed-1.json",
+        "type": "unreviewed",
+        "returned": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&modified=2026-11-16T00%3A00%3A00Z..2026-11-16T02%3A33%3A00Z",
+        "retrieved_at": "2026-11-16T02:34:30+00:00",
+        "file": "ghsa-modified-malware-1.json",
+        "type": "malware",
+        "returned": 2,
+        "sha256": "b376c9870427004302f5df54dfccbd3e5d0f4c7cf91103c3d7b4663fce1a157a"
+      }
+    ]
+  },
+  "ghsa": {
+    "mode": "published",
+    "complete": true,
+    "returned": 2,
+    "pages": [
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-16T00%3A00%3A00Z..2026-11-16T02%3A33%3A00Z",
+        "retrieved_at": "2026-11-16T02:34:29+00:00",
+        "file": "ghsa-published-reviewed-1.json",
+        "type": "reviewed",
+        "returned": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-16T00%3A00%3A00Z..2026-11-16T02%3A33%3A00Z",
+        "retrieved_at": "2026-11-16T02:34:30+00:00",
+        "file": "ghsa-published-unreviewed-1.json",
+        "type": "unreviewed",
+        "returned": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-16T00%3A00%3A00Z..2026-11-16T02%3A33%3A00Z",
+        "retrieved_at": "2026-11-16T02:34:30+00:00",
+        "file": "ghsa-published-malware-1.json",
+        "type": "malware",
+        "returned": 2,
+        "sha256": "b376c9870427004302f5df54dfccbd3e5d0f4c7cf91103c3d7b4663fce1a157a"
+      }
+    ]
+  },
+  "nvd-modified": {
+    "mode": "modified",
+    "complete": true,
+    "totalResults": 10,
+    "returned": 10,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-16T00%3A00%3A00.000&lastModEndDate=2026-11-16T02%3A33%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-11-16T02:34:29+00:00",
+        "file": "nvd-modified-0.json.gz",
+        "totalResults": 10,
+        "returned": 10,
+        "sha256": "11fd6aa2885263026b63b7eac795ee42e42728daacf80e29d8f7af45d8fd566e"
+      }
+    ]
+  },
+  "nvd-published": {
+    "mode": "published",
+    "complete": true,
+    "totalResults": 9,
+    "returned": 9,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-16T00%3A00%3A00.000&pubEndDate=2026-11-16T02%3A33%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-11-16T02:34:29+00:00",
+        "file": "nvd-published-0.json.gz",
+        "totalResults": 9,
+        "returned": 9,
+        "sha256": "d5f5ce2f28fba3edc17b501c51c5188d2ad6917120aa882928e63dc47697267a"
+      }
+    ]
+  },
+  "counts": {
+    "nvd_published": 9,
+    "nvd_modified": 10,
+    "published_modified_overlap": 9,
+    "ghsa": 2,
+    "ghsa_reviewed": 0,
+    "ghsa_unreviewed": 0,
+    "ghsa_malware": 2,
+    "ghsa_modified": 2,
+    "ghsa_published_modified_overlap": 2
+  },
+  "verification": {
+    "raw_response_hashes_verified": 41,
+    "deduplicated_references_verified": 0,
+    "errors": [
+      {
+        "name": "ts-014",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "name": "ts-015",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "name": "ts-016",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "name": "ts-017",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "name": "atlink",
+        "error": "'ascii' codec can't encode characters in position 17-38: ordinal not in range(128)"
+      }
+    ]
+  },
+  "finished_at": "2026-11-16T02:34:40+00:00",
+  "supplemental_sources": [
+    {
+      "name": "primary-3eeb51cf2961e701",
+      "url": "https://github.com/Qbian61/forum-java/issues/25",
+      "retrieved_at": "2026-11-16T02:40:38.692269+00:00",
+      "final_url": "https://github.com/Qbian61/forum-java/issues/25",
+      "status": "ok",
+      "file": "primary-3eeb51cf2961e701.gz",
+      "sha256": "1fd5061d5bfa7d1253a8fbb695e11db7086c49163447fe5d1771362d5b13de9b",
+      "bytes": 181270
+    },
+    {
+      "name": "primary-413d44bea21a051e",
+      "url": "https://www.vulncheck.com/advisories/qbian61-forum-java-commit-20f7e68-through-63152c4-stored-xss-via-comment-reply-dialog",
+      "retrieved_at": "2026-11-16T02:40:38.692978+00:00",
+      "final_url": "https://www.vulncheck.com/advisories/qbian61-forum-java-commit-20f7e68-through-63152c4-stored-xss-via-comment-reply-dialog",
+      "status": "ok",
+      "file": "primary-413d44bea21a051e.gz",
+      "sha256": "321b7e57d8cd4177eb094f3bee5a1b64bc2241b1fef3228797266fbb31d90ad6",
+      "bytes": 201803
+    },
+    {
+      "name": "primary-20a1cb338c665ab2",
+      "url": "https://github.com/bolo-blog/bolo-solo/issues/331",
+      "retrieved_at": "2026-11-16T02:40:38.693442+00:00",
+      "final_url": "https://github.com/bolo-blog/bolo-solo/issues/331",
+      "status": "ok",
+      "file": "primary-20a1cb338c665ab2.gz",
+      "sha256": "c004a7de7580368e701b5c7de612ee4a534e8787b3ba8fb419d4527c8058c421",
+      "bytes": 181912
+    },
+    {
+      "name": "primary-d4bf02baa3c0f0bc",
+      "url": "https://www.vulncheck.com/advisories/bolo-bolo-solo-1.7-through-2.6.4-stored-xss-via-comment-reply-to-name",
+      "retrieved_at": "2026-11-16T02:40:38.693863+00:00",
+      "final_url": "https://www.vulncheck.com/advisories/bolo-bolo-solo-1.7-through-2.6.4-stored-xss-via-comment-reply-to-name",
+      "status": "ok",
+      "file": "primary-d4bf02baa3c0f0bc.gz",
+      "sha256": "515cff9e2045c514fd2727ef59ae8636f39518913ec4622941c5abc3485f1d05",
+      "bytes": 201078
+    },
+    {
+      "name": "primary-9dedc06b25c7fd67",
+      "url": "https://www.vulncheck.com/advisories/bolo-bolo-solo-1.7-through-2.6.4-article-password-disclosure-via-articles",
+      "retrieved_at": "2026-11-16T02:40:38.694276+00:00",
+      "final_url": "https://www.vulncheck.com/advisories/bolo-bolo-solo-1.7-through-2.6.4-article-password-disclosure-via-articles",
+      "status": "ok",
+      "file": "primary-9dedc06b25c7fd67.gz",
+      "sha256": "e1621e9fb29c22db0e460bc99c4ff4e74998c621b76e79e406b0571163f36ef8",
+      "bytes": 200370
+    },
+    {
+      "name": "primary-e7d26ebd2373520f",
+      "url": "https://github.com/ling-drag0n/CloudPaste/issues/223",
+      "retrieved_at": "2026-11-16T02:40:39.395467+00:00",
+      "final_url": "https://github.com/ling-drag0n/CloudPaste/issues/223",
+      "status": "ok",
+      "file": "primary-e7d26ebd2373520f.gz",
+      "sha256": "4b6eb4cbfda3cebb5853275b2ccf5ab7c1e35fa0e05d2ed73befba2fdfb6ed51",
+      "bytes": 244980
+    },
+    {
+      "name": "primary-08f73e2fca1e2e7d",
+      "url": "https://www.vulncheck.com/advisories/cloudpaste-1.1.0-through-1.9.1-webdav-credential-disclosure-via-api-proxy-link",
+      "retrieved_at": "2026-11-16T02:40:39.474700+00:00",
+      "final_url": "https://www.vulncheck.com/advisories/cloudpaste-1.1.0-through-1.9.1-webdav-credential-disclosure-via-api-proxy-link",
+      "status": "ok",
+      "file": "primary-08f73e2fca1e2e7d.gz",
+      "sha256": "9a8574e1040ebd8cd5cc5350c28a0059a3f632b14f21554a81037f31d1f14985",
+      "bytes": 201062
+    },
+    {
+      "name": "primary-7c220eded78ba7be",
+      "url": "https://github.com/siteserver/cms/issues/3909",
+      "retrieved_at": "2026-11-16T02:40:39.965105+00:00",
+      "final_url": "https://github.com/siteserver/cms/issues/3909",
+      "status": "ok",
+      "file": "primary-7c220eded78ba7be.gz",
+      "sha256": "9789136c3ea2cb0b6159207b5355b1567f9855c83e1dfa2947ac1406cfd2bafd",
+      "bytes": 182366
+    },
+    {
+      "name": "primary-a866b691b8ca7e7b",
+      "url": "https://www.vulncheck.com/advisories/sscms-7.2.0-through-7.4.0-arbitrary-file-read-via-layerimageupload-endpoint",
+      "retrieved_at": "2026-11-16T02:40:39.968498+00:00",
+      "final_url": "https://www.vulncheck.com/advisories/sscms-7.2.0-through-7.4.0-arbitrary-file-read-via-layerimageupload-endpoint",
+      "status": "ok",
+      "file": "primary-a866b691b8ca7e7b.gz",
+      "sha256": "419cedea72529591ba5138df294c8f68e73cca53aa35152de2ad2c418751378d",
+      "bytes": 200311
+    },
+    {
+      "name": "primary-db3badbfe144bf7a",
+      "url": "https://github.com/VoAPI/VoAPI/issues/78",
+      "retrieved_at": "2026-11-16T02:40:40.246061+00:00",
+      "final_url": "https://github.com/VoAPI/VoAPI/issues/78",
+      "status": "ok",
+      "file": "primary-db3badbfe144bf7a.gz",
+      "sha256": "512fed866940c019b2e35a6cbc19ddf0a2e5e57aa202cb0aa5a717790244df7d",
+      "bytes": 194987
+    },
+    {
+      "name": "primary-0f7f03b2ead9c14c",
+      "url": "https://www.vulncheck.com/advisories/voapi-1.0.0-through-1.2.0-sql-injection-via-search-filter-key",
+      "retrieved_at": "2026-11-16T02:40:40.294070+00:00",
+      "final_url": "https://www.vulncheck.com/advisories/voapi-1.0.0-through-1.2.0-sql-injection-via-search-filter-key",
+      "status": "ok",
+      "file": "primary-0f7f03b2ead9c14c.gz",
+      "sha256": "a772a7baa60a0c421c71724c34ceb9819a84b48b306b48bef3ecb796984cb13c",
+      "bytes": 199341
+    },
+    {
+      "name": "primary-2bcff9922b1a5eac",
+      "url": "https://github.com/aozorae/Edgechat/issues/60",
+      "retrieved_at": "2026-11-16T02:40:40.592511+00:00",
+      "final_url": "https://github.com/aozorae/Edgechat/issues/60",
+      "status": "ok",
+      "file": "primary-2bcff9922b1a5eac.gz",
+      "sha256": "2693d871a26d522b3aa126a162187e731ce5f6413eb50d9786221405e5aaaf34",
+      "bytes": 184279
+    },
+    {
+      "name": "primary-a5202d020bbdd466",
+      "url": "https://www.vulncheck.com/advisories/edgechat-2.5.0-through-2.21.0-xss-via-mention-autocomplete-username",
+      "retrieved_at": "2026-11-16T02:40:40.646255+00:00",
+      "final_url": "https://www.vulncheck.com/advisories/edgechat-2.5.0-through-2.21.0-xss-via-mention-autocomplete-username",
+      "status": "ok",
+      "file": "primary-a5202d020bbdd466.gz",
+      "sha256": "4c5839649e4f46e5ef33717a83300a0e6fd18815d9d96ebc85ac7c1e753c3c45",
+      "bytes": 200916
+    },
+    {
+      "name": "primary-e28a10fe48a55072",
+      "url": "https://git.kernel.org/stable/c/4e2b3ef19e0e04adca38442f07dd6bc93c712bf1",
+      "retrieved_at": "2026-11-16T02:40:41.004134+00:00",
+      "final_url": "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=4e2b3ef19e0e04adca38442f07dd6bc93c712bf1",
+      "status": "ok",
+      "file": "primary-e28a10fe48a55072.gz",
+      "sha256": "1810cce5fa368abf7db0abf4b427b3d10ca8f7107277b3124ad7eee0aa99413c",
+      "bytes": 24436
+    },
+    {
+      "name": "primary-8c3b3ce78d0e8392",
+      "url": "https://github.com/advisories/GHSA-h6jf-g8cj-x4v3",
+      "retrieved_at": "2026-11-16T02:40:41.155261+00:00",
+      "final_url": "https://github.com/advisories/GHSA-h6jf-g8cj-x4v3",
+      "status": "ok",
+      "file": "primary-8c3b3ce78d0e8392.gz",
+      "sha256": "853d372f63d8704eacf8a3fc330c8a357fb7d6c4b3e6abaa51efa88475d12d21",
+      "bytes": 119347
+    },
+    {
+      "name": "primary-81204520895faacc",
+      "url": "https://github.com/advisories/GHSA-xxrh-88wg-7qf4",
+      "retrieved_at": "2026-11-16T02:40:41.319034+00:00",
+      "final_url": "https://github.com/advisories/GHSA-xxrh-88wg-7qf4",
+      "status": "ok",
+      "file": "primary-81204520895faacc.gz",
+      "sha256": "b0fd29eeda676bb52fbafab7158efd3f1ba5ba0f86dd6a03501f19d1e0ccf775",
+      "bytes": 119258
+    }
+  ]
+}

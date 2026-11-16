@@ -7036,16 +7036,386 @@ for (const lang of ['ja','en']) {
     : '全140画面を日付順に。11/16 09:00 JSTまでの追加6画面。Gitea 28.4.0・Cyrus SASL・OkHttp・vLLM・Assimp・PrestaShopの境界を図解します。過去の場面は記載時点の記録です。';
 }
 
+/* November 16 11:33 follow-up */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1116-1133-scope",
+    "stamp": "11.16 · 11:33 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "NVD: 9 NEW",
+        "NVD: 10 UPDATED",
+        "GHSA: 2 MALWARE"
+      ],
+      "heading": "OVERLAP / NOT INCIDENT COUNTS"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-16T02:33:00Z",
+    "ja": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "09:00〜11:33の登録・確認窓。",
+      "lede": "CloudPaste：公開共有リンクからWebDAV資格情報へ",
+      "points": [
+        "NVD新規9・改訂10。新規9件は改訂と重複",
+        "GHSA公開2・改訂2は同一のmalware勧告",
+        "新たな7論点と既存GMO記録の更新。全337論点は被害件数ではない"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "09:00–11:33 publication and review window.",
+      "lede": "CloudPaste: public share links can expose WebDAV credentials",
+      "points": [
+        "NVD: 9 published and 10 modified; all 9 published records overlap",
+        "GHSA: the same 2 malware advisories are published and modified",
+        "7 added topics and a revised GMO record; 337 topics are not incident counts"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-16-1133/collection-summary.json"
+      }
+    ],
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1116-1133-webdav",
+    "stamp": "11.16 · 11:33 JST",
+    "visual": {
+      "type": "packageBoundaries",
+      "labels": [
+        "SHARE LINK",
+        "PUBLIC API",
+        "DAV KEY",
+        "STORAGE"
+      ],
+      "details": [
+        "KNOWN SLUG",
+        "NO LOGIN",
+        "REVOKE / ROTATE",
+        "AUDIT ACCESS"
+      ],
+      "heading": "CLOUDPASTE / SHARING AND STORAGE"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-16T02:33:00Z",
+    "ja": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "共有リンクとストレージ権限を分ける。",
+      "lede": "CloudPaste：公開共有リンクからWebDAV資格情報へ",
+      "points": [
+        "公開slugを知る利用者からWebDAVの認証情報へ",
+        "資格情報を取得すると、共有対象以外も権限の範囲で到達し得る",
+        "リンク削除・鍵失効・アクセス調査をそれぞれ確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "Separate shared links from storage permissions.",
+      "lede": "CloudPaste: public share links can expose WebDAV credentials",
+      "points": [
+        "Knowing a public slug can expose backing WebDAV credentials",
+        "Storage access may extend beyond the shared file within the credentials’ permissions",
+        "Check link removal, credential revocation and access investigation separately"
+      ]
+    },
+    "sources": [
+      {
+        "name": "CVE-2026-129494 · NVD/CNA",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129494"
+      },
+      {
+        "name": "Developer / disclosure",
+        "url": "https://github.com/ling-drag0n/CloudPaste/blob/282ea1c7fbbcd4fab40527664bf7479fd5bb922d/backend/src/routes/proxyLinkRoutes.js#L139-L167"
+      }
+    ]
+  },
+  {
+    "id": "motion-1116-1133-jwt",
+    "stamp": "11.16 · 11:33 JST",
+    "visual": {
+      "type": "agentPermissions",
+      "centerLabel": "SEARCH API",
+      "labels": [
+        "USER",
+        "FILTER",
+        "JWT KEY",
+        "MANAGER API"
+      ],
+      "details": [
+        "LOGIN",
+        "ALLOWLIST",
+        "ROTATE",
+        "REVOKE"
+      ],
+      "heading": "VOAPI / AUTHENTICATED INPUT TO SIGNING KEY"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-16T02:33:00Z",
+    "ja": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "検索キーから署名鍵までの認可境界。",
+      "lede": "VoAPI：検索キーのSQL注入からJWT署名鍵へ",
+      "points": [
+        "認証済み利用者がsearch[...]の列名へ入力",
+        "CNA記録はSQL注入からHS256鍵とmanager JWT偽造を説明",
+        "検索制限と署名鍵の更新・token失効は別の対応"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "Authorization boundaries from filter keys to signing keys.",
+      "lede": "VoAPI: SQL injection in filter keys can expose a JWT signing key",
+      "points": [
+        "An authenticated user controls a search[...] column key",
+        "The CNA record describes SQL injection, an HS256 key and forged manager JWTs",
+        "Restricting search and rotating signing keys or invalidating tokens are separate actions"
+      ]
+    },
+    "sources": [
+      {
+        "name": "CVE-2026-129540 · NVD/CNA",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129540"
+      },
+      {
+        "name": "Developer / disclosure",
+        "url": "https://github.com/VoAPI/VoAPI/issues/78"
+      }
+    ]
+  },
+  {
+    "id": "motion-1116-1133-comments",
+    "stamp": "11.16 · 11:33 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "COMMENTS",
+        "MENTIONS",
+        "UPLOAD PATH"
+      ],
+      "details": [
+        "ESCAPE HTML",
+        "TREAT AS DATA",
+        "RESTRICT FILES"
+      ],
+      "heading": "UNTRUSTED INPUT / SESSION AND FILE BOUNDARIES"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-16T02:33:00Z",
+    "ja": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "表示される名前や返信はコードではない。",
+      "lede": "forum-java・Bolo・EdgeChat：コメントとメンションの信頼境界",
+      "points": [
+        "forum-javaはログイン後の投稿と返信操作",
+        "Boloはコメントと記事パスワード、EdgeChatは招待利用者名とメンション",
+        "SSCMSの画像取込は登録済みアカウントからファイル読出し"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "Names and replies should remain data.",
+      "lede": "forum-java, Bolo and EdgeChat: comment and mention trust boundaries",
+      "points": [
+        "forum-java requires an authenticated comment and a reply interaction",
+        "Bolo concerns comments and article passwords; EdgeChat concerns invited-user mentions",
+        "SSCMS image import can expose files to a registered account"
+      ]
+    },
+    "sources": [
+      {
+        "name": "CVE-2026-129491 · NVD/CNA",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129491"
+      },
+      {
+        "name": "Developer / disclosure",
+        "url": "https://github.com/Qbian61/forum-java/blob/63152c49c71ad8121bda6e9a03a7ba7dc39ae52c/forum-portal/src/main/resources/templates/include/comment-list.html#L56-L60"
+      },
+      {
+        "name": "CVE-2026-129492 · NVD/CNA",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129492"
+      },
+      {
+        "name": "Developer / disclosure",
+        "url": "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/service/CommentMgmtService.java#L299-L306"
+      },
+      {
+        "name": "CVE-2026-129493 · NVD/CNA",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129493"
+      },
+      {
+        "name": "Developer / disclosure",
+        "url": "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/processor/ArticleProcessor.java#L442-L478"
+      },
+      {
+        "name": "CVE-2026-129541 · NVD/CNA",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129541"
+      },
+      {
+        "name": "Developer / disclosure",
+        "url": "https://github.com/aozorae/Edgechat/blob/6719ca1a9d50c74285867f9c0e8209983391b8d5/frontend/src/components/chat/VditorComposerEditor.vue#L112-L117"
+      },
+      {
+        "name": "CVE-2026-129539 · NVD/CNA",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129539"
+      },
+      {
+        "name": "Developer / disclosure",
+        "url": "https://github.com/siteserver/cms/blob/09ab59b9dd422782d9e1fe54f05088645f7c93e7/src/SSCMS.Web/Controllers/Home/Common/Form/LayerImageUploadController.Submit.cs#L114-L130"
+      }
+    ]
+  },
+  {
+    "id": "motion-1116-1133-malware",
+    "stamp": "11.16 · 11:33 JST",
+    "visual": {
+      "type": "bundledLayers",
+      "labels": [
+        "NPM PACKAGE",
+        "AFFECTED HOST",
+        "TRUSTED HOST"
+      ],
+      "layers": [
+        [
+          "LOCKFILE",
+          "CACHE",
+          "ARTIFACT"
+        ],
+        [
+          "ISOLATE",
+          "INVESTIGATE",
+          "REBUILD"
+        ],
+        [
+          "REVOKE",
+          "REISSUE",
+          "AUDIT"
+        ]
+      ],
+      "heading": "MALICIOUS PACKAGE / ISOLATE AND ROTATE"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-16T02:33:00Z",
+    "ja": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "配布物から端末、端末から鍵へ。",
+      "lede": "npm不正パッケージ：対象2版とクリーン端末からの鍵更新",
+      "points": [
+        "@univerjs-pro/sheets-pivot-chart 1.5.0",
+        "pmhq-dist-win-x64 9.0.2",
+        "対象環境を隔離し、別の信頼できる端末から鍵を失効。削除だけで復旧完了にしない"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "From package artifacts to machines and credentials.",
+      "lede": "Malicious npm packages: 2 exact versions and clean-device key rotation",
+      "points": [
+        "@univerjs-pro/sheets-pivot-chart 1.5.0",
+        "pmhq-dist-win-x64 9.0.2",
+        "Isolate affected environments and revoke keys from a separate trusted machine; removal alone does not prove recovery"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-h6jf-g8cj-x4v3",
+        "url": "https://github.com/advisories/GHSA-h6jf-g8cj-x4v3"
+      },
+      {
+        "name": "GHSA-xxrh-88wg-7qf4",
+        "url": "https://github.com/advisories/GHSA-xxrh-88wg-7qf4"
+      }
+    ]
+  },
+  {
+    "id": "motion-1116-1133-followup",
+    "stamp": "11.16 · 11:33 JST",
+    "visual": {
+      "type": "firmwareFleet",
+      "labels": [
+        "CONTROL",
+        "SSH / SERVE",
+        "K8S PROXY",
+        "RUNNING NODE",
+        "GMO NOTICE"
+      ],
+      "details": [
+        "0.29.7",
+        "1.104.4+",
+        "1.104.7+",
+        "VERIFY UPDATE",
+        "CONTACT ONLY"
+      ],
+      "heading": "CONTROL / NODE / RECOVERY ARE DISTINCT",
+      "footer": "CHECK EACH COMPONENT / NO RECOVERY CLAIM"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-16T02:33:00Z",
+    "ja": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "制御サーバーと各ノードは別々に更新。",
+      "lede": "headscale 0.29.7とTailscale：制御サーバーとノードを別々に更新",
+      "points": [
+        "headscale 0.29.7だけではtailscaledの修正は適用されない",
+        "SSH・ServeはTailscale 1.104.4以降、条件付きKubernetes proxyは1.104.7以降",
+        "GMOの11/6補償個別連絡は支払完了・全面復旧の宣言ではない"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 11:33 REVIEW",
+      "title": "Update control servers and individual nodes separately.",
+      "lede": "headscale 0.29.7 and Tailscale: update control servers and nodes separately",
+      "points": [
+        "headscale 0.29.7 alone does not apply node-side tailscaled fixes",
+        "SSH and Serve require Tailscale 1.104.4 or later; the conditional Kubernetes proxy issue requires 1.104.7 or later",
+        "GMO’s 11/6 compensation contact is not confirmation of payment completion or full recovery"
+      ]
+    },
+    "sources": [
+      {
+        "name": "headscale 0.29.7",
+        "url": "https://github.com/juanfont/headscale/releases/tag/v0.29.7"
+      },
+      {
+        "name": "TS-2026-018",
+        "url": "https://tailscale.com/security-bulletins#ts-2026-018"
+      },
+      {
+        "name": "Tailscale findings and fixes",
+        "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes"
+      },
+      {
+        "name": "GMO · compensation notice",
+        "url": "https://group.gmo/info/alert/20261106/"
+      }
+    ]
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-16T02:33:00Z", "label": "2026-11-16 11:33 JST", "report": "/update-20261116-1133"};
+for (const lang of ['ja','en']) {
+ const en=lang==='en';
+ window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]='<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/16 11:33 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#141">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/months'+(en?'.en':'')+'">'+(en?'Monthly archive':'月別の記録')+' →</a>';
+ window.CONTENT.ui[lang].coverSub=en?'146 dated scenes. Six new explanations through November 16, 11:33 JST: shared credentials, signing keys, untrusted comments, malicious packages and independent updates.':'全146画面。11/16 11:33 JSTまでの追加6画面。共有先の資格情報、署名鍵、コメント、不正パッケージと個別更新を図解。過去画面は当時の文脈を保持します。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 140,
-    "total": 140
+    "translated": 146,
+    "total": 146
   },
   "ja": {
     "ready": true,
-    "translated": 140,
-    "total": 140
+    "translated": 146,
+    "total": 146
   }
 };

@@ -63,13 +63,13 @@ async function main() {
       await latestLink.click();
       assert.ok(await page.locator('h1').innerText(),'latest link must open article');
       checks++;
-      for (const route of [report, report+'.en','/topics/dbhub-readonly-1103','/topics/dbhub-readonly-1103.en','/topics/sdjwt-disclosure-1103','/topics/npm-malware-1103','/database','/database.en','/impact','/impact.en','/timeline','/briefing', ...currentTopics]) {
+      for (const route of [report, report+'.en','/months','/months.en','/month-2026-10','/month-2026-10.en','/month-2026-11','/month-2026-11.en','/topics/dbhub-readonly-1103','/topics/dbhub-readonly-1103.en','/topics/sdjwt-disclosure-1103','/topics/npm-malware-1103','/database','/database.en','/impact','/impact.en','/timeline','/briefing', ...currentTopics]) {
         const response = await page.goto(origin+route,{waitUntil:'load'});
         assert.equal(response.status(),200,route);
         assert.ok(await page.locator('h1').count(),route+' missing heading');
         assert.ok((await page.locator('main').innerText()).length>100,route+' empty transcript');
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),route+' overflow '+width);
-        if (shots && width===390 && [report,'/impact','/timeline'].includes(route))
+        if (shots && width===390 && [report,'/impact','/timeline','/months','/month-2026-11','/month-2026-10'].includes(route))
           await page.screenshot({path:path.join(shots,route.slice(1)+'-390.png'),fullPage:false});
         checks++;
       }

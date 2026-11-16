@@ -21,6 +21,7 @@ research_scope=sibling("research_scope")
 impact_pages=sibling("impact_pages")
 advisory_details=sibling("advisory_details")
 article_languages=sibling("article_languages")
+monthly_pages=sibling("monthly_pages")
 from urllib.parse import urlsplit, urlunsplit
 import xml.etree.ElementTree as ET
 
@@ -179,7 +180,7 @@ def english_hub():
         article=Info(latest.read_text())
         cutoff=datetime.fromisoformat(LATEST['cutoff_jst'])
         intro=f'<section><h2>Latest research briefing</h2><p><a href="{esc(report)}">{esc(article.title)}</a></p><p>{esc(article.description)}</p><p>Research cutoff: <time datetime="{esc(LATEST["cutoff_jst"])}">{cutoff:%B %d, %Y, %H:%M} JST</time>. This is the research cutoff, not the publication time.</p></section>'
-    sections=[('/database.en','Vulnerability and incident research','Check affected products, conditions, mitigations, and the evidence behind each record.'),('/impact.en','Real-world impact','Review operational disruption, data exposure claims, and recovery status.'),('/timeline.en','Daily incident reports','Follow dated research records and return to their original sources.'),('/briefing.en','Visual briefing transcript','Read the full incident narrative without playing the motion graphics.'),('/tailworm.en','Tailworm research','Review the historical findings, affected boundaries, and response conditions.'),('/about.en','Editorial policy and methodology','Learn who maintains the site, how sources are checked, and how to request corrections.')]
+    sections=[('/database.en','Vulnerability and incident research','Check affected products, conditions, mitigations, and the evidence behind each record.'),('/months.en','Monthly research archive','Browse October and November reviews, including multiple updates on the same day.'),('/impact.en','Real-world impact','Review operational disruption, data exposure claims, and recovery status.'),('/timeline.en','Daily incident reports','Follow dated research records and return to their original sources.'),('/briefing.en','Visual briefing transcript','Read the full incident narrative without playing the motion graphics.'),('/tailworm.en','Tailworm research','Review the historical findings, affected boundaries, and response conditions.'),('/about.en','Editorial policy and methodology','Learn who maintains the site, how sources are checked, and how to request corrections.')]
     cards=''.join(f'<section><h2><a href="{route}">{title}</a></h2><p>{description}</p></section>' for route,title,description in sections if (SITE/(route.lstrip('/')+'.html')).is_file())
     page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{esc(copy['title'])}</title><meta name="description" content="{esc(copy['description'])}"><link rel="stylesheet" href="/update.css"><link rel="stylesheet" href="/daily.css"><link rel="stylesheet" href="/privacy.css"><script defer src="/privacy.js"></script></head><body><a class="skip" href="#content">Skip to content</a><main id="content"><nav class="global" aria-label="Site navigation"><a href="/en/" aria-current="page">English briefings</a><a href="/?lang=en">Visual briefing</a><a href="/">日本語 / Japanese</a><a href="/feed.en.xml">English RSS</a></nav><header><p class="kicker">INFOSEC BRIEFING / INDEPENDENT RESEARCH</p><h1>{esc(copy['heading'])}</h1><p class="intro">{esc(copy['description'])}</p></header>{intro}{cards}<section><h2>Evidence before conclusions</h2><p>We distinguish publication, observed exploitation, patch availability, and recovery. Dated reports retain their historical context; check the latest report and vendor guidance for current actions. These records are curated research, not a worldwide count of incidents.</p><p><a href="/about.en">Editorial policy and corrections</a> · <a href="/feed.en.xml">Subscribe to English updates via RSS</a></p></section></main></body></html>'''
     path=SITE/'en/index.html';path.parent.mkdir(exist_ok=True)
@@ -340,10 +341,14 @@ def discovery(pages):
 
 def main():
     extra_pages()
+    monthly_pages.build(__import__('types').SimpleNamespace(ROOT=ROOT,SITE=SITE,shell=shell,clean_url=clean_url,LATEST=LATEST))
     root=SITE/'index.html'
     root.write_text(root_reading(root.read_text()))
     pages=sorted(SITE.rglob('*.html'))
-    for file in pages:file.write_text(metadata(file,file.read_text()))
+    for file in pages:
+        text=file.read_text()
+        text=monthly_pages.navigation(text,Info(text).language=='en')
+        file.write_text(metadata(file,text))
     article_languages.publish(__import__('types').SimpleNamespace(metadata=metadata,clean_url=clean_url,language_select=language_select,BASE=BASE,impact_en=bool(impact_pages.locale_package(ROOT,LATEST,"en"))))
     impact_pages.publish_locales(__import__('types').SimpleNamespace(ROOT=ROOT,LATEST=LATEST,BASE=BASE,shell=shell,esc=esc,metadata=metadata,language_select=language_select))
     english_hub()

@@ -1,20 +1,19 @@
 {
   "version": 1,
-  "snapshot": "2026-11-16-0900",
-  "register_sha256": "32dfd7b4c887ba3d6b714e681ab641c8ab74fc531f5a997d5e3a62c55d07eb21",
+  "snapshot": "2026-11-16-1133",
+  "register_sha256": "880a44e462f5781dbc26850913138e5363bada1d3a30f299582cce706b48779d",
   "status": "reviewed",
-  "reviewed_at": "2026-11-16T00:00:00Z",
-  "source_register": "2026-11-16-0900/incident-register.json",
+  "reviewed_at": "2026-11-16T02:33:00Z",
+  "source_register": "2026-11-16-1133/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
       "reason": {
-        "ja": "「お名前.com デスクトップクラウド」の契約者向け補償・代替サービス案内を扱う日本中心の個別サービス事案。日本国外の利用者がいないとは断定しない。",
-        "en": "Japan-focused individual service case concerning compensation and alternatives for Onamae.com Desktop Cloud subscribers; this does not assert there are no users outside Japan."
+        "ja": "国内サービスの公式補償案内。",
+        "en": "Official compensation notice for a Japanese domestic service."
       },
       "sources": [
-        "https://group.gmo/info/alert/20261030/",
-        "https://group.gmo/info/alert/2026102902/"
+        "https://group.gmo/info/alert/20261106/"
       ]
     },
     "atlink-beta": {
@@ -3973,6 +3972,93 @@
       },
       "sources": [
         "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
+      ]
+    },
+    "cloudpaste-webdav-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129494",
+        "https://github.com/ling-drag0n/CloudPaste/blob/282ea1c7fbbcd4fab40527664bf7479fd5bb922d/backend/src/routes/proxyLinkRoutes.js#L139-L167"
+      ]
+    },
+    "voapi-jwt-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129540",
+        "https://github.com/VoAPI/VoAPI/issues/78"
+      ]
+    },
+    "comment-mention-xss-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129491",
+        "https://github.com/Qbian61/forum-java/blob/63152c49c71ad8121bda6e9a03a7ba7dc39ae52c/forum-portal/src/main/resources/templates/include/comment-list.html#L56-L60",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129492",
+        "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/service/CommentMgmtService.java#L299-L306",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129493",
+        "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/processor/ArticleProcessor.java#L442-L478",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129541",
+        "https://github.com/aozorae/Edgechat/blob/6719ca1a9d50c74285867f9c0e8209983391b8d5/frontend/src/components/chat/VditorComposerEditor.vue#L112-L117"
+      ]
+    },
+    "sscms-file-read-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129539",
+        "https://github.com/siteserver/cms/blob/09ab59b9dd422782d9e1fe54f05088645f7c93e7/src/SSCMS.Web/Controllers/Home/Common/Form/LayerImageUploadController.Submit.cs#L114-L130"
+      ]
+    },
+    "starfish-linux-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129542",
+        "https://github.com/Samsung/starfish",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129543",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-99288",
+        "https://git.kernel.org/stable/c/4e2b3ef19e0e04adca38442f07dd6bc93c712bf1"
+      ]
+    },
+    "npm-malware-1133": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-h6jf-g8cj-x4v3",
+        "https://github.com/advisories/GHSA-xxrh-88wg-7qf4"
+      ]
+    },
+    "headscale-security-followup-1133": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://github.com/juanfont/headscale/releases/tag/v0.29.7",
+        "https://tailscale.com/security-bulletins#ts-2026-018",
+        "https://tailscale.com/blog/tailscale-ssh-findings-fixes"
       ]
     }
   }

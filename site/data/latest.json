@@ -1,56 +1,50 @@
 {
-  "cutoff": "2026-11-16T00:00:00Z",
-  "cutoff_jst": "2026-11-16T09:00:00+09:00",
+  "cutoff": "2026-11-16T02:33:00Z",
+  "cutoff_jst": "2026-11-16T11:33:00+09:00",
   "counts": {
-    "nvd_published": 112,
-    "nvd_modified": 123,
-    "published_modified_overlap": 112,
-    "ghsa": 98,
-    "ghsa_unreviewed": 93,
+    "nvd_published": 9,
+    "nvd_modified": 10,
+    "published_modified_overlap": 9,
+    "ghsa": 2,
     "ghsa_reviewed": 0,
-    "ghsa_malware": 5,
-    "ghsa_modified": 106,
-    "ghsa_published_modified_overlap": 98,
-    "ghsa_current_published_overlap": 91,
-    "ghsa_previous_published_overlap": 2,
-    "record_topic_groups": 330,
-    "delta_topic_groups": 10,
-    "scope_complement_topic_groups": 320,
+    "ghsa_unreviewed": 0,
+    "ghsa_malware": 2,
+    "ghsa_modified": 2,
+    "ghsa_published_modified_overlap": 2,
+    "record_topic_groups": 337,
+    "delta_topic_groups": 6,
+    "scope_complement_topic_groups": 331,
     "reference_only_topic_groups": 0,
-    "verified_response_records": 53,
-    "deduplicated_previous_references": 35
+    "verified_response_records": 41,
+    "deduplicated_previous_references": 0
   },
   "caveats": [
-    "件数はDB記録・編集上の論点で、攻撃や被害の件数ではありません。NVD／GHSAおよび公開／改訂の重複を合算しません。",
-    "過去320論点と実影響22事例は前回文脈を保持しています。過去全件の本文再精査や復旧確認はしていません。",
-    "API照会は基準後。公表・登録・改訂・取得時刻を区別し、取得時点の本文から過去の全改訂は復元しません。",
-    "GHSA reviewed公開は0件、malware 5勧告は対象版表を保存。unreviewed 93記録は原本・索引へ保存し、全本文を独立検証したとは主張しません。",
-    "KEVは2026.11.13版・1,781件で前回と同一バイト（追加0件）。IPA旧feedは404（fallback成功）、Feishuはredirect loopです。",
-    "一次資料で修正リリース版が未記載・未提供の項目（Cyrus SASL 2.1.28以下、OkHttp 5.5.1以下、Assimp 6.0.6以下、littlefs 2.11.3以下、Zr.Admin.NET、Magma 1.9.0以下、D-Link EoL機器、一部のWordPressプラグイン等）に推測で修正版番号を補いません。"
+    "件数はDB記録・編集上の論点で、攻撃や被害の件数ではありません。新規9件は改訂10件のうち9件と重複し、GHSA公開2件は改訂2件と同一です。",
+    "前回330論点を保持し、新たに7論点を追加、GMOの既存記録を更新しました。今回の精査は追加項目と明示した続報に限り、全履歴の再確認ではありません。",
+    "NVDは新規9件・改訂10件、GHSAはmalware 2件、reviewed 0件・unreviewed 0件を全ページ取得。新規記録は主にCNAのReceived情報で、記載された修正リリースがなければ未確認のままとします。",
+    "KEVは2026.11.13版・1,781件。09:00の原本と同一で追加0件。登録日時を攻撃開始日時と解釈しません。",
+    "実影響22事例は過去の文脈を保持し、今回の全面的な復旧確認ではありません。原本取得の失敗・無関係な転送先・challenge応答は収集台帳に記録し、内容確認の根拠にしません。",
+    "APIは基準後の現行改訂を取得しました。公表・DB登録・改訂・取得を区別し、過去の全改訂は復元できません。"
   ],
   "records": [
     {
       "id": "gmo-domain-stop",
-      "title": "GMO：お見舞金・代替サービスの個別連絡開始、情報提供428件",
-      "body": "10月30日15:30、お見舞金の受取手続きと代替サービスについて契約者への直接連絡を開始したと公表。第16報の同日18:00時点で情報提供は累計428件。これは被害者数や逮捕件数ではなく、支払完了・サービス復旧も未確認。",
-      "action": "公式の個別連絡で手続き・代替環境・補償条件を確認する。便乗した認証情報・手数料要求に応じない。",
+      "cve_ids": [],
+      "kind": "scope-complement",
+      "title": "GMO：11月6日から不正取引損失の補償について個別連絡",
+      "body": "11月6日18:00の公式案内は、不正アクセスに起因する顧客の意思によらない取引の損失補償について、契約者への個別連絡を同日から開始したとする。詳細条件は第4報を参照する案内で、補償金の支払完了やサービス全面復旧を宣言したものではない。",
+      "action": "登録先への公式連絡と第4報の補償条件を照合する。不審なサイトや流出物を閲覧・拡散せず、手数料やログイン情報を求める便乗連絡に応じない。",
+      "time": "11/06 18:00 JST公式案内 / 11/16再確認",
+      "date": "2026-11-06",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
-          "name": "GMO 10/30 customer notice",
-          "url": "https://group.gmo/info/alert/20261030/"
-        },
-        {
-          "name": "GMO notice16",
-          "url": "https://group.gmo/info/alert/2026102902/"
+          "name": "GMO · compensation notice",
+          "url": "https://group.gmo/info/alert/20261106/"
         }
-      ],
-      "kind": "scope-complement",
-      "time": "10/30 15:30・18:00 JST / 前回資料の文脈・今回の本文再精査は未実施",
-      "cve_ids": [],
-      "certainty": "confirmed-publication",
-      "date": "2026-10-30",
-      "monitoring_status": "retained-prior-context",
-      "last_editorial_review": "2026-10-30T10:31:35Z"
+      ]
     },
     {
       "id": "atlink-beta",
@@ -71657,7 +71651,7 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 Gitea 28.4.0公表・NVD登録 / 取得時点の本文",
       "cve_ids": [
         "CVE-2026-125423",
@@ -71683,7 +71677,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71709,7 +71703,7 @@
           "url": "https://github.com/lysine-dev/okhttp/commit/30aa589761a9b4f5fe84c00e21e5ab44b22bd7c1"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 NVD登録・上流コミット確認 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-129483",
@@ -71717,7 +71711,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71743,7 +71737,7 @@
           "url": "https://github.com/yuzutech/kroki/releases/tag/v0.36.0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 NVD登録・リリース確認 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-129356",
@@ -71753,7 +71747,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71779,7 +71773,7 @@
           "url": "https://github.com/Samsung/escargot/commit/8bc35b7b88f0f96c66a42aa965a1a710308b61d5"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 NVD公開・改訂窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-129477",
@@ -71796,7 +71790,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71822,7 +71816,7 @@
           "url": "https://github.com/FRRouting/frr/commit/5c241056777b27b209bc89326f0061ec6d5e0924"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 NVD改訂窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-71519",
@@ -71832,7 +71826,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71846,7 +71840,7 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 NVD登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-129454",
@@ -71864,7 +71858,7 @@
       ],
       "certainty": "CNA-unreviewed",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71882,7 +71876,7 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-15T00%3A00%3A00.000&lastModEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 NVD公開・改訂窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-129449",
@@ -71899,7 +71893,7 @@
       ],
       "certainty": "CNA-unreviewed",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71913,7 +71907,7 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 NVD登録・公表窓 / 取得時点の改訂",
       "cve_ids": [
         "CVE-2026-127048",
@@ -71936,7 +71930,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z"
     },
     {
@@ -71950,12 +71944,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 09:00〜11/16 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z",
       "advisories": [
         {
@@ -72028,12 +72022,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "time": "11/15 09:00〜11/16 09:00 JSTの登録・公表窓 / 取得時点の改訂",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-16",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T00:00:00Z",
       "advisories": [
         {
@@ -72075,18 +72069,267 @@
           ]
         }
       ]
+    },
+    {
+      "id": "cloudpaste-webdav-1116",
+      "cve_ids": [
+        "CVE-2026-129494"
+      ],
+      "title": "CloudPaste：公開共有リンクからWebDAV資格情報へ",
+      "body": "CVE-2026-129494のCNA記録はCloudPaste 1.1.0〜1.9.1を対象とする。公開共有slugを知る未認証の利用者が/api/proxy/linkの応答からWebDAVのBasic Authorizationを取得し、接続先のファイル読出し・変更・削除へ進む可能性がある。修正リリース番号は今回の資料では確認できない。",
+      "action": "公開共有とWebDAV連携の経路を制限し、ストレージ資格情報を失効・再発行する。漏れた共有リンクの削除だけで済ませず、WebDAV側のアクセス履歴と権限範囲を調査する。",
+      "kind": "delta",
+      "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
+      "date": "2026-11-16",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
+      "sources": [
+        {
+          "name": "CVE-2026-129494 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129494"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/ling-drag0n/CloudPaste/blob/282ea1c7fbbcd4fab40527664bf7479fd5bb922d/backend/src/routes/proxyLinkRoutes.js#L139-L167"
+        }
+      ]
+    },
+    {
+      "id": "voapi-jwt-1116",
+      "cve_ids": [
+        "CVE-2026-129540"
+      ],
+      "title": "VoAPI：検索キーのSQL注入からJWT署名鍵へ",
+      "body": "CVE-2026-129540はVoAPI 1.0.0〜1.2.0の認証済み利用者を起点とする。GET /api/log等のsearch[...]のキーをSQL列名として扱うことで、optionテーブルのHS256署名鍵を読み、manager権限のJWTを偽造できるとのCNA記録。未認証で直接成立するという説明ではなく、修正版番号も未確認。",
+      "action": "一般利用者向け検索APIの到達範囲を制限し、列名の許可リスト化を確認する。影響が疑われる環境は署名鍵を更新して既存tokenを失効し、管理APIと外部サービス鍵の利用履歴を調査する。",
+      "kind": "delta",
+      "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
+      "date": "2026-11-16",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
+      "sources": [
+        {
+          "name": "CVE-2026-129540 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129540"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/VoAPI/VoAPI/issues/78"
+        }
+      ]
+    },
+    {
+      "id": "comment-mention-xss-1116",
+      "cve_ids": [
+        "CVE-2026-129491",
+        "CVE-2026-129492",
+        "CVE-2026-129493",
+        "CVE-2026-129541"
+      ],
+      "title": "forum-java・Bolo・EdgeChat：コメントとメンションの信頼境界",
+      "body": "forum-java commit 20f7e68〜63152c4の認証後コメント返信XSS、Bolo 1.7〜2.6.4の未認証コメントXSSと記事パスワード漏えい、EdgeChat 2.5.0〜2.21.0の招待利用者名を介したメンションXSSを区別する。閲覧・返信・メンション等の操作条件があり、CNA公表は全利用者のアカウント侵害を意味しない。修正リリースは未確認。",
+      "action": "不信なコメントや利用者名をHTMLとして描画せず、返信・メンション機能を制限する。保護記事の秘密を公開一覧APIから除き、既存セッションと公開済み記事パスワードを必要に応じて更新する。",
+      "kind": "delta",
+      "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
+      "date": "2026-11-16",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
+      "sources": [
+        {
+          "name": "CVE-2026-129491 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129491"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/Qbian61/forum-java/blob/63152c49c71ad8121bda6e9a03a7ba7dc39ae52c/forum-portal/src/main/resources/templates/include/comment-list.html#L56-L60"
+        },
+        {
+          "name": "CVE-2026-129492 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129492"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/service/CommentMgmtService.java#L299-L306"
+        },
+        {
+          "name": "CVE-2026-129493 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129493"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/processor/ArticleProcessor.java#L442-L478"
+        },
+        {
+          "name": "CVE-2026-129541 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129541"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/aozorae/Edgechat/blob/6719ca1a9d50c74285867f9c0e8209983391b8d5/frontend/src/components/chat/VditorComposerEditor.vue#L112-L117"
+        }
+      ]
+    },
+    {
+      "id": "sscms-file-read-1116",
+      "cve_ids": [
+        "CVE-2026-129539"
+      ],
+      "title": "SSCMS：利用者向け画像取込からサーバーファイル読出し",
+      "body": "CVE-2026-129539のCNA記録はSSCMS 7.2.0〜7.4.0を対象とし、登録済みuser-centerアカウントからlayerImageUploadへsiteId 0とfilePathsを渡し、サーバー上の設定ファイル等を公開アップロード領域へコピーできるとする。管理者権限が必要な操作とは限らない。修正リリース番号は未確認。",
+      "action": "利用者向け画像取込APIを制限し、入力元パスの検査と公開アップロード領域を点検する。コピーされた設定や接続情報がないか調べ、露出した資格情報を発行元で更新する。",
+      "kind": "delta",
+      "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
+      "date": "2026-11-16",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
+      "sources": [
+        {
+          "name": "CVE-2026-129539 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129539"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/siteserver/cms/blob/09ab59b9dd422782d9e1fe54f05088645f7c93e7/src/SSCMS.Web/Controllers/Home/Common/Form/LayerImageUploadController.Submit.cs#L114-L130"
+        }
+      ]
+    },
+    {
+      "id": "starfish-linux-1116",
+      "cve_ids": [
+        "CVE-2026-129542",
+        "CVE-2026-129543",
+        "CVE-2026-99288"
+      ],
+      "title": "Starfishの短いCNA記録とLinux TCP参照競合の改訂",
+      "body": "Samsung StarfishはCVE-2026-129542の外部からのファイル到達とCVE-2026-129543の型混同が登録されたが、対象版・修正版の具体的な番号は本文にない。Linux CVE-2026-99288の改訂は、TCP established検索で再利用された未hashのsocketを返す競合とpanic再現を説明する。DB登録・改訂を新規の実被害と数えない。",
+      "action": "Starfishは利用状況と開発元の追加案内を確認し、不信な入力を隔離する。Linuxは配布元のbackport状況と実稼働kernelを確認し、必要な更新・再起動を行う。根拠のない最低修正版を補わない。",
+      "kind": "delta",
+      "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
+      "date": "2026-11-16",
+      "certainty": "CNA-unreviewed",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
+      "sources": [
+        {
+          "name": "CVE-2026-129542 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129542"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://github.com/Samsung/starfish"
+        },
+        {
+          "name": "CVE-2026-129543 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129543"
+        },
+        {
+          "name": "CVE-2026-99288 · NVD/CNA",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99288"
+        },
+        {
+          "name": "Developer / disclosure",
+          "url": "https://git.kernel.org/stable/c/4e2b3ef19e0e04adca38442f07dd6bc93c712bf1"
+        }
+      ]
+    },
+    {
+      "id": "npm-malware-1133",
+      "cve_ids": [],
+      "title": "npm不正パッケージ：対象2版とクリーン端末からの鍵更新",
+      "body": "GitHubのmalware勧告は@univerjs-pro/sheets-pivot-chart = 1.5.0（GHSA-h6jf-g8cj-x4v3）とpmhq-dist-win-x64 = 9.0.2（GHSA-xxrh-88wg-7qf4）を対象とする。修正版は記載されていない。同名の全版やnpm全体を不正と扱わず、導入・実行した環境を侵害想定で調査する。",
+      "action": "lockfile、CIキャッシュ、配布物で対象版の導入を確認する。影響端末を隔離し、別の信頼できる端末から鍵を失効・再発行する。パッケージ削除だけで永続化や漏えいが解消したとは判断しない。",
+      "kind": "delta",
+      "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
+      "date": "2026-11-16",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
+      "sources": [
+        {
+          "name": "GHSA-h6jf-g8cj-x4v3",
+          "url": "https://github.com/advisories/GHSA-h6jf-g8cj-x4v3"
+        },
+        {
+          "name": "GHSA-xxrh-88wg-7qf4",
+          "url": "https://github.com/advisories/GHSA-xxrh-88wg-7qf4"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-h6jf-g8cj-x4v3",
+          "url": "https://github.com/advisories/GHSA-h6jf-g8cj-x4v3",
+          "summary": "Malware in @univerjs-pro/sheets-pivot-chart",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@univerjs-pro/sheets-pivot-chart"
+              },
+              "vulnerable_version_range": "= 1.5.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-xxrh-88wg-7qf4",
+          "url": "https://github.com/advisories/GHSA-xxrh-88wg-7qf4",
+          "summary": "Malware in pmhq-dist-win-x64",
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "pmhq-dist-win-x64"
+              },
+              "vulnerable_version_range": "= 9.0.2",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "headscale-security-followup-1133",
+      "cve_ids": [],
+      "kind": "scope-complement",
+      "title": "headscale 0.29.7とTailscale：制御サーバーとノードを別々に更新",
+      "body": "10月30日公開のheadscale 0.29.7はTailworm等の指摘に対するセキュリティリリースで、headscale 0.29.7とTailscale 1.104.4以降の両方を推奨する。SSH・Serveの修正は各ノードのtailscaledで動作し、制御サーバーだけの更新では適用されない。11月12日のTS-2026-018は条件付きのKubernetes API proxy問題で、別途1.104.7以降が必要。",
+      "action": "headscaleと各ノードの実稼働版を別々に確認する。専用ProxyGroupのkube-apiserver proxyでacceptRoutesを有効にしサブネット経由の到達を許す場合は、1.104.7以降へ更新してKubernetes監査ログのなりすましを調査する。",
+      "time": "10/30 headscale release・11/12 bulletin / 11/16再確認",
+      "date": "2026-11-12",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "reviewed-current-sources",
+      "last_editorial_review": "2026-11-16T02:33:00Z",
+      "sources": [
+        {
+          "name": "headscale 0.29.7",
+          "url": "https://github.com/juanfont/headscale/releases/tag/v0.29.7"
+        },
+        {
+          "name": "TS-2026-018",
+          "url": "https://tailscale.com/security-bulletins#ts-2026-018"
+        },
+        {
+          "name": "Tailscale findings and fixes",
+          "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes"
+        }
+      ]
     }
   ],
   "research_scope": {
     "gmo-domain-stop": {
       "scope": "japan",
       "reason": {
-        "ja": "「お名前.com デスクトップクラウド」の契約者向け補償・代替サービス案内を扱う日本中心の個別サービス事案。日本国外の利用者がいないとは断定しない。",
-        "en": "Japan-focused individual service case concerning compensation and alternatives for Onamae.com Desktop Cloud subscribers; this does not assert there are no users outside Japan."
+        "ja": "国内サービスの公式補償案内。",
+        "en": "Official compensation notice for a Japanese domestic service."
       },
       "sources": [
-        "https://group.gmo/info/alert/20261030/",
-        "https://group.gmo/info/alert/2026102902/"
+        "https://group.gmo/info/alert/20261106/"
       ]
     },
     "atlink-beta": {
@@ -76046,8 +76289,95 @@
       "sources": [
         "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
       ]
+    },
+    "cloudpaste-webdav-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129494",
+        "https://github.com/ling-drag0n/CloudPaste/blob/282ea1c7fbbcd4fab40527664bf7479fd5bb922d/backend/src/routes/proxyLinkRoutes.js#L139-L167"
+      ]
+    },
+    "voapi-jwt-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129540",
+        "https://github.com/VoAPI/VoAPI/issues/78"
+      ]
+    },
+    "comment-mention-xss-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129491",
+        "https://github.com/Qbian61/forum-java/blob/63152c49c71ad8121bda6e9a03a7ba7dc39ae52c/forum-portal/src/main/resources/templates/include/comment-list.html#L56-L60",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129492",
+        "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/service/CommentMgmtService.java#L299-L306",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129493",
+        "https://github.com/bolo-blog/bolo-solo/blob/e0ab6b1f57a4ba66b4a42a7b6ceafb87c33290cc/src/main/java/org/b3log/solo/processor/ArticleProcessor.java#L442-L478",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129541",
+        "https://github.com/aozorae/Edgechat/blob/6719ca1a9d50c74285867f9c0e8209983391b8d5/frontend/src/components/chat/VditorComposerEditor.vue#L112-L117"
+      ]
+    },
+    "sscms-file-read-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129539",
+        "https://github.com/siteserver/cms/blob/09ab59b9dd422782d9e1fe54f05088645f7c93e7/src/SSCMS.Web/Controllers/Home/Common/Form/LayerImageUploadController.Submit.cs#L114-L130"
+      ]
+    },
+    "starfish-linux-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129542",
+        "https://github.com/Samsung/starfish",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-129543",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-99288",
+        "https://git.kernel.org/stable/c/4e2b3ef19e0e04adca38442f07dd6bc93c712bf1"
+      ]
+    },
+    "npm-malware-1133": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-h6jf-g8cj-x4v3",
+        "https://github.com/advisories/GHSA-xxrh-88wg-7qf4"
+      ]
+    },
+    "headscale-security-followup-1133": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開ソフトウェア・パッケージの利用条件による影響で、所在地は限定されない。",
+        "en": "Exposure depends on use of public software or packages rather than a specific country."
+      },
+      "sources": [
+        "https://github.com/juanfont/headscale/releases/tag/v0.29.7",
+        "https://tailscale.com/security-bulletins#ts-2026-018",
+        "https://tailscale.com/blog/tailscale-ssh-findings-fixes"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-16-0900/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-16-1133/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

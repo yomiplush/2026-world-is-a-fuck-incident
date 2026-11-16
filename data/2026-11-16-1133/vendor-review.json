@@ -1,0 +1,64 @@
+{
+  "cutoff": "2026-11-16T02:33:00Z",
+  "reviewed_ids": [
+    "cloudpaste-webdav-1116",
+    "voapi-jwt-1116",
+    "comment-mention-xss-1116",
+    "sscms-file-read-1116",
+    "starfish-linux-1116",
+    "npm-malware-1133",
+    "headscale-security-followup-1133",
+    "gmo-domain-stop"
+  ],
+  "sources": [
+    {
+      "name": "tailscale-findings",
+      "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes",
+      "retrieved_at": "2026-11-16T02:31:07.936994+00:00",
+      "final_url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes",
+      "content_type": "text/html; charset=utf-8",
+      "status": "ok",
+      "file": "tailscale-findings.gz",
+      "bytes": 134422,
+      "sha256": "1a448bbefc21cebf07e541103c2bc6609087c34da405d5724fddc14aac05ef4e",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "tailscale-bulletins",
+      "url": "https://tailscale.com/security-bulletins",
+      "retrieved_at": "2026-11-16T02:31:07.937468+00:00",
+      "final_url": "https://tailscale.com/security-bulletins",
+      "content_type": "text/html; charset=utf-8",
+      "status": "ok",
+      "file": "tailscale-bulletins.gz",
+      "bytes": 413403,
+      "sha256": "98ae3d8b95588846c559de342562583099201140028d9b1aa9ace1d20c2d8eb2",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "headscale-releases",
+      "url": "https://api.github.com/repos/juanfont/headscale/releases?per_page=5",
+      "retrieved_at": "2026-11-16T02:31:08.415033+00:00",
+      "final_url": "https://api.github.com/repos/juanfont/headscale/releases?per_page=5",
+      "content_type": "application/json; charset=utf-8",
+      "status": "ok",
+      "file": "headscale-releases.gz",
+      "bytes": 116498,
+      "sha256": "48a88918c9010f57c3795addbdab24a73aed257eaf15608cfa654add3d6232a6",
+      "sha256_is": "decompressed bytes"
+    },
+    {
+      "name": "gmo-compensation",
+      "url": "https://group.gmo/info/alert/20261106/",
+      "retrieved_at": "2026-11-16T02:31:08.522842+00:00",
+      "final_url": "https://group.gmo/info/alert/20261106/",
+      "content_type": "text/html; charset=UTF-8",
+      "status": "ok",
+      "file": "gmo-compensation.gz",
+      "bytes": 46644,
+      "sha256": "795385239c498fc952a3b0b14675ddde9c9c1b918c49a76220d1610071747790",
+      "sha256_is": "decompressed bytes"
+    }
+  ],
+  "note": "Selected follow-up review; all other historical rows retain prior context."
+}

@@ -1,0 +1,70 @@
+{
+ "records": [
+  {
+   "id":"cloudpaste-webdav-1116",
+   "cve_ids":["CVE-2026-129494"],
+   "title":"CloudPaste：公開共有リンクからWebDAV資格情報へ",
+   "body":"CVE-2026-129494のCNA記録はCloudPaste 1.1.0〜1.9.1を対象とする。公開共有slugを知る未認証の利用者が/api/proxy/linkの応答からWebDAVのBasic Authorizationを取得し、接続先のファイル読出し・変更・削除へ進む可能性がある。修正リリース番号は今回の資料では確認できない。",
+   "action":"公開共有とWebDAV連携の経路を制限し、ストレージ資格情報を失効・再発行する。漏れた共有リンクの削除だけで済ませず、WebDAV側のアクセス履歴と権限範囲を調査する。",
+   "en":{"title":"CloudPaste: public share links can expose WebDAV credentials","body":"The CNA record for CVE-2026-129494 covers CloudPaste 1.1.0–1.9.1. An unauthenticated user knowing a public share slug may obtain WebDAV Basic Authorization from /api/proxy/link responses and then read, modify or delete files on the backing storage. A fixed release number was not confirmed in the reviewed material.","action":"Restrict public-sharing and WebDAV integration routes, and revoke and replace storage credentials. Removing a shared link alone is insufficient; review WebDAV access logs and the credentials' permission scope."}
+  },
+  {
+   "id":"voapi-jwt-1116",
+   "cve_ids":["CVE-2026-129540"],
+   "title":"VoAPI：検索キーのSQL注入からJWT署名鍵へ",
+   "body":"CVE-2026-129540はVoAPI 1.0.0〜1.2.0の認証済み利用者を起点とする。GET /api/log等のsearch[...]のキーをSQL列名として扱うことで、optionテーブルのHS256署名鍵を読み、manager権限のJWTを偽造できるとのCNA記録。未認証で直接成立するという説明ではなく、修正版番号も未確認。",
+   "action":"一般利用者向け検索APIの到達範囲を制限し、列名の許可リスト化を確認する。影響が疑われる環境は署名鍵を更新して既存tokenを失効し、管理APIと外部サービス鍵の利用履歴を調査する。",
+   "en":{"title":"VoAPI: SQL injection in filter keys can expose a JWT signing key","body":"CVE-2026-129540 starts with an authenticated user on VoAPI 1.0.0–1.2.0. The CNA record describes search[...] keys being interpreted as SQL column names on routes such as GET /api/log, exposing the HS256 signing key in the option table and allowing forged manager JWTs. Direct unauthenticated exploitation and a fixed release number were not established.","action":"Restrict access to user-facing search APIs and verify an allowlist of column names. Where exposure is suspected, replace the signing key, invalidate existing tokens and investigate management API and external service credential use."}
+  },
+  {
+   "id":"comment-mention-xss-1116",
+   "cve_ids":["CVE-2026-129491","CVE-2026-129492","CVE-2026-129493","CVE-2026-129541"],
+   "title":"forum-java・Bolo・EdgeChat：コメントとメンションの信頼境界",
+   "body":"forum-java commit 20f7e68〜63152c4の認証後コメント返信XSS、Bolo 1.7〜2.6.4の未認証コメントXSSと記事パスワード漏えい、EdgeChat 2.5.0〜2.21.0の招待利用者名を介したメンションXSSを区別する。閲覧・返信・メンション等の操作条件があり、CNA公表は全利用者のアカウント侵害を意味しない。修正リリースは未確認。",
+   "action":"不信なコメントや利用者名をHTMLとして描画せず、返信・メンション機能を制限する。保護記事の秘密を公開一覧APIから除き、既存セッションと公開済み記事パスワードを必要に応じて更新する。",
+   "en":{"title":"forum-java, Bolo and EdgeChat: comment and mention trust boundaries","body":"Separate authenticated reply-dialog XSS in forum-java commits 20f7e68–63152c4, unauthenticated comment XSS and article-password disclosure in Bolo 1.7–2.6.4, and invited-user mention XSS in EdgeChat 2.5.0–2.21.0. Viewing, replying or mentioning has distinct prerequisites. CNA publication does not establish compromise of every account, and fixed releases were not confirmed.","action":"Avoid rendering untrusted comments or usernames as HTML and restrict reply and mention features. Remove protected-article secrets from public listing APIs, and replace exposed article passwords and sessions where necessary."}
+  },
+  {
+   "id":"sscms-file-read-1116",
+   "cve_ids":["CVE-2026-129539"],
+   "title":"SSCMS：利用者向け画像取込からサーバーファイル読出し",
+   "body":"CVE-2026-129539のCNA記録はSSCMS 7.2.0〜7.4.0を対象とし、登録済みuser-centerアカウントからlayerImageUploadへsiteId 0とfilePathsを渡し、サーバー上の設定ファイル等を公開アップロード領域へコピーできるとする。管理者権限が必要な操作とは限らない。修正リリース番号は未確認。",
+   "action":"利用者向け画像取込APIを制限し、入力元パスの検査と公開アップロード領域を点検する。コピーされた設定や接続情報がないか調べ、露出した資格情報を発行元で更新する。",
+   "en":{"title":"SSCMS: user image import can expose server-side files","body":"The CNA record for CVE-2026-129539 covers SSCMS 7.2.0–7.4.0. A registered user-center account may supply siteId 0 and filePaths to layerImageUpload to copy server files, including configuration, into a public upload directory. This does not necessarily require an administrator account. A fixed release number was not confirmed.","action":"Restrict user image-import APIs, validate source paths and inspect public upload directories. Investigate copied configuration and connection details, and replace exposed credentials at their issuers."}
+  },
+  {
+   "id":"starfish-linux-1116",
+   "cve_ids":["CVE-2026-129542","CVE-2026-129543","CVE-2026-99288"],
+   "title":"Starfishの短いCNA記録とLinux TCP参照競合の改訂",
+   "body":"Samsung StarfishはCVE-2026-129542の外部からのファイル到達とCVE-2026-129543の型混同が登録されたが、対象版・修正版の具体的な番号は本文にない。Linux CVE-2026-99288の改訂は、TCP established検索で再利用された未hashのsocketを返す競合とpanic再現を説明する。DB登録・改訂を新規の実被害と数えない。",
+   "action":"Starfishは利用状況と開発元の追加案内を確認し、不信な入力を隔離する。Linuxは配布元のbackport状況と実稼働kernelを確認し、必要な更新・再起動を行う。根拠のない最低修正版を補わない。",
+   "en":{"title":"Sparse Starfish CNA records and a Linux TCP lookup revision","body":"Samsung Starfish records CVE-2026-129542 for external file access and CVE-2026-129543 for type confusion, without concrete affected or fixed version numbers in the description. The CVE-2026-99288 Linux revision explains a TCP established-lookup race returning a reused, unhashed socket and a reproduced panic. Database publication or revision is not a new observed incident.","action":"Inventory Starfish use, monitor developer guidance and isolate untrusted input. For Linux, check distribution backports and the running kernel, then update and reboot as required. Do not invent a minimum fixed version."}
+  },
+  {
+   "id":"npm-malware-1133",
+   "cve_ids":[],
+   "title":"npm不正パッケージ：対象2版とクリーン端末からの鍵更新",
+   "body":"GitHubのmalware勧告は@univerjs-pro/sheets-pivot-chart = 1.5.0（GHSA-h6jf-g8cj-x4v3）とpmhq-dist-win-x64 = 9.0.2（GHSA-xxrh-88wg-7qf4）を対象とする。修正版は記載されていない。同名の全版やnpm全体を不正と扱わず、導入・実行した環境を侵害想定で調査する。",
+   "action":"lockfile、CIキャッシュ、配布物で対象版の導入を確認する。影響端末を隔離し、別の信頼できる端末から鍵を失効・再発行する。パッケージ削除だけで永続化や漏えいが解消したとは判断しない。",
+   "en":{"title":"Malicious npm packages: two exact versions and clean-device key rotation","body":"GitHub malware advisories cover @univerjs-pro/sheets-pivot-chart = 1.5.0 (GHSA-h6jf-g8cj-x4v3) and pmhq-dist-win-x64 = 9.0.2 (GHSA-xxrh-88wg-7qf4). No patched version is listed. Do not classify every version or npm as malicious; investigate environments that installed or ran the affected versions as potentially compromised.","action":"Check lockfiles, CI caches and distributed artifacts for the affected versions. Isolate affected machines and revoke and replace credentials from a separate trusted device. Package removal alone does not establish that persistence or data exposure has ended."}
+  },
+  {
+   "id":"headscale-security-followup-1133",
+   "cve_ids":[],
+   "kind":"scope-complement",
+   "title":"headscale 0.29.7とTailscale：制御サーバーとノードを別々に更新",
+   "body":"10月30日公開のheadscale 0.29.7はTailworm等の指摘に対するセキュリティリリースで、headscale 0.29.7とTailscale 1.104.4以降の両方を推奨する。SSH・Serveの修正は各ノードのtailscaledで動作し、制御サーバーだけの更新では適用されない。11月12日のTS-2026-018は条件付きのKubernetes API proxy問題で、別途1.104.7以降が必要。",
+   "action":"headscaleと各ノードの実稼働版を別々に確認する。専用ProxyGroupのkube-apiserver proxyでacceptRoutesを有効にしサブネット経由の到達を許す場合は、1.104.7以降へ更新してKubernetes監査ログのなりすましを調査する。",
+   "en":{"title":"headscale 0.29.7 and Tailscale: update control servers and nodes separately","body":"Released on October 30, headscale 0.29.7 addresses Tailworm and other security findings and recommends both headscale 0.29.7 and Tailscale 1.104.4 or later. SSH and Serve fixes run in each node's tailscaled; updating only the control server does not apply them. November 12 bulletin TS-2026-018 concerns a conditional Kubernetes API proxy issue and separately requires 1.104.7 or later.","action":"Check the running headscale and node versions separately. For dedicated kube-apiserver ProxyGroup deployments with acceptRoutes enabled and access from routed subnets, update to 1.104.7 or later and investigate Kubernetes audit logs for unexpected impersonation."}
+  },
+  {
+   "id":"gmo-domain-stop",
+   "cve_ids":[],
+   "kind":"scope-complement",
+   "title":"GMO：11月6日から不正取引損失の補償について個別連絡",
+   "body":"11月6日18:00の公式案内は、不正アクセスに起因する顧客の意思によらない取引の損失補償について、契約者への個別連絡を同日から開始したとする。詳細条件は第4報を参照する案内で、補償金の支払完了やサービス全面復旧を宣言したものではない。",
+   "action":"登録先への公式連絡と第4報の補償条件を照合する。不審なサイトや流出物を閲覧・拡散せず、手数料やログイン情報を求める便乗連絡に応じない。",
+   "en":{"title":"GMO: individual notices on unauthorized-trading compensation began November 6","body":"The official November 6, 18:00 notice states that individual contact with subscribers about losses from unauthorized trades caused by the intrusion began that day. It refers customers to the fourth notice for compensation conditions; it does not announce completed payments or full service recovery.","action":"Check official messages sent to the registered contact against the fourth notice's conditions. Do not visit or spread suspicious sites or leaked material, or respond to opportunistic requests for fees or login details."}
+  }
+ ]
+}

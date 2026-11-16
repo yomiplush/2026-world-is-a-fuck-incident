@@ -10,6 +10,9 @@ window.VISUALS = (function () {
   const enter = (t, delay = 0, duration = .85) => ease((t - delay) / duration);
   const phase = (t, speed = .22, offset = 0) => ((t * speed + offset) % 1 + 1) % 1;
   const lerp = (a, b, k) => a.map((v, i) => v + (b[i] - v) * k);
+  // Per-scene labels reuse geometry without importing another report's products or fixes.
+  const textOption = (visual, key, index, fallback) =>
+    typeof visual[key]?.[index] === 'string' ? visual[key][index] : fallback;
 
   function stage(ctx, w, h, t, options = {}) {
     const e = enter(t);
@@ -464,51 +467,51 @@ window.VISUALS = (function () {
     heading(g,'EXPLOITED / PATCH AND TRIAGE',C.red);g.flush();
   };
 
-  scenes.packageBoundaries = (ctx,w,h,t) => {
+  scenes.packageBoundaries = (ctx,w,h,t,v={}) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.15});
     ['PILLOW','WASMTIME','LARAVEL','ECHO'].forEach((name,i)=>{
       const x=-420+i*280, tone=[C.amber,C.cyan,C.green,C.amber][i];
       g.box(x,20,0,100,135,75,tone,{alpha:.58,edge:.6});
       g.box(x,20,-10,64,85,55,tone,{wire:true,edge:.8});
-      label(g,[x,-175,0],name,tone,12);
+      label(g,[x,-175,0],textOption(v,'labels',i,name),tone,12);
       const k=phase(t,.16,i*.17);
       g.octa(x,-30+k*75,-95,16,C.red,{alpha:.9});
-      label(g,[x,220,0],['IMAGE','WASM','TOKEN','PROXY'][i],C.steel,11);
+      label(g,[x,220,0],textOption(v,'details',i,['IMAGE','WASM','TOKEN','PROXY'][i]),C.steel,11);
       tick(g,[x,130,-78],C.green);
     });
-    heading(g,'FOUR PACKAGES / FOUR BOUNDARIES');g.flush();
+    heading(g,v.heading??'FOUR PACKAGES / FOUR BOUNDARIES');g.flush();
   };
 
-  scenes.bundledLayers = (ctx,w,h,t) => {
+  scenes.bundledLayers = (ctx,w,h,t,v={}) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.26});
     const layers=[['APP INPUT','REGEXP','ONIGMO'],['MODULE','BUNDLED','BROTLI'],['REQUEST','DIRECTIVES','WORKER']];
     ['RUBY','PERL','NGINX'].forEach((name,i)=>{
       const x=(i-1)*340;
-      label(g,[x,-255,0],name,C.ink,14);
+      label(g,[x,-255,0],textOption(v,'labels',i,name),C.ink,14);
       layers[i].forEach((text,j)=>{
         const y=-70+j*110, tone=j===1?C.amber:C.cyan;
         g.box(x,y,0,120,20,100,tone,{alpha:.8,edge:.7});
-        label(g,[x,y,-110],text,tone,11);
+        label(g,[x,y,-110],typeof v.layers?.[i]?.[j] === 'string' ? v.layers[i][j] : text,tone,11);
       });
       const y=-125+phase(t,.13,i*.2)*340;
       g.box(x,y,0,128,1.5,108,C.green,{alpha:.5,edge:.9});
     });
-    heading(g,'PATCH THE COPY THAT ACTUALLY RUNS',C.green);g.flush();
+    heading(g,v.heading??'PATCH THE COPY THAT ACTUALLY RUNS',C.green);g.flush();
   };
 
-  scenes.agentPermissions = (ctx,w,h,t) => {
+  scenes.agentPermissions = (ctx,w,h,t,v={}) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.14});
-    node(g,[0,0,0],'AGENT',C.amber,t,0,{hx:60,hy:60,hz:60});
+    node(g,[0,0,0],v.centerLabel??'AGENT',C.amber,t,0,{hx:60,hy:60,hz:60});
     const targets=[[-425,-170,'AUTH','IDENTITY'],[425,-170,'TLS','TRANSPORT'],[-425,170,'VAULT','SCOPE'],[425,170,'MODEL','INPUT']];
     targets.forEach(([x,y,name,tag],i)=>{
       const dest=[x,y,0], mid=[x*.53,y*.53,0];
-      node(g,dest,tag,C.cyan,t,i,{hx:65,hy:35,hz:40,font:10});
+      node(g,dest,textOption(v,'labels',i,tag),C.cyan,t,i,{hx:65,hy:35,hz:40,font:10});
       ring(g,mid,34,C.green,'xy');
       flow(g,[0,0,0],mid,t,C.amber,i*.19,.25);
       wire(g,mid,dest,C.green);
-      label(g,[mid[0],mid[1]+(y<0?-60:65),0],name,C.green,11);
+      label(g,[mid[0],mid[1]+(y<0?-60:65),0],textOption(v,'details',i,name),C.green,11);
     });
-    heading(g,'AUTHORITY MUST PASS EVERY GATE',C.amber);g.flush();
+    heading(g,v.heading??'AUTHORITY MUST PASS EVERY GATE',C.amber);g.flush();
   };
 
   scenes.domesticRoutes = (ctx,w,h,t) => {
@@ -536,14 +539,14 @@ window.VISUALS = (function () {
     label(g,[0,300,220],'SCHEMATIC LOCATOR / NOT INCIDENT LOCATIONS',C.steel,9);g.flush();
   };
 
-  scenes.firmwareFleet = (ctx,w,h,t) => {
+  scenes.firmwareFleet = (ctx,w,h,t,v={}) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.06});
     const lines=['10.8','10.7','10.4','8.13','8.10'];
     const fixes=['10.8.1.2','10.7.2.7','10.4.1.14','8.13.3.1','8.10.0.24'];
     lines.forEach((name,i)=>{
       const x=-560+i*280;
-      node(g,[x,70,0],name,C.cyan,t,i,{hx:70,hy:135,hz:65,font:11});
-      label(g,[x,260,0],fixes[i],C.green,10);
+      node(g,[x,70,0],textOption(v,'labels',i,name),C.cyan,t,i,{hx:70,hy:135,hz:65,font:11});
+      label(g,[x,260,0],textOption(v,'details',i,fixes[i]),C.green,10);
       for(let j=0;j<5;j++) {
         g.box(x,-25+j*47,-68,51,13,2,C.cyan,{alpha:.25,edge:.4});
         g.dot([x+40,-25+j*47,-73],1.8,C.green,{glow:false});
@@ -551,21 +554,21 @@ window.VISUALS = (function () {
       const y=-70+phase(t,.13,i*.15)*275;
       g.beam([x-70,y,-72],[x+70,y,-72],C.green,{width:1.5});
     });
-    heading(g,'HPE AOS / 72 CVEs / 8 MAX-SCORE',C.amber);
-    label(g,[0,320,0],'MATCH THE RELEASE LINE / NOT DEVICE COUNT',C.steel,10);g.flush();
+    heading(g,v.heading??'HPE AOS / 72 CVEs / 8 MAX-SCORE',C.amber);
+    label(g,[0,320,0],v.footer??'MATCH THE RELEASE LINE / NOT DEVICE COUNT',C.steel,10);g.flush();
   };
 
-  scenes.trustRenewal = (ctx,w,h,t) => {
+  scenes.trustRenewal = (ctx,w,h,t,v={}) => {
     const g=stage(ctx,w,h,t,{pitch: 0.52,yaw:.14});
     ['CERTIFICATE','SECURE BOOT','CREDENTIALS'].forEach((name,i)=>{
       const x=(i-1)*350;
-      node(g,[x,-40,0],name,C.cyan,t,i,{hx:112,hy:100,hz:30,font:11});
+      node(g,[x,-40,0],textOption(v,'labels',i,name),C.cyan,t,i,{hx:112,hy:100,hz:30,font:11});
       ring(g,[x,-40,-40],36,C.green,'xy');tick(g,[x,-40,-43]);
       flow(g,[x,70,0],[x,175,100],t,C.steel,i*.2,.18);
       g.box(x,210,100,52,18,24,C.steel,{wire:true,edge:.4});tick(g,[x,210,70],C.steel,true);
-      label(g,[x,115,0],['REVOKE','VERIFY DBX','ROTATE'][i],C.green,12);
+      label(g,[x,115,0],textOption(v,'details',i,['REVOKE','VERIFY DBX','ROTATE'][i]),C.green,12);
     });
-    heading(g,'REPAIR THE CHAIN OF TRUST',C.amber);g.flush();
+    heading(g,v.heading??'REPAIR THE CHAIN OF TRUST',C.amber);g.flush();
   };
 
   // Tailworm: explanatory lab threat models, never live attack telemetry.
@@ -905,17 +908,17 @@ window.VISUALS = (function () {
   };
 
   // Review diagrams are explanatory relationships, never live telemetry.
-  scenes.reviewScope = (ctx,w,h,t) => {
+  scenes.reviewScope = (ctx,w,h,t,v={}) => {
     const g=stage(ctx,w,h,t,{yaw:.18,pitch:.58});
     const labels=['NVD PUBLISHED','NVD MODIFIED','GHSA TYPES'];
     for(let i=0;i<3;i++){
       const p=[(i-1)*240,50-i*35,(i-1)*55];
       g.prism(...p,130,16,6,i===1?C.amber:C.cyan,{alpha:.4,edge:.7,rot:i});
       ring(g,p,145,i===1?C.amber:C.cyan);
-      label(g,[p[0],p[1]-180,p[2]],labels[i],C.cyan,10);
+      label(g,[p[0],p[1]-180,p[2]],textOption(v,'labels',i,labels[i]),C.cyan,10);
       if(i<2)flow(g,p,[(i)*240,15-i*35,i*55],t,C.amber,i*.2);
     }
-    heading(g,'OVERLAPPING RECORDS / DISTINCT CONDITIONS');g.flush();
+    heading(g,v.heading??'OVERLAPPING RECORDS / DISTINCT CONDITIONS');g.flush();
   };
   scenes.reviewDatabase = (ctx,w,h,t) => {
     const g=stage(ctx,w,h,t,{yaw:.25,pitch:.53});
