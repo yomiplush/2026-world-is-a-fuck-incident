@@ -6786,16 +6786,266 @@ for (const lang of ['ja','en']) {
     : '全134画面を日付順に。11/15 09:00 JSTまでの追加6画面。Shiro・Perl JSON::XS・FRRouting・Dokploy・Vimの境界を図解します。過去の場面は記載時点の記録です。';
 }
 
+/* November 16: fixed-window research and boundary explanations. */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1116-scope",
+    "stamp": "11.16 · 09:00 JST",
+    "visual": {
+      "type": "reviewScope"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "Gitea 28.4.0の20件とCyrus SASL、OkHttp・vLLMの境界整理。",
+      "lede": "11/15 09:00〜11/16 09:00 JSTの固定窓。",
+      "points": [
+        "NVD新規112・改訂123。新規112はすべて改訂と重複",
+        "GHSA公開98：reviewed 0・unreviewed 93・malware 5（改訂106）",
+        "10論点追加で330論点。KEVは1,781件（2026.11.13・追加0件）"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "Twenty Gitea 28.4.0 fixes, Cyrus SASL, OkHttp and vLLM boundaries.",
+      "lede": "Fixed 11/15 09:00–11/16 09:00 JST window.",
+      "points": [
+        "NVD: 112 published / 123 modified; all 112 published records overlap",
+        "GHSA: 98 published — 0 reviewed / 93 unreviewed / 5 malware (106 modified)",
+        "10 additions bring the register to 330 topics; KEV remains 1,781 (2026.11.13, 0 added)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Saved collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-16-0900/collection-summary.json"
+      }
+    ],
+    "reviewCutoff": "2026-11-16T00:00:00Z",
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1116-gitea",
+    "stamp": "11.16 · 09:00 JST",
+    "visual": {
+      "type": "nov16GiteaRelease"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "自動初期化が完了する前のpushと、検索応答の所有者ハッシュ。",
+      "lede": "Gitea 28.4.0で公表・修正された20件のCVE。",
+      "points": [
+        "auto-init完了前のpushでシンボリックリンク経由のgit hook上書き・任意コマンド実行（CVE-2026-125423）",
+        "28.0.0以降のGET /repo/searchがコミット状態オブジェクト内に所有者のパスワードハッシュとソルトを返却（CVE-2026-123006）",
+        "保護ファイルパターンのgit引用符迂回（CVE-2026-123638）や移管後のscoped workflow残留（CVE-2026-118535）も含め28.4.0へ更新"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "Pre-initialization pushes and owner password hashes in repository search.",
+      "lede": "Twenty CVEs disclosed and fixed in Gitea 28.4.0.",
+      "points": [
+        "Pushes accepted before auto-init completion allow symlink overwrite of server git hooks and RCE (CVE-2026-125423)",
+        "Since 28.0.0, GET /repo/search returned owner password hashes and salts inside commit status objects (CVE-2026-123006)",
+        "Upgrade to 28.4.0 and audit protected file patterns (CVE-2026-123638) and transferred scoped workflows (CVE-2026-118535)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Gitea 28.4.0 release blog",
+        "url": "https://blog.gitea.com/release-of-28.4.0/"
+      }
+    ],
+    "reviewCutoff": "2026-11-16T00:00:00Z"
+  },
+  {
+    "id": "motion-1116-sasl-okhttp",
+    "stamp": "11.16 · 09:00 JST",
+    "visual": {
+      "type": "nov16SaslOkhttp"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "SRP公開値A=Nによるゼロ共有秘密と、末尾ドットFQDNのピン留め素通り。",
+      "lede": "Cyrus SASL 2.1.28以下とOkHttp 5.5.1以下。",
+      "points": [
+        "Cyrus SASLのsrp_server_mech_step2はA % N == 0を拒否せず、A=N送信でパスワード不要の認証迂回（CVE-2026-129483）",
+        "OkHttpのPin.matchesHostnameは末尾ドット付きホスト名を正規化せず、CertificatePinner検査をスキップ（CVE-2026-129482）",
+        "Cyrus SASLはSRP機構の無効化／プラグイン削除コミット適用、OkHttpはホスト名正規化と修正コミット30aa5897を確認"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "Zero shared secrets via SRP A=N and trailing-dot FQDN pin bypass.",
+      "lede": "Cyrus SASL <= 2.1.28 and OkHttp <= 5.5.1.",
+      "points": [
+        "Cyrus SASL srp_server_mech_step2 fails to reject A % N == 0, letting A=N force a zero secret and bypass auth (CVE-2026-129483)",
+        "OkHttp Pin.matchesHostname does not normalize trailing-dot hostnames, skipping CertificatePinner checks (CVE-2026-129482)",
+        "Disable or remove the Cyrus SASL SRP plugin (commit fb3724f4) and normalize hostnames or apply OkHttp commit 30aa5897"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Cyrus SASL commit fb3724f4 — Remove the SRP plugin",
+        "url": "https://github.com/cyrusimap/cyrus-sasl/commit/fb3724f43dc50247ff2bf02135457d6d77031654"
+      },
+      {
+        "name": "OkHttp commit 30aa5897 — Normalize trailing dot",
+        "url": "https://github.com/lysine-dev/okhttp/commit/30aa589761a9b4f5fe84c00e21e5ab44b22bd7c1"
+      }
+    ],
+    "reviewCutoff": "2026-11-16T00:00:00Z"
+  },
+  {
+    "id": "motion-1116-vllm-dufs-kroki",
+    "stamp": "11.16 · 09:00 JST",
+    "visual": {
+      "type": "nov16VllmDufsKroki"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "KVキャッシュ競合とWebDAV COPY上書き、BlockDiagのSSRF。",
+      "lede": "vLLM 0.32.0、dufs 0.47.0、Kroki 0.36.0追加2件。",
+      "points": [
+        "vLLM 0.30.0／0.31.0のCommon Prefix Handlerに競合状態（CVE-2026-129356、0.32.0で修正）",
+        "dufs 0.46.0以下のWebDAV COPYハンドラが削除権限なしでの既存ファイル上書きを許容（CVE-2026-129355、0.47.0で修正）",
+        "Kroki 0.36.0未満にBlockDiag icon/background属性SSRF（CVE-2026-129485）とGoat SVG色スキームXSS（CVE-2026-129484）が追加"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "KV cache races, WebDAV COPY overwrites and BlockDiag SSRF.",
+      "lede": "vLLM 0.32.0, dufs 0.47.0 and two more Kroki 0.36.0 advisories.",
+      "points": [
+        "vLLM 0.30.0/0.31.0 Common Prefix Handler race condition in single_type_kv_cache_manager.py (CVE-2026-129356, fixed in 0.32.0)",
+        "dufs <= 0.46.0 WebDAV COPY handler overwrites existing files without checking delete permission (CVE-2026-129355, fixed in 0.47.0)",
+        "Kroki < 0.36.0 adds BlockDiag icon/background SSRF (CVE-2026-129485) and Goat SVG color-scheme reflected XSS (CVE-2026-129484)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "vLLM commit e687a251",
+        "url": "https://github.com/vllm-project/vllm/commit/e687a251bb056fa527846633f7a1b0a6c0f42374"
+      },
+      {
+        "name": "dufs commit fba13dff",
+        "url": "https://github.com/sigoden/dufs/commit/fba13dffb9c65b5e5e26419f64de709200277a04"
+      },
+      {
+        "name": "Kroki v0.36.0 release",
+        "url": "https://github.com/yuzutech/kroki/releases/tag/v0.36.0"
+      }
+    ],
+    "reviewCutoff": "2026-11-16T00:00:00Z"
+  },
+  {
+    "id": "motion-1116-assimp-parsers",
+    "stamp": "11.16 · 09:00 JST",
+    "visual": {
+      "type": "nov16AssimpParsers"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "glTFバッファURIの経路遡りと、メディア・組込みFS・JSエンジンの境界。",
+      "lede": "Assimp 6.0.6以下、GPAC 26.02.0、littlefs、MicroQuickJS、Escargot。",
+      "points": [
+        "Assimp 6.0.6以下にglTF buffers[].uri任意ファイル読出し、ParseDataURI符号付き8bitオフセットOOB、Ogre整数ラップ、MD2 OOBの4件",
+        "GPAC 26.02.0未満のTS・XMT・DASH NULL参照／型混同4件（CVE-2025-71466〜71469）とlittlefs LFS_MIGRATE型混同（CVE-2026-129490）",
+        "MicroQuickJSのJS_Call例外時フレームポインタ未更新（CVE-2025-71470）とEscargot 5.0.2文字列バッファUAF（CVE-2026-124684）"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "glTF buffer URI traversal and media, embedded FS and JS engine boundaries.",
+      "lede": "Assimp <= 6.0.6, GPAC 26.02.0, littlefs, MicroQuickJS and Escargot.",
+      "points": [
+        "Assimp <= 6.0.6 has glTF buffers[].uri path traversal, signed-char ParseDataURI OOB read, Ogre integer wrap and MD2 OOB read",
+        "GPAC < 26.02.0 fixes four TS/XMT/DASH NULL dereference and type confusion flaws; littlefs <= 2.11.3 has LFS_MIGRATE type confusion",
+        "MicroQuickJS JS_Call stale frame pointers on exception (CVE-2025-71470) and Escargot 5.0.2 string buffer UAF (CVE-2026-124684)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "NVD published CVE records",
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      },
+      {
+        "name": "MicroQuickJS commit 99eed3f9",
+        "url": "https://github.com/bellard/mquickjs/commit/99eed3f94cb66ea7e02fd3472ca7374dee31bb89"
+      }
+    ],
+    "reviewCutoff": "2026-11-16T00:00:00Z"
+  },
+  {
+    "id": "motion-1116-prestashop-frr",
+    "stamp": "11.16 · 09:00 JST",
+    "visual": {
+      "type": "nov16PrestashopFrr"
+    },
+    "cue": "blip",
+    "metric": null,
+    "ja": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "マルチショップAPIのid_shop=all展開と、BGP属性キャッシュの自己比較。",
+      "lede": "PrestaShop 8.2.9／9.2.1、FRRouting bgpd改訂、WordPress REST認可。",
+      "points": [
+        "PrestaShop 8.2.9／9.2.1未満はWebservice APIのid_shop=all展開と所有権未検査で他ショップの顧客ハッシュ・鍵を操作可能",
+        "FRRouting bgpd（CVE-2026-129456）はsoft-reconfiguration inbound時のattr_intern_reuse自己比較バグ（5c241056）へと条件が具体化",
+        "WordPress Custom Block Builder 3.0.0未満のREST非エラー応答RCE（CVE-2026-127048）やnpm 3・pip 2の不正パッケージ勧告を整理"
+      ]
+    },
+    "en": {
+      "kicker": "11/16 09:00 REVIEW",
+      "title": "Multi-shop id_shop=all expansion and BGP attribute cache self-comparison.",
+      "lede": "PrestaShop 8.2.9/9.2.1, FRRouting bgpd revision and WordPress REST auth.",
+      "points": [
+        "PrestaShop < 8.2.9 / < 9.2.1 Webservice API allows cross-shop customer hash/key access via id_shop=all and missing ownership checks",
+        "FRRouting bgpd (CVE-2026-129456) is refined to attr_intern_reuse self-comparison under soft-reconfiguration inbound (commit 5c241056)",
+        "Also covers WordPress Custom Block Builder < 3.0.0 REST RCE (CVE-2026-127048) and 5 malicious package advisories (3 npm, 2 pip)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "PrestaShop 8.2.9 release",
+        "url": "https://github.com/PrestaShop/PrestaShop/releases/tag/8.2.9"
+      },
+      {
+        "name": "FRRouting commit 5c241056",
+        "url": "https://github.com/FRRouting/frr/commit/5c241056777b27b209bc89326f0061ec6d5e0924"
+      }
+    ],
+    "reviewCutoff": "2026-11-16T00:00:00Z"
+  }
+]);
+window.CONTENT.review = {cutoff:"2026-11-16T00:00:00Z",label:"2026-11-16 09:00 JST",report:"/update-20261116-0900"};
+for (const lang of ['ja','en']) {
+  const en=lang==='en';
+  window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]=
+    '<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/16 09:00 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#135">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/timeline'+(en?'.en':'')+'">'+(en?'Read by date':'日付から読む')+' →</a>';
+  window.CONTENT.ui[lang].coverSub=en
+    ? '140 dated scenes, including 6 explanations through November 16, 09:00 JST. Historical scenes retain their original context.'
+    : '全140画面を日付順に。11/16 09:00 JSTまでの追加6画面。Gitea 28.4.0・Cyrus SASL・OkHttp・vLLM・Assimp・PrestaShopの境界を図解します。過去の場面は記載時点の記録です。';
+}
+
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 134,
-    "total": 134
+    "translated": 140,
+    "total": 140
   },
   "ja": {
     "ready": true,
-    "translated": 134,
-    "total": 134
+    "translated": 140,
+    "total": 140
   }
 };

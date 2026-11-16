@@ -1302,6 +1302,77 @@ window.VISUALS = (function () {
     heading(g,"VIM POWERSHELL QUOTES, MEDIA & NLTK PARSERS");g.flush();
   };
 
+  scenes.nov16GiteaRelease = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.21,pitch:.56});
+    const init=[-335,-110,0],search=[-335,140,0],hook=[0,-110,0],hash=[0,140,0],fix=[315,15,0];
+    node(g,init,"AUTO-INIT PUSH",C.amber,t,0,{hx:74,hy:44,hz:42,font:10});
+    node(g,hook,"SYMLINK HOOK",C.red,t,1,{hx:74,hy:46,hz:44,font:10});
+    node(g,search,"/REPO/SEARCH",C.amber,t,2,{hx:72,hy:44,hz:42,font:10});
+    node(g,hash,"OWNER HASH",C.red,t,3,{hx:72,hy:46,hz:44,font:10});
+    node(g,fix,"GITEA 28.4.0",C.green,t,4,{hx:78,hy:58,hz:48,font:10});
+    flow(g,init,hook,t,C.red);flow(g,search,hash,t,C.red,.25);
+    gate(g,[160,-60,0],C.green,"28.4.0");
+    curve(g,hook,fix,t,C.cyan,.15,35);curve(g,hash,fix,t,C.amber,.4,-35);
+    label(g,[0,285,0],"GITEA 28.4.0 / AUDIT HOOKS, WORKFLOWS & OWNER PASSWORDS",C.green,10);
+    heading(g,"GITEA 28.4.0 / 20 SECURITY FIXES");g.flush();
+  };
+  scenes.nov16SaslOkhttp = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.19,pitch:.58});
+    const srp=[-335,-110,0],fqdn=[-335,140,0],zero=[0,-110,0],pin=[0,140,0],guard=[315,15,0];
+    node(g,srp,"SRP A = N",C.amber,t,0,{hx:70,hy:44,hz:42,font:10});
+    node(g,zero,"ZERO SECRET",C.red,t,1,{hx:74,hy:46,hz:44,font:10});
+    node(g,fqdn,"HOST.COM.",C.amber,t,2,{hx:70,hy:44,hz:42,font:10});
+    node(g,pin,"PIN SKIPPED",C.red,t,3,{hx:74,hy:46,hz:44,font:10});
+    node(g,guard,"DISABLE / TRIM",C.green,t,4,{hx:80,hy:58,hz:48,font:10});
+    flow(g,srp,zero,t,C.red);flow(g,fqdn,pin,t,C.amber,.2);
+    gate(g,[160,-60,0],C.green,"MOD N");
+    curve(g,zero,guard,t,C.cyan,.15,35);curve(g,pin,guard,t,C.amber,.4,-35);
+    label(g,[0,285,0],"REMOVE CYRUS SASL SRP PLUGIN & NORMALIZE OKHTTP HOSTNAMES",C.green,10);
+    heading(g,"CYRUS SASL SRP & OKHTTP CERTIFICATEPINNER");g.flush();
+  };
+  scenes.nov16VllmDufsKroki = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.23,pitch:.56});
+    const kv=[-335,-115,0],copy=[-335,140,0],race=[0,-115,0],kroki=[0,140,0],patch=[315,15,0];
+    node(g,kv,"KV PREFIX",C.amber,t,0,{hx:70,hy:44,hz:42,font:10});
+    node(g,race,"VLLM 0.32.0",C.cyan,t,1,{hx:72,hy:46,hz:44,font:10});
+    node(g,copy,"WEBDAV COPY",C.amber,t,2,{hx:72,hy:44,hz:42,font:10});
+    node(g,kroki,"BLOCKDIAG SSRF",C.red,t,3,{hx:78,hy:46,hz:44,font:10});
+    node(g,patch,"0.47 / 0.36.0",C.green,t,4,{hx:78,hy:58,hz:48,font:10});
+    flow(g,kv,race,t,C.amber);flow(g,copy,kroki,t,C.red,.25);
+    gate(g,[160,90,0],C.green,"ACL");
+    curve(g,race,patch,t,C.cyan,.2,35);curve(g,kroki,patch,t,C.amber,.45,-35);
+    label(g,[0,285,0],"VLLM 0.32.0, DUFS 0.47.0 & KROKI 0.36.0",C.green,10);
+    heading(g,"VLLM KV CACHE, DUFS WEBDAV & KROKI SSRF/XSS");g.flush();
+  };
+  scenes.nov16AssimpParsers = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.20,pitch:.57});
+    const gltf=[-330,-115,0],lfs=[-330,140,0],oob=[10,-115,0],vm=[10,140,0],safe=[320,15,0];
+    node(g,gltf,"GLTF / MD2",C.amber,t,0,{hx:70,hy:44,hz:42,font:10});
+    node(g,oob,"ASSIMP 6.0.6",C.red,t,1,{hx:74,hy:46,hz:44,font:10});
+    node(g,lfs,"GPAC / LFS",C.amber,t,2,{hx:70,hy:44,hz:42,font:10});
+    node(g,vm,"MQUICKJS / UAF",C.cyan,t,3,{hx:78,hy:46,hz:44,font:10});
+    node(g,safe,"26.02 / PATCH",C.green,t,4,{hx:78,hy:58,hz:48,font:10});
+    flow(g,gltf,oob,t,C.red);flow(g,lfs,vm,t,C.amber,.25);
+    gate(g,[165,-60,0],C.green,"PR");
+    curve(g,oob,safe,t,C.red,.15,35);curve(g,vm,safe,t,C.cyan,.4,-35);
+    label(g,[0,285,0],"GPAC 26.02.0 & MQUICKJS/ESCARGOT COMMITS / SANDBOX ASSIMP",C.green,10);
+    heading(g,"ASSIMP, GPAC, LITTLEFS & JS ENGINE PARSERS");g.flush();
+  };
+  scenes.nov16PrestashopFrr = (ctx,w,h,t) => {
+    const g=stage(ctx,w,h,t,{yaw:.18,pitch:.58});
+    const shop=[-335,-110,0],bgp=[-335,140,0],api=[15,-110,0],cache=[15,140,0],fix=[320,15,0];
+    node(g,shop,"ID_SHOP=ALL",C.amber,t,0,{hx:72,hy:44,hz:42,font:10});
+    node(g,api,"PRESTASHOP",C.red,t,1,{hx:72,hy:46,hz:44,font:10});
+    node(g,bgp,"SOFT-RECONFIG",C.amber,t,2,{hx:76,hy:44,hz:42,font:10});
+    node(g,cache,"ATTR REUSE",C.cyan,t,3,{hx:72,hy:46,hz:44,font:10});
+    node(g,fix,"8.2.9 / 9.2.1",C.green,t,4,{hx:78,hy:58,hz:48,font:10});
+    flow(g,shop,api,t,C.red);flow(g,bgp,cache,t,C.amber,.25);
+    gate(g,[170,-55,0],C.green,"SCOPE");
+    curve(g,api,fix,t,C.cyan,.2,35);curve(g,cache,fix,t,C.amber,.45,-35);
+    label(g,[0,285,0],"PRESTASHOP 8.2.9/9.2.1, FRR 5C241056 & WP BLOCK BUILDER 3.0.0",C.green,10);
+    heading(g,"PRESTASHOP MULTI-SHOP API & FRR ATTR CACHE");g.flush();
+  };
+
   function frame(ctx,w,h,t) {
     ctx.save();ctx.strokeStyle=A(C.steel,.28);ctx.lineWidth=.75;
     const m=8,L=14;

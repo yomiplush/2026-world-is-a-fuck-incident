@@ -1,32 +1,32 @@
 {
-  "cutoff": "2026-11-15T00:00:00Z",
-  "cutoff_jst": "2026-11-15T09:00:00+09:00",
+  "cutoff": "2026-11-16T00:00:00Z",
+  "cutoff_jst": "2026-11-16T09:00:00+09:00",
   "counts": {
-    "nvd_published": 64,
-    "nvd_modified": 258,
-    "published_modified_overlap": 64,
-    "ghsa": 110,
-    "ghsa_unreviewed": 98,
-    "ghsa_reviewed": 3,
-    "ghsa_malware": 9,
-    "ghsa_modified": 133,
-    "ghsa_published_modified_overlap": 110,
-    "ghsa_current_published_overlap": 61,
-    "ghsa_previous_published_overlap": 40,
-    "record_topic_groups": 320,
+    "nvd_published": 112,
+    "nvd_modified": 123,
+    "published_modified_overlap": 112,
+    "ghsa": 98,
+    "ghsa_unreviewed": 93,
+    "ghsa_reviewed": 0,
+    "ghsa_malware": 5,
+    "ghsa_modified": 106,
+    "ghsa_published_modified_overlap": 98,
+    "ghsa_current_published_overlap": 91,
+    "ghsa_previous_published_overlap": 2,
+    "record_topic_groups": 330,
     "delta_topic_groups": 10,
-    "scope_complement_topic_groups": 310,
+    "scope_complement_topic_groups": 320,
     "reference_only_topic_groups": 0,
     "verified_response_records": 53,
     "deduplicated_previous_references": 35
   },
   "caveats": [
     "件数はDB記録・編集上の論点で、攻撃や被害の件数ではありません。NVD／GHSAおよび公開／改訂の重複を合算しません。",
-    "過去310論点と実影響22事例は前回文脈を保持しています。過去全件の本文再精査や復旧確認はしていません。",
+    "過去320論点と実影響22事例は前回文脈を保持しています。過去全件の本文再精査や復旧確認はしていません。",
     "API照会は基準後。公表・登録・改訂・取得時刻を区別し、取得時点の本文から過去の全改訂は復元しません。",
-    "GHSA reviewed 3勧告とmalware 9勧告は対象版表を保存。unreviewed 98記録は原本・索引へ保存し、全本文を独立検証したとは主張しません。",
-    "KEVは2026.11.13版・1,781件で前回と同一バイト（追加0件）。IPA旧feedは404（fallback成功）、Feishuはredirect loop、tailscale-bulletinsは取得timeoutです。",
-    "一次資料で修正リリース版が未記載・未提供の項目（Ettercap 0.8.5.1以下、GPAC 26.07.0以下、保守終了のlibdca、一部のWordPressプラグイン等）に推測で修正版番号を補いません。"
+    "GHSA reviewed公開は0件、malware 5勧告は対象版表を保存。unreviewed 93記録は原本・索引へ保存し、全本文を独立検証したとは主張しません。",
+    "KEVは2026.11.13版・1,781件で前回と同一バイト（追加0件）。IPA旧feedは404（fallback成功）、Feishuはredirect loopです。",
+    "一次資料で修正リリース版が未記載・未提供の項目（Cyrus SASL 2.1.28以下、OkHttp 5.5.1以下、Assimp 6.0.6以下、littlefs 2.11.3以下、Zr.Admin.NET、Magma 1.9.0以下、D-Link EoL機器、一部のWordPressプラグイン等）に推測で修正版番号を補いません。"
   ],
   "records": [
     {
@@ -71071,8 +71071,8 @@
           "url": "https://seclists.org/oss-sec/2026/q4/705"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 oss-security公表 / 取得時点の本文",
+      "kind": "scope-complement",
+      "time": "11/14 oss-security公表 / 取得時点の本文 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-114737",
         "CVE-2026-129320",
@@ -71085,7 +71085,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z"
     },
     {
@@ -71111,8 +71111,8 @@
           "url": "https://seclists.org/oss-sec/2026/q4/712"
         }
       ],
-      "kind": "delta",
-      "time": "11/14〜11/15 NVD・oss-security公表 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14〜11/15 NVD・oss-security公表 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-124536",
         "CVE-2026-124539",
@@ -71126,7 +71126,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z"
     },
     {
@@ -71140,8 +71140,8 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-129456",
         "CVE-2026-129431",
@@ -71149,7 +71149,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z"
     },
     {
@@ -71163,15 +71163,15 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-129433",
         "CVE-2026-129428"
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z"
     },
     {
@@ -71185,8 +71185,8 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-126297",
         "CVE-2026-126298",
@@ -71194,7 +71194,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z",
       "advisories": [
         {
@@ -71291,8 +71291,8 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-14T00%3A00%3A00.000&lastModEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
-      "time": "11/14〜11/15 oss-security・NVD公表 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14〜11/15 oss-security・NVD公表 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-124030",
         "CVE-2026-124031",
@@ -71301,7 +71301,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z"
     },
     {
@@ -71315,8 +71315,8 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-129319",
         "CVE-2026-129447",
@@ -71326,7 +71326,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z"
     },
     {
@@ -71340,8 +71340,8 @@
           "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-14T00%3A00%3A00.000&pubEndDate=2026-11-15T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [
         "CVE-2026-19907",
         "CVE-2026-119258",
@@ -71354,7 +71354,7 @@
       ],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z"
     },
     {
@@ -71368,12 +71368,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z",
       "advisories": [
         {
@@ -71427,12 +71427,12 @@
           "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
         }
       ],
-      "kind": "delta",
-      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "kind": "scope-complement",
+      "time": "11/14 09:00〜11/15 09:00 JSTの登録・公表窓 / 取得時点の改訂 / 前回資料の文脈・今回の本文再精査は未実施",
       "cve_ids": [],
       "certainty": "confirmed-publication",
       "date": "2026-11-15",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-15T00:00:00Z",
       "advisories": [
         {
@@ -71635,6 +71635,440 @@
                 "name": "trezortranslate"
               },
               "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gitea-2840-20cves-1116",
+      "title": "Gitea 28.4.0：自動初期化時のgit hook上書きRCE・所有者ハッシュ露出・認可迂回など20件の修正",
+      "body": "Gitea 28.4.0の公式リリースで20件のCVE（うち18件が今回のNVD公開窓に収録、1件は28.3.0既修正の公表、1件はGo 1.27.4更新）が公表された。特に自動初期化（auto-init）付きリポジトリ作成が完了する前にpushを受け付け、シンボリックリンク経由でREADME書込み時にサーバ側git hookを上書きしてGiteaシステムユーザー権限で任意コマンドを実行できる問題（CVE-2026-125423）と、28.0.0以降のダッシュボード検索（`GET /repo/search`）がコミット状態オブジェクト内にリポジトリ所有者のパスワードハッシュ・ソルト・メールアドレスを含めて返していた問題（CVE-2026-123006）が含まれる。さらに保護ファイルパターンのgit引用符迂回によるワークフロー追加（CVE-2026-123638）、リポジトリ移管後のscoped workflow登録残留による旧所有者のActions secrets参照（CVE-2026-118535）、TOTP試行回数無制限（CVE-2026-123002）、無効化ユーザーのOAuth2／OIDCリフレッシュトークン継続利用（CVE-2026-128359）、issue参照ポップアップのXSS（CVE-2026-120729）、作成中リポジトリへのGit over HTTP push（CVE-2026-129337）、AGit PR作成・フォークブランチ複製・レビュー返信・添付削除・コンテナblob削除・LFS認証等の境界不備（CVE-2026-123642・CVE-2026-123009・CVE-2026-126338・CVE-2026-123065・CVE-2026-129341・CVE-2026-120991・CVE-2026-120725・CVE-2026-125617・CVE-2026-127958・CVE-2026-128365・CVE-2026-129525）と、28.3.0で修正済みのRubyGemsレジストリ改行注入（CVE-2026-118389）が整理された。",
+      "action": "Giteaを28.4.0以降へ更新する。28.0.0〜28.3.xでコミット状態を持つ可視リポジトリを運用していた場合は所有者アカウントのパスワード再設定を検討し、過去に他オーナーへ移管したリポジトリのscoped workflow登録や保護ブランチ配下のワークフロー変更履歴を監査する。",
+      "sources": [
+        {
+          "name": "Gitea 28.4.0 release blog",
+          "url": "https://blog.gitea.com/release-of-28.4.0/"
+        },
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 Gitea 28.4.0公表・NVD登録 / 取得時点の本文",
+      "cve_ids": [
+        "CVE-2026-125423",
+        "CVE-2026-123006",
+        "CVE-2026-118389",
+        "CVE-2026-118535",
+        "CVE-2026-120725",
+        "CVE-2026-120729",
+        "CVE-2026-120991",
+        "CVE-2026-123002",
+        "CVE-2026-123009",
+        "CVE-2026-123065",
+        "CVE-2026-123638",
+        "CVE-2026-123642",
+        "CVE-2026-125617",
+        "CVE-2026-126338",
+        "CVE-2026-127958",
+        "CVE-2026-128359",
+        "CVE-2026-128365",
+        "CVE-2026-129337",
+        "CVE-2026-129341",
+        "CVE-2026-129525"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "cyrus-sasl-okhttp-auth-1116",
+      "title": "Cyrus SASLとOkHttp：SRP公開値A=Nによる認証迂回（プラグイン削除）と末尾ドットホスト名の証明書ピン検査迂回",
+      "body": "Cyrus SASL 2.1.28以下のSRPサーバ機構（`plugins/srp.c` の `srp_server_mech_step2`）は、クライアント公開値 `A` が法 `N` の倍数（`A % N == 0`）であるかを検査しておらず、未認証のネットワーククライアントが `A = N` を送信すると共有秘密がゼロに固定され、パスワードを知らないまま任意の既存ユーザーとして認証・セッション鍵確立が成立する（CVE-2026-129483、CVSS 4.0 9.3）。上流は2022年以降の新規リリースがなく、コミット `fb3724f4` でSRPプラグイン自体を削除している。またOkHttp 5.5.1以下の `CertificatePinner`（`Pin.matchesHostname`）は末尾ドット付きの完全修飾ドメイン名（例：`example.com.`）を正規化しておらず、ピン留め対象ホストへ末尾ドット付きホスト名で接続した際にピン検査がスキップされ、CA署名済みの別証明書でTLS通信を傍受し得る（CVE-2026-129482、コミット `30aa5897` で修正、取得時点のNVDに修正リリース版番号の記載なし）。",
+      "action": "Cyrus SASLを利用する環境ではSRP機構を無効化するか、SRPプラグインを削除する上流コミット（`fb3724f4`）またはディストリビューションの修正パッケージを適用する。OkHttpで `CertificatePinner` を用いるアプリケーションはリクエスト先ホスト名の末尾ドットを正規化するか、修正コミット `30aa5897` を含むビルドを適用する。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "oss-sec Cyrus SASL unfixed vulnerabilities",
+          "url": "https://seclists.org/oss-sec/2026/q4/122"
+        },
+        {
+          "name": "Cyrus SASL commit fb3724f4",
+          "url": "https://github.com/cyrusimap/cyrus-sasl/commit/fb3724f43dc50247ff2bf02135457d6d77031654"
+        },
+        {
+          "name": "OkHttp commit 30aa5897",
+          "url": "https://github.com/lysine-dev/okhttp/commit/30aa589761a9b4f5fe84c00e21e5ab44b22bd7c1"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 NVD登録・上流コミット確認 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129483",
+        "CVE-2026-129482"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "vllm-dufs-kroki-server-1116",
+      "title": "vLLM・dufs・Kroki：KVキャッシュ共通プレフィックス競合、WebDAV COPY上書き認可不備、BlockDiag SSRFとGoat SVG XSS",
+      "body": "推論基盤vLLM 0.30.0・0.31.0の `single_type_kv_cache_manager.py`（Common Prefix Handler）における競合状態（CVE-2026-129356、0.32.0およびコミット `e687a251` で修正）と、ファイルサーバdufs 0.46.0以下のWebDAV `COPY` ハンドラ（`src/server.rs`）が削除権限（delete permission）を検査せずに既存ファイルを上書きできていた認可不備（CVE-2026-129355、0.47.0およびコミット `fba13dff` で修正）が公開された。またKroki 0.36.0未満について、前回収録したPlantUML・Graphviz等の4件に加え、新たにBlockDiag系エンジンのノード `icon`・`background` 属性を通じた未認証SSRFおよびサーバ内画像ファイル読出し（CVE-2026-129485、GHSA-jwh8-j584-79hp）と、`GET /goat/svg` の `svg-color-dark-scheme`／`svg-color-light-scheme` オプション未検証による反射型XSS（CVE-2026-129484、GHSA-xp94-px2v-f7f2）の2件が登録され、いずれも0.36.0で修正されている。",
+      "action": "vLLMを0.32.0以降へ、dufsを0.47.0以降へ、Krokiを0.36.0以降へ更新する。WebDAVを公開または共有しているdufs環境では削除権限を持たないアカウントによる既存ファイル上書きの有無を確認する。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "vLLM commit e687a251",
+          "url": "https://github.com/vllm-project/vllm/commit/e687a251bb056fa527846633f7a1b0a6c0f42374"
+        },
+        {
+          "name": "dufs commit fba13dff",
+          "url": "https://github.com/sigoden/dufs/commit/fba13dffb9c65b5e5e26419f64de709200277a04"
+        },
+        {
+          "name": "Kroki v0.36.0 release",
+          "url": "https://github.com/yuzutech/kroki/releases/tag/v0.36.0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 NVD登録・リリース確認 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129356",
+        "CVE-2026-129355",
+        "CVE-2026-129484",
+        "CVE-2026-129485"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "assimp-gpac-littlefs-mquickjs-1116",
+      "title": "Assimp・GPAC・littlefs・MicroQuickJS・Escargot：3Dモデル・メディア・組込みFS・JSエンジンのメモリ安全性11件",
+      "body": "3Dモデル読込みライブラリAssimp 6.0.6以下に、glTF／glTF2の `buffers[].uri` 経路遡りによるローカルファイル読出し（CVE-2026-129477、PR #7027）、`glTFCommon::Util::ParseDataURI` の `signed char` オフセット保持による127バイト超データURIでのヒープ範囲外読出し（CVE-2026-129478、PR #7029）、`OgreBinarySerializer::ReadSubMesh` の32bitサイズ計算整数オーバーフロー（CVE-2026-129479、PR #7026）、`MD2Importer::InternReadFile` の `frameSize` 未検証によるヒープ範囲外読出し（CVE-2026-129480、PR #7028）の4件（いずれも上流PR提示・取得時点のNVDに修正リリース版番号未記載）が登録された。あわせてGPAC 26.02.0未満のMPEG-2 TS・XMT・DASH処理のNULL参照および型混同4件（CVE-2025-71466・CVE-2025-71467・CVE-2025-71468・CVE-2025-71469、26.02.0およびコミット `62714f27` で修正）、`LFS_MIGRATE` 有効時のlittlefs 2.11.3以下の `lfs_dir_traverse()` 型混同によるスタック範囲外読出し（CVE-2026-129490、修正版未記載）、MicroQuickJS（`mquickjs`）の `JS_Call()` 例外発生時の古いフレームポインタ走査（CVE-2025-71470、コミット `99eed3f9` で修正）、および改訂窓のSamsung Escargot 5.0.2の `ReloadableString`／`CompressibleString` 解放後使用（CVE-2026-124684、コミット `8bc35b7b` で修正）を整理した。",
+      "action": "GPACは26.02.0以降（前回の26.07.0以下の別件コミットも含め最新修正版）へ更新し、MicroQuickJS（`99eed3f9`）とEscargot（`8bc35b7b`）は修正コミットを適用する。Assimp 6.0.6以下は上流PR（#7026〜#7029）の適用または外部glTF／MD2／Ogreメッシュの未信頼入力制限を行い、littlefsは未信頼v1イメージに対する `LFS_MIGRATE` を無効化する。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "NVD modified CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-15T00%3A00%3A00.000&lastModEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "MicroQuickJS commit 99eed3f9",
+          "url": "https://github.com/bellard/mquickjs/commit/99eed3f94cb66ea7e02fd3472ca7374dee31bb89"
+        },
+        {
+          "name": "Escargot commit 8bc35b7b",
+          "url": "https://github.com/Samsung/escargot/commit/8bc35b7b88f0f96c66a42aa965a1a710308b61d5"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 NVD公開・改訂窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129477",
+        "CVE-2026-129478",
+        "CVE-2026-129479",
+        "CVE-2026-129480",
+        "CVE-2025-71466",
+        "CVE-2025-71467",
+        "CVE-2025-71468",
+        "CVE-2025-71469",
+        "CVE-2026-129490",
+        "CVE-2025-71470",
+        "CVE-2026-124684"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "prestashop-frrouting-freedombox-1116",
+      "title": "PrestaShop・FRRouting・FreedomBox：マルチショップAPI越境とBGP属性キャッシュ再利用・SSH鍵パス検査の改訂",
+      "body": "NVD改訂窓で、過去公開分の技術条件と修正版が具体化された3件を補完する。PrestaShop 8.2.9未満および9.2.1未満のWebservice APIでは、`shopHasRight()` と `saveEntityFromXml()` にレコード単位のショップ所有権検査が欠落して他ショップの顧客データ（パスワードハッシュや `secure_key`）の読出し・書き換えが可能な問題（CVE-2026-71519）と、`id_shop=all` または `id_shop_group=N` 指定時にキーの許可ショップ境界を検証せず全ショップに対する論理和として認可判定する問題（CVE-2026-71531）が8.2.9および9.2.1で修正された。FRRouting `bgpd` のTunnel Encapsulation属性（type 23）解放後使用・二重解放（CVE-2026-129456）は、改訂により「`soft-reconfiguration inbound` を設定したピアから受信した際、`attr_intern_reuse` キャッシュが解析済み属性を自身と比較して常に一致判定し、sub-TLV参照カウントを増やさず再利用する」という発生条件と追加修正コミット `5c241056` が明記された。FreedomBox 26.15未満では、一般ユーザーが自身の `authorized_keys` パスを権限のないファイルへ設定して昇格ヘルパー経由で読み書きできる問題（CVE-2026-123962、26.15およびDebian LTS等で修正）の参照情報が更新された。",
+      "action": "マルチショップ構成でWebservice APIを有効にしているPrestaShopは8.2.9または9.2.1以降へ更新し、制限付きAPIキーによる他ショップ顧客レコードの操作履歴を確認する。FRRoutingは `soft-reconfiguration inbound` 設定ピアの有無を確認してコミット `5c241056` を含む修正を適用し、FreedomBoxは26.15以降または配布元の修正版へ更新する。",
+      "sources": [
+        {
+          "name": "NVD modified CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-15T00%3A00%3A00.000&lastModEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "PrestaShop 8.2.9 release",
+          "url": "https://github.com/PrestaShop/PrestaShop/releases/tag/8.2.9"
+        },
+        {
+          "name": "PrestaShop 9.2.1 release",
+          "url": "https://github.com/PrestaShop/PrestaShop/releases/tag/9.2.1"
+        },
+        {
+          "name": "FRRouting commit 5c241056",
+          "url": "https://github.com/FRRouting/frr/commit/5c241056777b27b209bc89326f0061ec6d5e0924"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 NVD改訂窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-71519",
+        "CVE-2026-71531",
+        "CVE-2026-129456",
+        "CVE-2026-123962"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "zr-admin-geopulse-dnsmgr-1116",
+      "title": "Zr.Admin.NET・GeoPulse・dnsmgr・Course-tencent-cloud・Magma：業務・クラウド管理系のIDORと認証・認可不備12件",
+      "body": "業務管理基盤Zr.Admin.NET（コミット `eb9228a` まで）に、`/common/DownloadFile` の `path` パラメータ経路遡りによる `appsettings` 内 `JwtSettings:SecretKey` 読出しと管理者トークン偽造（CVE-2026-129464）、`SysProfileController.UpdateProfile` の `UserId` 改ざんと `/checkMobile`・`/PhoneLogin` 連携による管理者アカウント乗っ取り（CVE-2026-129465）、ワークフロー申請内容や非公開記事・定期実行ジョブSQL等のIDOR／認可欠落（CVE-2026-129454・CVE-2026-129455・CVE-2026-129466）の5件（上流Issue #27、修正リリース版番号未記載）が公開された。また位置情報管理GeoPulse 1.5.0〜2.3.0の `GET /api/v1/places/geocoding/{id}` 連番ID列挙による他ユーザーの位置履歴露出（CVE-2026-129467、コミット `b994ec58`・PR #673）、Netcccyun `dnsmgr` 2.18〜2.22未満の `POST /cloudflare/get_domain_default_line` 認可欠落（CVE-2026-129468、2.22およびコミット `175468c6` で修正）、`Course-tencent-cloud` 2.0.2未満の既定Sqids鍵による返金プレビューIDOR（CVE-2026-129469、2.0.2で修正）、およびLinux Foundation Magma 1.9.0以下の `X-Magma-Client-Cert-Serial` ヘッダ偽装・ハードコード資格情報・RBAC／XSS 4件（CVE-2026-129357〜CVE-2026-129360、ベンダー未応答・修正版未提供）を収録した。",
+      "action": "dnsmgrを2.22以降へ、Course-tencent-cloudを2.0.2以降へ更新し、GeoPulseは修正コミット `b994ec58` を適用する。Zr.Admin.NETとMagma 1.9.0以下は取得時点で公式修正リリースが確認できないため、外部公開の停止、リバースプロキシでのクライアント証明書ヘッダ（`X-Magma-Client-Cert-Serial`）除去、およびJWT秘密鍵の保護・更新を行う。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 NVD登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129454",
+        "CVE-2026-129455",
+        "CVE-2026-129464",
+        "CVE-2026-129465",
+        "CVE-2026-129466",
+        "CVE-2026-129467",
+        "CVE-2026-129468",
+        "CVE-2026-129469",
+        "CVE-2026-129357",
+        "CVE-2026-129358",
+        "CVE-2026-129359",
+        "CVE-2026-129360"
+      ],
+      "certainty": "CNA-unreviewed",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "draytek-dlink-router-firmware-1116",
+      "title": "DrayTek Vigor2960とD-Linkルータ：Web管理CGIのバッファオーバーフロー・コマンド注入とEoL機器の未修正リスク",
+      "body": "DrayTek Vigor2960ファームウェア1.5.1.6以下の `/cgi-bin/mainfunction.cgi` に関して、`login` 関数の `keyPath`（CVE-2026-129449）、`sub_1E084` の `rtick`（CVE-2026-129450）、`app_guest_export` の `file`（CVE-2026-129451）、`check_file_exist` の `upload_name`（CVE-2026-129453）におけるヒープまたはスタックバッファオーバーフロー4件と、`set_table` 関数の設定フィールド操作によるOSコマンドインジェクション（CVE-2026-129452）の計5件が公開された。NVD記録には1.5.1.7への更新案内とともに、さらなる修正リリースを計画中とするベンダー回答が併記されている。またD-Linkの旧機種（DIR-600L 2.17／2.17b02の `authentication.cgi`・HNAPスタックオーバーフロー CVE-2026-129353・CVE-2026-129354、DSL-6740Cの既定FTP資格情報 CVE-2026-129444、DIR-850Lのハードコードパスワード CVE-2026-129445、および改訂窓でサポート終了［EoL］が明記されたDIR-878 1.20B05のHNAPオーバーフロー CVE-2026-124560・CVE-2026-124561）が登録・改訂された。",
+      "action": "DrayTek Vigor2960は1.5.1.7以降へ更新した上で、追加修正リリースに備えてWAN側からのWeb管理画面（`/cgi-bin/mainfunction.cgi`）露出を遮断する。サポート終了（EoL）または修正未提供のD-Link旧機種（DIR-600L、DIR-850L、DIR-878、DSL-6740C）はインターネット境界からの管理アクセス遮断と現行サポート機種への更改を行う。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        },
+        {
+          "name": "NVD modified CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-15T00%3A00%3A00.000&lastModEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 NVD公開・改訂窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-129449",
+        "CVE-2026-129450",
+        "CVE-2026-129451",
+        "CVE-2026-129452",
+        "CVE-2026-129453",
+        "CVE-2026-129353",
+        "CVE-2026-129354",
+        "CVE-2026-129444",
+        "CVE-2026-129445",
+        "CVE-2026-124560",
+        "CVE-2026-124561"
+      ],
+      "certainty": "CNA-unreviewed",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "wordpress-plugins-rce-auth-1116",
+      "title": "WordPressプラグイン：Custom Block Builder・Give Peer-to-Peer・Auth Armor・Valitor等の未認証RCE・認証迂回・SQLi",
+      "body": "公開窓でWordPressプラグインの脆弱性56件が登録された。特にCustom Block Builder 3.0.0未満のRESTルート権限検査が非エラー応答を返して許可扱いとなり未認証で任意PHPコードを実行できる問題（CVE-2026-127048、3.0.0で修正）、Give - Peer-to-Peerの未認証SQLインジェクション（CVE-2026-82568、2.9.3以下）と認可迂回・メディア添付（CVE-2026-82663、2.9.5以下、両者の組合せで未認証RCE）、Auth Armor 1.0.3以下の未認証ハンドラによるAPI資格情報漏えいと管理者登録リセット・乗っ取り（CVE-2026-110960、修正版未記載）、Valitor for WooCommerce 1.9.41未満のハードコード既定シークレットによる決済完了コールバック偽造（CVE-2026-103361、1.9.41で修正）が含まれる。さらにAdvanced Form Integration 2.11.3以下（CVE-2026-125769）とMCP Server for WordPress 2.0.3以下（CVE-2026-125771）の権限昇格、Estatik 4.3.6以下（CVE-2026-125795）とGrandPrix Core 1.0以下（CVE-2026-129091）のPHPローカルファイルインクルード、Document Library Pro 4.2.2未満（CVE-2026-122662）とTestimonial Slider 3.0.2以下（CVE-2026-125449）のPHPオブジェクトインジェクション、WP Data Access 5.5.92以下（CVE-2026-125832）とRegistrationMagic 6.1.0.4未満（CVE-2026-110984・CVE-2026-110987・CVE-2026-110989）のSQLi／プロフィール改ざん、Membership Plugin 4.0.6未満の未認証文字コード変換による4バイト文字破損とStripe client secret露出（CVE-2026-114451・CVE-2026-114452）が公表された（Patchstack由来の「through X」表記は取得時点のNVDに修正版番号の明記がないため推測で補わない）。",
+      "action": "修正版が明記されているプラグイン（Custom Block Builder 3.0.0、Valitor for WooCommerce 1.9.41、RegistrationMagic 6.1.0.4、Membership Plugin 4.0.6、Document Library Pro 4.2.2、WPGraphQL 2.27.1、Burst Statistics 3.7.5等）は該当版以降へ更新し、NVD上で上限版のみ記載または修正未確認のプラグイン（Auth Armor 1.0.3以下、Give - Peer-to-Peer 2.9.5以下、Advanced Form Integration 2.11.3以下、Estatik 4.3.6以下等）はベンダー配布元の最新修正版確認または一時無効化を行う。",
+      "sources": [
+        {
+          "name": "NVD published CVE records",
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 NVD登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [
+        "CVE-2026-127048",
+        "CVE-2026-82568",
+        "CVE-2026-82663",
+        "CVE-2026-110960",
+        "CVE-2026-103361",
+        "CVE-2026-125769",
+        "CVE-2026-125771",
+        "CVE-2026-125795",
+        "CVE-2026-129091",
+        "CVE-2026-122662",
+        "CVE-2026-125449",
+        "CVE-2026-125832",
+        "CVE-2026-110984",
+        "CVE-2026-110987",
+        "CVE-2026-110989",
+        "CVE-2026-114451",
+        "CVE-2026-114452"
+      ],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z"
+    },
+    {
+      "id": "malware-npm-1116",
+      "title": "npm：不正パッケージ3勧告（@theholocron/holocron-plugin-discord・node-zserial・@crvouga/mockingbird-service-microsoft）の対象版を保存",
+      "body": "公開窓のGHSA malware勧告5件のうちnpm対象は3件。`@theholocron/holocron-plugin-discord`（`= 5.0.0-alpha.436`、GHSA-95pv-hv63-58m8）、`node-zserial`（`= 1.0.42`、GHSA-2p2h-g9qq-v2wx）、`@crvouga/mockingbird-service-microsoft`（`= 0.14.0`、GHSA-w3gq-mm9x-7w7c）はいずれも悪意あるコードを含むパッケージとして登録され、導入または実行した端末は完全な侵害状態とみなして別端末から全秘密情報・鍵を即時ローテーションするよう勧告されている。",
+      "action": "対象3パッケージと該当バージョンを `package-lock.json`・`pnpm-lock.yaml`・`yarn.lock`・CIキャッシュ・開発端末で照合し、導入履歴がある場合はパッケージ削除にとどめず別端末から全資格情報・APIトークンを失効・再発行して環境を再構築する。",
+      "sources": [
+        {
+          "name": "GitHub malware advisory API — saved publication window",
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 09:00〜11/16 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z",
+      "advisories": [
+        {
+          "id": "GHSA-95pv-hv63-58m8",
+          "summary": "Malware in @theholocron/holocron-plugin-discord",
+          "url": "https://github.com/advisories/GHSA-95pv-hv63-58m8",
+          "published_at": "2026-11-15T09:39:44Z",
+          "updated_at": "2026-11-15T09:39:45Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@theholocron/holocron-plugin-discord"
+              },
+              "vulnerable_version_range": "= 5.0.0-alpha.436",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-2p2h-g9qq-v2wx",
+          "summary": "Malware in node-zserial",
+          "url": "https://github.com/advisories/GHSA-2p2h-g9qq-v2wx",
+          "published_at": "2026-11-15T03:25:56Z",
+          "updated_at": "2026-11-15T03:25:56Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "node-zserial"
+              },
+              "vulnerable_version_range": "= 1.0.42",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w3gq-mm9x-7w7c",
+          "summary": "Malware in @crvouga/mockingbird-service-microsoft",
+          "url": "https://github.com/advisories/GHSA-w3gq-mm9x-7w7c",
+          "published_at": "2026-11-15T00:19:15Z",
+          "updated_at": "2026-11-15T00:19:16Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@crvouga/mockingbird-service-microsoft"
+              },
+              "vulnerable_version_range": "= 0.14.0",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "malware-pip-1116",
+      "title": "pip：不正パッケージ2勧告（gatepay-sdk-python・gateio-v4）と改訂2勧告の対象版を保存",
+      "body": "公開窓のGHSA malware勧告5件のうちPyPI（`pip`）対象は2件。`gatepay-sdk-python`（`= 99.99.1`、GHSA-rp2f-46j6-grv4）と `gateio-v4`（`= 99.99.1`、GHSA-8chm-xj53-hg7h）は、いずれも `setup.py` のinstallコマンド上書きやモジュールimport時にホストの基本情報（IPアドレスやユーザー名等）を外部へ送信するパッケージとして登録された（OpenSSF malicious-packages / kam193報告）。なお改訂窓では2026年7月公開のPyPIマルウェア2件（`spiderai` GHSA-hh8c-gxx6-wjjx、`pymatcha` GHSA-598p-2w76-f62c）も更新されているが、新規公開件数には二重計上しない。",
+      "action": "Python仮想環境・CIキャッシュ・`requirements.txt`／`poetry.lock`／`uv.lock` 等で `gatepay-sdk-python`（`99.99.1`）と `gateio-v4`（`99.99.1`）の導入有無を照合し、該当環境は資格情報のローテーションと環境再構築を行う。",
+      "sources": [
+        {
+          "name": "GitHub malware advisory API — saved publication window",
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
+        }
+      ],
+      "kind": "delta",
+      "time": "11/15 09:00〜11/16 09:00 JSTの登録・公表窓 / 取得時点の改訂",
+      "cve_ids": [],
+      "certainty": "confirmed-publication",
+      "date": "2026-11-16",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-16T00:00:00Z",
+      "advisories": [
+        {
+          "id": "GHSA-rp2f-46j6-grv4",
+          "summary": "Malicious code in gatepay-sdk-python (PyPI)",
+          "url": "https://github.com/advisories/GHSA-rp2f-46j6-grv4",
+          "published_at": "2026-11-15T09:30:22Z",
+          "updated_at": "2026-11-15T09:30:22Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gatepay-sdk-python"
+              },
+              "vulnerable_version_range": "= 99.99.1",
+              "first_patched_version": null,
+              "vulnerable_functions": []
+            }
+          ]
+        },
+        {
+          "id": "GHSA-8chm-xj53-hg7h",
+          "summary": "Malicious code in gateio-v4 (PyPI)",
+          "url": "https://github.com/advisories/GHSA-8chm-xj53-hg7h",
+          "published_at": "2026-11-15T03:30:23Z",
+          "updated_at": "2026-11-15T03:30:23Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "gateio-v4"
+              },
+              "vulnerable_version_range": "= 99.99.1",
               "first_patched_version": null,
               "vulnerable_functions": []
             }
@@ -75498,8 +75932,122 @@
       "sources": [
         "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-14T00%3A00%3A00Z..2026-11-15T00%3A00%3A00Z"
       ]
+    },
+    "gitea-2840-20cves-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://blog.gitea.com/release-of-28.4.0/",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "cyrus-sasl-okhttp-auth-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://seclists.org/oss-sec/2026/q4/122",
+        "https://github.com/cyrusimap/cyrus-sasl/commit/fb3724f43dc50247ff2bf02135457d6d77031654",
+        "https://github.com/lysine-dev/okhttp/commit/30aa589761a9b4f5fe84c00e21e5ab44b22bd7c1"
+      ]
+    },
+    "vllm-dufs-kroki-server-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://github.com/vllm-project/vllm/commit/e687a251bb056fa527846633f7a1b0a6c0f42374",
+        "https://github.com/sigoden/dufs/commit/fba13dffb9c65b5e5e26419f64de709200277a04",
+        "https://github.com/yuzutech/kroki/releases/tag/v0.36.0"
+      ]
+    },
+    "assimp-gpac-littlefs-mquickjs-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-15T00%3A00%3A00.000&lastModEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://github.com/bellard/mquickjs/commit/99eed3f94cb66ea7e02fd3472ca7374dee31bb89",
+        "https://github.com/Samsung/escargot/commit/8bc35b7b88f0f96c66a42aa965a1a710308b61d5"
+      ]
+    },
+    "prestashop-frrouting-freedombox-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-15T00%3A00%3A00.000&lastModEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://github.com/PrestaShop/PrestaShop/releases/tag/8.2.9",
+        "https://github.com/PrestaShop/PrestaShop/releases/tag/9.2.1",
+        "https://github.com/FRRouting/frr/commit/5c241056777b27b209bc89326f0061ec6d5e0924"
+      ]
+    },
+    "zr-admin-geopulse-dnsmgr-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "draytek-dlink-router-firmware-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0",
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-15T00%3A00%3A00.000&lastModEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "wordpress-plugins-rce-auth-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-15T00%3A00%3A00.000&pubEndDate=2026-11-16T00%3A00%3A00.000&resultsPerPage=2000&startIndex=0"
+      ]
+    },
+    "malware-npm-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
+      ]
+    },
+    "malware-pip-1116": {
+      "scope": "global",
+      "reason": {
+        "ja": "特定国の被害者数ではなく、製品・依存関係の利用条件または広く提供されるserviceの対策を扱います。",
+        "en": "Covers product/dependency prerequisites or response for a broadly offered service, not a victim count for a specific country."
+      },
+      "sources": [
+        "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-15T00%3A00%3A00Z..2026-11-16T00%3A00%3A00Z"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-15-0900/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-16-0900/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }
