@@ -7399,23 +7399,369 @@ window.CONTENT.scenes.push(...[
     ]
   }
 ]);
-window.CONTENT.review = {"cutoff": "2026-11-16T02:33:00Z", "label": "2026-11-16 11:33 JST", "report": "/update-20261116-1133"};
+/* November 17 09:00 review */
+window.CONTENT.scenes.push(...[
+{
+  "id": "motion-1117-scope",
+  "stamp": "11.17 · 09:00 JST",
+  "visual": {
+    "type": "reviewScope",
+    "labels": [
+      "NVD: 348 NEW",
+      "NVD: 1,395 UPDATED",
+      "GHSA: 405 ENTRIES"
+    ],
+    "heading": "OVERLAP / NOT INCIDENT COUNTS"
+  },
+  "cue": "blip",
+  "metric": null,
+  "reviewCutoff": "2026-11-17T00:00:00Z",
+  "ja": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "11/16 11:33〜11/17 09:00の登録・確認窓。",
+    "lede": "主要フレームワーク・MCP・Web基盤の改訂",
+    "points": [
+      "NVD公開348・改訂1,395。全公開件数は改訂と重複",
+      "GHSA公開405件（reviewed 41・unreviewed 245・malware 119）",
+      "新たな10論点を追加。累計347論点・実影響22事例を整理"
+    ]
+  },
+  "en": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "11/16 11:33–11/17 09:00 publication and review window.",
+    "lede": "Key web frameworks, MCP tools, and server boundary fixes",
+    "points": [
+      "NVD: 348 published and 1,395 modified; published records overlap",
+      "GHSA: 405 advisories (41 reviewed, 245 unreviewed, 119 malware)",
+      "10 new topic groups added; 347 topics are not incident counts"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Collection manifest",
+      "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-17-0900/collection-summary.json"
+    }
+  ],
+  "chapterBreak": true
+},
+{
+  "id": "motion-1117-aiohttp",
+  "stamp": "11.17 · 09:00 JST",
+  "visual": {
+    "type": "packageBoundaries",
+    "labels": [
+      "AIOHTTP",
+      "EVENT LOOP",
+      "BASE64 MULTIPART",
+      "WEBSOCKET"
+    ],
+    "details": [
+      "3.14.4",
+      "STALL FIX",
+      "MAX SIZE",
+      "QUEUE CAP"
+    ],
+    "heading": "ASYNC LOOP AND RESOURCE BOUNDARIES"
+  },
+  "cue": "blip",
+  "metric": null,
+  "reviewCutoff": "2026-11-17T00:00:00Z",
+  "ja": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "AIOHTTP 3.14.4：非同期ループとリソース境界の防御。",
+    "lede": "add_domainワイルドカード照合多項式時間とBase64マルチパート制限迂回",
+    "points": [
+      "add_domain()の複数*によるHost照合でイベントループ停止（CVE-2026-128124）",
+      "Base64マルチパートによるclient_max_size制限迂回（CVE-2026-128127）",
+      "WebSocket受信キュー超過やupgradeバッファ蓄積など計9件に対処"
+    ]
+  },
+  "en": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "AIOHTTP 3.14.4: Async event loop and resource boundary protections.",
+    "lede": "Polynomial Host wildcard matching and Base64 multipart client_max_size bypass",
+    "points": [
+      "add_domain() wildcard Host matching stalled the async event loop (CVE-2026-128124)",
+      "Base64 multipart payloads bypassed client_max_size upload constraints (CVE-2026-128127)",
+      "WebSocket queue overflow, upgrade buffering, and parser replay across 9 CVEs fixed"
+    ]
+  },
+  "sources": [
+    {
+      "name": "AIOHTTP 3.14.4",
+      "url": "https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4"
+    },
+    {
+      "name": "GHSA-jm3w-gw2p-xjfj",
+      "url": "https://github.com/aio-libs/aiohttp/security/advisories/GHSA-jm3w-gw2p-xjfj"
+    }
+  ]
+},
+{
+  "id": "motion-1117-frontend",
+  "stamp": "11.17 · 09:00 JST",
+  "visual": {
+    "type": "agentPermissions",
+    "centerLabel": "FRAMEWORKS",
+    "labels": [
+      "SVELTEKIT",
+      "NUXT",
+      "NEXT.JS",
+      "STATIC BUNDLE"
+    ],
+    "details": [
+      "3.1.1",
+      "4.6.4",
+      "16.4.5",
+      "SECRETS GUARD"
+    ],
+    "heading": "CLIENT BUNDLE AND ROUTING ISOLATION"
+  },
+  "cue": "blip",
+  "metric": null,
+  "reviewCutoff": "2026-11-17T00:00:00Z",
+  "ja": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "フロントエンド：サーバー秘密情報の混入と経路迂回。",
+    "lede": "SvelteKit 3.1.1、Nuxt 4.6.4、Next.js 16.4.5の境界修正",
+    "points": [
+      "SvelteKit：src/params.js経由でサーバー秘密情報がクライアントJSに混入（CVE-2026-128118）",
+      "Nuxt：%2Fスラッシュエンコード要求がキャッチオール経路規則を迂回（CVE-2026-128071）",
+      "Next.js：unstable_cache内のuse cache呼び出しにおける初回競合（CVE-2026-119790）"
+    ]
+  },
+  "en": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "Frontend frameworks: Server secrets and route rule isolation.",
+    "lede": "Boundary fixes in SvelteKit 3.1.1, Nuxt 4.6.4, and Next.js 16.4.5",
+    "points": [
+      "SvelteKit: server-only secrets leaked into client JS bundles via src/params.js (CVE-2026-128118)",
+      "Nuxt: %2F encoded slashes bypassed catch-all routeRules security policies (CVE-2026-128071)",
+      "Next.js: cross-request deduplication race in unstable_cache calling use cache (CVE-2026-119790)"
+    ]
+  },
+  "sources": [
+    {
+      "name": "SvelteKit 3.1.1",
+      "url": "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@3.1.1"
+    },
+    {
+      "name": "Nuxt 4.6.4",
+      "url": "https://github.com/nuxt/nuxt/releases/tag/v4.6.4"
+    },
+    {
+      "name": "Next.js 16.4.5",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.4.5"
+    }
+  ]
+},
+{
+  "id": "motion-1117-mcp",
+  "stamp": "11.17 · 09:00 JST",
+  "visual": {
+    "type": "trustRenewal",
+    "labels": [
+      "MCP CLIENT",
+      "POD REGEX",
+      "CODE REVIEW",
+      "DAEMONSET"
+    ],
+    "details": [
+      "AI AGENT",
+      "--SET HELM",
+      "EXECSYNC",
+      "CLUSTER ROOT"
+    ],
+    "heading": "MCP TOOL ARGUMENT AND COMMAND INJECTION"
+  },
+  "cue": "blip",
+  "metric": null,
+  "reviewCutoff": "2026-11-17T00:00:00Z",
+  "ja": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "MCPサーバー：ツール引数注入によるクラスタ奪取とRCE。",
+    "lede": "Kubeshark 53.4.0とcode-review-mcp-server 1.5.3の権限境界",
+    "points": [
+      "Kubeshark：pod_regexに--setを注入し特権DaemonSetイメージを偽装（CVE-2026-129236）",
+      "Kubeshark：download_fileツールによる任意パス書込み（CVE-2026-129235）",
+      "code-review：folderPath等の引数がexecSyncでシェル解釈されRCE（CVE-2026-68934）"
+    ]
+  },
+  "en": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "MCP servers: Tool argument injection leading to cluster takeover.",
+    "lede": "Privilege boundaries in Kubeshark 53.4.0 and code-review-mcp-server 1.5.3",
+    "points": [
+      "Kubeshark: pod_regex accepts injected --set Helm flags redirecting DaemonSet images (CVE-2026-129236)",
+      "Kubeshark: unvalidated file destination writes in download_file MCP tool (CVE-2026-129235)",
+      "code-review: unsanitized folderPath and branch strings interpolated in execSync (CVE-2026-68934)"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Kubeshark 53.4.0",
+      "url": "https://github.com/kubeshark/kubeshark/releases/tag/v53.4.0"
+    },
+    {
+      "name": "GHSA-8vf2-hxg5-crqh",
+      "url": "https://github.com/kubeshark/kubeshark/security/advisories/GHSA-8vf2-hxg5-crqh"
+    },
+    {
+      "name": "GHSA-jq3q-62jc-fqq9",
+      "url": "https://github.com/Orcus2021/code-review-mcp-server/security/advisories/GHSA-jq3q-62jc-fqq9"
+    }
+  ]
+},
+{
+  "id": "motion-1117-silverstripe",
+  "stamp": "11.17 · 09:00 JST",
+  "visual": {
+    "type": "firmwareFleet",
+    "labels": [
+      "CMS DEV TASK",
+      "WRITER OPTION",
+      "INJECTOR",
+      "CLASSNAME",
+      "SECURITYADMIN"
+    ],
+    "details": [
+      "6.2.13",
+      "NO CONFIRM",
+      "ARBITRARY INST",
+      "RECORD TYPE",
+      "AUTH BYPASS"
+    ],
+    "heading": "OBJECT INSTANTIATION AND CMS ACCESS ESCALATION"
+  },
+  "cue": "blip",
+  "metric": null,
+  "reviewCutoff": "2026-11-17T00:00:00Z",
+  "ja": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "Silverstripe 6.2.13：開発タスク引数RCEと権限昇格。",
+    "lede": "i18nTextCollectorTaskのwriter引数による任意クラスインスタンス化",
+    "points": [
+      "i18nタスクのwriter引数がDIに渡され任意オブジェクト生成とRCE（CVE-2026-91115）",
+      "開発モードでは未認証アクセス可能、管理者誘導によるCSRF的な実行も可能",
+      "ClassName改変（CVE-2026-91113）やSecurityAdmin権限昇格など計6件を修正"
+    ]
+  },
+  "en": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "Silverstripe 6.2.13: Dev task writer RCE and privilege escalation.",
+    "lede": "Arbitrary object instantiation via i18nTextCollectorTask writer option",
+    "points": [
+      "i18n task writer option passed to injector without validation, enabling RCE (CVE-2026-91115)",
+      "Dev mode exposes the endpoint without authentication; admin can be induced via link",
+      "ClassName tampering (CVE-2026-91113) and SecurityAdmin privilege escalation fixed"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Silverstripe 6.2.13",
+      "url": "https://github.com/silverstripe/silverstripe-framework/releases/tag/6.2.13"
+    },
+    {
+      "name": "GHSA-c94f-87xg-65wf",
+      "url": "https://github.com/silverstripe/silverstripe-framework/security/advisories/GHSA-c94f-87xg-65wf"
+    }
+  ]
+},
+{
+  "id": "motion-1117-parsers-malware",
+  "stamp": "11.17 · 09:00 JST",
+  "visual": {
+    "type": "bundledLayers",
+    "labels": [
+      "MAIL-PARSER",
+      "NLTK",
+      "QBEE / DIRECTUS",
+      "MALWARE NPM"
+    ],
+    "details": [
+      "4.6.3",
+      "3.10.4",
+      "2026.41",
+      "119 PACKAGES"
+    ],
+    "layers": [
+      [
+        "SAFE ATTACH",
+        "SUBPROCESS PATH",
+        "PREFIX SLASH",
+        "LOCKFILE AUDIT"
+      ],
+      [
+        "ISOLATE PARTS",
+        "TRUSTED EXEC",
+        "ROLE TAMPER",
+        "REVOKE SECRETS"
+      ],
+      [
+        "RESTORE SCAN",
+        "SANDBOX ESCAPE",
+        "ZIP SLIP FIX",
+        "SEPARATE HOST"
+      ]
+    ],
+    "heading": "PARSER RESILIENCE AND DEPENDENCY PURGE"
+  },
+  "cue": "blip",
+  "metric": null,
+  "reviewCutoff": "2026-11-17T00:00:00Z",
+  "ja": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "メール・NLP解析の堅牢化と119件の不正パッケージ。",
+    "lede": "mail-parser、NLTK、qbee-agent、Directusおよびnpm不正パッケージ",
+    "points": [
+      "mail-parser 4.6.3：不正添付ファイルによるバッチ保存中断を隔離（CVE-2026-129301）",
+      "NLTK 3.10.4：Graphviz dotのPATHインジェクションを修正（CVE-2026-128134）",
+      "mem0-mcp-server・quickwinston等npm不正パッケージ119件の削除と鍵更新"
+    ]
+  },
+  "en": {
+    "kicker": "11/17 09:00 REVIEW",
+    "title": "Parser resilience and 119 malicious npm packages.",
+    "lede": "Fixes in mail-parser, NLTK, qbee-agent, Directus, and npm malware isolation",
+    "points": [
+      "mail-parser 4.6.3: isolated MIME exceptions so subsequent attachments are saved (CVE-2026-129301)",
+      "NLTK 3.10.4: enforce trusted execution chokepoints on Graphviz dot binaries (CVE-2026-128134)",
+      "Purge 119 malicious npm packages (mem0-mcp-server, quickwinston) and rotate keys"
+    ]
+  },
+  "sources": [
+    {
+      "name": "mail-parser 4.6.3",
+      "url": "https://github.com/SpamScope/mail-parser/releases/tag/4.6.3"
+    },
+    {
+      "name": "NLTK 3.10.4",
+      "url": "https://github.com/nltk/nltk/releases/tag/v3.10.4"
+    },
+    {
+      "name": "GHSA-57c9-vqf7-cxmv",
+      "url": "https://github.com/advisories/GHSA-57c9-vqf7-cxmv"
+    }
+  ]
+}
+]);
+window.CONTENT.review = {"cutoff": "2026-11-17T00:00:00Z", "label": "2026-11-17 09:00 JST", "report": "/update-20261117-0900"};
 for (const lang of ['ja','en']) {
  const en=lang==='en';
- window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]='<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/16 11:33 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#141">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/months'+(en?'.en':'')+'">'+(en?'Monthly archive':'月別の記録')+' →</a>';
- window.CONTENT.ui[lang].coverSub=en?'146 dated scenes. Six new explanations through November 16, 11:33 JST: shared credentials, signing keys, untrusted comments, malicious packages and independent updates.':'全146画面。11/16 11:33 JSTまでの追加6画面。共有先の資格情報、署名鍵、コメント、不正パッケージと個別更新を図解。過去画面は当時の文脈を保持します。';
+ window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]='<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/17 09:00 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#147">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/months'+(en?'.en':'')+'">'+(en?'Monthly archive':'月別の記録')+' →</a>';
+ window.CONTENT.ui[lang].coverSub=en?'152 dated scenes. Six new explanations through November 17, 09:00 JST: async event loops, framework route boundaries, MCP tool injection, CMS object instantiation and malicious packages.':'全152画面。11/17 09:00 JSTまでの追加6画面。非同期イベントループ、フレームワーク経路境界、MCPツール引数注入、CMSオブジェクト生成RCE、不正パッケージを図解。過去画面は当時の文脈を保持します。';
 }
 
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 146,
-    "total": 146
+    "translated": 152,
+    "total": 152
   },
   "ja": {
     "ready": true,
-    "translated": 146,
-    "total": 146
+    "translated": 152,
+    "total": 152
   }
 };

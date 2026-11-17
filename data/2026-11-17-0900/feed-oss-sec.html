@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Source Security</title>
+    <link>https://seclists.org/#oss-sec</link>
+    <atom:link href="https://seclists.org/rss/oss-sec.rss" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <description>Discussion of security flaws, concepts, and practices in the Open Source community</description>
+    <pubDate>Mon, 16 Nov 2026 21:30:05 GMT</pubDate>
+    <lastBuildDate>Mon, 16 Nov 2026 21:30:05 GMT</lastBuildDate>
+<!-- MHonArc v2.6.19 -->
+
+ 
+
+  <item>
+    <title>Local Privilege Escalation in Debian with LightDM and GTK greeters</title>
+    <link>https://seclists.org/oss-sec/2026/q4/726</link>
+    <description>&lt;p&gt;Posted by Yves-Alexis Perez on Nov 16&lt;/p&gt;Hi there,&lt;br&gt;
+&lt;br&gt;
+I&amp;apos;ve just released Debian Security Advisory 6633-1 [0] fixing a local&lt;br&gt;
+privilege escalation from the lightdm user to root in LightDM (a login&lt;br&gt;
+manager, similar to GDM or KDM).&lt;br&gt;
+&lt;br&gt;
+Matko Zlatić actually found a whole escalation from currently logged in user&lt;br&gt;
+to root (initially under Kali but it applies to Debian and Ubuntu as well).&lt;br&gt;
+&lt;br&gt;
+I&amp;apos;ll let Matko chime in on the whole process since it&amp;apos;s their discovery, but I&lt;br&gt;
+have to admit...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 21:16:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/726</guid>
+  </item>
+  <item>
+    <title>CVE-2025-71470: MicroQuickJS: Out-of-Bounds Read in build_backtrace via Crafted JavaScript Input</title>
+    <link>https://seclists.org/oss-sec/2026/q4/725</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 16&lt;/p&gt;Product:   MicroQuickJS (mquickjs, mqjs)&lt;br&gt;
+Affected:  Revisions before commit 99eed3f94cb66ea7e02fd3472ca7374dee31bb89&lt;br&gt;
+           Reproduced at commit 27a2391cc5a54bf8fa683979be56b266523a1374&lt;br&gt;
+Fixed:     99eed3f94cb66ea7e02fd3472ca7374dee31bb89&lt;br&gt;
+CVE:       CVE-2025-71470&lt;br&gt;
+CWE:       CWE-125 (Out-of-bounds Read)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  MicroQuickJS crashes...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:58:44 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/725</guid>
+  </item>
+  <item>
+    <title>CVE-2025-71467: GPAC/MP4Box: NULL Pointer Dereference in gf_node_get_field_by_name via Crafted XMT Input</title>
+    <link>https://seclists.org/oss-sec/2026/q4/724</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 16&lt;/p&gt; Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  Versions before 26.02.0&lt;br&gt;
+           Reproduced on 2.5-DEV-rev1552-gbb16baf3d-master&lt;br&gt;
+           Commit bb16baf3d48737dfbc3ccdb6796e2951c280a1e5&lt;br&gt;
+Fixed:     62714f27c64a3d1eb7e880f9eed2d38673cb43ce&lt;br&gt;
+CVE:       CVE-2025-71467&lt;br&gt;
+CWE:       CWE-476 (NULL Pointer Dereference)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  MP4Box dereferences a NULL...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:56:25 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/724</guid>
+  </item>
+  <item>
+    <title>CVE-2025-71466: GPAC/MP4Box: NULL Pointer Dereference in m2tsdmx_update_sdt via Crafted MPEG-2 TS Input</title>
+    <link>https://seclists.org/oss-sec/2026/q4/723</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 16&lt;/p&gt;Product:   GPAC (MP4Box)&lt;br&gt;
+Affected:  Versions before 26.02.0&lt;br&gt;
+           Reproduced on 2.5-DEV-rev1552-gbb16baf3d-master&lt;br&gt;
+           Commit bb16baf3d48737dfbc3ccdb6796e2951c280a1e5&lt;br&gt;
+Fixed:     62714f27c64a3d1eb7e880f9eed2d38673cb43ce&lt;br&gt;
+CVE:       CVE-2025-71466&lt;br&gt;
+CWE:       CWE-476 (NULL Pointer Dereference)&lt;br&gt;
+CVSS 3.1:  5.5 MEDIUM (AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H)&lt;br&gt;
+Reporter:  Alexander A. Shvedov (@sigdevel)&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+  MP4Box crashes in...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:54:05 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/723</guid>
+  </item>
+  <item>
+    <title>CVE-2026-129490: littlefs: Type Confusion and Stack Out-of-Bounds Read in lfs_dir_traverse via Crafted v1 Image Migration</title>
+    <link>https://seclists.org/oss-sec/2026/q4/722</link>
+    <description>&lt;p&gt;Posted by Alexander A. Shvedov on Nov 16&lt;/p&gt;Product:   littlefs (including littlefs-fuse migration support)&lt;br&gt;
+Affected:  Through v2.11.3, when built with LFS_MIGRATE&lt;br&gt;
+           Reproduced at commit 6cb4e86540eca0d9ba62500a298385c9d863c8be&lt;br&gt;
+           littlefs-fuse v2.7, commit 423fc82, bundling littlefs v2.11.3&lt;br&gt;
+Fixed:     No confirmed upstream fix release; proposed patch in PR #1224&lt;br&gt;
+CVE:       CVE-2026-129490&lt;br&gt;
+CWE:       CWE-843 (Access of Resource Using Incompatible Type)&lt;br&gt;
+CVSS 3.1:  5.5...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:52:03 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/722</guid>
+  </item>
+  <item>
+    <title>BenchProctor 2026.11.16: a smaller public SAST benchmark</title>
+    <link>https://seclists.org/oss-sec/2026/q4/721</link>
+    <description>&lt;p&gt;Posted by info on Nov 16&lt;/p&gt;Hi oss-security,&lt;br&gt;
+&lt;br&gt;
+I maintain BenchProctor, an Apache-2.0 corpus for evaluating static&lt;br&gt;
+application security scanners. Release 2026.11.16 replaces the July&lt;br&gt;
+corpus, which I withdrew after finding bad safe labels and cases whose&lt;br&gt;
+modeled flow was unrealistic.&lt;br&gt;
+&lt;br&gt;
+This release has 2,142 standalone cases (1,071 safe, 1,071 vulnerable)&lt;br&gt;
+across 11 languages and 21 framework targets. It also has 60&lt;br&gt;
+two-service applications with 860 labeled flows. The 12 ZIPs...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:40:06 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/721</guid>
+  </item>
+  <item>
+    <title>CVE-2026-115690: Apache WSS4J: Replay protection bypassed by concurrent copies of a message</title>
+    <link>https://seclists.org/oss-sec/2026/q4/720</link>
+    <description>&lt;p&gt;Posted by Colm O hEigeartaigh on Nov 16&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache WSS4J 4.0.0 before 4.0.3&lt;br&gt;
+- Apache WSS4J 3.0.0 before 3.0.7&lt;br&gt;
+- Apache WSS4J before 2.4.5&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+Apache WSS4J remembers the UsernameToken Nonce, the Timestamp and signature of a signed message, and the ID of a SAML &lt;br&gt;
+2.0 &amp;quot;OneTimeUse&amp;quot; assertion, so that a captured message cannot be accepted twice. It checked whether a value had already &lt;br&gt;
+been seen, validated the message, and only then...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:38:13 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/720</guid>
+  </item>
+  <item>
+    <title>CVE-2026-128841: Apache Griffin Web Service: REST API is unauthenticated</title>
+    <link>https://seclists.org/oss-sec/2026/q4/719</link>
+    <description>&lt;p&gt;Posted by Arnout Engelen on Nov 16&lt;/p&gt;Severity: moderate &lt;br&gt;
+&lt;br&gt;
+Affected versions:&lt;br&gt;
+&lt;br&gt;
+- Apache Griffin Web Service: all versions&lt;br&gt;
+&lt;br&gt;
+Description:&lt;br&gt;
+&lt;br&gt;
+** UNSUPPORTED WHEN ASSIGNED ** Missing authentication for critical function vulnerability in Apache Griffin Web &lt;br&gt;
+Service. The REST API does not have any authentication. This includes sensitive endpoints, such as job submission when &lt;br&gt;
+a Livy/Spark backend is configured. The API must be properly secured on the network level, and this fact was...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:36:08 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/719</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/718</link>
+    <description>&lt;p&gt;Posted by Steffen Nurpmeso on Nov 16&lt;/p&gt;Solar Designer wrote in&lt;br&gt;
+ &amp;lt;20261116073443.GA14465 () openwall com&amp;gt;:&lt;br&gt;
+ |I&amp;apos;m sorry I&amp;apos;m late to comment in this thread, but I feel a few aspects&lt;br&gt;
+ |are still misunderstood by a lot of people here.&lt;br&gt;
+ |&lt;br&gt;
+ |On Thu, Nov 05, 2026 at 09:14:35AM -0500, Jan Schaumann wrote:&lt;br&gt;
+ ...&lt;br&gt;
+ |&amp;gt; That is, for any account that has an invalid password&lt;br&gt;
+ |&amp;gt; hash field of &amp;apos;*&amp;apos;, you can log in by entering a&lt;br&gt;
+ |&amp;gt; password &amp;gt;257 characters, which...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 17:34:03 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/718</guid>
+  </item>
+  <item>
+    <title>Re: &quot;sshole&quot;: password authentication bypass: OpenSSH + musl libc</title>
+    <link>https://seclists.org/oss-sec/2026/q4/717</link>
+    <description>&lt;p&gt;Posted by Solar Designer on Nov 15&lt;/p&gt;Hi,&lt;br&gt;
+&lt;br&gt;
+I&amp;apos;m sorry I&amp;apos;m late to comment in this thread, but I feel a few aspects&lt;br&gt;
+are still misunderstood by a lot of people here.&lt;br&gt;
+&lt;br&gt;
+Kind of, and that&amp;apos;s indeed embarrassing, but it misses important detail.&lt;br&gt;
+&lt;br&gt;
+musl&amp;apos;s crypt(3) only returns &amp;quot;*&amp;quot; when the setting (aka salt) string&lt;br&gt;
+passed to it is not &amp;quot;*&amp;quot;, so it reasonably expected the caller doing the&lt;br&gt;
+typical strcmp() would see no match.  What OpenSSH did was...&lt;br&gt;</description>
+    <pubDate>Mon, 16 Nov 2026 07:38:29 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/717</guid>
+  </item>
+
+
+  <item>
+    <title>[vim-security] &apos;tagsecure&apos; Bypass via Escaped URL in Tags File in Vim  &lt; 9.2.1352</title>
+    <link>https://seclists.org/oss-sec/2026/q4/716</link>
+    <description>&lt;p&gt;Posted by Christian Brabandt on Nov 15&lt;/p&gt;&amp;apos;tagsecure&amp;apos; Bypass via Escaped URL in Tags File in Vim  &amp;lt; 9.2.1352&lt;br&gt;
+==================================================================&lt;br&gt;
+&lt;br&gt;
+Date: 15.11.2026&lt;br&gt;
+Severity: Low&lt;br&gt;
+CVE: *requested, not yet assigned*&lt;br&gt;
+CWE: Incomplete List of Disallowed Inputs (CWE-184)&lt;br&gt;
+&lt;br&gt;
+## Summary&lt;br&gt;
+&lt;br&gt;
+Patch 9.2.0405 made Vim refuse a file name in a tags file that is a URL;&lt;br&gt;
+patch 9.2.0497 made this configurable with the &amp;apos;tagsecure&amp;apos; option.  The check&lt;br&gt;
+is done...&lt;br&gt;</description>
+    <pubDate>Sun, 15 Nov 2026 21:43:47 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/716</guid>
+  </item>
+  <item>
+    <title>NoisyTCP: Linux Kernel TCP Pre-auth Remote Corruption (CVE-2026-99288)</title>
+    <link>https://seclists.org/oss-sec/2026/q4/715</link>
+    <description>&lt;p&gt;Posted by Hyunwoo Kim on Nov 15&lt;/p&gt;The embargo agreed with the maintainers of&lt;br&gt;
+linux-distros () vs openwall org has expired, so I am posting this report.&lt;br&gt;
+&lt;br&gt;
+# Abstract&lt;br&gt;
+&lt;br&gt;
+This report is a security advisory for NoisyTCP (CVE-2026-99288), the&lt;br&gt;
+Linux Kernel TCP Pre-auth Remote Corruption vulnerability reported&lt;br&gt;
+and patched by Hyunwoo Kim (@v4bel).&lt;br&gt;
+&lt;br&gt;
+To trigger this vulnerability, a stale ehash lookup and the freeing and&lt;br&gt;
+reallocation of an existing request socket must proceed concurrently in...&lt;br&gt;</description>
+    <pubDate>Sun, 15 Nov 2026 21:41:50 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/715</guid>
+  </item>
+  <item>
+    <title>Re: libdca (VideoLAN DTS decoder, unmaintained): out-of-bounds read in scale-factor parsing</title>
+    <link>https://seclists.org/oss-sec/2026/q4/714</link>
+    <description>&lt;p&gt;Posted by Osvaldo J. Filho on Nov 14&lt;/p&gt;Following up on the scale-factor OOB read -- there&amp;apos;s a second out-of-bounds&lt;br&gt;
+read in the same decoder, in the bitstream reader.&lt;br&gt;
+&lt;br&gt;
+bitstream_fill_current() in bitstream.c reads a word and advances the&lt;br&gt;
+pointer with no end-of-buffer check:&lt;br&gt;
+&lt;br&gt;
+static inline void bitstream_fill_current (dca_state_t * state) {&lt;br&gt;
+uint32_t tmp;&lt;br&gt;
+tmp = *(state-&amp;gt;buffer_start++); /* no bounds check */&lt;br&gt;
+...&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+The decoder state (dca_internal.h) has no buffer_end field at...&lt;br&gt;</description>
+    <pubDate>Sun, 15 Nov 2026 01:02:00 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/714</guid>
+  </item>
+
+
+  <item>
+    <title>libdca (VideoLAN DTS decoder, unmaintained): out-of-bounds read in scale-factor parsing</title>
+    <link>https://seclists.org/oss-sec/2026/q4/713</link>
+    <description>&lt;p&gt;Posted by Osvaldo J. Filho on Nov 14&lt;/p&gt;Hi,&lt;br&gt;
+&lt;br&gt;
+libdca is VideoLAN&amp;apos;s DTS Coherent Acoustics decoder. It&amp;apos;s effectively&lt;br&gt;
+unmaintained (VideoLAN confirmed to me it&amp;apos;s abandoned and it was dropped&lt;br&gt;
+from VLC 4.0), but several distros still ship it as a library, so I&amp;apos;m&lt;br&gt;
+reporting here.&lt;br&gt;
+&lt;br&gt;
+There&amp;apos;s an out-of-bounds read in the scale-factor parser, reachable from a&lt;br&gt;
+crafted DTS frame. I verified it against the current tree at...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 23:38:03 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/713</guid>
+  </item>
+  <item>
+    <title>CVE-2015-10149: Dancer versions before 1.3400 for Perl pass unvalidated session ids from the session cookie to the session engine</title>
+    <link>https://seclists.org/oss-sec/2026/q4/712</link>
+    <description>&lt;p&gt;Posted by Robert Rothenberg on Nov 14&lt;/p&gt;========================================================================&lt;br&gt;
+CVE-2015-10149                                       CPAN Security Group&lt;br&gt;
+========================================================================&lt;br&gt;
+&lt;br&gt;
+         CVE ID:  CVE-2015-10149&lt;br&gt;
+&lt;br&gt;
+   Distribution:  Dancer&lt;br&gt;
+       Versions:  before 1.3400&lt;br&gt;
+       MetaCPAN: &lt;a  rel=&quot;nofollow&quot; href=&quot;https://metacpan.org/dist/Dancer&quot;&gt;https://metacpan.org/dist/Dancer&lt;/a&gt;&lt;br&gt;
+       VCS Repo:...&lt;br&gt;</description>
+    <pubDate>Sat, 14 Nov 2026 20:28:35 GMT</pubDate>
+    <guid isPermaLink="true">https://seclists.org/oss-sec/2026/q4/712</guid>
+  </item>
+
+ 
+
+<!-- MHonArc v2.6.19 -->
+  </channel>
+</rss>

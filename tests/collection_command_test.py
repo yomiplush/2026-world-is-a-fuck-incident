@@ -8,6 +8,16 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 
 class CollectionCommand(unittest.TestCase):
+    def test_november_17_recollection_rejects_existing_evidence(self):
+        folder = ROOT / 'data/2026-11-17-0900'
+        manifest = folder / 'collection-summary.json'
+        before = hashlib.sha256(manifest.read_bytes()).hexdigest()
+        result = subprocess.run([sys.executable, str(ROOT / 'tools/intel/snapshot-20261117-0900.py'),
+                                 '--output-dir', str(folder)], capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('already exists', result.stderr)
+        self.assertEqual(hashlib.sha256(manifest.read_bytes()).hexdigest(), before)
+
     def test_november_16_recollection_rejects_existing_evidence(self):
         folder = ROOT / 'data/2026-11-16-0900'
         manifest = folder / 'collection-summary.json'

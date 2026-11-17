@@ -1,0 +1,48 @@
+{
+  "cutoff": "2026-11-17T00:00:00Z",
+  "reviewed_ids": [
+    "aiohttp-security-release-1117",
+    "nuxt-security-fixes-1117",
+    "sveltekit-security-fixes-1117",
+    "nextjs-cache-leak-1117",
+    "mcp-security-kubeshark-codereview-1117",
+    "silverstripe-rce-auth-1117",
+    "mail-parser-batch-traversal-1117",
+    "nltk-code-exec-traversal-1117",
+    "qbee-agent-zipslip-directus-1117",
+    "npm-malware-packages-1117"
+  ],
+  "sources": [
+    {
+      "name": "aiohttp 3.14.4",
+      "url": "https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4",
+      "status": "ok"
+    },
+    {
+      "name": "Nuxt 4.6.4",
+      "url": "https://github.com/nuxt/nuxt/releases/tag/v4.6.4",
+      "status": "ok"
+    },
+    {
+      "name": "SvelteKit 3.1.1",
+      "url": "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@3.1.1",
+      "status": "ok"
+    },
+    {
+      "name": "Next.js 16.4.5",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.4.5",
+      "status": "ok"
+    },
+    {
+      "name": "Kubeshark 53.4.0",
+      "url": "https://github.com/kubeshark/kubeshark/releases/tag/v53.4.0",
+      "status": "ok"
+    },
+    {
+      "name": "Silverstripe 6.2.13",
+      "url": "https://github.com/silverstripe/silverstripe-framework/releases/tag/6.2.13",
+      "status": "ok"
+    }
+  ],
+  "note": "Selected primary-source security reviews for 2026-11-17 09:00 JST; historical rows retain previous review context."
+}

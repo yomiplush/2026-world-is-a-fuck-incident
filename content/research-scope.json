@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshot": "2026-11-16-1133",
-  "register_sha256": "880a44e462f5781dbc26850913138e5363bada1d3a30f299582cce706b48779d",
-  "reviewed_at": "2026-11-16T02:33:00Z",
+  "snapshot": "2026-11-17-0900",
+  "register_sha256": "013a0c259db3a61cd560791e547f737a90efe20f06c2c59371c9beb15b49fc0f",
+  "reviewed_at": "2026-11-17T00:00:00Z",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -4057,6 +4057,107 @@
         "https://github.com/juanfont/headscale/releases/tag/v0.29.7",
         "https://tailscale.com/security-bulletins#ts-2026-018",
         "https://tailscale.com/blog/tailscale-ssh-findings-fixes"
+      ]
+    },
+    "aiohttp-security-release-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "Pythonの非同期Webフレームワークaiohttpの公式セキュリティ修正。特定地域に限定されない。",
+        "en": "Official security release for the Python async Web framework aiohttp; not restricted to a specific region."
+      },
+      "sources": [
+        "https://github.com/aio-libs/aiohttp/releases/tag/v3.14.4"
+      ]
+    },
+    "nuxt-security-fixes-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "Vue.jsフルスタックフレームワークNuxtの公式セキュリティ修正。世界中の利用者に適用される。",
+        "en": "Official security release for the Nuxt full-stack framework; applicable to global users."
+      },
+      "sources": [
+        "https://github.com/nuxt/nuxt/releases/tag/v4.6.4"
+      ]
+    },
+    "sveltekit-security-fixes-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "SvelteKitフレームワークの公式セキュリティ勧告。世界各国の開発者に適用される。",
+        "en": "Official security advisory for the SvelteKit framework; applicable to developers worldwide."
+      },
+      "sources": [
+        "https://github.com/sveltejs/kit/releases/tag/@sveltejs/kit@3.1.1"
+      ]
+    },
+    "nextjs-cache-leak-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "Next.jsの公式セキュリティ勧告。特定法域に限定されない。",
+        "en": "Official Next.js security advisory; not restricted to a specific jurisdiction."
+      },
+      "sources": [
+        "https://github.com/vercel/next.js/releases/tag/v16.4.5"
+      ]
+    },
+    "mcp-security-kubeshark-codereview-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "Model Context Protocolツール実装の公式脆弱性勧告。オープンソースAI連携基盤共通の課題。",
+        "en": "Official vulnerability advisories for Model Context Protocol tools across global open source AI deployments."
+      },
+      "sources": [
+        "https://github.com/kubeshark/kubeshark/releases/tag/v53.4.0"
+      ]
+    },
+    "silverstripe-rce-auth-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "Silverstripe Frameworkの公式セキュリティ勧告。世界各国のCMS導入環境に適用される。",
+        "en": "Official security advisories for Silverstripe Framework across international CMS deployments."
+      },
+      "sources": [
+        "https://github.com/silverstripe/silverstripe-framework/releases/tag/6.2.13"
+      ]
+    },
+    "mail-parser-batch-traversal-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "Python mail-parserライブラリの公式セキュリティ勧告。特定の法域に限定されない。",
+        "en": "Official security advisories for the Python mail-parser library; not restricted to one jurisdiction."
+      },
+      "sources": [
+        "https://github.com/SpamScope/mail-parser/releases/tag/4.6.3"
+      ]
+    },
+    "nltk-code-exec-traversal-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "自然言語処理ライブラリNLTKの公式セキュリティ修正。世界中のNLP・AI研究開発環境に適用される。",
+        "en": "Official security release for the Natural Language Toolkit (NLTK); applies globally."
+      },
+      "sources": [
+        "https://github.com/nltk/nltk/releases/tag/v3.10.4"
+      ]
+    },
+    "qbee-agent-zipslip-directus-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "qbee-agent、Directus、termux-syncの公式セキュリティ勧告。グローバルなIoT・Web管理基盤が対象。",
+        "en": "Official security advisories for qbee-agent, Directus, and termux-sync across international deployments."
+      },
+      "sources": [
+        "https://github.com/qbee-io/qbee-agent/releases/tag/2026.41",
+        "https://github.com/directus/directus/releases/tag/v12.3.1"
+      ]
+    },
+    "npm-malware-packages-1117": {
+      "scope": "global",
+      "reason": {
+        "ja": "npm公開レジストリ上の不正パッケージ。世界中の開発環境からアクセス可能。",
+        "en": "Malicious packages published to the public npm registry; globally accessible."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-57c9-vqf7-cxmv"
       ]
     }
   }

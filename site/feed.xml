@@ -6,6 +6,12 @@
     <description>インシデント・脆弱性と対策を一次情報から確認するセキュリティ調査サイト。影響条件、修正、復旧状況を日付別のレポートとモーショングラフィックスで整理します。</description>
     <language>ja</language>
     <item>
+      <title>11月17日09:00 — AIOHTTP 3.14.4の9件・Nuxt 4.6.4・SvelteKit 3.1.1・Next.js・MCP境界とSilverstripe 6.2.13 — October Incident Briefing</title>
+      <link>https://www.infosec-briefing.net/update-20261117-0900</link>
+      <guid>https://www.infosec-briefing.net/update-20261117-0900</guid>
+      <description>AIOHTTP 3.14.4（イベントループ停止・Base64マルチパート制限迂回・WebSocketキュー制限等9件）、Nuxt 4.6.4（%2Fエンコードスラッシュ規則迂回・DNS rebinding等5件）、SvelteKit 3.1.1（src/params.js経由のサーバー秘密情報漏洩・プロトコル相対インポート等4件）、Next.js 16.4.5（unstable_cache内のuse cache初回フィル競合）、MCPサーバー（Kubeshark 53.4.0のpod_regex引数注入によるクラスタ奪取・code-review-mcp-serverのコマンド注入）、Silverstripe 6.2.13（i18nタスクwriter引数RCE・ClassName改変など6件）、mail-parser 4.6.3（添付ファイル処理中断・パストラバーサル等6件）、NLTK 3.10.4（dot2imgのPATHインジェクション・chat80シンボリックリンク脱出等3件）、qbee-agent・Directus・termux-sync、およびnpm不正パッケージ119件（mem0-mcp-server・quickwinston等）を10論点で追加。過去337論点と実影響22事例を整理します。</description>
+    </item>
+    <item>
       <title>11月16日11:33 — CloudPaste・VoAPI・不正npmと月別アーカイブ — October Incident Briefing</title>
       <link>https://www.infosec-briefing.net/update-20261116-1133</link>
       <guid>https://www.infosec-briefing.net/update-20261116-1133</guid>
