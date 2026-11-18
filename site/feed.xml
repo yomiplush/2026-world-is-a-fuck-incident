@@ -6,6 +6,12 @@
     <description>インシデント・脆弱性と対策を一次情報から確認するセキュリティ調査サイト。影響条件、修正、復旧状況を日付別のレポートとモーショングラフィックスで整理します。</description>
     <language>ja</language>
     <item>
+      <title>11月18日09:00 — libp2p DoS・SimpleSAMLphp署名迂回・EGroupware・Next.js・Arize PhoenixとSCADA 10.0 — October Incident Briefing</title>
+      <link>https://www.infosec-briefing.net/update-20261118-0900</link>
+      <guid>https://www.infosec-briefing.net/update-20261118-0900</guid>
+      <description>libp2p（gossipsub無制限購読DoS・ASN.1 DERデコーダ停止の2件）、SimpleSAMLphp SAML2 6.2.4（HTTP-Artifact署名検証迂回・CVE-2026-49283不完全修正）、EGroupware（SAML IdP選択パラメータ誘導）、Next.js 16.4.5（ネストされたuse cacheにおけるルート引数キャッシュ露出）、AWS Advanced JDBC Wrapper 4.0.1（キャッシュ汚染経由のJava直列化復元RCE）、Arize Phoenix 15.7.0（applyChatTemplate書式文字列注入）、Filament Curator（SVG XSSおよびマルチテナント検索露出）、qbee-agent 2026.27（createFileシンボリックリンク追従LPE）、CIRCUTOR SCADA WAVEおよびRucio（CVSS 10.0認証迂回2件）、およびnpm不正パッケージ126件を10論点で追加。過去347論点と実影響22事例を整理します。</description>
+    </item>
+    <item>
       <title>11月17日09:00 — AIOHTTP 3.14.4の9件・Nuxt 4.6.4・SvelteKit 3.1.1・Next.js・MCP境界とSilverstripe 6.2.13 — October Incident Briefing</title>
       <link>https://www.infosec-briefing.net/update-20261117-0900</link>
       <guid>https://www.infosec-briefing.net/update-20261117-0900</guid>

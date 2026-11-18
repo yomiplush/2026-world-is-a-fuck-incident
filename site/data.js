@@ -7417,7 +7417,7 @@ window.CONTENT.scenes.push(...[
   "metric": null,
   "reviewCutoff": "2026-11-17T00:00:00Z",
   "ja": {
-    "kicker": "11/17 09:00 REVIEW",
+    "kicker": "11/18 09:00 REVIEW",
     "title": "11/16 11:33〜11/17 09:00の登録・確認窓。",
     "lede": "主要フレームワーク・MCP・Web基盤の改訂",
     "points": [
@@ -7745,23 +7745,358 @@ window.CONTENT.scenes.push(...[
   ]
 }
 ]);
-window.CONTENT.review = {"cutoff": "2026-11-17T00:00:00Z", "label": "2026-11-17 09:00 JST", "report": "/update-20261117-0900"};
+/* November 18 09:00 review */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-1118-scope",
+    "stamp": "11.18 · 09:00 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "NVD: 1,230 NEW",
+        "NVD: 2,390 UPDATED",
+        "GHSA: 701 ENTRIES"
+      ],
+      "heading": "OVERLAP / NOT INCIDENT COUNTS"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-18T00:00:00Z",
+    "ja": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "11/17 09:00〜11/18 09:00の登録・確認窓。",
+      "lede": "SAML認証・分散P2P・AI可観測性・フレームワーク境界の改訂",
+      "points": [
+        "NVD公開1,230件・改訂2,390件。公開件数は改訂と重複",
+        "GHSA公開701件（reviewed 11・unreviewed 564・malware 126）",
+        "新たな10論点を追加。累計357論点・実影響22事例を維持"
+      ]
+    },
+    "en": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "11/17 09:00–11/18 09:00 publication and review window.",
+      "lede": "SAML authentication, P2P networking, AI observability, and framework boundaries",
+      "points": [
+        "NVD: 1,230 published and 2,390 modified; published records overlap",
+        "GHSA: 701 advisories (11 reviewed, 564 unreviewed, 126 malware)",
+        "10 new topic groups added; 357 topics are not incident counts"
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection manifest",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-18-0900/collection-summary.json"
+      }
+    ],
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-1118-saml-auth",
+    "stamp": "11.18 · 09:00 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "SIMPLESAMLPHP",
+        "EGROUPWARE",
+        "CIRCUTOR SCADA",
+        "RUCIO TOKEN"
+      ],
+      "details": [
+        "HTTP ARTIFACT",
+        "IDP SELECTION",
+        "JWT SIGNATURE",
+        "AUTH BYPASS"
+      ],
+      "heading": "AUTHENTICATION AND ASSERTION BINDING RECOVERY"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-18T00:00:00Z",
+    "ja": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "SAML認証・SCADAにおける署名検証とIdP検証の不備。",
+      "lede": "SimpleSAMLphp 6.2.4、EGroupware、CIRCUTOR SCADA、Rucioの認証境界",
+      "points": [
+        "SimpleSAMLphp：HTTP-Artifact署名検証で埋め込みResponseのIssuer未拘束（CVE-2026-110782）",
+        "EGroupware：未検証の$_REQUEST['idp']を渡しIdP選択を攻撃者が誘導可能（CVE-2026-63672）",
+        "CIRCUTOR SCADA（CVE-2026-120387）とRucio（CVE-2026-100397）の未認証トークン検証迂回"
+      ]
+    },
+    "en": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "Signature validation and IdP selection flaws in SAML and SCADA.",
+      "lede": "Authentication boundary fixes in SimpleSAMLphp 6.2.4, EGroupware, CIRCUTOR, and Rucio",
+      "points": [
+        "SimpleSAMLphp: unsigned embedded Response bypasses HTTP-Artifact verification (CVE-2026-110782)",
+        "EGroupware: user-controlled $_REQUEST['idp'] redirects SAML authentication (CVE-2026-63672)",
+        "CIRCUTOR SCADA (CVE-2026-120387) and Rucio (CVE-2026-100397) token validation bypasses"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-r7hw-jx6r-756g",
+        "url": "https://github.com/simplesamlphp/saml2/security/advisories/GHSA-r7hw-jx6r-756g"
+      },
+      {
+        "name": "GHSA-pr4x-6fj4-gm4h",
+        "url": "https://github.com/EGroupware/egroupware/security/advisories/GHSA-pr4x-6fj4-gm4h"
+      }
+    ]
+  },
+  {
+    "id": "motion-1118-libp2p-next",
+    "stamp": "11.18 · 09:00 JST",
+    "visual": {
+      "type": "packageBoundaries",
+      "labels": [
+        "LIBP2P GOSSIP",
+        "LIBP2P CRYPTO",
+        "NEXT.JS 16.4.5",
+        "STREAM METADATA"
+      ],
+      "details": [
+        "UNBOUNDED MAP",
+        "DER ASN1 LOOP",
+        "NESTED CACHE",
+        "ROOT PARAM LEAK"
+      ],
+      "heading": "ASYNC EVENT LOOP INTEGRITY AND CACHE BOUNDARIES"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-18T00:00:00Z",
+    "ja": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "libp2pのイベントループ停止・Next.jsのネストキャッシュ露出。",
+      "lede": "js-libp2pのDoS対策とNext.js 16.4.5の階層化キャッシュ分離",
+      "points": [
+        "libp2p gossipsub：購読RPCの無制限受け入れによるtopicsマップ肥大化DoS（CVE-2026-119793）",
+        "libp2p crypto：ASN.1 DERデコーダの細工長による4〜5秒の同期ループ停止（CVE-2026-110789）",
+        "Next.js：ネストされた'use cache'における遅延内部ストリームメタデータ漏洩（CVE-2026-119351）"
+      ]
+    },
+    "en": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "libp2p event loop exhaustion and Next.js nested cache leak.",
+      "lede": "DoS mitigations in js-libp2p and hierarchical cache isolation in Next.js 16.4.5",
+      "points": [
+        "libp2p gossipsub: unbounded topics map growth via unthrottled subscription RPCs (CVE-2026-119793)",
+        "libp2p crypto: ASN.1 DER decoder unbounded synchronous loop blocking event loop (CVE-2026-110789)",
+        "Next.js: cross-root-parameter cache leak in nested 'use cache' functions (CVE-2026-119351)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-x2vm-cf3p-m2w8",
+        "url": "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-x2vm-cf3p-m2w8"
+      },
+      {
+        "name": "GHSA-rvfr-cqwq-rc4j",
+        "url": "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-rvfr-cqwq-rc4j"
+      },
+      {
+        "name": "Next.js 16.4.5",
+        "url": "https://github.com/vercel/next.js/releases/tag/v16.4.5"
+      }
+    ]
+  },
+  {
+    "id": "motion-1118-ai-arize",
+    "stamp": "11.18 · 09:00 JST",
+    "visual": {
+      "type": "agentPermissions",
+      "labels": [
+        "ARIZE PHOENIX",
+        "CHAT TEMPLATE",
+        "AWS JDBC",
+        "CACHE POISON"
+      ],
+      "details": [
+        "FORMAT STRING",
+        "SECRET LEAK",
+        "DESERIALIZE",
+        "4.0.1 PATCH"
+      ],
+      "heading": "AI OBSERVABILITY SECRETS AND DRIVER DESERIALIZATION"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-18T00:00:00Z",
+    "ja": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "AI可観測性基盤の秘密情報漏洩とJDBCデシリアライズRCE。",
+      "lede": "Arize Phoenix 15.7.0とAWS Advanced JDBC Wrapper 4.0.1の修正",
+      "points": [
+        "Phoenix：applyChatTemplateにおける書式文字列注入で環境変数・暗号鍵が露出（CVE-2026-53998）",
+        "AWS Advanced JDBC Wrapper：キャッシュ汚染経由のJava直列化復元RCE（CVE-2026-14265）",
+        "AIプロンプト評価基盤およびクラウドドメイン接続ドライバの最新版更新"
+      ]
+    },
+    "en": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "AI observability secret disclosure and JDBC deserialization RCE.",
+      "lede": "Security fixes in Arize Phoenix 15.7.0 and AWS Advanced JDBC Wrapper 4.0.1",
+      "points": [
+        "Phoenix: format string injection in applyChatTemplate leaks server secrets (CVE-2026-53998)",
+        "AWS Advanced JDBC Wrapper: cache-poisoning triggered Java deserialization RCE (CVE-2026-14265)",
+        "Mandatory upgrade of AI evaluation endpoints and cloud database connection drivers"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-gfv3-m769-5xm3",
+        "url": "https://github.com/Arize-ai/phoenix/security/advisories/GHSA-gfv3-m769-5xm3"
+      },
+      {
+        "name": "GHSA-c5q4-97jw-jggh",
+        "url": "https://github.com/aws/aws-advanced-jdbc-wrapper/security/advisories/GHSA-c5q4-97jw-jggh"
+      }
+    ]
+  },
+  {
+    "id": "motion-1118-curator-qbee",
+    "stamp": "11.18 · 09:00 JST",
+    "visual": {
+      "type": "firmwareFleet",
+      "labels": [
+        "CURATOR SVG",
+        "TENANT PICKER",
+        "QBEE AGENT",
+        "SYMLINK LPE"
+      ],
+      "details": [
+        "STORED XSS",
+        "CROSS TENANT",
+        "CREATEFILE",
+        "2026.27"
+      ],
+      "heading": "MULTI-TENANT MEDIA INTEGRITY AND DEVICE AGENT ESCALATION"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-18T00:00:00Z",
+    "ja": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "メディア管理のテナント分離・SVG XSSとエージェント権限昇格。",
+      "lede": "Filament Curatorとqbee-agent 2026.27の修正",
+      "points": [
+        "Curator：非サニタイズSVGのインライン配信による格納型XSS修正（CVE-2026-69241）",
+        "Curator：ピッカー検索クエリでのテナント制約欠落による他テナント媒体情報露出（CVE-2026-63389）",
+        "qbee-agent：createFileヘルパーのシンボリックリンク追従によるローカル権限昇格修正（CVE-2026-62336）"
+      ]
+    },
+    "en": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "Multi-tenant media isolation, SVG XSS, and device agent escalation.",
+      "lede": "Security fixes in Filament Curator and qbee-agent 2026.27",
+      "points": [
+        "Curator: stored XSS mitigated by sanitizing inline SVG asset responses (CVE-2026-69241)",
+        "Curator: picker search omitting tenant scopes leaked cross-tenant metadata (CVE-2026-63389)",
+        "qbee-agent: symlink traversal in createFile helper allowed local root escalation (CVE-2026-62336)"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-8vm9-f75m-5h2m",
+        "url": "https://github.com/awcodes/filament-curator/security/advisories/GHSA-8vm9-f75m-5h2m"
+      },
+      {
+        "name": "GHSA-xhv5-8fpq-g7hf",
+        "url": "https://github.com/qbee-io/qbee-agent/security/advisories/GHSA-xhv5-8fpq-g7hf"
+      }
+    ]
+  },
+  {
+    "id": "motion-1118-npm-malware",
+    "stamp": "11.18 · 09:00 JST",
+    "visual": {
+      "type": "bundledLayers",
+      "labels": [
+        "NULLZERO/URLCAT",
+        "JSON-ASYNCAPI",
+        "FCM-GPS-DB",
+        "MALWARE NPM"
+      ],
+      "details": [
+        "TYPOSQUAT",
+        "DEV ENVIRONMENT",
+        "DATA THEFT",
+        "126 PACKAGES"
+      ],
+      "layers": [
+        [
+          "URLCAT CLONE",
+          "ASYNCAPI CLONE",
+          "CONFIG SCRAPE",
+          "REVOKE SECRETS"
+        ],
+        [
+          "PREINSTALL HOOK",
+          "ENV EXFILTRATION",
+          "CREDENTIAL SWEEP",
+          "LOCKFILE LOCKDOWN"
+        ],
+        [
+          "CONTAINER PURGE",
+          "REGISTRY QUARANTINE",
+          "KEY ROTATION",
+          "HOST INTEGRITY"
+        ]
+      ],
+      "heading": "SUPPLY CHAIN MALWARE QUARANTINE AND CREDENTIAL INVALIDATION"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-18T00:00:00Z",
+    "ja": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "開発環境を狙う126件のnpm不正パッケージ隔離と鍵失効。",
+      "lede": "@nullzero/urlcatやjson-asyncapiなどタイポスクワッティングと認証情報窃取",
+      "points": [
+        "正規パッケージ名やユーティリティを模倣したnpm不正パッケージ126件の公表と隔離",
+        "インストール時フックによるローカル環境変数・クラウド認証情報・SSH鍵の収集・外部送信",
+        "影響パッケージを即時アンインストールし、開発者トークン・APIキーの無効化と再発行を実施"
+      ]
+    },
+    "en": {
+      "kicker": "11/18 09:00 REVIEW",
+      "title": "Quarantine of 126 malicious npm packages and credential invalidation.",
+      "lede": "Typosquatting and credential harvesting via @nullzero/urlcat, json-asyncapi, and others",
+      "points": [
+        "Isolation of 126 malicious npm packages imitating utility and API libraries",
+        "Preinstall hooks designed to harvest environment variables, cloud secrets, and SSH keys",
+        "Immediate uninstallation, package removal, and revocation/rotation of developer credentials"
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-8x4p-wc99-jvgr",
+        "url": "https://github.com/advisories/GHSA-8x4p-wc99-jvgr"
+      },
+      {
+        "name": "GHSA-cxwc-2pvw-6q7w",
+        "url": "https://github.com/advisories/GHSA-cxwc-2pvw-6q7w"
+      }
+    ]
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-18T00:00:00Z", "label": "2026-11-18 09:00 JST", "report": "/update-20261118-0900"};
 for (const lang of ['ja','en']) {
  const en=lang==='en';
- window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]='<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/17 09:00 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#147">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/months'+(en?'.en':'')+'">'+(en?'Monthly archive':'月別の記録')+' →</a>';
- window.CONTENT.ui[lang].coverSub=en?'152 dated scenes. Six new explanations through November 17, 09:00 JST: async event loops, framework route boundaries, MCP tool injection, CMS object instantiation and malicious packages.':'全152画面。11/17 09:00 JSTまでの追加6画面。非同期イベントループ、フレームワーク経路境界、MCPツール引数注入、CMSオブジェクト生成RCE、不正パッケージを図解。過去画面は当時の文脈を保持します。';
+ window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]='<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/17 09:00 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#153">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/months'+(en?'.en':'')+'">'+(en?'Monthly archive':'月別の記録')+' →</a>';
+ window.CONTENT.ui[lang].coverSub=en?'158 dated scenes. Six new explanations through November 18, 09:00 JST: SAML assertion binding, P2P event loops, AI observability format strings, multi-tenant media, and malicious packages.':'全158画面。11/18 09:00 JSTまでの追加6画面。SAML署名拘束、P2Pイベントループ、AI可観測性書式文字列注入、マルチテナントメディア、不正パッケージを図解。過去画面は当時の文脈を保持します。';
 }
 
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 152,
-    "total": 152
+    "translated": 158,
+    "total": 158
   },
   "ja": {
     "ready": true,
-    "translated": 152,
-    "total": 152
+    "translated": 158,
+    "total": 158
   }
 };

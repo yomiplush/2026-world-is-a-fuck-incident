@@ -1,0 +1,58 @@
+{
+  "cutoff": "2026-11-18T00:00:00Z",
+  "reviewed_ids": [
+    "libp2p-dos-eventloop-1118",
+    "simplesamlphp-artifact-signature-1118",
+    "egroupware-saml-idp-selection-1118",
+    "nextjs-nested-cache-leak-1118",
+    "aws-jdbc-wrapper-deserialization-1118",
+    "arize-phoenix-format-string-1118",
+    "filament-curator-svg-tenant-1118",
+    "qbee-agent-lpe-symlink-1118",
+    "circutor-rucio-auth-bypass-1118",
+    "npm-malware-packages-1118"
+  ],
+  "sources": [
+    {
+      "name": "libp2p gossipsub 17.0.0",
+      "url": "https://github.com/libp2p/js-libp2p/releases/tag/gossipsub-v17.0.0",
+      "status": "ok"
+    },
+    {
+      "name": "SimpleSAMLphp SAML2 6.2.4",
+      "url": "https://github.com/simplesamlphp/saml2/releases/tag/v6.2.4",
+      "status": "ok"
+    },
+    {
+      "name": "EGroupware 23.1.20260601",
+      "url": "https://github.com/EGroupware/egroupware/releases/tag/23.1.20260601",
+      "status": "ok"
+    },
+    {
+      "name": "Next.js 16.4.5",
+      "url": "https://github.com/vercel/next.js/releases/tag/v16.4.5",
+      "status": "ok"
+    },
+    {
+      "name": "AWS Advanced JDBC Wrapper 4.0.1",
+      "url": "https://github.com/aws/aws-advanced-jdbc-wrapper/releases/tag/4.0.1",
+      "status": "ok"
+    },
+    {
+      "name": "Arize Phoenix 15.7.0",
+      "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v15.7.0",
+      "status": "ok"
+    },
+    {
+      "name": "Filament Curator 5.1.2",
+      "url": "https://github.com/awcodes/filament-curator/releases/tag/v5.1.2",
+      "status": "ok"
+    },
+    {
+      "name": "qbee-agent 2026.27",
+      "url": "https://github.com/qbee-io/qbee-agent/releases/tag/2026.27",
+      "status": "ok"
+    }
+  ],
+  "note": "Selected primary-source security reviews for 2026-11-18 09:00 JST; historical rows retain previous review context."
+}

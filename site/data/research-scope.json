@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-11-17-0900",
-  "register_sha256": "013a0c259db3a61cd560791e547f737a90efe20f06c2c59371c9beb15b49fc0f",
+  "snapshot": "2026-11-18-0900",
+  "register_sha256": "bc1d50561193211035974cfaf7af9220b51e33f2a1acd401fe424e3c383c0b87",
   "status": "reviewed",
-  "reviewed_at": "2026-11-17T00:00:00Z",
-  "source_register": "2026-11-17-0900/incident-register.json",
+  "reviewed_at": "2026-11-18T00:00:00Z",
+  "source_register": "2026-11-18-0900/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -4160,6 +4160,106 @@
       },
       "sources": [
         "https://github.com/advisories/GHSA-57c9-vqf7-cxmv"
+      ]
+    },
+    "libp2p-dos-eventloop-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "js-libp2pのP2Pネットワーキングおよび暗号ライブラリにおけるDoS修正。世界中の分散ノードに適用される修正案内。",
+        "en": "DoS mitigations in js-libp2p networking and crypto libraries applicable to distributed nodes globally."
+      },
+      "sources": [
+        "https://github.com/libp2p/js-libp2p/security/advisories/GHSA-x2vm-cf3p-m2w8"
+      ]
+    },
+    "simplesamlphp-artifact-signature-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "SimpleSAMLphp SAML2ライブラリにおけるHTTP-Artifact署名検証迂回の修正。SAML連携システム全般の修正案内。",
+        "en": "HTTP-Artifact signature verification fix in SimpleSAMLphp SAML2 library for SAML federations worldwide."
+      },
+      "sources": [
+        "https://github.com/simplesamlphp/saml2/security/advisories/GHSA-r7hw-jx6r-756g"
+      ]
+    },
+    "egroupware-saml-idp-selection-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "オープンソースグループウェアEGroupwareにおけるIdP選択パラメータ検証の修正案内。",
+        "en": "IdP selection parameter validation fix in open source EGroupware platform."
+      },
+      "sources": [
+        "https://github.com/EGroupware/egroupware/security/advisories/GHSA-pr4x-6fj4-gm4h"
+      ]
+    },
+    "nextjs-nested-cache-leak-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "Next.js 16.4.5におけるネストされたキャッシュ関数の分離修正。世界中のWebアプリケーション開発者向け案内。",
+        "en": "Nested cache function isolation fix in Next.js 16.4.5 for global web applications."
+      },
+      "sources": [
+        "https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8"
+      ]
+    },
+    "aws-jdbc-wrapper-deserialization-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "AWS Advanced JDBC WrapperのJava直列化復元RCE脆弱性修正。クラウドデータベース利用者向け案内。",
+        "en": "Java deserialization RCE fix in AWS Advanced JDBC Wrapper for cloud database users globally."
+      },
+      "sources": [
+        "https://github.com/aws/aws-advanced-jdbc-wrapper/security/advisories/GHSA-c5q4-97jw-jggh"
+      ]
+    },
+    "arize-phoenix-format-string-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "AI可観測性基盤Arize Phoenixにおける書式文字列注入修正。AIシステム運用環境向け案内。",
+        "en": "Format string injection fix in Arize Phoenix AI observability platform."
+      },
+      "sources": [
+        "https://github.com/Arize-ai/phoenix/security/advisories/GHSA-gfv3-m769-5xm3"
+      ]
+    },
+    "filament-curator-svg-tenant-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "Laravel Filament用Curatorメディア管理プラグインのSVG XSSおよびマルチテナント漏洩修正。",
+        "en": "SVG XSS and multi-tenant search leak fixes in Filament Curator media picker plugin."
+      },
+      "sources": [
+        "https://github.com/awcodes/filament-curator/security/advisories/GHSA-8vm9-f75m-5h2m"
+      ]
+    },
+    "qbee-agent-lpe-symlink-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "IoT・組み込みデバイス管理エージェントqbee-agentのシンボリックリンク追従LPE脆弱性修正案内。",
+        "en": "Symlink traversal LPE fix in qbee-agent IoT and embedded device management software."
+      },
+      "sources": [
+        "https://github.com/qbee-io/qbee-agent/security/advisories/GHSA-xhv5-8fpq-g7hf"
+      ]
+    },
+    "circutor-rucio-auth-bypass-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "CIRCUTOR SCADAおよびRucioにおける認証・トークン検証迂回脆弱性の修正案内。",
+        "en": "Authentication and token verification bypass fixes in CIRCUTOR SCADA and Rucio framework."
+      },
+      "sources": [
+        "https://github.com/rucio/rucio/security/advisories/GHSA-959c-6mch-mg79"
+      ]
+    },
+    "npm-malware-packages-1118": {
+      "scope": "global",
+      "reason": {
+        "ja": "npmエコシステムにおける認証情報窃取型不正パッケージ126件の公表・隔離および鍵失効案内。",
+        "en": "Isolation of 126 malicious npm packages harvesting developer credentials, with revocation guidance."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-8x4p-wc99-jvgr"
       ]
     }
   }
