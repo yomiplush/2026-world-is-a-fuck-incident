@@ -21,7 +21,8 @@ def article(row):
               'prior-scope': '既存の問題・対応範囲の補完', 'timestamp-unconfirmed': '基準時刻以前の公開は未確定'}
     sources = ' / '.join(anchor(s['url'], s['name']) for s in row['sources'])
     if url := row.get('vendor_guidance_url'):
-        sources += ' / ' + anchor(url, 'KEV掲載の提供元案内')
+        label = 'KEV掲載の提供元案内' if row.get('kev_due_date') else '提供元の勧告'
+        sources += ' / ' + anchor(url, label)
     return f'''<article id="{esc(row['id'])}"><p class="event-type">{esc(row['time'])} · {esc(labels[row['certainty']])}</p>
 <h3>{esc(row['title'])}</h3><p>{esc(row['body'])}</p><p class="action"><strong>確認すること</strong>{esc(row['action'])}</p>{advisory_details.render(row,esc)}<p class="sources">{sources}</p></article>'''
 
@@ -69,7 +70,8 @@ def main(path):
         overlap = counts.get('published_modified_overlap', 0)
         nvd_note = ('全件重複' if overlap == counts['nvd_published'] else f'{overlap}件重複')
         kev = record['kev']
-        kev_note = ('前回原本と同一' if kev.get('same_bytes') else
+        kev_note = ('前回原本の版と件数を引き継ぎ' if record.get('collection_scope') == 'nvd-ghsa-curated' else
+                    '前回原本と同一' if kev.get('same_bytes') else
                     '前回保存原本に差分：' + ' / '.join(kev.get('added_ids', [])))
         content += f'<p>NVD新規{counts["nvd_published"]}件は改訂{counts["nvd_modified"]}件に{esc(nvd_note)}。{esc(ghsa_note)}KEVは{kev["catalog_version"]}版・{kev["count"]:,}件で、{esc(kev_note)}。収録・原本差分は攻撃開始時刻とは別です。非掲載を悪用不存在の証明にはしません。{counts["verified_response_records"]}応答のうち{counts["deduplicated_previous_references"]}件は過去原本への参照で重複保存を避けています。</p>'
     content += '<ul>' + ''.join(f'<li>{esc(c)}</li>' for c in record['caveats']) + '</ul>'

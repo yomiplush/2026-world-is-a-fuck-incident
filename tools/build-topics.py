@@ -28,7 +28,9 @@ def build_collection(config):
             row = topics[topic]
             links = ' / '.join(f'<a href="{esc(s["url"])}">{esc(s["name"])}</a>' for s in row['sources'])
             if url := row.get('vendor_guidance_url'):
-                label = 'Vendor guidance linked by KEV' if english else 'KEV掲載の提供元案内'
+                label = 'Maintainer advisory' if english else '提供元の勧告'
+                if row.get('kev_due_date') and not row.get('database_events'):
+                    label = 'Vendor guidance linked by KEV' if english else 'KEV掲載の提供元案内'
                 links += f' / <a href="{esc(url)}">{esc(label)}</a>'
             related = ' · '.join(f'<a href="/topics/{esc(other)}{suffix}">{esc(topics[other]["title"])}</a>' for other in config['ids'] if other != topic)
             other = '' if english else '.en'

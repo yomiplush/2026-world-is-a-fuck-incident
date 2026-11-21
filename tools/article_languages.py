@@ -30,13 +30,16 @@ class Text(HTMLParser):
   self.rows.append((start,start+len(data),value,data))
 def extract(raw):return {key(value):value for _,_,value,_ in Text(raw).rows}
 def render(raw,values):
- rows=Text(raw).rows
- for _,_,original,_ in rows:
-  if not valid(original,values.get(key(original))):raise ValueError('Missing or invalid translation: '+original[:100])
- for start,end,original,data in reversed(rows):
+ parts=[]
+ offset=0
+ for start,end,original,data in Text(raw).rows:
+  translated=values.get(key(original))
+  if not valid(original,translated):raise ValueError('Missing or invalid translation: '+original[:100])
   left=data[:len(data)-len(data.lstrip())];right=data[len(data.rstrip()):]
-  raw=raw[:start]+left+html.escape(values[key(original)],quote=False)+right+raw[end:]
- return raw
+  parts.extend((raw[offset:start],left,html.escape(translated,quote=False),right))
+  offset=end
+ parts.append(raw[offset:])
+ return ''.join(parts)
 
 def sources():
  paths=list((ROOT/'site').glob('day-*.html'))+list((ROOT/'site').glob('update-*.html'))

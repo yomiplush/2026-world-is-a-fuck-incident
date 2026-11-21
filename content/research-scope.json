@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshot": "2026-11-22-0634",
-  "register_sha256": "8473288cb6ec7966e61d9db618a5b81a128321da1ab4473505faa6eb4b3711c6",
-  "reviewed_at": "2026-11-21T21:34:41Z",
+  "snapshot": "2026-11-22-0645",
+  "register_sha256": "63f9a07f7d399e79f33219a24cf1e2f1ef9cf62449f4ca7ccd4f861ae3e635bf",
+  "reviewed_at": "2026-11-21T21:45:00Z",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -4273,11 +4273,11 @@
     "kev-cve-2026-123890": {
       "scope": "global",
       "reason": {
-        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
-        "en": "A public KEV entry for deployments of the named product worldwide."
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
       },
       "sources": [
-        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-123890"
       ]
     },
     "kev-cve-2025-42884": {
@@ -4348,6 +4348,56 @@
       },
       "sources": [
         "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "tomcat-redirect-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-118028"
+      ]
+    },
+    "git-lfs-381-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-x72p-hmqp-46hw"
+      ]
+    },
+    "mcp-python-issuer-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
+      ]
+    },
+    "nats-mqtt-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-r72h-j7qq-v6qg"
+      ]
+    },
+    "picomatch-withdrawn-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-fc5q-39xc-vjpf"
       ]
     }
   }

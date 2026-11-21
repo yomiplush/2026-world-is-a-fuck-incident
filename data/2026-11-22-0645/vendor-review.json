@@ -1,0 +1,32 @@
+{
+  "cutoff": "2026-11-21T21:45:00Z",
+  "reviewed_ids": [
+    "kev-cve-2026-123890",
+    "tomcat-redirect-1122",
+    "git-lfs-381-1122",
+    "mcp-python-issuer-1122",
+    "nats-mqtt-1122"
+  ],
+  "sources": [
+    {
+      "topic": "kev-cve-2026-123890",
+      "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
+    },
+    {
+      "topic": "tomcat-redirect-1122",
+      "url": "https://tomcat.apache.org/security-11.html"
+    },
+    {
+      "topic": "git-lfs-381-1122",
+      "url": "https://github.com/git-lfs/git-lfs/releases/tag/v3.8.1"
+    },
+    {
+      "topic": "mcp-python-issuer-1122",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-qx49-fqc8-xw99"
+    },
+    {
+      "topic": "nats-mqtt-1122",
+      "url": "https://github.com/nats-io/nats-server/security/advisories/GHSA-r72h-j7qq-v6qg"
+    }
+  ]
+}

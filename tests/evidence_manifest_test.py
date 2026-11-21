@@ -94,11 +94,50 @@ class ResearchEvidence(unittest.TestCase):
             ids = {a['ghsa_id'] for p in result['pages'] for a in read(self.folder / p['file'])}
             self.assertEqual(len(ids), result['returned'])
 
+    def test_curated_feed_counts_and_saved_metadata(self):
+        if self.summary.get('collection_scope') != 'nvd-ghsa-curated':
+            return
+        windows = {}
+        for key in ('nvd-published', 'nvd-modified', 'ghsa', 'ghsa-modified'):
+            window = {}
+            for page in self.summary[key]['pages']:
+                payload = raw(self.folder / page['file'])
+                self.assertEqual(hashlib.sha256(payload).hexdigest(), page['sha256'])
+                data = json.loads(payload)
+                if key.startswith('nvd'):
+                    records = {item['cve']['id']: item['cve'] for item in data['vulnerabilities']}
+                else:
+                    records = {item['ghsa_id']: item for item in data}
+                self.assertEqual(len(records), page['returned'])
+                self.assertFalse(window.keys() & records.keys())
+                window.update(records)
+            windows[key] = window
+        counts = self.register['counts']
+        self.assertEqual(counts['published_modified_overlap'],
+                         len(windows['nvd-published'].keys() & windows['nvd-modified'].keys()))
+        self.assertEqual(counts['ghsa_published_modified_overlap'],
+                         len(windows['ghsa'].keys() & windows['ghsa-modified'].keys()))
+        previous = read(ROOT / 'data' / self.latest['previous_register'])
+        self.assertEqual(self.register['kev']['catalog_version'], previous['kev']['catalog_version'])
+        selected = [row for row in self.register['records'] if row['kind'] == 'delta']
+        self.assertEqual(len(selected), counts['delta_topic_groups'])
+        for row in selected:
+            for event in row['database_events']['nvd']:
+                self.assertIn(event['id'], windows['nvd-published'].keys() | windows['nvd-modified'].keys())
+            for event in row['database_events']['ghsa']:
+                source = windows['ghsa-modified'].get(event['ghsa_id']) or windows['ghsa'][event['ghsa_id']]
+                for field in ('published_at', 'updated_at', 'withdrawn_at'):
+                    self.assertEqual(event[field], source[field])
+                if source['withdrawn_at']:
+                    self.assertFalse(any(a['id'] == source['ghsa_id'] for a in row.get('advisories', [])))
+
     def test_new_advisory_conditions_are_preserved_from_raw_api(self):
         if self.summary.get('collection_scope') == 'kev-only':
             self.skipTest('This snapshot collects the CISA KEV catalog only')
         originals = {}
-        for page in self.summary['ghsa']['pages']:
+        curated = self.summary.get('collection_scope') == 'nvd-ghsa-curated'
+        windows = ('ghsa', 'ghsa-modified') if curated else ('ghsa',)
+        for page in (page for window in windows for page in self.summary[window]['pages']):
             if page['type'] in ('reviewed', 'malware'):
                 originals.update({a['ghsa_id']: a for a in read(self.folder / page['file'])})
         saved = {}
@@ -107,7 +146,11 @@ class ResearchEvidence(unittest.TestCase):
                 for advisory in row.get('advisories', []):
                     self.assertNotIn(advisory['id'], saved)
                     saved[advisory['id']] = advisory
-        self.assertEqual(set(originals), set(saved))
+        if curated:
+            self.assertTrue(set(saved) <= set(originals))
+            self.assertTrue(saved)
+        else:
+            self.assertEqual(set(originals), set(saved))
         for key, advisory in saved.items():
             self.assertEqual(advisory['packages'], originals[key]['vulnerabilities'])
             self.assertEqual(advisory['updated_at'], originals[key]['updated_at'])

@@ -1,3 +1,5 @@
+**最新調査 — 2026-11-22 06:45 JST。** NVD・GHSAの公開・改訂を照合し、5論点を追加、vCenterの既存項目を更新しました。台帳は371論点です。[日本語レポート](https://www.infosec-briefing.net/update-20261122-0645) · [台帳](data/2026-11-22-0645/incident-register.json) · [モーション](https://www.infosec-briefing.net/?lang=ja#165)。
+
 **最新調査 — 2026-11-22 06:34 JST。** CISA KEVの前回保存版からの追加9件を確認し、台帳は366論点になりました。日英の詳細ページ9組とモーション6画面を追加しました。[日本語レポート](https://www.infosec-briefing.net/update-20261122-0634) · [台帳](data/2026-11-22-0634/incident-register.json) · [モーション](https://www.infosec-briefing.net/?lang=ja#159)。
 
 **最新調査 — 2026-11-16 11:33 JST：** [日本語レポート](https://www.infosec-briefing.net/update-20261116-1133) · [月別索引](https://www.infosec-briefing.net/months) · [337論点の台帳](data/2026-11-16-1133/incident-register.json) · [追加6画面の図解](https://www.infosec-briefing.net/?lang=ja#141)。CloudPaste・VoAPI・コメントとメンション・SSCMS・Starfish/Linux・不正npm対象2版を追加し、headscaleとGMOの続報を照合しました。7論点を追加、既存GMO記録を更新。日英の月別索引、4論点の詳細ページと6画面を追加し、全146画面です。NVD新規9・改訂10（9重複）、GHSA公開2・改訂2（同一のmalware勧告）。過去330論点と実影響22事例は歴史的文脈を保持し、今回の全面再精査とは区別しています。

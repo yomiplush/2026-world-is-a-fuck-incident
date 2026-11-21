@@ -8315,25 +8315,308 @@ window.CONTENT.scenes.push(...[
     ]
   }
 ]);
-window.CONTENT.review = {"cutoff": "2026-11-21T21:34:41Z", "label": "2026-11-22 06:34 JST", "report": "/update-20261122-0634"};
+/* November 22 NVD and GHSA review */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-nvd-ghsa-1122-scope",
+    "stamp": "11.22 · 06:45 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "NVD CVE IDs",
+        "GHSA IDs",
+        "SHARED CVEs"
+      ],
+      "heading": "PUBLICATION AND REVISION"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:45:00Z",
+    "ja": {
+      "kicker": "NVD / GHSA",
+      "title": "公開・改訂をIDで照合",
+      "lede": "集計はDBの記録数です。",
+      "points": [
+        "NVDの公開2,901件は改訂5,200件に含まれます。",
+        "GHSAの公開3,674件も改訂4,092件に含まれます。"
+      ]
+    },
+    "en": {
+      "kicker": "NVD / GHSA",
+      "title": "Match publications and revisions by ID",
+      "lede": "The figures count database records.",
+      "points": [
+        "All 2,901 NVD publications also appear among the 5,200 revisions.",
+        "All 3,674 GHSA publications also appear among the 4,092 revisions."
+      ]
+    },
+    "sources": [
+      {
+        "name": "Collection metadata",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0645/collection-summary.json"
+      }
+    ],
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-nvd-ghsa-1122-vcenter",
+    "stamp": "11.22 · 06:45 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "VCENTER",
+        "EXPOSURE",
+        "TRIAGE"
+      ],
+      "heading": "VCENTER REMEDIATION",
+      "details": [
+        "MATCH BRANCH",
+        "LIMIT ACCESS",
+        "CHECK LOGS"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:45:00Z",
+    "ja": {
+      "kicker": "NVD / GHSA",
+      "title": "vCenterを系列ごとに更新",
+      "lede": "既存のKEV項目に修正版を追記しました。",
+      "points": [
+        "稼働中の製品と系列を提供元の対応表で照合します。",
+        "外部公開資産の侵害調査も進めます。"
+      ]
+    },
+    "en": {
+      "kicker": "NVD / GHSA",
+      "title": "Verify the vCenter release branch",
+      "lede": "The existing KEV entry now lists fixed versions.",
+      "points": [
+        "Check the installed product and release branch against the vendor matrix.",
+        "Triage internet-facing assets for compromise."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CVE-2026-123890",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123890"
+      },
+      {
+        "name": "Maintainer guidance",
+        "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495"
+      }
+    ]
+  },
+  {
+    "id": "motion-nvd-ghsa-1122-git-lfs",
+    "stamp": "11.22 · 06:45 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "WORKSTATION",
+        "CI IMAGE",
+        "INSTALLED LFS"
+      ],
+      "heading": "CHECK EVERY INSTALLATION"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:45:00Z",
+    "ja": {
+      "kicker": "NVD / GHSA",
+      "title": "Git LFSを端末とCIで照合",
+      "lede": "管理台帳にGit LFSの稼働版を記録します。",
+      "points": [
+        "対象の3系を3.8.1以降へ更新します。",
+        "CIイメージに同梱された版も確認します。"
+      ]
+    },
+    "en": {
+      "kicker": "NVD / GHSA",
+      "title": "Check Git LFS in workstations and CI",
+      "lede": "Record the installed Git LFS version in your inventory.",
+      "points": [
+        "Update affected 3.x installations to 3.8.1 or later.",
+        "Check the binaries bundled in CI images."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-x72p-hmqp-46hw",
+        "url": "https://github.com/advisories/GHSA-x72p-hmqp-46hw"
+      },
+      {
+        "name": "Maintainer guidance",
+        "url": "https://github.com/git-lfs/git-lfs/releases/tag/v3.8.1"
+      }
+    ]
+  },
+  {
+    "id": "motion-nvd-ghsa-1122-mcp",
+    "stamp": "11.22 · 06:45 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "PYTHON SDK",
+        "OAUTH ISSUER",
+        "CREDENTIALS"
+      ],
+      "heading": "MCP OAUTH CHECKS",
+      "details": [
+        "UPGRADE",
+        "CONFIGURE",
+        "REVIEW"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:45:00Z",
+    "ja": {
+      "kicker": "NVD / GHSA",
+      "title": "MCPは依存更新とissuer設定を確認",
+      "lede": "修正リリースを導入し、信頼する発行者を明示します。",
+      "points": [
+        "mcpの稼働版と利用プロバイダーを確認します。",
+        "誤送信が疑われる認証情報は調査し、失効・再発行します。"
+      ]
+    },
+    "en": {
+      "kicker": "NVD / GHSA",
+      "title": "Update the MCP dependency and configure the issuer",
+      "lede": "Install the appropriate release and set the trusted issuer.",
+      "points": [
+        "Verify the installed mcp version and OAuth provider.",
+        "Investigate and rotate credentials if misdelivery is suspected."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-qx49-fqc8-xw99",
+        "url": "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
+      },
+      {
+        "name": "Maintainer guidance",
+        "url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-qx49-fqc8-xw99"
+      }
+    ]
+  },
+  {
+    "id": "motion-nvd-ghsa-1122-services",
+    "stamp": "11.22 · 06:45 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "TOMCAT",
+        "NATS MQTT",
+        "VERIFY"
+      ],
+      "heading": "CHECK DEPLOYMENT CONFIGURATION"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:45:00Z",
+    "ja": {
+      "kicker": "NVD / GHSA",
+      "title": "TomcatとNATSの公開設定を確認",
+      "lede": "稼働版を提供元の修正版と照合します。",
+      "points": [
+        "Tomcatではリダイレクト設定を確認します。",
+        "NATSではMQTTリスナーの公開範囲を確認します。"
+      ]
+    },
+    "en": {
+      "kicker": "NVD / GHSA",
+      "title": "Check exposure in Tomcat and NATS",
+      "lede": "Compare deployed versions with the maintainer guidance.",
+      "points": [
+        "Review Tomcat redirect configuration.",
+        "Check which networks can reach NATS MQTT listeners."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CVE-2026-118028",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118028"
+      },
+      {
+        "name": "Maintainer guidance",
+        "url": "https://tomcat.apache.org/security-11.html"
+      },
+      {
+        "name": "GHSA-r72h-j7qq-v6qg",
+        "url": "https://github.com/advisories/GHSA-r72h-j7qq-v6qg"
+      },
+      {
+        "name": "Maintainer guidance",
+        "url": "https://github.com/nats-io/nats-server/security/advisories/GHSA-r72h-j7qq-v6qg"
+      }
+    ]
+  },
+  {
+    "id": "motion-nvd-ghsa-1122-withdrawn",
+    "stamp": "11.22 · 06:45 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "GHSA",
+        "STATUS",
+        "SCANNER"
+      ],
+      "heading": "ADVISORY STATUS CORRECTION",
+      "details": [
+        "CHECK ID",
+        "WITHDRAWN",
+        "REFRESH"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:45:00Z",
+    "ja": {
+      "kicker": "NVD / GHSA",
+      "title": "picomatchの撤回を依存管理へ反映",
+      "lede": "GHSAの改訂には、勧告の撤回や状態変更も含まれます。",
+      "points": [
+        "撤回済みの勧告を識別子で照合します。",
+        "依存関係ツールのデータを更新します。"
+      ]
+    },
+    "en": {
+      "kicker": "NVD / GHSA",
+      "title": "Reflect the picomatch withdrawal in dependency tracking",
+      "lede": "GHSA revisions can include withdrawals and status changes.",
+      "points": [
+        "Confirm the withdrawn advisory by ID.",
+        "Refresh data in your dependency scanner."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-fc5q-39xc-vjpf",
+        "url": "https://github.com/advisories/GHSA-fc5q-39xc-vjpf"
+      }
+    ]
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-21T21:45:00Z", "label": "2026-11-22 06:45 JST", "report": "/update-20261122-0645"};
 for (const lang of ['ja', 'en']) {
   const en = lang === 'en';
   const content = window.CONTENT;
   const intro = content.scenes.find(scene => scene.id === 'intro')[lang];
-  intro.points[1] = '<a href="' + content.review.report + (en ? '.en' : '') + '">11/22 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#159">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/months' + (en ? '.en' : '') + '">' + (en ? 'Monthly archive' : '月別の記録') + ' →</a>';
-  content.ui[lang].coverSub = en ? '164 scenes. Six new scenes cover CISA KEV additions, deadlines, and remediation checks.' : '全164画面。追加6画面ではCISA KEVの登録差分、対応期限、運用時の確認項目を図解します。';
+  intro.points[1] = '<a href="' + content.review.report + (en ? '.en' : '') + '">11/22 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#165">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/months' + (en ? '.en' : '') + '">' + (en ? 'Monthly archive' : '月別の記録') + ' →</a>';
+  content.ui[lang].coverSub = en ? '170 scenes. Six new scenes explain database revisions and deployment checks.' : '全170画面。追加6画面ではNVD・GHSAの公開・改訂と運用時の確認項目を図解します。';
 }
 
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 164,
-    "total": 164
+    "translated": 170,
+    "total": 170
   },
   "ja": {
     "ready": true,
-    "translated": 164,
-    "total": 164
+    "translated": 170,
+    "total": 170
   }
 };

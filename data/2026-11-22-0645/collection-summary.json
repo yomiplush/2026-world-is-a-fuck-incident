@@ -1,0 +1,816 @@
+{
+  "delta_start": "2026-11-18T00:00:01Z",
+  "cutoff": "2026-11-21T21:45:00Z",
+  "nvd-published": {
+    "mode": "published",
+    "complete": true,
+    "totalResults": 2901,
+    "returned": 2901,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-18T00%3A00%3A01.000&pubEndDate=2026-11-21T21%3A45%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-11-21T21:45:06+00:00",
+        "file": "nvd-published-0.json.gz",
+        "totalResults": 2901,
+        "returned": 2000,
+        "sha256": "7e531a053cd5927bc9afe834a5a7b546e95e4f6f7a83f0ed123f4ecdeef20904",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2026-11-18T00%3A00%3A01.000&pubEndDate=2026-11-21T21%3A45%3A00.000&resultsPerPage=2000&startIndex=2000",
+        "retrieved_at": "2026-11-21T21:45:16+00:00",
+        "file": "nvd-published-2000.json.gz",
+        "totalResults": 2901,
+        "returned": 901,
+        "sha256": "5ec319289a73734d166c3b44e4f3c331a0fcfdbe6a069a8651cb222519d9a679",
+        "representation": "selected API metadata"
+      }
+    ]
+  },
+  "ghsa": {
+    "mode": "published",
+    "complete": true,
+    "returned": 3674,
+    "pages": [
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+        "retrieved_at": "2026-11-21T21:45:06+00:00",
+        "file": "ghsa-published-reviewed-1.json",
+        "type": "reviewed",
+        "returned": 100,
+        "sha256": "fbdcd239025049936f37b7a792fe597144a1ea845be423459ec89a8edfe99cbe",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=reviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQyMjo0MTo0NlrOAAg1VA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:09+00:00",
+        "file": "ghsa-published-reviewed-2.json",
+        "type": "reviewed",
+        "returned": 55,
+        "sha256": "614f75efc9274fe3eb24dce80db121e4595f71a597bac1751da6287f33d34990",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+        "retrieved_at": "2026-11-21T21:45:10+00:00",
+        "file": "ghsa-published-unreviewed-1.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "e31e26bd5dc88e1ac25aa3545f02cfbf743f6c8a5105acfa9fd57fc6e81e3084",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMVQxODozMDoyNlrOAAg58g%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:11+00:00",
+        "file": "ghsa-published-unreviewed-2.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "0d7d459a4bc2f84a6f434439ce61839fb06cdbae292aa3837b7d669548e88b6a",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMVQxNTozMDoyMVrOAAg5eg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:12+00:00",
+        "file": "ghsa-published-unreviewed-3.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "47e899d5925fa0b5e835bfabdf73f46711ecb8e6569f96a3438e1b3d5a19a363",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMVQwNjozMDoyNFrOAAg5Ew%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:13+00:00",
+        "file": "ghsa-published-unreviewed-4.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "01247c2a8ad790c174dc0bd6dfe3a2070d83b2c9a43cac682bff48277fa50f4c",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQyMTozMTo1MFrOAAg4oQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:14+00:00",
+        "file": "ghsa-published-unreviewed-5.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "3e6348ff0bf4f7cb68aabc2e1d9e21047d32379d8fa5e02e9797d527d9ab5d65",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQxMjozMToxOFrOAAg3yQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:15+00:00",
+        "file": "ghsa-published-unreviewed-6.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "3efc38269080fdf46058516469d46c3df9f294a8f2134727564a3de739790983",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwOTozMTozNlrOAAg3DA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:16+00:00",
+        "file": "ghsa-published-unreviewed-7.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "487f821e717ff12f8add9df2c7a22424d624f8c7150b299bc673e7c8a23a62af",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwOTozMTozMlrOAAg3Aw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:17+00:00",
+        "file": "ghsa-published-unreviewed-8.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "0e2023fcce8f1a9157a07b6b33af0fa35c33710dceb134765a874248f821120f",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMjowOFrOAAg2hQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:18+00:00",
+        "file": "ghsa-published-unreviewed-9.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "a90385d97821ae80518e9e65e89f9b200519bca72d1908c0f0dd48f6133738c5",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMjowNFrOAAg2IQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:19+00:00",
+        "file": "ghsa-published-unreviewed-10.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "42497a6768cad7d32daa71fde845b283def8068e95770316bd0c63b5719e0495",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwMDozMTozNVrOAAg1qg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:20+00:00",
+        "file": "ghsa-published-unreviewed-11.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "184c5eaa9916065fe1ec887ddc8130d8c1dee38a6f0ea98514bbc7aa674cf45e",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQyMTozMTo1NlrOAAg1DA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:21+00:00",
+        "file": "ghsa-published-unreviewed-12.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "33ef9b14891e26bdc5b6818564b916e4137b8c7493865dcf4bd2d6352acbbe12",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQyMTozMTo0MlrOAAg0pg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:22+00:00",
+        "file": "ghsa-published-unreviewed-13.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "60c76a9322bf77090d8eaee2e46056ba3a1ece9999d16052dca6c0d98dd932df",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxODozMTo1NlrOAAg0GQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:23+00:00",
+        "file": "ghsa-published-unreviewed-14.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "567f58ec6e2ea65a11fd58c09db3153ec279a7ab7d9a3c359575f24d1ec6707e",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxNTozMToyNlrOAAgzkA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:24+00:00",
+        "file": "ghsa-published-unreviewed-15.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "922e0c3c389181101f5c632d8d26ffd4488485d668066b4406e1be5ccb52afac",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxNTozMToyM1rOAAgy_Q%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:25+00:00",
+        "file": "ghsa-published-unreviewed-16.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "0e7c64581c137db2ba0cb63e40fd8549571f7aaba15c680cd6d4a33b0fff5104",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxNTozMToxNVrOAAgy5w%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:26+00:00",
+        "file": "ghsa-published-unreviewed-17.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "8af859fa9d5cfa944657ce595a6b3595a153ef5a5a7db9a030bb04a97d8458e5",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxMjozMjowM1rOAAgyVA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:27+00:00",
+        "file": "ghsa-published-unreviewed-18.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "6e539645c02443e12ca50881e5d5f22160bd728110832e3f061034dfbe920ef0",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxMjozMTo1MVrOAAgx5Q%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:28+00:00",
+        "file": "ghsa-published-unreviewed-19.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "a8a97851d4f08011b0ea2cf109b1e7443dab1125b0a51d5094abd034344a086f",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwMDozMDo0MFrOAAgxJg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:30+00:00",
+        "file": "ghsa-published-unreviewed-20.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "46cd6e56df2530fb4004c688189eb6cd9f4109524d2f2382ff2d58d68ebc6431",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQyMTozMTozNlrOAAgwvw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:30+00:00",
+        "file": "ghsa-published-unreviewed-21.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "c79c5cb137bd9e3b2eaef0fa0d8d276c891bd15bd5bd061d8f81e3df8d029477",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxODozMjowM1rOAAgwVQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:31+00:00",
+        "file": "ghsa-published-unreviewed-22.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "e88e428edfcb0e3a0104030c06cbdf00843588670c68ec23b4a2487c67719860",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxNTozNDozOFrOAAgvtw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:32+00:00",
+        "file": "ghsa-published-unreviewed-23.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "c3cbd8b40fc8975168ca5ebb3eac7aacbc32e895ac7402f5b860a7bc09a3d9f5",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxMjozMTozMlrOAAgvVQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:34+00:00",
+        "file": "ghsa-published-unreviewed-24.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "3beeef4285a75562b35a287ff0d93c6d4edcf3786c99ba5c9d814437da055daf",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxMjozMToyNFrOAAgu5Q%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:35+00:00",
+        "file": "ghsa-published-unreviewed-25.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "efce21e804f0f68ccd6796fa0f9929ca9aa2f9e16b21af4f064dbd0ae0c486dd",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMzozMDoyNVrOAAgugQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:36+00:00",
+        "file": "ghsa-published-unreviewed-26.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "a2128d1faf6ef5f9dfe9c08e69753271a176e3a83fea4c243f3cf2b72ce9a161",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMzoxOFrOAAguHw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:37+00:00",
+        "file": "ghsa-published-unreviewed-27.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "214cc3a5481cd10ce210a4d89fb4166619e57559859bdc82443155916f015576",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMjo1MFrOAAgtrg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:38+00:00",
+        "file": "ghsa-published-unreviewed-28.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "6123cf12964072c50ca616fc35398519f8261ab46b69b65a8a57e634b0f97871",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMjozNlrOAAgtYQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:39+00:00",
+        "file": "ghsa-published-unreviewed-29.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "10e042a6a998f9b258821d2f98a831532f13c196eec6334f354dba9fcf62702b",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMjoxNlrOAAgtAA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:40+00:00",
+        "file": "ghsa-published-unreviewed-30.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "d7b3736d4d2938c806791d1d30a39f672f0751adec463ba938a3528cd9a88dd5",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMjowNVrOAAgsew%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:41+00:00",
+        "file": "ghsa-published-unreviewed-31.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "4977c374a36ff1025ceaeacd848778009b45caff19d1ff68b34dadff994720cf",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=unreviewed&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMTo0OFrOAAgsPA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:42+00:00",
+        "file": "ghsa-published-unreviewed-32.json",
+        "type": "unreviewed",
+        "returned": 83,
+        "sha256": "ceb5cdfb94c96a23dd4b13ce1d34dff8c4e1309c35b3a97afe726b0dde87bcb5",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+        "retrieved_at": "2026-11-21T21:45:42+00:00",
+        "file": "ghsa-published-malware-1.json",
+        "type": "malware",
+        "returned": 100,
+        "sha256": "5cea88573751fe82b4553cce4b8751f2de72576fbd418519d8eefba1b173d468",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMTo1NFrOAAg17g%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:44+00:00",
+        "file": "ghsa-published-malware-2.json",
+        "type": "malware",
+        "returned": 100,
+        "sha256": "2a166a1cb01f28c2d79afe13ff7b1145b2d6f1a2e32e014b82059d95efbbdabf",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwOTozMDozM1rOAAgxpg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:45+00:00",
+        "file": "ghsa-published-malware-3.json",
+        "type": "malware",
+        "returned": 100,
+        "sha256": "924e303a5d626e02ef2f470c9a2d8b4d79aa0a4ae4d6a40316615bcbecc99665",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxODoxOTozNFrOAAgv9g%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:46+00:00",
+        "file": "ghsa-published-malware-4.json",
+        "type": "malware",
+        "returned": 36,
+        "sha256": "13ed9c8ccd0959afc09c7bc4a33292bb47a36f9e88f22f54dafe9f520bb00e8c",
+        "representation": "selected API metadata"
+      }
+    ]
+  },
+  "ghsa-modified": {
+    "mode": "updated",
+    "complete": true,
+    "returned": 4092,
+    "pages": [
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=reviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+        "retrieved_at": "2026-11-21T21:45:06+00:00",
+        "file": "ghsa-updated-reviewed-1.json",
+        "type": "reviewed",
+        "returned": 100,
+        "sha256": "2f7fc21369c836dd885873eb310e0ed95ff9df938ddb30de2bda103f141ca165",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=reviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQyMjo0OTozNFrOAAg1Xw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:08+00:00",
+        "file": "ghsa-updated-reviewed-2.json",
+        "type": "reviewed",
+        "returned": 78,
+        "sha256": "d6d194a8cb6cf82b88fd2467ae6d2c1819309798d261fd95b263f9146834bb2d",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+        "retrieved_at": "2026-11-21T21:45:10+00:00",
+        "file": "ghsa-updated-unreviewed-1.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "a9665bb021afa877dee0c1c3e4d0ba37ce6798acdb7aa3964a5c4997a0501648",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMVQxODozMDozM1rOAAg53g%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:11+00:00",
+        "file": "ghsa-updated-unreviewed-2.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "e3a1847ab53bca676c60493574adb44583c7c640f263508698c372d2bf686acf",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMVQxNTozMDoyMlrOAAg5eg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:12+00:00",
+        "file": "ghsa-updated-unreviewed-3.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "f0291722b7d9b17a09d4ef4dfa6416acac777c1eee53afeb1cb0dc355216f8af",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMVQwNjozMDozMVrOAAg5Ew%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:13+00:00",
+        "file": "ghsa-updated-unreviewed-4.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "be02ebee1be2ff18b81ffbfccd257ba50d7cfc0bdeb200c9477a0dac195a977a",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQyMTozMjowMFrOAAg4xA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:14+00:00",
+        "file": "ghsa-updated-unreviewed-5.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "448f14927dd54a68ba9f0fc93a292f92dfaf253b7c62338890a4daac8e6d129a",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQyMTozMTozOFrOAAgthg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:15+00:00",
+        "file": "ghsa-updated-unreviewed-6.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "1242e9c3e12081e609d1f2521bf3815faedbe280e417bdb36ddb74863faf1327",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQxODozMToyMlrOAAgtAQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:16+00:00",
+        "file": "ghsa-updated-unreviewed-7.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "80603384db21044b37e232669bd945bfb6f2a95fb3aa1c634cd24d2d6e5fa94d",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQxMjozMjoxNVrOAAenLA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:17+00:00",
+        "file": "ghsa-updated-unreviewed-8.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "b4e9fd329fae7321833eac485923b9e6a48681321b8618c4fe3ea7b0b70d3560",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwOTozMTo0NVrOAAg3bw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:18+00:00",
+        "file": "ghsa-updated-unreviewed-9.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "de8f58ee67dae6527d01a004a898656db7d798bf1e20fe4456486f20ae411760",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwOTozMTozNlrOAAg3Cg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:19+00:00",
+        "file": "ghsa-updated-unreviewed-10.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "00be9b9cf2e6b9e9ab861815bc7edefd0b4c1362c8bee4074a46fdedceeedd2d",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMjoxMFrOAAg2rw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:20+00:00",
+        "file": "ghsa-updated-unreviewed-11.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "1f548850bf3cf28f3e4c3d9a8b4173f3463b3195db2ac92fee5707fb793b0aae",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMjowNlrOAAg2Sw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:21+00:00",
+        "file": "ghsa-updated-unreviewed-12.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "228037d95dfe74142949bb722421e7b7e88ce3c4d068be571d4d68ff68ae2bff",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNToxMzo0OVrOAAgJmA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:22+00:00",
+        "file": "ghsa-updated-unreviewed-13.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "bb0e8f74641890d8b5a2b8837177d342336d0e16f517c128aa7759b2e317d903",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQyMTozMjowOFrOAAg1Nw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:22+00:00",
+        "file": "ghsa-updated-unreviewed-14.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "707396cc2d9ea6e1a3b8dc4d752373ee5d7ebbec76ac28c1a3f6cf11e0ea196a",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQyMTozMTo1NlrOAAg00w%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:24+00:00",
+        "file": "ghsa-updated-unreviewed-15.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "258a3131690c04b5df7f2b7b043e04bccf3539553f9e84e9d110724a6d704085",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQyMTozMTozMFrOAAgs-g%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:25+00:00",
+        "file": "ghsa-updated-unreviewed-16.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "a4c984bc2d8f6b9ba070b09e29b079fe9be5df8636c237320a7d15de921741dd",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxODozMjowOVrOAAg0aw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:26+00:00",
+        "file": "ghsa-updated-unreviewed-17.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "1f1ef6863dabda8866979efc9b7f8835feeedb7e8e308bf79189248424def4ba",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxODozMTo1NFrOAAg0Bg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:27+00:00",
+        "file": "ghsa-updated-unreviewed-18.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "34302981992cb1beb757b89822b57bbf8f4e9ad0c9dfa89a0abdb0c42e2549bd",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxNTozMTo0MFrOAAgz5g%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:28+00:00",
+        "file": "ghsa-updated-unreviewed-19.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "3731ccec4e066865f036494085fd0b482a95e0ebdfe1f4cc6f6e8d2c428ebe95",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxNTozMToyOVrOAAgzgg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:29+00:00",
+        "file": "ghsa-updated-unreviewed-20.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "38cccc77b1ebd0f33a1324845bcd37afe1ee2ebb0efc284c9668dd87642b3386",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxNTozMToyNVrOAAgzHg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:30+00:00",
+        "file": "ghsa-updated-unreviewed-21.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "4a60329cbff93a6f6d15746273b2f532bcc08a3f5e68c9345ad657b205a73fe8",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxNTozMToxMVrOAAgytQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:32+00:00",
+        "file": "ghsa-updated-unreviewed-22.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "948aad31a809ed678d07e4c46d17ca013904070c453f7e7ee5cdf5bd54b9aaa8",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxMjozMjowNVrOAAgyNA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:33+00:00",
+        "file": "ghsa-updated-unreviewed-23.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "86e062f5714c509edc6061bb212a53e0826153164014799747aff903f871cef4",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQxMjozMTo1MFrOAAgx0A%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:34+00:00",
+        "file": "ghsa-updated-unreviewed-24.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "7689d791cb1c167769aa12d6c19198d65e4054f318d9dae029a1dcf796b0d7b3",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwMzozMTozMFrOAAguKQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:35+00:00",
+        "file": "ghsa-updated-unreviewed-25.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "999c73eeb0242a321abe3ea8addceb7b494a8c6443985d301b85d2a1590825ab",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQyMTozMjozNFrOAAgrcw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:36+00:00",
+        "file": "ghsa-updated-unreviewed-26.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "307cc683672ec810d2c8c78d0e8afb98cdb94732b7b2aa1aa62d8afbd69b5cc0",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQyMTozMTo0N1rOAAgwrQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:37+00:00",
+        "file": "ghsa-updated-unreviewed-27.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "8c9556f53ef942aef5ad727bc259d258aebebcfe625d3c7d6c5681d50583d8f9",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxODozMjo0NlrOAAguWw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:38+00:00",
+        "file": "ghsa-updated-unreviewed-28.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "5c2ffd0e5f79b03058c1a24b83e2e7acf51e05b654afea1208f8f36df8cded13",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxODozMjowNlrOAAgwRA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:39+00:00",
+        "file": "ghsa-updated-unreviewed-29.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "20ce01464017c56d598a84672af2f7896473d18dc8c9c947af0941159568360a",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxODozMTozOFrOAAgstA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:39+00:00",
+        "file": "ghsa-updated-unreviewed-30.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "ccb09ed33d867c630b2e94ba1b2c5b2a881ecc8637b48c567f4fd688f2f6cbc3",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxNTozNDozOFrOAAgvtQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:40+00:00",
+        "file": "ghsa-updated-unreviewed-31.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "71cabd1e978d55f03a03f2501f70561c2fa5d26ea9d9786bdc56a089cae78bce",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxMjozMTozNFrOAAgvUQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:41+00:00",
+        "file": "ghsa-updated-unreviewed-32.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "942cd799214ca155f37dfee5474bf1ae23831b844085883144e2e4e41fc99efe",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxMjozMToyM1rOAAgu5A%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:43+00:00",
+        "file": "ghsa-updated-unreviewed-33.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "930c13557c4d5439f06dcac63fa36a79500a28917d5c7dd7e40f9dd404fc33d2",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMzozMDoyOFrOAAguhA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:43+00:00",
+        "file": "ghsa-updated-unreviewed-34.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "bd91b403413d5214e39ed2a78048341dafba07fc1f453fff20a61711a105e5e9",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMzoyNlrOAAguOA%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:45+00:00",
+        "file": "ghsa-updated-unreviewed-35.json",
+        "type": "unreviewed",
+        "returned": 100,
+        "sha256": "b73992f24aad5b44da7c085e36e0372657f0a6df34b8d168d304fc32eb7db3a0",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=unreviewed&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQwMDozMjozNlrOAAgrHQ%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:45+00:00",
+        "file": "ghsa-updated-unreviewed-36.json",
+        "type": "unreviewed",
+        "returned": 54,
+        "sha256": "c08c2a813c463ca73a0153c44c024cf21a26af7e9374fac01db35b546b06f957",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+        "retrieved_at": "2026-11-21T21:45:46+00:00",
+        "file": "ghsa-updated-malware-1.json",
+        "type": "malware",
+        "returned": 100,
+        "sha256": "d1d7cc44cd64ea78a40e62142202e8eac7fb546b22aa5f62f30b6695501d7e1c",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMTo1NlrOAAg18A%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:47+00:00",
+        "file": "ghsa-updated-malware-2.json",
+        "type": "malware",
+        "returned": 100,
+        "sha256": "e26c82380865454e3d2fb80a18ea5163a78dbf167a4215910435224731c1970f",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwOTozMDo0MFrOAAgxtw%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:48+00:00",
+        "file": "ghsa-updated-malware-3.json",
+        "type": "malware",
+        "returned": 100,
+        "sha256": "80657499588c9d1172e9b43e68cac08c3aa11d6987588480b917fd98b9407943",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwMDozNTowOVrOAAgxMg%3D%3D",
+        "retrieved_at": "2026-11-21T21:45:49+00:00",
+        "file": "ghsa-updated-malware-4.json",
+        "type": "malware",
+        "returned": 60,
+        "sha256": "0a7d363d0dbdca4cb36b643ba56bc4845981948dd815a0a32ae22e318a548849",
+        "representation": "selected API metadata"
+      }
+    ]
+  },
+  "nvd-modified": {
+    "mode": "modified",
+    "complete": true,
+    "totalResults": 5200,
+    "returned": 5200,
+    "pages": [
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-18T00%3A00%3A01.000&lastModEndDate=2026-11-21T21%3A45%3A00.000&resultsPerPage=2000&startIndex=0",
+        "retrieved_at": "2026-11-21T21:45:50+00:00",
+        "file": "nvd-modified-0.json.gz",
+        "totalResults": 5200,
+        "returned": 2000,
+        "sha256": "8735b9bedf854e18f28514b7f4017f4fd68f0ad720f636c79efac57aab38388f",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-18T00%3A00%3A01.000&lastModEndDate=2026-11-21T21%3A45%3A00.000&resultsPerPage=2000&startIndex=2000",
+        "retrieved_at": "2026-11-21T21:46:02+00:00",
+        "file": "nvd-modified-2000.json.gz",
+        "totalResults": 5200,
+        "returned": 2000,
+        "sha256": "94bbed0b2052c5805d4e8c68cc8fda42a06f49142d599014aa8de71821df613a",
+        "representation": "selected API metadata"
+      },
+      {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?lastModStartDate=2026-11-18T00%3A00%3A01.000&lastModEndDate=2026-11-21T21%3A45%3A00.000&resultsPerPage=2000&startIndex=4000",
+        "retrieved_at": "2026-11-21T21:46:11+00:00",
+        "file": "nvd-modified-4000.json.gz",
+        "totalResults": 5200,
+        "returned": 1200,
+        "sha256": "bf28cc94b627daa34a7d4eb743b92dfbd1b6160123d1d3c8040b6b0185002e0b",
+        "representation": "selected API metadata"
+      }
+    ]
+  },
+  "collection_scope": "nvd-ghsa-curated",
+  "cutoff_jst": "2026-11-22T06:45:00+09:00",
+  "nvd_overlap": 2901,
+  "ghsa_overlap": 3674,
+  "cross_database_cves": 3649,
+  "ghsa_published_by_type": {
+    "reviewed": 155,
+    "unreviewed": 3183,
+    "malware": 336
+  },
+  "representation": "Metadata projection of every paginated API response. Narrative text is excluded. Page SHA-256 refers to decompressed saved bytes.",
+  "kev": {
+    "coverage": "carried forward from the preceding KEV snapshot",
+    "file": "../2026-11-22-0634/kev.json.gz",
+    "catalog_version": "2026.11.20",
+    "count": 1790
+  }
+}

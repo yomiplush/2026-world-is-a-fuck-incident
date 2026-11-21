@@ -1,48 +1,447 @@
 {
-  "cutoff": "2026-11-21T21:34:41Z",
-  "cutoff_jst": "2026-11-22T06:34:41+09:00",
+  "cutoff": "2026-11-21T21:45:00Z",
+  "cutoff_jst": "2026-11-22T06:45:00+09:00",
   "counts": {
-    "record_topic_groups": 366,
-    "delta_topic_groups": 9,
-    "scope_complement_topic_groups": 357,
+    "nvd_published": 2901,
+    "nvd_modified": 5200,
+    "published_modified_overlap": 2901,
+    "ghsa": 3674,
+    "ghsa_modified": 4092,
+    "ghsa_published_modified_overlap": 3674,
+    "ghsa_reviewed": 155,
+    "ghsa_unreviewed": 3183,
+    "ghsa_malware": 336,
+    "record_topic_groups": 371,
+    "delta_topic_groups": 6,
+    "scope_complement_topic_groups": 365,
     "reference_only_topic_groups": 0,
-    "verified_response_records": 1,
+    "verified_response_records": 85,
     "deduplicated_previous_references": 0
   },
-  "collection_scope": "kev-only",
+  "collection_scope": "nvd-ghsa-curated",
   "kev": {
     "catalog_version": "2026.11.20",
     "count": 1790,
-    "same_bytes": false,
-    "added_ids": [
-      "CVE-2026-129448",
-      "CVE-2026-123890",
-      "CVE-2025-42884",
-      "CVE-2026-76466",
-      "CVE-2024-10441",
-      "CVE-2026-40217",
-      "CVE-2026-90817",
-      "CVE-2026-90436",
-      "CVE-2026-115731"
-    ]
+    "same_bytes": true,
+    "added_ids": []
   },
   "caveats": [
-    "今回はCISA KEVの差分調査です。NVD・GHSAの公開・改訂窓は収集対象外です。",
-    "前回保存版と比較して9件追加され、カタログは2026.11.20版、1,790件です。登録日から悪用開始日や被害件数は分かりません。",
-    "CISAが示す対応期限は対象となる米国連邦機関向けです。他の組織は自組織の公開状況とリスクに応じて対処してください。",
-    "前回の357論点と実影響22事例は当時の文脈で保持しました。今回は個別組織の被害や復旧状況を再確認していません。",
-    "Puppet Enterpriseの登録日は11月17日です。今回の9件は日付検索ではなく、前回保存原本とのID差分です。"
+    "NVDはCVE IDで照合し、公開・改訂の重複は2,901件。GHSAはGHSA IDで照合し、公開・改訂の重複は3,674件。両DBの照合で共通のCVE IDは3,649件でした。",
+    "GHSAの公開分は審査済み155件、未審査3,183件、malware 336件です。",
+    "掲載・改訂件数は被害件数ではありません。11月18日の前回NVD・GHSA収集以降を対象とし、11月22日のKEV更新で対象外だった期間も含めました。",
+    "全ページの識別子・日時・状態と、GHSAの対象版・修正版のメタデータを保存しました。取得時点の現行応答であり、過去の全改訂は復元できません。",
+    "優先度の高い5論点を追加し、vCenterの既存KEV項目を更新しました。実影響22事例は前回までの調査に基づきます。",
+    "KEVの版と件数は前回保存原本を引き継ぎました。今回はKEVの再取得を行っていません。"
   ],
   "records": [
     {
-      "id": "kev-cve-2026-129448",
+      "id": "kev-cve-2026-123890",
       "cve_ids": [
-        "CVE-2026-129448"
+        "CVE-2026-123890"
+      ],
+      "kind": "delta",
+      "date": "2026-11-19",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "updated",
+      "last_editorial_review": "2026-11-21T21:45:00Z",
+      "sources": [
+        {
+          "name": "CVE-2026-123890",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123890"
+        },
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495",
+      "kev_due_date": "2026-11-23",
+      "title": "VMware vCenter：KEV掲載後の修正版確認",
+      "time": "DB公開日 2026-11-19 UTC",
+      "body": "既存のKEV項目をNVDとBroadcomのVMSA-2026-0009で補足しました。vCenterの認証回避で、CISAは悪用確認済みの項目として掲載しています。 KEV上の対応期限は2026-11-23です。",
+      "action": "vCenter 9.1系は9.1.1.0200、9.0系は9.0.2.0200、8.0系は8.0 U3mを提供元の対応表で照合してください。VCFやTelco Cloudの構成は別の行を確認し、外部公開資産の侵害調査も進めてください。",
+      "database_events": {
+        "nvd": [
+          {
+            "id": "CVE-2026-123890",
+            "sourceIdentifier": "security@vmware.com",
+            "published": "2026-11-19T15:17:25.407",
+            "lastModified": "2026-11-21T05:18:10.817",
+            "vulnStatus": "Analyzed"
+          }
+        ],
+        "ghsa": []
+      }
+    },
+    {
+      "id": "tomcat-redirect-1122",
+      "cve_ids": [
+        "CVE-2026-118028"
+      ],
+      "kind": "delta",
+      "date": "2026-11-19",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:45:00Z",
+      "sources": [
+        {
+          "name": "CVE-2026-118028",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118028"
+        }
+      ],
+      "title": "Apache Tomcat：リダイレクト処理の修正",
+      "body": "ApacheはRedirectValve使用環境のリダイレクト処理に関する問題を公表しました。NVDの記録とApacheの対応版を照合しました。",
+      "action": "対象となる構成ではApacheの対応表に従い、11.0.29、10.1.62、9.0.124以降のサポート中の版へ更新してください。リダイレクトとアクセス制御の設定を検証してください。",
+      "time": "DB公開日 2026-11-19 UTC",
+      "database_events": {
+        "nvd": [
+          {
+            "id": "CVE-2026-118028",
+            "sourceIdentifier": "security@apache.org",
+            "published": "2026-11-19T22:17:58.893",
+            "lastModified": "2026-11-20T19:18:36.960",
+            "vulnStatus": "Awaiting Analysis"
+          }
+        ],
+        "ghsa": []
+      },
+      "vendor_guidance_url": "https://tomcat.apache.org/security-11.html"
+    },
+    {
+      "id": "git-lfs-381-1122",
+      "cve_ids": [
+        "CVE-2026-105802",
+        "CVE-2026-105803",
+        "CVE-2026-69260",
+        "CVE-2026-69261"
       ],
       "kind": "delta",
       "date": "2026-11-20",
       "certainty": "confirmed-publication",
       "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:45:00Z",
+      "sources": [
+        {
+          "name": "GHSA-x72p-hmqp-46hw",
+          "url": "https://github.com/advisories/GHSA-x72p-hmqp-46hw"
+        },
+        {
+          "name": "GHSA-xrgv-7vx6-5vx6",
+          "url": "https://github.com/advisories/GHSA-xrgv-7vx6-5vx6"
+        },
+        {
+          "name": "GHSA-x7xj-4j4f-88xr",
+          "url": "https://github.com/advisories/GHSA-x7xj-4j4f-88xr"
+        },
+        {
+          "name": "GHSA-w3f2-pr6x-wwjc",
+          "url": "https://github.com/advisories/GHSA-w3f2-pr6x-wwjc"
+        }
+      ],
+      "title": "Git LFS：開発端末とCIの更新",
+      "body": "Git LFSの勧告は、信頼できない入力の処理でコマンド実行や機密ヘッダーの露出が起こり得ると報告しています。対象をGit本体と区別して棚卸ししてください。",
+      "action": "Git LFS 3系は3.8.1以降へ更新してください。CIの実行イメージや開発端末に同梱されたバイナリも確認してください。2系の修正版は確認した勧告に記載がありません。",
+      "time": "DB公開日 2026-11-20 UTC",
+      "database_events": {
+        "nvd": [],
+        "ghsa": [
+          {
+            "ghsa_id": "GHSA-x72p-hmqp-46hw",
+            "published_at": "2026-11-20T14:59:40Z",
+            "updated_at": "2026-11-20T14:59:41Z",
+            "withdrawn_at": null
+          },
+          {
+            "ghsa_id": "GHSA-xrgv-7vx6-5vx6",
+            "published_at": "2026-11-20T14:58:53Z",
+            "updated_at": "2026-11-20T14:58:55Z",
+            "withdrawn_at": null
+          },
+          {
+            "ghsa_id": "GHSA-x7xj-4j4f-88xr",
+            "published_at": "2026-11-20T14:49:47Z",
+            "updated_at": "2026-11-20T14:49:48Z",
+            "withdrawn_at": null
+          },
+          {
+            "ghsa_id": "GHSA-w3f2-pr6x-wwjc",
+            "published_at": "2026-11-20T14:47:01Z",
+            "updated_at": "2026-11-20T14:47:03Z",
+            "withdrawn_at": null
+          }
+        ]
+      },
+      "vendor_guidance_url": "https://github.com/git-lfs/git-lfs/releases/tag/v3.8.1",
+      "advisories": [
+        {
+          "id": "GHSA-x72p-hmqp-46hw",
+          "summary": "Git LFS configuration handling",
+          "url": "https://github.com/advisories/GHSA-x72p-hmqp-46hw",
+          "published_at": "2026-11-20T14:59:40Z",
+          "updated_at": "2026-11-20T14:59:41Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs"
+              },
+              "vulnerable_version_range": ">= 1.3.0, <= 2.13.3",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs/v3"
+              },
+              "vulnerable_version_range": ">= 3.0.0, < 3.8.1",
+              "first_patched_version": "3.8.1"
+            }
+          ]
+        },
+        {
+          "id": "GHSA-xrgv-7vx6-5vx6",
+          "summary": "Git configuration handling in Git LFS",
+          "url": "https://github.com/advisories/GHSA-xrgv-7vx6-5vx6",
+          "published_at": "2026-11-20T14:58:53Z",
+          "updated_at": "2026-11-20T14:58:55Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs"
+              },
+              "vulnerable_version_range": ">= 0.6.0, <= 2.13.3",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs/v3"
+              },
+              "vulnerable_version_range": ">= 3.0.0, < 3.8.1",
+              "first_patched_version": "3.8.1"
+            }
+          ]
+        },
+        {
+          "id": "GHSA-x7xj-4j4f-88xr",
+          "summary": "Git LFS redirect header handling",
+          "url": "https://github.com/advisories/GHSA-x7xj-4j4f-88xr",
+          "published_at": "2026-11-20T14:49:47Z",
+          "updated_at": "2026-11-20T14:49:48Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs"
+              },
+              "vulnerable_version_range": ">= 0.5.0, <= 2.13.3",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs/v3"
+              },
+              "vulnerable_version_range": ">= 3.0.0, < 3.8.1",
+              "first_patched_version": "3.8.1"
+            }
+          ]
+        },
+        {
+          "id": "GHSA-w3f2-pr6x-wwjc",
+          "summary": "Git LFS remote command handling",
+          "url": "https://github.com/advisories/GHSA-w3f2-pr6x-wwjc",
+          "published_at": "2026-11-20T14:47:01Z",
+          "updated_at": "2026-11-20T14:47:03Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs"
+              },
+              "vulnerable_version_range": ">= 0.5.0, <= 2.13.3",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/git-lfs/git-lfs/v3"
+              },
+              "vulnerable_version_range": ">= 3.0.0, < 3.8.1",
+              "first_patched_version": "3.8.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcp-python-issuer-1122",
+      "cve_ids": [
+        "CVE-2026-115563"
+      ],
+      "kind": "delta",
+      "date": "2026-11-19",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:45:00Z",
+      "sources": [
+        {
+          "name": "GHSA-qx49-fqc8-xw99",
+          "url": "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
+        }
+      ],
+      "title": "MCP Python SDK：OAuth発行者を明示",
+      "body": "OAuthクライアントが想定外の認可サーバーへ認証情報を送る可能性があります。修正版でも、発行者を省略する構成が残るため、依存関係と設定の両方を確認してください。",
+      "action": "mcp 1.30.0または2.2.0以降へ更新し、対応するプロバイダーで信頼するissuerを設定してください。認証情報の誤送信が疑われる場合はログを確認し、対象の認証情報を失効・再発行してください。",
+      "time": "DB公開日 2026-11-19 UTC",
+      "database_events": {
+        "nvd": [],
+        "ghsa": [
+          {
+            "ghsa_id": "GHSA-qx49-fqc8-xw99",
+            "published_at": "2026-11-19T22:45:40Z",
+            "updated_at": "2026-11-19T22:45:41Z",
+            "withdrawn_at": null
+          }
+        ]
+      },
+      "vendor_guidance_url": "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-qx49-fqc8-xw99",
+      "advisories": [
+        {
+          "id": "GHSA-qx49-fqc8-xw99",
+          "summary": "OAuth issuer validation",
+          "url": "https://github.com/advisories/GHSA-qx49-fqc8-xw99",
+          "published_at": "2026-11-19T22:45:40Z",
+          "updated_at": "2026-11-19T22:45:41Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "mcp"
+              },
+              "vulnerable_version_range": ">= 2.0.0a1, < 2.2.0",
+              "first_patched_version": "2.2.0"
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "mcp"
+              },
+              "vulnerable_version_range": ">= 1.9.1, < 1.30.0",
+              "first_patched_version": "1.30.0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nats-mqtt-1122",
+      "cve_ids": [
+        "CVE-2026-58210"
+      ],
+      "kind": "delta",
+      "date": "2026-11-20",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:45:00Z",
+      "sources": [
+        {
+          "name": "GHSA-r72h-j7qq-v6qg",
+          "url": "https://github.com/advisories/GHSA-r72h-j7qq-v6qg"
+        }
+      ],
+      "title": "NATS Server：MQTTの公開状況と修正版",
+      "body": "NATS ServerのMQTTリスナーが認証前にメモリを消費し、可用性に影響する問題が報告されました。MQTTの利用と公開範囲を確認してください。",
+      "action": "該当リリース系列は2.12.12または2.14.3以降へ更新してください。MQTTリスナーを必要なネットワークに制限し、更新後に接続性とメモリ使用量を確認してください。",
+      "time": "DB公開日 2026-11-20 UTC",
+      "database_events": {
+        "nvd": [],
+        "ghsa": [
+          {
+            "ghsa_id": "GHSA-r72h-j7qq-v6qg",
+            "published_at": "2026-11-20T00:04:46Z",
+            "updated_at": "2026-11-20T00:04:47Z",
+            "withdrawn_at": null
+          }
+        ]
+      },
+      "vendor_guidance_url": "https://github.com/nats-io/nats-server/security/advisories/GHSA-r72h-j7qq-v6qg",
+      "advisories": [
+        {
+          "id": "GHSA-r72h-j7qq-v6qg",
+          "summary": "MQTT listener memory exhaustion",
+          "url": "https://github.com/advisories/GHSA-r72h-j7qq-v6qg",
+          "published_at": "2026-11-20T00:04:46Z",
+          "updated_at": "2026-11-20T00:04:47Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/nats-io/nats-server/v2"
+              },
+              "vulnerable_version_range": "< 2.12.12",
+              "first_patched_version": "2.12.12"
+            },
+            {
+              "package": {
+                "ecosystem": "go",
+                "name": "github.com/nats-io/nats-server/v2"
+              },
+              "vulnerable_version_range": ">= 2.14.0-RC.1, < 2.14.3",
+              "first_patched_version": "2.14.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "picomatch-withdrawn-1122",
+      "cve_ids": [
+        "CVE-2026-112366"
+      ],
+      "kind": "delta",
+      "date": "2026-11-19",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:45:00Z",
+      "sources": [
+        {
+          "name": "GHSA-fc5q-39xc-vjpf",
+          "url": "https://github.com/advisories/GHSA-fc5q-39xc-vjpf"
+        }
+      ],
+      "title": "picomatch：撤回されたGHSAの扱い",
+      "body": "GHSAは11月18日に撤回され、11月19日に改訂されました。この更新は、勧告の状態訂正として記録します。",
+      "action": "このGHSA単独で新規の更新指示を出すことは避け、依存関係ツールの情報を更新してください。別の勧告や提供元の案内がある場合は個別に照合してください。",
+      "time": "GHSA改訂日 2026-11-19 UTC",
+      "database_events": {
+        "nvd": [],
+        "ghsa": [
+          {
+            "ghsa_id": "GHSA-fc5q-39xc-vjpf",
+            "published_at": "2026-10-19T18:32:12Z",
+            "updated_at": "2026-11-19T16:07:41Z",
+            "withdrawn_at": "2026-11-18T15:38:56Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kev-cve-2026-129448",
+      "cve_ids": [
+        "CVE-2026-129448"
+      ],
+      "kind": "scope-complement",
+      "date": "2026-11-20",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -58,37 +457,14 @@
       "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
     },
     {
-      "id": "kev-cve-2026-123890",
-      "cve_ids": [
-        "CVE-2026-123890"
-      ],
-      "kind": "delta",
-      "date": "2026-11-20",
-      "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
-      "last_editorial_review": "2026-11-21T21:34:41Z",
-      "sources": [
-        {
-          "name": "CISA Known Exploited Vulnerabilities Catalog",
-          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
-        }
-      ],
-      "vendor_guidance_url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495",
-      "kev_due_date": "2026-11-23",
-      "title": "Broadcom VMware vCenter — CVE-2026-123890",
-      "time": "CISA登録日 2026-11-20",
-      "body": "CISAがBroadcom VMware vCenterのCVE-2026-123890をKEVに追加しました。カタログ上の対応期限は2026-11-23です。",
-      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
-    },
-    {
       "id": "kev-cve-2025-42884",
       "cve_ids": [
         "CVE-2025-42884"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-20",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -108,10 +484,10 @@
       "cve_ids": [
         "CVE-2026-76466"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-20",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -131,10 +507,10 @@
       "cve_ids": [
         "CVE-2024-10441"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-18",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -154,10 +530,10 @@
       "cve_ids": [
         "CVE-2026-40217"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-18",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -177,10 +553,10 @@
       "cve_ids": [
         "CVE-2026-90817"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-18",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -200,10 +576,10 @@
       "cve_ids": [
         "CVE-2026-90436"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-18",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -223,10 +599,10 @@
       "cve_ids": [
         "CVE-2026-115731"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:34:41Z",
       "sources": [
         {
@@ -83717,11 +84093,11 @@
     "kev-cve-2026-123890": {
       "scope": "global",
       "reason": {
-        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
-        "en": "A public KEV entry for deployments of the named product worldwide."
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
       },
       "sources": [
-        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-123890"
       ]
     },
     "kev-cve-2025-42884": {
@@ -83793,8 +84169,58 @@
       "sources": [
         "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
       ]
+    },
+    "tomcat-redirect-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-118028"
+      ]
+    },
+    "git-lfs-381-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-x72p-hmqp-46hw"
+      ]
+    },
+    "mcp-python-issuer-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-qx49-fqc8-xw99"
+      ]
+    },
+    "nats-mqtt-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-r72h-j7qq-v6qg"
+      ]
+    },
+    "picomatch-withdrawn-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開勧告に基づく製品別の対策。導入地域は限定されていません。",
+        "en": "Public product guidance applies across deployment regions."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-fc5q-39xc-vjpf"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0634/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0645/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }
