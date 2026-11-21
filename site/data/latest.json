@@ -1,24 +1,18 @@
 {
-  "cutoff": "2026-11-21T21:45:00Z",
-  "cutoff_jst": "2026-11-22T06:45:00+09:00",
+  "cutoff": "2026-11-21T22:50:00Z",
+  "cutoff_jst": "2026-11-22T07:50:00+09:00",
   "counts": {
-    "nvd_published": 2901,
-    "nvd_modified": 5200,
-    "published_modified_overlap": 2901,
-    "ghsa": 3674,
-    "ghsa_modified": 4092,
-    "ghsa_published_modified_overlap": 3674,
-    "ghsa_reviewed": 155,
-    "ghsa_unreviewed": 3183,
-    "ghsa_malware": 336,
-    "record_topic_groups": 371,
-    "delta_topic_groups": 6,
-    "scope_complement_topic_groups": 365,
-    "reference_only_topic_groups": 0,
-    "verified_response_records": 85,
-    "deduplicated_previous_references": 0
+    "ghsa_malware_published": 336,
+    "ghsa_malware_modified": 360,
+    "ghsa_malware_overlap": 336,
+    "ghsa_malware_modified_only": 24,
+    "ghsa_malware_unique_packages": 357,
+    "record_topic_groups": 376,
+    "delta_topic_groups": 5,
+    "scope_complement_topic_groups": 371,
+    "reference_only_topic_groups": 0
   },
-  "collection_scope": "nvd-ghsa-curated",
+  "collection_scope": "ghsa-malware-followup",
   "kev": {
     "catalog_version": "2026.11.20",
     "count": 1790,
@@ -26,23 +20,354 @@
     "added_ids": []
   },
   "caveats": [
-    "NVDはCVE IDで照合し、公開・改訂の重複は2,901件。GHSAはGHSA IDで照合し、公開・改訂の重複は3,674件。両DBの照合で共通のCVE IDは3,649件でした。",
-    "GHSAの公開分は審査済み155件、未審査3,183件、malware 336件です。",
-    "掲載・改訂件数は被害件数ではありません。11月18日の前回NVD・GHSA収集以降を対象とし、11月22日のKEV更新で対象外だった期間も含めました。",
-    "全ページの識別子・日時・状態と、GHSAの対象版・修正版のメタデータを保存しました。取得時点の現行応答であり、過去の全改訂は復元できません。",
-    "優先度の高い5論点を追加し、vCenterの既存KEV項目を更新しました。実影響22事例は前回までの調査に基づきます。",
-    "KEVの版と件数は前回保存原本を引き継ぎました。今回はKEVの再取得を行っていません。"
+    "前回取得したGHSA malware公開336件と改訂360件を照合し、336件が重複、改訂だけに現れた勧告は24件でした。",
+    "パッケージ名とエコシステムで重複を除くと357件です。npm 314、PyPI 33、RubyGems 8、crates.io 2です。",
+    "対象範囲は保存済みの11月18日09:00〜11月22日06:45 JSTの収集です。今回の追補では新しいAPI収集を行っていません。",
+    "認証情報への影響、CI・運用環境への波及、公開時点と配布時点の違いから、勧告7件・パッケージ7件を5論点にまとめました。",
+    "勧告・パッケージの件数は被害件数ではありません。影響範囲は導入・実行記録とログで確認してください。"
   ],
   "records": [
+    {
+      "id": "agent-framework-malware-1122",
+      "cve_ids": [],
+      "kind": "delta",
+      "date": "2026-11-18",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T22:50:00Z",
+      "sources": [
+        {
+          "name": "GHSA-764m-3ppc-5m73",
+          "url": "https://github.com/advisories/GHSA-764m-3ppc-5m73"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-764m-3ppc-5m73",
+          "summary": "Affected package releases reported by GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-764m-3ppc-5m73",
+          "published_at": "2026-11-18T00:31:26Z",
+          "updated_at": "2026-11-18T00:31:27Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "agent-framework"
+              },
+              "vulnerable_version_range": "= 1.26.2",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "agent-framework"
+              },
+              "vulnerable_version_range": "= 1.26.1",
+              "first_patched_version": null
+            }
+          ]
+        }
+      ],
+      "title": "agent-framework：Python起動時の認証情報漏えいリスク",
+      "body": "PyPIのagent-framework 1.26.1と1.26.2は、インストール後にPythonを起動するだけで認証情報の窃取が起こり得ると報告されています。GHSAは1.26.0を影響対象外としています。",
+      "action": "仮想環境・CIイメージ・ビルド記録で対象版を照合してください。導入済みの環境は隔離し、調査が済むまでそこでPythonを起動しないでください。到達可能だったCI・クラウド・リポジトリの資格情報を安全な端末から失効し、検証済みの配布物で環境を再構築してください。",
+      "time": "GHSA公開日 2026-11-18 UTC",
+      "advisory_type": "malware"
+    },
+    {
+      "id": "vant-malware-1122",
+      "cve_ids": [],
+      "kind": "delta",
+      "date": "2026-11-18",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T22:50:00Z",
+      "sources": [
+        {
+          "name": "GHSA-j2hq-r459-pg6f",
+          "url": "https://github.com/advisories/GHSA-j2hq-r459-pg6f"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-j2hq-r459-pg6f",
+          "summary": "Affected package releases reported by GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-j2hq-r459-pg6f",
+          "published_at": "2026-11-18T03:30:26Z",
+          "updated_at": "2026-11-18T03:30:34Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 2.13.3",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 2.13.4",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 2.13.5",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 3.6.13",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 3.6.14",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 3.6.15",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 4.9.11",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 4.9.12",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 4.9.13",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "vant"
+              },
+              "vulnerable_version_range": "= 4.9.14",
+              "first_patched_version": null
+            }
+          ]
+        }
+      ],
+      "title": "Vant：過去の不正リリースをCI履歴と照合",
+      "body": "GHSAは2024年のnpm不正配布10版を今回の調査窓で公開しました。インストール時に動作するコードが報告されています。勧告は2.13.6、3.6.16、4.9.15を各系列で後から公開された正常な版として挙げています。",
+      "action": "現在のロックファイルに加え、当時のビルド記録、キャッシュ、社内ミラーを確認してください。対象版を導入した環境は隔離して不審な実行・通信を調べ、到達可能だった資格情報を安全な端末から失効してください。信頼できる配布元から取得した対象外のサポート版で再構築してください。",
+      "time": "GHSA公開日 2026-11-18 UTC",
+      "advisory_type": "malware"
+    },
+    {
+      "id": "wppconnect-malware-1122",
+      "cve_ids": [],
+      "kind": "delta",
+      "date": "2026-11-19",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T22:50:00Z",
+      "sources": [
+        {
+          "name": "GHSA-96hm-h5v4-92fq",
+          "url": "https://github.com/advisories/GHSA-96hm-h5v4-92fq"
+        },
+        {
+          "name": "GHSA-rj96-rg6c-9hw8",
+          "url": "https://github.com/advisories/GHSA-rj96-rg6c-9hw8"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-96hm-h5v4-92fq",
+          "summary": "Affected package releases reported by GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-96hm-h5v4-92fq",
+          "published_at": "2026-11-17T06:31:51Z",
+          "updated_at": "2026-11-19T09:30:34Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@wppconnect/server"
+              },
+              "vulnerable_version_range": "= 2.10.82",
+              "first_patched_version": null
+            }
+          ]
+        },
+        {
+          "id": "GHSA-rj96-rg6c-9hw8",
+          "summary": "Affected package releases reported by GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-rj96-rg6c-9hw8",
+          "published_at": "2026-11-17T06:31:51Z",
+          "updated_at": "2026-11-19T09:31:42Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@wppconnect-team/wppconnect"
+              },
+              "vulnerable_version_range": "= 2.4.1",
+              "first_patched_version": null
+            }
+          ]
+        }
+      ],
+      "title": "WPPConnect：サーバー設定とWhatsAppセッションを点検",
+      "body": "GHSAの改訂分は、@wppconnect/server 2.10.82と@wppconnect-team/wppconnect 2.4.1が、起動または読み込み時に環境設定やWhatsAppセッション情報を外部送信し得ると報告しています。",
+      "action": "該当サーバーや実行環境を隔離してセッションを無効化し、連携端末とアカウントの活動を確認してください。アプリ・DB・クラウドの資格情報も、該当環境から参照できた範囲で安全な端末から失効し、検証済みの配布物で再構築してください。",
+      "time": "GHSA改訂日 2026-11-19 UTC",
+      "advisory_type": "malware"
+    },
+    {
+      "id": "fedfub-malware-1122",
+      "cve_ids": [],
+      "kind": "delta",
+      "date": "2026-11-20",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T22:50:00Z",
+      "sources": [
+        {
+          "name": "GHSA-vwr8-p7j8-qqxg",
+          "url": "https://github.com/advisories/GHSA-vwr8-p7j8-qqxg"
+        },
+        {
+          "name": "GHSA-m77j-jgx5-q3j7",
+          "url": "https://github.com/advisories/GHSA-m77j-jgx5-q3j7"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-vwr8-p7j8-qqxg",
+          "summary": "Affected package releases reported by GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-vwr8-p7j8-qqxg",
+          "published_at": "2026-11-20T06:31:55Z",
+          "updated_at": "2026-11-20T06:31:56Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@fedfub/string-utils"
+              },
+              "vulnerable_version_range": "= 1.0.0",
+              "first_patched_version": null
+            }
+          ]
+        },
+        {
+          "id": "GHSA-m77j-jgx5-q3j7",
+          "summary": "Affected package releases reported by GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-m77j-jgx5-q3j7",
+          "published_at": "2026-11-20T06:31:55Z",
+          "updated_at": "2026-11-20T06:31:56Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "npm",
+                "name": "@fedfub/utils"
+              },
+              "vulnerable_version_range": "= 1.0.1",
+              "first_patched_version": null
+            }
+          ]
+        }
+      ],
+      "title": "@fedfub：npm導入履歴と公開権限を調査",
+      "body": "GHSAは@fedfub/string-utils 1.0.0と@fedfub/utils 1.0.1について、インストール時に開発環境の機密情報を外部に送信し得ると報告しています。",
+      "action": "依存関係から除外し、導入した端末・CIランナーを隔離してください。安全な端末からnpm公開トークン、リポジトリ・SSH・クラウドの資格情報を失効し、不審なパッケージ公開、リポジトリ変更、CI実行を点検してください。",
+      "time": "GHSA公開日 2026-11-20 UTC",
+      "advisory_type": "malware"
+    },
+    {
+      "id": "solders-utils-malware-1122",
+      "cve_ids": [],
+      "kind": "delta",
+      "date": "2026-11-18",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T22:50:00Z",
+      "sources": [
+        {
+          "name": "GHSA-fqqj-fprv-g8qf",
+          "url": "https://github.com/advisories/GHSA-fqqj-fprv-g8qf"
+        }
+      ],
+      "advisories": [
+        {
+          "id": "GHSA-fqqj-fprv-g8qf",
+          "summary": "Affected package releases reported by GitHub Advisory Database",
+          "url": "https://github.com/advisories/GHSA-fqqj-fprv-g8qf",
+          "published_at": "2026-07-21T17:22:43Z",
+          "updated_at": "2026-11-18T21:31:18Z",
+          "withdrawn_at": null,
+          "packages": [
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "solders-utils"
+              },
+              "vulnerable_version_range": "= 0.1.1",
+              "first_patched_version": null
+            },
+            {
+              "package": {
+                "ecosystem": "pip",
+                "name": "solders-utils"
+              },
+              "vulnerable_version_range": "= 1.98.2",
+              "first_patched_version": null
+            }
+          ]
+        }
+      ],
+      "title": "solders-utils：PyPIの対象版を除外",
+      "body": "今回の改訂で参照したGHSAは、solders-utilsの0.1.1と1.98.2を対象として登録しています。この範囲はパッケージ名とバージョンの組み合わせで確認してください。",
+      "action": "対象版を依存関係とミラーから除外してください。導入した環境は隔離し、アクセス可能だったAPIキーやウォレットの機密情報を調べてください。露出の疑いがある場合は、安全な端末でサービス提供元やウォレット提供元のインシデント対応手順に従ってください。",
+      "time": "GHSA改訂日 2026-11-18 UTC",
+      "advisory_type": "malware"
+    },
     {
       "id": "kev-cve-2026-123890",
       "cve_ids": [
         "CVE-2026-123890"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-19",
       "certainty": "confirmed-publication",
-      "monitoring_status": "updated",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:45:00Z",
       "sources": [
         {
@@ -78,10 +403,10 @@
       "cve_ids": [
         "CVE-2026-118028"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-19",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:45:00Z",
       "sources": [
         {
@@ -115,10 +440,10 @@
         "CVE-2026-69260",
         "CVE-2026-69261"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-20",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:45:00Z",
       "sources": [
         {
@@ -284,10 +609,10 @@
       "cve_ids": [
         "CVE-2026-115563"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-19",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:45:00Z",
       "sources": [
         {
@@ -345,10 +670,10 @@
       "cve_ids": [
         "CVE-2026-58210"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-20",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:45:00Z",
       "sources": [
         {
@@ -406,10 +731,10 @@
       "cve_ids": [
         "CVE-2026-112366"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-19",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-21T21:45:00Z",
       "sources": [
         {
@@ -84219,8 +84544,58 @@
       "sources": [
         "https://github.com/advisories/GHSA-fc5q-39xc-vjpf"
       ]
+    },
+    "agent-framework-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-764m-3ppc-5m73"
+      ]
+    },
+    "vant-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-j2hq-r459-pg6f"
+      ]
+    },
+    "wppconnect-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-96hm-h5v4-92fq"
+      ]
+    },
+    "fedfub-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-vwr8-p7j8-qqxg"
+      ]
+    },
+    "solders-utils-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-fqqj-fprv-g8qf"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0645/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0750/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

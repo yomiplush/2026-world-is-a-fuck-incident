@@ -43,8 +43,10 @@ def main(path):
     groups = {kind: [r for r in record['records'] if r['kind'] == kind]
               for kind in ('delta', 'scope-complement', 'reference-only')}
     quick = ''.join(f'<article><h3>{esc(r["title"])}</h3><p>{esc(r["text"])}</p>{anchor(r["href"],r["label"]+" →")}</article>' for r in report['quick'])
+    collection_note = (esc(report['retrieved_jst']) + '。' if record.get('collection_scope') == 'ghsa-malware-followup'
+                       else '実取得は' + esc(report['retrieved_jst']) + '。日付のみの同日続報は参考枠です。')
     content = f'''<header><p class="kicker">SECURITY REVIEW · {esc(report['cutoff_jst_label'])}</p><h1>{esc(report['headline'])}</h1>
-<p class="intro">{esc(report['intro'])}</p><p class="date">対象：{esc(report['cutoff_jst_label'])}。差分窓：{esc(report['window_jst'])}。<br>実取得は{esc(report['retrieved_jst'])}。日付のみの同日続報は参考枠です。</p>
+<p class="intro">{esc(report['intro'])}</p><p class="date">対象：{esc(report['cutoff_jst_label'])}。差分窓：{esc(report['window_jst'])}。<br>{collection_note}</p>
 <div class="report-links">{anchor('#quick','忙しい人向け →')}{anchor('#delta','登録・勧告更新 →')}{anchor('#continuity','既存事件の対応補完 →')}{anchor(motion_path,motion_label)}{anchor('./timeline.html','日付順の記録 →')}</div></header>
 <section id="quick"><h2>忙しい人向け：使っているものだけ。</h2><div class="priority-grid">{quick}</div></section>
 <aside><strong>修正の提供と、展開・復旧を分けます。</strong><p>{esc(report.get("continuity_note", "公開サービスの更新・侵害調査と、漏れた鍵や権限の失効は継続。配布済みのパッチ、段階配信、復旧目標を同じ状態にしません。Tailwormの最低修正版は今回も未確定。ConnectWiseの個別案内前に接続を再許可しないでください。"))}</p>{anchor('./update-20261026.html','朝の21群・条件別の継続対応表 →')}</aside>'''
@@ -57,7 +59,9 @@ def main(path):
         if kind == 'delta':
             rows = sorted(rows, key=lambda r: (re.search(r'\d{2}:\d{2}', r['time']) or ['99:99'])[0])
         content += f'<section id="{section_id}"><h2>{esc(title)} · {len(rows)}群</h2><p>{esc(description)}</p>' + ''.join(article(r) for r in rows) + '</section>'
-    if record.get('collection_scope') == 'kev-only':
+    if record.get('collection_scope') == 'ghsa-malware-followup':
+        content += '<section id="evidence"><h2>収集範囲と限界</h2><p>前回の収集で保存したGHSA malwareの公開・改訂ページを比較しました。</p>'
+    elif record.get('collection_scope') == 'kev-only':
         kev = record['kev']
         additions = len(kev['added_ids'])
         content += f'<section id="evidence"><h2>収集範囲と限界</h2><p>CISA KEV {esc(kev["catalog_version"])}版 · {kev["count"]:,}件 · 前回保存版から{additions}件追加。NVD・GHSAの公開・改訂窓は収集対象外です。</p>'

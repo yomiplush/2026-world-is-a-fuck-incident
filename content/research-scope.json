@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshot": "2026-11-22-0645",
-  "register_sha256": "63f9a07f7d399e79f33219a24cf1e2f1ef9cf62449f4ca7ccd4f861ae3e635bf",
-  "reviewed_at": "2026-11-21T21:45:00Z",
+  "snapshot": "2026-11-22-0750",
+  "register_sha256": "ddb7a67230a0a875bea633d1b8b84a80e83e8947e259aa04f9206192c29b05b8",
+  "reviewed_at": "2026-11-21T22:50:00Z",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -4398,6 +4398,56 @@
       },
       "sources": [
         "https://github.com/advisories/GHSA-fc5q-39xc-vjpf"
+      ]
+    },
+    "agent-framework-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-764m-3ppc-5m73"
+      ]
+    },
+    "vant-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-j2hq-r459-pg6f"
+      ]
+    },
+    "wppconnect-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-96hm-h5v4-92fq"
+      ]
+    },
+    "fedfub-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-vwr8-p7j8-qqxg"
+      ]
+    },
+    "solders-utils-malware-1122": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開パッケージの版に関する勧告。利用地域を限定していません。",
+        "en": "Public advisory for package releases without a geographic restriction."
+      },
+      "sources": [
+        "https://github.com/advisories/GHSA-fqqj-fprv-g8qf"
       ]
     }
   }

@@ -8598,25 +8598,280 @@ window.CONTENT.scenes.push(...[
     ]
   }
 ]);
-window.CONTENT.review = {"cutoff": "2026-11-21T21:45:00Z", "label": "2026-11-22 06:45 JST", "report": "/update-20261122-0645"};
+/* November 22 GHSA malware follow-up */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-malware-1122-window",
+    "stamp": "11.22 · 07:50 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "336 PUBLISHED",
+        "360 REVISED",
+        "24 REVISION ONLY"
+      ],
+      "heading": "GHSA MALWARE RESPONSE"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T22:50:00Z",
+    "ja": {
+      "kicker": "GHSA MALWARE",
+      "title": "公開・改訂の重複を確認",
+      "lede": "公開336件はすべて改訂360件に含まれます。",
+      "points": [
+        "改訂だけに現れた勧告は24件です。"
+      ]
+    },
+    "en": {
+      "kicker": "GHSA MALWARE",
+      "title": "Compare publication and revision windows",
+      "lede": "All 336 publications reappear among the 360 revisions.",
+      "points": [
+        "24 advisories appeared only in revisions."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA malware collection metadata",
+        "url": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0750/collection-summary.json"
+      }
+    ],
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-malware-1122-python",
+    "stamp": "11.22 · 07:50 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "FIND VERSION",
+        "ISOLATE",
+        "REVOKE"
+      ],
+      "heading": "GHSA MALWARE RESPONSE",
+      "details": [
+        "CHECK",
+        "CONTAIN",
+        "VERIFY"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T22:50:00Z",
+    "ja": {
+      "kicker": "GHSA MALWARE",
+      "title": "agent-frameworkの導入履歴",
+      "lede": "対象版が見つかった環境は隔離します。",
+      "points": [
+        "安全な端末から到達可能な資格情報を失効します。"
+      ]
+    },
+    "en": {
+      "kicker": "GHSA MALWARE",
+      "title": "Check agent-framework installation history",
+      "lede": "Isolate environments where affected releases were installed.",
+      "points": [
+        "Revoke reachable credentials from a clean system."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-764m-3ppc-5m73",
+        "url": "https://github.com/advisories/GHSA-764m-3ppc-5m73"
+      }
+    ]
+  },
+  {
+    "id": "motion-malware-1122-vant",
+    "stamp": "11.22 · 07:50 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "LOCKFILES",
+        "HISTORICAL CI",
+        "MIRRORS"
+      ],
+      "heading": "GHSA MALWARE RESPONSE"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T22:50:00Z",
+    "ja": {
+      "kicker": "GHSA MALWARE",
+      "title": "Vantは過去のビルドも対象",
+      "lede": "現在の依存関係とCI履歴を照合します。",
+      "points": [
+        "キャッシュとミラーに対象版が残っていないか確認します。"
+      ]
+    },
+    "en": {
+      "kicker": "GHSA MALWARE",
+      "title": "Review historical Vant builds",
+      "lede": "Compare current dependencies with historical CI runs.",
+      "points": [
+        "Check caches and mirrors for affected releases."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-j2hq-r459-pg6f",
+        "url": "https://github.com/advisories/GHSA-j2hq-r459-pg6f"
+      }
+    ]
+  },
+  {
+    "id": "motion-malware-1122-wppconnect",
+    "stamp": "11.22 · 07:50 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "ISOLATE HOST",
+        "END SESSIONS",
+        "REVIEW ACCESS"
+      ],
+      "heading": "GHSA MALWARE RESPONSE",
+      "details": [
+        "CHECK",
+        "CONTAIN",
+        "VERIFY"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T22:50:00Z",
+    "ja": {
+      "kicker": "GHSA MALWARE",
+      "title": "WPPConnectのセッションを確認",
+      "lede": "対象環境を隔離してセッションを無効化します。",
+      "points": [
+        "連携端末・アカウントの履歴を点検します。"
+      ]
+    },
+    "en": {
+      "kicker": "GHSA MALWARE",
+      "title": "Review WPPConnect sessions",
+      "lede": "Isolate affected deployments and invalidate sessions.",
+      "points": [
+        "Review linked devices and account activity."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-96hm-h5v4-92fq",
+        "url": "https://github.com/advisories/GHSA-96hm-h5v4-92fq"
+      },
+      {
+        "name": "GHSA-rj96-rg6c-9hw8",
+        "url": "https://github.com/advisories/GHSA-rj96-rg6c-9hw8"
+      }
+    ]
+  },
+  {
+    "id": "motion-malware-1122-fedfub",
+    "stamp": "11.22 · 07:50 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "CI RUNNERS",
+        "PUBLISH TOKENS",
+        "AUDIT RELEASES"
+      ],
+      "heading": "GHSA MALWARE RESPONSE"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T22:50:00Z",
+    "ja": {
+      "kicker": "GHSA MALWARE",
+      "title": "npm公開権限を点検",
+      "lede": "対象パッケージを導入したCIを隔離します。",
+      "points": [
+        "公開トークンを失効し、意図しない公開を調べます。"
+      ]
+    },
+    "en": {
+      "kicker": "GHSA MALWARE",
+      "title": "Audit package publishing access",
+      "lede": "Isolate CI runners that installed the affected packages.",
+      "points": [
+        "Revoke publishing tokens and review unexpected releases."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-vwr8-p7j8-qqxg",
+        "url": "https://github.com/advisories/GHSA-vwr8-p7j8-qqxg"
+      },
+      {
+        "name": "GHSA-m77j-jgx5-q3j7",
+        "url": "https://github.com/advisories/GHSA-m77j-jgx5-q3j7"
+      }
+    ]
+  },
+  {
+    "id": "motion-malware-1122-solders",
+    "stamp": "11.22 · 07:50 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "MATCH PACKAGE",
+        "ISOLATE",
+        "REVIEW KEYS"
+      ],
+      "heading": "GHSA MALWARE RESPONSE",
+      "details": [
+        "CHECK",
+        "CONTAIN",
+        "VERIFY"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T22:50:00Z",
+    "ja": {
+      "kicker": "GHSA MALWARE",
+      "title": "solders-utilsは名前と版で照合",
+      "lede": "該当した環境のAPIキーとウォレットの露出を確認します。",
+      "points": [
+        "安全な端末から提供元の対応手順を確認します。"
+      ]
+    },
+    "en": {
+      "kicker": "GHSA MALWARE",
+      "title": "Match the solders-utils package and release",
+      "lede": "Check API keys and wallet secrets accessible to affected systems.",
+      "points": [
+        "Consult provider incident response guidance from a clean system."
+      ]
+    },
+    "sources": [
+      {
+        "name": "GHSA-fqqj-fprv-g8qf",
+        "url": "https://github.com/advisories/GHSA-fqqj-fprv-g8qf"
+      }
+    ]
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-21T22:50:00Z", "label": "2026-11-22 07:50 JST", "report": "/update-20261122-0750"};
 for (const lang of ['ja', 'en']) {
   const en = lang === 'en';
   const content = window.CONTENT;
   const intro = content.scenes.find(scene => scene.id === 'intro')[lang];
-  intro.points[1] = '<a href="' + content.review.report + (en ? '.en' : '') + '">11/22 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#165">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/months' + (en ? '.en' : '') + '">' + (en ? 'Monthly archive' : '月別の記録') + ' →</a>';
-  content.ui[lang].coverSub = en ? '170 scenes. Six new scenes explain database revisions and deployment checks.' : '全170画面。追加6画面ではNVD・GHSAの公開・改訂と運用時の確認項目を図解します。';
+  intro.points[1] = '<a href="' + content.review.report + (en ? '.en' : '') + '">11/22 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#171">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/months' + (en ? '.en' : '') + '">' + (en ? 'Monthly archive' : '月別の記録') + ' →</a>';
+  content.ui[lang].coverSub = en ? '176 scenes. Six new scenes cover malicious package triage and response.' : '全176画面。追加6画面は不正パッケージの識別と対処を図解します。';
 }
 
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 170,
-    "total": 170
+    "translated": 176,
+    "total": 176
   },
   "ja": {
     "ready": true,
-    "translated": 170,
-    "total": 170
+    "translated": 176,
+    "total": 176
   }
 };

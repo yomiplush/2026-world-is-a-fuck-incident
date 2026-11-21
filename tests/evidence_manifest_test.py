@@ -68,9 +68,50 @@ class ResearchEvidence(unittest.TestCase):
             self.assertEqual(entry['dateAdded'], row['date'])
             self.assertEqual(entry['dueDate'], row['kev_due_date'])
 
+    def test_malware_followup_retains_exact_windows_and_versions(self):
+        if self.summary.get('collection_scope') != 'ghsa-malware-followup':
+            return
+        previous = read((self.folder / self.summary['previous_collection']).resolve())
+        self.assertEqual(self.summary['collection_cutoff'], previous['cutoff'])
+        windows = []
+        for key in ('ghsa', 'ghsa-modified'):
+            window = {}
+            for page in self.summary['windows'][key]['pages']:
+                payload = raw(self.folder / page['file'])
+                self.assertEqual(hashlib.sha256(payload).hexdigest(), page['sha256'])
+                batch = json.loads(payload)
+                self.assertEqual(len(batch), page['returned'])
+                for advisory in batch:
+                    self.assertEqual(advisory['type'], 'malware')
+                    self.assertNotIn(advisory['ghsa_id'], window)
+                    window[advisory['ghsa_id']] = advisory
+            self.assertEqual(len(window), self.summary['windows'][key]['returned'])
+            windows.append(window)
+        published, revised = windows
+        self.assertEqual(len(published.keys() & revised.keys()), self.summary['published_modified_overlap'])
+        self.assertEqual(len(revised.keys() - published.keys()), self.summary['revision_only'])
+        combined = published | revised
+        packages = {(v['package']['ecosystem'], v['package']['name'])
+                    for row in combined.values() for v in row['vulnerabilities']}
+        self.assertEqual(len(packages), self.summary['unique_packages'])
+        selected = [row for row in self.register['records'] if row['kind'] == 'delta']
+        self.assertEqual(len(selected), self.register['counts']['delta_topic_groups'])
+        for row in selected:
+            self.assertEqual(row['advisory_type'], 'malware')
+            self.assertTrue(row['advisories'])
+            for item in row['advisories']:
+                original = combined[item['id']]
+                self.assertFalse(original['withdrawn_at'])
+                self.assertEqual(item['packages'], original['vulnerabilities'])
+                self.assertEqual(item['published_at'], original['published_at'])
+                self.assertEqual(item['updated_at'], original['updated_at'])
+                self.assertEqual(item['url'], original['html_url'])
+
     def test_full_nvd_and_ghsa_windows_and_deduplicated_counts(self):
         if self.summary.get('collection_scope') == 'kev-only':
             self.skipTest('This snapshot collects the CISA KEV catalog only')
+        if self.summary.get('collection_scope') == 'ghsa-malware-followup':
+            self.skipTest('The original NVD and GHSA windows are unchanged')
         self.assertEqual(self.summary['delta_start'], self.register['delta_start'])
         for key in ('nvd-published', 'nvd-modified'):
             result = self.summary[key]
@@ -134,6 +175,8 @@ class ResearchEvidence(unittest.TestCase):
     def test_new_advisory_conditions_are_preserved_from_raw_api(self):
         if self.summary.get('collection_scope') == 'kev-only':
             self.skipTest('This snapshot collects the CISA KEV catalog only')
+        if self.summary.get('collection_scope') == 'ghsa-malware-followup':
+            self.skipTest('Package constraints are checked against the retained malware pages')
         originals = {}
         curated = self.summary.get('collection_scope') == 'nvd-ghsa-curated'
         windows = ('ghsa', 'ghsa-modified') if curated else ('ghsa',)

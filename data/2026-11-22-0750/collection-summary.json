@@ -1,0 +1,102 @@
+{
+  "cutoff": "2026-11-21T22:50:00Z",
+  "cutoff_jst": "2026-11-22T07:50:00+09:00",
+  "collection_cutoff": "2026-11-21T21:45:00Z",
+  "delta_start": "2026-11-18T00:00:01Z",
+  "collection_scope": "ghsa-malware-followup",
+  "previous_collection": "../2026-11-22-0645/collection-summary.json",
+  "published_modified_overlap": 336,
+  "revision_only": 24,
+  "unique_packages": 357,
+  "ecosystems": {
+    "npm": 314,
+    "pip": 33,
+    "rubygems": 8,
+    "rust": 2
+  },
+  "windows": {
+    "ghsa": {
+      "pages": [
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+          "retrieved_at": "2026-11-21T21:45:42+00:00",
+          "file": "../2026-11-22-0645/ghsa-published-malware-1.json",
+          "type": "malware",
+          "returned": 100,
+          "sha256": "5cea88573751fe82b4553cce4b8751f2de72576fbd418519d8eefba1b173d468",
+          "representation": "selected API metadata"
+        },
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMTo1NFrOAAg17g%3D%3D",
+          "retrieved_at": "2026-11-21T21:45:44+00:00",
+          "file": "../2026-11-22-0645/ghsa-published-malware-2.json",
+          "type": "malware",
+          "returned": 100,
+          "sha256": "2a166a1cb01f28c2d79afe13ff7b1145b2d6f1a2e32e014b82059d95efbbdabf",
+          "representation": "selected API metadata"
+        },
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwOTozMDozM1rOAAgxpg%3D%3D",
+          "retrieved_at": "2026-11-21T21:45:45+00:00",
+          "file": "../2026-11-22-0645/ghsa-published-malware-3.json",
+          "type": "malware",
+          "returned": 100,
+          "sha256": "924e303a5d626e02ef2f470c9a2d8b4d79aa0a4ae4d6a40316615bcbecc99665",
+          "representation": "selected API metadata"
+        },
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc&type=malware&published=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOFQxODoxOTozNFrOAAgv9g%3D%3D",
+          "retrieved_at": "2026-11-21T21:45:46+00:00",
+          "file": "../2026-11-22-0645/ghsa-published-malware-4.json",
+          "type": "malware",
+          "returned": 36,
+          "sha256": "13ed9c8ccd0959afc09c7bc4a33292bb47a36f9e88f22f54dafe9f520bb00e8c",
+          "representation": "selected API metadata"
+        }
+      ],
+      "returned": 336
+    },
+    "ghsa-modified": {
+      "pages": [
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z",
+          "retrieved_at": "2026-11-21T21:45:46+00:00",
+          "file": "../2026-11-22-0645/ghsa-updated-malware-1.json",
+          "type": "malware",
+          "returned": 100,
+          "sha256": "d1d7cc44cd64ea78a40e62142202e8eac7fb546b22aa5f62f30b6695501d7e1c",
+          "representation": "selected API metadata"
+        },
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0yMFQwNjozMTo1NlrOAAg18A%3D%3D",
+          "retrieved_at": "2026-11-21T21:45:47+00:00",
+          "file": "../2026-11-22-0645/ghsa-updated-malware-2.json",
+          "type": "malware",
+          "returned": 100,
+          "sha256": "e26c82380865454e3d2fb80a18ea5163a78dbf167a4215910435224731c1970f",
+          "representation": "selected API metadata"
+        },
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwOTozMDo0MFrOAAgxtw%3D%3D",
+          "retrieved_at": "2026-11-21T21:45:48+00:00",
+          "file": "../2026-11-22-0645/ghsa-updated-malware-3.json",
+          "type": "malware",
+          "returned": 100,
+          "sha256": "80657499588c9d1172e9b43e68cac08c3aa11d6987588480b917fd98b9407943",
+          "representation": "selected API metadata"
+        },
+        {
+          "url": "https://api.github.com/advisories?per_page=100&sort=updated&direction=desc&type=malware&updated=2026-11-18T00%3A00%3A01Z..2026-11-21T21%3A45%3A00Z&after=Y3Vyc29yOnYyOpK0MjAyNi0xMS0xOVQwMDozNTowOVrOAAgxMg%3D%3D",
+          "retrieved_at": "2026-11-21T21:45:49+00:00",
+          "file": "../2026-11-22-0645/ghsa-updated-malware-4.json",
+          "type": "malware",
+          "returned": 60,
+          "sha256": "0a7d363d0dbdca4cb36b643ba56bc4845981948dd815a0a32ae22e318a548849",
+          "representation": "selected API metadata"
+        }
+      ],
+      "returned": 360
+    }
+  },
+  "note": "Editorial review of previously collected GHSA malware pages. Retrieval timestamps and metadata hashes are retained in the original manifest."
+}

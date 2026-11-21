@@ -1,3 +1,5 @@
+**GHSA malware追補 — 2026-11-22 07:50 JST。** 保存済みの公開336件・改訂360件を照合し、7パッケージの対象版と対処を5論点にまとめました。[日本語レポート](https://www.infosec-briefing.net/update-20261122-0750) · [台帳](data/2026-11-22-0750/incident-register.json)。
+
 **最新調査 — 2026-11-22 06:45 JST。** NVD・GHSAの公開・改訂を照合し、5論点を追加、vCenterの既存項目を更新しました。台帳は371論点です。[日本語レポート](https://www.infosec-briefing.net/update-20261122-0645) · [台帳](data/2026-11-22-0645/incident-register.json) · [モーション](https://www.infosec-briefing.net/?lang=ja#165)。
 
 **最新調査 — 2026-11-22 06:34 JST。** CISA KEVの前回保存版からの追加9件を確認し、台帳は366論点になりました。日英の詳細ページ9組とモーション6画面を追加しました。[日本語レポート](https://www.infosec-briefing.net/update-20261122-0634) · [台帳](data/2026-11-22-0634/incident-register.json) · [モーション](https://www.infosec-briefing.net/?lang=ja#159)。
