@@ -20,6 +20,8 @@ def article(row):
     labels = {'confirmed-publication': '公表・更新を確認', 'CNA-unreviewed': 'CNA記録・成立条件に留保',
               'prior-scope': '既存の問題・対応範囲の補完', 'timestamp-unconfirmed': '基準時刻以前の公開は未確定'}
     sources = ' / '.join(anchor(s['url'], s['name']) for s in row['sources'])
+    if url := row.get('vendor_guidance_url'):
+        sources += ' / ' + anchor(url, 'KEV掲載の提供元案内')
     return f'''<article id="{esc(row['id'])}"><p class="event-type">{esc(row['time'])} · {esc(labels[row['certainty']])}</p>
 <h3>{esc(row['title'])}</h3><p>{esc(row['body'])}</p><p class="action"><strong>確認すること</strong>{esc(row['action'])}</p>{advisory_details.render(row,esc)}<p class="sources">{sources}</p></article>'''
 
@@ -54,17 +56,22 @@ def main(path):
         if kind == 'delta':
             rows = sorted(rows, key=lambda r: (re.search(r'\d{2}:\d{2}', r['time']) or ['99:99'])[0])
         content += f'<section id="{section_id}"><h2>{esc(title)} · {len(rows)}群</h2><p>{esc(description)}</p>' + ''.join(article(r) for r in rows) + '</section>'
-    stats = [('NVD新規', counts['nvd_published']), ('NVD改訂', counts['nvd_modified']),
-             ('GHSA公開窓', counts['ghsa']), ('検証した保存・参照応答', counts['verified_response_records'])]
-    content += '<section id="evidence"><h2>収集範囲・重複・限界</h2><div class="evidence-counts">' + ''.join(
-        f'<div><strong>{value:,}</strong><span>{esc(label)}</span></div>' for label, value in stats) + '</div>'
-    ghsa_note = (f'GHSA新規公開{counts["ghsa"]}件（unreviewed{counts.get("ghsa_unreviewed",0)}、malware{counts.get("ghsa_malware",0)}）、改訂{counts.get("ghsa_modified",0)}件。reviewed・unreviewed・malwareを区別し、公開と改訂の重複を台帳で確認してください。' if 'ghsa_modified' in counts else 'GHSAは新規公開窓のみで、既存情報の改訂を含む全変化が0という意味ではありません。')
-    overlap = counts.get('published_modified_overlap', 0)
-    nvd_note = ('全件重複' if overlap == counts['nvd_published'] else f'{overlap}件重複')
-    kev = record['kev']
-    kev_note = ('前回原本と同一' if kev.get('same_bytes') else
-                '前回保存原本に差分：' + ' / '.join(kev.get('added_ids', [])))
-    content += f'<p>NVD新規{counts["nvd_published"]}件は改訂{counts["nvd_modified"]}件に{esc(nvd_note)}。{esc(ghsa_note)}KEVは{kev["catalog_version"]}版・{kev["count"]:,}件で、{esc(kev_note)}。収録・原本差分は攻撃開始時刻とは別です。非掲載を悪用不存在の証明にはしません。{counts["verified_response_records"]}応答のうち{counts["deduplicated_previous_references"]}件は過去原本への参照で重複保存を避けています。</p>'
+    if record.get('collection_scope') == 'kev-only':
+        kev = record['kev']
+        additions = len(kev['added_ids'])
+        content += f'<section id="evidence"><h2>収集範囲と限界</h2><p>CISA KEV {esc(kev["catalog_version"])}版 · {kev["count"]:,}件 · 前回保存版から{additions}件追加。NVD・GHSAの公開・改訂窓は収集対象外です。</p>'
+    else:
+        stats = [('NVD新規', counts['nvd_published']), ('NVD改訂', counts['nvd_modified']),
+                 ('GHSA公開窓', counts['ghsa']), ('検証した保存・参照応答', counts['verified_response_records'])]
+        content += '<section id="evidence"><h2>収集範囲・重複・限界</h2><div class="evidence-counts">' + ''.join(
+            f'<div><strong>{value:,}</strong><span>{esc(label)}</span></div>' for label, value in stats) + '</div>'
+        ghsa_note = (f'GHSA新規公開{counts["ghsa"]}件（unreviewed{counts.get("ghsa_unreviewed",0)}、malware{counts.get("ghsa_malware",0)}）、改訂{counts.get("ghsa_modified",0)}件。reviewed・unreviewed・malwareを区別し、公開と改訂の重複を台帳で確認してください。' if 'ghsa_modified' in counts else 'GHSAは新規公開窓のみで、既存情報の改訂を含む全変化が0という意味ではありません。')
+        overlap = counts.get('published_modified_overlap', 0)
+        nvd_note = ('全件重複' if overlap == counts['nvd_published'] else f'{overlap}件重複')
+        kev = record['kev']
+        kev_note = ('前回原本と同一' if kev.get('same_bytes') else
+                    '前回保存原本に差分：' + ' / '.join(kev.get('added_ids', [])))
+        content += f'<p>NVD新規{counts["nvd_published"]}件は改訂{counts["nvd_modified"]}件に{esc(nvd_note)}。{esc(ghsa_note)}KEVは{kev["catalog_version"]}版・{kev["count"]:,}件で、{esc(kev_note)}。収録・原本差分は攻撃開始時刻とは別です。非掲載を悪用不存在の証明にはしません。{counts["verified_response_records"]}応答のうち{counts["deduplicated_previous_references"]}件は過去原本への参照で重複保存を避けています。</p>'
     content += '<ul>' + ''.join(f'<li>{esc(c)}</li>' for c in record['caveats']) + '</ul>'
     links = [path.relative_to(ROOT).as_posix(), f'data/{stamp}/collection-summary.json',
              record.get('vendor_summary', f'data/{stamp}-vendors/collection-summary.json'), f'docs/research-collection-{stamp}.md',

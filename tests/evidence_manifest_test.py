@@ -46,7 +46,31 @@ class ResearchEvidence(unittest.TestCase):
                 for cve in record.get('cve_ids', []):
                     self.assertIn(cve.encode(), body, record['id'])
 
+    def test_kev_only_collection_matches_saved_catalog_diff(self):
+        if self.summary.get('collection_scope') != 'kev-only':
+            return
+        kev = self.summary['kev']
+        payload = raw(self.folder / kev['file'])
+        self.assertEqual(hashlib.sha256(payload).hexdigest(), kev['sha256'])
+        catalog = json.loads(payload)
+        baseline = json.loads(raw(ROOT / kev['previous_file']))
+        old_ids = {row['cveID'] for row in baseline['vulnerabilities']}
+        additions = {row['cveID']: row for row in catalog['vulnerabilities']
+                     if row['cveID'] not in old_ids}
+        self.assertEqual(set(additions), set(self.register['kev']['added_ids']))
+        self.assertEqual(catalog['count'], len(catalog['vulnerabilities']))
+        self.assertEqual(catalog['count'], self.register['kev']['count'])
+        rows = [row for row in self.register['records'] if row['kind'] == 'delta']
+        self.assertEqual(len(additions), len(rows))
+        self.assertEqual(set(additions), {row['cve_ids'][0] for row in rows})
+        for row in rows:
+            entry = additions[row['cve_ids'][0]]
+            self.assertEqual(entry['dateAdded'], row['date'])
+            self.assertEqual(entry['dueDate'], row['kev_due_date'])
+
     def test_full_nvd_and_ghsa_windows_and_deduplicated_counts(self):
+        if self.summary.get('collection_scope') == 'kev-only':
+            self.skipTest('This snapshot collects the CISA KEV catalog only')
         self.assertEqual(self.summary['delta_start'], self.register['delta_start'])
         for key in ('nvd-published', 'nvd-modified'):
             result = self.summary[key]
@@ -71,6 +95,8 @@ class ResearchEvidence(unittest.TestCase):
             self.assertEqual(len(ids), result['returned'])
 
     def test_new_advisory_conditions_are_preserved_from_raw_api(self):
+        if self.summary.get('collection_scope') == 'kev-only':
+            self.skipTest('This snapshot collects the CISA KEV catalog only')
         originals = {}
         for page in self.summary['ghsa']['pages']:
             if page['type'] in ('reviewed', 'malware'):

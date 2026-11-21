@@ -124,7 +124,7 @@ def extra_pages():
     body+='</ul></section>'
     body=body.replace('</header>', '<p><a href="/data/latest.json" download>現在の調査データをJSONで取得</a> · <a href="/languages">保存したAI翻訳を読む</a></p></header>',1)
     (SITE/'data').mkdir(exist_ok=True)
-    public={k:register[k] for k in ('cutoff','cutoff_jst','counts','caveats','records') if k in register}
+    public={k:register[k] for k in ('cutoff','cutoff_jst','counts','collection_scope','kev','caveats','records') if k in register}
     public['research_scope']=research_scope.decisions(register,scope_path)
     (SITE/'data/research-scope.json').write_text(json.dumps(research_scope.export(register,scope_path),ensure_ascii=False,indent=2)+'\n')
     public['source_register']=REPO+'blob/main/data/'+LATEST['incident_register']

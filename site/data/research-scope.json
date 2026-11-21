@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-11-18-0900",
-  "register_sha256": "bc1d50561193211035974cfaf7af9220b51e33f2a1acd401fe424e3c383c0b87",
+  "snapshot": "2026-11-22-0634",
+  "register_sha256": "8473288cb6ec7966e61d9db618a5b81a128321da1ab4473505faa6eb4b3711c6",
   "status": "reviewed",
-  "reviewed_at": "2026-11-18T00:00:00Z",
-  "source_register": "2026-11-18-0900/incident-register.json",
+  "reviewed_at": "2026-11-21T21:34:41Z",
+  "source_register": "2026-11-22-0634/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -4260,6 +4260,96 @@
       },
       "sources": [
         "https://github.com/advisories/GHSA-8x4p-wc99-jvgr"
+      ]
+    },
+    "kev-cve-2026-129448": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-123890": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2025-42884": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-76466": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2024-10441": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-40217": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-90817": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-90436": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-115731": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
       ]
     }
   }

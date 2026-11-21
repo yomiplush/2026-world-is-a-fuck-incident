@@ -1,3 +1,5 @@
+**最新調査 — 2026-11-22 06:34 JST。** CISA KEVの前回保存版からの追加9件を確認し、台帳は366論点になりました。日英の詳細ページ9組とモーション6画面を追加しました。[日本語レポート](https://www.infosec-briefing.net/update-20261122-0634) · [台帳](data/2026-11-22-0634/incident-register.json) · [モーション](https://www.infosec-briefing.net/?lang=ja#159)。
+
 **最新調査 — 2026-11-16 11:33 JST：** [日本語レポート](https://www.infosec-briefing.net/update-20261116-1133) · [月別索引](https://www.infosec-briefing.net/months) · [337論点の台帳](data/2026-11-16-1133/incident-register.json) · [追加6画面の図解](https://www.infosec-briefing.net/?lang=ja#141)。CloudPaste・VoAPI・コメントとメンション・SSCMS・Starfish/Linux・不正npm対象2版を追加し、headscaleとGMOの続報を照合しました。7論点を追加、既存GMO記録を更新。日英の月別索引、4論点の詳細ページと6画面を追加し、全146画面です。NVD新規9・改訂10（9重複）、GHSA公開2・改訂2（同一のmalware勧告）。過去330論点と実影響22事例は歴史的文脈を保持し、今回の全面再精査とは区別しています。
 
 **以前の調査 — 2026-11-14 09:00 JST：** [日本語レポート](https://www.infosec-briefing.net/update-20261114-0900) · [310論点の台帳](data/2026-11-14-0900/incident-register.json) · [追加6画面の図解](https://www.infosec-briefing.net/?lang=ja#123)。27論点・8件の日英詳細ページを追加し、KEV追加2件（UnrealIRCd・Check Point DynamicCLI）と不正package697勧告の対象版を保存。過去283論点・実影響21事例の文脈を保持し、Check Point CVE-2026-123039の悪用報告を実影響台帳へ追加。件数は被害件数ではありません。

@@ -27,11 +27,17 @@ def build_collection(config):
         for topic in config['ids']:
             row = topics[topic]
             links = ' / '.join(f'<a href="{esc(s["url"])}">{esc(s["name"])}</a>' for s in row['sources'])
+            if url := row.get('vendor_guidance_url'):
+                label = 'Vendor guidance linked by KEV' if english else 'KEV掲載の提供元案内'
+                links += f' / <a href="{esc(url)}">{esc(label)}</a>'
             related = ' · '.join(f'<a href="/topics/{esc(other)}{suffix}">{esc(topics[other]["title"])}</a>' for other in config['ids'] if other != topic)
             other = '' if english else '.en'
             note = ('A first fixed version is listed only when the advisory provides one. Advisory counts are not incident counts.' if english else '修正版は勧告の記載がある場合だけ示します。勧告数は被害件数ではありません。')
             motion = config.get('motion_scenes', {}).get(topic, config.get('motion_start', 75))
-            page = f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(row['title'])} | Infosec Briefing</title><meta name="description" content="{esc(row['body'])}"><link rel="stylesheet" href="/update.css"><link rel="stylesheet" href="/daily.css"><link rel="stylesheet" href="/privacy.css"><script defer src="/privacy.js"></script></head><body><main id="content"><nav class="global"><a href="{report}">{'Dated report' if english else 'この日のレポート'}</a><a href="/database{suffix}">{'Research database' if english else '調査データ'}</a><a href="/?lang={language}#{motion}">Motion</a><a href="/topics/{topic}{other}">{'日本語' if english else 'English'}</a></nav><header><p class="kicker">PRIMARY-SOURCE REVIEW · {esc(record['cutoff_jst'])}</p><h1>{esc(row['title'])}</h1><p class="intro">{esc(row['body'])}</p></header><section><h2>{'What to check' if english else '確認すること'}</h2><p>{esc(row['action'])}</p><p>{note}</p>{advisory_details.render(row,esc,language)}</section><section><h2>{'Primary sources' if english else '一次資料'}</h2><p>{links}</p></section><section><h2>{'Related topics' if english else '関連する論点'}</h2><p>{related}</p></section></main></body></html>'''
+            title = row['title']
+            if 'kev_due_date' in row and not english:
+                title += 'のKEV登録'
+            page = f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | Infosec Briefing</title><meta name="description" content="{esc(row['body'])}"><link rel="stylesheet" href="/update.css"><link rel="stylesheet" href="/daily.css"><link rel="stylesheet" href="/privacy.css"><script defer src="/privacy.js"></script></head><body><main id="content"><nav class="global"><a href="{report}">{'Dated report' if english else 'この日のレポート'}</a><a href="/database{suffix}">{'Research database' if english else '調査データ'}</a><a href="/?lang={language}#{motion}">Motion</a><a href="/topics/{topic}{other}">{'日本語' if english else 'English'}</a></nav><header><p class="kicker">PRIMARY-SOURCE REVIEW · {esc(record['cutoff_jst'])}</p><h1>{esc(row['title'])}</h1><p class="intro">{esc(row['body'])}</p></header><section><h2>{'What to check' if english else '確認すること'}</h2><p>{esc(row['action'])}</p><p>{note}</p>{advisory_details.render(row,esc,language)}</section><section><h2>{'Primary sources' if english else '一次資料'}</h2><p>{links}</p></section><section><h2>{'Related topics' if english else '関連する論点'}</h2><p>{related}</p></section></main></body></html>'''
             (directory / (topic + suffix + '.html')).write_text(page)
         if not english:
             report_path = SITE / record['report']['path']

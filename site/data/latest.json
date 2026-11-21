@@ -1,48 +1,260 @@
 {
-  "cutoff": "2026-11-18T00:00:00Z",
-  "cutoff_jst": "2026-11-18T09:00:00+09:00",
+  "cutoff": "2026-11-21T21:34:41Z",
+  "cutoff_jst": "2026-11-22T06:34:41+09:00",
   "counts": {
-    "nvd_published": 1230,
-    "nvd_modified": 2390,
-    "published_modified_overlap": 1230,
-    "ghsa": 701,
-    "ghsa_unreviewed": 564,
-    "ghsa_reviewed": 11,
-    "ghsa_malware": 126,
-    "ghsa_modified": 927,
-    "ghsa_published_modified_overlap": 701,
-    "ghsa_current_published_overlap": 534,
-    "ghsa_previous_published_overlap": 38,
-    "record_topic_groups": 357,
-    "delta_topic_groups": 10,
-    "scope_complement_topic_groups": 347,
+    "record_topic_groups": 366,
+    "delta_topic_groups": 9,
+    "scope_complement_topic_groups": 357,
     "reference_only_topic_groups": 0,
-    "verified_response_records": 66,
-    "deduplicated_previous_references": 25
+    "verified_response_records": 1,
+    "deduplicated_previous_references": 0
+  },
+  "collection_scope": "kev-only",
+  "kev": {
+    "catalog_version": "2026.11.20",
+    "count": 1790,
+    "same_bytes": false,
+    "added_ids": [
+      "CVE-2026-129448",
+      "CVE-2026-123890",
+      "CVE-2025-42884",
+      "CVE-2026-76466",
+      "CVE-2024-10441",
+      "CVE-2026-40217",
+      "CVE-2026-90817",
+      "CVE-2026-90436",
+      "CVE-2026-115731"
+    ]
   },
   "caveats": [
-    "件数はDB記録・編集上の論点で、攻撃や被害の件数ではありません。NVD公開348件はすべて改訂1,395件と重複し、GHSA公開405件は改訂674件のうち405件と重複します。",
-    "前回337論点と実影響22事例の履歴を保持し、新たに10論点を追加しました。今回の精査は追加項目と明示した続報に限り、全履歴の再確認ではありません。",
-    "NVDは公開348件・改訂1,395件、GHSAはreviewed 41件・unreviewed 245件・malware 119件を全件取得。修正リリースが明記されていない記録は未修正・部分的対応として扱います。",
-    "KEVは2026.11.13版・1,781件。前回原本と同一バイトで追加0件。カタログ登録日時を悪用開始日時と解釈しません。",
-    "実影響22事例は過去の文脈を保持し、今回の全面的な復旧確認ではありません。取得失敗・転送先・challenge応答は収集台帳に記録し、内容確認の根拠にしません。",
-    "APIは基準後の現行改訂を取得しました。公表・DB登録・改訂・取得を区別し、過去の全改訂は復元できません。"
+    "今回はCISA KEVの差分調査です。NVD・GHSAの公開・改訂窓は収集対象外です。",
+    "前回保存版と比較して9件追加され、カタログは2026.11.20版、1,790件です。登録日から悪用開始日や被害件数は分かりません。",
+    "CISAが示す対応期限は対象となる米国連邦機関向けです。他の組織は自組織の公開状況とリスクに応じて対処してください。",
+    "前回の357論点と実影響22事例は当時の文脈で保持しました。今回は個別組織の被害や復旧状況を再確認していません。",
+    "Puppet Enterpriseの登録日は11月17日です。今回の9件は日付検索ではなく、前回保存原本とのID差分です。"
   ],
   "records": [
+    {
+      "id": "kev-cve-2026-129448",
+      "cve_ids": [
+        "CVE-2026-129448"
+      ],
+      "kind": "delta",
+      "date": "2026-11-20",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://lists.apache.org/thread/cc0jck13nb9vvcmzxzwotr6n16mx28z9",
+      "kev_due_date": "2026-11-23",
+      "title": "Apache Roller — CVE-2026-129448",
+      "time": "CISA登録日 2026-11-20",
+      "body": "CISAがApache RollerのCVE-2026-129448をKEVに追加しました。カタログ上の対応期限は2026-11-23です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2026-123890",
+      "cve_ids": [
+        "CVE-2026-123890"
+      ],
+      "kind": "delta",
+      "date": "2026-11-20",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495",
+      "kev_due_date": "2026-11-23",
+      "title": "Broadcom VMware vCenter — CVE-2026-123890",
+      "time": "CISA登録日 2026-11-20",
+      "body": "CISAがBroadcom VMware vCenterのCVE-2026-123890をKEVに追加しました。カタログ上の対応期限は2026-11-23です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2025-42884",
+      "cve_ids": [
+        "CVE-2025-42884"
+      ],
+      "kind": "delta",
+      "date": "2026-11-20",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://support.sap.com/en/my-support/knowledge-base/security-notes-news/bulletin-2025.html",
+      "kev_due_date": "2026-11-23",
+      "title": "SAP NetWeaver — CVE-2025-42884",
+      "time": "CISA登録日 2026-11-20",
+      "body": "CISAがSAP NetWeaverのCVE-2025-42884をKEVに追加しました。カタログ上の対応期限は2026-11-23です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2026-76466",
+      "cve_ids": [
+        "CVE-2026-76466"
+      ],
+      "kind": "delta",
+      "date": "2026-11-20",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t",
+      "kev_due_date": "2026-11-23",
+      "title": "Cisco Expressway Series — CVE-2026-76466",
+      "time": "CISA登録日 2026-11-20",
+      "body": "CISAがCisco Expressway SeriesのCVE-2026-76466をKEVに追加しました。カタログ上の対応期限は2026-11-23です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2024-10441",
+      "cve_ids": [
+        "CVE-2024-10441"
+      ],
+      "kind": "delta",
+      "date": "2026-11-18",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://www.synology.com/zh-tw/security/advisory/Synology_SA_24_20",
+      "kev_due_date": "2026-11-21",
+      "title": "Synology DiskStation Manager (DSM) — CVE-2024-10441",
+      "time": "CISA登録日 2026-11-18",
+      "body": "CISAがSynology DiskStation Manager (DSM)のCVE-2024-10441をKEVに追加しました。カタログ上の対応期限は2026-11-21です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2026-40217",
+      "cve_ids": [
+        "CVE-2026-40217"
+      ],
+      "kind": "delta",
+      "date": "2026-11-18",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p",
+      "kev_due_date": "2026-12-02",
+      "title": "BerriAI LiteLLM — CVE-2026-40217",
+      "time": "CISA登録日 2026-11-18",
+      "body": "CISAがBerriAI LiteLLMのCVE-2026-40217をKEVに追加しました。カタログ上の対応期限は2026-12-02です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2026-90817",
+      "cve_ids": [
+        "CVE-2026-90817"
+      ],
+      "kind": "delta",
+      "date": "2026-11-18",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://projectredcap.org/resources/community",
+      "kev_due_date": "2026-11-21",
+      "title": "Vanderbilt University Research Electronic Data Capture (REDCap) — CVE-2026-90817",
+      "time": "CISA登録日 2026-11-18",
+      "body": "CISAがVanderbilt University Research Electronic Data Capture (REDCap)のCVE-2026-90817をKEVに追加しました。カタログ上の対応期限は2026-11-21です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2026-90436",
+      "cve_ids": [
+        "CVE-2026-90436"
+      ],
+      "kind": "delta",
+      "date": "2026-11-18",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://lists.apache.org/thread/8slf0j9gz35z56t0glt5h0ncwlbn4bdz",
+      "kev_due_date": "2026-11-21",
+      "title": "Apache Axis — CVE-2026-90436",
+      "time": "CISA登録日 2026-11-18",
+      "body": "CISAがApache AxisのCVE-2026-90436をKEVに追加しました。カタログ上の対応期限は2026-11-21です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
+    {
+      "id": "kev-cve-2026-115731",
+      "cve_ids": [
+        "CVE-2026-115731"
+      ],
+      "kind": "delta",
+      "date": "2026-11-17",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-21T21:34:41Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "vendor_guidance_url": "https://portal.perforce.com/s/cve/a91Qi000003IaHpIAK/report-deserialization-code-execution",
+      "kev_due_date": "2026-12-01",
+      "title": "Perforce Puppet Enterprise — CVE-2026-115731",
+      "time": "CISA登録日 2026-11-17",
+      "body": "CISAがPerforce Puppet EnterpriseのCVE-2026-115731をKEVに追加しました。カタログ上の対応期限は2026-12-01です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。"
+    },
     {
       "id": "libp2p-dos-eventloop-1118",
       "cve_ids": [
         "CVE-2026-119793",
         "CVE-2026-110789"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "libp2p：gossipsubトピックマップ肥大化DoSとASN.1 DERデコーダ停止の脆弱性修正",
       "body": "libp2p（js-libp2p）において2件の深刻なDoS脆弱性が修正された。@libp2p/gossipsubでは、購読RPCメッセージの受信時にトピック数制限やピアごとの上限設定がデフォルトで存在しないため、リモートピアが異なるトピックを大量購読させることでノードのtopicsマップを無制限に肥大化させメモリ枯渇・DoSを引き起こす（CVE-2026-119793）。@libp2p/cryptoでは、Identifyメッセージ内の公開鍵ASN.1 DERデコード処理において、攻撃者が制御可能な長さフィールドにより無制限の同期ループが発生し、接続ごとにNode.jsのイベントループが4〜5秒停止し一時的に約2GBのメモリが消費される（CVE-2026-110789）。それぞれgossipsub 17.0.0およびcrypto 5.1.22にて修正された。",
       "action": "@libp2p/gossipsubを17.0.0以降、@libp2p/cryptoを5.1.22以降へ更新する。公開ノードではトピック購読数上限の設定と事前認証の入力長検証を確認する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -64,14 +276,14 @@
       "cve_ids": [
         "CVE-2026-110782"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "SimpleSAMLphp SAML2：HTTP-Artifact署名検証不備による認証迂回（CVE-2026-49283の不完全修正）",
       "body": "simplesamlphp/saml2において、CVE-2026-49283（HTTP-Artifact TLS検証の混乱によるクロスIdP認証迂回）の不完全な修正に起因する脆弱性（CVE-2026-110782 / GHSA-r7hw-jx6r-756g）が判明した。HTTPArtifact::receive()において埋め込みSAML Responseの署名検証が行われるが、埋め込みResponseのIssuerとHTTP-Artifact解決元のエンティティIDとの拘束（Issuer binding）が欠落しており、未署名の埋め込みResponseや他IdPのアサーションが受け入れられるリスクがあった。simplesamlphp/saml2 6.2.4および7.0.0-rc2にて修正された。",
       "action": "simplesamlphp/saml2を6.2.4以降（または7.0.0-rc2以降）へ更新する。HTTP-Artifactバインディングを使用するSP環境でIdP署名検証とIssuerの整合性を確認する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -89,14 +301,14 @@
       "cve_ids": [
         "CVE-2026-63672"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "EGroupware：SAML認証における外部IdP指定の不備による認証誘導脆弱性",
       "body": "オープンソースのグループウェアEGroupwareにおいて、SAML認証処理におけるIdP選択の不備（CVE-2026-63672 / GHSA-pr4x-6fj4-gm4h）が修正された。login()関数にてユーザー入力のidpリクエストパラメータがプレフィックス検査のみでSimpleSAMLphpのrequireAuth()に直接渡されていたため、攻撃者が自前の悪意あるIdPエンティティを指定して認証を誘導し、不正な認証アサーションを作成・混入させる恐れがあった。EGroupware 23.1.20260601および26.6.20260616にて修正された。",
       "action": "EGroupwareを23.1.20260601以降または26.6.20260616以降へ更新する。信頼されたIdPエンティティのホワイトリスト照合が強制されているか確認する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -114,14 +326,14 @@
       "cve_ids": [
         "CVE-2026-119351"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "Next.js 16.4.5：ネストされたuse cache関数における内部ストリーム遅延によるキャッシュ漏洩",
       "body": "VercelのNext.jsにおいて、Cache Components有効時にネストされたuse cache関数間でキー解決の不整合が発生する脆弱性（CVE-2026-119351 / GHSA-vc7v-qv4w-wrv8）が修正された。外側のuse cache関数内で内側のuse cache関数を呼び出した際、内部ストリームのメタデータ遅延によって外側のキャッシュエントリが誤ってキー付けされ、異なるルートパラメータ値間でキャッシュ内容が混同・漏洩する恐れがあった。Next.js 16.4.5にて修正された。",
       "action": "Next.jsを16.4.5以降へ更新する。Cache Components（use cache）を利用し、階層化されたキャッシュ関数で動的パラメータを扱うエンドポイントを再テストする。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -139,14 +351,14 @@
       "cve_ids": [
         "CVE-2026-14265"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "AWS Advanced JDBC Wrapper：キャッシュ汚染経由のJava直列化復元RCE",
       "body": "Amazon AuroraやAWS RDS向けにフェイルオーバーやクラスタ接続キャッシュを提供するオープンソースドライバAWS Advanced JDBC Wrapperにおいて、キャッシュ汚染経由で任意のJava直列化復元が実行される脆弱性（CVE-2026-14265 / GHSA-c5q4-97jw-jggh）が公表された。バージョン3.3.0から4.0.0において、接続構成キャッシュの処理で不安全なデシリアライズが行われ、細工されたキャッシュエントリによりRCEに至る可能性がある。バージョン4.0.1にて修正された。",
       "action": "software.amazon.jdbc:aws-advanced-jdbc-wrapperを4.0.1以降へ更新する。キャッシュ共有設定およびJDBC接続文字列パラメータの安全性を検証する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -168,14 +380,14 @@
       "cve_ids": [
         "CVE-2026-53998"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "Arize Phoenix：applyChatTemplateにおける書式文字列注入とサーバー秘密情報漏洩",
       "body": "AIモデル評価・プロンプト追跡フレームワークArize Phoenixにおいて、applyChatTemplate GraphQLエンドポイントにおける書式文字列注入の脆弱性（CVE-2026-53998 / GHSA-gfv3-m769-5xm3）が修正された。ユーザーが入力したプロンプトテンプレートの評価時にPython書式文字列が未検証で処理され、サーバー側の環境変数、暗号化キー、内部オブジェクト属性を読み取られる恐れがあった。バージョン15.7.0にて修正された。",
       "action": "arize-phoenixを15.7.0以降へ更新する。外部に公開されているPhoenix UI・GraphQLエンドポイントのアクセス制御と認証設定を確認する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -194,14 +406,14 @@
         "CVE-2026-69241",
         "CVE-2026-63389"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "Filament Curator：SVGインライン配信による格納型XSSとマルチテナント検索露出",
       "body": "Laravel Filament用メディア管理プラグインFilament Curatorにおいて2件の脆弱性が修正された。SVGファイルアップロード時にサニタイズが行われずインライン配信されるため、悪意あるスクリプトを含むSVGによる格納型XSSが可能となる（CVE-2026-69241）。また、マルチテナント環境においてメディアピッカー検索ボックスのクエリでテナント絞り込みが欠落しており、他テナントのメディアメタデータが閲覧可能となっていた（CVE-2026-63389）。それぞれv3.7.9、v4.1.2、v5.1.2（XSS修正）およびv3.7.8、v4.1.1、v5.1.1（テナント漏洩修正）にて解決された。",
       "action": "awcodes/filament-curatorを各メジャーの最新版（3.7.9 / 4.1.2 / 5.1.2以降）へ更新する。既存のアップロード済みSVGファイルの安全性を確認する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -223,14 +435,14 @@
       "cve_ids": [
         "CVE-2026-62336"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "qbee-agent 2026.27：createFileヘルパーのシンボリックリンク追従によるローカル権限昇格",
       "body": "IoT・組み込みデバイス管理エージェントqbee-agentにおいて、ファイルマネージャーコンポーネント内のcreateFileヘルパー関数がシンボリックリンクを適切に検証せずに処理する脆弱性（CVE-2026-62336 / GHSA-xhv5-8fpq-g7hf）が公表された。ローカルの低特権ユーザーがシンボリックリンクを作成しておくことで、root権限で動作するエージェントに任意ファイルの所有権や内容を改変させ、ローカル権限昇格（LPE）に至るリスクがある。リリース2026.27にて修正された。",
       "action": "qbee-agentを2026.27以降へ更新する。エージェントが操作するディレクトリ配下に予期しないシンボリックリンクが存在しないか確認する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -249,14 +461,14 @@
         "CVE-2026-120387",
         "CVE-2026-100397"
       ],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "CIRCUTOR SCADA WAVEとRucio：JWT署名検証の欠落およびトークン検証迂回（CVSS 10.0）",
       "body": "産業用エネルギー監視SCADA製品CIRCUTOR PowerStudio SCADA WAVEにおいて、JWT署名検証の不備により未認証の遠隔攻撃者が管理者権限を奪取できる脆弱性（CVE-2026-120387、CVSS 10.0）が公表された。また、科学データ管理フレームワークRucio（1.14.0〜35.9.1 / 38.6.1 / 40.4.2 / 41.1.1）においても、validate_auth_token関数の検証不備により不正な認証トークンが受け入れられる脆弱性（CVE-2026-100397、CVSS 10.0）が修正された。",
       "action": "PowerStudio SCADA WAVEのパッチ適用と外部アクセス遮断を実施する。Rucioは修正済みマイナー版（35.9.2 / 38.6.2 / 40.4.3 / 41.1.2等）へ更新する。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -272,14 +484,14 @@
     {
       "id": "npm-malware-packages-1118",
       "cve_ids": [],
-      "kind": "delta",
+      "kind": "scope-complement",
       "title": "npm不正パッケージ126件：開発環境の認証情報窃取とタイポスクワッティング",
       "body": "GitHub Advisory Database（GHSA）のmalwareカテゴリにて、npmエコシステムを対象とした126件の悪意あるパッケージ（GHSA-8x4p-wc99-jvgr、GHSA-cxwc-2pvw-6q7w等）が公表・隔離された。@nullzero/urlcatやjson-asyncapi、fcm-gps-databaseなど、既存のユーティリティやモバイル開発ライブラリを模倣したパッケージ名が用いられており、インストールフック（preinstall / postinstall）によりローカル環境のAPIキー、クラウドプロバイダ認証情報、SSH秘密鍵を外部へ持ち出す挙動が確認された。",
       "action": "プロジェクトのpackage-lock.jsonおよび開発端末の依存関係を点検し、該当パッケージが含まれていないか確認する。誤って導入した端末では認証情報の即時失効・ローテーションを行う。",
       "time": "11/17 advisory / 11/18 09:00確認",
       "date": "2026-11-17",
       "certainty": "confirmed-publication",
-      "monitoring_status": "newly-covered",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-18T00:00:00Z",
       "sources": [
         {
@@ -3303,7 +3515,7 @@
       "time": "11/06 18:00 JST公式案内 / 11/16再確認",
       "date": "2026-11-06",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75348,7 +75560,7 @@
       "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
       "date": "2026-11-16",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75373,7 +75585,7 @@
       "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
       "date": "2026-11-16",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75401,7 +75613,7 @@
       "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
       "date": "2026-11-16",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75450,7 +75662,7 @@
       "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
       "date": "2026-11-16",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75477,7 +75689,7 @@
       "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
       "date": "2026-11-16",
       "certainty": "CNA-unreviewed",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75512,7 +75724,7 @@
       "time": "11/16 09:00〜11:33 JSTの登録・確認 / 取得時点の改訂",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75569,7 +75781,7 @@
       "time": "10/30 headscale release・11/12 bulletin / 11/16再確認",
       "date": "2026-11-12",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-16T02:33:00Z",
       "sources": [
         {
@@ -75606,7 +75818,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75639,7 +75851,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75671,7 +75883,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75700,7 +75912,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75727,7 +75939,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75765,7 +75977,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75799,7 +76011,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75830,7 +76042,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -75861,7 +76073,7 @@
       "time": "11/16 advisory / 11/17 09:00確認",
       "date": "2026-11-16",
       "certainty": "confirmed-publication",
-      "monitoring_status": "reviewed-current-sources",
+      "monitoring_status": "retained-prior-context",
       "last_editorial_review": "2026-11-17T00:00:00Z",
       "sources": [
         {
@@ -83491,8 +83703,98 @@
       "sources": [
         "https://github.com/advisories/GHSA-8x4p-wc99-jvgr"
       ]
+    },
+    "kev-cve-2026-129448": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-123890": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2025-42884": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-76466": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2024-10441": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-40217": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-90817": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-90436": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-115731": {
+      "scope": "global",
+      "reason": {
+        "ja": "公開KEVカタログの製品別登録。対象製品の利用地域を限定していません。",
+        "en": "A public KEV entry for deployments of the named product worldwide."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-18-0900/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0634/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }

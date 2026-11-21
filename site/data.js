@@ -8080,23 +8080,260 @@ window.CONTENT.scenes.push(...[
     ]
   }
 ]);
-window.CONTENT.review = {"cutoff": "2026-11-18T00:00:00Z", "label": "2026-11-18 09:00 JST", "report": "/update-20261118-0900"};
-for (const lang of ['ja','en']) {
- const en=lang==='en';
- window.CONTENT.scenes.find(s=>s.id==='intro')[lang].points[1]='<a href="'+window.CONTENT.review.report+(en?'.en':'')+'">11/17 09:00 '+(en?'latest report':'最新記事')+' →</a> · <a href="/?lang='+lang+'#153">'+(en?'6 new motion scenes':'追加6画面')+' →</a> · <a href="/months'+(en?'.en':'')+'">'+(en?'Monthly archive':'月別の記録')+' →</a>';
- window.CONTENT.ui[lang].coverSub=en?'158 dated scenes. Six new explanations through November 18, 09:00 JST: SAML assertion binding, P2P event loops, AI observability format strings, multi-tenant media, and malicious packages.':'全158画面。11/18 09:00 JSTまでの追加6画面。SAML署名拘束、P2Pイベントループ、AI可観測性書式文字列注入、マルチテナントメディア、不正パッケージを図解。過去画面は当時の文脈を保持します。';
+/* November 22 KEV review */
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-kev-1122-catalog",
+    "stamp": "11.22 · 06:34 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "1,781 BASELINE",
+        "9 NEW CVE IDs",
+        "1,790 TOTAL"
+      ],
+      "heading": "KEV CATALOG COMPARISON"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:34:41Z",
+    "ja": {
+      "kicker": "CISA KEV",
+      "title": "前回保存版との差分",
+      "lede": "前回保存版1,781件と最新版1,790件を照合。",
+      "points": [
+        "追加9件を製品別に確認します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV",
+      "title": "Catalog comparison",
+      "lede": "Compared 1,781 baseline entries with 1,790 current entries.",
+      "points": [
+        "Review the 9 additions by product."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      }
+    ],
+    "chapterBreak": true
+  },
+  {
+    "id": "motion-kev-1122-nov20",
+    "stamp": "11.22 · 06:34 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "ROLLER / VCENTER",
+        "NETWEAVER",
+        "EXPRESSWAY"
+      ],
+      "details": ["NOV 23", "NOV 23", "NOV 23"],
+      "heading": "NOV 20 LISTINGS"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:34:41Z",
+    "ja": {
+      "kicker": "CISA KEV",
+      "title": "11月20日の追加4件",
+      "lede": "Roller、vCenter、NetWeaver、Expresswayを確認。",
+      "points": [
+        "カタログ上の対応期限は4件とも11月23日です。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV",
+      "title": "Four November 20 listings",
+      "lede": "Check Roller, vCenter, NetWeaver, and Expressway.",
+      "points": [
+        "The catalog lists November 23 for all four."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1122-nov18",
+    "stamp": "11.22 · 06:34 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "DSM / REDCAP",
+        "AXIS",
+        "LITELLM"
+      ],
+      "heading": "NOV 18 LISTINGS"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:34:41Z",
+    "ja": {
+      "kicker": "CISA KEV",
+      "title": "11月18日の追加4件",
+      "lede": "DSM、REDCap、Axis、LiteLLMが掲載されました。",
+      "points": [
+        "LiteLLMの期限は12月2日。ほかの3件は11月21日です。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV",
+      "title": "Four November 18 listings",
+      "lede": "The catalog lists DSM, REDCap, Axis, and LiteLLM.",
+      "points": [
+        "The deadline listed for LiteLLM is December 2. The other three list November 21."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1122-baseline",
+    "stamp": "11.22 · 06:34 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "PUPPET ENTERPRISE",
+        "NOV 17",
+        "DEC 1"
+      ],
+      "heading": "CATALOG DATE AND BASELINE"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:34:41Z",
+    "ja": {
+      "kicker": "CISA KEV",
+      "title": "保存版から見つかったPuppet Enterprise",
+      "lede": "登録日は11月17日。対応期限は12月1日です。",
+      "points": [
+        "日付で絞らず、保存原本とCVE IDを照合します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV",
+      "title": "Puppet Enterprise in the catalog diff",
+      "lede": "Listed November 17 with a December 1 deadline.",
+      "points": [
+        "Compare CVE IDs with the saved baseline."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1122-inventory",
+    "stamp": "11.22 · 06:34 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "ASSET",
+        "VERSION",
+        "EXPOSURE"
+      ],
+      "details": ["IDENTIFY", "CHECK", "PRIORITIZE"],
+      "heading": "INVENTORY AND TRIAGE"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:34:41Z",
+    "ja": {
+      "kicker": "CISA KEV",
+      "title": "資産台帳と外部公開を照合",
+      "lede": "製品、稼働版、外部公開の有無を確認します。",
+      "points": [
+        "公開資産は侵害調査の要否も判断します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV",
+      "title": "Check inventory and exposure",
+      "lede": "Identify the product, installed version, and internet exposure.",
+      "points": [
+        "Assess whether exposed assets need compromise triage."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1122-response",
+    "stamp": "11.22 · 06:34 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "VENDOR GUIDANCE",
+        "APPLY",
+        "VERIFY"
+      ],
+      "details": ["READ", "APPLY", "VERIFY"],
+      "heading": "REMEDIATION AND VERIFICATION"
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-21T21:34:41Z",
+    "ja": {
+      "kicker": "CISA KEV",
+      "title": "提供元の案内に沿って対処",
+      "lede": "提供元の案内で対象版と対策手順を確認します。",
+      "points": [
+        "対策後は稼働版と公開範囲を検証します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV",
+      "title": "Apply vendor guidance",
+      "lede": "Use the vendor guidance to identify affected versions and mitigations.",
+      "points": [
+        "After remediation, verify the deployed version and exposure."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA Known Exploited Vulnerabilities Catalog",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      }
+    ]
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-21T21:34:41Z", "label": "2026-11-22 06:34 JST", "report": "/update-20261122-0634"};
+for (const lang of ['ja', 'en']) {
+  const en = lang === 'en';
+  const content = window.CONTENT;
+  const intro = content.scenes.find(scene => scene.id === 'intro')[lang];
+  intro.points[1] = '<a href="' + content.review.report + (en ? '.en' : '') + '">11/22 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#159">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/months' + (en ? '.en' : '') + '">' + (en ? 'Monthly archive' : '月別の記録') + ' →</a>';
+  content.ui[lang].coverSub = en ? '164 scenes. Six new scenes cover CISA KEV additions, deadlines, and remediation checks.' : '全164画面。追加6画面ではCISA KEVの登録差分、対応期限、運用時の確認項目を図解します。';
 }
 
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 158,
-    "total": 158
+    "translated": 164,
+    "total": 164
   },
   "ja": {
     "ready": true,
-    "translated": 158,
-    "total": 158
+    "translated": 164,
+    "total": 164
   }
 };

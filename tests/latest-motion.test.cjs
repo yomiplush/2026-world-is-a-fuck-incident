@@ -37,6 +37,16 @@ test('both current articles open their own language at the first latest scene',(
   assert.ok(html.includes('/?lang='+lang+'#66'),lang+' article should open latest motion in its language');
  }
 });
+test('the current report links to the current motion chapter in each language',()=>{
+ const latest=JSON.parse(fs.readFileSync('data/latest.json','utf8'));
+ const route=new URL(latest.site_report).pathname;
+ const mapping=JSON.parse(fs.readFileSync('content/motion-reviews.json','utf8'));
+ const {start}=mapping[route.slice(1)+'.html'];
+ for(const [suffix,lang] of [['','ja'],['.en','en']]){
+  const html=fs.readFileSync('site'+route+suffix+'.html','utf8');
+  assert.ok(html.includes('/?lang='+lang+'#'+start),lang+' current report motion link');
+ }
+});
 test('scope counts link to their stored research aggregation rather than only KEV',()=>{
  const {CONTENT:c}=load();const frozen='20261029T050117Z-dbf8f2';
  const record=JSON.parse(fs.readFileSync('data/'+frozen+'/incident-register.json','utf8'));
