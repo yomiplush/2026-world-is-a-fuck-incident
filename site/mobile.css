@@ -282,3 +282,67 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
 .chapter-rail .chapter-page:disabled{opacity:.25;cursor:default}
 .chapter-rail .scene-tick{height:30px;min-height:30px}
 .chapter-rail .scene-tick span{width:5px;height:5px;border-radius:50%}
+
+/* Year > Month > Day drilldown responsive layout: iPhone / Android / iPad / PC portrait */
+.date-drilldown { width:100%; max-width:640px; justify-self:center; min-width:0 }
+.drill-crumbs { max-width:100%; overscroll-behavior-x:contain }
+.drill-crumb, .drill-chip { touch-action:manipulation }
+
+/* Touch devices (iPhone, iPad, Android): comfortable 44px tap targets */
+@media (pointer:coarse), (hover:none) {
+  .drill-crumb { min-height:40px; padding:7px 12px; font-size:12px }
+  .drill-chip { min-height:40px; padding:7px 11px; font-size:12px }
+}
+
+/* iPhone & Android narrow / portrait screens */
+@media (max-width:600px) {
+  .hud-bottom { grid-template-columns:minmax(0,1fr); gap:6px }
+  .date-drilldown { grid-column:1; grid-row:1; margin-bottom:2px }
+  .rail { grid-column:1; grid-row:2 }
+  .nav { grid-column:1; grid-row:3 }
+  .more { grid-column:1; grid-row:4 }
+  .drill-crumbs { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; padding:2px 0 }
+  .drill-crumbs::-webkit-scrollbar { display:none }
+  .drill-crumb { flex:0 0 auto; min-height:38px; padding:6px 10px; font-size:11px }
+  .drill-tray.is-open { max-height:min(28dvh, 140px) }
+  .drill-chips { padding:6px 8px; gap:5px }
+  .drill-chip { min-height:36px; padding:6px 9px; font-size:11px }
+}
+
+/* iPad & Android tablets in portrait orientation */
+@media (min-width:601px) and (max-width:1099px) and (orientation:portrait) {
+  .date-drilldown, .rail.chapter-rail { max-width:680px; width:100%; justify-self:center }
+  .panel { width:min(100%, 680px); justify-self:center; max-height:min(56dvh, 100%) }
+  .drill-crumb { min-height:42px; padding:8px 14px; font-size:13px }
+  .drill-chip { min-height:40px; padding:8px 12px; font-size:12px }
+  .drill-tray.is-open { max-height:min(26dvh, 190px) }
+}
+
+/* PC vertical / portrait monitors (wide portrait displays) */
+@media (min-width:768px) and (orientation:portrait) and (pointer:fine) {
+  #app { gap:14px }
+  .panel {
+    width:min(86vw, 760px);
+    justify-self:center;
+    align-self:end;
+    max-height:min(52dvh, 100%);
+    padding:20px 24px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:rgba(5, 11, 18, 0.72);
+    backdrop-filter:blur(8px);
+  }
+  .date-drilldown, .rail.chapter-rail { max-width:760px; width:100%; justify-self:center }
+  .drill-crumbs { justify-content:center }
+  .drill-tray.is-open { max-height:220px }
+  .hud-bottom .nav { justify-self:center }
+}
+
+/* Short landscape phones: keep drilldown compact so stage remains visible */
+@media (max-height:560px) and (max-width:950px) and (orientation:landscape) {
+  .date-drilldown { grid-column:1/-1; grid-row:1; margin-bottom:2px }
+  .rail.chapter-rail { grid-column:1; grid-row:2 }
+  .hud-bottom .nav { grid-column:2; grid-row:2 }
+  .hud-bottom .more { grid-row:3 }
+  .drill-tray.is-open { max-height:96px }
+}

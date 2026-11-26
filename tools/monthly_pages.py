@@ -70,6 +70,8 @@ def build(pub):
 .ymd-item:hover{border-color:#ffb545;transform:translateX(3px)}
 .ymd-item small{color:#ffbd69;font-family:ui-monospace,monospace;white-space:nowrap}
 @keyframes ymdReveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.ymd-tree summary{padding:12px 14px;min-height:48px;font-size:15px}.ymd-body{padding:0 10px 12px}.ymd-item{flex-direction:column;align-items:flex-start;gap:4px;padding:12px;min-height:48px}.ymd-badge{font-size:11px;padding:3px 7px}}
+@media(min-width:768px) and (orientation:portrait){.ymd-tree{max-width:780px;margin-inline:auto}.ymd-tree summary{padding:16px 20px;min-height:52px}}
 @media(prefers-reduced-motion:reduce){.ymd-body,.ymd-item,.ymd-year,.ymd-month,.ymd-day{animation:none;transition:none}}
 </style>'''
     for lang in ('ja','en'):
