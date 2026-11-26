@@ -249,6 +249,7 @@
       button.setAttribute('aria-label', `${chapterLabel(group.index + 1)} · ${i + 1}/${group.end - group.start}${scene ? ' · ' + copyFor(scene).title : ''}`);
     });
     el.rail.setAttribute('aria-label', words[0]);
+    updateDateDrilldown();
     if (el.langSelect && el.langSelect.value !== lang) el.langSelect.value = lang;
     if (el.asof) el.asof.textContent = C.review ? C.review.label : ui("asof");
     el.btnAudio.textContent = `${ui("sound")} ${A.isOn && A.isOn() ? ui("on") : ui("off")}`;
@@ -679,6 +680,140 @@
       });
       sceneRow.appendChild(b);
     }
+    buildDateDrilldown();
+  }
+
+  let drillState = { level: null, year: null, month: null };
+  let drillRoot = null;
+
+  function buildDateDrilldown() {
+    if (!navigation || !navigation.hierarchy || !navigation.hierarchy.length) return;
+    const footer = el.rail.parentElement;
+    if (!footer) return;
+    let existing = footer.querySelector('.date-drilldown');
+    if (existing) existing.remove();
+    drillRoot = document.createElement('div');
+    drillRoot.className = 'date-drilldown';
+    drillRoot.setAttribute('role', 'navigation');
+    drillRoot.innerHTML = '<div class="drill-crumbs"></div><div class="drill-tray" aria-hidden="true"></div>';
+    footer.insertBefore(drillRoot, el.rail);
+    updateDateDrilldown();
+  }
+
+  function updateDateDrilldown() {
+    if (!drillRoot || !navigation || !navigation.hierarchy || !navigation.hierarchy.length) return;
+    const ja = lang === 'ja';
+    drillRoot.setAttribute('aria-label', ja ? '年・月・日ナビゲーション' : 'Year / Month / Day navigation');
+    const parts = navigation.datePartsFor ? navigation.datePartsFor(index) : null;
+    const curYear = drillState.year || (parts && parts.year) || navigation.hierarchy[navigation.hierarchy.length - 1].year;
+    const yNode = navigation.hierarchy.find(y => y.year === curYear) || navigation.hierarchy[navigation.hierarchy.length - 1];
+    const curMonth = drillState.month || (parts && parts.year === yNode.year && parts.month) || yNode.months[yNode.months.length - 1].month;
+    const mNode = yNode.months.find(m => m.month === curMonth) || yNode.months[yNode.months.length - 1];
+    const curDay = (parts && parts.year === yNode.year && parts.month === mNode.month && parts.day) || mNode.days[mNode.days.length - 1].day;
+    const dNode = mNode.days.find(d => d.day === curDay) || mNode.days[mNode.days.length - 1];
+
+    const crumbs = drillRoot.querySelector('.drill-crumbs');
+    const tray = drillRoot.querySelector('.drill-tray');
+    crumbs.innerHTML = '';
+
+    const makeCrumb = (level, text, active) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'drill-crumb' + (active ? ' is-open' : '');
+      btn.setAttribute('aria-expanded', String(active));
+      btn.innerHTML = `<span>${escapeHtml(text)}</span><span class="drill-caret" aria-hidden="true">▾</span>`;
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (drillState.level === level) {
+          drillState.level = null;
+        } else {
+          drillState.level = level;
+          drillState.year = yNode.year;
+          drillState.month = mNode.month;
+        }
+        updateDateDrilldown();
+      });
+      return btn;
+    };
+    const sep = () => {
+      const s = document.createElement('span');
+      s.className = 'drill-sep';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = '›';
+      return s;
+    };
+
+    const yLabel = ja ? `${yNode.year}年` : yNode.year;
+    const mLabel = ja ? `${Number(mNode.month)}月` : `${yNode.year}-${mNode.month}`;
+    const dLabel = ja ? `${Number(dNode.day)}日 (${dNode.indices.length})` : `Day ${Number(dNode.day)} (${dNode.indices.length})`;
+    crumbs.append(
+      makeCrumb('year', yLabel, drillState.level === 'year'),
+      sep(),
+      makeCrumb('month', mLabel, drillState.level === 'month'),
+      sep(),
+      makeCrumb('day', dLabel, drillState.level === 'day')
+    );
+
+    if (!drillState.level) {
+      tray.classList.remove('is-open');
+      tray.setAttribute('aria-hidden', 'true');
+      return;
+    }
+
+    tray.innerHTML = '';
+    const list = document.createElement('div');
+    list.className = 'drill-chips';
+    if (drillState.level === 'year') {
+      navigation.hierarchy.forEach((y, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'drill-chip' + (y.year === yNode.year ? ' is-active' : '');
+        b.style.setProperty('--i', String(i));
+        b.innerHTML = `<strong>${escapeHtml(ja ? y.year + '年' : y.year)}</strong><small>${y.count}</small>`;
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          drillState.year = y.year;
+          drillState.month = y.months[y.months.length - 1].month;
+          drillState.level = 'month';
+          updateDateDrilldown();
+        });
+        list.appendChild(b);
+      });
+    } else if (drillState.level === 'month') {
+      yNode.months.forEach((m, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'drill-chip' + (m.month === mNode.month ? ' is-active' : '');
+        b.style.setProperty('--i', String(i));
+        b.innerHTML = `<strong>${escapeHtml(ja ? Number(m.month) + '月' : m.month)}</strong><small>${m.count}</small>`;
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          drillState.month = m.month;
+          drillState.level = 'day';
+          updateDateDrilldown();
+        });
+        list.appendChild(b);
+      });
+    } else if (drillState.level === 'day') {
+      mNode.days.forEach((d, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'drill-chip' + (parts && parts.year === d.year && parts.month === d.month && parts.day === d.day ? ' is-active' : '');
+        b.style.setProperty('--i', String(i));
+        b.innerHTML = `<strong>${escapeHtml(ja ? `${Number(d.month)}/${Number(d.day)}` : `${d.month}.${d.day}`)}</strong><small>${d.indices.length}</small>`;
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          drillState.level = null;
+          drillState.year = null;
+          drillState.month = null;
+          go(d.start, d.start >= index ? 1 : -1);
+        });
+        list.appendChild(b);
+      });
+    }
+    tray.appendChild(list);
+    tray.classList.add('is-open');
+    tray.setAttribute('aria-hidden', 'false');
   }
 
   if (!scenes.length || !C.ui.en) {

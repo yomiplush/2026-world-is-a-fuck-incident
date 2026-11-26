@@ -19,9 +19,48 @@
     }
     group.end = index + 1;
   });
+  function parseDateParts(scene) {
+    if (scene.id === 'intro' || scene.id === 'closing') return null;
+    const stamp = String(scene.stamp || '');
+    const m = stamp.match(/(\d{2})\.(\d{2})/);
+    if (!m) return null;
+    const year = scene.reviewCutoff ? scene.reviewCutoff.slice(0, 4) : '2026';
+    return { year, month: m[1], day: m[2] };
+  }
+  const hierarchy = [];
+  const yearMap = new Map();
+  scenes.forEach((scene, index) => {
+    const parts = parseDateParts(scene);
+    if (!parts) return;
+    let yNode = yearMap.get(parts.year);
+    if (!yNode) {
+      yNode = { year: parts.year, months: [], monthMap: new Map(), start: index, count: 0 };
+      yearMap.set(parts.year, yNode);
+      hierarchy.push(yNode);
+    }
+    yNode.count += 1;
+    let mNode = yNode.monthMap.get(parts.month);
+    if (!mNode) {
+      mNode = { year: parts.year, month: parts.month, days: [], dayMap: new Map(), start: index, count: 0 };
+      yNode.monthMap.set(parts.month, mNode);
+      yNode.months.push(mNode);
+    }
+    mNode.count += 1;
+    let dNode = mNode.dayMap.get(parts.day);
+    if (!dNode) {
+      dNode = { year: parts.year, month: parts.month, day: parts.day, start: index, indices: [] };
+      mNode.dayMap.set(parts.day, dNode);
+      mNode.days.push(dNode);
+    }
+    dNode.indices.push(index);
+  });
   window.BRIEFING_NAV = {
     scenes,
     chapters,
+    hierarchy,
+    datePartsFor(index) {
+      return Number.isInteger(index) && index >= 0 && index < scenes.length ? parseDateParts(scenes[index]) : null;
+    },
     chapterFor(index) {
       return Number.isInteger(index) && index >= 0 && index < scenes.length ? chapters.find(group => group.start <= index && index < group.end) : null;
     },

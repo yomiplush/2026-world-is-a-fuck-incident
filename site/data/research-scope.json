@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "snapshot": "2026-11-22-0750",
-  "register_sha256": "ddb7a67230a0a875bea633d1b8b84a80e83e8947e259aa04f9206192c29b05b8",
+  "snapshot": "2026-11-26-1235",
+  "register_sha256": "c53f680becb9bf2f434a91e02a6479a5a26c3ef4695e012adb8da2fb123713fe",
   "status": "reviewed",
-  "reviewed_at": "2026-11-21T22:50:00Z",
-  "source_register": "2026-11-22-0750/incident-register.json",
+  "reviewed_at": "2026-11-26T03:35:00Z",
+  "source_register": "2026-11-26-1235/incident-register.json",
   "records": {
     "gmo-domain-stop": {
       "scope": "japan",
@@ -4450,6 +4450,156 @@
       },
       "sources": [
         "https://github.com/advisories/GHSA-fqqj-fprv-g8qf"
+      ]
+    },
+    "kev-cve-2026-103406": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133469": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2025-41450": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2023-25914": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2023-25915": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133324": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133275": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133311": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133303": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133323": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-132224": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-131914": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-132165": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133968": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-134624": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
       ]
     }
   }

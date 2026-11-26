@@ -1,0 +1,502 @@
+{
+ "source": "https://api.github.com/advisories?per_page=100&sort=published&direction=desc",
+ "window_hours": 96,
+ "window_start": "2026-11-22T03:39:00Z",
+ "returned": 100,
+ "in_window": 25,
+ "severities": [
+  "critical",
+  "high",
+  "medium"
+ ],
+ "advisories": [
+  {
+   "ghsa": "GHSA-rj59-9f77-mvg5",
+   "cve": "CVE-2026-69181",
+   "summary": "TastyIgniter permits Path Traversal in Media Upload",
+   "severity": "high",
+   "cvss": 7.6,
+   "published": "2026-11-25T22:54:30",
+   "updated": "2026-11-25T22:54:30",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "tastyigniter/tastyigniter",
+     "range": "< 4.3.1",
+     "patched": "4.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-7wwv-x6mc-pxqx",
+   "cve": "CVE-2026-69179",
+   "summary": "TastyIgniter allows Remote Code Execution (RCE) via Unrestricted file upload in Media Manager",
+   "severity": "critical",
+   "cvss": 9.1,
+   "published": "2026-11-25T22:24:36",
+   "updated": "2026-11-25T22:24:37",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "tastyigniter/tastyigniter",
+     "range": "< 4.3.1",
+     "patched": "4.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-743w-g9pf-8p94",
+   "cve": "CVE-2026-69178",
+   "summary": "TastyIgniter mail template editor allows remote code execution via server-side template injection",
+   "severity": "critical",
+   "cvss": 9.1,
+   "published": "2026-11-25T22:24:13",
+   "updated": "2026-11-25T22:24:14",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "tastyigniter/tastyigniter",
+     "range": "< 4.3.1",
+     "patched": "4.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-mqg7-fw3f-mhp7",
+   "cve": "CVE-2026-69177",
+   "summary": "TastyIgniter allows stored XSS via file upload",
+   "severity": "medium",
+   "cvss": 6.8,
+   "published": "2026-11-25T21:52:15",
+   "updated": "2026-11-25T21:52:16",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "tastyigniter/tastyigniter",
+     "range": "< 4.3.1",
+     "patched": "4.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-vw2v-g4x7-xcqg",
+   "cve": "CVE-2026-68539",
+   "summary": "fulgur allows Unbounded string-set value accumulation causes memory/CPU exhaustion (denial of service)",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-11-25T19:46:45",
+   "updated": "2026-11-25T19:46:46",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rust",
+     "name": "fulgur",
+     "range": ">= 0.4.4, < 0.28.0",
+     "patched": "0.28.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-7fgc-3h6c-698r",
+   "cve": "CVE-2026-65971",
+   "summary": "livewire-powergrid: SQL injection via sortDirection in naturalSort queries",
+   "severity": "high",
+   "cvss": 7.6,
+   "published": "2026-11-25T19:44:57",
+   "updated": "2026-11-25T19:44:58",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "power-components/livewire-powergrid",
+     "range": ">= 6.0.0, < 6.10.4",
+     "patched": "6.10.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-h746-qpxh-ph7g",
+   "cve": "CVE-2026-65973",
+   "summary": "laradocs  Command injection via unescaped Node.js binary path in KaTeX SSR",
+   "severity": "medium",
+   "cvss": 6.4,
+   "published": "2026-11-25T19:41:53",
+   "updated": "2026-11-25T19:41:55",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "petebishwhip/laradocs",
+     "range": ">= 0.4.0, < 1.0.0",
+     "patched": "1.0.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-crj3-q72p-ggqm",
+   "cve": "CVE-2026-64670",
+   "summary": "@waline/client vulnerable to stored XSS through unsanitized comment edit previews",
+   "severity": "critical",
+   "cvss": 9.3,
+   "published": "2026-11-25T15:26:23",
+   "updated": "2026-11-25T15:26:25",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "@waline/client",
+     "range": "<= 3.16.2",
+     "patched": null
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-859w-52fx-hcm6",
+   "cve": "CVE-2026-64855",
+   "summary": "soapbar: verify_envelope_bsp accepts an unauthenticated embedded certificate (signature forgery / authentication bypass)",
+   "severity": "high",
+   "cvss": 8.2,
+   "published": "2026-11-24T22:41:44",
+   "updated": "2026-11-24T22:41:47",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "pip",
+     "name": "soapbar",
+     "range": "< 0.13.0",
+     "patched": "0.13.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-hq9r-72jq-2pxp",
+   "cve": "CVE-2026-59191",
+   "summary": "TwigView FileLoader may allow arbitrary file reads through user-controlled template paths",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-11-24T22:39:23",
+   "updated": "2026-11-24T22:39:23",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "cakephp/twig-view",
+     "range": "< 1.3.3",
+     "patched": "1.3.3"
+    },
+    {
+     "ecosystem": "composer",
+     "name": "cakephp/twig-view",
+     "range": ">= 2.0.0, < 2.1.2",
+     "patched": "2.1.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-8cg3-r6g9-fpg2",
+   "cve": "CVE-2026-59831",
+   "summary": "GitHub CLI gh codespace jupyter may allow code execution via unvalidated URLs from malicious Codespaces",
+   "severity": "medium",
+   "cvss": 4.4,
+   "published": "2026-11-24T22:26:25",
+   "updated": "2026-11-24T22:26:26",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/cli/cli/v2",
+     "range": ">= 2.10.0, < 2.96.0",
+     "patched": "2.96.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-jp3c-6v3g-mpxv",
+   "cve": null,
+   "summary": "github.com/insomniacslk/dhcp permits denial of service through a malformed IPv4 payload length",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-11-24T21:13:37",
+   "updated": "2026-11-24T21:13:37",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/insomniacslk/dhcp",
+     "range": ">= 0.0.0-20190522091526-5dce45b2b680, < 0.0.0-20260719225207-c76316d4aa82",
+     "patched": "0.0.0-20260719225207-c76316d4aa82"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-3wh4-j44w-pg92",
+   "cve": "CVE-2026-59818",
+   "summary": "etcd: CRL enforcement bypass on gRPC listener when `--listen-client-http-urls` is configured",
+   "severity": "medium",
+   "cvss": 6.5,
+   "published": "2026-11-24T21:09:38",
+   "updated": "2026-11-24T21:09:39",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "go.etcd.io/etcd/v3",
+     "range": "< 3.5.32",
+     "patched": "3.5.32"
+    },
+    {
+     "ecosystem": "go",
+     "name": "go.etcd.io/etcd/v3",
+     "range": ">= 3.6.0-alpha.0, < 3.6.13",
+     "patched": "3.6.13"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-c4hm-4h84-2cf3",
+   "cve": "CVE-2026-59726",
+   "summary": "ruflo MCP bridge allows unauthenticated remote code execution in default Docker Compose deployments",
+   "severity": "critical",
+   "cvss": 10.0,
+   "published": "2026-11-24T21:01:10",
+   "updated": "2026-11-24T21:01:11",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "ruflo",
+     "range": "< 3.16.3",
+     "patched": "3.16.3"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-g9x9-q7qj-6mv5",
+   "cve": "CVE-2026-63305",
+   "summary": "AVideo API FFmpeg process permits OS command injection via notifyCode/callback",
+   "severity": "high",
+   "cvss": 8.1,
+   "published": "2026-11-24T20:53:28",
+   "updated": "2026-11-24T20:53:29",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "wwbn/avideo",
+     "range": "< 29.1.0",
+     "patched": "29.1.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-48qj-5wxh-m8hc",
+   "cve": "CVE-2026-59192",
+   "summary": "Cakephp twig-view unserialize Twig filter allows arbitrary object deserialization",
+   "severity": "medium",
+   "cvss": null,
+   "published": "2026-11-24T17:42:51",
+   "updated": "2026-11-24T17:42:52",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "cakephp/twig-view",
+     "range": "< 1.3.3",
+     "patched": "1.3.3"
+    },
+    {
+     "ecosystem": "composer",
+     "name": "cakephp/twig-view",
+     "range": ">= 2.0.0, < 2.1.2",
+     "patched": "2.1.2"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-j44m-77cc-p3cc",
+   "cve": "CVE-2026-63304",
+   "summary": "AVideo API vulnerable to OS command injection through an unescaped FFmpeg process keyword",
+   "severity": "high",
+   "cvss": 8.1,
+   "published": "2026-11-23T22:06:28",
+   "updated": "2026-11-24T20:54:45",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "composer",
+     "name": "wwbn/avideo",
+     "range": "< 29.1.0",
+     "patched": "29.1.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-9x82-4j54-863h",
+   "cve": "CVE-2026-63476",
+   "summary": "isomorphic-git allows unbounded memory allocation from attacker-controlled delta target size (DoS)",
+   "severity": "medium",
+   "cvss": 4.3,
+   "published": "2026-11-23T21:07:02",
+   "updated": "2026-11-23T21:07:03",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "isomorphic-git",
+     "range": "< 1.38.6",
+     "patched": "1.38.6"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2v9w-34q6-wpqx",
+   "cve": "CVE-2026-77423",
+   "summary": "jline3 leads to ReDoS in Built-in Less Viewer Search",
+   "severity": "high",
+   "cvss": 7.5,
+   "published": "2026-11-23T21:02:03",
+   "updated": "2026-11-23T21:02:06",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "maven",
+     "name": "org.jline:jline-builtins",
+     "range": "< 3.30.15",
+     "patched": "3.30.15"
+    },
+    {
+     "ecosystem": "maven",
+     "name": "org.jline:jline-builtins",
+     "range": ">= 4.0.0, < 4.3.1",
+     "patched": "4.3.1"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-vp2j-gqfm-r3cf",
+   "cve": "CVE-2026-63410",
+   "summary": "secp256k1-native has a compiler-induced timing side channel in scalar multiplication",
+   "severity": "medium",
+   "cvss": 5.9,
+   "published": "2026-11-23T20:59:48",
+   "updated": "2026-11-23T20:59:50",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "rubygems",
+     "name": "secp256k1-native",
+     "range": "< 0.18.0",
+     "patched": "0.18.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-f9h7-4mmq-vgcq",
+   "cve": "CVE-2026-58262",
+   "summary": "Klever Go counts bitmap padding bits toward BLS quorum, allowing blocks with insufficient signatures",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-11-23T20:55:35",
+   "updated": "2026-11-23T20:55:36",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "go",
+     "name": "github.com/klever-io/klever-go",
+     "range": "< 1.7.20",
+     "patched": "1.7.20"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-6jcc-5g8w-32mx",
+   "cve": "CVE-2026-63402",
+   "summary": "i18next deepExtend recurses into inherited built-ins, allowing corruption of shared built-in objects (DoS)",
+   "severity": "medium",
+   "cvss": 5.9,
+   "published": "2026-11-23T20:53:00",
+   "updated": "2026-11-23T20:53:01",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "i18next",
+     "range": "< 26.3.4",
+     "patched": "26.3.4"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-2r3w-c2vx-fv5g",
+   "cve": "CVE-2026-133469",
+   "summary": "Xen Orchestra: Empty-object login token",
+   "severity": "critical",
+   "cvss": 9.8,
+   "published": "2026-11-23T17:29:29",
+   "updated": "2026-11-23T17:29:30",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "npm",
+     "name": "xo-server",
+     "range": "<= 5.7.4",
+     "patched": null
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-mqwm-5m85-gmcv",
+   "cve": "CVE-2026-22865",
+   "summary": "Gradle causes failure to disable repositories exposing builds to malicious artifacts",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-11-23T15:41:57",
+   "updated": "2026-11-23T15:41:58",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "maven",
+     "name": "org.gradle:gradle-core",
+     "range": "< 8.14.4",
+     "patched": "8.14.4"
+    },
+    {
+     "ecosystem": "maven",
+     "name": "org.gradle:gradle-core",
+     "range": ">= 9.0.0, < 9.3.0",
+     "patched": "9.3.0"
+    }
+   ]
+  },
+  {
+   "ghsa": "GHSA-w78c-w6vf-rw82",
+   "cve": "CVE-2026-22816",
+   "summary": "Gradle causes Failure to disable repositories can expose builds to malicious artifacts",
+   "severity": "high",
+   "cvss": null,
+   "published": "2026-11-23T15:33:34",
+   "updated": "2026-11-23T15:39:17",
+   "withdrawn": null,
+   "packages": [
+    {
+     "ecosystem": "maven",
+     "name": "org.gradle:gradle-core",
+     "range": "< 8.14.4",
+     "patched": "8.14.4"
+    },
+    {
+     "ecosystem": "maven",
+     "name": "org.gradle:gradle-core",
+     "range": ">= 9.0.0, < 9.3.0",
+     "patched": "9.3.0"
+    }
+   ]
+  }
+ ],
+ "fetched_at": "2026-11-26T03:39:02Z",
+ "tool": "tools/intel/fetch-intel"
+}

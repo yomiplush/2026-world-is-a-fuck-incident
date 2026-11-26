@@ -8853,25 +8853,299 @@ window.CONTENT.scenes.push(...[
     ]
   }
 ]);
-window.CONTENT.review = {"cutoff": "2026-11-21T22:50:00Z", "label": "2026-11-22 07:50 JST", "report": "/update-20261122-0750"};
+window.CONTENT.scenes.push(...[
+  {
+    "id": "motion-kev-1126-overview",
+    "stamp": "11.26 · 12:35 JST",
+    "chapterBreak": true,
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "KEV 2026.11.25",
+        "+15 ENTRIES",
+        "DUE 11/26–12/09"
+      ],
+      "heading": "CISA KEV NOV 26 UPDATE"
+    },
+    "cue": "alarm",
+    "metric": {
+      "val": "+15",
+      "label": {
+        "ja": "CISA KEV 追加（計1,805件）",
+        "en": "CISA KEV additions (1,805 total)"
+      }
+    },
+    "reviewCutoff": "2026-11-26T03:35:00Z",
+    "ja": {
+      "kicker": "CISA KEV · 2026.11.25",
+      "title": "KEVに15件追加、計1,805件へ",
+      "lede": "11月23日〜25日にかけてDrupal、Mitel、HPE Juniper、Danfossなど15件が追加されました。",
+      "points": [
+        "前回保存版（1,790件）からのID差分で15件を確認。",
+        "期限が11/26〜11/28の公開資産から優先して稼働版を照合します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV · 2026.11.25",
+      "title": "15 entries added to CISA KEV (1,805 total)",
+      "lede": "Fifteen vulnerabilities across Drupal, Mitel, HPE Juniper, Danfoss, and others were added between Nov 23 and Nov 25.",
+      "points": [
+        "Verified as a 15-ID delta from the previous 1,790-entry snapshot.",
+        "Prioritize internet-facing assets with Nov 26–28 remediation due dates."
+      ]
+    },
+    "sources": [
+      {
+        "name": "CISA KEV Catalog (2026.11.25)",
+        "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1126-drupal",
+    "stamp": "11.26 · 12:35 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "DRUPAL CORE",
+        "SA-CORE-2026-017",
+        "DUE 2026-11-27"
+      ],
+      "heading": "DRUPAL CORE RCE",
+      "details": [
+        "INVENTORY",
+        "PATCH",
+        "TRIAGE"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-26T03:35:00Z",
+    "ja": {
+      "kicker": "CISA KEV · 2026-11-24",
+      "title": "Drupal CoreのRCE（CVE-2026-132165）",
+      "lede": "公開Webサイトで稼働するDrupal Coreの版とSA-CORE-2026-017の適用状態を確認します。",
+      "points": [
+        "CISAカタログ上の対応期限は2026-11-27です。",
+        "パッチ適用とあわせて公開環境の侵害痕跡を点検します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV · 2026-11-24",
+      "title": "Drupal Core RCE (CVE-2026-132165)",
+      "lede": "Verify running Drupal Core versions and apply SA-CORE-2026-017 on exposed web properties.",
+      "points": [
+        "Listed CISA remediation due date is 2026-11-27.",
+        "Pair patching with forensics triage on internet-facing instances."
+      ]
+    },
+    "sources": [
+      {
+        "name": "Drupal SA-CORE-2026-017",
+        "url": "https://www.drupal.org/sa-core-2026-017"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1126-mitel",
+    "stamp": "11.26 · 12:35 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "MITEL MICOLLAB",
+        "5 CVES ADDED",
+        "MISA-2026-0012"
+      ],
+      "heading": "MITEL MICOLLAB CLUSTER"
+    },
+    "cue": "blip",
+    "metric": {
+      "val": "5",
+      "label": {
+        "ja": "Mitel MiCollab 同日追加CVE",
+        "en": "Mitel MiCollab CVEs added same day"
+      }
+    },
+    "reviewCutoff": "2026-11-26T03:35:00Z",
+    "ja": {
+      "kicker": "CISA KEV · 2026-11-25",
+      "title": "Mitel MiCollabに5件同時追加",
+      "lede": "OSコマンド注入、危険なファイルアップロード、XML注入、認証不備の5件がMISA-2026-0012で示されています。",
+      "points": [
+        "CVE-2026-133324 / 133275 / 133311 / 133303 / 133323を一括で確認。",
+        "外部公開インターフェースの有無とパッチ適用・侵害調査を並行します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV · 2026-11-25",
+      "title": "Five Mitel MiCollab CVEs added together",
+      "lede": "OS command injection, unrestricted file upload, XML injection, and authentication flaws covered by MISA-2026-0012.",
+      "points": [
+        "Audit CVE-2026-133324, 133275, 133311, 133303, and 133323 as a single asset group.",
+        "Check internet exposure, apply vendor mitigations, and review logs."
+      ]
+    },
+    "sources": [
+      {
+        "name": "Mitel MISA-2026-0012",
+        "url": "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1126-hpe-vates",
+    "stamp": "11.26 · 12:35 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "HPE JUNIPER SSR",
+        "VATES XEN ORCHESTRA",
+        "DUE 2026-11-28"
+      ],
+      "heading": "NETWORK & HYPERVISOR",
+      "details": [
+        "EDGE ROUTER",
+        "CONTROL PLANE",
+        "VERIFY"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-26T03:35:00Z",
+    "ja": {
+      "kicker": "CISA KEV · 2026-11-25",
+      "title": "HPE Juniper SSRとVates Xen Orchestra",
+      "lede": "ネットワーク制御（CVE-2026-103406）と仮想化管理（CVE-2026-133469）が11/25に追加されました。",
+      "points": [
+        "管理面への到達制限と、修正版への更新を11/28期限の目安で確認します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV · 2026-11-25",
+      "title": "HPE Juniper SSR and Vates Xen Orchestra",
+      "lede": "Network control plane (CVE-2026-103406) and virtualization management (CVE-2026-133469) added Nov 25.",
+      "points": [
+        "Restrict management-plane exposure and verify patched builds against the Nov 28 due date."
+      ]
+    },
+    "sources": [
+      {
+        "name": "Vates SA-2026-062",
+        "url": "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1126-danfoss",
+    "stamp": "11.26 · 12:35 JST",
+    "visual": {
+      "type": "reviewScope",
+      "labels": [
+        "DANFOSS AK-SM 800A",
+        "3 CVES ADDED",
+        "OT / CONTROL"
+      ],
+      "heading": "DANFOSS AK-SM 800A"
+    },
+    "cue": "blip",
+    "metric": {
+      "val": "3",
+      "label": {
+        "ja": "Danfoss AK-SM 800A 追加CVE",
+        "en": "Danfoss AK-SM 800A CVEs added"
+      }
+    },
+    "reviewCutoff": "2026-11-26T03:35:00Z",
+    "ja": {
+      "kicker": "CISA KEV · 2026-11-25",
+      "title": "Danfoss AK-SM 800A Seriesの3件",
+      "lede": "認証不備（CVE-2025-41450）、パストラバーサル（CVE-2023-25914）、入力検証（CVE-2023-25915）が追加。",
+      "points": [
+        "設備・OTネットワークの分離状態とファームウェア版を現場台帳で照合します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV · 2026-11-25",
+      "title": "Three Danfoss AK-SM 800A Series CVEs",
+      "lede": "Improper authentication (CVE-2025-41450), path traversal (CVE-2023-25914), and input validation (CVE-2023-25915).",
+      "points": [
+        "Confirm OT network segmentation and firmware versions against Danfoss advisories."
+      ]
+    },
+    "sources": [
+      {
+        "name": "Danfoss DSA-2025-03-01",
+        "url": "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2025-03-01"
+      }
+    ]
+  },
+  {
+    "id": "motion-kev-1126-edge",
+    "stamp": "11.26 · 12:35 JST",
+    "visual": {
+      "type": "trustRenewal",
+      "labels": [
+        "MONAI LABEL",
+        "N-ABLE MAILASSURE",
+        "OPTIMIZELY / IDUNNO"
+      ],
+      "heading": "NOV 23–24 KEV ITEMS",
+      "details": [
+        "DUE 11/26",
+        "DUE 11/27",
+        "VERIFY"
+      ]
+    },
+    "cue": "blip",
+    "metric": null,
+    "reviewCutoff": "2026-11-26T03:35:00Z",
+    "ja": {
+      "kicker": "CISA KEV · 2026-11-23 / 24",
+      "title": "MONAI・MailAssure・Optimizely・Idunno",
+      "lede": "期限が11/26〜11/27に迫る4件（パストラバーサル、SSRF、状態制御、デシリアライズ）を確認します。",
+      "points": [
+        "利用中のライブラリ・SaaS連携・医療AI環境（MONAI Label）の有無を点検します。"
+      ]
+    },
+    "en": {
+      "kicker": "CISA KEV · 2026-11-23 / 24",
+      "title": "MONAI, MailAssure, Optimizely & Idunno",
+      "lede": "Four items with Nov 26–27 due dates covering path traversal, SSRF, state control, and deserialization.",
+      "points": [
+        "Audit library dependencies, mail gateways, and MONAI Label deployments."
+      ]
+    },
+    "sources": [
+      {
+        "name": "MONAI Label GHSA-qc22-rmgc-vg94",
+        "url": "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94"
+      },
+      {
+        "name": "Mandiant MNDT-2026-0048",
+        "url": "https://github.com/mandiant/Vulnerability-Disclosures/blob/master/2026/MNDT-2026-0048.md"
+      }
+    ]
+  }
+]);
+window.CONTENT.review = {"cutoff": "2026-11-26T03:35:00Z", "label": "2026-11-26 12:35 JST", "report": "/update-20261126-1235"};
 for (const lang of ['ja', 'en']) {
   const en = lang === 'en';
   const content = window.CONTENT;
   const intro = content.scenes.find(scene => scene.id === 'intro')[lang];
-  intro.points[1] = '<a href="' + content.review.report + (en ? '.en' : '') + '">11/22 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#171">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/months' + (en ? '.en' : '') + '">' + (en ? 'Monthly archive' : '月別の記録') + ' →</a>';
-  content.ui[lang].coverSub = en ? '176 scenes. Six new scenes cover malicious package triage and response.' : '全176画面。追加6画面は不正パッケージの識別と対処を図解します。';
+  intro.points[1] = '<a href="' + content.review.report + (en ? '.en' : '') + '">11/26 ' + (en ? 'latest report' : '最新記事') + ' →</a> · <a href="/?lang=' + lang + '#177">' + (en ? '6 new motion scenes' : '追加6画面') + ' →</a> · <a href="/months' + (en ? '.en' : '') + '">' + (en ? 'Monthly archive' : '月別の記録') + ' →</a>';
+  content.ui[lang].coverSub = en ? '182 scenes. Six new scenes cover the 15 CISA KEV additions (Drupal, Mitel, HPE Juniper, Danfoss). Browse by Year > Month > Day.' : '全182画面。追加6画面はCISA KEV新規15件（Drupal・Mitel・HPE Juniper・Danfoss等）を図解。年＞月＞日の階層ナビで迷わず移動できます。';
 }
 
 /* Motion translation availability (generated by tools/check-motion-locales.cjs). */
 window.MOTION_LOCALE_STATUS = {
   "en": {
     "ready": true,
-    "translated": 176,
-    "total": 176
+    "translated": 182,
+    "total": 182
   },
   "ja": {
     "ready": true,
-    "translated": 176,
-    "total": 176
+    "translated": 182,
+    "total": 182
   }
 };

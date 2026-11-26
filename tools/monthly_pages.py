@@ -56,13 +56,51 @@ def build(pub):
             stamp=cutoff[:16].replace('T',' ')+' JST'
             records.append({'cutoff_jst':cutoff,'report':{'path':filename,'title':stamp+'の調査記録','title_en':stamp+' · Security review'}})
     grouped=group_reviews(records)
+    tree_style='''<style>
+.ymd-tree{display:grid;gap:14px;margin-top:24px}
+.ymd-year,.ymd-month,.ymd-day{border:1px solid #29414e;border-radius:8px;background:rgba(16,26,36,.72);overflow:hidden;transition:border-color .22s ease}
+.ymd-year[open],.ymd-month[open],.ymd-day[open]{border-color:rgba(255,181,69,.55)}
+.ymd-tree summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;font-weight:600;user-select:none;transition:background .18s ease}
+.ymd-tree summary::-webkit-details-marker{display:none}
+.ymd-tree summary:hover{background:rgba(88,224,255,.08)}
+.ymd-badge{font:500 12px/1.2 ui-monospace,monospace;color:#84dce8;border:1px solid rgba(88,224,255,.35);border-radius:999px;padding:3px 9px}
+.ymd-body{padding:0 16px 14px;display:grid;gap:10px;animation:ymdReveal .26s cubic-bezier(.22,1,.36,1)}
+.ymd-day-list{display:grid;gap:8px;padding-top:4px}
+.ymd-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;border:1px solid #243844;border-radius:6px;text-decoration:none;color:#e4ebf2;background:rgba(7,12,18,.65);transition:border-color .18s,transform .18s}
+.ymd-item:hover{border-color:#ffb545;transform:translateX(3px)}
+.ymd-item small{color:#ffbd69;font-family:ui-monospace,monospace;white-space:nowrap}
+@keyframes ymdReveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.ymd-body,.ymd-item,.ymd-year,.ymd-month,.ymd-day{animation:none;transition:none}}
+</style>'''
     for lang in ('ja','en'):
         en=lang=='en';suffix='.en' if en else ''
-        title='Monthly research archive' if en else '月別の調査記録'
-        intro='Browse dated security reviews by month. Historical reports remain available.' if en else '調査レポートを月ごとに探せます。同じ日の複数回の調査も、基準時刻別に残しています。'
-        body=f'<header><p class="kicker">RESEARCH ARCHIVE</p><h1>{title}</h1><p class="intro">{intro}</p></header><section class="priority-grid">'
+        title='Monthly research archive' if en else '年・月・日別の調査記録'
+        intro='Browse dated security reviews hierarchically by Year > Month > Day. Historical reports remain available.' if en else '年 ＞ 月 ＞ 日の階層アコーディオンで、大量の調査レポートを疲れずに探せます。同じ日の複数回の調査も基準時刻別に残しています。'
+        by_year=defaultdict(lambda:defaultdict(lambda:defaultdict(list)))
         for month,rows in grouped.items():
-            body+=f'<article><h2><a href="/month-{month}{suffix}">{month}</a></h2><p>{len(rows)} {"dated records" if en else "件の調査・日別記録"}</p><p>{rows[-1]["cutoff_jst"][:10]} → {rows[0]["cutoff_jst"][:10]}</p></article>'
+            year=month[:4]
+            for r in rows:
+                day=r['cutoff_jst'][:10]
+                by_year[year][month][day].append(r)
+        body=tree_style+f'<header><p class="kicker">RESEARCH ARCHIVE · YEAR › MONTH › DAY</p><h1>{title}</h1><p class="intro">{intro}</p></header><section class="ymd-tree" aria-label="{"Year Month Day archive" if en else "年・月・日別アーカイブ"}">'
+        for yi,year in enumerate(sorted(by_year,reverse=True)):
+            y_total=sum(len(drows) for m in by_year[year].values() for drows in m.values())
+            body+=f'<details class="ymd-year"{" open" if yi==0 else ""}><summary><span>{esc(year + ("" if en else "年"))}</span><span class="ymd-badge">{y_total} {"records" if en else "件"}</span></summary><div class="ymd-body">'
+            for mi,month in enumerate(sorted(by_year[year],reverse=True)):
+                m_total=sum(len(drows) for drows in by_year[year][month].values())
+                m_label=month if en else f'{int(month[5:7])}月（{month}）'
+                body+=f'<details class="ymd-month"{" open" if yi==0 and mi==0 else ""}><summary><span>{esc(m_label)}</span><span class="ymd-badge">{m_total} {"records" if en else "件"} · <a href="/month-{month}{suffix}" onclick="event.stopPropagation()">{"Open month" if en else "月ページ"} →</a></span></summary><div class="ymd-body">'
+                for di,day in enumerate(sorted(by_year[year][month],reverse=True)):
+                    drows=by_year[year][month][day]
+                    body+=f'<details class="ymd-day"{" open" if yi==0 and mi==0 and di==0 else ""}><summary><span>{esc(day)}</span><span class="ymd-badge">{len(drows)} {"items" if en else "件"}</span></summary><div class="ymd-body"><div class="ymd-day-list">'
+                    for r in drows:
+                        report=r['report'];route='/'+report['path'].removesuffix('.html')+suffix
+                        stamp=r['cutoff_jst'][11:16]+' JST' if len(r['cutoff_jst'])>=16 else day
+                        label=(report.get('title_en') or stamp+' · Security review') if en else report.get('title',stamp)
+                        body+=f'<a class="ymd-item" href="{esc(route)}"><span>{esc(label)}</span><small>{esc(stamp)}</small></a>'
+                    body+='</div></div></details>'
+                body+='</div></details>'
+            body+='</div></details>'
         body+='</section>'
         targets=[('months'+suffix+'.html',title,intro,body)]
         for month,rows in grouped.items():targets.append(('month-'+month+suffix+'.html',month+' · '+title,intro,render_month(month,rows,lang)))

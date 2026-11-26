@@ -1,36 +1,393 @@
 {
-  "cutoff": "2026-11-21T22:50:00Z",
-  "cutoff_jst": "2026-11-22T07:50:00+09:00",
+  "cutoff": "2026-11-26T03:35:00Z",
+  "cutoff_jst": "2026-11-26T12:35:00+09:00",
   "counts": {
-    "ghsa_malware_published": 336,
-    "ghsa_malware_modified": 360,
-    "ghsa_malware_overlap": 336,
-    "ghsa_malware_modified_only": 24,
-    "ghsa_malware_unique_packages": 357,
-    "record_topic_groups": 376,
-    "delta_topic_groups": 5,
-    "scope_complement_topic_groups": 371,
-    "reference_only_topic_groups": 0
+    "record_topic_groups": 391,
+    "delta_topic_groups": 15,
+    "scope_complement_topic_groups": 376,
+    "reference_only_topic_groups": 0,
+    "verified_response_records": 4,
+    "deduplicated_previous_references": 0
   },
-  "collection_scope": "ghsa-malware-followup",
+  "collection_scope": "kev-only",
   "kev": {
-    "catalog_version": "2026.11.20",
-    "count": 1790,
-    "same_bytes": true,
-    "added_ids": []
+    "catalog_version": "2026.11.25",
+    "count": 1805,
+    "same_bytes": false,
+    "added_ids": [
+      "CVE-2026-103406",
+      "CVE-2026-133469",
+      "CVE-2025-41450",
+      "CVE-2023-25914",
+      "CVE-2023-25915",
+      "CVE-2026-133324",
+      "CVE-2026-133275",
+      "CVE-2026-133311",
+      "CVE-2026-133303",
+      "CVE-2026-133323",
+      "CVE-2026-132224",
+      "CVE-2026-131914",
+      "CVE-2026-132165",
+      "CVE-2026-133968",
+      "CVE-2026-134624"
+    ]
   },
   "caveats": [
-    "前回取得したGHSA malware公開336件と改訂360件を照合し、336件が重複、改訂だけに現れた勧告は24件でした。",
-    "パッケージ名とエコシステムで重複を除くと357件です。npm 314、PyPI 33、RubyGems 8、crates.io 2です。",
-    "対象範囲は保存済みの11月18日09:00〜11月22日06:45 JSTの収集です。今回の追補では新しいAPI収集を行っていません。",
-    "認証情報への影響、CI・運用環境への波及、公開時点と配布時点の違いから、勧告7件・パッケージ7件を5論点にまとめました。",
-    "勧告・パッケージの件数は被害件数ではありません。影響範囲は導入・実行記録とログで確認してください。"
+    "今回はCISA KEV（2026.11.25版・1,805件）の差分調査です。前回保存版（2026.11.20版・1,790件）から15件追加されました。",
+    "登録日から悪用開始日や被害件数は分かりません。CISAが示す対応期限は対象となる米国連邦機関向けです。",
+    "Mitel MiCollab（5件）とDanfoss AK-SM 800A Series（3件）は複数CVEが同日に追加されました。資産単位でまとめて確認してください。",
+    "前回の376論点と実影響事例は当時の文脈で保持しました。今回は個別組織の被害や復旧状況を再確認していません。"
   ],
   "records": [
     {
+      "id": "kev-cve-2026-103406",
+      "cve_ids": [
+        "CVE-2026-103406"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router — CVE-2026-103406",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがHewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart RouterのCVE-2026-103406（Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command Injection Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://supportportal.juniper.net/s/article/2026-10-On-Demand-Security-Bulletin-Session-Smart-Router-and-Session-Smart-Conductor-Multiple-internally-discovered-vulnerabilities-resolved"
+    },
+    {
+      "id": "kev-cve-2026-133469",
+      "cve_ids": [
+        "CVE-2026-133469"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Vates Xen Orchestra — CVE-2026-133469",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがVates Xen OrchestraのCVE-2026-133469（Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/"
+    },
+    {
+      "id": "kev-cve-2025-41450",
+      "cve_ids": [
+        "CVE-2025-41450"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-12-09",
+      "title": "Danfoss AK-SM 800A Series — CVE-2025-41450",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがDanfoss AK-SM 800A SeriesのCVE-2025-41450（Danfoss AK-SM 800A Series Improper Authentication Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-12-09です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2025-03-01"
+    },
+    {
+      "id": "kev-cve-2023-25914",
+      "cve_ids": [
+        "CVE-2023-25914"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Danfoss AK-SM 800A Series — CVE-2023-25914",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがDanfoss AK-SM 800A SeriesのCVE-2023-25914（Danfoss AK-SM 800A Series Path Traversal Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01"
+    },
+    {
+      "id": "kev-cve-2023-25915",
+      "cve_ids": [
+        "CVE-2023-25915"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Danfoss AK-SM 800A Series — CVE-2023-25915",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがDanfoss AK-SM 800A SeriesのCVE-2023-25915（Danfoss AK-SM 800A Series Improper Input Validation Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2023-08-01"
+    },
+    {
+      "id": "kev-cve-2026-133324",
+      "cve_ids": [
+        "CVE-2026-133324"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Mitel MiCollab — CVE-2026-133324",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがMitel MiCollabのCVE-2026-133324（Mitel MiCollab Not Failing Securely Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012"
+    },
+    {
+      "id": "kev-cve-2026-133275",
+      "cve_ids": [
+        "CVE-2026-133275"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Mitel MiCollab — CVE-2026-133275",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがMitel MiCollabのCVE-2026-133275（Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012"
+    },
+    {
+      "id": "kev-cve-2026-133311",
+      "cve_ids": [
+        "CVE-2026-133311"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-12-09",
+      "title": "Mitel MiCollab — CVE-2026-133311",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがMitel MiCollabのCVE-2026-133311（Mitel MiCollab Weak Authentication Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-12-09です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012"
+    },
+    {
+      "id": "kev-cve-2026-133303",
+      "cve_ids": [
+        "CVE-2026-133303"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Mitel MiCollab — CVE-2026-133303",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがMitel MiCollabのCVE-2026-133303（Mitel MiCollab XML Injection Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012"
+    },
+    {
+      "id": "kev-cve-2026-133323",
+      "cve_ids": [
+        "CVE-2026-133323"
+      ],
+      "kind": "delta",
+      "date": "2026-11-25",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-28",
+      "title": "Mitel MiCollab — CVE-2026-133323",
+      "time": "CISA登録日 2026-11-25",
+      "body": "CISAがMitel MiCollabのCVE-2026-133323（Mitel MiCollab OS Command Injection Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-28です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.mitel.com/support/security-advisories/mitel-product-security-advisory-misa-2026-0012"
+    },
+    {
+      "id": "kev-cve-2026-132224",
+      "cve_ids": [
+        "CVE-2026-132224"
+      ],
+      "kind": "delta",
+      "date": "2026-11-24",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-27",
+      "title": "Optimizely Web Experimentation — CVE-2026-132224",
+      "time": "CISA登録日 2026-11-24",
+      "body": "CISAがOptimizely Web ExperimentationのCVE-2026-132224（Optimizely Web Experimentation External Control of Critical State Data Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-27です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://pages.optimizely.com/rs/947-RKE-048/images/Security%20Incident%20Report%20-%20Optimizely%20Web%20Experimentation%20-%20Nov%2017%202026.pdf"
+    },
+    {
+      "id": "kev-cve-2026-131914",
+      "cve_ids": [
+        "CVE-2026-131914"
+      ],
+      "kind": "delta",
+      "date": "2026-11-24",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-27",
+      "title": "Idunno AntiCsrf — CVE-2026-131914",
+      "time": "CISA登録日 2026-11-24",
+      "body": "CISAがIdunno AntiCsrfのCVE-2026-131914（Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-27です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://github.com/mandiant/Vulnerability-Disclosures/blob/master/2026/MNDT-2026-0048.md"
+    },
+    {
+      "id": "kev-cve-2026-132165",
+      "cve_ids": [
+        "CVE-2026-132165"
+      ],
+      "kind": "delta",
+      "date": "2026-11-24",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-27",
+      "title": "Drupal Core — CVE-2026-132165",
+      "time": "CISA登録日 2026-11-24",
+      "body": "CISAがDrupal CoreのCVE-2026-132165（Drupal Core Remote Code Execution Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-27です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://www.drupal.org/sa-core-2026-017"
+    },
+    {
+      "id": "kev-cve-2026-133968",
+      "cve_ids": [
+        "CVE-2026-133968"
+      ],
+      "kind": "delta",
+      "date": "2026-11-23",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-26",
+      "title": "Project MONAI MONAI Label — CVE-2026-133968",
+      "time": "CISA登録日 2026-11-23",
+      "body": "CISAがProject MONAI MONAI LabelのCVE-2026-133968（Project MONAI MONAI Label Path Traversal Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-26です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94"
+    },
+    {
+      "id": "kev-cve-2026-134624",
+      "cve_ids": [
+        "CVE-2026-134624"
+      ],
+      "kind": "delta",
+      "date": "2026-11-23",
+      "certainty": "confirmed-publication",
+      "monitoring_status": "newly-covered",
+      "last_editorial_review": "2026-11-26T03:35:00Z",
+      "sources": [
+        {
+          "name": "CISA Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+        }
+      ],
+      "kev_due_date": "2026-11-26",
+      "title": "N-able MailAssure — CVE-2026-134624",
+      "time": "CISA登録日 2026-11-23",
+      "body": "CISAがN-able MailAssureのCVE-2026-134624（N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability）をKEVに追加しました。カタログ上の対応期限は2026-11-26です。",
+      "action": "資産台帳で対象製品と稼働版、外部公開の有無を確認してください。提供元の案内に従って対策を適用し、適用後は稼働版を確認してください。公開資産は侵害調査の要否も判断してください。",
+      "vendor_guidance_url": "https://me.n-able.com/s/security-advisory/aArVy0000002mrlKAA"
+    },
+    {
       "id": "agent-framework-malware-1122",
       "cve_ids": [],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-18",
       "certainty": "confirmed-publication",
       "monitoring_status": "newly-covered",
@@ -78,7 +435,7 @@
     {
       "id": "vant-malware-1122",
       "cve_ids": [],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-18",
       "certainty": "confirmed-publication",
       "monitoring_status": "newly-covered",
@@ -190,7 +547,7 @@
     {
       "id": "wppconnect-malware-1122",
       "cve_ids": [],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-19",
       "certainty": "confirmed-publication",
       "monitoring_status": "newly-covered",
@@ -252,7 +609,7 @@
     {
       "id": "fedfub-malware-1122",
       "cve_ids": [],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-20",
       "certainty": "confirmed-publication",
       "monitoring_status": "newly-covered",
@@ -314,7 +671,7 @@
     {
       "id": "solders-utils-malware-1122",
       "cve_ids": [],
-      "kind": "delta",
+      "kind": "scope-complement",
       "date": "2026-11-18",
       "certainty": "confirmed-publication",
       "monitoring_status": "newly-covered",
@@ -84594,8 +84951,158 @@
       "sources": [
         "https://github.com/advisories/GHSA-fqqj-fprv-g8qf"
       ]
+    },
+    "kev-cve-2026-103406": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133469": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2025-41450": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2023-25914": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2023-25915": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133324": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133275": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133311": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133303": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133323": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-132224": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-131914": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-132165": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-133968": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
+    },
+    "kev-cve-2026-134624": {
+      "scope": "global",
+      "reason": {
+        "ja": "CISA KEVに追加された製品脆弱性の勧告で、対象製品・版・構成の条件が対処の適用範囲を決める。情報源の国や言語を地域限定の根拠にせず、世界各地の実被害も意味しない。",
+        "en": "Product vulnerability advisory added to CISA KEV; affected product, version and configuration determine remediation applicability. Source country or language does not establish a regional restriction."
+      },
+      "sources": [
+        "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+      ]
     }
   },
-  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-22-0750/incident-register.json",
+  "source_register": "https://github.com/yomiplush/2026-world-is-a-fuck-incident/blob/main/data/2026-11-26-1235/incident-register.json",
   "note": "Curated topic groups; not a worldwide incident count. See original evidence and caveats."
 }
