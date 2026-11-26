@@ -13,6 +13,7 @@ body #app { top:var(--viewport-top,0px); height:var(--app-height,100dvh) }
 .privacy-dock { bottom:calc(var(--viewport-bottom,0px) + max(6px,env(safe-area-inset-bottom))) }
 .briefing-preferences { max-height:calc(var(--app-height,100dvh) - 80px); bottom:calc(var(--viewport-bottom,0px) + max(52px,env(safe-area-inset-bottom) + 44px)) }
 .rail { display:flex; overflow-x:auto; gap:4px; padding:2px 0; scrollbar-width:thin; overscroll-behavior-x:contain }
+.rail[hidden] { display:none !important }
 .tick { flex:1 0 18px; min-width:18px; min-height:32px }
 .tick::after { top:15px }
 .tick[aria-current="true"]::after { top:13px }
@@ -298,9 +299,9 @@ html[data-device="tv"] :is(.chip,.langselect,.navbtn) { min-height:48px; font-si
 @media (max-width:600px) {
   .hud-bottom { grid-template-columns:minmax(0,1fr); gap:6px }
   .date-drilldown { grid-column:1; grid-row:1; margin-bottom:2px }
-  .rail { grid-column:1; grid-row:2 }
-  .nav { grid-column:1; grid-row:3 }
-  .more { grid-column:1; grid-row:4 }
+  .rail { display:none }
+  .nav { grid-column:1; grid-row:2 }
+  .more { grid-column:1; grid-row:3 }
   .drill-crumbs { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; padding:2px 0 }
   .drill-crumbs::-webkit-scrollbar { display:none }
   .drill-crumb { flex:0 0 auto; min-height:38px; padding:6px 10px; font-size:11px }
