@@ -153,7 +153,7 @@ def root_reading(text):
             target=href
             if code=='en':
                 if href.startswith('/?lang=ja'):target=href.replace('lang=ja','lang=en',1)
-                else:target=href+'.en'
+                elif (SITE/(href.lstrip('/')+'.en.html')).is_file():target=href+'.en'
             attrs+=f' data-entry-{code}-href="{esc(target)}"'
         return f'<a class="entry-{kind}" href="{esc(href)}"{attrs}'+(f' aria-label="{esc(copy["ja"][label_key].replace("{date}",label))}"' if label_key else '')+'>'+esc(copy['ja'][kind].replace('{date}',label.removesuffix(' JST')))+'</a>'
     link=entry_link('latest',report,'latest_label')
